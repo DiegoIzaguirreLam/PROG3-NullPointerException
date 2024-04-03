@@ -1,26 +1,10 @@
 package Perfil;
 
-import java.util.*;
-
-/**
- * 
- */
+import User.Usuario;
 public class Comentario {
-
-    /**
-     * Default constructor
-     */
-    public Comentario() {
-    }
-
-    /**
-     * 
-     */
-    private String texto;
-
-    /**
-     * 
-     */
-    private int nlikes;
-
+	private String texto;
+	private int nlikes;
+	private Usuario comentarista;
+	private Perfil perfil;
+	
 }

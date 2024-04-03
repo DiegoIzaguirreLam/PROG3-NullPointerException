@@ -1,16 +1,7 @@
 package Perfil;
+import Biblioteca.Biblioteca;
 
-import java.util.*;
-
-/**
- * 
- */
 public class Expositor {
-
-    /**
-     * Default constructor
-     */
-    public Expositor() {
-    }
-
+	private Perfil perfil;
+	private Biblioteca biblioteca;
 }

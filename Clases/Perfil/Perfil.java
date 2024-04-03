@@ -1,16 +1,12 @@
 package Perfil;
 
-import java.util.*;
+import User.Usuario;
+import Inventario.ObjetoUsable;
 
-/**
- * 
- */
 public class Perfil {
-
-    /**
-     * Default constructor
-     */
-    public Perfil() {
-    }
-
+    private Usuario usuario;
+	private ArrayList<Expositor> expositores;
+	private ArrayList<Comentario> comentarios;
+	private ArrayList<ObjetoUsable> mostradosPerfil;
+	
 }
