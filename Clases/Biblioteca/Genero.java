@@ -1,6 +1,6 @@
 package Biblioteca;
 
-public enum Género {
+public enum Genero {
     ORQUESTAL,
     ELECTRONICA,
     AMBIENTAL,
