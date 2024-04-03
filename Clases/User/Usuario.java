@@ -9,14 +9,14 @@ import Perfil.Comentario;
 import Inventario.Inventario;
 
 public class Usuario {
-    private static int correlativo;
-    private int UID;
-    private String nombreCuenta;
-    private String correo;
-    private String telefono;
-    private String password;
+	private static int correlativo;
+	private int UID;
+	private String nombreCuenta;
+	private String correo;
+	private String telefono;
+	private String password;
 	private Pais pais;
-    private boolean verificado;
+	private boolean verificado;
 	private Biblioteca biblioteca;
 	private ArrayList<Foro> foros;
 	private Perfil perfil;
