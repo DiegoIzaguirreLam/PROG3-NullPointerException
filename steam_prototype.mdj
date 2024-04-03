@@ -281,7 +281,7 @@
 											"top": 790,
 											"width": 135,
 											"height": 13,
-											"text": "-codigoMentor",
+											"text": "-codigoMentor: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -23668,7 +23668,7 @@
 									},
 									"name": "codigoMentor",
 									"visibility": "private",
-									"type": ""
+									"type": "String"
 								}
 							]
 						},
