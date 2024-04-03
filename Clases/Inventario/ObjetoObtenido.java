@@ -1,21 +1,9 @@
 package Inventario;
 
-import java.util.*;
+import java.util.Date;
 
-/**
- * 
- */
 public class ObjetoObtenido {
-
-    /**
-     * Default constructor
-     */
-    public ObjetoObtenido() {
-    }
-
-    /**
-     * 
-     */
-    private Date fechaObtencion;
-
+	private Date fechaObtencion;
+	private Objeto objeto;
+	
 }

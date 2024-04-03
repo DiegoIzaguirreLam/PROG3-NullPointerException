@@ -1,26 +1,11 @@
 package Inventario;
 
-import java.util.*;
+import java.util.ArrayList;
+import Biblioteca.Juego;
 
-/**
- * 
- */
 public class Objeto {
-
-    /**
-     * Default constructor
-     */
-    public Objeto() {
-    }
-
-    /**
-     * 
-     */
-    private String nombre;
-
-    /**
-     * 
-     */
-    private ArrayList<String> etiquetas;
-
+	private String nombre;
+	private ArrayList<String> etiquetas;
+	private Juego tematica;
+	
 }

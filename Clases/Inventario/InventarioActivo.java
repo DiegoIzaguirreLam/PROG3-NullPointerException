@@ -1,21 +1,11 @@
 package Inventario;
 
-import java.util.*;
+import java.util.ArrayList;
+import Biblioteca.Juego;
 
-/**
- * 
- */
 public class InventarioActivo {
-
-    /**
-     * Default constructor
-     */
-    public InventarioActivo() {
-    }
-
-    /**
-     * 
-     */
-    private int nObjetos;
+	private int nObjetos;
+	private ArrayList<ObjetoObtenido> objetos;
+	private Juego tematica;
 
 }
