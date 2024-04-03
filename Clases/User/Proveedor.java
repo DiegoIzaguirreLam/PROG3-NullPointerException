@@ -1,26 +1,9 @@
 package User;
+import Biblioteca.Producto;
 
-import java.util.*;
-
-/**
- * 
- */
 public class Proveedor extends Usuario {
-
-    /**
-     * Default constructor
-     */
-    public Proveedor() {
-    }
-
-    /**
-     * 
-     */
     private String nombre;
-
-    /**
-     * 
-     */
-    private void nroSeguidores: int;
-
+    private int nroSeguidores;
+	private ArrayList<Producto> productosDesarrollados;
+	private ArrayList<Producto> productosPublicados;
 }

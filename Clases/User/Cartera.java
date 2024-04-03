@@ -1,21 +1,10 @@
 package User;
 
-import java.util.*;
+import java.util.ArrayList;
 
-/**
- * 
- */
 public class Cartera {
-
-    /**
-     * Default constructor
-     */
-    public Cartera() {
-    }
-
-    /**
-     * 
-     */
     private double fondos;
-
+	private ArrayList<Movimiento> movimientos;
+	
+	
 }
