@@ -1,21 +1,11 @@
 package Inventario;
 
-import java.util.*;
+import java.util.ArrayList;
+import User.Usuario;
 
-/**
- * 
- */
 public class Inventario {
-
-    /**
-     * Default constructor
-     */
-    public Inventario() {
-    }
-
-    /**
-     * 
-     */
-    private int cantGemas;
+	private int cantGemas;
+	private Usuario usuario;
+	private ArrayList<InventarioActivo> inventarios;
 
 }

@@ -1,11 +1,8 @@
 package Inventario;
 
-/**
- * 
- */
 public enum TipoUsable {
-    FONDO,
-    EMOTE,
-    MARCO,
-    AVATAR
+	FONDO,
+	EMOTE,
+	MARCO,
+	AVATAR
 }
