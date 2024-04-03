@@ -1,16 +1,12 @@
 package Biblioteca;
 
-import java.util.*;
+import java.util.ArrayList;
+import User.Usuario;
 
-/**
- * 
- */
 public class Biblioteca {
-
-    /**
-     * Default constructor
-     */
-    public Biblioteca() {
-    }
+	private Usuario usuario;
+	private ArrayList<Coleccion> colecciones;
+	private ArrayList<Estanteria> estanterias;
+	private ArrayList<ProductoAdquirido> productos;
 
 }

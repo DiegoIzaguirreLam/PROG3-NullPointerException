@@ -1,31 +1,10 @@
 package Biblioteca;
 
-import java.util.*;
-
-/**
- * 
- */
 public class Juego extends Producto {
-
-    /**
-     * Default constructor
-     */
-    public Juego() {
-    }
-
-    /**
-     * 
-     */
-    private String requisitosMinimos;
-
-    /**
-     * 
-     */
-    private String requisitosRecomendados;
-
-    /**
-     * 
-     */
-    private boolean multijugador;
-
+	private String requisitosMinimos;
+	private String requisitosRecomendados;
+	private boolean multijugador;
+	private TipoJuego tipo;
+	private ArrayList<Objeto> objetos;
+	
 }

@@ -1,21 +1,9 @@
 package Biblioteca;
 
-import java.util.*;
+import java.util.;
 
-/**
- * 
- */
 public class LogroDesbloqueado {
-
-    /**
-     * Default constructor
-     */
-    public LogroDesbloqueado() {
-    }
-
-    /**
-     * 
-     */
-    private Date fechaDesbloqueo;
-
+	private Date fechaDesbloqueo;
+	private Logro logro;
+	
 }

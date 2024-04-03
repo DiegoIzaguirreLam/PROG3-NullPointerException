@@ -1,31 +1,11 @@
 package Biblioteca;
 
-import java.util.*;
+import java.time.LocalTime;
 
-/**
- * 
- */
 public class BandaSonora extends Producto {
-
-    /**
-     * Default constructor
-     */
-    public BandaSonora() {
-    }
-
-    /**
-     * 
-     */
     private nombre artista;
-
-    /**
-     * 
-     */
     private nombre compositor;
-
-    /**
-     * 
-     */
     private LocalTime duracion;
+	private Genero genero;
 
 }

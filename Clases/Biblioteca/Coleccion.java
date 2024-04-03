@@ -1,33 +1,14 @@
 package Biblioteca;
 
-import java.util.*;
+import java.util.ArrayList;
 
-/**
- * 
- */
+
 public class Coleccion implements Consultable {
-
-    /**
-     * Default constructor
-     */
-    public Coleccion() {
-    }
-
-    /**
-     * 
-     */
     private int nroColeccion;
-
-    /**
-     * 
-     */
     private String nombre;
-
-    /**
-     * 
-     */
+	private ArrayList<ProductoAdquirido> productos;
     public void consultarDatos() {
-        // TODO implement here
+        // metodo a implementar
     }
 
 }

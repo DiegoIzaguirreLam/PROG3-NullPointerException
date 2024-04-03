@@ -1,8 +1,5 @@
 package Biblioteca;
 
-/**
- * 
- */
 public enum TipoEstanteria {
     COLECCIONES,
     COLECCION,
