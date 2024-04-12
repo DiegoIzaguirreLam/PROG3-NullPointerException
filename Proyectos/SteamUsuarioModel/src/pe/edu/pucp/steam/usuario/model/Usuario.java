@@ -13,6 +13,8 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
 import pe.edu.pucp.steam.inventario.model.Inventario;
 import pe.edu.pucp.steam.perfil.model.Comentario;
 import pe.edu.pucp.steam.perfil.model.Perfil;
+import pe.edu.pucp.steam.usuario.jugador.Cartera;
+import pe.edu.pucp.steam.usuario.jugador.Medalla;
 
 /**
  *
@@ -42,4 +44,6 @@ public class Usuario {
     private ArrayList<Foro> foros;
     private ArrayList<Usuario> amigos;
     private ArrayList<Usuario> bloqueados;
+    private ArrayList<Medalla> medallas;
+    private Cartera cartera;
 }
