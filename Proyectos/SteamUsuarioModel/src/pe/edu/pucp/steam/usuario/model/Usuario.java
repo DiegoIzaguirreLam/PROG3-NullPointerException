@@ -13,8 +13,8 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
 import pe.edu.pucp.steam.inventario.model.Inventario;
 import pe.edu.pucp.steam.perfil.model.Comentario;
 import pe.edu.pucp.steam.perfil.model.Perfil;
-import pe.edu.pucp.steam.usuario.jugador.Cartera;
-import pe.edu.pucp.steam.usuario.jugador.Medalla;
+import pe.edu.pucp.steam.usuario.model.jugador.Cartera;
+import pe.edu.pucp.steam.usuario.model.jugador.Medalla;
 
 /**
  *
