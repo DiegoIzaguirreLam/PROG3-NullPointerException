@@ -1,4 +1,4 @@
-package Biblioteca;
+package pe.edu.pucp.steam.biblioteca.model;
 
 import java.time.LocalTime;
 
