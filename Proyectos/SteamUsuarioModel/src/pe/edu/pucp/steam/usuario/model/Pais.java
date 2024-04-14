@@ -12,4 +12,35 @@ public class Pais {
     private int idPais;
     private String nombre;
     private TipoMoneda moneda;
+
+    public Pais(String nombre, TipoMoneda moneda) {
+        this.nombre = nombre;
+        this.moneda = moneda;
+    }
+
+    public int getIdPais() {
+        return idPais;
+    }
+
+    public void setIdPais(int idPais) {
+        this.idPais = idPais;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public TipoMoneda getMoneda() {
+        return moneda;
+    }
+
+    public void setMoneda(TipoMoneda moneda) {
+        this.moneda = moneda;
+    }
+    
+    
 }

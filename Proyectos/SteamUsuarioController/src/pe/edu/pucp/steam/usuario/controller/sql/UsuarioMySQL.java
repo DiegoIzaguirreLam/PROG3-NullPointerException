@@ -4,10 +4,39 @@
  */
 package pe.edu.pucp.steam.usuario.controller.sql;
 
+import java.util.ArrayList;
+import pe.edu.pucp.steam.usuario.controller.dao.UsuarioDAO;
+import pe.edu.pucp.steam.usuario.model.Usuario;
+
 /**
  *
  * @author GAMER
  */
-public class UsuarioMySQL {
+public class UsuarioMySQL implements UsuarioDAO{
+
+    @Override
+    public int registrar(Usuario jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int actualiza(Usuario jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int suspenderCuenta(Usuario jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int eliminarCuenta(Usuario jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public ArrayList<Usuario> listarCuentas(Usuario jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
