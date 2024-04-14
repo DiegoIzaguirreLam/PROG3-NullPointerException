@@ -166,14 +166,13 @@ CREATE TABLE Mensaje(
 /* Crear tabla Subforo_Sanciones? */
 
 CREATE TABLE GestorSanciones(
-	id_gestor INT AUTO_INCREMENT,
+	id_gestor INT,
     contador_faltas INT,
     contador_baneos INT,
     max_faltas INT,
     max_baneos INT,
-    fid_usuario INT,
     PRIMARY KEY(id_gestor),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
+    FOREIGN KEY(id_gestor) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 /*PAQUETE BIBLIOTECA*/
