@@ -1,35 +1,40 @@
 /* DROPS  */
-DROP TABLE IF EXISTS Pais;
-DROP TABLE IF EXISTS Usuario;
-DROP TABLE IF EXISTS Notificacion;
-DROP TABLE IF EXISTS Cartera;
-DROP TABLE IF EXISTS Movimiento;
-DROP TABLE IF EXISTS Medalla;
-DROP TABLE IF EXISTS Perfil;
-DROP TABLE IF EXISTS Expositor;
-DROP TABLE IF EXISTS Comentario;
-DROP TABLE IF EXISTS Foro;
-DROP TABLE IF EXISTS Subforo;
-DROP TABLE IF EXISTS Hilo;
-DROP TABLE IF EXISTS Mensaje;
-DROP TABLE IF EXISTS GestorSanciones;
-DROP TABLE IF EXISTS Biblioteca;
-DROP TABLE IF EXISTS Coleccion;
-DROP TABLE IF EXISTS Proveedor;
-DROP TABLE IF EXISTS Etiqueta;
-DROP TABLE IF EXISTS Producto;
-DROP TABLE IF EXISTS ProductoAdquirido;
+DROP TABLE IF EXISTS Relacion;
+DROP TABLE IF EXISTS MedallaUsuario;
+DROP TABLE IF EXISTS ForoUsuario;
+DROP TABLE IF EXISTS ProductoEtiqueta;
+DROP TABLE IF EXISTS ProductoAdquirido_Coleccion;
+DROP TABLE IF EXISTS LogroDesbloqueado;
+DROP TABLE IF EXISTS Logro;
+DROP TABLE IF EXISTS ObjetoUsable;
+DROP TABLE IF EXISTS ObjetoObtenido;
+DROP TABLE IF EXISTS Cromo;
+DROP TABLE IF EXISTS Objeto;
 DROP TABLE IF EXISTS Juego;
 DROP TABLE IF EXISTS Software;
 DROP TABLE IF EXISTS BandaSonora;
-DROP TABLE IF EXISTS Logro;
-DROP TABLE IF EXISTS LogroDesbloqueado;
-DROP TABLE IF EXISTS Inventario;
+DROP TABLE IF EXISTS ProductoAdquirido;
+DROP TABLE IF EXISTS Producto;
+DROP TABLE IF EXISTS Proveedor;
+DROP TABLE IF EXISTS Coleccion;
+DROP TABLE IF EXISTS Biblioteca;
+DROP TABLE IF EXISTS Etiqueta;
 DROP TABLE IF EXISTS InventarioActivo;
-DROP TABLE IF EXISTS Objeto;
-DROP TABLE IF EXISTS Cromo;
-DROP TABLE IF EXISTS ObjetoUsable;
-DROP TABLE IF EXISTS ObjetoObtenido;
+DROP TABLE IF EXISTS Inventario;
+DROP TABLE IF EXISTS GestorSanciones;
+DROP TABLE IF EXISTS Mensaje;
+DROP TABLE IF EXISTS Hilo;
+DROP TABLE IF EXISTS Subforo;
+DROP TABLE IF EXISTS Foro;
+DROP TABLE IF EXISTS Expositor;
+DROP TABLE IF EXISTS Comentario;
+DROP TABLE IF EXISTS Perfil;
+DROP TABLE IF EXISTS Medalla;
+DROP TABLE IF EXISTS Movimiento;
+DROP TABLE IF EXISTS Cartera;
+DROP TABLE IF EXISTS Notificacion;
+DROP TABLE IF EXISTS Usuario;
+DROP TABLE IF EXISTS Pais;
 
 /* CREACION DE TABLAS */
 /* PAQUETE USUARIO */
@@ -41,7 +46,7 @@ CREATE TABLE Pais(
 )ENGINE=InnoDB;
 
 CREATE TABLE Usuario(
-	UID INT NOT NULL,
+	UID INT AUTO_INCREMENT NOT NULL,
     nombre_cuenta VARCHAR(100) NOT NULL,
     nombre_perfil VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
@@ -59,12 +64,11 @@ CREATE TABLE Usuario(
 )ENGINE=InnoDB;
 
 CREATE TABLE Relacion(
-	id_relacion INT,
 	fid_usuarioa INT NOT NULL,
 	fid_usuariob INT NOT NULL,
 	amistad TINYINT NOT NULL,
 	bloqueo TINYINT NOT NULL,
-	PRIMARY KEY(id_relacion),
+	PRIMARY KEY(fid_usuarioa, fid_usuariob),
 	FOREIGN KEY(fid_usuarioa) REFERENCES Usuario(UID),
 	FOREIGN KEY(fid_usuariob) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -108,10 +112,9 @@ CREATE TABLE Medalla(
 
 /* Crear tabla Medalla_Jugador */
 CREATE TABLE MedallaUsuario(
-	id_medalla_usuario INT AUTO_INCREMENT,
 	fid_usuario INT,
 	fid_medalla INT,
-	PRIMARY KEY(id_medalla_usuario),
+	PRIMARY KEY(fid_usuario, fid_medalla),
 	FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID),
 	FOREIGN KEY(fid_medalla) REFERENCES Medalla(id_medalla)
 )ENGINE=InnoDB;
@@ -153,10 +156,9 @@ CREATE TABLE Foro(
 
 /* Crear tabla Foro_Usuario */
 CREATE TABLE ForoUsuario(
-	id_foro_usuario INT AUTO_INCREMENT,
 	fid_foro INT NOT NULL,
 	fid_usuario INT NOT NULL,
-	PRIMARY KEY(id_foro_usuario),
+	PRIMARY KEY(fid_foro, fid_usuario),
 	FOREIGN KEY(fid_foro) REFERENCES Foro(id_foro),
 	FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -185,14 +187,16 @@ CREATE TABLE Mensaje(
 	id_mensaje INT AUTO_INCREMENT,
     contenido VARCHAR(300) NOT NULL,
     fecha_publicacion DATE NOT NULL,
+    oculto TINYINT NOT NULL,
+    fecha_max_edicion DATE,
+    padre INT NULL,
     fid_hilo INT NOT NULL,
     fid_usuario INT NOT NULL,
     PRIMARY KEY(id_mensaje),
     FOREIGN KEY(fid_hilo) REFERENCES Hilo(id_hilo),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID),
+    FOREIGN KEY(padre) REFERENCES Mensaje(id_mensaje)
 )ENGINE=InnoDB;
-
-/* Crear tabla Subforo_Sanciones? */
 
 CREATE TABLE GestorSanciones(
 	id_gestor INT,
@@ -245,10 +249,9 @@ CREATE TABLE Producto(
 )ENGINE=InnoDB;
 
 CREATE TABLE ProductoEtiqueta(
-	id_producto_etiqueta INT AUTO_INCREMENT,
-	fid_producto int NOT NULL,
-	fid_etiqueta int NOT NULL,
-	PRIMARY KEY(id_producto_etiqueta),
+	fid_producto INT NOT NULL,
+	fid_etiqueta INT NOT NULL,
+	PRIMARY KEY(fid_producto, fid_etiqueta),
 	FOREIGN KEY(fid_producto) REFERENCES Producto(id_producto),
 	FOREIGN KEY(fid_etiqueta) REFERENCES Etiqueta(id_etiqueta)
 )ENGINE=InnoDB;
@@ -257,20 +260,23 @@ CREATE TABLE ProductoAdquirido(
 	id_producto_adquirido INT AUTO_INCREMENT,
     fecha_adquisicion DATE NOT NULL,
     fecha_ejecucion DATE NOT NULL,
-    tiempo_uso TIME DAY(3) TO SECOND(3) NOT NULL,
+    tiempo_uso TIME NOT NULL,
     actualizado TINYINT NOT NULL,
     fid_biblioteca INT NOT NULL,
     fid_producto INT NOT NULL,
+    fid_expositor INT NOT NULL,
+    fid_movimiento INT NOT NULL,
     PRIMARY KEY(id_producto_adquirido),
     FOREIGN KEY(fid_producto) REFERENCES Producto(id_producto),
-    FOREIGN KEY(fid_biblioteca) REFERENCES Biblioteca(id_biblioteca)
+    FOREIGN KEY(fid_biblioteca) REFERENCES Biblioteca(id_biblioteca),
+    FOREIGN KEY(fid_expositor) REFERENCES Expositor(id_expositor),
+    FOREIGN KEY(fid_movimiento) REFERENCES Movimiento(id_movimiento)
 )ENGINE=InnoDB;
 
 CREATE TABLE ProductoAdquirido_Coleccion (
-	id_productoadquirido_coleccion INT AUTO_INCREMENT,
     fid_coleccion INT NOT NULL,
     fid_producto_adquirido INT NOT NULL,
-	PRIMARY KEY(id_productoadquirido_coleccion),
+	PRIMARY KEY(fid_coleccion, fid_producto_adquirido),
 	FOREIGN KEY(fid_coleccion) REFERENCES Coleccion(id_coleccion),
 	FOREIGN KEY(fid_producto_adquirido) REFERENCES ProductoAdquirido(id_producto_adquirido)
 )ENGINE=InnoDB;
@@ -296,7 +302,7 @@ CREATE TABLE BandaSonora(
 	id_banda_sonora INT,
     artista VARCHAR(100) NOT NULL,
     compositor VARCHAR(100) NOT NULL,
-    duracion TIME DAY(3) TO SECOND(3) NOT NULL,
+    duracion TIME NOT NULL,
     PRIMARY KEY(id_banda_sonora),
     FOREIGN KEY(id_banda_sonora) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
@@ -329,7 +335,7 @@ CREATE TABLE Inventario(
 )ENGINE=InnoDB;
 
 CREATE TABLE InventarioActivo(
-	id_activo INT,
+	id_activo INT AUTO_INCREMENT,
     nro_objetos INT NOT NULL,
 	fid_inventario INT NOT NULL,
     PRIMARY KEY(id_activo),
@@ -339,7 +345,9 @@ CREATE TABLE InventarioActivo(
 CREATE TABLE Objeto(
 	id_objeto INT AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
-    PRIMARY KEY(id_objeto)
+    fid_juego INT NOT NULL,
+    PRIMARY KEY(id_objeto),
+    FOREIGN KEY(fid_juego) REFERENCES Juego(id_juego)
 )ENGINE=InnoDB;
 
 CREATE TABLE Cromo(
@@ -352,12 +360,14 @@ CREATE TABLE Cromo(
 CREATE TABLE ObjetoUsable(
 	id_objeto_usable INT,
     tipo VARCHAR(100) NOT NULL,
+    fid_perfil INT NOT NULL,
     PRIMARY KEY(id_objeto_usable),
-    FOREIGN KEY(id_objeto_usable) REFERENCES Objeto(id_objeto)
+    FOREIGN KEY(id_objeto_usable) REFERENCES Objeto(id_objeto),
+    FOREIGN KEY(fid_perfil) REFERENCES Perfil(id_perfil)
 )ENGINE=InnoDB;
 
 CREATE TABLE ObjetoObtenido(
-	id_objeto_obtenido INT,
+	id_objeto_obtenido INT AUTO_INCREMENT,
     fecha_obtencion TIME NOT NULL,
 	fid_activo INT NOT NULL,
 	fid_objeto INT NOT NULL,
