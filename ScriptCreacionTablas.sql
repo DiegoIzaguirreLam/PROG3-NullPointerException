@@ -60,8 +60,8 @@ CREATE TABLE Usuario(
 
 CREATE TABLE Relacion(
 	id_relacion INT,
-	fid_usuarioa INT,
-	fid_usuariob INT,
+	fid_usuarioa INT NOT NULL,
+	fid_usuariob INT NOT NULL,
 	amistad TINYINT NOT NULL,
 	bloqueo TINYINT NOT NULL,
 	PRIMARY KEY(id_relacion),
