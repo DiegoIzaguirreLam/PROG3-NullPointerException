@@ -18,4 +18,81 @@ public class Mensaje {
     private Date fechaPublicacion;
     private ArrayList<Mensaje> respuestas;
     private Hilo hilo;
+    private int oculto; //Si está en 1, es porque no se debe mostrar, si está en 0 si se debe listar
+    private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
+
+    public Mensaje(int idAutor, String contenido, Date fechaPublicacion, ArrayList<Mensaje> respuestas, Hilo hilo, int oculto, Date fechaMaxEdicion) {
+        this.idAutor = idAutor;
+        this.contenido = contenido;
+        this.fechaPublicacion = fechaPublicacion;
+        this.respuestas = respuestas;
+        this.hilo = hilo;
+        this.oculto = oculto;
+        this.fechaMaxEdicion = fechaMaxEdicion;
+    }
+
+    public int getIdMensaje() {
+        return idMensaje;
+    }
+
+    public void setIdMensaje(int idMensaje) {
+        this.idMensaje = idMensaje;
+    }
+
+    public int getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(int idAutor) {
+        this.idAutor = idAutor;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(Date fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public ArrayList<Mensaje> getRespuestas() {
+        return respuestas;
+    }
+
+    public void setRespuestas(ArrayList<Mensaje> respuestas) {
+        this.respuestas = respuestas;
+    }
+
+    public Hilo getHilo() {
+        return hilo;
+    }
+
+    public void setHilo(Hilo hilo) {
+        this.hilo = hilo;
+    }
+
+    public int getOculto() {
+        return oculto;
+    }
+
+    public void setOculto(int oculto) {
+        this.oculto = oculto;
+    }
+
+    public Date getFechaMaxEdicion() {
+        return fechaMaxEdicion;
+    }
+
+    public void setFechaMaxEdicion(Date fechaMaxEdicion) {
+        this.fechaMaxEdicion = fechaMaxEdicion;
+    }
+    
 }

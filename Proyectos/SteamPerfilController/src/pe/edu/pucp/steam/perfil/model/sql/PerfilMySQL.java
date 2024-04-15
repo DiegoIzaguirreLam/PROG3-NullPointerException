@@ -45,5 +45,10 @@ public class PerfilMySQL implements PerfilDAO{
     public ArrayList<Comentario> listarComentarios(Perfil perfil) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public ArrayList<Expositor> listarExpositores(Perfil perfil) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

@@ -20,4 +20,5 @@ public interface PerfilDAO {
     int ocultarExpositor(Expositor expositor);
     int eliminarExpositor(Expositor expositor);
     ArrayList<Comentario> listarComentarios(Perfil perfil);
+    ArrayList<Expositor> listarExpositores(Perfil perfil);
 }

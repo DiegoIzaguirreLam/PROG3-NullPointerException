@@ -23,3 +23,6 @@
 hs_err_pid*
 replay_pid*
 !/Proyectos/Steam/src/pe/edu/pucp/steam/principal/lib/mysql-connector-j-8.3.0.jar
+/Proyectos/SteamBibliotecaController/build/
+/Proyectos/SteamBibliotecaModel/build/
+/Proyectos/SteamDBManager/build/
