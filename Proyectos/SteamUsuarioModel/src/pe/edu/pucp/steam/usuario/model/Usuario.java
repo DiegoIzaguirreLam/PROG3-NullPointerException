@@ -32,7 +32,7 @@ public class Usuario {
     private boolean verificado;
     private int expNivel;
     private int nivel;
-    private int activo;
+    private boolean activo;
     private int experiencia;
     private Pais pais;
     private Biblioteca biblioteca;
