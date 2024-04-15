@@ -259,7 +259,7 @@ CREATE TABLE ProductoEtiqueta(
 CREATE TABLE ProductoAdquirido(
 	id_producto_adquirido INT AUTO_INCREMENT,
     fecha_adquisicion DATE NOT NULL,
-    fecha_ejecucion DATE NOT NULL,
+    fecha_ejecucion DATE,
     tiempo_uso TIME NOT NULL,
     actualizado TINYINT NOT NULL,
     fid_biblioteca INT NOT NULL,
