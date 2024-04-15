@@ -35,7 +35,7 @@ public class UsuarioMySQL implements UsuarioDAO{
     }
 
     @Override
-    public ArrayList<Usuario> listarCuentas(Usuario jugador) {
+    public ArrayList<Usuario> listarCuentas() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

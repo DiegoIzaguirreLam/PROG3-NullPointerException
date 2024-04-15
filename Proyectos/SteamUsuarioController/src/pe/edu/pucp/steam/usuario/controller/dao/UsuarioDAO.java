@@ -16,5 +16,5 @@ public interface UsuarioDAO {
     int actualiza(Usuario jugador);
     int suspenderCuenta(Usuario jugador); //Elimina logicamente
     int eliminarCuenta(Usuario jugador); //Elimina de la base de datos
-    ArrayList<Usuario> listarCuentas(Usuario jugador);
+    ArrayList<Usuario> listarCuentas();
 }

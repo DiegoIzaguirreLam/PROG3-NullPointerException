@@ -2,31 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.steam.inventario.controller.sql;
+package pe.edu.pucp.steam.comunidad.controller.sql;
 
-import pe.edu.pucp.steam.inventario.controller.dao.InventarioDAO;
-import pe.edu.pucp.steam.inventario.model.Inventario;
+import pe.edu.pucp.steam.comunidad.controller.dao.GestorSancionesDAO;
+import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
 
 /**
  *
- * @author GAMER
+ * @author piero
  */
-public class InventarioMySQL implements InventarioDAO{
+public class GestorSancionesMySQL implements GestorSancionesDAO{
 
     @Override
-    public int crearInventario(Inventario inventario) {
+    public int crearGestor(GestorSanciones gestorSanciones) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int actualizarInventario(Inventario inventario) {
+    public int actualizarGestor(GestorSanciones gestorSanciones) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Inventario buscarInventario(int idUsuario) {
+    public int buscarGestor(int idUser) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
     
 }

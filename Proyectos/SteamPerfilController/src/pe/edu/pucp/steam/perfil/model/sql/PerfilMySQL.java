@@ -17,12 +17,7 @@ import pe.edu.pucp.steam.perfil.model.dao.PerfilDAO;
 public class PerfilMySQL implements PerfilDAO{
 
     @Override
-    public int crearExpositor(Expositor expositor) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int actualizaExpositor(Expositor expositor) {
+    public int crearPerfil(Perfil perfil) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -32,12 +27,12 @@ public class PerfilMySQL implements PerfilDAO{
     }
 
     @Override
-    public int ocultarExpositor(Expositor expositor) {
+    public int ocultarPerfil(Perfil perfil) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int eliminarExpositor(Expositor expositor) {
+    public int buscarPerfil(int idUser) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -50,5 +45,6 @@ public class PerfilMySQL implements PerfilDAO{
     public ArrayList<Expositor> listarExpositores(Perfil perfil) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
     
 }

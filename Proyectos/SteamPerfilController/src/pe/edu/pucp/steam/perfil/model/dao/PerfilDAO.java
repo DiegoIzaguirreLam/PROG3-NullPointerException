@@ -14,11 +14,10 @@ import pe.edu.pucp.steam.perfil.model.Perfil;
  * @author GAMER
  */
 public interface PerfilDAO {
-    int crearExpositor(Expositor expositor);
-    int actualizaExpositor(Expositor expositor);
+    int crearPerfil(Perfil perfil); //Cuando un user se registre se llamará este método
     int actualizaPerfil(Perfil perfil);
-    int ocultarExpositor(Expositor expositor);
-    int eliminarExpositor(Expositor expositor);
+    int ocultarPerfil(Perfil perfil);
+    int buscarPerfil(int idUser);
     ArrayList<Comentario> listarComentarios(Perfil perfil);
     ArrayList<Expositor> listarExpositores(Perfil perfil);
 }

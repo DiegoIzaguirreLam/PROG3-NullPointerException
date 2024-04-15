@@ -4,14 +4,15 @@
  */
 package pe.edu.pucp.steam.inventario.controller.dao;
 
-import pe.edu.pucp.steam.inventario.model.Inventario;
+import pe.edu.pucp.steam.inventario.model.Objeto;
 
 /**
  *
- * @author GAMER
+ * @author piero
  */
-public interface InventarioDAO {
-    int crearInventario(Inventario inventario);
-    int actualizarInventario(Inventario inventario);
-    Inventario buscarInventario(int idUsuario);
+public interface ObjetoDAO {
+    int crearObjeto(Objeto objeto);
+    int actualizarObjeto(Objeto objeto);
+    int eliminarObjeto(Objeto objeto);
+    int buscarObjeto(int idObjeto);
 }

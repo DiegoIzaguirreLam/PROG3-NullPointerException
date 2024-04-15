@@ -4,6 +4,8 @@
  */
 package pe.edu.pucp.steam.perfil.model;
 
+import java.util.Date;
+
 /**
  *
  * @author GAMER
@@ -13,6 +15,9 @@ public class Comentario {
     private Perfil comentarista;
     private String texto;
     private int nlikes;
+    private boolean oculto; //Si es 1, no se muestra, si es 0  si se muestra
+    private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
+    private Date fechaPublicacion;
 
     public Comentario(Perfil comentarista, String texto, int nlikes) {
         this.comentarista = comentarista;

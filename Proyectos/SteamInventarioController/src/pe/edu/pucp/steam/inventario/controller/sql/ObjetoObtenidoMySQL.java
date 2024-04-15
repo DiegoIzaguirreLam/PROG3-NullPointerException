@@ -4,29 +4,29 @@
  */
 package pe.edu.pucp.steam.inventario.controller.sql;
 
-import pe.edu.pucp.steam.inventario.controller.dao.InventarioDAO;
-import pe.edu.pucp.steam.inventario.model.Inventario;
+import java.util.ArrayList;
+import pe.edu.pucp.steam.inventario.controller.dao.ObjetoObtenidoDAO;
+import pe.edu.pucp.steam.inventario.model.ObjetoObtenido;
 
 /**
  *
- * @author GAMER
+ * @author piero
  */
-public class InventarioMySQL implements InventarioDAO{
+public class ObjetoObtenidoMySQL implements ObjetoObtenidoDAO{
 
     @Override
-    public int crearInventario(Inventario inventario) {
+    public int obtenerObjeto(ObjetoObtenido objetoObtenido) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int actualizarInventario(Inventario inventario) {
+    public ArrayList<ObjetoObtenido> listarObtenidos(int idUsuario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Inventario buscarInventario(int idUsuario) {
+    public int eliminarObjeto(ObjetoObtenido objetoObtenido) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
     
 }

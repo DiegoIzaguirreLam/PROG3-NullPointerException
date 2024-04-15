@@ -2,42 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.steam.biblioteca.controller.sql;
+package pe.edu.pucp.steam.perfil.model.sql;
 
-import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.controller.dao.BibliotecaDAO;
-import pe.edu.pucp.steam.biblioteca.model.Biblioteca;
-import pe.edu.pucp.steam.biblioteca.model.Coleccion;
-import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
+import pe.edu.pucp.steam.perfil.model.Comentario;
+import pe.edu.pucp.steam.perfil.model.dao.ComentarioDAO;
 
 /**
  *
- * @author GAMER
+ * @author piero
  */
-public class BibliotecaMySQL implements BibliotecaDAO{
+public class ComentarioMySQL implements ComentarioDAO{
 
     @Override
-    public int crearBiblioteca(Biblioteca biblioteca) {
+    public int crearComentario(Comentario comentario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Biblioteca buscarBiblioteca(int idUser) {
+    public int actualizarComentario(Comentario comentario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int actualizarBiblioteca(Biblioteca biblioteca) {
+    public int ocultarComentario(Comentario comentario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ArrayList<ProductoAdquirido> listarObjetos(Biblioteca biblioteca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public ArrayList<Coleccion> listarColeccion(Biblioteca biblioteca) {
+    public int leerComentario(Comentario comentario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
