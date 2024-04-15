@@ -20,7 +20,7 @@ public class Hilo {
     private Date fechaModificacion;
     private Subforo subforo;
     private ArrayList<Mensaje> mensajes;
-    private int oculto;
+    private boolean oculto;
 
     public Hilo(boolean fijado, int idCreador, int nroMensajes, Date fechaCreacion, Date fechaModificacion, Subforo subforo, ArrayList<Mensaje> mensajes, int oculto) {
         this.fijado = fijado;
