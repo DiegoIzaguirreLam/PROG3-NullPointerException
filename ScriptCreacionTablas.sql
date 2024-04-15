@@ -257,7 +257,7 @@ CREATE TABLE ProductoAdquirido(
 	id_producto_adquirido INT AUTO_INCREMENT,
     fecha_adquisicion DATE NOT NULL,
     fecha_ejecucion DATE NOT NULL,
-    tiempo_uso INTERVAL DAY(3) TO SECOND(3) NOT NULL,
+    tiempo_uso TIME DAY(3) TO SECOND(3) NOT NULL,
     actualizado TINYINT NOT NULL,
     fid_biblioteca INT NOT NULL,
     fid_producto INT NOT NULL,
@@ -296,7 +296,7 @@ CREATE TABLE BandaSonora(
 	id_banda_sonora INT,
     artista VARCHAR(100) NOT NULL,
     compositor VARCHAR(100) NOT NULL,
-    duracion INTERVAL DAY(3) TO SECOND(3) NOT NULL,
+    duracion TIME DAY(3) TO SECOND(3) NOT NULL,
     PRIMARY KEY(id_banda_sonora),
     FOREIGN KEY(id_banda_sonora) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
