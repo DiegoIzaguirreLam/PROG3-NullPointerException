@@ -1,4 +1,4 @@
-/* DROPS */
+/* 
 DROP TABLE IF EXISTS Pais;
 DROP TABLE IF EXISTS Usuario;
 DROP TABLE IF EXISTS Notificacion;
@@ -30,39 +30,50 @@ DROP TABLE IF EXISTS Objeto;
 DROP TABLE IF EXISTS Cromo;
 DROP TABLE IF EXISTS ObjetoUsable;
 DROP TABLE IF EXISTS ObjetoObtenido;
-
+DROPS */
 /* CREACION DE TABLAS */
 /* PAQUETE USUARIO */
 CREATE TABLE Pais(
 	id_pais INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
-    moneda VARCHAR(3),
+    nombre VARCHAR(100) NOT NULL,
+    moneda VARCHAR(3) NOT NULL,
     PRIMARY KEY(id_pais)
 )ENGINE=InnoDB;
 
 CREATE TABLE Usuario(
-	UID INT,
-    nombre_cuenta VARCHAR(100),
-    nombre_perfil VARCHAR(100),
-    correo VARCHAR(100),
+	UID INT NOT NULL,
+    nombre_cuenta VARCHAR(100) NOT NULL,
+    nombre_perfil VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL,
     telefono VARCHAR(15),
-    contrasenia VARCHAR(100),
-    edad INT,
-    fecha_nacimiento DATE,
-    verificado TINYINT,
-    experiencia_nivel INT,
-    nivel INT,
-    experiencia INT,
-    fid_pais INT,
+    contrasenia VARCHAR(100) NOT NULL,
+    edad INT NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    verificado TINYINT NOT NULL,
+    experiencia_nivel INT NOT NULL,
+    nivel INT NOT NULL,
+    experiencia INT NOT NULL,
+    fid_pais INT NOT NULL,
     PRIMARY KEY(UID),
     FOREIGN KEY(fid_pais) REFERENCES Pais(id_pais)
 )ENGINE=InnoDB;
 
+CREATE TABLE Relacion(
+	id_relacion INT,
+	fid_usuarioa INT,
+	fid_usuariob INT,
+	amistad TINYINT NOT NULL,
+	bloqueo TINYINT NOT NULL,
+	PRIMARY KEY(id_relacion),
+	FOREIGN KEY(fid_usuarioa) REFERENCES Usuario(UID),
+	FOREIGN KEY(fid_usuariob) REFERENCES Usuario(UID)
+)ENGINE=InnoDB;
+
 CREATE TABLE Notificacion(
 	id_notificacion INT AUTO_INCREMENT,
-    tipo VARCHAR(30),
-    mensaje VARCHAR(200),
-    fid_usuario INT,
+    tipo VARCHAR(30) NOT NULL,
+    mensaje VARCHAR(200) NOT NULL,
+    fid_usuario INT NOT NULL,
     PRIMARY KEY(id_notificacion),
     FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -70,32 +81,41 @@ CREATE TABLE Notificacion(
 /* PAQUETE JUGADOR */
 CREATE TABLE Cartera(
 	id_cartera INT,
-    fondos DECIMAL(10,2),
-    cantidad_movimientos INT,
+    fondos DECIMAL(10,2) NOT NULL,
+    cantidad_movimientos INT NOT NULL,
     FOREIGN KEY(id_cartera) REFERENCES Usuario(UID),
     PRIMARY KEY(id_cartera)
 )ENGINE=InnoDB;
 
 CREATE TABLE Movimiento(
 	id_movimiento INT AUTO_INCREMENT,
-    id_transaccion VARCHAR(100),
-    fecha_transaccion DATE,
-    monto DECIMAL(10,2),
-    tipo VARCHAR(100),
-    metodo_pago VARCHAR(100),
-    fid_cartera INT,
+    id_transaccion VARCHAR(100) NOT NULL,
+    fecha_transaccion DATE NOT NULL,
+    monto DECIMAL(10,2) NOT NULL,
+    tipo VARCHAR(100) NOT NULL,
+    metodo_pago VARCHAR(100) NOT NULL,
+    fid_cartera INT NOT NULL,
     PRIMARY KEY(id_movimiento),
     FOREIGN KEY(fid_cartera) REFERENCES Cartera(id_cartera)
 )ENGINE=InnoDB;
 
 CREATE TABLE Medalla(
 	id_medalla INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
-    experiencia INT,
+    nombre VARCHAR(100) NOT NULL,
+    experiencia INT NOT NULL,
     PRIMARY KEY(id_medalla)
 )ENGINE=InnoDB;
 
 /* Crear tabla Medalla_Jugador */
+CREATE TABLE MedallaUsuario(
+	id_medalla_usuario INT AUTO_INCREMENT,
+	fid_usuario INT,
+	fid_medalla INT,
+	PRIMARY KEY(id_medalla_usuario),
+	FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID),
+	FOREIGN KEY(fid_medalla) REFERENCES Medalla(id_medalla)
+)ENGINE=InnoDB;
+
 
 /* PAQUETE PERFIL */
 CREATE TABLE Perfil(
@@ -106,17 +126,17 @@ CREATE TABLE Perfil(
 
 CREATE TABLE Expositor(
 	id_expositor INT AUTO_INCREMENT,
-    fid_perfil INT,
+    fid_perfil INT NOT NULL,
     PRIMARY KEY(id_expositor),
     FOREIGN KEY(fid_perfil) REFERENCES Perfil(id_perfil)
 )ENGINE=InnoDB;
 
 CREATE TABLE Comentario(
 	id_comentario INT AUTO_INCREMENT,
-    texto VARCHAR(100),
-    nro_likes INT,
-    fid_perfil_comentarista INT,
-    fid_usuario INT,
+    texto VARCHAR(100) NOT NULL,
+    nro_likes INT NOT NULL,
+    fid_perfil_comentarista INT NOT NULL,
+    fid_usuario INT NOT NULL,
     PRIMARY KEY(id_comentario),
     FOREIGN KEY(fid_perfil_comentarista) REFERENCES Perfil(id_perfil),
     FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
@@ -125,39 +145,48 @@ CREATE TABLE Comentario(
 /*PAQUETE COMUNIDAD*/
 CREATE TABLE Foro(
 	id_foro INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
-    descripcion VARCHAR(200),
-    origen_foro VARCHAR(100),
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(200) NOT NULL,
+    origen_foro VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_foro)
 )ENGINE=InnoDB;
 
 /* Crear tabla Foro_Usuario */
+CREATE TABLE ForoUsuario(
+	id_foro_usuario INT AUTO_INCREMENT,
+	fid_foro INT NOT NULL,
+	fid_usuario INT NOT NULL,
+	PRIMARY KEY(id_foro_usuario),
+	FOREIGN KEY(fid_foro) REFERENCES Foro(id_foro),
+	FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
+)ENGINE=InnoDB;
+
 
 CREATE TABLE Subforo(
 	id_subforo INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
-    fid_foro int,
+    nombre VARCHAR(100) NOT NULL,
+    fid_foro int NOT NULL,
     PRIMARY KEY(id_subforo),
     FOREIGN KEY(fid_foro) REFERENCES Foro(id_foro)
 )ENGINE=InnoDB;
 
 CREATE TABLE Hilo(
 	id_hilo INT AUTO_INCREMENT,
-    fijado TINYINT,
-    nro_mensajes INT,
-    fecha_creacion DATE,
-    fecha_modificacion DATE,
-    fid_subforo INT,
+    fijado TINYINT NOT NULL,
+    nro_mensajes INT NOT NULL,
+    fecha_creacion DATE NOT NULL,
+    fecha_modificacion DATE NOT NULL,
+    fid_subforo INT NOT NULL,
     PRIMARY KEY(id_hilo),
     FOREIGN KEY(fid_subforo) REFERENCES Subforo(id_subforo)
 )ENGINE=InnoDB;
 
 CREATE TABLE Mensaje(
 	id_mensaje INT AUTO_INCREMENT,
-    contenido VARCHAR(300),
-    fecha_publicacion DATE,
-    fid_hilo INT,
-    fid_usuario INT,
+    contenido VARCHAR(300) NOT NULL,
+    fecha_publicacion DATE NOT NULL,
+    fid_hilo INT NOT NULL,
+    fid_usuario INT NOT NULL,
     PRIMARY KEY(id_mensaje),
     FOREIGN KEY(fid_hilo) REFERENCES Hilo(id_hilo),
     FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
@@ -167,10 +196,10 @@ CREATE TABLE Mensaje(
 
 CREATE TABLE GestorSanciones(
 	id_gestor INT,
-    contador_faltas INT,
-    contador_baneos INT,
-    max_faltas INT,
-    max_baneos INT,
+    contador_faltas INT NOT NULL,
+    contador_baneos INT NOT NULL,
+    max_faltas INT NOT NULL,
+    max_baneos INT NOT NULL,
     PRIMARY KEY(id_gestor),
     FOREIGN KEY(id_gestor) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -184,8 +213,8 @@ CREATE TABLE Biblioteca(
 
 CREATE TABLE Coleccion(
 	id_coleccion INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
-    fid_biblioteca INT,
+    nombre VARCHAR(100) NOT NULL,
+    fid_biblioteca INT NOT NULL,
     PRIMARY KEY(id_coleccion),
     FOREIGN KEY(fid_biblioteca) REFERENCES Biblioteca(id_biblioteca)
 )ENGINE=InnoDB;
@@ -193,50 +222,64 @@ CREATE TABLE Coleccion(
 /*PAQUETE PRODUCTO*/
 CREATE TABLE Proveedor(
 	id_proveedor INT AUTO_INCREMENT,
-    razon_social VARCHAR(100),
+    razon_social VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_proveedor)
 )ENGINE=InnoDB;
 
 CREATE TABLE Etiqueta(
 	id_etiqueta INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
+    nombre VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_etiqueta)
 )ENGINE=InnoDB;
 
 CREATE TABLE Producto(
 	id_producto INT AUTO_INCREMENT,
-    titulo VARCHAR(100),
-    fecha_publicacion DATE,
-    precio DECIMAL(5,2),
-    descripcion VARCHAR(100),
-    espacio_disco DECIMAL(5,2),
-    fid_proveedor INT,
+    titulo VARCHAR(100) NOT NULL,
+    fecha_publicacion DATE NOT NULL,
+    precio DECIMAL(5,2) NOT NULL,
+    descripcion VARCHAR(100) NOT NULL,
+    espacio_disco DECIMAL(5,2) NOT NULL,
+    fid_proveedor INT NOT NULL,
     PRIMARY KEY(id_producto),
     FOREIGN KEY(fid_proveedor) REFERENCES Proveedor(id_proveedor)
 )ENGINE=InnoDB;
 
+CREATE TABLE ProductoEtiqueta(
+	id_producto_etiqueta INT AUTO_INCREMENT,
+	fid_producto int NOT NULL,
+	fid_etiqueta int NOT NULL,
+	PRIMARY KEY(id_producto_etiqueta),
+	FOREIGN KEY(fid_producto) REFERENCES Producto(id_producto),
+	FOREIGN KEY(fid_etiqueta) REFERENCES Etiqueta(id_etiqueta)
+)ENGINE=InnoDB;
+
 CREATE TABLE ProductoAdquirido(
 	id_producto_adquirido INT AUTO_INCREMENT,
-    fecha_adquisicion DATE,
-    fecha_ejecucion DATE,
-    tiempo_uso TIME,
-    actualizado TINYINT,
-    fid_biblioteca INT,
-    fid_producto INT,
-    /*fid_coleccion INT NULL,*/
+    fecha_adquisicion DATE NOT NULL,
+    fecha_ejecucion DATE NOT NULL,
+    tiempo_uso INTERVAL DAY(3) TO SECOND(3) NOT NULL,
+    actualizado TINYINT NOT NULL,
+    fid_biblioteca INT NOT NULL,
+    fid_producto INT NOT NULL,
     PRIMARY KEY(id_producto_adquirido),
     FOREIGN KEY(fid_producto) REFERENCES Producto(id_producto),
     FOREIGN KEY(fid_biblioteca) REFERENCES Biblioteca(id_biblioteca)
-    /*FOREIGN KEY(fid_coleccion) REFERENCES Producto(id_coleccion)*/
 )ENGINE=InnoDB;
 
-/* Crear tabla ProductoAdquirido_Coleccion */
+CREATE TABLE ProductoAdquirido_Coleccion (
+	id_productoadquirido_coleccion INT AUTO_INCREMENT,
+    fid_coleccion INT NOT NULL,
+    fid_producto_adquirido INT NOT NULL,
+	PRIMARY KEY(id_productoadquirido_coleccion),
+	FOREIGN KEY(fid_coleccion) REFERENCES Coleccion(id_coleccion),
+	FOREIGN KEY(fid_producto_adquirido) REFERENCES ProductoAdquirido(id_producto_adquirido)
+)ENGINE=InnoDB;
 
 CREATE TABLE Juego(
-	id_juego INT AUTO_INCREMENT,
+	id_juego INT,
     requisitos_minimos VARCHAR(200),
     requisitos_recomendados VARCHAR(200),
-    multijugador TINYINT,
+    multijugador TINYINT NOT NULL,
     PRIMARY KEY(id_juego),
     FOREIGN KEY(id_juego) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
@@ -244,77 +287,81 @@ CREATE TABLE Juego(
 CREATE TABLE Software(
 	id_software INT,
     requisitos VARCHAR(200),
-    licencia VARCHAR(40),
+    licencia VARCHAR(40) NOT NULL,
     PRIMARY KEY(id_software),
     FOREIGN KEY(id_software) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
 
 CREATE TABLE BandaSonora(
 	id_banda_sonora INT,
-    artista VARCHAR(100),
-    compositor VARCHAR(100),
-    duracion TIME,
+    artista VARCHAR(100) NOT NULL,
+    compositor VARCHAR(100) NOT NULL,
+    duracion INTERVAL DAY(3) TO SECOND(3) NOT NULL,
     PRIMARY KEY(id_banda_sonora),
     FOREIGN KEY(id_banda_sonora) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
 
 CREATE TABLE Logro(
 	id_logro INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
-    descripcion VARCHAR(200),
-    fid_juego INT,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(200) NOT NULL,
+    fid_juego INT NOT NULL,
     PRIMARY KEY(id_logro),
     FOREIGN KEY(fid_juego) REFERENCES Juego(id_juego)
 )ENGINE=InnoDB;
 
 CREATE TABLE LogroDesbloqueado(
 	id_logro_desbloqueado INT AUTO_INCREMENT,
-    fecha_desbloqueo TIME,
-	fid_logro INT,
+    fecha_desbloqueo DATE NOT NULL,
+	fid_logro INT NOT NULL,
+	fid_producto_adquirido INT NOT NULL,
     PRIMARY KEY(id_logro_desbloqueado),
-	FOREIGN KEY(fid_logro) REFERENCES Logro(id_logro)
+	FOREIGN KEY(fid_logro) REFERENCES Logro(id_logro),
+	FOREIGN KEY(fid_producto_adquirido) REFERENCES ProductoAdquirido(id_producto_adquirido)
 )ENGINE=InnoDB;
 
 /*PAQUETE INVENTARIO*/
 CREATE TABLE Inventario(
 	id_inventario INT,
-    cantidad_gemas INT,
+    cantidad_gemas INT NOT NULL,
     PRIMARY KEY(id_inventario),
     FOREIGN KEY(id_inventario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE InventarioActivo(
 	id_activo INT,
-    nro_objetos INT,
-	fid_inventario INT,
+    nro_objetos INT NOT NULL,
+	fid_inventario INT NOT NULL,
     PRIMARY KEY(id_activo),
 	FOREIGN KEY(fid_inventario) REFERENCES Inventario(id_inventario)
 )ENGINE=InnoDB;
 
 CREATE TABLE Objeto(
 	id_objeto INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
+    nombre VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_objeto)
 )ENGINE=InnoDB;
 
 CREATE TABLE Cromo(
 	id_cromo INT,
-    url VARCHAR(100),
+    url VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_cromo),
     FOREIGN KEY(id_cromo) REFERENCES Objeto(id_objeto)
 )ENGINE=InnoDB;
 
 CREATE TABLE ObjetoUsable(
 	id_objeto_usable INT,
-    tipo VARCHAR(100),
+    tipo VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_objeto_usable),
     FOREIGN KEY(id_objeto_usable) REFERENCES Objeto(id_objeto)
 )ENGINE=InnoDB;
 
 CREATE TABLE ObjetoObtenido(
 	id_objeto_obtenido INT,
-    fecha_obtencion TIME,
-	fid_activo INT,
+    fecha_obtencion TIME NOT NULL,
+	fid_activo INT NOT NULL,
+	fid_objeto INT NOT NULL,
     PRIMARY KEY(id_objeto_obtenido),
-	FOREIGN KEY(fid_activo) REFERENCES InventarioActivo(id_activo)
+	FOREIGN KEY(fid_activo) REFERENCES InventarioActivo(id_activo),
+	FOREIGN KEY(fid_objeto) REFERENCES Objeto(id_objeto)
 )ENGINE=InnoDB;
