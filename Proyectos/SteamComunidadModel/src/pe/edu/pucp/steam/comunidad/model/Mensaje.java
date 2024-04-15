@@ -18,7 +18,7 @@ public class Mensaje {
     private Date fechaPublicacion;
     private ArrayList<Mensaje> respuestas;
     private Hilo hilo;
-    private int oculto; //Si está en 1, es porque no se debe mostrar, si está en 0 si se debe listar
+    private boolean oculto; //Si está en 1, es porque no se debe mostrar, si está en 0 si se debe listar
     private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
 
     public Mensaje(int idAutor, String contenido, Date fechaPublicacion, ArrayList<Mensaje> respuestas, Hilo hilo, int oculto, Date fechaMaxEdicion) {
