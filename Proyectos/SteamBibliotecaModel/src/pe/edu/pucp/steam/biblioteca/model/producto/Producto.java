@@ -18,5 +18,72 @@ abstract public class Producto {
     private double precio;
     private String descripcion;
     private double espacioDisco;
-    //private ArrayList<ProductoAdquirido> adquiridos;
+    private boolean oculto;
+
+    public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto) {
+        this.titulo = titulo;
+        this.fechaPublicacion = fechaPublicacion;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.espacioDisco = espacioDisco;
+        this.oculto = oculto;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(Date fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public double getEspacioDisco() {
+        return espacioDisco;
+    }
+
+    public void setEspacioDisco(double espacioDisco) {
+        this.espacioDisco = espacioDisco;
+    }
+
+    public boolean isOculto() {
+        return oculto;
+    }
+
+    public void setOculto(boolean oculto) {
+        this.oculto = oculto;
+    }
+    
+    
 }

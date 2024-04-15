@@ -26,6 +26,108 @@ public class ProductoAdquirido implements IConsultable{
     private ArrayList<LogroDesbloqueado> desbloqueados;
     private ArrayList<Coleccion> colecciones;
     private Biblioteca biblioteca;
+    private int idUsuario;
+
+    public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, LocalTime tiempoUso, boolean actualizado, boolean oculto, Producto producto, ArrayList<LogroDesbloqueado> desbloqueados, ArrayList<Coleccion> colecciones, Biblioteca biblioteca, int idUsuario) {
+        this.fechaAdquisicion = fechaAdquisicion;
+        this.fechaEjecutado = fechaEjecutado;
+        this.tiempoUso = tiempoUso;
+        this.actualizado = actualizado;
+        this.oculto = oculto;
+        this.producto = producto;
+        this.desbloqueados = desbloqueados;
+        this.colecciones = colecciones;
+        this.biblioteca = biblioteca;
+        this.idUsuario = idUsuario;
+    }
+
+    public int getIdProductoAdquirido() {
+        return idProductoAdquirido;
+    }
+
+    public void setIdProductoAdquirido(int idProductoAdquirido) {
+        this.idProductoAdquirido = idProductoAdquirido;
+    }
+
+    public Date getFechaAdquisicion() {
+        return fechaAdquisicion;
+    }
+
+    public void setFechaAdquisicion(Date fechaAdquisicion) {
+        this.fechaAdquisicion = fechaAdquisicion;
+    }
+
+    public Date getFechaEjecutado() {
+        return fechaEjecutado;
+    }
+
+    public void setFechaEjecutado(Date fechaEjecutado) {
+        this.fechaEjecutado = fechaEjecutado;
+    }
+
+    public LocalTime getTiempoUso() {
+        return tiempoUso;
+    }
+
+    public void setTiempoUso(LocalTime tiempoUso) {
+        this.tiempoUso = tiempoUso;
+    }
+
+    public boolean isActualizado() {
+        return actualizado;
+    }
+
+    public void setActualizado(boolean actualizado) {
+        this.actualizado = actualizado;
+    }
+
+    public boolean isOculto() {
+        return oculto;
+    }
+
+    public void setOculto(boolean oculto) {
+        this.oculto = oculto;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public ArrayList<LogroDesbloqueado> getDesbloqueados() {
+        return desbloqueados;
+    }
+
+    public void setDesbloqueados(ArrayList<LogroDesbloqueado> desbloqueados) {
+        this.desbloqueados = desbloqueados;
+    }
+
+    public ArrayList<Coleccion> getColecciones() {
+        return colecciones;
+    }
+
+    public void setColecciones(ArrayList<Coleccion> colecciones) {
+        this.colecciones = colecciones;
+    }
+
+    public Biblioteca getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     @Override
     public void consultarDatos() {

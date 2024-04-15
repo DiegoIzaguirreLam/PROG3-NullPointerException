@@ -15,4 +15,52 @@ public class Logro {
     private String nombre;
     private String descripcion;
     private Juego juego;
+    private boolean activo;
+
+    public Logro(String nombre, String descripcion, Juego juego, boolean activo) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.juego = juego;
+        this.activo = activo;
+    }
+
+    public int getIdLogro() {
+        return idLogro;
+    }
+
+    public void setIdLogro(int idLogro) {
+        this.idLogro = idLogro;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Juego getJuego() {
+        return juego;
+    }
+
+    public void setJuego(Juego juego) {
+        this.juego = juego;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 }

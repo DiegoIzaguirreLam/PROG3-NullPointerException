@@ -5,6 +5,7 @@
 package pe.edu.pucp.steam.biblioteca.model.producto;
 
 import java.time.LocalTime;
+import java.util.Date;
 
 /**
  *
@@ -14,4 +15,49 @@ public class BandaSonora extends Producto{
     private String artista;
     private String compositor;
     private LocalTime duracion;
+    private String url;
+
+    public BandaSonora(String artista, String compositor, LocalTime duracion, String url, String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto) {
+        super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, oculto);
+        this.artista = artista;
+        this.compositor = compositor;
+        this.duracion = duracion;
+        this.url = url;
+    }
+
+    
+
+    public String getArtista() {
+        return artista;
+    }
+
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
+
+    public String getCompositor() {
+        return compositor;
+    }
+
+    public void setCompositor(String compositor) {
+        this.compositor = compositor;
+    }
+
+    public LocalTime getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(LocalTime duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    
+    
 }
