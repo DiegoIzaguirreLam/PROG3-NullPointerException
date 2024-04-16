@@ -76,6 +76,22 @@ public class Usuario {
         this.cartera = cartera;
     }
 
+    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, int activo, int experiencia) {
+        this.UID = UID;
+        this.nombreCuenta = nombreCuenta;
+        this.nombrePerfil = nombrePerfil;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.password = password;
+        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
+        this.verificado = verificado;
+        this.expNivel = expNivel;
+        this.nivel = nivel;
+        this.activo = activo;
+        this.experiencia = experiencia;
+    }
+
     
 
     public int getUID() {
