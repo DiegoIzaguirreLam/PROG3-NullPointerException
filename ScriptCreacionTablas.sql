@@ -277,6 +277,7 @@ CREATE TABLE ProductoAdquirido(
     fecha_ejecucion DATE,
     tiempo_uso TIME NOT NULL,
     actualizado TINYINT NOT NULL,
+    oculto TINYINT NOT NULL,
     fid_biblioteca INT NOT NULL,
     fid_producto INT NOT NULL,
     fid_expositor INT NOT NULL,
