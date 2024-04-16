@@ -110,7 +110,23 @@ public class ForoMySQL implements ForoDAO{
 
     @Override
     public int eliminarForo(Foro foro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call DESACTIVAR_FORO"
+                    + "(?)}");
+ 
+	    cs.setInt("_id_foro", foro.getIdForo());
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+        return resultado;   
     }
     
 }
