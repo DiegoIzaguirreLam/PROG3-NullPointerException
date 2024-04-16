@@ -51,7 +51,7 @@ public class Expositor {
         return activo;
     }
 
-    public void setActivo(int activo) {
+    public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
@@ -59,7 +59,7 @@ public class Expositor {
         return oculto;
     }
 
-    public void setOculto(int oculto) {
+    public void setOculto(boolean oculto) {
         this.oculto = oculto;
     }
 }
