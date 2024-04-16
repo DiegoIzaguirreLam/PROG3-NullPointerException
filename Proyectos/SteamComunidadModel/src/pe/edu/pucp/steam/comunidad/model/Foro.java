@@ -18,6 +18,9 @@ public class Foro {
     private ArrayList<Subforo> subforos;
     private int oculto;
 
+    public Foro(){
+        
+    }
     public Foro(String nombre, String descripcion, OrigenForo origen, ArrayList<Subforo> subforos, int oculto) {
         this.nombre = nombre;
         this.descripcion = descripcion;
