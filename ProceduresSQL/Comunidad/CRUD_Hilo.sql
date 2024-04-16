@@ -3,17 +3,18 @@ DELIMITER $
 CREATE PROCEDURE CREAR_HILO(
 	OUT _id_hilo INT ,
     IN _id_subforo INT,
+    IN _id_usuario INT,
     IN _fijado TINYINT,
     IN _fecha_creacion DATE,
     IN _fecha_modificacion DATE
 )
 BEGIN
 	INSERT INTO hilo(fijado,fecha_creacion,
-    fecha_modificacion,fid_subforo,
+    fecha_modificacion,fid_subforo,fid_creador,
     nro_mensajes,oculto)
     VALUES (_fijado,_fecha_creacion,
     _fecha_modificacion,_id_subforo,
-    0,0);
+    _id_usuario,0,0);
 	SET _id_hilo = @@last_insert_id;
 
 END $
