@@ -13,9 +13,10 @@ import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
  * @author piero
  */
 public interface JuegoDAO {
-    int crearJuego(Juego juego);
+    int insertarJuego(Juego juego);
     int actualizarJuego(Juego juego);
-    int ocultarJuego(Juego juego);
+    int eliminarJuego(Juego juego);
+    ArrayList<Juego> listarJuegos();
     ArrayList<Logro> listarLogros(Juego juego);
     Juego buscarJuego(int idJuego);
 }
