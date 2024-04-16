@@ -182,9 +182,11 @@ CREATE TABLE Hilo(
     fecha_creacion DATE NOT NULL,
     fecha_modificacion DATE NOT NULL,
     fid_subforo INT NOT NULL,
+    fid_creador INT NOT NULL,
     oculto TINYINT NOT NULL,
     PRIMARY KEY(id_hilo),
-    FOREIGN KEY(fid_subforo) REFERENCES Subforo(id_subforo)
+    FOREIGN KEY(fid_subforo) REFERENCES Subforo(id_subforo),
+    FOREIGN KEY(fid_creador) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE Mensaje(
