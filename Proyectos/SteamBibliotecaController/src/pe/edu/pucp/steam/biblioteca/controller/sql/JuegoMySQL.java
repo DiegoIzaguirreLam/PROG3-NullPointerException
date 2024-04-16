@@ -80,13 +80,13 @@ public class JuegoMySQL implements JuegoDAO{
     }
 
     @Override
-    public int eliminarJuego(Juego juego) {
+    public int eliminarJuego(int idJuego) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_JUEGO"
                     + "(?)}");
-            cs.setInt("_id_producto", juego.getIdProducto());
+            cs.setInt("_id_producto", idJuego);
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -131,7 +131,28 @@ public class JuegoMySQL implements JuegoDAO{
 
     @Override
     public Juego buscarJuego(int idJuego) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Juego juego = new Juego();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_JUEGO(?)}");
+            cs.setInt(1, idJuego);
+            rs = cs.executeQuery();
+            rs.next();
+            juego.setIdProducto(rs.getInt("id_producto"));
+            juego.setTitulo(rs.getString("titulo"));
+            juego.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+            juego.setPrecio(rs.getDouble("precio"));
+            juego.setDescripcion(rs.getString("descripcion"));
+            juego.setEspacioDisco(rs.getDouble("espacio_disco"));
+            juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
+            juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+            juego.setMultijugador(rs.getBoolean("multijugador"));
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return juego;
     }
 
 }
