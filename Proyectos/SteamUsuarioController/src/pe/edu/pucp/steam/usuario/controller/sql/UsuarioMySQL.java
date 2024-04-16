@@ -59,17 +59,71 @@ public class UsuarioMySQL implements UsuarioDAO{
 
     @Override
     public int actualizarUsuario(Usuario jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ACTUALIZAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            cs.setInt("_ID_USUARIO", jugador.getUID());
+            cs.setString("_NOMBRE_CUENTA", jugador.getNombreCuenta());
+            cs.setString("_NOMBRE_PERFIL", jugador.getNombrePerfil());
+            cs.setString("_CORREO", jugador.getCorreo());
+            cs.setString("_TELEFONO", jugador.getTelefono());
+            cs.setString("_CONTRASENIA", jugador.getPassword());
+            cs.setInt("__EDAD", jugador.getEdad());
+            cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
+            cs.setBoolean("_VERIFICADO", jugador.isVerificado());
+            cs.setInt("_EXPERIENCIA_NIVEL", jugador.getExpNivel());
+            cs.setInt("_NIVEL", jugador.getNivel());
+            cs.setInt("_EXPERIENCIA", jugador.getExperiencia());
+            pst = con.prepareStatement("SELECT ID_PAIS FROM PAIS WHERE NOMBRE = '" + jugador.getPais().getNombre() + "'");
+            rs = pst.executeQuery();
+            rs.next();
+            cs.setInt("_FID_PAIS", rs.getInt("ID_PAIS"));
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+        return resultado;
     }
 
     @Override
     public int suspenderUsuario(Usuario jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call SUSPENDER_USUARIO(?)}");
+            cs.setInt("_ID_USUARIO", jugador.getUID());            
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+        return resultado;
     }
 
     @Override
     public int eliminarUsuario(Usuario jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ELIMINAR_USUARIO(?)}");
+            cs.setInt("_ID_USUARIO", jugador.getUID());            
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+        return resultado;
     }
 
     @Override
