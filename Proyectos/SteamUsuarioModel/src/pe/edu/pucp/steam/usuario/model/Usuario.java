@@ -32,7 +32,7 @@ public class Usuario {
     private boolean verificado;
     private int expNivel;
     private int nivel;
-    private boolean activo;
+    private int activo;
     private int experiencia;
     private Pais pais;
     private Biblioteca biblioteca;
@@ -48,7 +48,7 @@ public class Usuario {
     private ArrayList<Medalla> medallas;
     private Cartera cartera;
 
-    public Usuario(String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, boolean activo, int experiencia, Pais pais, Biblioteca biblioteca, Notificacion notificaciones, Inventario inventario, ArrayList<Comentario> comentarios, GestorSanciones gestorSanciones, ArrayList<Mensaje> mensajes, Perfil perfil, ArrayList<Foro> foros, ArrayList<Usuario> amigos, ArrayList<Usuario> bloqueados, ArrayList<Medalla> medallas, Cartera cartera) {
+    public Usuario(String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, int activo, int experiencia, Pais pais, Biblioteca biblioteca, Notificacion notificaciones, Inventario inventario, ArrayList<Comentario> comentarios, GestorSanciones gestorSanciones, ArrayList<Mensaje> mensajes, Perfil perfil, ArrayList<Foro> foros, ArrayList<Usuario> amigos, ArrayList<Usuario> bloqueados, ArrayList<Medalla> medallas, Cartera cartera) {
         this.nombreCuenta = nombreCuenta;
         this.nombrePerfil = nombrePerfil;
         this.correo = correo;
@@ -166,13 +166,15 @@ public class Usuario {
         this.nivel = nivel;
     }
 
-    public boolean getActivo() {
+    public int getActivo() {
         return activo;
     }
 
-    public void setActivo(boolean activo) {
+    public void setActivo(int activo) {
         this.activo = activo;
     }
+
+    
     
     public int getExperiencia() {
         return experiencia;

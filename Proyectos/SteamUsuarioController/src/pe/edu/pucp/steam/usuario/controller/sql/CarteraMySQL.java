@@ -4,38 +4,27 @@
  */
 package pe.edu.pucp.steam.usuario.controller.sql;
 
-import java.util.ArrayList;
-import pe.edu.pucp.steam.usuario.controller.dao.UsuarioDAO;
-import pe.edu.pucp.steam.usuario.model.Usuario;
+import pe.edu.pucp.steam.usuario.controller.dao.CarteraDAO;
+import pe.edu.pucp.steam.usuario.model.jugador.Cartera;
 
 /**
  *
  * @author GAMER
  */
-public class UsuarioMySQL implements UsuarioDAO{
+public class CarteraMySQL implements CarteraDAO{
 
     @Override
-    public int registrar(Usuario jugador) {
+    public int crearCartera(Cartera cartera) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int actualiza(Usuario jugador) {
+    public int actualizarCartera(Cartera cartera) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int suspenderCuenta(Usuario jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int eliminarCuenta(Usuario jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public ArrayList<Usuario> listarCuentas(Usuario jugador) {
+    public Cartera buscarCartera(int idCartera) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
