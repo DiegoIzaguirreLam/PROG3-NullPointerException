@@ -15,7 +15,7 @@ import pe.edu.pucp.steam.biblioteca.model.producto.Software;
 public interface SoftwareDAO {
     int insertarSoftware(Software software);
     int actualizarSoftware(Software software);
-    int eliminarSoftware(Software software);
+    int eliminarSoftware(int idSoftware);
     ArrayList<Software> listarSoftware();
-    Software buscarSoftware(int software);
+    Software buscarSoftware(int idSoftware);
 }
