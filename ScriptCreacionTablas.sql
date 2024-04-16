@@ -78,6 +78,7 @@ CREATE TABLE Notificacion(
     tipo VARCHAR(30) NOT NULL,
     mensaje VARCHAR(200) NOT NULL,
     fid_usuario INT NOT NULL,
+	revisada BOOLEAN NOT NULL,
     PRIMARY KEY(id_notificacion),
     FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
