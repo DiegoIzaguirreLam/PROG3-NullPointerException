@@ -5,6 +5,7 @@
 package pe.edu.pucp.steam.comunidad.controller.sql;
 
 import pe.edu.pucp.steam.comunidad.controller.dao.MensajeDAO;
+import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
 
 /**
@@ -14,12 +15,12 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
 public class MensajeMySQL implements MensajeDAO{
 
     @Override
-    public int crearMensaje(Mensaje mensaje) {
+    public int crearMensaje(Mensaje mensaje, Hilo hilo, int idAutor) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int editarMensaje(Mensaje mensaje) {
+    public int editarMensaje(Mensaje mensaje, Hilo hilo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
