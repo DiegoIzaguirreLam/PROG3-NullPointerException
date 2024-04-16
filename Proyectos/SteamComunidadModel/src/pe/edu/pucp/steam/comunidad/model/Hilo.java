@@ -22,6 +22,10 @@ public class Hilo {
     private ArrayList<Mensaje> mensajes;
     private boolean oculto;
 
+    
+    public Hilo(){
+        
+    }
     public Hilo(boolean fijado, int idCreador, int nroMensajes, Date fechaCreacion, Date fechaModificacion, Subforo subforo, ArrayList<Mensaje> mensajes, boolean oculto) {
         this.fijado = fijado;
         this.idCreador = idCreador;
