@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.model.Coleccion;
 import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
 
@@ -12,6 +13,8 @@ import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
  * @author piero
  */
 public interface ColeccionDAO {
-    int crearColeccion(Coleccion coleccion);
+    int insertarColeccion(Coleccion coleccion);
     int actualizarColeccion(Coleccion coleccion);
+    int eliminarColeccion(int idColeccion);
+    ArrayList<Coleccion> listarColecciones(int idBiblioteca);
 }

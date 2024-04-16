@@ -11,7 +11,7 @@ import pe.edu.pucp.steam.biblioteca.model.producto.LogroDesbloqueado;
  * @author piero
  */
 public interface LogroDesbloqueadoDAO {
-    int desbloquearLogro(LogroDesbloqueado logro);
+    int insertarLogroDesbloqueado(LogroDesbloqueado logro);
     LogroDesbloqueado buscarLogro(int idLogro);
     int eliminarLogro(LogroDesbloqueado logro);
 }

@@ -4,10 +4,16 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.dao;
 
+import java.util.ArrayList;
+import pe.edu.pucp.steam.biblioteca.model.producto.Proveedor;
+
 /**
  *
  * @author piero
  */
 public interface ProveedorDAO {
-    
+    int insertarProveedor(Proveedor proveedor);
+    int actualizarProveedor(Proveedor proveedor);
+    int eliminarProveedor(int idProveedor);
+    ArrayList<Proveedor> listarProveedores();
 }
