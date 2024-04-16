@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
 
 /**
@@ -11,6 +12,8 @@ import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
  * @author piero
  */
 public interface ProductoAdquiridoDAO {
-    int agregarProducto(ProductoAdquirido producto);
-    int ocultarProducto(ProductoAdquirido producto);
+    int insertarProducto(ProductoAdquirido producto);
+    int actualizarProducto(ProductoAdquirido producto);
+    int eliminarProducto(int idProducto);
+    ArrayList<ProductoAdquirido> listarProductosAdquiridos();
 }
