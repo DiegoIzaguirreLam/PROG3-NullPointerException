@@ -33,15 +33,17 @@ END $
 DROP PROCEDURE IF EXISTS EDITAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_HILO(
-	IN _id_hilo INT ,
+	IN _id_hilo INT,
+    IN _id_subforo INT,
     IN _fijado TINYINT,
     IN _fecha_modificacion DATE
 )
 BEGIN
-	UPDATE hilo SET fijado = _fijado,
+	UPDATE hilo SET fijado = _fijado, fid_subforo = _id_subforo,
     fecha_modificacion = _fecha_modificacion 
     WHERE id_hilo = _id_hilo; 
 END $
+
 
 
 DROP PROCEDURE IF EXISTS DESACTIVAR_HILO;

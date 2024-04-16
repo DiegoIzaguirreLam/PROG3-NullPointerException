@@ -38,11 +38,13 @@ DROP PROCEDURE IF EXISTS EDITAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_MENSAJE(
 	IN _id_mensaje INT,
+    IN _id_hilo INT,
     IN _contenido VARCHAR(300),
     IN _fecha_max_edicion DATE
 )
 BEGIN
 	UPDATE mensaje SET contenido = _contenido,
+    fid_hilo = _id_hilo,
     fecha_max_edicion = _fecha_max_edicion
     WHERE id_mensaje = _id_mensaje; 
 END $
