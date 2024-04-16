@@ -22,7 +22,7 @@ public class Hilo {
     private ArrayList<Mensaje> mensajes;
     private boolean oculto;
 
-    public Hilo(boolean fijado, int idCreador, int nroMensajes, Date fechaCreacion, Date fechaModificacion, Subforo subforo, ArrayList<Mensaje> mensajes, int oculto) {
+    public Hilo(boolean fijado, int idCreador, int nroMensajes, Date fechaCreacion, Date fechaModificacion, Subforo subforo, ArrayList<Mensaje> mensajes, boolean oculto) {
         this.fijado = fijado;
         this.idCreador = idCreador;
         this.nroMensajes = nroMensajes;
@@ -97,11 +97,11 @@ public class Hilo {
         this.mensajes = mensajes;
     }
 
-    public int getOculto() {
+    public boolean getOculto() {
         return oculto;
     }
 
-    public void setOculto(int oculto) {
+    public void setOculto(boolean oculto) {
         this.oculto = oculto;
     }
     

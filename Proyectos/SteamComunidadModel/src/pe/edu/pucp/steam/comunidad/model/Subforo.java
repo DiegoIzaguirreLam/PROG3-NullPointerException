@@ -17,6 +17,10 @@ public class Subforo {
     private ArrayList<Hilo> hilos;
     private int oculto;
 
+    public Subforo(){
+        
+        
+    }
     public Subforo(Foro foro, String nombre, ArrayList<Hilo> hilos, int oculto) {
         this.foro = foro;
         this.nombre = nombre;
