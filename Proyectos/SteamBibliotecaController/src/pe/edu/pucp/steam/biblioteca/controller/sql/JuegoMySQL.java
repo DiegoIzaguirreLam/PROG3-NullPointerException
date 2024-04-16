@@ -4,53 +4,20 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.sql;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.controller.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.Juego;
 import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
-import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
  *
  * @author piero
  */
 public class JuegoMySQL implements JuegoDAO{
-    private Connection con;
-    private PreparedStatement pst;
-    private CallableStatement cs;
-    private ResultSet st;
-    
+
     @Override
-    public int insertarJuego(Juego juego) {
-        int resultado = 0;
-        try{
-            con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_JUEGO"
-                    + "(?,?,?,?,?,?,?,?,?,?)}");
-            cs.registerOutParameter("_id_juego",
-                    java.sql.Types.INTEGER);
-            cs.setInt("_fid_proveedor", juego.getProveedor().getIdProveedor());
-            cs.setString("_titulo", juego.getTitulo());
-            cs.setDouble("_precio", juego.getPrecio());
-            cs.setString("_descripcion", juego.getDescripcion());
-            cs.setDouble("_espacio_disco", juego.getEspacioDisco());
-            cs.setBoolean("_oculto", juego.isOculto());
-            cs.setString("_requisitos_minimos", juego.getRequisitosMinimos());
-            cs.setString("_requisitos_recomendados", juego.getRequisitosRecomendados());
-            cs.setBoolean("_multijugador", juego.isMultijugador());
-            cs.executeUpdate();
-            juego.setIdProducto(cs.getInt("_id_juego"));
-            resultado = juego.getIdProducto();
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-        }
-        return resultado;
+    public int crearJuego(Juego juego) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -59,12 +26,7 @@ public class JuegoMySQL implements JuegoDAO{
     }
 
     @Override
-    public int eliminarJuego(Juego juego) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public ArrayList<Juego> listarJuegos() {
+    public int ocultarJuego(Juego juego) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -77,5 +39,5 @@ public class JuegoMySQL implements JuegoDAO{
     public Juego buscarJuego(int idJuego) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
 }
