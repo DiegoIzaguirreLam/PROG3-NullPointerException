@@ -26,7 +26,7 @@ public class NotificacionMySQL implements NotificacionDAO{
     }
 
     @Override
-    public int verNotificacion(Notificacion notificacion) {
+    public int actualizarNotificacion(Notificacion notificacion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
