@@ -5,18 +5,53 @@
 package pe.edu.pucp.steam.biblioteca.controller.sql;
 
 import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import pe.edu.pucp.steam.biblioteca.controller.dao.BandaSonoraDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
+import pe.edu.pucp.steam.dbmanager.config.DBManager;
+
 
 /**
  *
  * @author piero
  */
 public class BandaSonoraMySQL implements BandaSonoraDAO{
-
+    
+    private Connection con;
+    private PreparedStatement pst;
+    private CallableStatement cs;
+    private ResultSet st;
+    
     @Override
     public int insertarBandaSonora(BandaSonora bandaSonora) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call INSERTAR_BANDASONORA"
+                    + "(?,?,?,?,?,?,?,?,?,?)}");
+            cs.registerOutParameter("_id_banda_sonora",
+                    java.sql.Types.INTEGER);
+            cs.setInt("_fid_proveedor", bandaSonora.getProveedor().getIdProveedor());
+            cs.setString("_titulo", bandaSonora.getTitulo());
+            cs.setDouble("_precio", bandaSonora.getPrecio());
+            cs.setString("_descripcion", bandaSonora.getDescripcion());
+            cs.setDouble("_espacio_disco", bandaSonora.getEspacioDisco());
+            cs.setBoolean("_oculto", bandaSonora.isOculto());
+            cs.setString("_artista", bandaSonora.getArtista());
+            cs.setString("_compositor", bandaSonora.getCompositor());
+            cs.setTime("_duracion", java.sql.Time.valueOf(bandaSonora.getDuracion()));
+            cs.executeUpdate();
+            bandaSonora.setIdProducto(cs.getInt("_id_banda_sonora"));
+            resultado = bandaSonora.getIdProducto();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
