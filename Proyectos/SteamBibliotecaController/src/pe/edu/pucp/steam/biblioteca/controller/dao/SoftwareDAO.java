@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.model.producto.Software;
 
 
@@ -12,8 +13,9 @@ import pe.edu.pucp.steam.biblioteca.model.producto.Software;
  * @author piero
  */
 public interface SoftwareDAO {
-    int crearSoftware(Software software);
+    int insertarSoftware(Software software);
     int actualizarSoftware(Software software);
-    int ocultarSoftware(Software software);
+    int eliminarSoftware(Software software);
+    ArrayList<Software> listarSoftware();
     Software buscarSoftware(int software);
 }
