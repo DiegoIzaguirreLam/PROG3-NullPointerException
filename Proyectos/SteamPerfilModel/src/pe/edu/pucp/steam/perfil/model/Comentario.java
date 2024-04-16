@@ -23,6 +23,7 @@ public class Comentario {
         this.comentarista = comentarista;
         this.texto = texto;
         this.nlikes = nlikes;
+        this.oculto = false;
     }
 
     public int getIdComentario() {
