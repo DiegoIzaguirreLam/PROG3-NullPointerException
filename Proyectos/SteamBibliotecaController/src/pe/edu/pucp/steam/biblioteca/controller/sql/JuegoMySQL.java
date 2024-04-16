@@ -81,12 +81,47 @@ public class JuegoMySQL implements JuegoDAO{
 
     @Override
     public int eliminarJuego(Juego juego) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ELIMINAR_JUEGO"
+                    + "(?)}");
+            cs.setInt("_id_producto", juego.getIdProducto());
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
     public ArrayList<Juego> listarJuegos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Juego> juegos = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_JUEGOS}");
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Juego juego = new Juego();
+                juego.setIdProducto(rs.getInt("id_producto"));
+                juego.setTitulo(rs.getString("titulo"));
+                juego.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                juego.setPrecio(rs.getDouble("precio"));
+                juego.setDescripcion(rs.getString("descripcion"));
+                juego.setEspacioDisco(rs.getDouble("espacio_disco"));
+                juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
+                juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                juego.setMultijugador(rs.getBoolean("multijugador"));
+                juegos.add(juego);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return juegos;
     }
 
     @Override
