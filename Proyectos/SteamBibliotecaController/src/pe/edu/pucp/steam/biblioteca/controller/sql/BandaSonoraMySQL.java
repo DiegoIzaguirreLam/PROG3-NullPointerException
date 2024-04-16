@@ -87,7 +87,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_BANDASONORA"
                     + "(?)}");
-            cs.setInt("_id_banda_sonora", bandaSonora.getIdProducto());
+            cs.setInt("_id_producto", bandaSonora.getIdProducto());
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -102,14 +102,20 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
         ArrayList<BandaSonora> bandasSonoras = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_BANDASONORA}");
+            cs = con.prepareCall("{call LISTAR_BANDASSONORAS}");
             rs = cs.executeQuery();
             while(rs.next()){
                 BandaSonora bandaSonora = new BandaSonora();
                 bandaSonora.setIdProducto(rs.getInt("id_producto"));
-                bandaSonora.setIdProducto(rs.getInt("id_producto"));//FALTA DESARROLLAR
-                bandaSonora.setIdProducto(rs.getInt("id_producto"));
-                
+                bandaSonora.setTitulo(rs.getString("titulo"));
+                bandaSonora.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                bandaSonora.setPrecio(rs.getDouble("precio"));
+                bandaSonora.setDescripcion(rs.getString("descripcion"));
+                bandaSonora.setEspacioDisco(rs.getDouble("espacio_disco"));
+                bandaSonora.setArtista(rs.getString("artista"));
+                bandaSonora.setCompositor(rs.getString("compositor"));
+                bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());
+                bandasSonoras.add(bandaSonora);
             }
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -120,3 +126,6 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
     }
 
 }
+
+
+
