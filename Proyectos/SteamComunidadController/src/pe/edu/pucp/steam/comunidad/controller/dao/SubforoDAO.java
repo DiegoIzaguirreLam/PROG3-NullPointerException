@@ -13,7 +13,7 @@ import pe.edu.pucp.steam.comunidad.model.Subforo;
  * @author piero
  */
 public interface SubforoDAO {
-    int crearSubforo(Subforo subforo);
+    int crearSubforo(Subforo subforo, int idForo);
     ArrayList<Hilo> mostrarHilosSubforo(Subforo subforo);
     int editarSubforo(Subforo subforo);
     int eliminarSubforo(Subforo subforo);
