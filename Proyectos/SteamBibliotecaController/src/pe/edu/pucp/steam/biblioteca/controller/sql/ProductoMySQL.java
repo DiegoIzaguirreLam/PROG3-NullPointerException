@@ -14,6 +14,7 @@ import pe.edu.pucp.steam.biblioteca.controller.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.controller.dao.ProductoDAO;
 import pe.edu.pucp.steam.biblioteca.controller.dao.SoftwareDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
+import pe.edu.pucp.steam.biblioteca.model.producto.Etiqueta;
 import pe.edu.pucp.steam.biblioteca.model.producto.Juego;
 import pe.edu.pucp.steam.biblioteca.model.producto.Producto;
 import pe.edu.pucp.steam.biblioteca.model.producto.Software;
@@ -67,5 +68,43 @@ public class ProductoMySQL implements ProductoDAO {
         juego.setIdProducto(-1);
         return juego;
     }
+
+    @Override
+    public int agregarProductoEtiqueta(int idProducto, int idEtiqueta) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call INSERTAR_PRODUCTOETIQUETA"
+                    + "(?,?)}");
+            cs.setInt("_fid_producto", idProducto);
+            cs.setInt("_fid_etiqueta", idEtiqueta);
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
+    }
+
+    @Override
+    public int eliminarProductoEtiqueta(int idProducto, int idEtiqueta) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ELIMINAR_PRODUCTOETIQUETA"
+                    + "(?,?)}");
+            cs.setInt("_fid_producto", idProducto);
+            cs.setInt("_fid_etiqueta", idEtiqueta);
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
+    }
+    
+    
     
 }
