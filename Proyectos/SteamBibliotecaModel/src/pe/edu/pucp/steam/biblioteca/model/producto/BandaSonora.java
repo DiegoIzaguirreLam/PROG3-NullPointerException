@@ -17,8 +17,8 @@ public class BandaSonora extends Producto{
     private LocalTime duracion;
     private String url;
 
-    public BandaSonora(String artista, String compositor, LocalTime duracion, String url, String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto) {
-        super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, oculto);
+    public BandaSonora(String artista, String compositor, LocalTime duracion, String url, String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto, Proveedor proveedor) {
+        super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, oculto, proveedor);
         this.artista = artista;
         this.compositor = compositor;
         this.duracion = duracion;
