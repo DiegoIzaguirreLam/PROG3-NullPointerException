@@ -22,7 +22,7 @@ public class JuegoMySQL implements JuegoDAO{
     private Connection con;
     private PreparedStatement pst;
     private CallableStatement cs;
-    private ResultSet st;
+    private ResultSet rs;
     
     @Override
     public int insertarJuego(Juego juego) {
@@ -55,7 +55,28 @@ public class JuegoMySQL implements JuegoDAO{
 
     @Override
     public int actualizarJuego(Juego juego) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ACTUALIZAR_JUEGO"
+                    + "(?,?,?,?,?,?,?,?,?,?)}");
+            cs.setInt("_id_juego", juego.getIdProducto());
+            cs.setInt("_fid_proveedor", juego.getProveedor().getIdProveedor());
+            cs.setString("_titulo", juego.getTitulo());
+            cs.setDouble("_precio", juego.getPrecio());
+            cs.setString("_descripcion", juego.getDescripcion());
+            cs.setDouble("_espacio_disco", juego.getEspacioDisco());
+            cs.setBoolean("_oculto", juego.isOculto());
+            cs.setString("_requisitos_minimos", juego.getRequisitosMinimos());
+            cs.setString("_requisitos_recomendados", juego.getRequisitosRecomendados());
+            cs.setBoolean("_multijugador", juego.isMultijugador());
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
