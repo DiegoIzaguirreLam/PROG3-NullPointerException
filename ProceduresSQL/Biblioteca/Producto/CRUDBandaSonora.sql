@@ -74,4 +74,3 @@ BEGIN
     WHERE id_producto = _id_producto; 
 END$
 
-DESC Producto;
