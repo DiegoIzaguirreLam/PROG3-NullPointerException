@@ -48,7 +48,7 @@ public class Usuario {
     private ArrayList<Medalla> medallas;
     private Cartera cartera;
 
-    public Usuario(String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, int activo, int experiencia, Pais pais, Biblioteca biblioteca, Notificacion notificaciones, Inventario inventario, ArrayList<Comentario> comentarios, GestorSanciones gestorSanciones, ArrayList<Mensaje> mensajes, Perfil perfil, ArrayList<Foro> foros, ArrayList<Usuario> amigos, ArrayList<Usuario> bloqueados, ArrayList<Medalla> medallas, Cartera cartera) {
+    public Usuario(String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, boolean activo, int experiencia, Pais pais, Biblioteca biblioteca, Notificacion notificaciones, Inventario inventario, ArrayList<Comentario> comentarios, GestorSanciones gestorSanciones, ArrayList<Mensaje> mensajes, Perfil perfil, ArrayList<Foro> foros, ArrayList<Usuario> amigos, ArrayList<Usuario> bloqueados, ArrayList<Medalla> medallas, Cartera cartera) {
         this.nombreCuenta = nombreCuenta;
         this.nombrePerfil = nombrePerfil;
         this.correo = correo;
@@ -166,11 +166,11 @@ public class Usuario {
         this.nivel = nivel;
     }
 
-    public int getActivo() {
+    public boolean getActivo() {
         return activo;
     }
 
-    public void setActivo(int activo) {
+    public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
