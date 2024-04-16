@@ -15,7 +15,7 @@ BEGIN
     fid_hilo,fid_usuario,oculto)
     VALUES (_contenido,_fecha_publicacion,
     _fecha_max_edicion,_padre,
-    _id_hilo,_id_usuario,1);
+    _id_hilo,_id_usuario,0);
 	SET _id_mensaje = @@last_insert_id;
     UPDATE hilo SET nro_mensajes = nro_mensajes +1 
     WHERE id_hilo = _id_hilo;
@@ -30,7 +30,7 @@ CREATE PROCEDURE MOSTRAR_MENSAJE(
 BEGIN
 	SELECT * FROM mensaje 
     WHERE id_mensaje = _id_mensaje 
-    AND oculto = 1;
+    AND oculto = 0;
 
 END $
 
@@ -53,7 +53,7 @@ CREATE PROCEDURE DESACTIVAR_MENSAJE(
 	IN _id_mensaje INT
 )
 BEGIN
-	UPDATE mensaje SET oculto = 0
+	UPDATE mensaje SET oculto = 1
     WHERE id_mensaje = _id_mensaje; 
 
 END $

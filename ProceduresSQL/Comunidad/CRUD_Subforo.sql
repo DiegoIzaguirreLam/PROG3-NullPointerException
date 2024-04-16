@@ -7,7 +7,7 @@ CREATE PROCEDURE CREAR_SUBFORO(
 )
 BEGIN
 	INSERT INTO subforo(fid_foro,nombre,oculto) 
-    VALUES (_id_foro,_nombre,1);
+    VALUES (_id_foro,_nombre,0);
 	SET _id_subforo = @@last_insert_id;
 
 END $
@@ -20,7 +20,7 @@ CREATE PROCEDURE MOSTRAR_HILOS_POR_SUBFORO(
 BEGIN
 	SELECT * FROM hilo WHERE 
     fid_subforo = _id_subforo
-    AND oculto = 1;
+    AND oculto = 0;
 
 END $
 
@@ -43,7 +43,7 @@ CREATE PROCEDURE DESACTIVAR_SUBFORO(
 	IN _id_subforo INT
 )
 BEGIN
-	UPDATE foro SET oculto = 0
+	UPDATE foro SET oculto = 1
     WHERE id_subforo = _id_subforo; 
 
 END $
