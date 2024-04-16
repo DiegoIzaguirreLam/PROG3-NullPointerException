@@ -6,7 +6,7 @@ package pe.edu.pucp.steam.comunidad.controller.sql;
 
 import pe.edu.pucp.steam.comunidad.controller.dao.GestorSancionesDAO;
 import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
-
+import pe.edu.pucp.steam.usuario.model.Usuario;
 /**
  *
  * @author piero
@@ -14,8 +14,8 @@ import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
 public class GestorSancionesMySQL implements GestorSancionesDAO{
 
     @Override
-    public int crearGestor(GestorSanciones gestorSanciones) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int crearGestor(GestorSanciones gestorSanciones, Usuario usuario) {
+        return 0;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class HiloMySQL implements HiloDAO {
     private ResultSet rs;
 
     @Override
-    public int crearHilo(Hilo hilo,  Subforo subforo, int idUsuario) {
+    public int crearHilo(Hilo hilo, int idUsuario) {
         int resultado=0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -34,7 +34,7 @@ public class HiloMySQL implements HiloDAO {
                     + "(?,?,?,?,?)}");
             cs.registerOutParameter("_id_hilo",
                     java.sql.Types.INTEGER);
-            cs.setInt("_id_subforo", subforo.getIdSubforo());
+            cs.setInt("_id_subforo", hilo.getSubforo().getIdSubforo());
             cs.setInt("_id_usuario", idUsuario);
             cs.setBoolean("_fijado",hilo.isFijado());
             cs.setDate("_fecha_creacion", new java.sql.Date(
@@ -44,7 +44,7 @@ public class HiloMySQL implements HiloDAO {
             cs.executeUpdate();
             hilo.setIdHilo(cs.getInt("_id_hilo"));
             hilo.setOculto(false);
-            hilo.setSubforo(subforo);
+          
             resultado = hilo.getIdHilo();
             
         }catch(Exception ex){
@@ -96,7 +96,7 @@ public class HiloMySQL implements HiloDAO {
     }
 
     @Override
-    public int editarHilo(Hilo hilo, Subforo subforo) {
+    public int editarHilo(Hilo hilo) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -104,7 +104,7 @@ public class HiloMySQL implements HiloDAO {
                     + "(?,?,?,?)}");
  
 			cs.setInt("_id_hilo", hilo.getIdHilo());
-                        cs.setInt("_id_subforo", subforo.getIdSubforo());
+                        cs.setInt("_id_subforo",hilo.getSubforo().getIdSubforo());
             //cs.setString("_fijado", hilo.getFijado());
             cs.setDate("_fecha_modificacion", new java.sql.Date(
                     hilo.getFechaModificacion().getTime()));

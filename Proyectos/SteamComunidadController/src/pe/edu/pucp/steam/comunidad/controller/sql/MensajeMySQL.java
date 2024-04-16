@@ -27,7 +27,7 @@ public class MensajeMySQL implements MensajeDAO{
     private ResultSet rs;
     
     @Override
-    public int crearMensaje(Mensaje mensaje, Hilo hilo, int idAutor) {
+    public int crearMensaje(Mensaje mensaje, int idAutor) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -35,7 +35,7 @@ public class MensajeMySQL implements MensajeDAO{
                     + "(?,?)}");
             cs.registerOutParameter("_id_mensaje",
                     java.sql.Types.INTEGER);
-            cs.setInt("_id_hilo", hilo.getIdHilo());
+            cs.setInt("_id_hilo", mensaje.getHilo().getIdHilo());
             cs.setInt("_id_usuario",idAutor);
             cs.setString("_contenido",mensaje.getContenido());
             cs.setDate("_fecha_publicacion", new java.sql.Date(
@@ -45,7 +45,6 @@ public class MensajeMySQL implements MensajeDAO{
             cs.executeUpdate();
             mensaje.setIdMensaje(cs.getInt("_id_mensaje"));
             mensaje.setOculto(false);
-            mensaje.setHilo(hilo);
             resultado = mensaje.getIdMensaje();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -60,14 +59,14 @@ public class MensajeMySQL implements MensajeDAO{
     }
 
     @Override
-    public int editarMensaje(Mensaje mensaje, Hilo hilo) {
+    public int editarMensaje(Mensaje mensaje) {
     int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call EDITAR_MENSAJE"
                     + "(?,?)}");
             cs.setInt("_id_mensaje", mensaje.getIdMensaje());
-            cs.setInt("_id_hilo", hilo.getIdHilo());
+            cs.setInt("_id_hilo", mensaje.getHilo().getIdHilo());
             cs.setString("_contenido",mensaje.getContenido());
             cs.setDate("_fecha_max_edicion", new java.sql.Date(
                     mensaje.getFechaMaxEdicion().getTime()));

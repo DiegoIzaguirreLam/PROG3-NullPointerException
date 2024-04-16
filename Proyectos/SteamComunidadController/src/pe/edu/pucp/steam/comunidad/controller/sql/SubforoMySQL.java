@@ -29,7 +29,7 @@ public class SubforoMySQL implements SubforoDAO{
     private ResultSet rs;
     
     @Override
-    public int crearSubforo(Subforo subforo, Foro foro) {
+    public int crearSubforo(Subforo subforo) {
        int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -37,13 +37,12 @@ public class SubforoMySQL implements SubforoDAO{
                     + "(?,?)}");
             cs.registerOutParameter("_id_subforo",
                     java.sql.Types.INTEGER);
-            cs.setInt("_id_foro", foro.getIdForo());
+            cs.setInt("_id_foro", subforo.getForo().getIdForo());
             cs.setString("_nombre",subforo.getNombre());
       
             cs.executeUpdate();
             subforo.setIdSubforo(cs.getInt("_id_subforo"));
             subforo.setOculto(0);
-            subforo.setForo(foro);
             resultado = subforo.getIdSubforo();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
