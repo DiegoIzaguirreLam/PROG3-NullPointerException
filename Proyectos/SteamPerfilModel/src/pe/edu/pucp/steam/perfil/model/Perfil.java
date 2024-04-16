@@ -17,6 +17,8 @@ public class Perfil {
     private ArrayList<Expositor> expositores;
     private ArrayList<Comentario> comentarios;
     private ArrayList<ObjetoUsable> mostradosPerfil;
+    
+    public Perfil(){};
 
     public Perfil(int idPerfil, ArrayList<Expositor> expositores, ArrayList<Comentario> comentarios, ArrayList<ObjetoUsable> mostradosPerfil) {
         this.idPerfil = idPerfil;
