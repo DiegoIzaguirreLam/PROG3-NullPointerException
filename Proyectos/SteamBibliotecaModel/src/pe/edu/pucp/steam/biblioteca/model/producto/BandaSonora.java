@@ -25,7 +25,7 @@ public class BandaSonora extends Producto{
         this.url = url;
     }
 
-    
+    public BandaSonora(){}
 
     public String getArtista() {
         return artista;
