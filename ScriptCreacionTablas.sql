@@ -59,6 +59,7 @@ CREATE TABLE Usuario(
     nivel INT NOT NULL,
     experiencia INT NOT NULL,
     fid_pais INT NOT NULL,
+	activo TINYINT NOT NULL,
     PRIMARY KEY(UID),
     FOREIGN KEY(fid_pais) REFERENCES Pais(id_pais)
 )ENGINE=InnoDB;
