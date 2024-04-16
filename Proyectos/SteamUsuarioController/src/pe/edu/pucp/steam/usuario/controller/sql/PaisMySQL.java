@@ -21,11 +21,6 @@ public class PaisMySQL implements PaisDAO{
     }
 
     @Override
-    public int eliminarPais(Pais pais) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public ArrayList<Usuario> listarUsuario(Pais pais) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

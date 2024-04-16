@@ -5,6 +5,9 @@
         <group>
             <file>file:/C:/Users/piero/OneDrive/Escritorio/repositorios/PROG3-NullPointerException/Proyectos/SteamUsuarioController/src/pe/edu/pucp/steam/usuario/controller/dao/MovimientoDAO.java</file>
             <file>file:/C:/Users/piero/OneDrive/Escritorio/repositorios/PROG3-NullPointerException/Proyectos/SteamUsuarioController/src/pe/edu/pucp/steam/usuario/controller/dao/PaisDAO.java</file>
+            <file>file:/C:/Users/piero/OneDrive/Escritorio/repositorios/PROG3-NullPointerException/Proyectos/SteamUsuarioController/src/pe/edu/pucp/steam/usuario/controller/sql/PaisMySQL.java</file>
+            <file>file:/C:/Users/piero/OneDrive/Escritorio/repositorios/PROG3-NullPointerException/Proyectos/SteamUsuarioController/src/pe/edu/pucp/steam/usuario/controller/sql/NotificacionMySQL.java</file>
+            <file>file:/C:/Users/piero/OneDrive/Escritorio/repositorios/PROG3-NullPointerException/Proyectos/SteamUsuarioController/src/pe/edu/pucp/steam/usuario/controller/dao/NotificacionDAO.java</file>
             <file>file:/C:/Users/piero/OneDrive/Escritorio/repositorios/PROG3-NullPointerException/Proyectos/SteamUsuarioController/src/pe/edu/pucp/steam/usuario/controller/dao/CarteraDAO.java</file>
             <file>file:/C:/Users/piero/OneDrive/Escritorio/repositorios/PROG3-NullPointerException/Proyectos/SteamUsuarioController/src/pe/edu/pucp/steam/usuario/controller/dao/MedallaDAO.java</file>
         </group>

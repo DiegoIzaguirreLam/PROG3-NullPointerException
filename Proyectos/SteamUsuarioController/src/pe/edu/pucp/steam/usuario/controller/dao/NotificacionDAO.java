@@ -15,6 +15,6 @@ import pe.edu.pucp.steam.usuario.model.Usuario;
 public interface NotificacionDAO {
     int crearNotificacion(Notificacion notificacion);
     int eliminarNotificacion(Notificacion notificacion);
-    int verNotificacion(Notificacion notificacion);
+    int actualizarNotificacion(Notificacion notificacion);
     ArrayList<Notificacion> listarNotificaciones(Usuario usuario);
 }
