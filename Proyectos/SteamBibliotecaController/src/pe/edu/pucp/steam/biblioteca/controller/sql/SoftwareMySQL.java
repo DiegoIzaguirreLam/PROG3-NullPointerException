@@ -78,12 +78,46 @@ public class SoftwareMySQL implements SoftwareDAO{
 
     @Override
     public int eliminarSoftware(Software software) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ELIMINAR_SOFTWARE"
+                    + "(?)}");
+            cs.setInt("_id_producto", software.getIdProducto());
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
     public ArrayList<Software> listarSoftware() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Software> softwares = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_SOFTWARES}");
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Software software = new Software();
+                software.setIdProducto(rs.getInt("id_producto"));
+                software.setTitulo(rs.getString("titulo"));
+                software.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                software.setPrecio(rs.getDouble("precio"));
+                software.setDescripcion(rs.getString("descripcion"));
+                software.setEspacioDisco(rs.getDouble("espacio_disco"));
+                software.setRequisitos(rs.getString("requisitos"));
+                software.setLicencia(rs.getString("licencia"));
+                softwares.add(software);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return softwares;
     }
 
     @Override
