@@ -18,8 +18,8 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
  * @author GAMER
  */
 public class PerfilMySQL implements PerfilDAO{
-    Connection con;
-    CallableStatement cs;
+    private Connection con;
+    private CallableStatement cs;
 
     @Override
     public int crearPerfil(Perfil perfil) {
@@ -46,7 +46,7 @@ public class PerfilMySQL implements PerfilDAO{
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call ACTUALIZAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
-            cs.setInt("_oculto", perfil.getOculto());
+            cs.setBoolean("_oculto", perfil.getOculto());
             cs.executeUpdate();
             resultado = 1;
             cs.close();
