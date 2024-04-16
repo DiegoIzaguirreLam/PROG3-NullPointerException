@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
 
 /**
@@ -11,7 +12,9 @@ import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
  * @author piero
  */
 public interface LogroDAO {
-    int crearLogro(Logro logro);
-    int eliminarLogro(Logro logro);
+    int insertarLogro(Logro logro);
+    int actualizarLogro(Logro logro);
+    int eliminarLogro(int idLogro);
+    ArrayList<Logro> listarLogros();
     int buscarLogro(int idLogro);
 }
