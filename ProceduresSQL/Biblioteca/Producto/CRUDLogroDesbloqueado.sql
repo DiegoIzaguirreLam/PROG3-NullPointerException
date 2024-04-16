@@ -2,19 +2,33 @@
 DROP PROCEDURE IF EXISTS INSERTAR_LOGRODESBLOQUEADO;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_LOGRODESBLOQUEADO(
+	OUT _id_logro_desbloqueado INT,
     IN fid_logro INT,
     IN fid_producto_adquirido INT
 )
 BEGIN
     INSERT INTO Logro(fecha_desbloqueo,fid_logro,fid_producto_adquirido) 
     VALUES (CURDATE(),_fid_logro,_fid_producto_adquirido);
+    SET _id_logro_desbloqueado = @@last_insert_id;
 END$
+
+DROP PROCEDURE IF EXISTS BUSCAR_LOGRODESBLOQUEADO;
+DELIMITER $
+CREATE PROCEDURE BUSCAR_LOGRODESBLOQUEADO(
+	IN _id_logro_desbloqueado INT
+)
+BEGIN
+	SELECT * FROM LogroDesbloqueado WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
+END$
+
 
 DROP PROCEDURE IF EXISTS LISTAR_LOGRODESBLOQUEADO;
 DELIMITER $
-CREATE PROCEDURE LISTAR_LOGRODESBLOQUEADO()
+CREATE PROCEDURE LISTAR_LOGRODESBLOQUEADO(
+	IN _id_producto_adquirido INT
+)
 BEGIN
-	SELECT * FROM LogroDesbloqueado;
+	SELECT * FROM LogroDesbloqueado WHERE id_producto_adquirido = _id_producto_adquirido;
 END$
 
 
