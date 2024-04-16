@@ -22,7 +22,7 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int crearExpositor(Expositor expositor) {
         int resultado = 0;
         try {
-            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            con = DriverManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_EXPOSITOR(?,?)}");
             cs.registerOutParameter("_id_expositor", java.sql.Types.INTEGER);
             cs.setInt("_fid_perfil", expositor.getowner().getIdPerfil());
@@ -42,7 +42,7 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int actualizaExpositor(Expositor expositor) {
         int resultado = 0;
         try {
-            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            con = DriverManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_EXPOSITOR(?,?,?,?)}");
             cs.setInt("_id_expositor", expositor.getIdExpositor());
             cs.setBoolean("_oculto", expositor.getOculto());
@@ -53,7 +53,7 @@ public class ExpositorMySQL implements ExpositorDAO{
             cs.close();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        } finally {    //Siempre cierra la conexion y si no puede mostrar un mensaje
+        } finally {   
             try {con.close();} catch (Exception ex) {System.out.println(ex.getMessage());}
         }
         return resultado;
@@ -63,7 +63,7 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int ocultarExpositor(Expositor expositor) {
         int resultado = 0;
         try{
-            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            con = DriverManager.getInstance().getConnection();
             cs = con.prepareCall("{call OCULTAR_EXPOSITOR(?)}");
             cs.setInt("_id_expositor", expositor.getIdExpositor());
             cs.executeUpdate();
@@ -81,7 +81,7 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int eliminarExpositor(Expositor expositor) {
         int resultado = 0;
         try{
-            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            con = DriverManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_EXPOSITOR(?)}");
             cs.setInt("_id_expositor", expositor.getIdExpositor());
             cs.executeUpdate();

@@ -25,7 +25,7 @@ public class PerfilMySQL implements PerfilDAO{
     public int crearPerfil(Perfil perfil) {
         int resultado = 0;
         try {
-            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            con = DriverManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
             cs.executeUpdate();
@@ -43,7 +43,7 @@ public class PerfilMySQL implements PerfilDAO{
     public int actualizaPerfil(Perfil perfil) {
         int resultado = 0;
         try {
-            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            con = DriverManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
             cs.setBoolean("_oculto", perfil.getOculto());
@@ -62,7 +62,7 @@ public class PerfilMySQL implements PerfilDAO{
     public int ocultarPerfil(Perfil perfil) {
         int resultado = 0;
         try {
-            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            con = DriverManager.getInstance().getConnection();
             cs = con.prepareCall("{call OCULTAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
             cs.executeUpdate();
