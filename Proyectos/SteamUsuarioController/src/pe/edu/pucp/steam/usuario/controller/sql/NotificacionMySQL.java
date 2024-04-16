@@ -5,37 +5,33 @@
 package pe.edu.pucp.steam.usuario.controller.sql;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.usuario.controller.dao.UsuarioDAO;
+import pe.edu.pucp.steam.usuario.controller.dao.NotificacionDAO;
+import pe.edu.pucp.steam.usuario.model.Notificacion;
 import pe.edu.pucp.steam.usuario.model.Usuario;
 
 /**
  *
  * @author GAMER
  */
-public class UsuarioMySQL implements UsuarioDAO{
+public class NotificacionMySQL implements NotificacionDAO{
 
     @Override
-    public int registrar(Usuario jugador) {
+    public int crearNotificacion(Notificacion notificacion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int actualiza(Usuario jugador) {
+    public int eliminarNotificacion(Notificacion notificacion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int suspenderCuenta(Usuario jugador) {
+    public int verNotificacion(Notificacion notificacion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int eliminarCuenta(Usuario jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public ArrayList<Usuario> listarCuentas(Usuario jugador) {
+    public ArrayList<Notificacion> listarNotificaciones(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

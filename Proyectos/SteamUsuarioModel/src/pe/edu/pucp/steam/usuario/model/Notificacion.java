@@ -13,11 +13,13 @@ public class Notificacion {
     private TipoNotificacion tipo;
     private String mensaje;
     private Usuario usuario;
+    private boolean revisada;
 
-    public Notificacion(TipoNotificacion tipo, String mensaje, Usuario usuario) {
+    public Notificacion(TipoNotificacion tipo, String mensaje, Usuario usuario, boolean revisada) {
         this.tipo = tipo;
         this.mensaje = mensaje;
         this.usuario = usuario;
+        this.revisada = revisada;
     }
 
     public int getIdNotificacion() {
@@ -51,4 +53,14 @@ public class Notificacion {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    public boolean isRevisada() {
+        return revisada;
+    }
+
+    public void setRevisada(boolean revisada) {
+        this.revisada = revisada;
+    }
+    
+    
 }

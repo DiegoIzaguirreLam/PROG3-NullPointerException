@@ -6,15 +6,14 @@ package pe.edu.pucp.steam.usuario.controller.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.steam.usuario.model.Usuario;
+import pe.edu.pucp.steam.usuario.model.jugador.Medalla;
 
 /**
  *
  * @author GAMER
  */
-public interface UsuarioDAO {
-    int registrar(Usuario jugador);
-    int actualiza(Usuario jugador);
-    int suspenderCuenta(Usuario jugador); //Elimina logicamente
-    int eliminarCuenta(Usuario jugador); //Elimina de la base de datos
-    ArrayList<Usuario> listarCuentas(Usuario jugador);
+public interface MedallaDAO {
+    int crearMedalla(Medalla medalla);
+    int actualizarMedalla(Medalla medalla);
+    ArrayList<Medalla> listarMedallas(Usuario usuario);
 }
