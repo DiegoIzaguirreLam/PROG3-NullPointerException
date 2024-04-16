@@ -139,6 +139,7 @@ public class SubforoMySQL implements SubforoDAO{
             }
 
         }
+        
         return resultado;
     }
     
