@@ -13,6 +13,7 @@ import pe.edu.pucp.steam.inventario.model.ObjetoUsable;
  */
 public class Perfil {
     private int idPerfil; //El id es el mismo que el del usuario por eso el constructor pide
+    private boolean activo;
     private ArrayList<Expositor> expositores;
     private ArrayList<Comentario> comentarios;
     private ArrayList<ObjetoUsable> mostradosPerfil;
