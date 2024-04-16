@@ -33,6 +33,14 @@ public class Perfil {
         this.idPerfil = idPerfil;
     }
 
+    public boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     public ArrayList<Expositor> getExpositores() {
         return expositores;
     }
