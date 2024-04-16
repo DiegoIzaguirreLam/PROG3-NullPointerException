@@ -25,7 +25,6 @@ public class PerfilMySQL implements PerfilDAO{
     public int crearPerfil(Perfil perfil) {
         int resultado = 0;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call INSERTAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
@@ -42,27 +41,54 @@ public class PerfilMySQL implements PerfilDAO{
 
     @Override
     public int actualizaPerfil(Perfil perfil) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try {
+            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            cs = con.prepareCall("{call ACTUALIZAR_PERFIL(?)}");
+            cs.setInt("_id_perfil", perfil.getIdPerfil());
+            cs.setInt("_oculto", perfil.getOculto());
+            cs.executeUpdate();
+            resultado = 1;
+            cs.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {  
+            try {con.close();} catch (Exception ex) {System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
     public int ocultarPerfil(Perfil perfil) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try {
+            con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
+            cs = con.prepareCall("{call OCULTAR_PERFIL(?)}");
+            cs.setInt("_id_perfil", perfil.getIdPerfil());
+            cs.executeUpdate();
+            resultado = 1;
+            cs.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {  
+            try {con.close();} catch (Exception ex) {System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
     public int buscarPerfil(int idUser) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
     public ArrayList<Comentario> listarComentarios(Perfil perfil) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
     public ArrayList<Expositor> listarExpositores(Perfil perfil) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
     
     

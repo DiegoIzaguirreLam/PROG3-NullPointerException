@@ -21,6 +21,8 @@ public class Expositor {
     public Expositor(Perfil owner, ArrayList<ProductoAdquirido> mostrados) {
         this.owner = owner;
         this.mostrados = mostrados;
+        this.activo = true;
+        this.oculto = false;
     }
 
     public int getIdExpositor() {

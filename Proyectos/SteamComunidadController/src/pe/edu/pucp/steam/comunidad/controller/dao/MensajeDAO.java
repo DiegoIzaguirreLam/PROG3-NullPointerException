@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.comunidad.controller.dao;
 
+import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
 
 /**
@@ -11,8 +12,8 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
  * @author piero
  */
 public interface MensajeDAO {
-    int crearMensaje(Mensaje mensaje);
-    int editarMensaje(Mensaje mensaje);
+    int crearMensaje(Mensaje mensaje, Hilo hilo, int idAutor);
+    int editarMensaje(Mensaje mensaje , Hilo hilo);
     int eliminarMensaje(Mensaje mensaje);
     String leerMensaje(Mensaje mensaje);
 }

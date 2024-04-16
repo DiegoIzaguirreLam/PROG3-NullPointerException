@@ -9,11 +9,13 @@ import pe.edu.pucp.steam.comunidad.controller.dao.SubforoDAO;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Subforo;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
+import pe.edu.pucp.steam.comunidad.model.Foro;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
+
 
 /**
  *
@@ -27,7 +29,7 @@ public class SubforoMySQL implements SubforoDAO{
     private ResultSet rs;
     
     @Override
-    public int crearSubforo(Subforo subforo, int idForo) {
+    public int crearSubforo(Subforo subforo, Foro foro) {
        int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -35,12 +37,13 @@ public class SubforoMySQL implements SubforoDAO{
                     + "(?,?)}");
             cs.registerOutParameter("_id_subforo",
                     java.sql.Types.INTEGER);
-            cs.setInt("_id_foro", idForo);
+            cs.setInt("_id_foro", foro.getIdForo());
             cs.setString("_nombre",subforo.getNombre());
       
             cs.executeUpdate();
             subforo.setIdSubforo(cs.getInt("_id_subforo"));
             subforo.setOculto(0);
+            subforo.setForo(foro);
             resultado = subforo.getIdSubforo();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -93,7 +96,7 @@ public class SubforoMySQL implements SubforoDAO{
     }
 
     @Override
-    public int editarSubforo(Subforo subforo) {
+    public int editarSubforo(Subforo subforo,Foro foro) {
          int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

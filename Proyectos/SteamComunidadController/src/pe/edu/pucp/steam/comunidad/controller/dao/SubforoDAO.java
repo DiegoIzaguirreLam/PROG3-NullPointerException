@@ -5,6 +5,7 @@
 package pe.edu.pucp.steam.comunidad.controller.dao;
 
 import java.util.ArrayList;
+import pe.edu.pucp.steam.comunidad.model.Foro;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Subforo;
 
@@ -13,8 +14,8 @@ import pe.edu.pucp.steam.comunidad.model.Subforo;
  * @author piero
  */
 public interface SubforoDAO {
-    int crearSubforo(Subforo subforo, int idForo);
+    int crearSubforo(Subforo subforo, Foro foro);
     ArrayList<Hilo> mostrarHilosSubforo(Subforo subforo);
-    int editarSubforo(Subforo subforo);
+    int editarSubforo(Subforo subforo, Foro foro);
     int eliminarSubforo(Subforo subforo);
 }

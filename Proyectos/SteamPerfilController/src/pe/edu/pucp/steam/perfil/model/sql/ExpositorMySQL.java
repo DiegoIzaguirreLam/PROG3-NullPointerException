@@ -22,7 +22,6 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int crearExpositor(Expositor expositor) {
         int resultado = 0;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call INSERTAR_EXPOSITOR(?,?)}");
             cs.registerOutParameter("_id_expositor", java.sql.Types.INTEGER);
@@ -43,7 +42,6 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int actualizaExpositor(Expositor expositor) {
         int resultado = 0;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call ACTUALIZAR_EXPOSITOR(?,?,?,?)}");
             cs.setInt("_id_expositor", expositor.getIdExpositor());
@@ -65,7 +63,6 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int ocultarExpositor(Expositor expositor) {
         int resultado = 0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call OCULTAR_EXPOSITOR(?)}");
             cs.setInt("_id_expositor", expositor.getIdExpositor());
@@ -84,7 +81,6 @@ public class ExpositorMySQL implements ExpositorDAO{
     public int eliminarExpositor(Expositor expositor) {
         int resultado = 0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call ELIMINAR_EXPOSITOR(?)}");
             cs.setInt("_id_expositor", expositor.getIdExpositor());
