@@ -21,7 +21,7 @@ public class SoftwareMySQL implements SoftwareDAO{
     private Connection con;
     private PreparedStatement pst;
     private CallableStatement cs;
-    private ResultSet st;
+    private ResultSet rs;
     
     @Override
     public int insertarSoftware(Software software) {
@@ -53,7 +53,27 @@ public class SoftwareMySQL implements SoftwareDAO{
 
     @Override
     public int actualizarSoftware(Software software) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ACTUALIZAR_SOFTWARE"
+                    + "(?,?,?,?,?,?,?,?,?)}");
+            cs.setInt("_id_software", software.getIdProducto());
+            cs.setInt("_fid_proveedor", software.getProveedor().getIdProveedor());
+            cs.setString("_titulo", software.getTitulo());
+            cs.setDouble("_precio", software.getPrecio());
+            cs.setString("_descripcion", software.getDescripcion());
+            cs.setDouble("_espacio_disco", software.getEspacioDisco());
+            cs.setBoolean("_oculto", software.isOculto());
+            cs.setString("_requisitos", software.getRequisitos());
+            cs.setString("_licencia", software.getLicencia());
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
