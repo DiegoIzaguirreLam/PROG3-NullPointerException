@@ -125,6 +125,7 @@ CREATE TABLE MedallaUsuario(
 /* PAQUETE PERFIL */
 CREATE TABLE Perfil(
 	id_perfil INT,
+    oculto TINYINT NOT NULL,
     PRIMARY KEY(id_perfil),
     FOREIGN KEY(id_perfil) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -132,6 +133,8 @@ CREATE TABLE Perfil(
 CREATE TABLE Expositor(
 	id_expositor INT AUTO_INCREMENT,
     fid_perfil INT NOT NULL,
+    oculto TINYINT NOT NULL,
+    activo TINYINT NOT NULL,
     PRIMARY KEY(id_expositor),
     FOREIGN KEY(fid_perfil) REFERENCES Perfil(id_perfil)
 )ENGINE=InnoDB;
@@ -140,11 +143,12 @@ CREATE TABLE Comentario(
 	id_comentario INT AUTO_INCREMENT,
     texto VARCHAR(100) NOT NULL,
     nro_likes INT NOT NULL,
-    fid_perfil_comentarista INT NOT NULL,
-    fid_usuario INT NOT NULL,
+    oculto TINYINT NOT NULL,
+    fid_perfil_comentado INT NOT NULL,
+    fid_usuario_comentarista INT NOT NULL,
     PRIMARY KEY(id_comentario),
-    FOREIGN KEY(fid_perfil_comentarista) REFERENCES Perfil(id_perfil),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
+    FOREIGN KEY(fid_perfil_comentado) REFERENCES Perfil(id_perfil),
+    FOREIGN KEY(fid_usuario_comentarista) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 /*PAQUETE COMUNIDAD*/
