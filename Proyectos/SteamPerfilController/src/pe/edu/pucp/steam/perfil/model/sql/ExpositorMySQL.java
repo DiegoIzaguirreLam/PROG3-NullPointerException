@@ -15,8 +15,8 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
  * @author piero
  */
 public class ExpositorMySQL implements ExpositorDAO{
-    Connection con;
-    CallableStatement cs;
+    private Connection con;
+    private CallableStatement cs;
 
     @Override
     public int crearExpositor(Expositor expositor) {
@@ -45,8 +45,8 @@ public class ExpositorMySQL implements ExpositorDAO{
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call ACTUALIZAR_EXPOSITOR(?,?,?,?)}");
             cs.setInt("_id_expositor", expositor.getIdExpositor());
-            cs.setByte("_oculto", (byte)(expositor.getOculto()));
-            cs.setByte("_activo", (byte)(expositor.getActivo()));
+            cs.setBoolean("_oculto", expositor.getOculto());
+            cs.setBoolean("_activo", expositor.getActivo());
             cs.setInt("_fid_perfil", expositor.getowner().getIdPerfil());
             cs.executeUpdate();
             resultado = 1;
@@ -94,5 +94,4 @@ public class ExpositorMySQL implements ExpositorDAO{
         }
         return resultado;
     }
-    
 }
