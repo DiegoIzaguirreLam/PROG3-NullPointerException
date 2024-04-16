@@ -81,13 +81,13 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
     }
 
     @Override
-    public int eliminarBandaSonora(BandaSonora bandaSonora) {
+    public int eliminarBandaSonora(int idBandaSonora) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_BANDASONORA"
                     + "(?)}");
-            cs.setInt("_id_producto", bandaSonora.getIdProducto());
+            cs.setInt("_id_producto", idBandaSonora);
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -123,6 +123,32 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return bandasSonoras;
+    }
+
+    @Override
+    public BandaSonora buscarBandaSonora(int idBandaSonora) {
+        BandaSonora bandaSonora = new BandaSonora();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_BANDASONORA(?)}");
+            cs.setInt(1, idBandaSonora);
+            rs = cs.executeQuery();
+            rs.next();
+            bandaSonora.setIdProducto(rs.getInt("id_producto"));
+            bandaSonora.setTitulo(rs.getString("titulo"));
+            bandaSonora.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+            bandaSonora.setPrecio(rs.getDouble("precio"));
+            bandaSonora.setDescripcion(rs.getString("descripcion"));
+            bandaSonora.setEspacioDisco(rs.getDouble("espacio_disco"));
+            bandaSonora.setArtista(rs.getString("artista"));
+            bandaSonora.setCompositor(rs.getString("compositor"));
+            bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return bandaSonora;
     }
 
 }
