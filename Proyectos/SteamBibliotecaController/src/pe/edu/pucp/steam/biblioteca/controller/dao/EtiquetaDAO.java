@@ -14,8 +14,10 @@ import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
  * @author piero
  */
 public interface EtiquetaDAO {
-    int crearEtiqueta(Etiqueta etiqueta);
+    int insertarEtiqueta(Etiqueta etiqueta);
+    int actualizarEtiqueta(Etiqueta etiqueta);
+    ArrayList<Etiqueta> listarEtiquetas();
     ArrayList<Producto> listarProductos(Etiqueta etiqueta);
     ArrayList<ProductoAdquirido> listarAdquiridos(Etiqueta etiqueta);
-    int eliminarEtiqueta(Etiqueta etiqueta);
+    int eliminarEtiqueta(int idEtiqueta);
 }
