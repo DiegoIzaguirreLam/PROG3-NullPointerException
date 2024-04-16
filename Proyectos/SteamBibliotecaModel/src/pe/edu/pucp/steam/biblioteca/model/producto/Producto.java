@@ -19,14 +19,16 @@ abstract public class Producto {
     private String descripcion;
     private double espacioDisco;
     private boolean oculto;
+    private Proveedor proveedor;
 
-    public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto) {
+    public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto, Proveedor proveedor) {
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
         this.precio = precio;
         this.descripcion = descripcion;
         this.espacioDisco = espacioDisco;
         this.oculto = oculto;
+        this.proveedor = proveedor;
     }
 
     public int getIdProducto() {
@@ -83,6 +85,14 @@ abstract public class Producto {
 
     public void setOculto(boolean oculto) {
         this.oculto = oculto;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
     
     

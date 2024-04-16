@@ -15,28 +15,30 @@ import pe.edu.pucp.steam.usuario.model.Usuario;
 public class UsuarioMySQL implements UsuarioDAO{
 
     @Override
-    public int registrar(Usuario jugador) {
+    public int crearUsuario(Usuario jugador) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int actualiza(Usuario jugador) {
+    public int actualizarUsuario(Usuario jugador) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int suspenderCuenta(Usuario jugador) {
+    public int suspenderUsuario(Usuario jugador) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int eliminarCuenta(Usuario jugador) {
+    public int eliminarUsuario(Usuario jugador) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ArrayList<Usuario> listarCuentas(Usuario jugador) {
+    public ArrayList<Usuario> listarUsuarios() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
     
 }
