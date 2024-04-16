@@ -74,3 +74,16 @@ BEGIN
     WHERE id_producto = _id_producto; 
 END$
 
+
+DROP PROCEDURE IF EXISTS BUSCAR_BANDASONORA;
+DELIMITER $
+CREATE PROCEDURE BUSCAR_BANDASONORA(
+	IN _id_producto INT
+)
+BEGIN
+    SELECT p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco,
+           b.artista, b.compositor, b.duracion
+    FROM Producto p
+    INNER JOIN BandaSonora b ON p.id_producto = b.id_banda_sonora
+    WHERE id_producto = _id_producto;
+END$

@@ -2,12 +2,13 @@
 DROP PROCEDURE IF EXISTS INSERTAR_PROVEEDOR;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PROVEEDOR(
-	IN _id_proveedor INT,
+	OUT _id_proveedor INT,
     IN _razon_social VARCHAR(100)
 )
 BEGIN
-	INSERT INTO Proveedor(id_proveedor, razon_social)
-    VALUES (_id_proveedor, _razon_social);
+	INSERT INTO Proveedor(razon_social)
+    VALUES (_razon_social);
+    SET _id_proveedor = @@last_insert_id;
 END;
 
 DROP PROCEDURE IF EXISTS LISTAR_PROVEEDOR;
@@ -32,8 +33,7 @@ END;
 DROP PROCEDURE IF EXISTS ELIMINAR_PROVEEDOR;
 DELIMITER $
 CREATE PROCEDURE ELIMINAR_PROVEEDOR(
-	IN _id_proveedor INT,
-    IN _razon_social VARCHAR(100)
+	IN _id_proveedor INT
 )
 BEGIN
 	#DELETE FROM Proveedor WHERE id_proveedor = _id_proveedor;
