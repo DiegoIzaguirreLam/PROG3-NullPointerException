@@ -152,6 +152,7 @@ CREATE TABLE Foro(
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(200) NOT NULL,
     origen_foro VARCHAR(100) NOT NULL,
+    oculto TINYINT NOT NULL,
     PRIMARY KEY(id_foro)
 )ENGINE=InnoDB;
 
@@ -169,6 +170,7 @@ CREATE TABLE Subforo(
 	id_subforo INT AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     fid_foro int NOT NULL,
+    oculto TINYINT NOT NULL,
     PRIMARY KEY(id_subforo),
     FOREIGN KEY(fid_foro) REFERENCES Foro(id_foro)
 )ENGINE=InnoDB;
@@ -180,6 +182,7 @@ CREATE TABLE Hilo(
     fecha_creacion DATE NOT NULL,
     fecha_modificacion DATE NOT NULL,
     fid_subforo INT NOT NULL,
+    oculto TINYINT NOT NULL,
     PRIMARY KEY(id_hilo),
     FOREIGN KEY(fid_subforo) REFERENCES Subforo(id_subforo)
 )ENGINE=InnoDB;
