@@ -144,6 +144,8 @@ CREATE TABLE Comentario(
     texto VARCHAR(100) NOT NULL,
     nro_likes INT NOT NULL,
     oculto TINYINT NOT NULL,
+    fecha_publicacion DATE NOT NULL,
+    fecha_maxedicion DATE,
     fid_perfil_comentado INT NOT NULL,
     fid_usuario_comentarista INT NOT NULL,
     PRIMARY KEY(id_comentario),
