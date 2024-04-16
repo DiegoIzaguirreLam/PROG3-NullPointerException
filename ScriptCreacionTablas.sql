@@ -211,7 +211,11 @@ CREATE TABLE Mensaje(
 
 CREATE TABLE GestorSanciones(
 	id_gestor INT,
+    fin_ban DATE NOT NULL,
+    cant_faltas INT NOT NULL,
+    cant_baneos INT NOT NULL,
     contador_faltas INT NOT NULL,
+    contador_palabras INT NOT NULL,
     contador_baneos INT NOT NULL,
     max_faltas INT NOT NULL,
     max_baneos INT NOT NULL,
