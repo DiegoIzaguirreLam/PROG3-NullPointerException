@@ -6,6 +6,9 @@ package pe.edu.pucp.steam.perfil.model.sql;
 
 import pe.edu.pucp.steam.perfil.model.Expositor;
 import pe.edu.pucp.steam.perfil.model.dao.ExpositorDAO;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
  *
@@ -13,7 +16,6 @@ import pe.edu.pucp.steam.perfil.model.dao.ExpositorDAO;
  */
 public class ExpositorMySQL implements ExpositorDAO{
     Connection con;
-    Statement st;
     CallableStatement cs;
 
     @Override
