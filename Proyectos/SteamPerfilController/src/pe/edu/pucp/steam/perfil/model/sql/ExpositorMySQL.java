@@ -12,7 +12,6 @@ import pe.edu.pucp.steam.perfil.model.dao.ExpositorDAO;
  * @author piero
  */
 public class ExpositorMySQL implements ExpositorDAO{
-
     Connection con;
     Statement st;
     CallableStatement cs;
