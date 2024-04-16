@@ -15,6 +15,8 @@ public class Expositor {
     private int idExpositor; //Es creacion procedural
     private Perfil owner;
     private ArrayList<ProductoAdquirido> mostrados;
+    private boolean activo;
+    private boolean oculto;
 
     public Expositor(Perfil owner, ArrayList<ProductoAdquirido> mostrados) {
         this.owner = owner;
@@ -43,5 +45,21 @@ public class Expositor {
 
     public void setMostrados(ArrayList<ProductoAdquirido> mostrados) {
         this.mostrados = mostrados;
+    }
+
+    public int getActivo() {
+        return activo;
+    }
+
+    public void setActivo(int activo) {
+        this.activo = activo;
+    }
+
+    public int getOculto() {
+        return oculto;
+    }
+
+    public void setOculto(int oculto) {
+        this.oculto = oculto;
     }
 }
