@@ -23,14 +23,15 @@ public class HiloMySQL implements HiloDAO {
     private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
-    
+
     @Override
     public int crearHilo(Hilo hilo, int idSubforo) {
-        int resultado = 0;
+        int resultado=0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call CREAR_HILO"
                     + "(?,?,?,?)}");
+           
             cs.registerOutParameter("_id_hilo",
                     java.sql.Types.INTEGER);
             cs.setInt("_id_subforo", idSubforo);
@@ -70,5 +71,6 @@ public class HiloMySQL implements HiloDAO {
     public int eliminarHilo(Hilo hilo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
     
 }
