@@ -67,6 +67,7 @@ public class SubforoMySQL implements SubforoDAO{
             rs = cs.executeQuery();
 			while(rs.next()){
                 Hilo hilo = new Hilo();
+              
                                 boolean b = ((rs.getInt("fijado")) != 0);
 				hilo.setIdHilo(rs.getInt("id_hilo"));
 				hilo.setFijado(b);
