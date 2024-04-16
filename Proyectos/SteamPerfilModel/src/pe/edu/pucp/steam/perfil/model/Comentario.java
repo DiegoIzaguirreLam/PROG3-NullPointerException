@@ -12,18 +12,22 @@ import java.util.Date;
  */
 public class Comentario {
     private int idComentario; //Se genera proceduralmente
-    private Perfil comentarista;
+    private Perfil perfilComentado;
     private String texto;
     private int nlikes;
     private boolean oculto; //Si es 1, no se muestra, si es 0  si se muestra
     private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
     private Date fechaPublicacion;
+    private int idComentarista;
 
-    public Comentario(Perfil comentarista, String texto, int nlikes) {
-        this.comentarista = comentarista;
+    public Comentario(Perfil perfilComentado, String texto, int nlikes, boolean oculto, Date fechaMaxEdicion, Date fechaPublicacion, int idComentarista) {
+        this.perfilComentado = perfilComentado;
         this.texto = texto;
         this.nlikes = nlikes;
-        this.oculto = false;
+        this.oculto = oculto;
+        this.fechaMaxEdicion = fechaMaxEdicion;
+        this.fechaPublicacion = fechaPublicacion;
+        this.idComentarista = idComentarista;
     }
 
     public int getIdComentario() {
@@ -34,12 +38,12 @@ public class Comentario {
         this.idComentario = idComentario;
     }
 
-    public Perfil getComentarista() {
-        return comentarista;
+    public Perfil getPerfilComentado() {
+        return perfilComentado;
     }
 
-    public void setComentarista(Perfil comentarista) {
-        this.comentarista = comentarista;
+    public void setPerfilComentado(Perfil perfilComentado) {
+        this.perfilComentado = perfilComentado;
     }
 
     public String getTexto() {
@@ -57,4 +61,38 @@ public class Comentario {
     public void setNlikes(int nlikes) {
         this.nlikes = nlikes;
     }
+
+    public boolean isOculto() {
+        return oculto;
+    }
+
+    public void setOculto(boolean oculto) {
+        this.oculto = oculto;
+    }
+
+    public Date getFechaMaxEdicion() {
+        return fechaMaxEdicion;
+    }
+
+    public void setFechaMaxEdicion(Date fechaMaxEdicion) {
+        this.fechaMaxEdicion = fechaMaxEdicion;
+    }
+
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(Date fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public int getIdComentarista() {
+        return idComentarista;
+    }
+
+    public void setIdComentarista(int idComentarista) {
+        this.idComentarista = idComentarista;
+    }
+
+    
 }
