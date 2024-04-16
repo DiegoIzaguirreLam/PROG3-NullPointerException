@@ -14,7 +14,9 @@ import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
 public interface BandaSonoraDAO {
     int insertarBandaSonora(BandaSonora bandaSonora);
     int actualizarBandaSonora(BandaSonora bandaSonora);
-    int eliminarBandaSonora(BandaSonora bandaSonora);
+    int eliminarBandaSonora(int idBandaSonora);
     //BandaSonora buscarBandaSonora(int idBandaSonora);
     ArrayList<BandaSonora> listarBandaSonoras();
+
+    public BandaSonora buscarBandaSonora(int idBandaSonora);
 }
