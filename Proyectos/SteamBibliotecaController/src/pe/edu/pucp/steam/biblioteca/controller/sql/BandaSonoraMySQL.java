@@ -23,7 +23,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
     private Connection con;
     private PreparedStatement pst;
     private CallableStatement cs;
-    private ResultSet st;
+    private ResultSet rs;
     
     @Override
     public int insertarBandaSonora(BandaSonora bandaSonora) {
@@ -56,17 +56,67 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
 
     @Override
     public int actualizarBandaSonora(BandaSonora bandaSonora) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ACTUALIZAR_BANDASONORA"
+                    + "(?,?,?,?,?,?,?,?,?,?)}");
+            cs.setInt("_id_banda_sonora", bandaSonora.getIdProducto());
+            cs.setInt("_fid_proveedor", bandaSonora.getProveedor().getIdProveedor());
+            cs.setString("_titulo", bandaSonora.getTitulo());
+            cs.setDouble("_precio", bandaSonora.getPrecio());
+            cs.setString("_descripcion", bandaSonora.getDescripcion());
+            cs.setDouble("_espacio_disco", bandaSonora.getEspacioDisco());
+            cs.setBoolean("_oculto", bandaSonora.isOculto());
+            cs.setString("_artista", bandaSonora.getArtista());
+            cs.setString("_compositor", bandaSonora.getCompositor());
+            cs.setTime("_duracion", java.sql.Time.valueOf(bandaSonora.getDuracion()));
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
     public int eliminarBandaSonora(BandaSonora bandaSonora) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ELIMINAR_BANDASONORA"
+                    + "(?)}");
+            cs.setInt("_id_banda_sonora", bandaSonora.getIdProducto());
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 
     @Override
     public ArrayList<BandaSonora> listarBandaSonoras() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<BandaSonora> bandasSonoras = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_BANDASONORA}");
+            rs = cs.executeQuery();
+            while(rs.next()){
+                BandaSonora bandaSonora = new BandaSonora();
+                bandaSonora.setIdProducto(rs.getInt("id_producto"));
+                bandaSonora.setIdProducto(rs.getInt("id_producto"));//FALTA DESARROLLAR
+                bandaSonora.setIdProducto(rs.getInt("id_producto"));
+                
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return bandasSonoras;
     }
 
 }
