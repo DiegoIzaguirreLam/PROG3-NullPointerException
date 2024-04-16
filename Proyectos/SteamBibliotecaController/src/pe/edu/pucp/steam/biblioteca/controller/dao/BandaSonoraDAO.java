@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
 
 /**
@@ -11,8 +12,9 @@ import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
  * @author piero
  */
 public interface BandaSonoraDAO {
-    int crearBandaSonora(BandaSonora bandaSonora);
+    int insertarBandaSonora(BandaSonora bandaSonora);
     int actualizarBandaSonora(BandaSonora bandaSonora);
-    int ocultarBandaSonora(BandaSonora bandaSonora);
-    BandaSonora buscarBandaSonora(int idBandaSonora);
+    int eliminarBandaSonora(BandaSonora bandaSonora);
+    //BandaSonora buscarBandaSonora(int idBandaSonora);
+    ArrayList<BandaSonora> listarBandaSonoras();
 }

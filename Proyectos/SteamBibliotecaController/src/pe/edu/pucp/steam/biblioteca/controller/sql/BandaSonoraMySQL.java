@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.sql;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.controller.dao.BandaSonoraDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
 
@@ -14,7 +15,7 @@ import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
 public class BandaSonoraMySQL implements BandaSonoraDAO{
 
     @Override
-    public int crearBandaSonora(BandaSonora bandaSonora) {
+    public int insertarBandaSonora(BandaSonora bandaSonora) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -24,13 +25,13 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
     }
 
     @Override
-    public int ocultarBandaSonora(BandaSonora bandaSonora) {
+    public int eliminarBandaSonora(BandaSonora bandaSonora) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public BandaSonora buscarBandaSonora(int idBandaSonora) {
+    public ArrayList<BandaSonora> listarBandaSonoras() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }
