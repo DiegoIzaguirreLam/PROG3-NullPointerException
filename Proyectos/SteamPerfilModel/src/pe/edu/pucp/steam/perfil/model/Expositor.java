@@ -47,7 +47,7 @@ public class Expositor {
         this.mostrados = mostrados;
     }
 
-    public int getActivo() {
+    public boolean getActivo() {
         return activo;
     }
 
@@ -55,7 +55,7 @@ public class Expositor {
         this.activo = activo;
     }
 
-    public int getOculto() {
+    public boolean getOculto() {
         return oculto;
     }
 
