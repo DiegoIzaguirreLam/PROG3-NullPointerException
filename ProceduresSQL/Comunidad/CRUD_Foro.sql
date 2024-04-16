@@ -9,7 +9,7 @@ CREATE PROCEDURE CREAR_FORO(
 BEGIN
 	INSERT INTO foro(nombre,descripcion,
     origen_foro,oculto) VALUES (_nombre,_descripcion,
-    _origen_foro,1);
+    _origen_foro,0);
 	SET _id_foro = @@last_insert_id;
 
 END $
@@ -22,7 +22,7 @@ CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(
 )
 BEGIN
 	SELECT * FROM subforo WHERE fid_foro = _id_foro 
-    AND oculto = 1;
+    AND oculto = 0;
 
 END $
 
@@ -49,7 +49,7 @@ CREATE PROCEDURE DESACTIVAR_FORO(
 	IN _id_foro INT
 )
 BEGIN
-	UPDATE foro SET oculto = 0
+	UPDATE foro SET oculto = 1
     WHERE id_foro = _id_foro; 
 
 END $

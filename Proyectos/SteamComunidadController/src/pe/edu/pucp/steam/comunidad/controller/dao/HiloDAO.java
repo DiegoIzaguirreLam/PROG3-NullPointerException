@@ -13,7 +13,7 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
  * @author piero
  */
 public interface HiloDAO {
-    int crearHilo(Hilo hilo);
+    int crearHilo(Hilo hilo, int idSubforo);
     ArrayList<Mensaje> mostrarMensajesHilo(Hilo hilo);
     int editarHilo(Hilo hilo);
     int eliminarHilo(Hilo hilo);

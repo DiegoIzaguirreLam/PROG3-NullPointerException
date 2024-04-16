@@ -13,7 +13,7 @@ BEGIN
     nro_mensajes,oculto)
     VALUES (_fijado,_fecha_creacion,
     _fecha_modificacion,_id_subforo,
-    0,1);
+    0,0);
 	SET _id_hilo = @@last_insert_id;
 
 END $
@@ -25,7 +25,7 @@ CREATE PROCEDURE MOSTRAR_MENSAJES_POR_HILO(
 )
 BEGIN
 	SELECT * FROM mensaje WHERE fid_hilo = _id_hilo 
-    AND oculto = 1;
+    AND oculto = 0;
 
 END $
 
@@ -49,7 +49,7 @@ CREATE PROCEDURE DESACTIVAR_HILO(
 	IN _id_hilo INT
 )
 BEGIN
-	UPDATE hilo SET oculto = 0
+	UPDATE hilo SET oculto = 1
     WHERE id_hilo = _id_hilo; 
 
 END $

@@ -21,6 +21,8 @@ abstract public class Producto {
     private boolean oculto;
     private Proveedor proveedor;
 
+    public Producto(){}
+    
     public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto, Proveedor proveedor) {
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
