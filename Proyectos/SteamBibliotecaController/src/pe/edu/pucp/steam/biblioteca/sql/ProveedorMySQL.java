@@ -4,9 +4,6 @@
  */
 package pe.edu.pucp.steam.biblioteca.sql;
 
-<<<<<<< HEAD
-import pe.edu.pucp.steam.biblioteca.dao.ProveedorDAO;
-=======
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,15 +11,12 @@ import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.ProveedorDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.Proveedor;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
 /**
  *
  * @author piero
  */
 public class ProveedorMySQL implements ProveedorDAO{
-<<<<<<< HEAD
-=======
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
@@ -103,6 +97,5 @@ public class ProveedorMySQL implements ProveedorDAO{
         }
         return proveedores;
     }
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     
 }

@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.steam.comunidad.sql;
 
-<<<<<<< HEAD
 import pe.edu.pucp.steam.comunidad.dao.MensajeDAO;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
-=======
-
 import pe.edu.pucp.steam.comunidad.dao.MensajeDAO;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
@@ -19,24 +12,8 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
-/**
- *
- * @author piero
- */
 public class MensajeMySQL implements MensajeDAO{
-
-<<<<<<< HEAD
-    @Override
-    public int crearMensaje(Mensaje mensaje, Hilo hilo, int idAutor) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int editarMensaje(Mensaje mensaje, Hilo hilo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-=======
     private Connection con;
     private PreparedStatement pst;
     private CallableStatement cs;
@@ -98,14 +75,10 @@ public class MensajeMySQL implements MensajeDAO{
 
         }
         return resultado;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
 
     @Override
     public int eliminarMensaje(Mensaje mensaje) {
-<<<<<<< HEAD
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-=======
        int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -125,14 +98,10 @@ public class MensajeMySQL implements MensajeDAO{
 
         }
         return resultado;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
 
     @Override
     public String leerMensaje(Mensaje mensaje) {
-<<<<<<< HEAD
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-=======
          Mensaje msg = new Mensaje();
          
         try{
@@ -165,8 +134,5 @@ public class MensajeMySQL implements MensajeDAO{
 			
         }
         return msg.getContenido();   
-
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
-    
 }

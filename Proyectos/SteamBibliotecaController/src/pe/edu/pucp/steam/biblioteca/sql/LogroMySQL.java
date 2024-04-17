@@ -3,11 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pe.edu.pucp.steam.biblioteca.sql;
-<<<<<<< HEAD
-
-import pe.edu.pucp.steam.biblioteca.dao.LogroDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
-=======
 import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -16,31 +11,12 @@ import pe.edu.pucp.steam.biblioteca.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.dao.LogroDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
 /**
  *
  * @author piero
  */
 public class LogroMySQL implements LogroDAO{
-<<<<<<< HEAD
-
-    @Override
-    public int crearLogro(Logro logro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int eliminarLogro(Logro logro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int buscarLogro(int idLogro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-=======
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
@@ -157,5 +133,4 @@ public class LogroMySQL implements LogroDAO{
         return logro;
     }
 
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 }

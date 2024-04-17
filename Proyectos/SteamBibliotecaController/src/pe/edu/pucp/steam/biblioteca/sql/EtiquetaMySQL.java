@@ -4,33 +4,21 @@
  */
 package pe.edu.pucp.steam.biblioteca.sql;
 
-<<<<<<< HEAD
-=======
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.EtiquetaDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.Etiqueta;
 import pe.edu.pucp.steam.biblioteca.model.producto.Producto;
 import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
-<<<<<<< HEAD
-=======
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
 /**
  *
  * @author piero
  */
 public class EtiquetaMySQL implements EtiquetaDAO{
-<<<<<<< HEAD
-
-    @Override
-    public int crearEtiqueta(Etiqueta etiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-=======
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
@@ -93,7 +81,6 @@ public class EtiquetaMySQL implements EtiquetaDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return etiquetas;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
 
     @Override
@@ -107,12 +94,6 @@ public class EtiquetaMySQL implements EtiquetaDAO{
     }
 
     @Override
-<<<<<<< HEAD
-    public int eliminarEtiqueta(Etiqueta etiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-=======
     public int eliminarEtiqueta(int idEtiqueta) {
         int resultado = 0;
         try{
@@ -129,5 +110,4 @@ public class EtiquetaMySQL implements EtiquetaDAO{
         return resultado;
     }
 
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 }

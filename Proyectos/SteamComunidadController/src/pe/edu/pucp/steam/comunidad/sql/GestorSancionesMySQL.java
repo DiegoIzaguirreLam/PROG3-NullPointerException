@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.steam.comunidad.sql;
 
-<<<<<<< HEAD
 import pe.edu.pucp.steam.comunidad.dao.GestorSancionesDAO;
 import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
-
-=======
-
 import pe.edu.pucp.steam.comunidad.dao.GestorSancionesDAO;
 import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
 import pe.edu.pucp.steam.usuario.model.Usuario;
@@ -19,18 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
-/**
- *
- * @author piero
- */
-public class GestorSancionesMySQL implements GestorSancionesDAO{
-<<<<<<< HEAD
 
-    @Override
-    public int crearGestor(GestorSanciones gestorSanciones) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-=======
+public class GestorSancionesMySQL implements GestorSancionesDAO{
     private Connection con;
     private PreparedStatement pst;
     private CallableStatement cs;
@@ -70,22 +52,11 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
 
         }
         return resultado;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
 
     @Override
     public int actualizarGestor(GestorSanciones gestorSanciones) {
-<<<<<<< HEAD
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int buscarGestor(int idUser) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-=======
-           int resultado = 0;
+        int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call EDITAR_GESTOR"
@@ -116,13 +87,5 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
 
         }
         return resultado;
-    }
-    
-    /*@Override
-    public int buscarGestor(int idUser) {
-       
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }*/
-    
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
+    }    
 }

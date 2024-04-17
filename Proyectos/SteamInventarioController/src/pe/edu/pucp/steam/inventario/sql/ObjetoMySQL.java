@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package pe.edu.pucp.steam.inventario.sql;
 
 import java.sql.CallableStatement;
@@ -36,31 +35,10 @@ public class ObjetoMySQL implements ObjetoDAO{
         }
 
         return resultado;
-=======
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package pe.edu.pucp.steam.inventario.sql;
-
-import pe.edu.pucp.steam.inventario.dao.ObjetoDAO;
-import pe.edu.pucp.steam.inventario.model.Objeto;
-
-/**
- *
- * @author piero
- */
-public class ObjetoMySQL implements ObjetoDAO{
-
-    @Override
-    public int crearObjeto(Objeto objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
 
     @Override
     public int actualizarObjeto(Objeto objeto) {
-<<<<<<< HEAD
         int resultado = 0;
         
         try {
@@ -82,11 +60,7 @@ public class ObjetoMySQL implements ObjetoDAO{
         
         return resultado;
     }
-}
-=======
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
     @Override
     public int eliminarObjeto(Objeto objeto) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -98,4 +72,3 @@ public class ObjetoMySQL implements ObjetoDAO{
     }
     
 }
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49

@@ -4,10 +4,6 @@
  */
 package pe.edu.pucp.steam.biblioteca.sql;
 
-<<<<<<< HEAD
-import pe.edu.pucp.steam.biblioteca.dao.LogroDesbloqueadoDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.LogroDesbloqueado;
-=======
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,31 +13,12 @@ import pe.edu.pucp.steam.biblioteca.dao.LogroDesbloqueadoDAO;
 import pe.edu.pucp.steam.biblioteca.dao.ProductoAdquiridoDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.LogroDesbloqueado;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
 /**
  *
  * @author piero
  */
 public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
-<<<<<<< HEAD
-
-    @Override
-    public int desbloquearLogro(LogroDesbloqueado logro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public LogroDesbloqueado buscarLogro(int idLogro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int eliminarLogro(LogroDesbloqueado logro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-=======
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
@@ -145,5 +122,4 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
 
     
     
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 }

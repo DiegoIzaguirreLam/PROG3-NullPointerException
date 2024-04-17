@@ -4,10 +4,6 @@
  */
 package pe.edu.pucp.steam.biblioteca.sql;
 
-<<<<<<< HEAD
-import pe.edu.pucp.steam.biblioteca.dao.ProductoAdquiridoDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
-=======
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,26 +14,12 @@ import pe.edu.pucp.steam.biblioteca.dao.ProductoDAO;
 import pe.edu.pucp.steam.biblioteca.model.Biblioteca;
 import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
 /**
  *
  * @author piero
  */
 public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
-<<<<<<< HEAD
-
-    @Override
-    public int agregarProducto(ProductoAdquirido producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int ocultarProducto(ProductoAdquirido producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-=======
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
@@ -167,5 +149,4 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     }
 
   
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 }

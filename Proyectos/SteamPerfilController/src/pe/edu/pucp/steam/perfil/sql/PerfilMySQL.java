@@ -1,39 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.steam.perfil.sql;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
+
 import pe.edu.pucp.steam.perfil.model.Comentario;
 import pe.edu.pucp.steam.perfil.model.Expositor;
-=======
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 import pe.edu.pucp.steam.perfil.model.Perfil;
 import pe.edu.pucp.steam.perfil.dao.PerfilDAO;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-<<<<<<< HEAD
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
-=======
 import java.sql.ResultSet;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.perfil.dao.ComentarioDAO;
 import pe.edu.pucp.steam.perfil.dao.ExpositorDAO;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
-/**
- *
- * @author GAMER
- */
 public class PerfilMySQL implements PerfilDAO{
     private Connection con;
     private CallableStatement cs;
-<<<<<<< HEAD
-=======
     private ResultSet rs;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
     @Override
     public int crearPerfil(Perfil perfil) {
@@ -90,23 +74,14 @@ public class PerfilMySQL implements PerfilDAO{
         return resultado;
     }
 
-    @Override
-<<<<<<< HEAD
-    public int buscarPerfil(int idUser) {
-        return 0;
-    }
-
-    @Override
     public ArrayList<Comentario> listarComentarios(Perfil perfil) {
         return null;
     }
 
-    @Override
     public ArrayList<Expositor> listarExpositores(Perfil perfil) {
         return null;
     }
-}
-=======
+    
     public Perfil buscarPerfil(int idUser) {
         Perfil perfil= new Perfil();
         try {
@@ -156,4 +131,3 @@ public class PerfilMySQL implements PerfilDAO{
     
     
 }
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49

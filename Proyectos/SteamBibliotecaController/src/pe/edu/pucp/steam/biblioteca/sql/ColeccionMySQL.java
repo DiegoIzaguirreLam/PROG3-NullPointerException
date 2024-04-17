@@ -4,10 +4,6 @@
  */
 package pe.edu.pucp.steam.biblioteca.sql;
 
-<<<<<<< HEAD
-import pe.edu.pucp.steam.biblioteca.dao.ColeccionDAO;
-import pe.edu.pucp.steam.biblioteca.model.Coleccion;
-=======
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,19 +11,12 @@ import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.ColeccionDAO;
 import pe.edu.pucp.steam.biblioteca.model.Coleccion;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 
 /**
  *
  * @author piero
  */
 public class ColeccionMySQL implements ColeccionDAO{
-<<<<<<< HEAD
-
-    @Override
-    public int crearColeccion(Coleccion coleccion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-=======
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
@@ -52,14 +41,10 @@ public class ColeccionMySQL implements ColeccionDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return resultado;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
 
     @Override
     public int actualizarColeccion(Coleccion coleccion) {
-<<<<<<< HEAD
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-=======
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -116,7 +101,6 @@ public class ColeccionMySQL implements ColeccionDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return colecciones;
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
     }
     
 }
