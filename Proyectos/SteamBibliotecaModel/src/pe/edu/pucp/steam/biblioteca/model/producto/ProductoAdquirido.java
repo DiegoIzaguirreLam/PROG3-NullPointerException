@@ -26,6 +26,8 @@ public class ProductoAdquirido implements IConsultable{
     private ArrayList<LogroDesbloqueado> desbloqueados;
     private ArrayList<Coleccion> colecciones;
     private Biblioteca biblioteca;
+    
+    public ProductoAdquirido(){};
 
     public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, LocalTime tiempoUso, boolean actualizado, boolean oculto, Producto producto, ArrayList<LogroDesbloqueado> desbloqueados, ArrayList<Coleccion> colecciones, Biblioteca biblioteca) {
         this.fechaAdquisicion = fechaAdquisicion;

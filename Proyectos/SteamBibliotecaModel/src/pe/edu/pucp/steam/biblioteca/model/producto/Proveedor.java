@@ -14,6 +14,8 @@ public class Proveedor{
     private int idProveedor;
     private String razonSocial;
     private ArrayList<Producto> productos;
+    
+    public Proveedor(){};
 
     public Proveedor(int idProveedor, String razonSocial, ArrayList<Producto> productos) {
         this.idProveedor = idProveedor;
