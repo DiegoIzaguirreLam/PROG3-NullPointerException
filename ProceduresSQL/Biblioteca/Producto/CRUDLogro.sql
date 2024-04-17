@@ -48,3 +48,13 @@ BEGIN
     WHERE id_logro = _id_logro;
 END$
 
+DROP PROCEDURE IF EXISTS BUSCAR_LOGRO;
+DELIMITER $
+CREATE PROCEDURE BUSCAR_LOGRO(
+	IN _id_logro INT
+)
+BEGIN
+	SELECT * FROM Logro WHERE id_logro = _id_logro;
+END$
+
+
