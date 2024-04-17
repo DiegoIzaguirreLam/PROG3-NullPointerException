@@ -2,17 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.steam.perfil.model.sql;
+package pe.edu.pucp.steam.perfil.sql;
 
 import java.util.ArrayList;
 import pe.edu.pucp.steam.perfil.model.Perfil;
-import pe.edu.pucp.steam.perfil.model.dao.PerfilDAO;
+import pe.edu.pucp.steam.perfil.dao.PerfilDAO;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
-import pe.edu.pucp.steam.perfil.model.dao.ComentarioDAO;
-import pe.edu.pucp.steam.perfil.model.dao.ExpositorDAO;
+import pe.edu.pucp.steam.perfil.dao.ComentarioDAO;
+import pe.edu.pucp.steam.perfil.dao.ExpositorDAO;
 
 /**
  *
