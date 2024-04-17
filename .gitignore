@@ -26,3 +26,7 @@ replay_pid*
 /Proyectos/SteamBibliotecaController/build/
 /Proyectos/SteamBibliotecaModel/build/
 /Proyectos/SteamDBManager/build/
+/Proyectos/SteamUsuarioController/build/
+/Proyectos/SteamUsuarioModel/build/
+/Proyectos/SteamInventarioModel/build/
+/Proyectos/SteamPerfilModel/build/
