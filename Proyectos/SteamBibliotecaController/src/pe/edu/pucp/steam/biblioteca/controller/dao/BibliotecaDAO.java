@@ -18,5 +18,5 @@ public interface BibliotecaDAO {
     Biblioteca buscarBiblioteca(int idUser);
     int actualizarBiblioteca(Biblioteca biblioteca);
     ArrayList<ProductoAdquirido> listarObjetos(Biblioteca biblioteca);
-    ArrayList<Coleccion> listarColeccion(Biblioteca biblioteca);
+    ArrayList<Coleccion> listarColeccion(int idBiblioteca);
 }

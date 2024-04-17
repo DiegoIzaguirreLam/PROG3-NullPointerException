@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.model.producto.LogroDesbloqueado;
 
 /**
@@ -12,6 +13,7 @@ import pe.edu.pucp.steam.biblioteca.model.producto.LogroDesbloqueado;
  */
 public interface LogroDesbloqueadoDAO {
     int insertarLogroDesbloqueado(LogroDesbloqueado logro);
-    LogroDesbloqueado buscarLogro(int idLogro);
-    int eliminarLogro(LogroDesbloqueado logro);
+    LogroDesbloqueado buscarLogro(int idLogroDesbloqueado);
+    int eliminarLogro(int idLogroDesbloqueado);
+    ArrayList<LogroDesbloqueado> listarLogrosProductoAdquirido(int idProductoAdquirido);
 }

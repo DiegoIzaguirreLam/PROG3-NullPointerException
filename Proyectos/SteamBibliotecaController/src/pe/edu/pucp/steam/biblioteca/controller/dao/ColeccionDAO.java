@@ -6,7 +6,6 @@ package pe.edu.pucp.steam.biblioteca.controller.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.model.Coleccion;
-import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
 
 /**
  *
