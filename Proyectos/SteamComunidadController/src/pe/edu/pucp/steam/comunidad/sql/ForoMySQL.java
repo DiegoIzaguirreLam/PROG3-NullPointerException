@@ -2,48 +2,46 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.steam.comunidad.controller.sql;
+package pe.edu.pucp.steam.comunidad.sql;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.comunidad.controller.dao.SubforoDAO;
-import pe.edu.pucp.steam.comunidad.model.Hilo;
+import pe.edu.pucp.steam.comunidad.dao.ForoDAO;
+import pe.edu.pucp.steam.comunidad.model.Foro;
 import pe.edu.pucp.steam.comunidad.model.Subforo;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
-import pe.edu.pucp.steam.comunidad.model.Foro;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
-
-
 /**
  *
  * @author piero
  */
-public class SubforoMySQL implements SubforoDAO{
-    
+public class ForoMySQL implements ForoDAO{
+
     private Connection con;
     private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
-    
+	
     @Override
-    public int crearSubforo(Subforo subforo) {
-       int resultado = 0;
+    public int crearForo(Foro foro) {
+     int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call CREAR_SUBFORO"
-                    + "(?,?)}");
-            cs.registerOutParameter("_id_subforo",
+            cs = con.prepareCall("{call CREAR_FORO"
+                    + "(?,?,?)}");
+            cs.registerOutParameter("_id_foro",
                     java.sql.Types.INTEGER);
-            cs.setInt("_id_foro", subforo.getForo().getIdForo());
-            cs.setString("_nombre",subforo.getNombre());
-      
+            cs.setString("_nombre", foro.getNombre());
+            cs.setString("_descripcion",foro.getDescripcion());
+            cs.setString("_origen_foro", String.valueOf(foro.getOrigen()));
             cs.executeUpdate();
-            subforo.setIdSubforo(cs.getInt("_id_subforo"));
-            subforo.setOculto(0);
-            resultado = subforo.getIdSubforo();
+            foro.setIdForo(cs.getInt("_id_foro"));
+            foro.setOculto(0);
+            resultado = foro.getIdForo();
+            
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -57,26 +55,20 @@ public class SubforoMySQL implements SubforoDAO{
     }
 
     @Override
-    public ArrayList<Hilo> mostrarHilosSubforo(Subforo subforo) {
-         ArrayList<Hilo> hilos =  new ArrayList<>();
-         
+    public ArrayList<Subforo> mostrarSubforosForo(Foro foro) {
+        ArrayList<Subforo> subforos =  new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call MOSTRAR_HILOS_POR_SUBFORO"
+            cs = con.prepareCall("{call MOSTRAR_SUBFOROS_POR_FORO"
                     + "(?)}");
  
-			cs.setInt("_id_subforo", subforo.getIdSubforo());
+			cs.setInt("_id_foro", foro.getIdForo());
             rs = cs.executeQuery();
 			while(rs.next()){
-                Hilo hilo = new Hilo();
-              
-                                boolean b = ((rs.getInt("fijado")) != 0);
-				hilo.setIdHilo(rs.getInt("id_hilo"));
-				hilo.setFijado(b);
-                                hilo.setNroMensajes(rs.getInt("nro_mensajes"));
-                                hilo.setFechaCreacion(rs.getDate("fecha_creacion"));
-                                hilo.setFechaModificacion(rs.getDate("fecha_modificacion"));
-				hilos.add(hilo);
+                Subforo subforo = new Subforo();
+				subforo.setIdSubforo(rs.getInt("id_subforo"));
+				subforo.setNombre(rs.getString("nombre"));
+				subforos.add(subforo);
                 
             }
         }catch(Exception ex){
@@ -91,23 +83,22 @@ public class SubforoMySQL implements SubforoDAO{
             }
 			
         }
-        return hilos;   
+        return subforos;   
     }
 
     @Override
-    public int editarSubforo(Subforo subforo,Foro foro) {
-         int resultado = 0;
+    public int editarForo(Foro foro) {
+      int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call EDITAR_SUBFORO"
-                    + "(?,?)}");
-           
-            cs.setInt("_id_subforo", subforo.getIdSubforo());
-            cs.setString("_nombre",subforo.getNombre());
-      
+            cs = con.prepareCall("{call EDITAR_FORO"
+                    + "(?,?,?,?)}");
+ 
+			cs.setInt("_id_foro", foro.getIdForo());
+            cs.setString("_nombre", foro.getNombre());
+            cs.setString("_descripcion",foro.getDescripcion());
+            cs.setString("_origen_foro", String.valueOf(foro.getOrigen()));
             resultado = cs.executeUpdate();
-
-            
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -115,24 +106,20 @@ public class SubforoMySQL implements SubforoDAO{
             try{con.close();}catch(Exception ex){
                 System.out.println(ex.getMessage());
             }
-
         }
-        return resultado;
+        return resultado;   
     }
 
     @Override
-    public int eliminarSubforo(Subforo subforo) {
+    public int eliminarForo(Foro foro) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call DESACTIVAR_SUBFORO"
+            cs = con.prepareCall("{call DESACTIVAR_FORO"
                     + "(?)}");
-           
-            cs.setInt("_id_subforo", subforo.getIdSubforo());
-      
+ 
+	    cs.setInt("_id_foro", foro.getIdForo());
             resultado = cs.executeUpdate();
-            subforo.setOculto(1);
-            
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -140,9 +127,8 @@ public class SubforoMySQL implements SubforoDAO{
             try{con.close();}catch(Exception ex){
                 System.out.println(ex.getMessage());
             }
-
         }
-        return resultado;
+        return resultado;   
     }
     
 }
