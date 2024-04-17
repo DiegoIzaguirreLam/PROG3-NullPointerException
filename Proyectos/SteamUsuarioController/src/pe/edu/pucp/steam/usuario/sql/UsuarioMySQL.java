@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.steam.usuario.controller.sql;
+package pe.edu.pucp.steam.usuario.sql;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.usuario.controller.dao.UsuarioDAO;
+import pe.edu.pucp.steam.usuario.dao.UsuarioDAO;
 import pe.edu.pucp.steam.usuario.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
