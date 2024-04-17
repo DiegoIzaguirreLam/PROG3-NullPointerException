@@ -6,15 +6,11 @@ package pe.edu.pucp.steam.biblioteca.controller.sql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.controller.dao.BandaSonoraDAO;
 import pe.edu.pucp.steam.biblioteca.controller.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.controller.dao.ProductoDAO;
 import pe.edu.pucp.steam.biblioteca.controller.dao.SoftwareDAO;
 import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
-import pe.edu.pucp.steam.biblioteca.model.producto.Etiqueta;
 import pe.edu.pucp.steam.biblioteca.model.producto.Juego;
 import pe.edu.pucp.steam.biblioteca.model.producto.Producto;
 import pe.edu.pucp.steam.biblioteca.model.producto.Software;
@@ -27,25 +23,7 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
 public class ProductoMySQL implements ProductoDAO {
     
     private Connection con;
-    private PreparedStatement pst;
     private CallableStatement cs;
-    private ResultSet rs;
-    
-    /*
-    @Override
-    public int crearProducto(Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int eliminarProducto(Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public ArrayList<Producto> listarProducto() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }*/
 
     @Override
     public Producto buscarProducto(int idProducto) {

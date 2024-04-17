@@ -6,10 +6,11 @@ package pe.edu.pucp.steam.biblioteca.controller.sql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.controller.dao.BibliotecaDAO;
+import pe.edu.pucp.steam.biblioteca.controller.dao.ColeccionDAO;
+import pe.edu.pucp.steam.biblioteca.controller.dao.ProductoAdquiridoDAO;
 import pe.edu.pucp.steam.biblioteca.model.Biblioteca;
 import pe.edu.pucp.steam.biblioteca.model.Coleccion;
 import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
@@ -21,7 +22,6 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
  */
 public class BibliotecaMySQL implements BibliotecaDAO{
     private Connection con;
-    private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
     @Override
@@ -62,18 +62,15 @@ public class BibliotecaMySQL implements BibliotecaDAO{
     }
 
     @Override
-    public int actualizarBiblioteca(Biblioteca biblioteca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public ArrayList<ProductoAdquirido> listarObjetos(Biblioteca biblioteca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ProductoAdquiridoDAO productoAdquiridoDAO = new ProductoAdquiridoMySQL();
+        return productoAdquiridoDAO.listarProductosAdquiridos(biblioteca);
     }
 
     @Override
-    public ArrayList<Coleccion> listarColeccion(Biblioteca biblioteca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Coleccion> listarColeccion(int idBiblioteca) {
+        ColeccionDAO coleccionDAO = new ColeccionMySQL();
+        return coleccionDAO.listarColecciones(idBiblioteca);
     }
     
 }
