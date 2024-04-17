@@ -6,7 +6,6 @@ package pe.edu.pucp.steam.biblioteca.controller.sql;
 
 import java.util.ArrayList;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import pe.edu.pucp.steam.biblioteca.controller.dao.BandaSonoraDAO;
@@ -21,7 +20,6 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
 public class BandaSonoraMySQL implements BandaSonoraDAO{
     
     private Connection con;
-    private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
     

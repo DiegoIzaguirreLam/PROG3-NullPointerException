@@ -6,7 +6,6 @@ package pe.edu.pucp.steam.biblioteca.controller.sql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.controller.dao.ColeccionDAO;
@@ -19,7 +18,6 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
  */
 public class ColeccionMySQL implements ColeccionDAO{
     private Connection con;
-    private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
 
@@ -88,7 +86,7 @@ public class ColeccionMySQL implements ColeccionDAO{
         ArrayList<Coleccion> colecciones = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_COLECCIONES}");
+            cs = con.prepareCall("{call LISTAR_COLECCIONES(?)}");
             cs.setInt("_fid_biblioteca", idBiblioteca);
             rs = cs.executeQuery();
             while(rs.next()){

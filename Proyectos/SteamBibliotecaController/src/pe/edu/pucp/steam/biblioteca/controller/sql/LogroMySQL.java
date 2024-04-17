@@ -4,7 +4,6 @@
  */
 package pe.edu.pucp.steam.biblioteca.controller.sql;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
  */
 public class LogroMySQL implements LogroDAO{
     private Connection con;
-    private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
     
@@ -110,8 +108,29 @@ public class LogroMySQL implements LogroDAO{
     }
 
     @Override
-    public int buscarLogro(int idLogro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Logro buscarLogro(int idLogro) {
+        Logro logro = new Logro();
+        logro.setIdLogro(-1);
+        try{
+            JuegoDAO juegoDAO = new JuegoMySQL();
+            int fid_juego;
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_LOGRO(?)}");
+            cs.setInt("_id_producto_adquirido", idLogro);
+            rs = cs.executeQuery();
+            if(rs.next()){
+                logro.setIdLogro(rs.getInt("id_producto_adquirido"));
+                logro.setNombre(rs.getString("nombre"));
+                logro.setDescripcion(rs.getString("descripcion"));
+                fid_juego = rs.getInt("fid_juego");
+                logro.setJuego(juegoDAO.buscarJuego(fid_juego));
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return logro;
     }
 
 }

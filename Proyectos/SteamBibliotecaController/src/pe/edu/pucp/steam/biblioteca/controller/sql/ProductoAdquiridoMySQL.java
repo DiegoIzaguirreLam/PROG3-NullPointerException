@@ -6,12 +6,12 @@ package pe.edu.pucp.steam.biblioteca.controller.sql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.controller.dao.BibliotecaDAO;
 import pe.edu.pucp.steam.biblioteca.controller.dao.ProductoAdquiridoDAO;
 import pe.edu.pucp.steam.biblioteca.controller.dao.ProductoDAO;
+import pe.edu.pucp.steam.biblioteca.model.Biblioteca;
 import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
@@ -21,7 +21,6 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
  */
 public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     private Connection con;
-    private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
     
@@ -90,14 +89,14 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     
     
     @Override
-    public ArrayList<ProductoAdquirido> listarProductosAdquiridos() {
+    public ArrayList<ProductoAdquirido> listarProductosAdquiridos(Biblioteca biblioteca) {
         ArrayList<ProductoAdquirido> productosAdquiridos = new ArrayList<>();
         try{
-            int idBiblioteca, idProducto;
-            BibliotecaDAO bibliotecaDAO = new BibliotecaMySQL();
+            int idProducto;
             ProductoDAO productoDAO = new ProductoMySQL();
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_PRODUCTOSADQUIRIDOS}");
+            cs = con.prepareCall("{call LISTAR_PRODUCTOSADQUIRIDOS(?)}");
+            cs.setInt("_id_biblioteca", biblioteca.getIdBiblioteca());
             rs = cs.executeQuery();
             while(rs.next()){
                 ProductoAdquirido producto = new ProductoAdquirido();
@@ -106,9 +105,8 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                 producto.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
                 producto.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
                 producto.setActualizado(rs.getBoolean("actualizado"));
-                idBiblioteca = rs.getInt("fid_biblioteca");
+                producto.setBiblioteca(biblioteca);
                 idProducto = rs.getInt("fid_producto");
-                producto.setBiblioteca(bibliotecaDAO.buscarBiblioteca(idBiblioteca));
                 producto.setProducto(productoDAO.buscarProducto(idProducto));
                 productosAdquiridos.add(producto);
             }
@@ -118,6 +116,36 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return productosAdquiridos;
+    }
+
+    @Override
+    public ProductoAdquirido buscarProductoAdquirido(int idProductoAdquirido) {
+        ProductoAdquirido producto = new ProductoAdquirido();
+        try{
+            int idBiblioteca, idProducto;
+            BibliotecaDAO bibliotecaDAO = new BibliotecaMySQL();
+            ProductoDAO productoDAO = new ProductoMySQL();
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_PRODUCTOADQUIRIDO(?)}");
+            cs.setInt("_id_producto_adquirido", idProductoAdquirido);
+            rs = cs.executeQuery();
+            if(rs.next()){
+                producto.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
+                producto.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
+                producto.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
+                producto.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
+                producto.setActualizado(rs.getBoolean("actualizado"));
+                idBiblioteca = rs.getInt("fid_biblioteca");
+                idProducto = rs.getInt("fid_producto");
+                producto.setBiblioteca(bibliotecaDAO.buscarBiblioteca(idBiblioteca));
+                producto.setProducto(productoDAO.buscarProducto(idProducto));
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return producto;
     }
 
   
