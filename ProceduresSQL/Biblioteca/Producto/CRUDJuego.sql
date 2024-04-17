@@ -3,11 +3,12 @@
 DROP PROCEDURE IF EXISTS INSERTAR_JUEGO;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_JUEGO(
-	OUT _id_juego INT,
-	IN _fid_proveedor INT,
-	IN _titulo VARCHAR(100),
-	IN _precio DECIMAL(5,2),
-	IN _descripcion VARCHAR(100),
+    OUT _id_juego INT,
+    IN _fid_proveedor INT,
+    IN _titulo VARCHAR(100),
+    IN _fecha_publicacion DATE,
+    IN _precio DECIMAL(5,2),
+    IN _descripcion VARCHAR(100),
     IN _espacio_disco DECIMAL(5,2),
     IN _oculto TINYINT,
     IN _requisitos_minimos VARCHAR(200),
