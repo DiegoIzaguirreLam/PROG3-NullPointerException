@@ -91,7 +91,7 @@ public class ComentarioMySQL implements ComentarioDAO{
         ArrayList<Comentario> comentarios =  new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_COMENTARIOS_PERFIL()}");
+            cs = con.prepareCall("{call LISTAR_COMENTARIOS()}");
             rs = cs.executeQuery();
             while(rs.next()){
                 Comentario comentario = new Comentario();
