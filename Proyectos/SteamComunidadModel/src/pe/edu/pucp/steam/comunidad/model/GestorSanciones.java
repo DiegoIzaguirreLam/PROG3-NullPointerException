@@ -12,9 +12,12 @@ import java.util.Date;
  * @author GAMER
  */
 public class GestorSanciones {
+
+  
     private int idGestor; //Su constructor llamará al id del Usuario
     private int contadorPalabras;
     private int contadorBaneos;
+    private int contadorFaltas;
     private int maxFaltas;
     private int maxBaneos;
     private Date finBan;
@@ -104,5 +107,14 @@ public class GestorSanciones {
 
     public void setSubforos(ArrayList<Subforo> subforos) {
         this.subforos = subforos;
+    }
+  
+    public int getContadorFaltas() {
+        return contadorFaltas;
+    }
+
+  
+    public void setContadorFaltas(int contadorFaltas) {
+        this.contadorFaltas = contadorFaltas;
     }
 }
