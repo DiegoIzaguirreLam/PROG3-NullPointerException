@@ -12,6 +12,8 @@ public class Pais {
     private int idPais;
     private String nombre;
     private TipoMoneda moneda;
+    
+    public Pais(){};
 
     public Pais(String nombre, TipoMoneda moneda) {
         this.nombre = nombre;
