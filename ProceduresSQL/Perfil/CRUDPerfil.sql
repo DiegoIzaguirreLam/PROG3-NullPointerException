@@ -12,9 +12,8 @@ DROP PROCEDURE IF EXISTS LISTAR_PERFILES;
 DELIMITER $
 CREATE PROCEDURE LISTAR_PERFILES()
 BEGIN
-    SELECT u.nombre_perfil
-    FROM Perfil p
-    INNER JOIN Usuario u ON u.UID=p.id_perfil
+    SELECT *
+    FROM Perfil
     WHERE oculto=false;
 END$
 
