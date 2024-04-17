@@ -17,6 +17,8 @@ public class Expositor {
     private ArrayList<ProductoAdquirido> mostrados;
     private boolean activo;
     private boolean oculto;
+    
+    public Expositor(){};
 
     public Expositor(Perfil owner, ArrayList<ProductoAdquirido> mostrados) {
         this.owner = owner;

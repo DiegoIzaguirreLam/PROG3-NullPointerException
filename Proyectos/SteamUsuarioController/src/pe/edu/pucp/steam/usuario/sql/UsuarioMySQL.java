@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
@@ -128,9 +130,39 @@ public class UsuarioMySQL implements UsuarioDAO{
 
     @Override
     public ArrayList<Usuario> listarUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        ArrayList<Usuario> users = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_USUARIO()}");     
+            rs = cs.executeQuery();
+            while(rs.next()){
+                try{date = sdf.parse(rs.getDate("FECHA_NACIMIENTO").toString());}
+                catch(Exception ex){System.out.println(ex.getMessage());}
+                Usuario user = new Usuario(rs.getInt("UID"),
+                                           rs.getString("NOMBRE_CUENTA"), 
+                                           rs.getString("NOMBRE_PERFIL"),
+                                           rs.getString("CORREO"),
+                                           rs.getString("TELEFONO"),
+                                           rs.getString("PASSWORD"),
+                                           rs.getInt("EDAD"),
+                                           date,
+                                           rs.getBoolean("VERIFICADO"),
+                                           rs.getInt("ACTIVO"),
+                                           rs.getInt("EXPERIENCIA_NIVEL"),
+                                           rs.getInt("NIVEL"),
+                                           rs.getInt("EXPERIENCIA"));
+                users.add(user);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+        return users;
     }
-
-    
-    
 }

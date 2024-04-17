@@ -1,4 +1,5 @@
 
+select * from Logro;
 DROP PROCEDURE IF EXISTS INSERTAR_LOGRO;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_LOGRO(
@@ -46,4 +47,14 @@ BEGIN
     SET activo = false
     WHERE id_logro = _id_logro;
 END$
+
+DROP PROCEDURE IF EXISTS BUSCAR_LOGRO;
+DELIMITER $
+CREATE PROCEDURE BUSCAR_LOGRO(
+	IN _id_logro INT
+)
+BEGIN
+	SELECT * FROM Logro WHERE id_logro = _id_logro;
+END$
+
 

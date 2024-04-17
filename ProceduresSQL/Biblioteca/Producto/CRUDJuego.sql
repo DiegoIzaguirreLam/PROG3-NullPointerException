@@ -72,4 +72,19 @@ BEGIN
     WHERE id_producto = _id_producto; 
 END$
 
+DROP PROCEDURE IF EXISTS BUSCAR_JUEGO;
+DELIMITER $
+CREATE PROCEDURE BUSCAR_JUEGO(
+	IN _id_producto INT
+)
+BEGIN
+    SELECT p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco,
+           j.requisitos_minimos, j.requisitos_recomendados, j.multijugador
+    FROM Producto p
+    INNER JOIN Juego j ON p.id_producto = j.id_juego
+    WHERE id_producto = _id_producto;
+END$
+
+
+
 SELECT * FROM ProductoAdquirido;

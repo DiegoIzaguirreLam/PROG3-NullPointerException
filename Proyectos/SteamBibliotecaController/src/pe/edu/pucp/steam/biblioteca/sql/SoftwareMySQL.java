@@ -6,7 +6,6 @@ package pe.edu.pucp.steam.biblioteca.sql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.SoftwareDAO;
@@ -19,7 +18,6 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
  */
 public class SoftwareMySQL implements SoftwareDAO{
     private Connection con;
-    private PreparedStatement pst;
     private CallableStatement cs;
     private ResultSet rs;
     
@@ -77,13 +75,13 @@ public class SoftwareMySQL implements SoftwareDAO{
     }
 
     @Override
-    public int eliminarSoftware(Software software) {
+    public int eliminarSoftware(int idSoftware) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_SOFTWARE"
                     + "(?)}");
-            cs.setInt("_id_producto", software.getIdProducto());
+            cs.setInt("_id_producto", idSoftware);
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -121,8 +119,28 @@ public class SoftwareMySQL implements SoftwareDAO{
     }
 
     @Override
-    public Software buscarSoftware(int software) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Software buscarSoftware(int idSoftware) {
+        Software software = new Software();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_SOFTWARE(?)}");
+            cs.setInt(1, software.getIdProducto());
+            rs = cs.executeQuery();
+            rs.next();
+            software.setIdProducto(rs.getInt("id_producto"));
+            software.setTitulo(rs.getString("titulo"));
+            software.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+            software.setPrecio(rs.getDouble("precio"));
+            software.setDescripcion(rs.getString("descripcion"));
+            software.setEspacioDisco(rs.getDouble("espacio_disco"));
+            software.setRequisitos(rs.getString("requisitos"));
+            software.setLicencia(rs.getString("licencia"));
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return software;
     }
 
 }

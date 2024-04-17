@@ -14,7 +14,6 @@ import pe.edu.pucp.steam.usuario.model.Usuario;
  */
 public interface PaisDAO {
     int crearPais(Pais pais);
-    int eliminarPais(Pais pais);
     ArrayList<Usuario> listarUsuario(Pais pais);
     Pais buscarPais(int idPais);
 }

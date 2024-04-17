@@ -125,6 +125,7 @@ CREATE TABLE MedallaUsuario(
 /* PAQUETE PERFIL */
 CREATE TABLE Perfil(
 	id_perfil INT,
+    oculto TINYINT NOT NULL,
     PRIMARY KEY(id_perfil),
     FOREIGN KEY(id_perfil) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -132,6 +133,8 @@ CREATE TABLE Perfil(
 CREATE TABLE Expositor(
 	id_expositor INT AUTO_INCREMENT,
     fid_perfil INT NOT NULL,
+    oculto TINYINT NOT NULL,
+    activo TINYINT NOT NULL,
     PRIMARY KEY(id_expositor),
     FOREIGN KEY(fid_perfil) REFERENCES Perfil(id_perfil)
 )ENGINE=InnoDB;
@@ -140,11 +143,14 @@ CREATE TABLE Comentario(
 	id_comentario INT AUTO_INCREMENT,
     texto VARCHAR(100) NOT NULL,
     nro_likes INT NOT NULL,
-    fid_perfil_comentarista INT NOT NULL,
-    fid_usuario INT NOT NULL,
+    oculto TINYINT NOT NULL,
+    fecha_publicacion DATE NOT NULL,
+    fecha_maxedicion DATE,
+    fid_perfil_comentado INT NOT NULL,
+    fid_usuario_comentarista INT NOT NULL,
     PRIMARY KEY(id_comentario),
-    FOREIGN KEY(fid_perfil_comentarista) REFERENCES Perfil(id_perfil),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
+    FOREIGN KEY(fid_perfil_comentado) REFERENCES Perfil(id_perfil),
+    FOREIGN KEY(fid_usuario_comentarista) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 /*PAQUETE COMUNIDAD*/
@@ -207,7 +213,11 @@ CREATE TABLE Mensaje(
 
 CREATE TABLE GestorSanciones(
 	id_gestor INT,
+    fin_ban DATE NOT NULL,
+    cant_faltas INT NOT NULL,
+    cant_baneos INT NOT NULL,
     contador_faltas INT NOT NULL,
+    contador_palabras INT NOT NULL,
     contador_baneos INT NOT NULL,
     max_faltas INT NOT NULL,
     max_baneos INT NOT NULL,
@@ -269,10 +279,11 @@ CREATE TABLE ProductoAdquirido(
     fecha_ejecucion DATE,
     tiempo_uso TIME NOT NULL,
     actualizado TINYINT NOT NULL,
+    oculto TINYINT NOT NULL,
     fid_biblioteca INT NOT NULL,
     fid_producto INT NOT NULL,
-    fid_expositor INT NOT NULL,
-    fid_movimiento INT NOT NULL,
+    fid_expositor INT,
+    fid_movimiento INT,
     PRIMARY KEY(id_producto_adquirido),
     FOREIGN KEY(fid_producto) REFERENCES Producto(id_producto),
     FOREIGN KEY(fid_biblioteca) REFERENCES Biblioteca(id_biblioteca),

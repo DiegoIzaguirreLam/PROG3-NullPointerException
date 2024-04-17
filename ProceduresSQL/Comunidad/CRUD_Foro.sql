@@ -6,6 +6,7 @@ CREATE PROCEDURE CREAR_FORO(
     IN _descripcion VARCHAR(200),
     IN _origen_foro VARCHAR(100)
 )
+
 BEGIN
 	INSERT INTO foro(nombre,descripcion,
     origen_foro,oculto) VALUES (_nombre,_descripcion,

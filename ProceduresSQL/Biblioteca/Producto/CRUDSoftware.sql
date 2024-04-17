@@ -73,3 +73,15 @@ BEGIN
     WHERE id_producto = _id_producto; 
 END$
 
+DROP PROCEDURE IF EXISTS BUSCAR_SOFTWARE;
+DELIMITER $
+CREATE PROCEDURE BUSCAR_SOFTWARE(
+	IN _id_producto INT
+)
+BEGIN
+    SELECT p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco,
+           s.requisitos, s.licencia
+    FROM Producto p
+    INNER JOIN Software s ON p.id_producto = s.id_software
+    WHERE id_producto = _id_producto;
+END$

@@ -18,6 +18,9 @@ public class Cartera {
     private ArrayList<Movimiento> movimientos;
     private Usuario owner;
 
+    public Cartera() {
+    }
+
     public Cartera(int idCartera, double fondos, int cantMovimientos, ArrayList<Movimiento> movimientos, Usuario owner) {
         this.idCartera = idCartera;
         this.fondos = fondos;

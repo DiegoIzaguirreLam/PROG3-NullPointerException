@@ -8,7 +8,10 @@ import pe.edu.pucp.steam.perfil.model.Expositor;
 import pe.edu.pucp.steam.perfil.dao.ExpositorDAO;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
+import pe.edu.pucp.steam.perfil.model.Perfil;
 
 /**
  *
@@ -17,6 +20,7 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
 public class ExpositorMySQL implements ExpositorDAO{
     private Connection con;
     private CallableStatement cs;
+    private ResultSet rs;
 
     @Override
     public int crearExpositor(Expositor expositor) {
@@ -53,7 +57,7 @@ public class ExpositorMySQL implements ExpositorDAO{
             cs.close();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        } finally {    //Siempre cierra la conexion y si no puede mostrar un mensaje
+        } finally {   
             try {con.close();} catch (Exception ex) {System.out.println(ex.getMessage());}
         }
         return resultado;
@@ -93,5 +97,56 @@ public class ExpositorMySQL implements ExpositorDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());};
         }
         return resultado;
+    }
+
+    @Override
+    public ArrayList<Expositor> listarExpositores() {
+        ArrayList<Expositor> expositores =  new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_EXPOSITORES()}");
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Expositor expositor = new Expositor();
+                expositor.setIdExpositor(rs.getInt("id_expositor"));
+                expositor.setActivo(rs.getBoolean("activo"));
+                expositor.setOculto(rs.getBoolean("oculto"));
+                expositor.setOwner(new Perfil());
+                expositor.getOwner().setIdPerfil(rs.getInt("fid_perfil"));
+                expositores.add(expositor);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return expositores;
+    }
+
+    @Override
+    public ArrayList<Expositor> listarExpositoresPerfil(int id_perfil) {
+        ArrayList<Expositor> expositores =  new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_EXPOSITORES_PERFIL(?)}");
+            cs.setInt("_id_perfil",id_perfil);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Expositor expositor = new Expositor();
+                expositor.setIdExpositor(rs.getInt("id_expositor"));
+                expositor.setActivo(rs.getBoolean("activo"));
+                expositor.setOculto(rs.getBoolean("oculto"));
+                expositor.setOwner(new Perfil());
+                expositor.getOwner().setIdPerfil(rs.getInt("fid_perfil"));
+                expositores.add(expositor);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return expositores;
     }
 }

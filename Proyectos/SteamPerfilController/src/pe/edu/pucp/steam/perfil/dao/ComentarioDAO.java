@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.perfil.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.steam.perfil.model.Comentario;
 
 /**
@@ -14,5 +15,6 @@ public interface ComentarioDAO {
     int crearComentario(Comentario comentario);
     int actualizarComentario(Comentario comentario);
     int ocultarComentario(Comentario comentario);
-    int leerComentario(Comentario comentario);
+    ArrayList<Comentario> listarComentarios();
+    ArrayList<Comentario> listarComentariosPerfil(int id_perfil);
 }

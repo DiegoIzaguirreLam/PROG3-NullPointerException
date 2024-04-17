@@ -16,6 +16,8 @@ public class Logro {
     private String descripcion;
     private Juego juego;
     private boolean activo;
+    
+    public Logro(){};
 
     public Logro(String nombre, String descripcion, Juego juego, boolean activo) {
         this.nombre = nombre;

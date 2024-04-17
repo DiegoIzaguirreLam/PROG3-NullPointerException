@@ -2,20 +2,21 @@
 DROP PROCEDURE IF EXISTS INSERTAR_PROVEEDOR;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PROVEEDOR(
-	IN _id_proveedor INT,
+	OUT _id_proveedor INT,
     IN _razon_social VARCHAR(100)
 )
 BEGIN
-	INSERT INTO Proveedor(id_proveedor, razon_social)
-    VALUES (_id_proveedor, _razon_social);
-END;
+	INSERT INTO Proveedor(razon_social)
+    VALUES (_razon_social);
+    SET _id_proveedor = @@last_insert_id;
+END$
 
-DROP PROCEDURE IF EXISTS LISTAR_PROVEEDOR;
+DROP PROCEDURE IF EXISTS LISTAR_PROVEEDORES;
 DELIMITER $
-CREATE PROCEDURE LISTAR_PROVEEDOR()
+CREATE PROCEDURE LISTAR_PROVEEDORES()
 BEGIN
 	SELECT * FROM Proveedor;
-END;
+END$
 
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PROVEEDOR;
 DELIMITER $
@@ -27,17 +28,16 @@ BEGIN
 	UPDATE Proveedor
     SET razon_social = _razon_social
     WHERE id_proveedor = _id_proveedor;
-END;
+END$
 
 DROP PROCEDURE IF EXISTS ELIMINAR_PROVEEDOR;
 DELIMITER $
 CREATE PROCEDURE ELIMINAR_PROVEEDOR(
-	IN _id_proveedor INT,
-    IN _razon_social VARCHAR(100)
+	IN _id_proveedor INT
 )
 BEGIN
 	#DELETE FROM Proveedor WHERE id_proveedor = _id_proveedor;
     UPDATE Producto
     SET oculto = true
     WHERE fid_proveedor = _id_proveedor;
-END;
+END$

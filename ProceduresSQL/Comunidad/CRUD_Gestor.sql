@@ -5,16 +5,24 @@ CREATE PROCEDURE CREAR_GESTOR(
     IN _id_usuario INT,
     IN _contador_faltas INT,
     IN _contador_baneos INT,
+    IN _contador_palabras INT,
     IN _max_faltas INT,
-    IN _max_baneos INT
+    IN _max_baneos INT,
+    IN _cant_baneos INT,
+    IN _cant_faltas INT,
+    IN _fin_ban DATE
 )
 BEGIN
 	INSERT INTO hilo(id_gestor,contador_faltas,
-    contador_baneos,
-    max_faltas,max_baneos)
+    contador_baneos,contador_palabras,
+    max_faltas,max_baneos,
+    cant_baneos, cant_faltas,
+    fin_ban)
     VALUES (_id_usuario,_contador_faltas,
-    _contador_baneos,
-    _max_faltas,_max_baneos);
+    _contador_baneos,contador_palabras,
+    _max_faltas,_max_baneos,
+    _cant_baneos, _cant_faltas,
+    _fin_ban);
 	SET _id_gestor = @@last_insert_id;
 
 END $
@@ -37,15 +45,23 @@ CREATE PROCEDURE EDITAR_GESTOR(
     IN _id_gestor INT,
     IN _contador_faltas INT,
     IN _contador_baneos INT,
+    IN _contador_palabras INT,
     IN _max_faltas INT,
-    IN _max_baneos INT
+    IN _max_baneos INT,
+    IN _cant_baneos INT,
+    IN _cant_faltas INT,
+    IN _fin_ban DATE
 )
 BEGIN
 	UPDATE gestorsanciones SET
     contador_faltas = _contador_faltas,
     contador_baneos = _contador_baneos,
+    contador_palabras = _contador_palabras,
     max_faltas = _max_faltas,
-    max_baneos = _max_baneos 
+    max_baneos = _max_baneos,
+    cant_baneos = _cant_baneos,
+    cant_faltas = _cant_faltas,
+    fin_ban = _fin_ban
     WHERE id_gestor = _id_gestor; 
 END $
 

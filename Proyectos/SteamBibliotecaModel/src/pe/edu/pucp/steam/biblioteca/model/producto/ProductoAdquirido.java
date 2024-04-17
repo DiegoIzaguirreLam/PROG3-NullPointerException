@@ -26,9 +26,10 @@ public class ProductoAdquirido implements IConsultable{
     private ArrayList<LogroDesbloqueado> desbloqueados;
     private ArrayList<Coleccion> colecciones;
     private Biblioteca biblioteca;
-    private int idUsuario;
+    
+    public ProductoAdquirido(){};
 
-    public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, LocalTime tiempoUso, boolean actualizado, boolean oculto, Producto producto, ArrayList<LogroDesbloqueado> desbloqueados, ArrayList<Coleccion> colecciones, Biblioteca biblioteca, int idUsuario) {
+    public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, LocalTime tiempoUso, boolean actualizado, boolean oculto, Producto producto, ArrayList<LogroDesbloqueado> desbloqueados, ArrayList<Coleccion> colecciones, Biblioteca biblioteca) {
         this.fechaAdquisicion = fechaAdquisicion;
         this.fechaEjecutado = fechaEjecutado;
         this.tiempoUso = tiempoUso;
@@ -38,7 +39,6 @@ public class ProductoAdquirido implements IConsultable{
         this.desbloqueados = desbloqueados;
         this.colecciones = colecciones;
         this.biblioteca = biblioteca;
-        this.idUsuario = idUsuario;
     }
 
     public int getIdProductoAdquirido() {
@@ -119,14 +119,6 @@ public class ProductoAdquirido implements IConsultable{
 
     public void setBiblioteca(Biblioteca biblioteca) {
         this.biblioteca = biblioteca;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     @Override

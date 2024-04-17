@@ -20,6 +20,8 @@ public class Comentario {
     private Date fechaPublicacion;
     private int idComentarista;
 
+    public Comentario(){};
+    
     public Comentario(Perfil perfilComentado, String texto, int nlikes, boolean oculto, Date fechaMaxEdicion, Date fechaPublicacion, int idComentarista) {
         this.perfilComentado = perfilComentado;
         this.texto = texto;
