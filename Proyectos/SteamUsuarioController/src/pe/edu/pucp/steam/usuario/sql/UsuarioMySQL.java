@@ -138,11 +138,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                                            rs.getString("NOMBRE_PERFIL"),
                                            rs.getString("CORREO"),
                                            rs.getString("TELEFONO"),
-<<<<<<< HEAD
                                            rs.getString("CONTRASENIA"),
-=======
-                                           rs.getString("contrasenia"),
->>>>>>> 17454bc88d4a63c5a4c5ef37fa40b8992b216e25
                                            rs.getInt("EDAD"),
                                            date,
                                            rs.getBoolean("VERIFICADO"),
