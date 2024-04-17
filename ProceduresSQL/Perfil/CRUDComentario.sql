@@ -18,10 +18,8 @@ DROP PROCEDURE IF EXISTS LISTAR_COMENTARIOS;
 DELIMITER $
 CREATE PROCEDURE LISTAR_COMENTARIOS()
 BEGIN
-    SELECT id_comentario, u.nombre_perfil as 'autor', p.id_perfil as 'perfil comentado', texto, nro_likes, fecha_publicacion, fecha_maxedicion
-    FROM Comentario c
-    INNER JOIN Usuario u ON u.UID = c.fid_usuario_comentarista
-    INNER JOIN Perfil p ON p.id_perfil = c.fid_perfil_comentado
+    SELECT *
+    FROM Comentario
     WHERE oculto = false;
 END$
 
@@ -31,9 +29,8 @@ CREATE PROCEDURE LISTAR_COMENTARIOS_PERFIL(
 	IN _id_perfil INT
 )
 BEGIN
-    SELECT id_comentario, u.nombre_perfil as 'autor', texto, nro_likes, fecha_publicacion, fecha_maxedicion
-    FROM Comentario c
-    INNER JOIN Usuario u ON u.UID = c.fid_usuario_comentarista
+    SELECT *
+    FROM Comentario
     WHERE oculto = false
     AND _id_perfil = fid_perfil_comentarista;
 END$
