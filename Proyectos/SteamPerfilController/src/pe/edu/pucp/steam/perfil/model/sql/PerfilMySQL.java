@@ -5,13 +5,14 @@
 package pe.edu.pucp.steam.perfil.model.sql;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.perfil.model.Comentario;
-import pe.edu.pucp.steam.perfil.model.Expositor;
 import pe.edu.pucp.steam.perfil.model.Perfil;
 import pe.edu.pucp.steam.perfil.model.dao.PerfilDAO;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
+import pe.edu.pucp.steam.perfil.model.dao.ComentarioDAO;
+import pe.edu.pucp.steam.perfil.model.dao.ExpositorDAO;
 
 /**
  *
@@ -20,12 +21,13 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
 public class PerfilMySQL implements PerfilDAO{
     private Connection con;
     private CallableStatement cs;
+    private ResultSet rs;
 
     @Override
     public int crearPerfil(Perfil perfil) {
         int resultado = 0;
         try {
-            con = DriverManager.getInstance().getConnection();
+            con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
             cs.executeUpdate();
@@ -43,7 +45,7 @@ public class PerfilMySQL implements PerfilDAO{
     public int actualizaPerfil(Perfil perfil) {
         int resultado = 0;
         try {
-            con = DriverManager.getInstance().getConnection();
+            con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
             cs.setBoolean("_oculto", perfil.getOculto());
@@ -62,7 +64,7 @@ public class PerfilMySQL implements PerfilDAO{
     public int ocultarPerfil(Perfil perfil) {
         int resultado = 0;
         try {
-            con = DriverManager.getInstance().getConnection();
+            con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call OCULTAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
             cs.executeUpdate();
@@ -77,18 +79,51 @@ public class PerfilMySQL implements PerfilDAO{
     }
 
     @Override
-    public int buscarPerfil(int idUser) {
-        
+    public Perfil buscarPerfil(int idUser) {
+        Perfil perfil= new Perfil();
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_PERFIL(?)}");
+            cs.setInt("_id_usuario", idUser);
+            rs = cs.executeQuery();
+            rs.next();
+            perfil.setIdPerfil(rs.getInt("id_perfil"));
+            perfil.setOculto(rs.getBoolean("oculto"));
+            ComentarioDAO daoComentario = new ComentarioMySQL();
+            perfil.setComentarios(daoComentario.listarComentariosPerfil(perfil.getIdPerfil()));
+            ExpositorDAO daoExpositor = new ExpositorMySQL();
+            perfil.setExpositores(daoExpositor.listarExpositoresPerfil(perfil.getIdPerfil()));
+//            ObjetoUsable daoObjetoUsable = new ObjetoUsableMySQL();
+//            perfil.setMostradosPerfil(daoObjetoUsable.listarObjetosUsablesPerfil(perfil.getIdPerfil()));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {  
+            try {con.close();} catch (Exception ex) {System.out.println(ex.getMessage());}
+            try {rs.close();} catch (Exception ex) {System.out.println(ex.getMessage());}
+        }
+        return perfil;
     }
 
     @Override
-    public ArrayList<Comentario> listarComentarios(Perfil perfil) {
-        
-    }
-
-    @Override
-    public ArrayList<Expositor> listarExpositores(Perfil perfil) {
-        
+    public ArrayList<Perfil> listarPerfiles() {
+        ArrayList<Perfil> perfiles =  new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_PERFILES()}");
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Perfil perfil = new Perfil();
+                perfil.setIdPerfil(rs.getInt("id_perfil"));
+                perfil.setOculto(rs.getBoolean("oculto"));
+                perfiles.add(perfil);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return perfiles;
     }
     
     
