@@ -50,7 +50,7 @@ public class PaisMySQL implements PaisDAO{
         ArrayList<Pais> paises = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_PAISES}");
+            cs = con.prepareCall("{call LISTAR_PAISES()}");
             rs = cs.executeQuery();
             while(rs.next()){
                 Pais pais = new Pais();
@@ -73,7 +73,8 @@ public class PaisMySQL implements PaisDAO{
         pais.setIdPais(-1);
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_PAISES}");
+            cs = con.prepareCall("{call BUSCAR_PAIS(?)}");
+            cs.setInt("_ID_PAIS", pais.getIdPais());
             rs = cs.executeQuery();
             rs.next();
             pais.setIdPais(rs.getInt("id_pais"));
