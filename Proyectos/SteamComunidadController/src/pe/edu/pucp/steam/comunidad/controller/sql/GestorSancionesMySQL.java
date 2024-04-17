@@ -95,10 +95,10 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
         return resultado;
     }
     
-    @Override
+    /*@Override
     public int buscarGestor(int idUser) {
        
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }*/
     
 }
