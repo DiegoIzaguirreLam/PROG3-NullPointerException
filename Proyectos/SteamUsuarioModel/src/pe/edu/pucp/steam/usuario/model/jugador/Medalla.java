@@ -16,6 +16,8 @@ public class Medalla {
     private String nombre;
     private int experiencia;
     private ArrayList<Usuario> jugadores;
+    
+    public Medalla(){};
 
     public Medalla(int idMedalla, String nombre, int experiencia, ArrayList<Usuario> jugadores) {
         this.idMedalla = idMedalla;
