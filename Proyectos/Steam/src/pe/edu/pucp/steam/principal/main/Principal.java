@@ -110,6 +110,7 @@ public class Principal {
                                + usuario.getNombreCuenta() + " - "
                                + usuario.getPassword());
         }
+<<<<<<< HEAD
         System.out.println();
         System.out.println();
         System.out.println();
@@ -151,6 +152,12 @@ public class Principal {
         //----------------------------------------------------------------------
         // Creación de los juegos
         System.out.println("Ahora, se van a registrar a los juegos.");
+=======
+        
+        
+        // CRUD JUEGO
+        JuegoDAO daoJuego = new JuegoMySQL();
+>>>>>>> 17454bc88d4a63c5a4c5ef37fa40b8992b216e25
         Juego juego1 = new Juego();
         juego1.setTitulo("Juego 1");
         juego1.setFechaPublicacion(sdf.parse("01-01-0001"));

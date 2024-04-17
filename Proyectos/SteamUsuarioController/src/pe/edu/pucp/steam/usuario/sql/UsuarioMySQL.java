@@ -69,7 +69,7 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setInt("_EXPERIENCIA_NIVEL", jugador.getExpNivel());
             cs.setInt("_NIVEL", jugador.getNivel());
             cs.setInt("_EXPERIENCIA", jugador.getExperiencia());
-            pst = con.prepareStatement("SELECT ID_PAIS FROM PAIS WHERE NOMBRE = '" + jugador.getPais().getNombre() + "'");
+            pst = con.prepareStatement("SELECT ID_PAIS FROM Pais WHERE NOMBRE = '" + jugador.getPais().getNombre() + "'");
             rs = pst.executeQuery();
             rs.next();
             cs.setInt("_FID_PAIS", rs.getInt("ID_PAIS"));
@@ -138,7 +138,11 @@ public class UsuarioMySQL implements UsuarioDAO{
                                            rs.getString("NOMBRE_PERFIL"),
                                            rs.getString("CORREO"),
                                            rs.getString("TELEFONO"),
+<<<<<<< HEAD
                                            rs.getString("CONTRASENIA"),
+=======
+                                           rs.getString("contrasenia"),
+>>>>>>> 17454bc88d4a63c5a4c5ef37fa40b8992b216e25
                                            rs.getInt("EDAD"),
                                            date,
                                            rs.getBoolean("VERIFICADO"),

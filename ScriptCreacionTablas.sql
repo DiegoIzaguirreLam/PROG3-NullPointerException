@@ -260,6 +260,7 @@ CREATE TABLE Producto(
     precio DECIMAL(5,2) NOT NULL,
     descripcion VARCHAR(100) NOT NULL,
     espacio_disco DECIMAL(5,2) NOT NULL,
+    oculto TINYINT NOT NULL,
     fid_proveedor INT NOT NULL,
     PRIMARY KEY(id_producto),
     FOREIGN KEY(fid_proveedor) REFERENCES Proveedor(id_proveedor)

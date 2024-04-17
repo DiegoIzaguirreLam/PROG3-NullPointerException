@@ -14,6 +14,8 @@ public class Notificacion {
     private String mensaje;
     private Usuario usuario;
     private boolean revisada;
+    
+    public Notificacion(){};
 
     public Notificacion(TipoNotificacion tipo, String mensaje, Usuario usuario, boolean revisada) {
         this.tipo = tipo;
