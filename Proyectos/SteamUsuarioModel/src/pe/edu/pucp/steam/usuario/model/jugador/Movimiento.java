@@ -21,6 +21,8 @@ public class Movimiento {
     private MetodoPago metodoPago;
     private Cartera cartera;
     private ArrayList<Producto> producto;
+    
+    public Movimiento(){};
 
     public Movimiento(String idTransaccion, Date fecha, double monto, TipoMovimiento tipo, MetodoPago metodoPago, Cartera cartera, ArrayList<Producto> producto) {
         this.idTransaccion = idTransaccion;
