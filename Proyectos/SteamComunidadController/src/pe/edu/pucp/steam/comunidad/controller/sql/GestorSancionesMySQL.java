@@ -71,6 +71,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
             cs.setInt("_id_usuario", gestorSanciones.getIdGestor());
             cs.setInt("_contador_baneos",gestorSanciones.getContadorBaneos());
             cs.setInt("_contador_palabras",gestorSanciones.getContadorPalabras());
+            cs.setInt("_contador_faltas",gestorSanciones.getContadorFaltas());
             cs.setInt("_max_faltas",gestorSanciones.getMaxFaltas());
             cs.setInt("_max_baneos",gestorSanciones.getMaxBaneos());
             cs.setInt("_cant_baneos",gestorSanciones.getCantBaneos());
@@ -93,7 +94,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
         }
         return resultado;
     }
-
+    
     @Override
     public int buscarGestor(int idUser) {
        
