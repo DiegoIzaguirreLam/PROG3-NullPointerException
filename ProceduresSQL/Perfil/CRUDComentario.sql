@@ -21,7 +21,7 @@ BEGIN
     SELECT c.id_comentario, c.nro_likes, c.oculto, c.fecha_publicacion, c.fecha_maxedicion, p.id_perfil, p.oculto as 'perfil_oculto'
     FROM Comentario c
     INNER JOIN Perfil p on p.id_perfil = c.fid_perfil_comentado
-    WHERE oculto = false;
+    WHERE c.oculto = false;
 END$
 
 DROP PROCEDURE IF EXISTS LISTAR_COMENTARIOS_PERFIL;
@@ -33,8 +33,8 @@ BEGIN
     SELECT c.id_comentario, c.nro_likes, c.oculto, c.fecha_publicacion, c.fecha_maxedicion, p.id_perfil, p.oculto as 'perfil_oculto'
     FROM Comentario c
     INNER JOIN Perfil p on p.id_perfil = c.fid_perfil_comentado
-    WHERE oculto = false
-    AND _id_perfil = fid_perfil_comentarista;
+    WHERE c.oculto = false
+    AND _id_perfil = fid_perfil_comentado;
 END$
 
 DROP PROCEDURE IF EXISTS ACTUALIZAR_COMENTARIO;
