@@ -53,7 +53,8 @@ public class Principal {
                                + usuario.getNombreCuenta() + " "
                                + usuario.getPassword());
         }
-
+        
+        
         // CRUD JUEGO
         JuegoDAO daoJuego = new JuegoMySQL();
         Juego juego1 = new Juego();
