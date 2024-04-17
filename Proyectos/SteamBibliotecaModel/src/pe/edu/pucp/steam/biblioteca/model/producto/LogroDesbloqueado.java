@@ -15,13 +15,13 @@ public class LogroDesbloqueado {
     private Date fechaDesbloqueo;
     private ProductoAdquirido juego;
     private Logro logro;
-    private int idUsuario;
 
-    public LogroDesbloqueado(Date fechaDesbloqueo, ProductoAdquirido juego, Logro logro, int idUsuario) {
+    public LogroDesbloqueado() {}
+    
+    public LogroDesbloqueado(Date fechaDesbloqueo, ProductoAdquirido juego, Logro logro) {
         this.fechaDesbloqueo = fechaDesbloqueo;
         this.juego = juego;
         this.logro = logro;
-        this.idUsuario = idUsuario;
     }
 
     public int getIdLogroDesbloqueado() {
@@ -54,13 +54,5 @@ public class LogroDesbloqueado {
 
     public void setLogro(Logro logro) {
         this.logro = logro;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 }
