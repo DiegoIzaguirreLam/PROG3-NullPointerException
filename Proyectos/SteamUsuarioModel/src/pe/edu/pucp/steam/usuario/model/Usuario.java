@@ -41,7 +41,16 @@ public class Usuario {
     private Cartera cartera;
 
     public Usuario(){};
-    public Usuario(String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, int activo, int experiencia, Pais pais, Biblioteca biblioteca, Notificacion notificaciones, Inventario inventario, ArrayList<Comentario> comentarios, GestorSanciones gestorSanciones, ArrayList<Mensaje> mensajes, Perfil perfil, ArrayList<Foro> foros, ArrayList<Usuario> amigos, ArrayList<Usuario> bloqueados, ArrayList<Medalla> medallas, Cartera cartera) {
+    public Usuario(String nombreCuenta, String nombrePerfil, String correo,
+                   String telefono, String password, int edad,
+                   Date fechaNacimiento, boolean verificado, int expNivel,
+                   int nivel, int activo, int experiencia, Pais pais,
+                   Biblioteca biblioteca, Notificacion notificaciones,
+                   Inventario inventario, ArrayList<Comentario> comentarios,
+                   GestorSanciones gestorSanciones, ArrayList<Mensaje> mensajes,
+                   Perfil perfil, ArrayList<Foro> foros,
+                   ArrayList<Usuario> amigos, ArrayList<Usuario> bloqueados,
+                   ArrayList<Medalla> medallas, Cartera cartera) {
         this.nombreCuenta = nombreCuenta;
         this.nombrePerfil = nombrePerfil;
         this.correo = correo;

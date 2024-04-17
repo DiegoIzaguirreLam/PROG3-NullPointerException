@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.steam.usuario.sql;
 
 import java.util.ArrayList;
@@ -15,10 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
-/**
- *
- * @author GAMER
- */
 public class UsuarioMySQL implements UsuarioDAO{
     private Connection con;
     private PreparedStatement pst;
@@ -29,20 +21,20 @@ public class UsuarioMySQL implements UsuarioDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            cs = con.prepareCall("{call CREAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
             cs.registerOutParameter("_ID_USUARIO", java.sql.Types.INTEGER);
             cs.setString("_NOMBRE_CUENTA", jugador.getNombreCuenta());
             cs.setString("_NOMBRE_PERFIL", jugador.getNombrePerfil());
             cs.setString("_CORREO", jugador.getCorreo());
             cs.setString("_TELEFONO", jugador.getTelefono());
             cs.setString("_CONTRASENIA", jugador.getPassword());
-            cs.setInt("__EDAD", jugador.getEdad());
+            cs.setInt("_EDAD", jugador.getEdad());
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setInt("_VERIFICADO", 1);
             cs.setInt("_EXPERIENCIA_NIVEL", jugador.getExpNivel());
             cs.setInt("_NIVEL", jugador.getNivel());
             cs.setInt("_EXPERIENCIA", jugador.getExperiencia());
-            pst = con.prepareStatement("SELECT ID_PAIS FROM PAIS WHERE NOMBRE = '" + jugador.getPais().getNombre() + "'");
+            pst = con.prepareStatement("SELECT ID_PAIS FROM Pais WHERE NOMBRE = '" + jugador.getPais().getNombre() + "'");
             rs = pst.executeQuery();
             rs.next();
             cs.setInt("_FID_PAIS", rs.getInt("ID_PAIS"));
@@ -146,7 +138,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                                            rs.getString("NOMBRE_PERFIL"),
                                            rs.getString("CORREO"),
                                            rs.getString("TELEFONO"),
-                                           rs.getString("PASSWORD"),
+                                           rs.getString("CONTRASENIA"),
                                            rs.getInt("EDAD"),
                                            date,
                                            rs.getBoolean("VERIFICADO"),

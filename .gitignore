@@ -38,3 +38,7 @@ replay_pid*
 /Proyectos/SteamInventarioModel/build/
 >>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 /Proyectos/SteamPerfilModel/build/
+/Proyectos/SteamUsuarioModel/dist/
+/Proyectos/SteamPerfilController/dist/
+/Proyectos/SteamUsuarioController/dist/
+/Proyectos/Steam/dist/

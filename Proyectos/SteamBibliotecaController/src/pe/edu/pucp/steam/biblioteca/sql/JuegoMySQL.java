@@ -28,11 +28,13 @@ public class JuegoMySQL implements JuegoDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_JUEGO"
-                    + "(?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_juego",
                     java.sql.Types.INTEGER);
             cs.setInt("_fid_proveedor", juego.getProveedor().getIdProveedor());
             cs.setString("_titulo", juego.getTitulo());
+            cs.setDate("_fecha_publicacion",
+                       new java.sql.Date(juego.getFechaPublicacion().getTime()));
             cs.setDouble("_precio", juego.getPrecio());
             cs.setString("_descripcion", juego.getDescripcion());
             cs.setDouble("_espacio_disco", juego.getEspacioDisco());
