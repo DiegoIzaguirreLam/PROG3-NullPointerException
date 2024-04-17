@@ -6,6 +6,14 @@ package pe.edu.pucp.steam.principal.main;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import pe.edu.pucp.steam.biblioteca.dao.BibliotecaDAO;
+import pe.edu.pucp.steam.biblioteca.dao.JuegoDAO;
+import pe.edu.pucp.steam.biblioteca.model.producto.Juego;
+import pe.edu.pucp.steam.biblioteca.sql.BibliotecaMySQL;
+import pe.edu.pucp.steam.biblioteca.sql.JuegoMySQL;
+import pe.edu.pucp.steam.comunidad.dao.MensajeDAO;
+import pe.edu.pucp.steam.comunidad.model.Mensaje;
+import pe.edu.pucp.steam.comunidad.sql.MensajeMySQL;
 import pe.edu.pucp.steam.usuario.dao.UsuarioDAO;
 import pe.edu.pucp.steam.usuario.model.Pais;
 import pe.edu.pucp.steam.usuario.model.TipoMoneda;
@@ -20,6 +28,8 @@ public class Principal {
     public static void main(String[] args){
         
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        
+        // CRUD PARA USUARIO
         UsuarioDAO daoUsuario = new UsuarioMySQL();
         
         Pais pais1 = new Pais("Peru",TipoMoneda.PEN);
@@ -31,6 +41,7 @@ public class Principal {
         usuario1.setCorreo("a20210750@pucp.edu.pe");
         usuario1.setTelefono("123456789");
         usuario1.setPassword("password");
+        usuario1.setEdad(19);
         usuario1.setFechaNacimiento(sdf.parse("24-03-1989"));
         usuario1.setVerificado(true);
         usuario1.setExpNivel(4);
@@ -54,6 +65,14 @@ public class Principal {
         }
         
         
+        // CRUD JUEGO
+        JuegoDAO daoJuego = new JuegoMySQL();
+        Juego juego1 = new Juego();
+        
+        
+        // CRUD MENSAJE
+        MensajeDAO daoMensaje = new MensajeMySQL();
+        Mensaje mensaje1 = new Mensaje();
         
     }
 }
