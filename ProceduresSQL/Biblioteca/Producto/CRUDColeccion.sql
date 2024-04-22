@@ -9,8 +9,8 @@ CREATE PROCEDURE INSERTAR_COLECCION(
     IN _fid_biblioteca INT
 )
 BEGIN
-	INSERT INTO Coleccion(nombre, fid_biblioteca)
-    VALUES (_nombre, _fid_biblioteca);
+	INSERT INTO Coleccion(nombre, fid_biblioteca, activo)
+    VALUES (_nombre, _fid_biblioteca, 1);
     SET _id_coleccion = @@last_insert_id;
 END$
 
@@ -36,8 +36,7 @@ CREATE PROCEDURE ELIMINAR_COLECCION(
 	IN _id_coleccion INT
 )
 BEGIN
-	DELETE FROM ProductoAdquirido_Coleccion	WHERE fid_coleccion = _id_coleccion;
-    DELETE FROM Coleccion WHERE id_coleccion = _id_coleccion;
+	UPDATE FROM Coleccion SET activo = false where id_coleccion = _id_coleccion;
 END$
 
 

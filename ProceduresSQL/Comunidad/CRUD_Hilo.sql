@@ -11,10 +11,10 @@ CREATE PROCEDURE CREAR_HILO(
 BEGIN
 	INSERT INTO hilo(fijado,fecha_creacion,
     fecha_modificacion,fid_subforo,fid_creador,
-    nro_mensajes,oculto)
+    nro_mensajes,oculto, activo)
     VALUES (_fijado,_fecha_creacion,
     _fecha_modificacion,_id_subforo,
-    _id_usuario,0,0);
+    _id_usuario,0,0, 1);
 	SET _id_hilo = @@last_insert_id;
 
 END $
@@ -53,6 +53,17 @@ CREATE PROCEDURE DESACTIVAR_HILO(
 )
 BEGIN
 	UPDATE hilo SET oculto = 1
+    WHERE id_hilo = _id_hilo; 
+
+END $
+
+DROP PROCEDURE IF EXISTS ELIMINAR_HILO;
+DELIMITER $ 
+CREATE PROCEDURE ELIMINAR_HILO(
+	IN _id_hilo INT
+)
+BEGIN
+	UPDATE hilo SET activo = 0
     WHERE id_hilo = _id_hilo; 
 
 END $

@@ -20,8 +20,8 @@ BEGIN
     VALUES(_titulo, _fecha_publicacion, _precio,
     _descripcion,_espacio_disco, _oculto, _fid_proveedor);
     SET _id_banda_sonora = @@last_insert_id;
-    INSERT INTO BandaSonora(id_banda_sonora,artista,compositor,duracion)
-    VALUES(_id_banda_sonora,_artista,_compositor,_duracion);
+    INSERT INTO BandaSonora(id_banda_sonora, id_producto, artista,compositor,duracion)
+    VALUES(_id_banda_sonora, _id_banda_sonora, _artista,_compositor,_duracion);
 END$
 
 DROP PROCEDURE IF EXISTS LISTAR_BANDASONORAS;

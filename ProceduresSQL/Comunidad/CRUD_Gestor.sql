@@ -13,16 +13,16 @@ CREATE PROCEDURE CREAR_GESTOR(
     IN _fin_ban DATE
 )
 BEGIN
-	INSERT INTO hilo(id_gestor,contador_faltas,
+	INSERT INTO hilo(id_gestor, id_usuario, contador_faltas,
     contador_baneos,contador_palabras,
     max_faltas,max_baneos,
     cant_baneos, cant_faltas,
-    fin_ban)
-    VALUES (_id_usuario,_contador_faltas,
+    fin_ban, activo)
+    VALUES (_id_usuario, _id_usuario, _contador_faltas,
     _contador_baneos,contador_palabras,
     _max_faltas,_max_baneos,
     _cant_baneos, _cant_faltas,
-    _fin_ban);
+    _fin_ban, 1);
 	SET _id_gestor = @@last_insert_id;
 
 END $

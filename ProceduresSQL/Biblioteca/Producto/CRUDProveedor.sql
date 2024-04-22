@@ -6,8 +6,8 @@ CREATE PROCEDURE INSERTAR_PROVEEDOR(
     IN _razon_social VARCHAR(100)
 )
 BEGIN
-	INSERT INTO Proveedor(razon_social)
-    VALUES (_razon_social);
+	INSERT INTO Proveedor(razon_social, activo)
+    VALUES (_razon_social, 1);
     SET _id_proveedor = @@last_insert_id;
 END$
 
@@ -36,7 +36,9 @@ CREATE PROCEDURE ELIMINAR_PROVEEDOR(
 	IN _id_proveedor INT
 )
 BEGIN
-	#DELETE FROM Proveedor WHERE id_proveedor = _id_proveedor;
+	UPDATE Proveedor
+    SET activo = false
+    WHERE id_proveedor = _id_proveedor;
     UPDATE Producto
     SET oculto = true
     WHERE fid_proveedor = _id_proveedor;

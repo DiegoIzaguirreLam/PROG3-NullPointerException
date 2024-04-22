@@ -6,8 +6,8 @@ CREATE PROCEDURE INSERTAR_ETIQUETA(
     IN _nombre VARCHAR(100)
 )
 BEGIN
-	INSERT INTO Etiqueta(nombre)
-    VALUES (_nombre);
+	INSERT INTO Etiqueta(nombre, activo)
+    VALUES (_nombre, 1);
     SET _id_etiqueta = @@last_insert_id;
 END;
 
@@ -36,6 +36,5 @@ CREATE PROCEDURE ELIMINAR_ETIQUETA(
 	IN _id_etiqueta INT
 )
 BEGIN
-	DELETE FROM ProductoEtiqueta WHERE fid_etiqueta = _id_etiqueta;
-    DELETE FROM Etiqueta WHERE id_etiqueta = _id_etiqueta;
+	UPDATE Etiqueta SET activo = 0 WHERE id_etiqueta = _id_etiqueta;
 END;

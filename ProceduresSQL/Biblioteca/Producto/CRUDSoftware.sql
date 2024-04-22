@@ -19,8 +19,8 @@ BEGIN
     VALUES(_titulo, _fecha_publicacion, _precio,
     _descripcion,_espacio_disco,_oculto,_fid_proveedor);
     SET _id_software = @@last_insert_id;
-    INSERT INTO Software(id_software,requisitos,licencia)
-    VALUES(_id_software,_requisitos,_licencia);
+    INSERT INTO Software(id_software, id_producto, requisitos,licencia)
+    VALUES(_id_software, _id_software, _requisitos,_licencia);
 END$
 select * from Software;
 

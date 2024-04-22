@@ -5,8 +5,8 @@ CREATE PROCEDURE INSERTAR_BIBLIOTECA(
 	IN _id_biblioteca INT
 )
 BEGIN
-	INSERT INTO Biblioteca(id_biblioteca)
-    VALUES (_id_biblioteca);
+	INSERT INTO Biblioteca(id_biblioteca, id_usuario)
+    VALUES (_id_biblioteca, id_biblioteca);
 END$
 
 DELIMITER $

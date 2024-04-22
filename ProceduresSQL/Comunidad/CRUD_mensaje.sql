@@ -12,10 +12,10 @@ CREATE PROCEDURE CREAR_MENSAJE(
 BEGIN
 	INSERT INTO mensaje(contenido,fecha_publicacion,
     fecha_max_edicion,padre,
-    fid_hilo,fid_usuario,oculto)
+    fid_hilo,fid_usuario,oculto, activo)
     VALUES (_contenido,_fecha_publicacion,
     _fecha_max_edicion,_padre,
-    _id_hilo,_id_usuario,0);
+    _id_hilo,_id_usuario,0, 1);
 	SET _id_mensaje = @@last_insert_id;
     UPDATE hilo SET nro_mensajes = nro_mensajes +1 
     WHERE id_hilo = _id_hilo;
@@ -56,6 +56,17 @@ CREATE PROCEDURE DESACTIVAR_MENSAJE(
 )
 BEGIN
 	UPDATE mensaje SET oculto = 1
+    WHERE id_mensaje = _id_mensaje; 
+
+END $
+
+DROP PROCEDURE IF EXISTS ELIMINAR_MENSAJE;
+DELIMITER $ 
+CREATE PROCEDURE ELIMINAR_MENSAJE(
+	IN _id_mensaje INT
+)
+BEGIN
+	UPDATE mensaje SET activo = 0
     WHERE id_mensaje = _id_mensaje; 
 
 END $

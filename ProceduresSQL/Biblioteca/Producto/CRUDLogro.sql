@@ -9,8 +9,8 @@ CREATE PROCEDURE INSERTAR_LOGRO(
     IN _fid_juego INT
 )
 BEGIN
-    INSERT INTO Logro(nombre,descripcion,activo,fid_juego) 
-    VALUES (_nombre,_descripcion,_activo,_fid_juego);
+    INSERT INTO Logro(nombre,descripcion,activo,fid_juego, activo) 
+    VALUES (_nombre,_descripcion,_activo,_fid_juego, 1);
 END$
 
 DROP PROCEDURE IF EXISTS LISTAR_LOGRO;

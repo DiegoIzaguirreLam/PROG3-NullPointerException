@@ -7,8 +7,8 @@ CREATE PROCEDURE INSERTAR_LOGRODESBLOQUEADO(
     IN fid_producto_adquirido INT
 )
 BEGIN
-    INSERT INTO Logro(fecha_desbloqueo,fid_logro,fid_producto_adquirido) 
-    VALUES (CURDATE(),_fid_logro,_fid_producto_adquirido);
+    INSERT INTO Logro(fecha_desbloqueo,fid_logro,fid_producto_adquirido, activo) 
+    VALUES (CURDATE(),_fid_logro,_fid_producto_adquirido, 1);
     SET _id_logro_desbloqueado = @@last_insert_id;
 END$
 
@@ -54,6 +54,6 @@ CREATE PROCEDURE ELIMINAR_LOGRODESBLOQUEADO(
 	IN _id_logro_desbloqueado INT
 )
 BEGIN
-	DELETE FROM LogroDesbloqueado WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
+	UPDATE LogroDesbloqueado SET activo = 0 WHERE id_logro_desbloqueado = _id_logro_desbloqueado
 END$
 

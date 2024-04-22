@@ -16,7 +16,7 @@ CREATE PROCEDURE INSERTAR_JUEGO(
     IN _multijugador TINYINT
 )
 BEGIN
-	INSERT INTO Producto(titulo,fecha_publicacion,precio,descripcion, espacio_disco, oculto, fid_proveedor) VALUES(_titulo, _fecha_publicacion, _precio,_descripcion,_espacio_disco,_oculto,_fid_proveedor);
+	INSERT INTO Producto(titulo,fecha_publicacion,precio,descripcion, espacio_disco, oculto, fid_proveedor, activo) VALUES(_titulo, _fecha_publicacion, _precio,_descripcion,_espacio_disco,_oculto,_fid_proveedor, 1);
     SET _id_juego = @@last_insert_id;
     INSERT INTO Juego(id_juego, requisitos_minimos, requisitos_recomendados,multijugador) VALUES(_id_juego, _requisitos_minimos, _requisitos_recomendados, _multijugador);
 END$
@@ -68,6 +68,7 @@ CREATE PROCEDURE ELIMINAR_JUEGO(
 	IN _id_producto INT
 )
 BEGIN
+	UPDATE Juego SET activo = 0 WHERE id_producto = _id_producto;
     UPDATE Producto
     SET oculto = true
     WHERE id_producto = _id_producto; 

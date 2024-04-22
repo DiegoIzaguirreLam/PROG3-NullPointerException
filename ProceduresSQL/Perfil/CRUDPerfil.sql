@@ -4,7 +4,7 @@ CREATE PROCEDURE INSERTAR_PERFIL(
 	IN _id_perfil INT
 )
 BEGIN
-	INSERT INTO Perfil(id_perfil,oculto) VALUES(_id_perfil,false);
+	INSERT INTO Perfil(id_perfil, usuario_id, oculto) VALUES(_id_perfil, _id_perfil, false);
 END$
 
 

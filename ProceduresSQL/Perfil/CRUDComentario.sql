@@ -9,8 +9,8 @@ CREATE PROCEDURE INSERTAR_COMENTARIO(
     IN _fecha_maxedicion DATE
 )
 BEGIN
-	INSERT INTO Comentario(fid_perfil_comentado,fid_usuario_comentarista,texto,nro_likes,fecha_publicacion,fecha_maxedicion,oculto)
-    VALUES(_fid_perfil_comentado, _fid_usuario_comentarista, _texto,_nro_likes,CURDATE(),_fecha_maxedicion,false);
+	INSERT INTO Comentario(fid_perfil_comentado,fid_usuario_comentarista,texto,nro_likes,fecha_publicacion,fecha_maxedicion,oculto, activo)
+    VALUES(_fid_perfil_comentado, _fid_usuario_comentarista, _texto,_nro_likes,CURDATE(),_fecha_maxedicion,false, 1);
     SET _id_comentario = @@last_insert_id;
 END$
 
@@ -69,5 +69,16 @@ CREATE PROCEDURE OCULTAR_COMENTARIO(
 BEGIN
     UPDATE Comentario
     SET oculto = true
+    WHERE id_comentario = _id_comentario; 
+END$
+
+DROP PROCEDURE IF EXISTS ELIMINAR_COMENTARIO;
+DELIMITER $
+CREATE PROCEDURE OCULTAR_COMENTARIO(
+	IN _id_comentario INT
+)
+BEGIN
+    UPDATE Comentario
+    SET activo = false
     WHERE id_comentario = _id_comentario; 
 END$

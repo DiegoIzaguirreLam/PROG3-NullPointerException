@@ -9,8 +9,8 @@ CREATE PROCEDURE CREAR_FORO(
 
 BEGIN
 	INSERT INTO foro(nombre,descripcion,
-    origen_foro,oculto) VALUES (_nombre,_descripcion,
-    _origen_foro,0);
+    origen_foro,oculto, activo) VALUES (_nombre,_descripcion,
+    _origen_foro,0, 1);
 	SET _id_foro = @@last_insert_id;
 
 END $
@@ -51,6 +51,17 @@ CREATE PROCEDURE DESACTIVAR_FORO(
 )
 BEGIN
 	UPDATE foro SET oculto = 1
+    WHERE id_foro = _id_foro; 
+
+END $
+
+DROP PROCEDURE IF EXISTS ELIMINAR_FORO;
+DELIMITER $ 
+CREATE PROCEDURE ELIMINAR_FORO(
+	IN _id_foro INT
+)
+BEGIN
+	UPDATE foro SET activo = 0
     WHERE id_foro = _id_foro; 
 
 END $

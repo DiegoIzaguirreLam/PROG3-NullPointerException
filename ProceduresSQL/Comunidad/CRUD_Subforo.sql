@@ -6,8 +6,8 @@ CREATE PROCEDURE CREAR_SUBFORO(
     IN _nombre VARCHAR(100)
 )
 BEGIN
-	INSERT INTO subforo(fid_foro,nombre,oculto) 
-    VALUES (_id_foro,_nombre,0);
+	INSERT INTO subforo(fid_foro,nombre,oculto, activo) 
+    VALUES (_id_foro,_nombre,0, 1);
 	SET _id_subforo = @@last_insert_id;
 
 END $
