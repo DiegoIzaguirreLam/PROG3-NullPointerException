@@ -6,10 +6,6 @@ DROP TABLE IF EXISTS ProductoEtiqueta;
 DROP TABLE IF EXISTS ProductoAdquirido_Coleccion;
 DROP TABLE IF EXISTS LogroDesbloqueado;
 DROP TABLE IF EXISTS Logro;
-DROP TABLE IF EXISTS ObjetoUsable;
-DROP TABLE IF EXISTS ObjetoObtenido;
-DROP TABLE IF EXISTS Cromo;
-DROP TABLE IF EXISTS Objeto;
 DROP TABLE IF EXISTS Juego;
 DROP TABLE IF EXISTS Software;
 DROP TABLE IF EXISTS BandaSonora;
@@ -19,8 +15,6 @@ DROP TABLE IF EXISTS Proveedor;
 DROP TABLE IF EXISTS Coleccion;
 DROP TABLE IF EXISTS Biblioteca;
 DROP TABLE IF EXISTS Etiqueta;
-DROP TABLE IF EXISTS InventarioActivo;
-DROP TABLE IF EXISTS Inventario;
 DROP TABLE IF EXISTS GestorSanciones;
 DROP TABLE IF EXISTS Mensaje;
 DROP TABLE IF EXISTS Hilo;
@@ -328,7 +322,6 @@ CREATE TABLE Juego(
     requisitos_minimos VARCHAR(200),
     requisitos_recomendados VARCHAR(200),
     multijugador TINYINT NOT NULL,
-	activo TINYINT NOT NULL,
     PRIMARY KEY(id_juego),
     FOREIGN KEY(id_producto) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
@@ -338,7 +331,6 @@ CREATE TABLE Software(
 	id_producto INT UNIQUE,
     requisitos VARCHAR(200),
     licencia VARCHAR(40) NOT NULL,
-	activo TINYINT NOT NULL,
     PRIMARY KEY(id_software),
     FOREIGN KEY(id_producto) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
@@ -374,53 +366,3 @@ CREATE TABLE LogroDesbloqueado(
 	FOREIGN KEY(fid_producto_adquirido) REFERENCES ProductoAdquirido(id_producto_adquirido)
 )ENGINE=InnoDB;
 
-/*PAQUETE INVENTARIO*/
-CREATE TABLE Inventario(
-	id_inventario INT,
-	id_usuario INT UNIQUE,
-    cantidad_gemas INT NOT NULL,
-    PRIMARY KEY(id_inventario),
-    FOREIGN KEY(id_usuario) REFERENCES Usuario(UID)
-)ENGINE=InnoDB;
-
-CREATE TABLE InventarioActivo(
-	id_activo INT AUTO_INCREMENT,
-    nro_objetos INT NOT NULL,
-	fid_inventario INT NOT NULL,
-    PRIMARY KEY(id_activo),
-	FOREIGN KEY(fid_inventario) REFERENCES Inventario(id_inventario)
-)ENGINE=InnoDB;
-
-CREATE TABLE Objeto(
-	id_objeto INT AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    fid_juego INT NOT NULL,
-    PRIMARY KEY(id_objeto),
-    FOREIGN KEY(fid_juego) REFERENCES Juego(id_juego)
-)ENGINE=InnoDB;
-
-CREATE TABLE Cromo(
-	id_cromo INT,
-    url VARCHAR(100) NOT NULL,
-    PRIMARY KEY(id_cromo),
-    FOREIGN KEY(id_cromo) REFERENCES Objeto(id_objeto)
-)ENGINE=InnoDB;
-
-CREATE TABLE ObjetoUsable(
-	id_objeto_usable INT,
-    tipo VARCHAR(100) NOT NULL,
-    fid_perfil INT NOT NULL,
-    PRIMARY KEY(id_objeto_usable),
-    FOREIGN KEY(id_objeto_usable) REFERENCES Objeto(id_objeto),
-    FOREIGN KEY(fid_perfil) REFERENCES Perfil(id_perfil)
-)ENGINE=InnoDB;
-
-CREATE TABLE ObjetoObtenido(
-	id_objeto_obtenido INT AUTO_INCREMENT,
-    fecha_obtencion TIME NOT NULL,
-	fid_activo INT NOT NULL,
-	fid_objeto INT NOT NULL,
-    PRIMARY KEY(id_objeto_obtenido),
-	FOREIGN KEY(fid_activo) REFERENCES InventarioActivo(id_activo),
-	FOREIGN KEY(fid_objeto) REFERENCES Objeto(id_objeto)
-)ENGINE=InnoDB;
