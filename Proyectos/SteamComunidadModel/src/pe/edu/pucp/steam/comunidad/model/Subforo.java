@@ -15,13 +15,14 @@ public class Subforo {
     private Foro foro;
     private String nombre;
     private ArrayList<Hilo> hilos;
-    private int oculto;
-
+    private boolean oculto;
+    private boolean activo;
+    
     public Subforo(){
         
         
     }
-    public Subforo(Foro foro, String nombre, ArrayList<Hilo> hilos, int oculto) {
+    public Subforo(Foro foro, String nombre, ArrayList<Hilo> hilos, boolean oculto) {
         this.foro = foro;
         this.nombre = nombre;
         this.hilos = hilos;
@@ -60,12 +61,22 @@ public class Subforo {
         this.hilos = hilos;
     }
 
-    public int getOculto() {
+    public boolean isOculto() {
         return oculto;
     }
 
-    public void setOculto(int oculto) {
+    public void setOculto(boolean oculto) {
         this.oculto = oculto;
     }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    
     
 }

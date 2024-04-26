@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import pe.edu.pucp.steam.biblioteca.dao.BandaSonoraDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
+import pe.edu.pucp.steam.biblioteca.producto.model.BandaSonora;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 

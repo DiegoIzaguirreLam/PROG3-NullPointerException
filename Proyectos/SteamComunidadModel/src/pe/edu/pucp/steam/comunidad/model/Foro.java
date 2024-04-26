@@ -16,12 +16,13 @@ public class Foro {
     private String descripcion;
     private OrigenForo origen;
     private ArrayList<Subforo> subforos;
-    private int oculto;
+    private boolean oculto;
+    private boolean activo;
 
     public Foro(){
         
     }
-    public Foro(String nombre, String descripcion, OrigenForo origen, ArrayList<Subforo> subforos, int oculto) {
+    public Foro(String nombre, String descripcion, OrigenForo origen, ArrayList<Subforo> subforos, boolean oculto) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.origen = origen;
@@ -69,11 +70,21 @@ public class Foro {
         this.subforos = subforos;
     }
 
-    public int getOculto() {
+    public boolean isOculto() {
         return oculto;
     }
 
-    public void setOculto(int oculto) {
+    public void setOculto(boolean oculto) {
         this.oculto = oculto;
     }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    
 }

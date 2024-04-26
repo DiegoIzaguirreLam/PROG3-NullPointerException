@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.usuario.dao.PaisDAO;
-import pe.edu.pucp.steam.usuario.model.Pais;
-import pe.edu.pucp.steam.usuario.model.TipoMoneda;
+import pe.edu.pucp.steam.usuario.personal.model.Pais;
+import pe.edu.pucp.steam.usuario.personal.model.TipoMoneda;
 
 /**
  *

@@ -5,9 +5,9 @@
 package pe.edu.pucp.steam.biblioteca.dao;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.model.Biblioteca;
-import pe.edu.pucp.steam.biblioteca.model.Coleccion;
-import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
+import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
+import pe.edu.pucp.steam.biblioteca.coleccion.model.Coleccion;
+import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 
 /**
  *

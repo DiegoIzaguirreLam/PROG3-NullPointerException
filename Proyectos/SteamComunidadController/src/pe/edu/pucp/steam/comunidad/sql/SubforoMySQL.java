@@ -42,7 +42,7 @@ public class SubforoMySQL implements SubforoDAO{
       
             cs.executeUpdate();
             subforo.setIdSubforo(cs.getInt("_id_subforo"));
-            subforo.setOculto(0);
+            subforo.setActivo(true);
             resultado = subforo.getIdSubforo();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -131,7 +131,7 @@ public class SubforoMySQL implements SubforoDAO{
             cs.setInt("_id_subforo", subforo.getIdSubforo());
       
             resultado = cs.executeUpdate();
-            subforo.setOculto(1);
+            subforo.setActivo(true);
             
         }catch(Exception ex){
             System.out.println(ex.getMessage());

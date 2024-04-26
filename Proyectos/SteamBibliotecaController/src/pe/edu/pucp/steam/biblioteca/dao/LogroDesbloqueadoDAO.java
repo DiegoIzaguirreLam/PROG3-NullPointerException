@@ -5,7 +5,7 @@
 package pe.edu.pucp.steam.biblioteca.dao;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.model.producto.LogroDesbloqueado;
+import pe.edu.pucp.steam.biblioteca.producto.model.LogroDesbloqueado;
 
 /**
  *

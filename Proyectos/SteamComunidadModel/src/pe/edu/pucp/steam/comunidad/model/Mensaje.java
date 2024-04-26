@@ -20,7 +20,8 @@ public class Mensaje {
     private Hilo hilo;
     private boolean oculto; //Si está en 1, es porque no se debe mostrar, si está en 0 si se debe listar
     private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
-
+    private boolean activo;
+    
     public Mensaje(){
         
         
@@ -98,5 +99,14 @@ public class Mensaje {
     public void setFechaMaxEdicion(Date fechaMaxEdicion) {
         this.fechaMaxEdicion = fechaMaxEdicion;
     }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    
     
 }

@@ -10,9 +10,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.usuario.dao.NotificacionDAO;
-import pe.edu.pucp.steam.usuario.model.Notificacion;
-import pe.edu.pucp.steam.usuario.model.TipoNotificacion;
-import pe.edu.pucp.steam.usuario.model.Usuario;
+import pe.edu.pucp.steam.usuario.personal.model.Notificacion;
+import pe.edu.pucp.steam.usuario.personal.model.TipoNotificacion;
+import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 
 /**
  *

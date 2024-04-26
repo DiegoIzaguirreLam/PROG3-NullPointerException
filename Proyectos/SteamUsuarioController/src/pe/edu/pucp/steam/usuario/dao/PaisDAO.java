@@ -5,7 +5,7 @@
 package pe.edu.pucp.steam.usuario.dao;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.usuario.model.Pais;
+import pe.edu.pucp.steam.usuario.personal.model.Pais;
 
 /**
  *

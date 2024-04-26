@@ -68,9 +68,7 @@ CREATE PROCEDURE ELIMINAR_SOFTWARE(
 	IN _id_producto INT
 )
 BEGIN
-    UPDATE Producto
-    SET oculto = true
-    WHERE id_producto = _id_producto; 
+    UPDATE Producto SET activo = 0 WHERE id_producto = _id_producto;
 END$
 
 DROP PROCEDURE IF EXISTS BUSCAR_SOFTWARE;

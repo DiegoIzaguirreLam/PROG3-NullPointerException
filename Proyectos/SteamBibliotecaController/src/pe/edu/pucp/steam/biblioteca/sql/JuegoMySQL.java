@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.JuegoDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.Juego;
-import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
+import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
+import pe.edu.pucp.steam.biblioteca.producto.model.Logro;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
@@ -114,6 +114,7 @@ public class JuegoMySQL implements JuegoDAO{
                 juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
                 juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
                 juego.setMultijugador(rs.getBoolean("multijugador"));
+                juego.setActivo(true);
                 juegos.add(juego);
             }
         }catch(Exception ex){
@@ -147,6 +148,7 @@ public class JuegoMySQL implements JuegoDAO{
             juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
             juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
             juego.setMultijugador(rs.getBoolean("multijugador"));
+            juego.setActivo(rs.getBoolean("activo"));
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{

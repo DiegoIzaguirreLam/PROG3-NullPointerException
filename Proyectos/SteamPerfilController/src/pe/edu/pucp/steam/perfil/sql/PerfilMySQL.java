@@ -91,7 +91,7 @@ public class PerfilMySQL implements PerfilDAO{
             rs = cs.executeQuery();
             rs.next();
             perfil.setIdPerfil(rs.getInt("id_perfil"));
-            perfil.setOculto(rs.getBoolean("oculto"));
+            perfil.setActivo(rs.getBoolean("oculto"));
             ComentarioDAO daoComentario = new ComentarioMySQL();
             perfil.setComentarios(daoComentario.listarComentariosPerfil(perfil.getIdPerfil()));
             ExpositorDAO daoExpositor = new ExpositorMySQL();
@@ -117,7 +117,7 @@ public class PerfilMySQL implements PerfilDAO{
             while(rs.next()){
                 Perfil perfil = new Perfil();
                 perfil.setIdPerfil(rs.getInt("id_perfil"));
-                perfil.setOculto(rs.getBoolean("oculto"));
+                perfil.setActivo(rs.getBoolean("oculto"));
                 perfiles.add(perfil);
             }
         }catch(Exception ex){

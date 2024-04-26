@@ -5,7 +5,7 @@
 package pe.edu.pucp.steam.biblioteca.dao;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
+import pe.edu.pucp.steam.biblioteca.producto.model.BandaSonora;
 
 /**
  *

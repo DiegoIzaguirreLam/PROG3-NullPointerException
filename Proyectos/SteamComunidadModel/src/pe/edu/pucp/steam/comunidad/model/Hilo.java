@@ -21,6 +21,7 @@ public class Hilo {
     private Subforo subforo;
     private ArrayList<Mensaje> mensajes;
     private boolean oculto;
+    private boolean activo;
 
     
     public Hilo(){
@@ -107,6 +108,14 @@ public class Hilo {
 
     public void setOculto(boolean oculto) {
         this.oculto = oculto;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
     
     

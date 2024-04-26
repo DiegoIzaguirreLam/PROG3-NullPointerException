@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.usuario.dao.MedallaDAO;
-import pe.edu.pucp.steam.usuario.model.Usuario;
-import pe.edu.pucp.steam.usuario.model.jugador.Medalla;
+import pe.edu.pucp.steam.usuario.personal.model.Usuario;
+import pe.edu.pucp.steam.usuario.jugador.model.Medalla;
 
 /**
  *
