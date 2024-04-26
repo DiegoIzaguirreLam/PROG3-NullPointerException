@@ -104,6 +104,7 @@ CREATE TABLE Movimiento(
     monto DECIMAL(10,2) NOT NULL,
     tipo VARCHAR(100) NOT NULL,
     metodo_pago VARCHAR(100) NOT NULL,
+	activo TINYINT NOT NULL,
     fid_cartera INT NOT NULL,
     PRIMARY KEY(id_movimiento),
     FOREIGN KEY(fid_cartera) REFERENCES Cartera(id_cartera)
@@ -278,8 +279,8 @@ CREATE TABLE Producto(
     precio DECIMAL(5,2) NOT NULL,
     descripcion VARCHAR(100) NOT NULL,
     espacio_disco DECIMAL(5,2) NOT NULL,
-    activo TINYINT NOT NULL,
     fid_proveedor INT NOT NULL,
+	activo TINYINT NOT NULL,
     PRIMARY KEY(id_producto),
     FOREIGN KEY(fid_proveedor) REFERENCES Proveedor(id_proveedor)
 )ENGINE=InnoDB;
