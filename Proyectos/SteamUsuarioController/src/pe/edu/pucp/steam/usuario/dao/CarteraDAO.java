@@ -4,7 +4,7 @@
  */
 package pe.edu.pucp.steam.usuario.dao;
 
-import pe.edu.pucp.steam.usuario.model.jugador.Cartera;
+import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
 
 /**
  *

@@ -11,10 +11,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.usuario.dao.MovimientoDAO;
-import pe.edu.pucp.steam.usuario.model.jugador.Cartera;
-import pe.edu.pucp.steam.usuario.model.jugador.MetodoPago;
-import pe.edu.pucp.steam.usuario.model.jugador.Movimiento;
-import pe.edu.pucp.steam.usuario.model.jugador.TipoMovimiento;
+import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
+import pe.edu.pucp.steam.usuario.jugador.model.MetodoPago;
+import pe.edu.pucp.steam.usuario.jugador.model.Movimiento;
+import pe.edu.pucp.steam.usuario.jugador.model.TipoMovimiento;
 
 /**
  *

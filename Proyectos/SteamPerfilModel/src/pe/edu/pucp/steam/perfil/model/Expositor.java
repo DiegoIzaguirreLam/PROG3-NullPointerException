@@ -5,7 +5,7 @@
 package pe.edu.pucp.steam.perfil.model;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
+import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 
 /**
  *
@@ -15,9 +15,9 @@ public class Expositor {
     private int idExpositor; //Es creacion procedural
     private Perfil owner;
     private ArrayList<ProductoAdquirido> mostrados;
-    private boolean activo;
     private boolean oculto;
-    
+    private boolean activo;
+
     public Expositor(){};
 
     public Expositor(Perfil owner, ArrayList<ProductoAdquirido> mostrados) {

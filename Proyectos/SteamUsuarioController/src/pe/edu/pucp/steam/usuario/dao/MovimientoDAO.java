@@ -5,8 +5,8 @@
 package pe.edu.pucp.steam.usuario.dao;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.usuario.model.jugador.Cartera;
-import pe.edu.pucp.steam.usuario.model.jugador.Movimiento;
+import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
+import pe.edu.pucp.steam.usuario.jugador.model.Movimiento;
 
 /**
  *

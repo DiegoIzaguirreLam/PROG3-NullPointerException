@@ -5,7 +5,6 @@
 package pe.edu.pucp.steam.perfil.model;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.inventario.model.ObjetoUsable;
 
 /**
  *
@@ -13,19 +12,15 @@ import pe.edu.pucp.steam.inventario.model.ObjetoUsable;
  */
 public class Perfil {
     private int idPerfil; //El id es el mismo que el del usuario por eso el constructor pide
-    private boolean oculto;
+    private boolean activo;
     private ArrayList<Expositor> expositores;
     private ArrayList<Comentario> comentarios;
-    private ArrayList<ObjetoUsable> mostradosPerfil;
     
     public Perfil(){};
 
-    public Perfil(int idPerfil, ArrayList<Expositor> expositores, ArrayList<Comentario> comentarios, ArrayList<ObjetoUsable> mostradosPerfil) {
+    public Perfil(int idPerfil) {
         this.idPerfil = idPerfil;
-        this.expositores = expositores;
-        this.comentarios = comentarios;
-        this.mostradosPerfil = mostradosPerfil;
-        this.oculto = false;
+        this.activo = true;
     }
 
     public int getIdPerfil() {
@@ -37,11 +32,11 @@ public class Perfil {
     }
 
     public boolean getOculto() {
-        return oculto;
+        return activo;
     }
 
-    public void setOculto(boolean oculto) {
-        this.oculto = oculto;
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public ArrayList<Expositor> getExpositores() {
@@ -59,14 +54,5 @@ public class Perfil {
     public void setComentarios(ArrayList<Comentario> comentarios) {
         this.comentarios = comentarios;
     }
-
-    public ArrayList<ObjetoUsable> getMostradosPerfil() {
-        return mostradosPerfil;
-    }
-
-    public void setMostradosPerfil(ArrayList<ObjetoUsable> mostradosPerfil) {
-        this.mostradosPerfil = mostradosPerfil;
-    }
-    
     
 }

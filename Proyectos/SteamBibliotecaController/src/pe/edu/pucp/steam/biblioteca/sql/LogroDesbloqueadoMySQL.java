@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.LogroDAO;
 import pe.edu.pucp.steam.biblioteca.dao.LogroDesbloqueadoDAO;
 import pe.edu.pucp.steam.biblioteca.dao.ProductoAdquiridoDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.LogroDesbloqueado;
+import pe.edu.pucp.steam.biblioteca.producto.model.LogroDesbloqueado;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**

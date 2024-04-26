@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.usuario.dao.CarteraDAO;
-import pe.edu.pucp.steam.usuario.model.jugador.Cartera;
+import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
 
 public class CarteraMySQL implements CarteraDAO {
     private Connection con;

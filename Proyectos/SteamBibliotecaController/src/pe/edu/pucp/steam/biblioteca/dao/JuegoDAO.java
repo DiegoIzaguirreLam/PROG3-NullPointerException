@@ -1,8 +1,8 @@
 package pe.edu.pucp.steam.biblioteca.dao;
 
 import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.model.producto.Juego;
-import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
+import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
+import pe.edu.pucp.steam.biblioteca.producto.model.Logro;
 
 public interface JuegoDAO {
     int insertarJuego(Juego juego);

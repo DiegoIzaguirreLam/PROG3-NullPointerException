@@ -69,9 +69,7 @@ CREATE PROCEDURE ELIMINAR_BANDASONORA(
 	IN _id_producto INT
 )
 BEGIN
-    UPDATE Producto
-    SET oculto = true
-    WHERE id_producto = _id_producto; 
+    UPDATE Producto SET activo = 0 WHERE id_producto = _id_producto;
 END$
 
 

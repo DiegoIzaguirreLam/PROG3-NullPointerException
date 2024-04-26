@@ -10,10 +10,10 @@ import pe.edu.pucp.steam.biblioteca.dao.BandaSonoraDAO;
 import pe.edu.pucp.steam.biblioteca.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.dao.ProductoDAO;
 import pe.edu.pucp.steam.biblioteca.dao.SoftwareDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.BandaSonora;
-import pe.edu.pucp.steam.biblioteca.model.producto.Juego;
-import pe.edu.pucp.steam.biblioteca.model.producto.Producto;
-import pe.edu.pucp.steam.biblioteca.model.producto.Software;
+import pe.edu.pucp.steam.biblioteca.producto.model.BandaSonora;
+import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
+import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
+import pe.edu.pucp.steam.biblioteca.producto.model.Software;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**

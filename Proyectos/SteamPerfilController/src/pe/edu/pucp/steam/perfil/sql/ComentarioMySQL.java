@@ -115,7 +115,7 @@ public class ComentarioMySQL implements ComentarioDAO {
                 comentario.setIdComentarista(rs.getInt("fid_usuario_comentarista"));
                 comentario.setPerfilComentado(new Perfil());
                 comentario.getPerfilComentado().setIdPerfil(rs.getInt("id_perfil"));
-                comentario.getPerfilComentado().setOculto(rs.getBoolean("perfil_oculto"));
+                comentario.getPerfilComentado().setActivo(rs.getBoolean("perfil_oculto"));
                 comentarios.add(comentario);
             }
         }catch(Exception ex){
@@ -146,7 +146,7 @@ public class ComentarioMySQL implements ComentarioDAO {
                 comentario.setIdComentarista(rs.getInt("fid_usuario_comentarista"));
                 comentario.setPerfilComentado(new Perfil());
                 comentario.getPerfilComentado().setIdPerfil(rs.getInt("id_perfil"));
-                comentario.getPerfilComentado().setOculto(rs.getBoolean("perfil_oculto"));
+                comentario.getPerfilComentado().setActivo(rs.getBoolean("perfil_oculto"));
                 comentarios.add(comentario);
             }
         }catch(Exception ex){

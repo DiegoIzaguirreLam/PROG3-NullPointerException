@@ -15,10 +15,11 @@ public class Comentario {
     private Perfil perfilComentado;
     private String texto;
     private int nlikes;
-    private boolean oculto; //Si es 1, no se muestra, si es 0  si se muestra
     private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
     private Date fechaPublicacion;
     private int idComentarista;
+    private boolean oculto; //Si es 1, no se muestra, si es 0  si se muestra
+    private boolean activo;
 
     public Comentario(){};
     
@@ -94,6 +95,14 @@ public class Comentario {
 
     public void setIdComentarista(int idComentarista) {
         this.idComentarista = idComentarista;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     

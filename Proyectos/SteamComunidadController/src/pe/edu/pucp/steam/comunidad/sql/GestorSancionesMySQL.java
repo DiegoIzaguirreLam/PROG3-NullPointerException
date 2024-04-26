@@ -4,7 +4,7 @@ import pe.edu.pucp.steam.comunidad.dao.GestorSancionesDAO;
 import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
 import pe.edu.pucp.steam.comunidad.dao.GestorSancionesDAO;
 import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
-import pe.edu.pucp.steam.usuario.model.Usuario;
+import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import java.sql.CallableStatement;
 
 import java.sql.Connection;
@@ -36,7 +36,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
             cs.setInt("_cant_baneos",gestorSanciones.getCantBaneos());
             cs.setInt("_cant_faltas",gestorSanciones.getCantFaltas());
             cs.setDate("_fin_ban", new java.sql.Date(
-                    gestorSanciones.getFinBan().getTime()));
+                    gestorSanciones.getFechaFinBan().getTime()));
            
             cs.executeUpdate();
             gestorSanciones.setIdGestor(cs.getInt("_id_usuario"));
@@ -71,7 +71,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
             cs.setInt("_cant_baneos",gestorSanciones.getCantBaneos());
             cs.setInt("_cant_faltas",gestorSanciones.getCantFaltas());
             cs.setDate("_fin_ban", new java.sql.Date(
-                    gestorSanciones.getFinBan().getTime()));
+                    gestorSanciones.getFechaFinBan().getTime()));
            
            resultado = cs.executeUpdate();
        

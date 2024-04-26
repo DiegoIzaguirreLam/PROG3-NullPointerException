@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.BibliotecaDAO;
 import pe.edu.pucp.steam.biblioteca.dao.ProductoAdquiridoDAO;
 import pe.edu.pucp.steam.biblioteca.dao.ProductoDAO;
-import pe.edu.pucp.steam.biblioteca.model.Biblioteca;
-import pe.edu.pucp.steam.biblioteca.model.producto.ProductoAdquirido;
+import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
+import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**

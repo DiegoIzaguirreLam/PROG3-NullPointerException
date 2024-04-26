@@ -39,7 +39,7 @@ public class ForoMySQL implements ForoDAO{
             cs.setString("_origen_foro", String.valueOf(foro.getOrigen()));
             cs.executeUpdate();
             foro.setIdForo(cs.getInt("_id_foro"));
-            foro.setOculto(0);
+            foro.setActivo(true);
             resultado = foro.getIdForo();
             
         }catch(Exception ex){

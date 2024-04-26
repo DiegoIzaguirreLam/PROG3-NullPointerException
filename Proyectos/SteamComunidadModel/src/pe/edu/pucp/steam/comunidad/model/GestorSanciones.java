@@ -20,10 +20,11 @@ public class GestorSanciones {
     private int contadorFaltas;
     private int maxFaltas;
     private int maxBaneos;
-    private Date finBan;
+    private Date fechaFinBan;
     private int cantFaltas;
     private int cantBaneos;
     private ArrayList<Subforo> subforos;
+    private boolean activo;
 
     public GestorSanciones(int idGestor, int contadorPalabras, int contadorBaneos, int maxFaltas, int maxBaneos, Date finBan, int cantFaltas, int cantBaneos, ArrayList<Subforo> subforos) {
         this.idGestor = idGestor;
@@ -31,7 +32,7 @@ public class GestorSanciones {
         this.contadorBaneos = contadorBaneos;
         this.maxFaltas = maxFaltas;
         this.maxBaneos = maxBaneos;
-        this.finBan = finBan;
+        this.fechaFinBan = finBan;
         this.cantFaltas = cantFaltas;
         this.cantBaneos = cantBaneos;
         this.subforos = subforos;
@@ -77,12 +78,12 @@ public class GestorSanciones {
         this.maxBaneos = maxBaneos;
     }
 
-    public Date getFinBan() {
-        return finBan;
+    public Date getFechaFinBan() {
+        return fechaFinBan;
     }
 
-    public void setFinBan(Date finBan) {
-        this.finBan = finBan;
+    public void setFechaFinBan(Date fechaFinBan) {
+        this.fechaFinBan = fechaFinBan;
     }
 
     public int getCantFaltas() {
@@ -117,4 +118,14 @@ public class GestorSanciones {
     public void setContadorFaltas(int contadorFaltas) {
         this.contadorFaltas = contadorFaltas;
     }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    
+    
 }

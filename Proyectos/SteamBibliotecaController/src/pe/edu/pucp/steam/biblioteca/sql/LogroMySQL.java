@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.dao.LogroDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.Logro;
+import pe.edu.pucp.steam.biblioteca.producto.model.Logro;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**

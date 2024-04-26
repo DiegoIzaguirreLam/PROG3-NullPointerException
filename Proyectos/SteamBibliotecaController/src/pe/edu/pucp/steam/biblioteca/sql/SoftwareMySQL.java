@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.dao.SoftwareDAO;
-import pe.edu.pucp.steam.biblioteca.model.producto.Software;
+import pe.edu.pucp.steam.biblioteca.producto.model.Software;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**

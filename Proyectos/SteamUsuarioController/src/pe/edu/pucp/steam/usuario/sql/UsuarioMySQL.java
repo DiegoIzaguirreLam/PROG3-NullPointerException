@@ -2,7 +2,7 @@ package pe.edu.pucp.steam.usuario.sql;
 
 import java.util.ArrayList;
 import pe.edu.pucp.steam.usuario.dao.UsuarioDAO;
-import pe.edu.pucp.steam.usuario.model.Usuario;
+import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
