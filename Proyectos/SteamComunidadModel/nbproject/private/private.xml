@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/Proyectos/SteamComunidadModel/src/pe/edu/pucp/steam/comunidad/model/Foro.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/Proyectos/SteamComunidadModel/src/pe/edu/pucp/steam/comunidad/model/GestorSanciones.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/Proyectos/SteamComunidadModel/src/pe/edu/pucp/steam/comunidad/model/Mensaje.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/Proyectos/SteamComunidadModel/src/pe/edu/pucp/steam/comunidad/model/Subforo.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/Proyectos/SteamComunidadModel/src/pe/edu/pucp/steam/comunidad/model/Hilo.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/Proyectos/SteamComunidadModel/src/pe/edu/pucp/steam/comunidad/model/OrigenForo.java</file>
+        </group>
     </open-files>
 </project-private>

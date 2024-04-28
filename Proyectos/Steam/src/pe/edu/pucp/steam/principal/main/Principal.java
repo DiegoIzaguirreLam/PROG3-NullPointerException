@@ -1,25 +1,31 @@
 package pe.edu.pucp.steam.principal.main;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import pe.edu.pucp.steam.biblioteca.producto.dao.BandaSonoraDAO;
 import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
-import pe.edu.pucp.steam.biblioteca.sql.JuegoMySQL;
-import pe.edu.pucp.steam.usuario.dao.UsuarioDAO;
+import pe.edu.pucp.steam.biblioteca.producto.mysql.JuegoMySQL;
+import pe.edu.pucp.steam.usuario.personal.dao.UsuarioDAO;
 import pe.edu.pucp.steam.usuario.personal.model.Pais;
 import pe.edu.pucp.steam.usuario.personal.model.TipoMoneda;
 import pe.edu.pucp.steam.usuario.personal.model.Usuario;
-import pe.edu.pucp.steam.usuario.sql.UsuarioMySQL;
-import pe.edu.pucp.steam.biblioteca.dao.JuegoDAO;
-import pe.edu.pucp.steam.biblioteca.dao.ProveedorDAO;
+import pe.edu.pucp.steam.usuario.personal.mysql.UsuarioMySQL;
+import pe.edu.pucp.steam.biblioteca.producto.dao.JuegoDAO;
+import pe.edu.pucp.steam.biblioteca.producto.dao.ProveedorDAO;
+import pe.edu.pucp.steam.biblioteca.producto.model.BandaSonora;
 import pe.edu.pucp.steam.biblioteca.producto.model.Proveedor;
-import pe.edu.pucp.steam.biblioteca.sql.ProveedorMySQL;
-import pe.edu.pucp.steam.usuario.dao.PaisDAO;
-import pe.edu.pucp.steam.usuario.sql.PaisMySQL;
+import pe.edu.pucp.steam.biblioteca.producto.mysql.BandaSonoraMySQL;
+import pe.edu.pucp.steam.biblioteca.producto.mysql.ProveedorMySQL;
+import pe.edu.pucp.steam.usuario.personal.dao.PaisDAO;
+import pe.edu.pucp.steam.usuario.personal.mysql.PaisMySQL;
 
 public class Principal {
     public static void main(String[] args) throws Exception {
+        
         // Declaraciones de Variables por Usar
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        
         UsuarioDAO daoUsuario = new UsuarioMySQL();
         JuegoDAO daoJuego = new JuegoMySQL();
         PaisDAO daoPais = new PaisMySQL();
@@ -147,14 +153,13 @@ public class Principal {
         System.out.println();
         System.out.println();
         System.out.println();
-        
+        /*
         //----------------------------------------------------------------------
         // Creación de los juegos
         System.out.println("Ahora, se van a registrar a los juegos.");
         
         
         // CRUD JUEGO
-        daoJuego = new JuegoMySQL();
         Juego juego1 = new Juego();
         juego1.setTitulo("Juego 1");
         juego1.setFechaPublicacion(sdf.parse("01-01-0001"));
@@ -195,6 +200,11 @@ public class Principal {
                                + juego.getTitulo() + " - "
                                + juego.getRequisitosMinimos()+ " - "
                                + juego.getRequisitosRecomendados());
-        }
+        }*/
+        
+        // BANDA SONORA
+        BandaSonoraDAO daoBandaSonora = new BandaSonoraMySQL();
+        BandaSonora bandaSonora = new BandaSonora("Christopher Larkin", "Christopher Larkin", LocalTime.of(1, 4, 20), "Hollow Knight - Official Soundtrack", sdf.parse("20-04-2024"), 0, 
+                "Soundtrack Oficial del juego Hollow Knight, captura una vasta parte del mundo subterráneo del juego", 0, true, proveedor1);
     }
 }
