@@ -9,7 +9,6 @@ import pe.edu.pucp.steam.comunidad.dao.HiloDAO;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
-import pe.edu.pucp.steam.comunidad.model.Subforo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,10 +1,6 @@
 package pe.edu.pucp.steam.comunidad.mysql;
 
 import pe.edu.pucp.steam.comunidad.dao.MensajeDAO;
-import pe.edu.pucp.steam.comunidad.model.Hilo;
-import pe.edu.pucp.steam.comunidad.model.Mensaje;
-import pe.edu.pucp.steam.comunidad.dao.MensajeDAO;
-import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
