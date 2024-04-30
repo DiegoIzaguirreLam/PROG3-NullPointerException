@@ -10,6 +10,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import pe.edu.pucp.steam.biblioteca.producto.dao.BandaSonoraDAO;
 import pe.edu.pucp.steam.biblioteca.producto.model.BandaSonora;
+import pe.edu.pucp.steam.biblioteca.producto.model.Proveedor;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 
@@ -29,15 +30,16 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_BANDASONORA"
-                    + "(?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_banda_sonora",
                     java.sql.Types.INTEGER);
             cs.setInt("_fid_proveedor", bandaSonora.getProveedor().getIdProveedor());
             cs.setString("_titulo", bandaSonora.getTitulo());
+            cs.setDate("_fecha_publicacion", new java.sql.Date(bandaSonora.getFechaPublicacion().getTime()));
             cs.setDouble("_precio", bandaSonora.getPrecio());
             cs.setString("_descripcion", bandaSonora.getDescripcion());
             cs.setDouble("_espacio_disco", bandaSonora.getEspacioDisco());
-            cs.setBoolean("_oculto", bandaSonora.isOculto());
+            cs.setBoolean("_activo", true);
             cs.setString("_artista", bandaSonora.getArtista());
             cs.setString("_compositor", bandaSonora.getCompositor());
             cs.setTime("_duracion", java.sql.Time.valueOf(bandaSonora.getDuracion()));
@@ -58,14 +60,15 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_BANDASONORA"
-                    + "(?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_banda_sonora", bandaSonora.getIdProducto());
             cs.setInt("_fid_proveedor", bandaSonora.getProveedor().getIdProveedor());
             cs.setString("_titulo", bandaSonora.getTitulo());
+            cs.setDate("_fecha_publicacion", new java.sql.Date(bandaSonora.getFechaPublicacion().getTime()));
             cs.setDouble("_precio", bandaSonora.getPrecio());
             cs.setString("_descripcion", bandaSonora.getDescripcion());
             cs.setDouble("_espacio_disco", bandaSonora.getEspacioDisco());
-            cs.setBoolean("_oculto", bandaSonora.isOculto());
+            cs.setBoolean("_activo", bandaSonora.isActivo());
             cs.setString("_artista", bandaSonora.getArtista());
             cs.setString("_compositor", bandaSonora.getCompositor());
             cs.setTime("_duracion", java.sql.Time.valueOf(bandaSonora.getDuracion()));
@@ -104,6 +107,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             rs = cs.executeQuery();
             while(rs.next()){
                 BandaSonora bandaSonora = new BandaSonora();
+                Proveedor proveedor = new Proveedor();
                 bandaSonora.setIdProducto(rs.getInt("id_producto"));
                 bandaSonora.setTitulo(rs.getString("titulo"));
                 bandaSonora.setFechaPublicacion(rs.getDate("fecha_publicacion"));
@@ -113,6 +117,10 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
                 bandaSonora.setArtista(rs.getString("artista"));
                 bandaSonora.setCompositor(rs.getString("compositor"));
                 bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());
+                proveedor.setIdProveedor(rs.getInt("id_proveedor"));
+                proveedor.setRazonSocial(rs.getString("razon_social"));
+                bandaSonora.setProveedor(proveedor);
+                bandaSonora.setActivo(true);
                 bandasSonoras.add(bandaSonora);
             }
         }catch(Exception ex){
@@ -126,6 +134,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
     @Override
     public BandaSonora buscarBandaSonora(int idBandaSonora) {
         BandaSonora bandaSonora = new BandaSonora();
+        Proveedor proveedor = new Proveedor();
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_BANDASONORA(?)}");
@@ -141,6 +150,10 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             bandaSonora.setArtista(rs.getString("artista"));
             bandaSonora.setCompositor(rs.getString("compositor"));
             bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());
+            bandaSonora.setActivo(rs.getBoolean("activo"));
+            proveedor.setIdProveedor(rs.getInt("id_proveedor"));
+            proveedor.setRazonSocial(rs.getString("razon_social"));
+            bandaSonora.setActivo(true);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{

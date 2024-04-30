@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.producto.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.producto.dao.LogroDAO;
+import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
 import pe.edu.pucp.steam.biblioteca.producto.model.Logro;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
@@ -27,12 +28,13 @@ public class LogroMySQL implements LogroDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_LOGRO"
-                    + "(?,?,?,?)}");
+                    + "(?,?,?,?,?)}");
             cs.registerOutParameter("_id_logro",
                     java.sql.Types.INTEGER);
-            cs.setInt("_fid_juego", logro.getJuego().getIdProducto());
             cs.setString("_nombre", logro.getNombre());
             cs.setString("_descripcion", logro.getDescripcion());
+            cs.setBoolean("_activo", true);
+            cs.setInt("_fid_juego", logro.getJuego().getIdProducto());
             cs.executeUpdate();
             logro.setIdLogro(cs.getInt("_id_logro"));
             resultado = logro.getIdLogro();
@@ -85,18 +87,26 @@ public class LogroMySQL implements LogroDAO{
     public ArrayList<Logro> listarLogros() {
         ArrayList<Logro> logros = new ArrayList<>();
         try{
-            JuegoDAO juegoDAO = new JuegoMySQL();
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call LISTAR_LOGROS}");
             rs = cs.executeQuery();
-            int fid_juego;
             while(rs.next()){
                 Logro logro = new Logro();
+                Juego juego = new Juego();
                 logro.setIdLogro(rs.getInt("id_logro"));
-                logro.setNombre(rs.getString("nombre"));
-                logro.setDescripcion(rs.getString("descripcion"));
-                fid_juego = rs.getInt("fid_juego");
-                logro.setJuego(juegoDAO.buscarJuego(fid_juego));
+                logro.setNombre(rs.getString("nombre_logro"));
+                logro.setDescripcion(rs.getString("descripcion_logro"));
+                juego.setIdProducto(rs.getInt("id_producto"));
+                juego.setTitulo(rs.getString("titulo"));
+                juego.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                juego.setPrecio(rs.getDouble("precio"));
+                juego.setDescripcion(rs.getString("descripcion_producto"));
+                juego.setEspacioDisco(rs.getDouble("espacio_disco"));
+                juego.setActivo(rs.getBoolean("producto_activo"));
+                juego.setMultijugador(rs.getBoolean("multijugador"));
+                juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
+                juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                logro.setActivo(true);
                 logros.add(logro);
             }
         }catch(Exception ex){
@@ -110,20 +120,29 @@ public class LogroMySQL implements LogroDAO{
     @Override
     public Logro buscarLogro(int idLogro) {
         Logro logro = new Logro();
+        Juego juego = new Juego();
         logro.setIdLogro(-1);
         try{
-            JuegoDAO juegoDAO = new JuegoMySQL();
-            int fid_juego;
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_LOGRO(?)}");
-            cs.setInt("_id_producto_adquirido", idLogro);
+            cs.setInt("_id_logro", idLogro);
             rs = cs.executeQuery();
             if(rs.next()){
-                logro.setIdLogro(rs.getInt("id_producto_adquirido"));
-                logro.setNombre(rs.getString("nombre"));
-                logro.setDescripcion(rs.getString("descripcion"));
-                fid_juego = rs.getInt("fid_juego");
-                logro.setJuego(juegoDAO.buscarJuego(fid_juego));
+                logro.setIdLogro(rs.getInt("id_logro"));
+                logro.setNombre(rs.getString("nombre_logro"));
+                logro.setDescripcion(rs.getString("descripcion_logro"));
+                logro.setActivo(rs.getBoolean("logro_activo"));
+                juego.setIdProducto(rs.getInt("id_producto"));
+                juego.setTitulo(rs.getString("titulo"));
+                juego.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                juego.setPrecio(rs.getDouble("precio"));
+                juego.setDescripcion(rs.getString("descripcion_producto"));
+                juego.setEspacioDisco(rs.getDouble("espacio_disco"));
+                juego.setActivo(rs.getBoolean("producto_activo"));
+                juego.setMultijugador(rs.getBoolean("multijugador"));
+                juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
+                juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                logro.setJuego(juego);
             }
         }catch(Exception ex){
             System.out.println(ex.getMessage());

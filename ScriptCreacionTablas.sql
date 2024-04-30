@@ -236,10 +236,10 @@ CREATE TABLE GestorSanciones(
 
 /*PAQUETE BIBLIOTECA*/
 CREATE TABLE Biblioteca(
-	id_biblioteca INT,
-	id_usuario INT UNIQUE,
+	id_biblioteca INT AUTO_INCREMENT,
+	fid_usuario INT,
     PRIMARY KEY(id_biblioteca),
-    FOREIGN KEY(id_usuario) REFERENCES Usuario(UID)
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE Coleccion(

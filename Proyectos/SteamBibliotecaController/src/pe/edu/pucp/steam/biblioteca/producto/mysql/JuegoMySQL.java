@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.producto.dao.JuegoDAO;
 import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
 import pe.edu.pucp.steam.biblioteca.producto.model.Logro;
+import pe.edu.pucp.steam.biblioteca.producto.model.Proveedor;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
@@ -38,7 +39,7 @@ public class JuegoMySQL implements JuegoDAO{
             cs.setDouble("_precio", juego.getPrecio());
             cs.setString("_descripcion", juego.getDescripcion());
             cs.setDouble("_espacio_disco", juego.getEspacioDisco());
-            cs.setBoolean("_oculto", juego.isOculto());
+            cs.setBoolean("_activo", true);
             cs.setString("_requisitos_minimos", juego.getRequisitosMinimos());
             cs.setString("_requisitos_recomendados", juego.getRequisitosRecomendados());
             cs.setBoolean("_multijugador", juego.isMultijugador());
@@ -59,14 +60,16 @@ public class JuegoMySQL implements JuegoDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_JUEGO"
-                    + "(?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_juego", juego.getIdProducto());
             cs.setInt("_fid_proveedor", juego.getProveedor().getIdProveedor());
             cs.setString("_titulo", juego.getTitulo());
+            cs.setDate("_fecha_publicacion",
+                       new java.sql.Date(juego.getFechaPublicacion().getTime()));
             cs.setDouble("_precio", juego.getPrecio());
             cs.setString("_descripcion", juego.getDescripcion());
             cs.setDouble("_espacio_disco", juego.getEspacioDisco());
-            cs.setBoolean("_oculto", juego.isOculto());
+            cs.setBoolean("_activo", juego.isActivo());
             cs.setString("_requisitos_minimos", juego.getRequisitosMinimos());
             cs.setString("_requisitos_recomendados", juego.getRequisitosRecomendados());
             cs.setBoolean("_multijugador", juego.isMultijugador());
@@ -105,6 +108,7 @@ public class JuegoMySQL implements JuegoDAO{
             rs = cs.executeQuery();
             while(rs.next()){
                 Juego juego = new Juego();
+                Proveedor proveedor = new Proveedor();
                 juego.setIdProducto(rs.getInt("id_producto"));
                 juego.setTitulo(rs.getString("titulo"));
                 juego.setFechaPublicacion(rs.getDate("fecha_publicacion"));
@@ -114,6 +118,9 @@ public class JuegoMySQL implements JuegoDAO{
                 juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
                 juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
                 juego.setMultijugador(rs.getBoolean("multijugador"));
+                proveedor.setIdProveedor(rs.getInt("id_proveedor"));
+                proveedor.setRazonSocial(rs.getString("razon_social"));
+                juego.setProveedor(proveedor);
                 juego.setActivo(true);
                 juegos.add(juego);
             }
@@ -133,6 +140,7 @@ public class JuegoMySQL implements JuegoDAO{
     @Override
     public Juego buscarJuego(int idJuego) {
         Juego juego = new Juego();
+        Proveedor proveedor = new Proveedor();
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_JUEGO(?)}");
@@ -149,6 +157,9 @@ public class JuegoMySQL implements JuegoDAO{
             juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
             juego.setMultijugador(rs.getBoolean("multijugador"));
             juego.setActivo(rs.getBoolean("activo"));
+            proveedor.setIdProveedor(rs.getInt("id_proveedor"));
+            proveedor.setRazonSocial(rs.getString("razon_social"));
+            juego.setProveedor(proveedor);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
