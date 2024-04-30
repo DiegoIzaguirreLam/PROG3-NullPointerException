@@ -29,30 +29,29 @@
     </asp:ContentPlaceHolder>
     <div class="container-fluid d-flex p-0 h-100">
         <!--Menu Lateral-->
-        <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-dark offcanvas-md offcanvas-start">
+        <div id="bdSidebar" class="sidebar d-flex flex-column p-3 bg-dark text-dark offcanvas-md offcanvas-start">
             <a href="#" class="navbar-brand">
                 <img src="Images/steam_logo.png" width="60" />
             </a>
             <hr>
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a style="font-family: 'Exo 2'" href="Tienda.aspx"><i class="fa-solid fa-shop"></i> Tienda</a>
-                    <hr />
-                </li>
-                
-                <li class="nav-item">
-                    <a style="font-family: 'Exo 2'" href="Biblioteca.aspx"><i class="fa-solid fa-layer-group"></i> Biblioteca</a>
+                    <a style="font-family: 'Exo 2'" href="Tienda.aspx"><i class="fa-solid fa-shop"></i>Tienda</a>
                     <hr />
                 </li>
                 <li class="nav-item">
-                    <a style="font-family: 'Exo 2'" href="Comunidad.aspx"><i class="fa-solid fa-users"></i> Comunidad</a>
-                <hr />
+                    <a style="font-family: 'Exo 2'" href="Biblioteca.aspx"><i class="fa-solid fa-layer-group"></i>Biblioteca</a>
+                    <hr />
+                </li>
+                <li class="nav-item">
+                    <a style="font-family: 'Exo 2'" href="Comunidad.aspx"><i class="fa-solid fa-users"></i>Comunidad</a>
+                    <hr />
                 </li>
             </ul>
             <hr>
-            <div class="d-flex">
+            <div class="d-flex justify-content-center p-0">
                 <i class="fa-solid fa-book me-2"></i>
-                <img src="Images/valve_footer.png" width="60" />
+                <img src="Images/valve_footer.png" width="60"/>
             </div>
         </div>
         <!-- Contenido Derecha -->
@@ -86,7 +85,7 @@
                 </div>
             </nav>
             <!-- Contenido de la Página Web -->
-            <div class="p-4">
+            <div class="p-4 text-gray bg-navy h-100 content">
                 <form runat="server">
                     <asp:ContentPlaceHolder ID="cphContenido" runat="server">
                     </asp:ContentPlaceHolder>

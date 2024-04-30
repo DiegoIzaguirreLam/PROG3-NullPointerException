@@ -10,3 +10,17 @@
 .bg-navy-50 {
     background-color: #3e4e69; /* Azul marino claro */
 }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1030;
+    overflow-y: auto;
+    width: 150px;
+}
+
+.content {
+    margin-left: 150px;
+}
