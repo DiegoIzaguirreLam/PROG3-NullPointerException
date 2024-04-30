@@ -11,6 +11,9 @@ BEGIN
     SET _id_biblioteca = @@last_insert_id;
 END$
 
+INSERT INTO Biblioteca(id_biblioteca, fid_usuario) VALUES(1, 1);
+
+SELECT * from ProductoAdquirido;
 DROP PROCEDURE IF EXISTS BUSCAR_BIBLIOTECA;
 DELIMITER $
 CREATE PROCEDURE BUSCAR_BIBLIOTECA(
@@ -19,4 +22,5 @@ CREATE PROCEDURE BUSCAR_BIBLIOTECA(
 BEGIN
 	SELECT * FROM Biblioteca WHERE id_biblioteca = _id_biblioteca;
 END$
+
 

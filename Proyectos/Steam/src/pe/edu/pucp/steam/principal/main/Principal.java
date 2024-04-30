@@ -43,92 +43,92 @@ public class Principal {
         
         //----------------------------------------------------------------------
         // Creación de los países
-//        System.out.println("Ahora, se van a registrar a los países.");
-//        Pais pais1 = new Pais("Peru", TipoMoneda.PEN);
-//        Pais pais2 = new Pais("Francia",TipoMoneda.EUR);
-//        
-//        // Inserción de Países en Base de Datos
-//        int resPais1 = daoPais.crearPais(pais1);
-//        int resPais2 = daoPais.crearPais(pais2);
-//        if (resPais1 != 0) {
-//            System.out.println("El país 1 se ha registrado con exito.");
-//        } else {
-//            System.out.println("Ocurrio un error en el registro.");
-//        }
-//        if (resPais2 != 0) {
-//            System.out.println("El país 2 se ha registrado con exito.");
-//        } else {
-//            System.out.println("Ocurrio un error en el registro.");
-//        }
-//        
-//        // Mostrar todos los Países en Base de Datos
-//        System.out.println("Todos los países registrados son:");
-//        ArrayList<Pais> paises = daoPais.listarPaises();
-//        for (Pais pais : paises) {
-//            System.out.println(pais.getIdPais()+ ". "
-//                               + pais.getNombre()+ " - "
-//                               + pais.getMoneda());
-//        }
-//        System.out.println();
-//        System.out.println();
-//        System.out.println();
-//        
-//        //----------------------------------------------------------------------
-//        // Creación de los usuarios
-//        System.out.println("Ahora, se van a registrar a los usuarios.");
-//        Usuario usuario1 = new Usuario();
-//        usuario1.setNombreCuenta("cuenta_sofia");
-//        usuario1.setNombrePerfil("Sofia");
-//        usuario1.setCorreo("a20210750@pucp.edu.pe");
-//        usuario1.setTelefono("123456789");
-//        usuario1.setPassword("password_sofia");
-//        usuario1.setEdad(19);
-//        usuario1.setFechaNacimiento(sdf.parse("24-03-1989"));
-//        usuario1.setVerificado(true);
-//        usuario1.setExpNivel(4);
-//        usuario1.setNivel(2);
-//        usuario1.setExperiencia(5);
-//        usuario1.setPais(pais1);
-//        
-//        Usuario usuario2 = new Usuario();
-//        usuario2.setNombreCuenta("cuenta_fabricio");
-//        usuario2.setNombrePerfil("Fabricio");
-//        usuario2.setCorreo("a20214115@pucp.edu.pe");
-//        usuario2.setTelefono("987654321");
-//        usuario2.setPassword("password_fabricio");
-//        usuario2.setEdad(20);
-//        usuario2.setFechaNacimiento(sdf.parse("06-12-2003"));
-//        usuario2.setVerificado(true);
-//        usuario2.setExpNivel(1);
-//        usuario2.setNivel(3);
-//        usuario2.setExperiencia(4);
-//        usuario2.setPais(pais2);
-//        
-//        // Inserción de Usuarios en Base de Datos
-//        int resUsuario1 = daoUsuario.crearUsuario(usuario1);
-//        int resUsuario2 = daoUsuario.crearUsuario(usuario2);
-//        if (resUsuario1 != 0) {
-//            System.out.println("El usuario 1 se ha registrado con exito.");
-//        } else {
-//            System.out.println("Ocurrio un error en el registro.");
-//        }
-//        if (resUsuario2 != 0) {
-//            System.out.println("El usuario 2 se ha registrado con exito.");
-//        } else {
-//            System.out.println("Ocurrio un error en el registro.");
-//        }
-//        
-//        // Mostrar todos los Usuarios en Base de Datos
-//        System.out.println("Todos los usuarios registrados son:");
-//        ArrayList<Usuario> usuarios = daoUsuario.listarUsuarios();
-//        for (Usuario usuario : usuarios) {
-//            System.out.println(usuario.getUID() + ". "
-//                               + usuario.getNombreCuenta() + " - "
-//                               + usuario.getPassword());
-//        }
-//        System.out.println();
-//        System.out.println();
-//        System.out.println();
+        System.out.println("Ahora, se van a registrar a los países.");
+        Pais pais1 = new Pais("Peru", TipoMoneda.PEN);
+        Pais pais2 = new Pais("Francia",TipoMoneda.EUR);
+        
+        // Inserción de Países en Base de Datos
+        int resPais1 = daoPais.crearPais(pais1);
+        int resPais2 = daoPais.crearPais(pais2);
+        if (resPais1 != 0) {
+            System.out.println("El país 1 se ha registrado con exito.");
+        } else {
+            System.out.println("Ocurrio un error en el registro.");
+        }
+        if (resPais2 != 0) {
+            System.out.println("El país 2 se ha registrado con exito.");
+        } else {
+            System.out.println("Ocurrio un error en el registro.");
+        }
+        
+        // Mostrar todos los Países en Base de Datos
+        System.out.println("Todos los países registrados son:");
+        ArrayList<Pais> paises = daoPais.listarPaises();
+        for (Pais pais : paises) {
+            System.out.println(pais.getIdPais()+ ". "
+                               + pais.getNombre()+ " - "
+                               + pais.getMoneda());
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        
+        //----------------------------------------------------------------------
+        // Creación de los usuarios
+        System.out.println("Ahora, se van a registrar a los usuarios.");
+        Usuario usuario1 = new Usuario();
+        usuario1.setNombreCuenta("cuenta_sofia");
+        usuario1.setNombrePerfil("Sofia");
+        usuario1.setCorreo("a20210750@pucp.edu.pe");
+        usuario1.setTelefono("123456789");
+        usuario1.setPassword("password_sofia");
+        usuario1.setEdad(19);
+        usuario1.setFechaNacimiento(sdf.parse("24-03-1989"));
+        usuario1.setVerificado(true);
+        usuario1.setExpNivel(4);
+        usuario1.setNivel(2);
+        usuario1.setExperiencia(5);
+        usuario1.setPais(pais1);
+        
+        Usuario usuario2 = new Usuario();
+        usuario2.setNombreCuenta("cuenta_fabricio");
+        usuario2.setNombrePerfil("Fabricio");
+        usuario2.setCorreo("a20214115@pucp.edu.pe");
+        usuario2.setTelefono("987654321");
+        usuario2.setPassword("password_fabricio");
+        usuario2.setEdad(20);
+        usuario2.setFechaNacimiento(sdf.parse("06-12-2003"));
+        usuario2.setVerificado(true);
+        usuario2.setExpNivel(1);
+        usuario2.setNivel(3);
+        usuario2.setExperiencia(4);
+        usuario2.setPais(pais2);
+        
+        // Inserción de Usuarios en Base de Datos
+        int resUsuario1 = daoUsuario.crearUsuario(usuario1);
+        int resUsuario2 = daoUsuario.crearUsuario(usuario2);
+        if (resUsuario1 != 0) {
+            System.out.println("El usuario 1 se ha registrado con exito.");
+        } else {
+            System.out.println("Ocurrio un error en el registro.");
+        }
+        if (resUsuario2 != 0) {
+            System.out.println("El usuario 2 se ha registrado con exito.");
+        } else {
+            System.out.println("Ocurrio un error en el registro.");
+        }
+        
+        // Mostrar todos los Usuarios en Base de Datos
+        System.out.println("Todos los usuarios registrados son:");
+        ArrayList<Usuario> usuarios = daoUsuario.listarUsuarios();
+        for (Usuario usuario : usuarios) {
+            System.out.println(usuario.getUID() + ". "
+                               + usuario.getNombreCuenta() + " - "
+                               + usuario.getPassword());
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
         
         //----------------------------------------------------------------------
         // Creación de los Proveedores
@@ -137,9 +137,8 @@ public class Principal {
         proveedor1.setRazonSocial("Razon Social Proveedor 1");
         
         Proveedor proveedor2 = new Proveedor();
-        proveedor2.setIdProveedor(2);
         proveedor2.setRazonSocial("Razon Social Proveedor 2");
-        /*
+        
         // Inserción de Proveedores en Base de Datos
         int resProv1 = daoProveedor.insertarProveedor(proveedor1);
         int resProv2 = daoProveedor.insertarProveedor(proveedor2);
@@ -180,9 +179,8 @@ public class Principal {
         juego1.setMultijugador(true);
         juego1.setActivo(true);
         juego1.setProveedor(proveedor1);
-        */
+        
         Juego juego2 = new Juego();
-        juego2.setIdProducto(2);
         juego2.setTitulo("Juego 2");
         juego2.setFechaPublicacion(sdf.parse("02-02-2024"));
         juego2.setDescripcion("Descripción del Juego 2");
@@ -193,9 +191,9 @@ public class Principal {
         juego2.setProveedor(proveedor2);
         
         // Inserción de Juegos en Base de Datos
-        //int resJuego1 = daoJuego.insertarJuego(juego1);
-        /*int resJuego2 = daoJuego.eliminarJuego(2);
-        /*if (resJuego1 != 0) {
+        int resJuego1 = daoJuego.insertarJuego(juego1);
+        int resJuego2 = daoJuego.insertarJuego(juego2);
+        if (resJuego1 != 0) {
             System.out.println("El juego 1 se ha registrado con exito.");
         } else {
             System.out.println("Ocurrio un error en el registro.");
@@ -204,17 +202,17 @@ public class Principal {
             System.out.println("El juego 2 se ha registrado con exito.");
         } else {
             System.out.println("Ocurrio un error en el registro.");
-        }*/
+        }
         // Mostrar todos los Juegos en Base de Datos
-        /*System.out.println("Todos los juegos registrados son:");
+        System.out.println("Todos los juegos registrados son:");
         ArrayList<Juego> juegos = daoJuego.listarJuegos();
         for (Juego juego : juegos) {
             System.out.println(juego.getIdProducto() + ". "
                                + juego.getTitulo() + " - "
                                + juego.getRequisitosMinimos()+ " - "
                                + juego.getRequisitosRecomendados());
-        }*/
-/* BANDA SONORA
+        }
+ //BANDA SONORA
         BandaSonoraDAO daoBandaSonora = new BandaSonoraMySQL();
         BandaSonora bandaSonora = new BandaSonora("Christopher Larkin", "Christopher Larkin", LocalTime.of(1, 4, 20), "Hollow Knight - Official Soundtrack", sdf.parse("20-04-2024"), 0, 
                 "Soundtrack Oficial del juego Hollow Knight, captura una vasta parte del mundo subterráneo del juego", 0, proveedor1);
@@ -233,20 +231,20 @@ public class Principal {
         
         if(daoBandaSonora.eliminarBandaSonora(2)==0){
             System.out.println("se elimino con exito");
-        }
+        }/*
         ArrayList<BandaSonora> bandas = daoBandaSonora.listarBandaSonoras();
         for(BandaSonora banda : bandas){
             System.out.println(banda.getIdProducto() + ". " + banda.getTitulo() + " - " +
                     banda.getDuracion().toString()+ " - " + banda.getArtista() + " - " + banda.getDescripcion());
         }*/
 
-        SoftwareDAO daoSoftware = new SoftwareMySQL();/*
+        SoftwareDAO daoSoftware = new SoftwareMySQL();
         Software software1 = new Software("Core i5 7th Generation", "GPL", "Wallpaper Engine", sdf.parse("29-04-2004"),
                 5, "Aplicacion para fondos de pantalla en alta calidad y animados", 20, proveedor2);
         
-        if(daoSoftware.eliminarSoftware(5)!=0){
+        if(daoSoftware.insertarSoftware(software1)!=0){
             System.out.println("El software se elimino con exito");
-        }*/
+        }
         /*
         Software software = daoSoftware.buscarSoftware(6);
         
@@ -273,13 +271,13 @@ public class Principal {
         
         
         LogroDAO daoLogro = new LogroMySQL();
-//      Logro logro = new Logro("Sobrevivir un dia", "Lograr sobrevivir un dia no es facil", juego2);
-//        if(daoLogro.insertarLogro(logro)!=0){
-//            System.out.println("Se realizo el registro correctamente");
-//        }
-//        else{
-//            System.out.println("Error al realizar el registro");
-//        }
+        Logro logro = new Logro("Sobrevivir un dia", "Lograr sobrevivir un dia no es facil", juego2);
+        if(daoLogro.insertarLogro(logro)!=0){
+            System.out.println("Se realizo el registro correctamente");
+        }
+        else{
+            System.out.println("Error al realizar el registro");
+        }
 //        ArrayList<Logro> logros = daoLogro.listarLogros();
 //        for(Logro logro: logros){
 //            System.out.println(logro.getIdLogro() + ". " + logro.getNombre() + ": " + logro.getDescripcion());
