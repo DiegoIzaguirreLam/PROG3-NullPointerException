@@ -18,19 +18,18 @@ abstract public class Producto {
     private String descripcion;
     private double espacioDisco;
     private Proveedor proveedor;
-    private boolean oculto;
     private boolean activo;
 
     public Producto(){}
     
-    public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto, Proveedor proveedor) {
+    public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, Proveedor proveedor) {
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
         this.precio = precio;
         this.descripcion = descripcion;
         this.espacioDisco = espacioDisco;
-        this.oculto = oculto;
         this.proveedor = proveedor;
+        this.activo = true;
     }
 
     public int getIdProducto() {
@@ -79,14 +78,6 @@ abstract public class Producto {
 
     public void setEspacioDisco(double espacioDisco) {
         this.espacioDisco = espacioDisco;
-    }
-
-    public boolean isOculto() {
-        return oculto;
-    }
-
-    public void setOculto(boolean oculto) {
-        this.oculto = oculto;
     }
 
     public Proveedor getProveedor() {

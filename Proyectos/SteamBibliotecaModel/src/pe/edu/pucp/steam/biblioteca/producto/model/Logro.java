@@ -19,11 +19,11 @@ public class Logro {
     
     public Logro(){};
 
-    public Logro(String nombre, String descripcion, Juego juego, boolean activo) {
+    public Logro(String nombre, String descripcion, Juego juego) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.juego = juego;
-        this.activo = activo;
+        activo = true;
     }
 
     public int getIdLogro() {

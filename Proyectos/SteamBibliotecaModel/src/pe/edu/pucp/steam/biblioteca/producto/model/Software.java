@@ -16,8 +16,8 @@ public class Software extends Producto{
 
     public Software(){}
     
-    public Software(String requisitos, String licencia, String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, boolean oculto, Proveedor proveedor) {
-        super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, oculto, proveedor);
+    public Software(String requisitos, String licencia, String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, Proveedor proveedor) {
+        super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, proveedor);
         this.requisitos = requisitos;
         this.licencia = licencia;
     }
