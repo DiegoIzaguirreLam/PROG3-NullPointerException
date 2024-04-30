@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Steam</title>
-
+    <link href="Images/steam_logo.png" red="icon"/>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -85,7 +86,7 @@
                 </div>
             </nav>
             <!-- Contenido de la Página Web -->
-            <div class="p-4 text-gray bg-navy h-100 content">
+            <div class="p-4 text-gray bg-navy h-100 content" style="font-family: 'Montserrat'">
                 <form runat="server">
                     <asp:ContentPlaceHolder ID="cphContenido" runat="server">
                     </asp:ContentPlaceHolder>

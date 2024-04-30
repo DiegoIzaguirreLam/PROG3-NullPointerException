@@ -16,6 +16,17 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <h1 class="mt-4">Biblioteca de Programas</h1>
+        <div class="dropdown mt-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownColecciones" data-bs-toggle="dropdown" aria-expanded="false">
+                Seleccionar Colección
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownColecciones">
+                <li><a class="dropdown-item" href="#">Colección 1</a></li>
+                <li><a class="dropdown-item" href="#">Colección 2</a></li>
+                <li><a class="dropdown-item" href="#">Colección 3</a></li>
+            </ul>
+        </div>
+        <hr />
         <div class="row mt-4">
             <!-- lista de programas -->
             <div class="col-md-4">
