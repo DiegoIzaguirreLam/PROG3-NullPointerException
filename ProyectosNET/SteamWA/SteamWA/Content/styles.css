@@ -1,0 +1,12 @@
+﻿/* Colores personalizados */
+.text-gray {
+    color: #dfe2e6; /* Gris claro */
+}
+
+.bg-navy {
+    background-color: #24282f; /* Azul marino */
+}
+
+.bg-navy-50 {
+    background-color: #3e4e69; /* Azul marino claro */
+}

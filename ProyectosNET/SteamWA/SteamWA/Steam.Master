@@ -11,7 +11,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
-
+    <link href="Content/styles.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/jquery-3.7.1.js"></script>
@@ -25,6 +25,8 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <asp:ContentPlaceHolder ID="cphScripts" runat="server">
+    </asp:ContentPlaceHolder>
     <div class="container-fluid d-flex p-0 h-100">
         <!--Menu Lateral-->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-dark offcanvas-md offcanvas-start">
