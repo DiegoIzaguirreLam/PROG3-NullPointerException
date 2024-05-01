@@ -17,11 +17,11 @@
         <!-- dropdown checkbox con colecciones -->
         <div class="text-end">
             <div class="dropdown d-inline-block">
-                <button class="btn btn-primary dropdown-toggle bg-navy text-gray" type="button" id="dropdownMenuButton"
+                <button class="btn btn-primary dropdown-toggle bg-navy text-gray" type="button" id="dropdownColecciones"
                     data-bs-toggle="dropdown" aria-expanded="false" style="float: right;">
                     Colecciones
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu" aria-labelledby="dropdownColecciones">
                     <li>
                         <a class="dropdown-item" href="#">
                             <div class="form-check">
@@ -45,6 +45,33 @@
                     </li>
                 </ul>
             </div>
+            <!-- dropdown de ordenar -->
+            <div class="dropdown d-inline-block">
+                <button class="btn btn-primary dropdown-toggle bg-navy text-gray" type="button" id="dropdownOrdenar"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
+                    Ordenar
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownOrdenar">
+                    <li>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ordenarOption" id="radioTiempo" value="tiempo" checked>
+                            <label class="form-check-label" for="radioTiempo">Por Tiempo de Juego</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ordenarOption" id="radioTamaño" value="tamaño" checked>
+                            <label class="form-check-label" for="radioTamaño">Por Tamaño</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ordenarOption" id="radioPrecio" value="precio" checked>
+                            <label class="form-check-label" for="radioPrecio">Por Precio</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <hr />
         <div class="container d-flex">
@@ -58,7 +85,7 @@
                 </ul>
             </div>
             <!-- línea divisoria vertical -->
-            <div class="border-end"></div> 
+            <div class="border-end"></div>
             <!-- parte derecha: información del programa seleccionado -->
             <div class="col-md-8 p-5">
                 <div id="infoPrograma">

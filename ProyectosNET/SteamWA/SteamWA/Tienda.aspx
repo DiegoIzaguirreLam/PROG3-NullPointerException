@@ -5,10 +5,14 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
-        <h1 class="mt-4">Catálogo de Videojuegos</h1>
+        <h1 class="mt-4">Catálogo de Productos</h1>
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+            <input type="text" class="form-control" placeholder="Buscar programas...">
+        </div>
         <hr />
         <div class="row mt-4">
-            <!-- Tarjeta de juego 1 -->
+            <!-- tarjeta 1 -->
             <div class="col-md-4">
                 <div class="card bg-dark-subtle">
                     <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" alt="Juego 1">
@@ -20,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Tarjeta de juego 2 -->
+            <!-- tarjeta 2-->
             <div class="col-md-4">
                 <div class="card bg-dark-subtle">
                     <img src="Images/portada_juego2.jpg" height="200" class="card-img-top" alt="Juego 2">
@@ -32,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Agrega más tarjetas según sea necesario -->
+            <!-- mas tarjetas -->
         </div>
     </div>
 </asp:Content>
