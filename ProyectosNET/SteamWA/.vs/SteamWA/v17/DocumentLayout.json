@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\proyectosnet\\steamwa\\steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\proyectosnet\\steamwa\\steamwa\\configuracion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\configuracion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\steamwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\proyectosnet\\steamwa\\steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\steamwa\\tienda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\tienda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\steamwa\\comunidad.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\comunidad.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\steamwa\\tienda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\tienda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\steamwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\steamwa\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -34,11 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Configuracion.aspx",
+              "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\SteamWA\\Configuracion.aspx",
+              "RelativeDocumentMoniker": "SteamWA\\Configuracion.aspx",
+              "ToolTip": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\SteamWA\\Configuracion.aspx",
+              "RelativeToolTip": "SteamWA\\Configuracion.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-05-01T02:33:33.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "styles.css",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\SteamWA\\Content\\styles.css",
               "RelativeDocumentMoniker": "SteamWA\\Content\\styles.css",
@@ -51,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Tienda.aspx",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\SteamWA\\Tienda.aspx",
               "RelativeDocumentMoniker": "SteamWA\\Tienda.aspx",
@@ -59,11 +76,12 @@
               "RelativeToolTip": "SteamWA\\Tienda.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-04-30T20:35:50.495Z"
+              "WhenOpened": "2024-04-30T20:35:50.495Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Comunidad.aspx",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\SteamWA\\Comunidad.aspx",
               "RelativeDocumentMoniker": "SteamWA\\Comunidad.aspx",
@@ -76,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Biblioteca.aspx",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\SteamWA\\Biblioteca.aspx",
               "RelativeDocumentMoniker": "SteamWA\\Biblioteca.aspx",
@@ -102,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\ProyectosNET\\SteamWA\\SteamWA\\Content\\site.css",
               "RelativeDocumentMoniker": "SteamWA\\Content\\site.css",

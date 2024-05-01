@@ -78,7 +78,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnUsuario">
                                 <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Configuración</a></li>
+                                <li><a class="dropdown-item" href="Configuracion.aspx">Configuración</a></li>
                                 <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
                             </ul>
                         </div>

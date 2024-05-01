@@ -18,7 +18,7 @@
         <div class="text-end">
             <div class="dropdown d-inline-block">
                 <button class="btn btn-primary dropdown-toggle bg-navy text-gray" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                    data-bs-toggle="dropdown" aria-expanded="false" style="float: right;">
                     Colecciones
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -38,13 +38,18 @@
                             </div>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa-solid fa-plus me-2"></i>Nueva Colección
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <hr />
         </div>
-        <div class="row mt-4">
-            <!-- lista de programas -->
-            <div class="col-md-4">
+        <hr />
+        <div class="container d-flex">
+            <!-- parte izquierda: lista de programas -->
+            <div class="col-md-4 me-4">
                 <h2>Listado de Programas</h2>
                 <ul class="list-group">
                     <li class="list-group-item text-gray bg-navy" onclick="mostrarInfoPrograma('Programa 1')">Programa 1</li>
@@ -52,9 +57,12 @@
                     <li class="list-group-item text-gray bg-navy" onclick="mostrarInfoPrograma('Programa 3')">Programa 3</li>
                 </ul>
             </div>
-            <div class="col-md-8">
+            <!-- línea divisoria vertical -->
+            <div class="border-end"></div> 
+            <!-- parte derecha: información del programa seleccionado -->
+            <div class="col-md-8 p-5">
                 <div id="infoPrograma">
-                    <!-- aqui se muestra la información del programa seleccionado -->
+                    <!-- aquí se muestra la información del programa seleccionado -->
                 </div>
             </div>
         </div>

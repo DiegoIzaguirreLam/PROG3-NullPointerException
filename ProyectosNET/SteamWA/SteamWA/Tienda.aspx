@@ -6,6 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <h1 class="mt-4">Catálogo de Videojuegos</h1>
+        <hr />
         <div class="row mt-4">
             <!-- Tarjeta de juego 1 -->
             <div class="col-md-4">
