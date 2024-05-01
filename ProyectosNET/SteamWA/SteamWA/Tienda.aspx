@@ -10,7 +10,7 @@
         <div class="row mt-4">
             <!-- Tarjeta de juego 1 -->
             <div class="col-md-4">
-                <div class="card">
+                <div class="card bg-dark-subtle">
                     <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" alt="Juego 1">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 1</h5>
@@ -22,7 +22,7 @@
             </div>
             <!-- Tarjeta de juego 2 -->
             <div class="col-md-4">
-                <div class="card">
+                <div class="card bg-dark-subtle">
                     <img src="Images/portada_juego2.jpg" height="200" class="card-img-top" alt="Juego 2">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 2</h5>

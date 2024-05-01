@@ -46,7 +46,7 @@
         <div class="form-group">
             <label for="fechaNacimiento">Fecha de Nacimiento</label>
             <div class="input-group">
-                <input type="date" class="form-control" id="fechaNacimiento" disabled>
+                <input type="date" class="form-control" id="fechaNacimiento" placeholder="2004-03-12" disabled>
                 <button class="btn btn-outline-secondary" type="button" id="editarFechaNacimiento"><i class="fa-solid fa-pen-to-square"></i></button>
             </div>
         </div>
