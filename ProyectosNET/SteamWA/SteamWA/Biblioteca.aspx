@@ -6,8 +6,6 @@
         function mostrarInfoPrograma(Programa) {
             // Obtener el contenedor de la información del programa
             var infoProgramaContainer = document.getElementById("infoPrograma");
-            
-            
             //esto se implementara despues en un script propiamente para mostrar la informacion del Programa
             infoProgramaContainer.innerHTML = "<h4>Información de " + Programa + "</h4>";
         }
@@ -15,18 +13,35 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
-        <h1 class="mt-4">Biblioteca de Programas</h1>
-        <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownColecciones" data-bs-toggle="dropdown" aria-expanded="false">
-                Seleccionar Colección
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownColecciones">
-                <li><a class="dropdown-item" href="#">Colección 1</a></li>
-                <li><a class="dropdown-item" href="#">Colección 2</a></li>
-                <li><a class="dropdown-item" href="#">Colección 3</a></li>
-            </ul>
+        <h1 class="mt-4 d-inline-block">Biblioteca de Programas</h1>
+        <!-- dropdown checkbox con colecciones -->
+        <div class="text-end">
+            <div class="dropdown d-inline-block">
+                <button class="btn btn-primary dropdown-toggle bg-navy text-gray" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Colecciones
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="chkColeccion1" />
+                                <label class="form-check-label" for="chkColeccion1">Colección 1</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="chkColeccion2" />
+                                <label class="form-check-label" for="chkColeccion2">Colección 2</label>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <hr />
         </div>
-        <hr />
         <div class="row mt-4">
             <!-- lista de programas -->
             <div class="col-md-4">
