@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,7 +22,17 @@ namespace SteamWA
 
         protected void lbAbrirForo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("GestionarForo.aspx");
+            string nombreForo = "pruebita";
+            //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
+            //Session["objeto"]=foro
+            Response.Redirect("GestionarForo.aspx?foro="+nombreForo);
+        }
+
+        protected void lbActualizarInfoForo_Click(object sender, EventArgs e)
+        {
+            string script = "window.onload = function() { showModalForm('form-modal-edicion') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
     }
 }

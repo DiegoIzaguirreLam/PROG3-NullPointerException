@@ -11,6 +11,15 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            String nombre = Request.QueryString["foro"];
+            if(nombre != null)
+            {
+                nombreForo.Text = nombre;
+            }
+        }
+
+        protected void btnCrearSubforo_Click(object sender, EventArgs e)
+        {
 
         }
     }
