@@ -28,8 +28,10 @@
                     <ItemTemplate>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
                             CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
-                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>" 
-                             CommandArgument='<%# Eval("IdArea") %>' OnClick="lbActualizarInfoForo_Click"/>
+                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
+                            CommandArgument='<%# Eval("IdArea") %>' OnClick="lbActualizarInfoForo_Click" />
+                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
+                            CommandArgument='<%# Eval("IdArea") %>' OnClick="lbEliminarForo_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -38,6 +40,8 @@
             OnClick="lbAbrirForo_Click"></asp:LinkButton>
         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>" 
             OnClick="lbActualizarInfoForo_Click"/>
+        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
+            OnClick="lbEliminarForo_Click" />
     </div>
     <!--Clase modal para la creación de un foro-->
     <div class="modal border-white" id="form-modal-foro">

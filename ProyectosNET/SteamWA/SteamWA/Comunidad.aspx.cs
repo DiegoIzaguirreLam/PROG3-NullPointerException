@@ -34,5 +34,10 @@ namespace SteamWA
             string script = "window.onload = function() { showModalForm('form-modal-edicion') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
+
+        protected void lbEliminarForo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

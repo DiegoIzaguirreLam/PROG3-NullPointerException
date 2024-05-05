@@ -101,6 +101,7 @@
     <Content Include="Content\site.css" />
     <Content Include="Content\styles.css" />
     <Content Include="GestionarForo.aspx" />
+    <Content Include="GestionarSubforo.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -153,6 +154,13 @@
     </Compile>
     <Compile Include="GestionarForo.aspx.designer.cs">
       <DependentUpon>GestionarForo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarSubforo.aspx.cs">
+      <DependentUpon>GestionarSubforo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarSubforo.aspx.designer.cs">
+      <DependentUpon>GestionarSubforo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steam.Master.cs">
