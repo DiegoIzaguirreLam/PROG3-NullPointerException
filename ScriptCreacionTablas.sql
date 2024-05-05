@@ -29,15 +29,28 @@ DROP TABLE IF EXISTS Cartera;
 DROP TABLE IF EXISTS Notificacion;
 DROP TABLE IF EXISTS Usuario;
 DROP TABLE IF EXISTS Pais;
+DROP TABLE IF EXISTS TipoMoneda;
 
 /* CREACION DE TABLAS */
 /* PAQUETE USUARIO */
+CREATE TABLE TipoMoneda(
+	id_tipo_moneda INT AUTO_INCREMENT,
+	nombre VARCHAR(50) NOT NULL,
+	codigo VARCHAR(3) NOT NULL,
+	cambio_de_dolares DECIMAL(10,2) NOT NULL,
+	fecha_cambio DATE NOT NULL,
+	activo TINYINT NOT NULL,
+	PRIMARY KEY(id_tipo_moneda)
+)ENGINE=InnoDB;
+
 CREATE TABLE Pais(
 	id_pais INT AUTO_INCREMENT,
+	fid_moneda INT NOT NULL,
     nombre VARCHAR(100) NOT NULL,
-    moneda VARCHAR(3) NOT NULL,
+    codigo VARCHAR(3) NOT NULL,
 	activo TINYINT NOT NULL,
-    PRIMARY KEY(id_pais)
+    PRIMARY KEY(id_pais),
+	FOREIGN KEY(fid_moneda) REFERENCES TipoMoneda(id_tipo_moneda)
 )ENGINE=InnoDB;
 
 CREATE TABLE Usuario(
@@ -273,6 +286,7 @@ CREATE TABLE Producto(
     precio DECIMAL(5,2) NOT NULL,
     descripcion VARCHAR(100) NOT NULL,
     espacio_disco DECIMAL(5,2) NOT NULL,
+    tipo_producto ENUM('JUEGO', 'BANDASONORA', 'SOFTWARE'),
     fid_proveedor INT NOT NULL,
 	activo TINYINT NOT NULL,
     PRIMARY KEY(id_producto),

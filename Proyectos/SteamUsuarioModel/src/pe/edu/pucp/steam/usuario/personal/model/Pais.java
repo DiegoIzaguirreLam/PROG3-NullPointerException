@@ -11,6 +11,7 @@ package pe.edu.pucp.steam.usuario.personal.model;
 public class Pais {
     private int idPais;
     private String nombre;
+    private String codigo;
     private TipoMoneda moneda;
     private boolean activo;
     
@@ -37,6 +38,14 @@ public class Pais {
         this.nombre = nombre;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
     public TipoMoneda getMoneda() {
         return moneda;
     }
