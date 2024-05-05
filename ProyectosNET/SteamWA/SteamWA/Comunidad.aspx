@@ -16,20 +16,53 @@
         </div>
     </div>
     <hr />
-    <div class="modal" id="form-modal-foro">
+    <div class="container row">
+        <asp:GridView ID="foros" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped">
+            <Columns>
+                <asp:BoundField HeaderText="Nombre" DataField="nombre" />
+                <asp:BoundField HeaderText="Descripción" DataField="descripcion" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
+                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
+            OnClick="lbAbrirForo_Click"></asp:LinkButton>
+    </div>
+    <!--Clase modal para la creación de un foro-->
+    <div class="modal border-white" id="form-modal-foro">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Creación de Foro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content bg-secondary bg-opacity-50">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title border-white">Creación de Foro</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-content">
-                    <div class="container">
+                    <div class="container bg-dark">
                         <div class="container row">
-                            <h5>Contenido del modal</h5>
+                            <div class="mb-3">
+                                <asp:Label ID="lblTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" />
+                                <div class="col-sm-12 col-4">
+                                    <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container row">
+                            <div class="mb-3">
+                                <asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
+                                <div class="col-sm-12">
+                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer clearfix">
+                            <asp:Button ID="btnGuardar" runat="server" Text="Crear"
+                                CssClass="float-end btn btn-secondary bg-dark mb-2" />
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>

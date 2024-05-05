@@ -11,13 +11,17 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnCrearForo_Click(object sender, EventArgs e)
         {
             string script = "window.onload = function() { showModalForm('form-modal-foro') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        protected void lbAbrirForo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GestionarForo.aspx");
         }
     }
 }
