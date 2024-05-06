@@ -16,11 +16,12 @@ CREATE PROCEDURE INSERTAR_JUEGO(
     IN _multijugador TINYINT
 )
 BEGIN
-	INSERT INTO Producto(titulo,fecha_publicacion,precio,descripcion, espacio_disco, fid_proveedor, activo) VALUES(_titulo, _fecha_publicacion, _precio,_descripcion,_espacio_disco,_fid_proveedor, _activo);
+	INSERT INTO Producto(titulo,fecha_publicacion,precio,descripcion, espacio_disco, tipo_producto, 
+    fid_proveedor, activo) VALUES(_titulo, _fecha_publicacion, _precio,_descripcion,_espacio_disco,'JUEGO',_fid_proveedor, _activo);
     SET _id_juego = @@last_insert_id;
     INSERT INTO Juego(id_juego, requisitos_minimos, requisitos_recomendados,multijugador) VALUES(_id_juego, _requisitos_minimos, _requisitos_recomendados, _multijugador);
 END$
-select * from Producto;
+
 DROP PROCEDURE IF EXISTS LISTAR_JUEGOS;
 DELIMITER $
 CREATE PROCEDURE LISTAR_JUEGOS()

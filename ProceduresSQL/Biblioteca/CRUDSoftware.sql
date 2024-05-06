@@ -16,9 +16,9 @@ CREATE PROCEDURE INSERTAR_SOFTWARE(
 BEGIN
 	INSERT INTO Producto
     (titulo,fecha_publicacion,precio,
-    descripcion, espacio_disco, activo, fid_proveedor)
+    descripcion, espacio_disco, tipo_producto, activo, fid_proveedor)
     VALUES(_titulo, _fecha_publicacion, _precio,
-    _descripcion,_espacio_disco,_activo,_fid_proveedor);
+    _descripcion,_espacio_disco,'SOFTWARE',_activo,_fid_proveedor);
     SET _id_software = @@last_insert_id;
     INSERT INTO Software(id_software, requisitos,licencia)
     VALUES(_id_software, _requisitos,_licencia);
