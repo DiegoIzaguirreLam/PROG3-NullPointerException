@@ -36,6 +36,18 @@
                     </div>
                 </div>
             </div>
+            <!-- tarjeta 3-->
+            <div class="col-md-4">
+                <div class="card bg-dark-subtle">
+                    <img src="Images/portada_juego3.jpg" height="200" class="card-img-top" alt="Juego 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre del Programa 3</h5>
+                        <p class="card-text">Descripción breve del Programa 3.</p>
+                        <p class="card-text">Precio: $17.99</p>
+                        <a href="#" class="btn btn-primary">Añadir al Carrito</a>
+                    </div>
+                </div>
+            </div>
             <!-- mas tarjetas -->
         </div>
     </div>
