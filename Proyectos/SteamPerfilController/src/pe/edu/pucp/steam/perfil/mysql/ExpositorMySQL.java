@@ -23,7 +23,7 @@ public class ExpositorMySQL implements ExpositorDAO{
     private ResultSet rs;
 
     @Override
-    public int crearExpositor(Expositor expositor) {
+    public int insertarExpositor(Expositor expositor) {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
@@ -43,7 +43,7 @@ public class ExpositorMySQL implements ExpositorDAO{
     }
 
     @Override
-    public int actualizaExpositor(Expositor expositor) {
+    public int actualizarExpositor(Expositor expositor) {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();

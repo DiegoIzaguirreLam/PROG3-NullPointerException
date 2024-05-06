@@ -29,7 +29,7 @@ public class SubforoMySQL implements SubforoDAO{
     private ResultSet rs;
     
     @Override
-    public int crearSubforo(Subforo subforo) {
+    public int insertarSubforo(Subforo subforo) {
        int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

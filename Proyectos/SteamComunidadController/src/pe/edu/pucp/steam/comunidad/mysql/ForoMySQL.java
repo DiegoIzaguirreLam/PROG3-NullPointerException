@@ -26,7 +26,7 @@ public class ForoMySQL implements ForoDAO{
     private ResultSet rs;
 	
     @Override
-    public int crearForo(Foro foro) {
+    public int insertarForo(Foro foro) {
      int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

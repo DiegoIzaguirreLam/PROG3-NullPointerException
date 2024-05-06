@@ -15,7 +15,7 @@ public class CarteraMySQL implements CarteraDAO {
     private ResultSet rs;
     
     @Override
-    public int crearCartera(Cartera cartera) {
+    public int insertarCartera(Cartera cartera) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

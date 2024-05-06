@@ -17,7 +17,7 @@ public class UsuarioMySQL implements UsuarioDAO{
     private CallableStatement cs;
     private ResultSet rs;
     @Override
-    public int crearUsuario(Usuario jugador) {
+    public int insertarUsuario(Usuario jugador) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

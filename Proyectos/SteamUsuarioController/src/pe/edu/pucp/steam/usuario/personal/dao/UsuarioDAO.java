@@ -12,7 +12,7 @@ import pe.edu.pucp.steam.usuario.personal.model.Usuario;
  * @author GAMER
  */
 public interface UsuarioDAO {
-    int crearUsuario(Usuario jugador);
+    int insertarUsuario(Usuario jugador);
     int actualizarUsuario(Usuario jugador);
     int suspenderUsuario(Usuario jugador); //Elimina logicamente
     int eliminarUsuario(Usuario jugador); //Elimina de la base de datos

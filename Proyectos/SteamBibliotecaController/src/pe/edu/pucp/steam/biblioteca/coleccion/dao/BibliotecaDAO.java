@@ -14,7 +14,7 @@ import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
  * @author GAMER
  */
 public interface BibliotecaDAO {
-    int crearBiblioteca(Biblioteca biblioteca);
+    int insertarBiblioteca(Biblioteca biblioteca);
     Biblioteca buscarBiblioteca(int idUser);
     ArrayList<ProductoAdquirido> listarObjetos(Biblioteca biblioteca);
     ArrayList<Coleccion> listarColeccion(int idBiblioteca);

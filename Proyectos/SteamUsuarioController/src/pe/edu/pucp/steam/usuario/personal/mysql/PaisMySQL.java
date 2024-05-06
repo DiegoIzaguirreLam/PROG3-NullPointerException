@@ -24,7 +24,7 @@ public class PaisMySQL implements PaisDAO{
     private ResultSet rs;
 
     @Override
-    public int crearPais(Pais pais) {
+    public int insertarPais(Pais pais) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

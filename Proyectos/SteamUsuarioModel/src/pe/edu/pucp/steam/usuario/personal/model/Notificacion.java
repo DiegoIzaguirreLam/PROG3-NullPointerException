@@ -14,6 +14,7 @@ public class Notificacion {
     private String mensaje;
     private Usuario usuario;
     private boolean revisada;
+    private boolean activo;
     
     public Notificacion(){};
 
@@ -22,6 +23,7 @@ public class Notificacion {
         this.mensaje = mensaje;
         this.usuario = usuario;
         this.revisada = revisada;
+        this.activo = true;
     }
 
     public int getIdNotificacion() {
@@ -62,6 +64,14 @@ public class Notificacion {
 
     public void setRevisada(boolean revisada) {
         this.revisada = revisada;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
     
     

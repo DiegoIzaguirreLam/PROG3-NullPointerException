@@ -16,7 +16,7 @@ public class MensajeMySQL implements MensajeDAO{
     private ResultSet rs;
     
     @Override
-    public int crearMensaje(Mensaje mensaje, int idAutor) {
+    public int insertarMensaje(Mensaje mensaje, int idAutor) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

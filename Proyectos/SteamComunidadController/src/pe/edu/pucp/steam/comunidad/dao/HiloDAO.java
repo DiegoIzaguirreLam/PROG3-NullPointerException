@@ -14,7 +14,7 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
  * @author piero
  */
 public interface HiloDAO {
-    int crearHilo(Hilo hilo, int idUsuario);
+    int insertarHilo(Hilo hilo, int idUsuario);
     ArrayList<Mensaje> mostrarMensajesHilo(Hilo hilo);
     int editarHilo(Hilo hilo);
     int eliminarHilo(Hilo hilo);

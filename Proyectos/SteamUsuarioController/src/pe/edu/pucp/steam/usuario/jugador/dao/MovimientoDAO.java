@@ -13,7 +13,7 @@ import pe.edu.pucp.steam.usuario.jugador.model.Movimiento;
  * @author GAMER
  */
 public interface MovimientoDAO {
-    int crearMovimiento(Movimiento movimiento);
+    int insertarMovimiento(Movimiento movimiento);
     ArrayList<Movimiento> listarMovimientos(Cartera cartera);
     Movimiento buscarMovimiento(int idMovimiento);
 }

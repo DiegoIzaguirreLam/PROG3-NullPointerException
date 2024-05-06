@@ -25,7 +25,7 @@ public class HiloMySQL implements HiloDAO {
     private ResultSet rs;
 
     @Override
-    public int crearHilo(Hilo hilo, int idUsuario) {
+    public int insertarHilo(Hilo hilo, int idUsuario) {
         int resultado=0;
         try{
             con = DBManager.getInstance().getConnection();

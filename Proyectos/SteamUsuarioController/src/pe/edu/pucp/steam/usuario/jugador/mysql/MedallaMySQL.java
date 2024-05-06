@@ -23,7 +23,7 @@ public class MedallaMySQL implements MedallaDAO{
     private ResultSet rs;
     
     @Override
-    public int crearMedalla(Medalla medalla) {
+    public int insertarMedalla(Medalla medalla) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

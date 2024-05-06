@@ -11,7 +11,7 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
  * @author piero
  */
 public interface MensajeDAO {
-    int crearMensaje(Mensaje mensaje, int idAutor);
+    int insertarMensaje(Mensaje mensaje, int idAutor);
     int editarMensaje(Mensaje mensaje);
     int eliminarMensaje(Mensaje mensaje);
     String leerMensaje(Mensaje mensaje);
