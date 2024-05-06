@@ -4,19 +4,84 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
+    <script>
+        document.body.style.backgroundColor = '#24282f';
+        function desplegarFiltros() {
+      
+            
+            new bootstrap.Collapse(document.getElementById('myCollapsible'), { toggle: true });
+            
+           
+        }
+    </script>
     <div class="container">
         <h1 class="mt-4">Catálogo de Productos</h1>
         <!-- Barra de búsqueda -->
-        <div class="input-group mb-3 search-bar" >
-            
-            <input type="search" class="form-control" placeholder="Buscar programas...">
-            
-            <button type="submit" class="btn btn-primary input-group-text rounded-right " >
+        <div class="search-bar d-flex">
+
+
+            <input type="search" class="rounded-0 rounded-start-2 form-control" placeholder="Buscar programas...">
+
+            <button type="submit" class="rounded-0 rounded-end-2 btn btn-outline-light  ">
                 <i class="fas fa-search"></i>
             </button>
-                  
+
+            <div class="dropdown ps-3">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownOrdenar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ordenar
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownOrdenar">
+                    <li><a class="dropdown-item" href="#">Por relevancia</a></li>
+                    <li><a class="dropdown-item" href="#">Por nombre</a></li>
+                    <li><a class="dropdown-item" href="#">Por precio</a></li>
+                </ul>
+            </div>
+
         </div>
+
+      <div class="d-flex flex-row mt-2">
+            <p class="border-0 text-light mb-0" cursor="pointer" onclick="desplegarFiltros()" id="desplegable">
+                    
+                 <i class="fas fa-bars pr-1"></i>
+                Filtrar 
+            </p>
+         </div>
+            <div class="collapse" id="myCollapsible">
+                    <div class="w-25">
+                    <label for="barRangoPrecio" class="form-label">Filtrar por precio</label>
+                    <input type="range" class="form-range" min="0" max="5" id="barRangoPrecio">
+                    </div>
+            </div>
+     
         <hr />
+        <div class="w-75 d-flex ms-auto me-auto">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+            </div>
         <div class="row mt-4">
             <!-- tarjeta 1 -->
             <div class="col-md-4">
