@@ -20,6 +20,11 @@ namespace SteamWA
             gvForos.DataBind();
         }
 
+        protected void btnActualizarComunidad_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Comunidad.aspx");
+        }
+
         protected void btnCrearForo_Click(object sender, EventArgs e)
         {
             string script = "window.onload = function() { showModalForm('form-modal-foro') };";

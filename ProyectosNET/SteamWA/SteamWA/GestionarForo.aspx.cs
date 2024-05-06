@@ -30,6 +30,15 @@ namespace SteamWA
             Response.Redirect("Comunidad.aspx");
         }
 
+        protected void btnActualizarForo_Click(object sender, EventArgs e)
+        {
+            string nombreForo = "pruebita";
+            //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
+            //Session["objeto"]=foro
+            Response.Redirect("GestionarForo.aspx?foro=" + nombreForo);
+        }
+
         protected void btnCrearSubforo_Click(object sender, EventArgs e)
         {
             string script = "window.onload = function() { showModalForm('form-modal-subforo') };";
