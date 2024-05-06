@@ -4,12 +4,25 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
+    <style>
+        .divisionTienda{
+
+            background-image: linear-gradient(#20252d, #24282f);
+        }
+        #desplegableFiltro{
+            background-color: #20252d;
+        }
+        .contenidoTiendo{
+
+            padding: 0 10px;
+        }
+    </style>
     <script>
         document.body.style.backgroundColor = '#24282f';
         function desplegarFiltros() {
       
             
-            new bootstrap.Collapse(document.getElementById('myCollapsible'), { toggle: true });
+            new bootstrap.Collapse(document.getElementById('desplegableFiltro'), { toggle: true });
             
            
         }
@@ -39,50 +52,59 @@
 
         </div>
 
-      <div class="d-flex flex-row mt-2">
-            <p class="border-0 text-light mb-0" cursor="pointer" onclick="desplegarFiltros()" id="desplegable">
-                    
+      <div class="d-flex flex-row mt-2 px-1">
+            <p class="border-0 text-light mb-0" role="button" onclick="desplegarFiltros()" id="desplegable">           
                  <i class="fas fa-bars pr-1"></i>
                 Filtrar 
             </p>
-         </div>
-            <div class="collapse" id="myCollapsible">
+      </div>
+        <!--Desplegable de filtros-->
+            <div class="collapse px-2 py-2" id="desplegableFiltro">
                     <div class="w-25">
                     <label for="barRangoPrecio" class="form-label">Filtrar por precio</label>
-                    <input type="range" class="form-range" min="0" max="5" id="barRangoPrecio">
+                    <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio">
                     </div>
             </div>
-     
-        <hr />
-        <div class="w-75 d-flex ms-auto me-auto">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <div class="divisionTienda">
+            <hr />
+            <div class="px-3">
+                <h5 class="mt-2 mb-3">Destacados y recomendados</h5>
+                <!--Carrusel de imagenes-->
+                <div class="w-75 d-flex ms-auto me-auto">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-            </div>
-        <div class="row mt-4">
+        <div class="divisionTienda">
+        <hr />
+            <div class="px-3">
+        <h5 class="mt-1">Todos los productos</h5>
+        <div class="row mt-3 pb-4">
             <!-- tarjeta 1 -->
             <div class="col-md-4">
                 <div class="card bg-dark-subtle">
@@ -121,5 +143,7 @@
             </div>
             <!-- mas tarjetas -->
         </div>
+                </div>
+            </div>
     </div>
 </asp:Content>
