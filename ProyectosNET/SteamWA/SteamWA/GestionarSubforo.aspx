@@ -94,7 +94,7 @@
         <!-- mas tarjetas -->
     </div>
     <%--Clase modal para la creación de un Hilo--%>
-    <div class="modal border-white" id="form-modal-hilo">
+    <div class="modal border-white fade" id="form-modal-hilo">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">

@@ -45,7 +45,7 @@
         </asp:GridView>
     </div>
     <!--Clase modal para la creación de un subforo-->
-    <div class="modal border-white" id="form-modal-subforo">
+    <div class="modal border-white fade" id="form-modal-subforo">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
@@ -80,7 +80,7 @@
         </div>
     </div>
     <!--Clase modal para la actualización de un subforo-->
-    <div class="modal border-white" id="form-modal-actualizar">
+    <div class="modal border-white fade" id="form-modal-actualizar">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
