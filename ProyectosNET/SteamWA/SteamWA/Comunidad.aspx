@@ -7,8 +7,10 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-7">
-                <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad"/>
+            <div class="col-md-7 row align-items-center">
+                <div class="col-md-auto align-items-lg-start">
+                    <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" />
+                </div>
             </div>
             <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Foro" OnClick="btnCrearForo_Click" />
@@ -19,11 +21,14 @@
         </div>
     </div>
     <hr />
-    <div class="container row">
-        <asp:GridView ID="foros" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped">
+    <div class="container">
+        <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
             <Columns>
-                <asp:BoundField HeaderText="Nombre" DataField="nombre" />
-                <asp:BoundField HeaderText="Descripción" DataField="descripcion" />
+                <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+                <asp:BoundField HeaderText="Descripción" DataField="Descripcion"/>
+                <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
+                <asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>
+                <asp:ButtonField HeaderText="Creador" DataTextField="Usuario" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
@@ -36,12 +41,6 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-            OnClick="lbAbrirForo_Click"></asp:LinkButton>
-        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>" 
-            OnClick="lbActualizarInfoForo_Click"/>
-        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-            OnClick="lbEliminarForo_Click" />
     </div>
     <!--Clase modal para la creación de un foro-->
     <div class="modal border-white" id="form-modal-foro">
@@ -57,7 +56,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12 col-4">
-                                    <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +64,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" Height="50" />
                                 </div>
                             </div>
                         </div>
@@ -73,7 +72,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblInicial" runat="server" Text="Subforo Inicial:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtInicial" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtInicial" runat="server" CssClass="form-control" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +80,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" Height="150"/>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +107,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblNTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12 col-4">
-                                    <asp:TextBox ID="txtNTema" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtNTema" runat="server" CssClass="form-control" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +115,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50"/>
                                 </div>
                             </div>
                         </div>
