@@ -16,7 +16,7 @@ public class ComentarioMySQL implements ComentarioDAO {
     private ResultSet rs;
 
     @Override
-    public int crearComentario(Comentario comentario) {
+    public int insertarComentario(Comentario comentario) {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();

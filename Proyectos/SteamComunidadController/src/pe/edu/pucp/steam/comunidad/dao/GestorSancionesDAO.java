@@ -4,7 +4,7 @@ import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
 import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 
 public interface GestorSancionesDAO {
-    int crearGestor(GestorSanciones gestorSanciones, Usuario usuario);
+    int insertarGestor(GestorSanciones gestorSanciones, Usuario usuario);
     int actualizarGestor(GestorSanciones gestorSanciones);
     /*int buscarGestor(int idUser);*/
 }

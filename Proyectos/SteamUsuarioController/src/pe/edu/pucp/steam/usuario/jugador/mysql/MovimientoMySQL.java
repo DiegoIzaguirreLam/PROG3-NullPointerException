@@ -26,7 +26,7 @@ public class MovimientoMySQL implements MovimientoDAO{
     private ResultSet rs;
 
     @Override
-    public int crearMovimiento(Movimiento movimiento) {
+    public int insertarMovimiento(Movimiento movimiento) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

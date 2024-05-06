@@ -17,7 +17,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
     private ResultSet rs;
     
     @Override
-    public int crearGestor(GestorSanciones gestorSanciones, Usuario usuario) {
+    public int insertarGestor(GestorSanciones gestorSanciones, Usuario usuario) {
 
         int resultado = 0;
         try{

@@ -26,7 +26,7 @@ public class BibliotecaMySQL implements BibliotecaDAO{
     private CallableStatement cs;
     private ResultSet rs;
     @Override
-    public int crearBiblioteca(Biblioteca biblioteca) {
+    public int insertarBiblioteca(Biblioteca biblioteca) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

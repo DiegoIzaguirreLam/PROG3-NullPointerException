@@ -20,7 +20,7 @@ public class PerfilMySQL implements PerfilDAO{
     private ResultSet rs;
 
     @Override
-    public int crearPerfil(Perfil perfil) {
+    public int insertarPerfil(Perfil perfil) {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();

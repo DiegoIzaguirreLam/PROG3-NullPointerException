@@ -33,6 +33,7 @@ BEGIN
 	SET nombre = _nombre,
 		codigo = _codigo,
 		cambio_de_dolares = _cambio_de_dolares
+		fecha_cambio = SYSDATE()
 	WHERE id_tipo_moneda = _id_tipo_moneda;
 END$	
 

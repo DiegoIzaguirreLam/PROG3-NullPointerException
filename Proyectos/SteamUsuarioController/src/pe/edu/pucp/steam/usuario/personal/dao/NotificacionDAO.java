@@ -13,7 +13,7 @@ import pe.edu.pucp.steam.usuario.personal.model.Usuario;
  * @author GAMER
  */
 public interface NotificacionDAO {
-    int crearNotificacion(Notificacion notificacion);
+    int insertarNotificacion(Notificacion notificacion);
     int eliminarNotificacion(Notificacion notificacion);
     int actualizarNotificacion(Notificacion notificacion);
     ArrayList<Notificacion> listarNotificaciones(Usuario usuario);

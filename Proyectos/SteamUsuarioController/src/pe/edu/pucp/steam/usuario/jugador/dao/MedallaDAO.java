@@ -13,7 +13,7 @@ import pe.edu.pucp.steam.usuario.jugador.model.Medalla;
  * @author GAMER
  */
 public interface MedallaDAO {
-    int crearMedalla(Medalla medalla);
+    int insertarMedalla(Medalla medalla);
     int actualizarMedalla(Medalla medalla);
     ArrayList<Medalla> listarMedallas(Usuario usuario);
 }

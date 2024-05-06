@@ -27,7 +27,7 @@ public class Usuario {
     private int experiencia;
     private Pais pais;
     private Biblioteca biblioteca;
-    private Notificacion notificaciones;
+    private ArrayList<Notificacion> notificaciones;
     private ArrayList<Comentario> comentarios;
     private GestorSanciones gestorSanciones;
     private ArrayList<Mensaje> mensajes;
@@ -39,16 +39,9 @@ public class Usuario {
     private Cartera cartera;
 
     public Usuario(){};
-    public Usuario(String nombreCuenta, String nombrePerfil, String correo,
-                   String telefono, String password, int edad,
-                   Date fechaNacimiento, boolean verificado, int expNivel,
-                   int nivel, boolean activo, int experiencia, Pais pais,
-                   Biblioteca biblioteca, Notificacion notificaciones,
-                   ArrayList<Comentario> comentarios,
-                   GestorSanciones gestorSanciones, ArrayList<Mensaje> mensajes,
-                   Perfil perfil, ArrayList<Foro> foros,
-                   ArrayList<Usuario> amigos, ArrayList<Usuario> bloqueados,
-                   ArrayList<Medalla> medallas, Cartera cartera) {
+
+    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, boolean activo, int experiencia, Pais pais, Biblioteca biblioteca, GestorSanciones gestorSanciones, Perfil perfil, Cartera cartera) {
+        this.UID = UID;
         this.nombreCuenta = nombreCuenta;
         this.nombrePerfil = nombrePerfil;
         this.correo = correo;
@@ -63,15 +56,8 @@ public class Usuario {
         this.experiencia = experiencia;
         this.pais = pais;
         this.biblioteca = biblioteca;
-        this.notificaciones = notificaciones;
-        this.comentarios = comentarios;
         this.gestorSanciones = gestorSanciones;
-        this.mensajes = mensajes;
         this.perfil = perfil;
-        this.foros = foros;
-        this.amigos = amigos;
-        this.bloqueados = bloqueados;
-        this.medallas = medallas;
         this.cartera = cartera;
     }
 
@@ -210,11 +196,11 @@ public class Usuario {
         this.biblioteca = biblioteca;
     }
 
-    public Notificacion getNotificaciones() {
+    public ArrayList<Notificacion> getNotificaciones() {
         return notificaciones;
     }
 
-    public void setNotificaciones(Notificacion notificaciones) {
+    public void setNotificaciones(ArrayList<Notificacion> notificaciones) {
         this.notificaciones = notificaciones;
     }
 

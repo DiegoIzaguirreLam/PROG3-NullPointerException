@@ -24,7 +24,7 @@ public class NotificacionMySQL implements NotificacionDAO{
     private ResultSet rs;
 
     @Override
-    public int crearNotificacion(Notificacion notificacion) {
+    public int insertarNotificacion(Notificacion notificacion) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();

@@ -12,7 +12,7 @@ import pe.edu.pucp.steam.perfil.model.Comentario;
  * @author piero
  */
 public interface ComentarioDAO {
-    int crearComentario(Comentario comentario);
+    int insertarComentario(Comentario comentario);
     int actualizarComentario(Comentario comentario);
     int ocultarComentario(Comentario comentario);
     ArrayList<Comentario> listarComentarios();

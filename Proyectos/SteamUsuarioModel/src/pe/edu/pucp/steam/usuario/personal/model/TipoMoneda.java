@@ -18,6 +18,17 @@ public class TipoMoneda {
     private Date fechaCambio;
     private boolean activo;
 
+    public TipoMoneda(){}
+    
+    public TipoMoneda(String nombre, String codigo, double cambioDeDolares, Date fechaCambio) {
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.cambioDeDolares = cambioDeDolares;
+        this.fechaCambio = fechaCambio;
+    }
+
+    
+    
     public Date getFechaCambio() {
         return fechaCambio;
     }

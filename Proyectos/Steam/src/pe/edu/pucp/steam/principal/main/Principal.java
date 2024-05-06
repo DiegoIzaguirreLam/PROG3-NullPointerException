@@ -41,15 +41,17 @@ public class Principal {
         PaisDAO daoPais = new PaisMySQL();
         ProveedorDAO daoProveedor = new ProveedorMySQL();
         
+        TipoMoneda sol = new TipoMoneda("Sol", "PEN", 3.73, new Date());
+        TipoMoneda euro = new TipoMoneda("Euro", "EUR", 0.91, new Date());
         //----------------------------------------------------------------------
         // Creación de los países
         System.out.println("Ahora, se van a registrar a los países.");
-        Pais pais1 = new Pais("Peru", TipoMoneda.PEN);
-        Pais pais2 = new Pais("Francia",TipoMoneda.EUR);
+        Pais pais1 = new Pais("Peru", "PER", sol);
+        Pais pais2 = new Pais("Francia", "FR", euro);
         
         // Inserción de Países en Base de Datos
-        int resPais1 = daoPais.crearPais(pais1);
-        int resPais2 = daoPais.crearPais(pais2);
+        int resPais1 = daoPais.insertarPais(pais1);
+        int resPais2 = daoPais.insertarPais(pais2);
         if (resPais1 != 0) {
             System.out.println("El país 1 se ha registrado con exito.");
         } else {
@@ -105,8 +107,8 @@ public class Principal {
         usuario2.setPais(pais2);
         
         // Inserción de Usuarios en Base de Datos
-        int resUsuario1 = daoUsuario.crearUsuario(usuario1);
-        int resUsuario2 = daoUsuario.crearUsuario(usuario2);
+        int resUsuario1 = daoUsuario.insertarUsuario(usuario1);
+        int resUsuario2 = daoUsuario.insertarUsuario(usuario2);
         if (resUsuario1 != 0) {
             System.out.println("El usuario 1 se ha registrado con exito.");
         } else {

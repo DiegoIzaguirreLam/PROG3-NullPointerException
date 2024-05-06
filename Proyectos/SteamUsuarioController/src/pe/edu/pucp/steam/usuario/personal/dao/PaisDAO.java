@@ -12,7 +12,7 @@ import pe.edu.pucp.steam.usuario.personal.model.Pais;
  * @author GAMER
  */
 public interface PaisDAO {
-    int crearPais(Pais pais);
+    int insertarPais(Pais pais);
     ArrayList<Pais> listarPaises();
     int actualizarPais(Pais pais);
     Pais buscarPais(int idPais);
