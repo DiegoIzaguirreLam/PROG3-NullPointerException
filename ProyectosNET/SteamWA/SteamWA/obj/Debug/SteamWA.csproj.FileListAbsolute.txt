@@ -12,3 +12,10 @@ C:\Users\GAMER\Desktop\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\o
 C:\Users\GAMER\Desktop\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.CoreCompileInputs.cache
 C:\Users\GAMER\Desktop\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.dll
 C:\Users\GAMER\Desktop\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.pdb
+C:\Users\Diego\OneDrive\Documentos\PUCP\2024-1\Programación 3\TA\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.dll.config
+C:\Users\Diego\OneDrive\Documentos\PUCP\2024-1\Programación 3\TA\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.dll
+C:\Users\Diego\OneDrive\Documentos\PUCP\2024-1\Programación 3\TA\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.pdb
+C:\Users\Diego\OneDrive\Documentos\PUCP\2024-1\Programación 3\TA\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.AssemblyReference.cache
+C:\Users\Diego\OneDrive\Documentos\PUCP\2024-1\Programación 3\TA\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.CoreCompileInputs.cache
+C:\Users\Diego\OneDrive\Documentos\PUCP\2024-1\Programación 3\TA\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.dll
+C:\Users\Diego\OneDrive\Documentos\PUCP\2024-1\Programación 3\TA\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.pdb
