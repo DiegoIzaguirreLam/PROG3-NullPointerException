@@ -7,10 +7,16 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6">
-                <asp:Label ID="nombreForo" CssClass="h1" runat="server">Comunidad</asp:Label>
+            <div class="col-md-7 row align-items-center">
+                <div class="col-md-auto align-items-lg-start">
+                    <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" OnClick="btnVolverComunidad_Click" />
+                    <i class="fa-solid fa-caret-right fa-1x" style="color: #ffffff;"></i>
+                </div>
+                <div class="col-md-auto justify-content-md-start">
+                    <asp:Button ID="foro" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" />
+                </div>
             </div>
-            <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Subforo" OnClick="btnCrearSubforo_Click" />
             </div>
         </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Caching;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,8 +15,13 @@ namespace SteamWA
             String nombre = Request.QueryString["foro"];
             if(nombre != null)
             {
-                nombreForo.Text = nombre;
+                foro.Text = nombre;
             }
+        }
+
+        protected void btnVolverComunidad_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Comunidad.aspx");
         }
 
         protected void btnCrearSubforo_Click(object sender, EventArgs e)
@@ -25,11 +31,12 @@ namespace SteamWA
         }
 
         protected void lbAbrirSubforo_Click(object sender, EventArgs e)
-        {
-            string nombreForo = "pruebita de subforo";
+        {                        
+            string nombreForo = "1234567891234567891234"; //Al crear foro analizará que permita máximo 15 caracteres para el nombre
             //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
             //Session["objeto"]=foro
+            Session["foro_nombre"] = foro.Text; //Por ahora manda un String
             Response.Redirect("GestionarSubforo.aspx?subforo=" + nombreForo);
         }
 

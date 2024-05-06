@@ -7,15 +7,15 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6">
-                <h1>Comunidad</h1>
+            <div class="col-md-7">
+                <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad"/>
             </div>
-            <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Foro" OnClick="btnCrearForo_Click" />
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" class="form-control mt-1" placeholder="Buscar Foros...">
+            <input type="text" class="form-control mt-3" placeholder="Buscar Foros...">
         </div>
     </div>
     <hr />
@@ -29,9 +29,9 @@
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
                             CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdArea") %>' OnClick="lbActualizarInfoForo_Click" />
+                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbActualizarInfoForo_Click" />
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdArea") %>' OnClick="lbEliminarForo_Click" />
+                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbEliminarForo_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
