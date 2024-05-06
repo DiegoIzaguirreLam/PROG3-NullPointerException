@@ -9,7 +9,7 @@
         <div class="row align-items-center">
             <div class="col-md-7 row align-items-center">
                 <div class="col-md-auto align-items-lg-start">
-                    <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" />
+                    <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" OnClick="btnActualizarComunidad_Click" />
                 </div>
             </div>
             <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">

@@ -17,7 +17,7 @@
                     <i class="fa-solid fa-caret-right fa-1x" style="color: #ffffff;"></i>
                 </div>
                 <div class="col-md-auto justify-content-md-start">
-                    <asp:Button ID="subforo" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" />
+                    <asp:Button ID="subforo" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" OnClick="btnActualizarSubforo_Click"/>
                 </div>
             </div>
             <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">
