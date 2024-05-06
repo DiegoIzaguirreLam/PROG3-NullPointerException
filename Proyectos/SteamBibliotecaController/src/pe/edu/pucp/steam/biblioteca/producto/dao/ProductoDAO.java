@@ -12,6 +12,7 @@ import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
  * @author piero
  */
 public interface ProductoDAO {
+    ArrayList<Producto> listarProductos();
     Producto buscarProducto(int idProducto);
     int agregarProductoEtiqueta(int idProducto, int idEtiqueta);
     int eliminarProductoEtiqueta(int idProducto, int idEtiqueta);

@@ -17,13 +17,14 @@ CREATE PROCEDURE INSERTAR_BANDASONORA(
 BEGIN
 	INSERT INTO Producto
     (titulo,fecha_publicacion,precio,
-    descripcion, espacio_disco, fid_proveedor, activo)
+    descripcion, espacio_disco, tipo_producto, fid_proveedor, activo)
     VALUES(_titulo, _fecha_publicacion, _precio,
-    _descripcion,_espacio_disco, _fid_proveedor, _activo);
+    _descripcion,_espacio_disco, 'BANDASONORA',_fid_proveedor, _activo);
     SET _id_banda_sonora = @@last_insert_id;
     INSERT INTO BandaSonora(id_banda_sonora, artista,compositor,duracion)
     VALUES(_id_banda_sonora, _artista,_compositor,_duracion);
 END$
+
 
 DROP PROCEDURE IF EXISTS LISTAR_BANDASSONORAS;
 DELIMITER $
