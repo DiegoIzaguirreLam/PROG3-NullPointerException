@@ -7,14 +7,34 @@
     <style>
         .divisionTienda{
 
-            background-image: linear-gradient(#20252d, #24282f);
+            background-image: linear-gradient(#364458, #24282f);
         }
         #desplegableFiltro{
-            background-color: #20252d;
+            background-image:linear-gradient(90deg, #24282f 0%, #262c35 15%, #262c35 85%, #24282f 100%);
+            border-image-source: linear-gradient(90deg, rgb(36, 40, 47) 0%, rgb(122, 78, 78) 10%, rgb(90, 93, 122) 90%, rgb(36, 40, 47) 100%);
+
         }
         .contenidoTiendo{
 
             padding: 0 10px;
+        }
+        .carouselDestacados{
+            background-image: linear-gradient(90deg, #24282f 0%, #2e3b4e 45%, #2e3b4e 55%, #24282f 100%)
+
+        }
+        .border-Gradient{
+
+ 
+    border: 1px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(90deg, #24282f 0%, #ffffff 45%, #ffffff 55%, #24282f 100%);
+        }
+        .border-shadow{
+            box-shadow: 0 0 5px #0d0523;
+        }
+        .separador{
+            padding-bottom: 3rem;
         }
     </style>
     <script>
@@ -59,18 +79,18 @@
             </p>
       </div>
         <!--Desplegable de filtros-->
-            <div class="collapse px-2 py-2" id="desplegableFiltro">
+            <div class="collapse px-2 py-2 border-Gradient carouselDestacados" id="desplegableFiltro">
                     <div class="w-25">
                     <label for="barRangoPrecio" class="form-label">Filtrar por precio</label>
                     <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio">
                     </div>
             </div>
-        <div class="divisionTienda">
-            <hr />
-            <div class="px-3">
+        <div class="carouselDestacados">
+            <hr class="border-Gradient"/>
+            <div class="px-3 separador">
                 <h5 class="mt-2 mb-3">Destacados y recomendados</h5>
                 <!--Carrusel de imagenes-->
-                <div class="w-75 d-flex ms-auto me-auto">
+                <div class="w-75 d-flex ms-auto me-auto ">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -79,13 +99,13 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto" alt="...">
+                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -100,14 +120,14 @@
                 </div>
             </div>
         </div>
-        <div class="divisionTienda">
-        <hr />
+        <div class="divisionTienda  rounded-3">
+        <hr class="border-Gradient mt-0" />
             <div class="px-3">
         <h5 class="mt-1">Todos los productos</h5>
         <div class="row mt-3 pb-4">
             <!-- tarjeta 1 -->
             <div class="col-md-4">
-                <div class="card bg-dark-subtle">
+                <div class="card bg-dark-subtle border-shadow">
                     <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" alt="Juego 1">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 1</h5>
@@ -119,7 +139,7 @@
             </div>
             <!-- tarjeta 2-->
             <div class="col-md-4">
-                <div class="card bg-dark-subtle">
+                <div class="card bg-dark-subtle border-shadow">
                     <img src="Images/portada_juego2.jpg" height="200" class="card-img-top" alt="Juego 2">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 2</h5>
@@ -131,7 +151,7 @@
             </div>
             <!-- tarjeta 3-->
             <div class="col-md-4">
-                <div class="card bg-dark-subtle">
+                <div class="card bg-dark-subtle border-shadow">
                     <img src="Images/portada_juego3.jpg" height="200" class="card-img-top" alt="Juego 3">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 3</h5>
