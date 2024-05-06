@@ -15,13 +15,22 @@ namespace SteamWA
     {
 
         /// <summary>
-        /// Control nombreForo.
+        /// Control return.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nombreForo;
+        protected global::System.Web.UI.WebControls.Button @return;
+
+        /// <summary>
+        /// Control foro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button foro;
 
         /// <summary>
         /// Control btnCrearForo.
