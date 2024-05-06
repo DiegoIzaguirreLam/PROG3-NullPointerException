@@ -100,6 +100,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="GestionarColeccion.aspx" />
     <Content Include="GestionarForo.aspx" />
     <Content Include="GestionarSubforo.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -122,6 +123,7 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Scripts\Steam\crearForo.js" />
+    <Content Include="Scripts\Steam\GestionarColeccion.js" />
     <Content Include="Tienda.aspx" />
     <Content Include="Web.config" />
     <Content Include="Steam.Master" />
@@ -147,6 +149,13 @@
     </Compile>
     <Compile Include="Configuracion.aspx.designer.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarColeccion.aspx.cs">
+      <DependentUpon>GestionarColeccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarColeccion.aspx.designer.cs">
+      <DependentUpon>GestionarColeccion.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarForo.aspx.cs">
       <DependentUpon>GestionarForo.aspx</DependentUpon>

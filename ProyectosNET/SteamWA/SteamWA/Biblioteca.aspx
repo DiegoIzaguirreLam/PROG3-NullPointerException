@@ -24,22 +24,28 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownColecciones">
                     <li>
                         <a class="dropdown-item" href="#">
-                            <div class="form-check">
+                            <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="" id="chkColeccion1" />
                                 <label class="form-check-label" for="chkColeccion1">Colección 1</label>
+                                <a href="GestionarColeccion.aspx" class="ms-auto">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
                             </div>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="#">
-                            <div class="form-check">
+                            <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="" id="chkColeccion2" />
                                 <label class="form-check-label" for="chkColeccion2">Colección 2</label>
+                                <a href="GestionarColeccion.aspx" class="ms-auto">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="GestionarColeccion.aspx">
                             <i class="fa-solid fa-plus me-2"></i>Nueva Colección
                         </a>
                     </li>
@@ -77,7 +83,7 @@
         <div class="container d-flex">
             <!-- parte izquierda: lista de programas -->
             <div class="col-md-4 me-4">
-                <h2>Listado de Programas</h2>
+                <!-- <h2>Listado de Programas</h2> -->
                 <ul class="list-group">
                     <li class="list-group-item text-gray bg-navy" onclick="mostrarInfoPrograma('Programa 1')">Programa 1</li>
                     <li class="list-group-item text-gray bg-navy" onclick="mostrarInfoPrograma('Programa 2')">Programa 2</li>
@@ -85,9 +91,9 @@
                 </ul>
             </div>
             <!-- línea divisoria vertical -->
-            <div class="border-end"></div>
+            <div class="border-end p-2"></div>
             <!-- parte derecha: información del programa seleccionado -->
-            <div class="col-md-8 p-5">
+            <div class="col-md-8 p-4">
                 <div id="infoPrograma">
                     <!-- aquí se muestra la información del programa seleccionado -->
                 </div>
