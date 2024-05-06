@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.Caching;
@@ -12,6 +13,11 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindingList<Subforo> subforos = new BindingList<Subforo>();
+            Subforo proff = new Subforo(1, "Batman goood!", "El mejor super de todos!");
+            subforos.Add(proff);
+            gvSubforos.DataSource = subforos;
+            gvSubforos.DataBind();
             String nombre = Request.QueryString["foro"];
             if(nombre != null)
             {
@@ -32,7 +38,7 @@ namespace SteamWA
 
         protected void lbAbrirSubforo_Click(object sender, EventArgs e)
         {                        
-            string nombreForo = "1234567891234567891234"; //Al crear foro analizará que permita máximo 15 caracteres para el nombre
+            string nombreForo = "pruebitaSubforo"; //Al crear foro analizará que permita máximo 15 caracteres para el nombre
             //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
             //Session["objeto"]=foro

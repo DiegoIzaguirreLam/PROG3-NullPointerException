@@ -150,6 +150,7 @@
     <Compile Include="Configuracion.aspx.designer.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Foro.cs" />
     <Compile Include="GestionarColeccion.aspx.cs">
       <DependentUpon>GestionarColeccion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -179,6 +180,7 @@
     <Compile Include="Steam.Master.designer.cs">
       <DependentUpon>Steam.Master</DependentUpon>
     </Compile>
+    <Compile Include="Subforo.cs" />
     <Compile Include="Tienda.aspx.cs">
       <DependentUpon>Tienda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

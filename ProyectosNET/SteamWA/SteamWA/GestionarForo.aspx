@@ -25,33 +25,27 @@
         </div>
     </div>
     <hr />
-    <div class="container row">
-        <asp:GridView ID="foros" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped">
+    <div class="container">
+        <asp:GridView ID="gvSubforos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
             <Columns>
-                <asp:BoundField HeaderText="Nombre" DataField="nombre" />
+                <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                 <%--Se mostrará el primer mensaje del hilo fijado en el foro--%>
-                <asp:BoundField HeaderText="Mensaje" DataField="mensaje" />
+                <asp:BoundField HeaderText="Mensaje" DataField="Mensaje" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirSubforo_Click"></asp:LinkButton>
+                            CommandArgument='<%# Eval("IdSubforo") %>' OnClick="lbAbrirSubforo_Click"></asp:LinkButton>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdArea") %>' OnClick="lbActualizarSubforo_Click" />
+                            CommandArgument='<%# Eval("IdSubforo") %>' OnClick="lbActualizarSubforo_Click" />
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdArea") %>' OnClick="lbEliminarSubforo_Click" />
+                            CommandArgument='<%# Eval("IdSubforo") %>' OnClick="lbEliminarSubforo_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-            OnClick="lbAbrirSubforo_Click"></asp:LinkButton>
-        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-            OnClick="lbActualizarSubforo_Click" />
-        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-            OnClick="lbEliminarSubforo_Click" />
     </div>
     <!--Clase modal para la creación de un subforo-->
-    <div class="modal border-white" id="form-modal-subforo">
+    <div class="modal border-white fade" id="form-modal-subforo">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
@@ -64,7 +58,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblSubforo" runat="server" Text="Subforo:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtSubforo" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtSubforo" runat="server" CssClass="form-control" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +66,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" Height="150"/>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +80,7 @@
         </div>
     </div>
     <!--Clase modal para la actualización de un subforo-->
-    <div class="modal border-white" id="form-modal-actualizar">
+    <div class="modal border-white fade" id="form-modal-actualizar">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
@@ -99,7 +93,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblNSubforo" runat="server" Text="Subforo:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtNSubforo" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtNSubforo" runat="server" CssClass="form-control" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
