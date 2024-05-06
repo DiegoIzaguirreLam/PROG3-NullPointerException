@@ -7,8 +7,14 @@
     <div class="container">
         <h1 class="mt-4">Catálogo de Productos</h1>
         <!-- Barra de búsqueda -->
-        <div class="search-bar">
-            <input type="text" class="form-control" placeholder="Buscar programas...">
+        <div class="input-group mb-3 search-bar" >
+            
+            <input type="search" class="form-control" placeholder="Buscar programas...">
+            
+            <button type="submit" class="btn btn-primary input-group-text rounded-right " >
+                <i class="fas fa-search"></i>
+            </button>
+                  
         </div>
         <hr />
         <div class="row mt-4">
