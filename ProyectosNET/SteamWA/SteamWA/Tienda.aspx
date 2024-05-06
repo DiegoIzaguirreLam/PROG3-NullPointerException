@@ -102,10 +102,10 @@
                                 <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
+                                <img src="Images/portada_juego4.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
+                                <img src="Images/portada_juego5.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -127,7 +127,7 @@
         <div class="row mt-3 pb-4">
             <!-- tarjeta 1 -->
             <div class="col-md-4">
-                <div class="card bg-dark-subtle border-shadow">
+                <div class="card bg-dark-subtle border-shadow mb-4">
                     <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" alt="Juego 1">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 1</h5>
@@ -139,7 +139,7 @@
             </div>
             <!-- tarjeta 2-->
             <div class="col-md-4">
-                <div class="card bg-dark-subtle border-shadow">
+                <div class="card bg-dark-subtle border-shadow mb-4">
                     <img src="Images/portada_juego2.jpg" height="200" class="card-img-top" alt="Juego 2">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 2</h5>
@@ -151,12 +151,36 @@
             </div>
             <!-- tarjeta 3-->
             <div class="col-md-4">
-                <div class="card bg-dark-subtle border-shadow">
+                <div class="card bg-dark-subtle border-shadow mb-4">
                     <img src="Images/portada_juego3.jpg" height="200" class="card-img-top" alt="Juego 3">
                     <div class="card-body">
                         <h5 class="card-title">Nombre del Programa 3</h5>
                         <p class="card-text">Descripción breve del Programa 3.</p>
                         <p class="card-text">Precio: $17.99</p>
+                        <a href="#" class="btn btn-primary">Añadir al Carrito</a>
+                    </div>
+                </div>
+            </div>
+             <!-- tarjeta 4-->
+            <div class="col-md-4">
+                <div class="card bg-dark-subtle border-shadow mb-4">
+                    <img src="Images/portada_juego4.jpg" height="200" class="card-img-top" alt="Juego 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre del Programa 4</h5>
+                        <p class="card-text">Descripción breve del Programa 4.</p>
+                        <p class="card-text">Precio: $27.99</p>
+                        <a href="#" class="btn btn-primary">Añadir al Carrito</a>
+                    </div>
+                </div>
+            </div>
+             <!-- tarjeta 5-->
+            <div class="col-md-4">
+                <div class="card bg-dark-subtle border-shadow mb-4">
+                    <img src="Images/portada_juego5.jpg" height="200" class="card-img-top" alt="Juego 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre del Programa 5</h5>
+                        <p class="card-text">Descripción breve del Programa 5.</p>
+                        <p class="card-text">Precio: $27.99</p>
                         <a href="#" class="btn btn-primary">Añadir al Carrito</a>
                     </div>
                 </div>
