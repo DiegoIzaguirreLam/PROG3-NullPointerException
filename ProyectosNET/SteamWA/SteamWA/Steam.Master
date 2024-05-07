@@ -76,7 +76,7 @@
                                 aria-expanded="false">
                                 <i class="fas fa-user me-2"></i>Usuario
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnUsuario">
+                            <ul class="dropdown-menu" aria-labelledby="btnUsuario" style="left:auto;right:0">
                                 <li><a class="dropdown-item" href="#">Perfil</a></li>
                                 <li><a class="dropdown-item" href="Configuracion.aspx">Configuración</a></li>
                                 <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
