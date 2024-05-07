@@ -21,7 +21,7 @@
             <input type="text" class="form-control mt-3 fontSetterExo2" placeholder="Buscar Foros...">
         </div>
     </div>
-    <hr class="border-Gradient border-shadow"/>
+    <hr "/>
     <div class="container">
         <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
             <Columns>

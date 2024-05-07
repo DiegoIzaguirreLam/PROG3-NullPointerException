@@ -8,3 +8,11 @@
 .border-shadow {
     box-shadow: 0 0 5px #0d0523;
 }
+
+.carouselDestacados {
+    background-image: linear-gradient(90deg, #24282f 0%, #2e3b4e 45%, #2e3b4e 55%, #24282f 100%)
+}
+
+.divisionTienda {
+    background-image: linear-gradient(#364458, #24282f);
+}
