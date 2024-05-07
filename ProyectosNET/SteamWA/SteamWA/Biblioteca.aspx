@@ -1,33 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Steam.Master" AutoEventWireup="true" CodeBehind="Biblioteca.aspx.cs" Inherits="SteamWA.Biblioteca" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        /* Estilos para la lista de juegos */
-        .list-group-item {
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-            .list-group-item:hover {
-                background-color: #4a4a4a;
-            }
-
-        /* Estilos para el contenedor principal */
-        .container {
-            background: linear-gradient(to right, #141e30, #243b55);
-            border-radius: 10px;
-            padding: 20px;
-        }
-
-        /* Estilos para la información del programa */
-        #infoPrograma {
-            /* Eliminar fondo */
-            background: none;
-            /* Estilos de texto */
-            color: #fff; /* Color de texto blanco para contrastar con el gradiente */
-            padding: 20px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-        }
-    </style>
+    <link href="Content/stylesBiblioteca.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/Biblioteca.js"></script>

@@ -1,0 +1,26 @@
+﻿/* estilos para la lista de juegos */
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .list-group-item:hover {
+        background-color: #4a4a4a;
+    }
+
+/* estilos para el contenedor principal */
+.container {
+    background: linear-gradient(to right, #141e30, #243b55);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* estilos para la información del programa */
+#infoPrograma {
+    /* eliminar fondo */
+    background: none;
+    /* estilos del texto */
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
