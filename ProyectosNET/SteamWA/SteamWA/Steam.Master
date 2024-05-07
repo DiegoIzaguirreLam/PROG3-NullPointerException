@@ -12,7 +12,7 @@
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
     <link href="Content/styles.css" rel="stylesheet" />
-    <link href="Content/Steam/FontSetter.css" rel="stylesheet" />
+    <link href="Content/Steam/FontAdder.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/jquery-3.7.1.js"></script>

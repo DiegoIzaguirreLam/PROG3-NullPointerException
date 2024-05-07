@@ -1,65 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\",
+  "WorkspaceRootPath": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\gamer\\desktop\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\content\\steam\\fontadder.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\content\\steam\\fontadder.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\gamer\\desktop\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\amigos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\gamer\\desktop\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\comunidad.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\comunidad.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\amigos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\amigos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\inicio.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\inicio.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\gestionarcoleccion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\gestionarcoleccion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\gestionarforo.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\gestionarforo.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\foro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\foro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\foro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\content\\stylesbiblioteca.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\content\\stylesbiblioteca.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\scripts\\steam\\biblioteca.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\scripts\\steam\\biblioteca.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\scripts\\steam\\biblioteca.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\content\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\content\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\content\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
@@ -70,135 +58,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FontAdder.css",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\Steam\\FontAdder.css",
+              "RelativeDocumentMoniker": "SteamWA\\Content\\Steam\\FontAdder.css",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\Steam\\FontAdder.css",
+              "RelativeToolTip": "SteamWA\\Content\\Steam\\FontAdder.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-07T04:40:34.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Login.aspx",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx",
-              "RelativeDocumentMoniker": "SteamWA\\Login.aspx",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx",
-              "RelativeToolTip": "SteamWA\\Login.aspx",
+              "Title": "Comunidad.aspx",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Comunidad.aspx",
+              "RelativeDocumentMoniker": "SteamWA\\Comunidad.aspx",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Comunidad.aspx",
+              "RelativeToolTip": "SteamWA\\Comunidad.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T04:28:44.929Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Registro.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx.cs",
-              "RelativeDocumentMoniker": "SteamWA\\Registro.aspx.cs",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx.cs",
-              "RelativeToolTip": "SteamWA\\Registro.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T04:27:48.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Registro.aspx",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx",
-              "RelativeDocumentMoniker": "SteamWA\\Registro.aspx",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx",
-              "RelativeToolTip": "SteamWA\\Registro.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T04:27:21.803Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Inicio.Master",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Inicio.Master",
-              "RelativeDocumentMoniker": "SteamWA\\Inicio.Master",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Inicio.Master",
-              "RelativeToolTip": "SteamWA\\Inicio.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T04:24:50.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GestionarColeccion.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarColeccion.aspx.cs",
-              "RelativeDocumentMoniker": "SteamWA\\GestionarColeccion.aspx.cs",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarColeccion.aspx.cs",
-              "RelativeToolTip": "SteamWA\\GestionarColeccion.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T04:24:13.207Z",
+              "WhenOpened": "2024-05-07T04:40:17.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "GestionarForo.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarForo.aspx.cs",
-              "RelativeDocumentMoniker": "SteamWA\\GestionarForo.aspx.cs",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarForo.aspx.cs",
-              "RelativeToolTip": "SteamWA\\GestionarForo.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T04:23:38.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Foro.cs",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Foro.cs",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Foro.cs",
               "RelativeDocumentMoniker": "SteamWA\\Foro.cs",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Foro.cs",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Foro.cs",
               "RelativeToolTip": "SteamWA\\Foro.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T04:23:24.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-07T04:23:24.647Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Biblioteca.aspx",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Biblioteca.aspx",
-              "RelativeDocumentMoniker": "SteamWA\\Biblioteca.aspx",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Biblioteca.aspx",
-              "RelativeToolTip": "SteamWA\\Biblioteca.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-06T20:05:33.922Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "stylesBiblioteca.css",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\stylesBiblioteca.css",
-              "RelativeDocumentMoniker": "SteamWA\\Content\\stylesBiblioteca.css",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\stylesBiblioteca.css",
-              "RelativeToolTip": "SteamWA\\Content\\stylesBiblioteca.css",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-07T04:09:36.277Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Steam.Master",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Steam.Master",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Steam.Master",
               "RelativeDocumentMoniker": "SteamWA\\Steam.Master",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Steam.Master",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Steam.Master",
               "RelativeToolTip": "SteamWA\\Steam.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
@@ -207,37 +121,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Amigos.aspx",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Amigos.aspx",
-              "RelativeDocumentMoniker": "SteamWA\\Amigos.aspx",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Amigos.aspx",
-              "RelativeToolTip": "SteamWA\\Amigos.aspx",
+              "DocumentIndex": 7,
+              "Title": "Registro.aspx",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx",
+              "RelativeDocumentMoniker": "SteamWA\\Registro.aspx",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx",
+              "RelativeToolTip": "SteamWA\\Registro.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T04:31:32.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-07T04:27:21.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Registro.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx.cs",
+              "RelativeDocumentMoniker": "SteamWA\\Registro.aspx.cs",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx.cs",
+              "RelativeToolTip": "SteamWA\\Registro.aspx.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T04:27:48.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx",
+              "RelativeDocumentMoniker": "SteamWA\\Login.aspx",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx",
+              "RelativeToolTip": "SteamWA\\Login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-05-07T04:28:44.929Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Login.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx.cs",
-              "RelativeDocumentMoniker": "SteamWA\\Login.aspx.cs",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx.cs",
-              "RelativeToolTip": "SteamWA\\Login.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T04:29:28.785Z",
-              "EditorCaption": ""
+              "Title": "Amigos.aspx",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Amigos.aspx",
+              "RelativeDocumentMoniker": "SteamWA\\Amigos.aspx",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Amigos.aspx",
+              "RelativeToolTip": "SteamWA\\Amigos.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-05-07T04:31:32.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 5,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "SteamWA\\Login.aspx.cs",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Login.aspx.cs",
+              "RelativeToolTip": "SteamWA\\Login.aspx.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T04:29:28.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "bootstrap.css",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\bootstrap.css",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\bootstrap.css",
               "RelativeDocumentMoniker": "SteamWA\\Content\\bootstrap.css",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\bootstrap.css",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\bootstrap.css",
               "RelativeToolTip": "SteamWA\\Content\\bootstrap.css",
               "ViewState": "AQIAACQAAAAAAAAAAAAAACYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -245,11 +193,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
               "Title": "styles.css",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\styles.css",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\styles.css",
               "RelativeDocumentMoniker": "SteamWA\\Content\\styles.css",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\styles.css",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Content\\styles.css",
               "RelativeToolTip": "SteamWA\\Content\\styles.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -257,11 +205,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "Biblioteca.js",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Scripts\\Steam\\Biblioteca.js",
+              "DocumentMoniker": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Scripts\\Steam\\Biblioteca.js",
               "RelativeDocumentMoniker": "SteamWA\\Scripts\\Steam\\Biblioteca.js",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Scripts\\Steam\\Biblioteca.js",
+              "ToolTip": "C:\\Users\\GAMER\\Desktop\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Scripts\\Steam\\Biblioteca.js",
               "RelativeToolTip": "SteamWA\\Scripts\\Steam\\Biblioteca.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
