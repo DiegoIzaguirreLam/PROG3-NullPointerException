@@ -36,9 +36,55 @@
         .separador{
             padding-bottom: 3rem;
         }
+        .dropdown-item{
+            cursor: pointer;
+        }
     </style>
     <script>
         document.body.style.backgroundColor = '#24282f';
+
+        function autoCompletarBarraBusqueda(item) {
+            const autocompleteInput = document.getElementById("search-autocomplete")
+            autocompleteInput.value = item
+
+        }
+        //Se ejecuta cuando la pagin ya se ha cargado
+        window.onload = function () {
+            const suggestionsList = document.querySelector('#suggestions');
+            const autocompleteInput = document.getElementById("search-autocomplete")
+            const data = ['Dark souls 1', 'Elden Ring', 'Batman Arkham Origins', 'Hollow Knight', 'Phasmophobia'];
+
+            // Función para filtrar los resultados
+            const dataFilter = (value) => {
+                return data.filter((item) => {
+                    return item.toLowerCase().includes(value.toLowerCase());
+                });
+            };
+
+            // Evento de entrada en el campo de búsqueda
+            autocompleteInput.addEventListener('input', () => {
+                const inputValue = autocompleteInput.value;
+                const filteredData = dataFilter(inputValue);
+
+                suggestionsList.innerHTML = '';
+
+                // Agrega las sugerencias filtradas a la lista desplegable
+                filteredData.forEach((item) => {
+                    const option = document.createElement('li');
+                    const option2 = document.createElement('a');
+                    option2.setAttribute("class", "dropdown-item");
+                    aut = "autoCompletarBarraBusqueda("+"'"+item+"'"+")"
+                    option2.setAttribute("onclick", aut)
+                    option2.innerHTML =item
+                    option.appendChild(option2)
+                 
+                    suggestionsList.appendChild(option);
+                });
+                console.log(filteredData);
+            });
+        }
+        
+       
         function desplegarFiltros() {
       
             
@@ -53,12 +99,14 @@
         <div class="search-bar d-flex">
 
 
-            <input type="search" class="rounded-0 rounded-start-2 form-control" placeholder="Buscar programas...">
+            <input type="search" data-bs-toggle="dropdown" autocomplete="off" list="suggestions" id="search-autocomplete" class="rounded-0 rounded-start-2 form-control" placeholder="Buscar programas...">
 
             <button type="submit" class="rounded-0 rounded-end-2 btn btn-outline-light  ">
                 <i class="fas fa-search"></i>
             </button>
-
+            <ul class="dropdown-menu" aria-labelledby="search-autocomplete" id="suggestions">
+    
+            </ul>
             <div class="dropdown ps-3">
                 <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownOrdenar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ordenar
