@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="Amigos.aspx" />
     <Content Include="Biblioteca.aspx" />
+    <Content Include="BuscarAmigos.aspx" />
     <Content Include="Comunidad.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="Biblioteca.aspx.designer.cs">
       <DependentUpon>Biblioteca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarAmigos.aspx.cs">
+      <DependentUpon>BuscarAmigos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuscarAmigos.aspx.designer.cs">
+      <DependentUpon>BuscarAmigos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comunidad.aspx.cs">
       <DependentUpon>Comunidad.aspx</DependentUpon>

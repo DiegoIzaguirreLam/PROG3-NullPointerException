@@ -11,25 +11,25 @@ namespace SteamWA
 {
 
 
-    public partial class Amigos
+    public partial class BuscarAmigos
     {
 
         /// <summary>
-        /// Control btnAgregarAmigo.
+        /// Control lbBuscarPorID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAgregarAmigo;
+        protected global::System.Web.UI.WebControls.LinkButton lbBuscarPorID;
 
         /// <summary>
-        /// Control lvAmigos.
+        /// Control lbBuscarPorNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvAmigos;
+        protected global::System.Web.UI.WebControls.LinkButton lbBuscarPorNombre;
     }
 }
