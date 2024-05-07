@@ -25,7 +25,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-color:#24282f;">
     <asp:ContentPlaceHolder ID="cphScripts" runat="server">
     </asp:ContentPlaceHolder>
     <div class="container-fluid d-flex p-0 h-100">

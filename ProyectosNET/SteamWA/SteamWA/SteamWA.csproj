@@ -122,6 +122,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\Steam\Biblioteca.js" />
     <Content Include="Scripts\Steam\crearForo.js" />
     <Content Include="Scripts\Steam\GestionarColeccion.js" />
     <Content Include="Tienda.aspx" />
