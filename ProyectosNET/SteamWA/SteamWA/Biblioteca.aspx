@@ -79,18 +79,9 @@
             <div class="col-md-4 me-4">
                 <!-- <h2>Listado de Programas</h2> -->
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-gray bg-navy" id="liPrograma1" onclick="mostrarInfoPrograma('Programa 1')">
-                        <img src="Images/logo_juego1.jpg" height="30" />
-                        Programa 1
-                    </li>
-                    <li class="list-group-item text-gray bg-navy" id="liPrograma2" onclick="mostrarInfoPrograma('Programa 2')">
-                        <img src="Images/logo_juego2.jpg" height="30" />
-                        Programa 2
-                    </li>
-                    <li class="list-group-item text-gray bg-navy" id="liPrograma3" onclick="mostrarInfoPrograma('Programa 3')">
-                        <img src="Images/logo_juego3.jpg" height="30" />
-                        Programa 3
-                    </li>
+                    <li class="list-group-item text-gray bg-navy" onclick="mostrarInfoPrograma('Programa 1')">Programa 1</li>
+                    <li class="list-group-item text-gray bg-navy" onclick="mostrarInfoPrograma('Programa 2')">Programa 2</li>
+                    <li class="list-group-item text-gray bg-navy" onclick="mostrarInfoPrograma('Programa 3')">Programa 3</li>
                 </ul>
             </div>
             <!-- línea divisoria vertical -->
@@ -99,29 +90,16 @@
             <div class="col-md-8 p-4">
                 <div id="infoPrograma" style="display: none;">
                     <!-- Imagen del juego -->
-                    <img id="imgPrograma" src="" width="600" alt="Portada del juego">
+                    <img id="gameImage" src="" width="600" alt="Portada del juego">
                     <!-- Información del juego -->
                     <div class="program-info">
-                        <h3 id="tituloPrograma">Titulo del Juego</h3>
-                        <p><span id="descripcionPrograma">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</span></p>                        
-                        <p><strong>Última ejecución:</strong> <span id="fechaEjecucionPrograma">10 de mayo de 2024</span></p>
-                        <p><strong>Tiempo de uso:</strong> <span id="tiempoUsoPrograma">10 horas</span></p>
-                        <p><strong>Actualizado:</strong> <span id="actualizadoPrograma">Sí</span></p>
-                        <!-- Contenedor de logros y botón para jugar -->
-                        <div class="d-flex justify-content-between align-items-start">
-                            <!-- Contenedor de logros -->
-                            <div id="logrosPrograma" style="margin-bottom: 20px;">
-                                <h3>Logros</h3>
-                                <ul id="ulLogros">
-                                    <!-- Aquí puedes agregar los logros (hardcoding para esta entrega) -->
-                                    <li>Logro 1</li>
-                                    <li>Logro 2</li>
-                                    <li>Logro 3</li>
-                                </ul>
-                            </div>
-                            <!-- Botón para jugar -->
-                            <button id="btnJugar" type="button" class="btn btn-primary btn-success">Jugar</button>
-                        </div>
+                        <h3 id="gameTitle">Titulo del Juego</h3>
+                        <p><strong>Fecha de Publicación:</strong> <span id="gameReleaseDate">01 de enero de 2024</span></p>
+                        <p><strong>Descripción:</strong> <span id="gameDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</span></p>
+                        <p><strong>Fecha de Adquisición:</strong> <span id="gameAcquisitionDate">05 de mayo de 2024</span></p>
+                        <p><strong>Fecha Ejecutado:</strong> <span id="gameExecutionDate">10 de mayo de 2024</span></p>
+                        <p><strong>Actualizado:</strong> <span id="gameUpdated">Sí</span></p>
+                        <button id="playButton" class="btn btn-primary">Jugar</button>
                     </div>
                 </div>
             </div>
