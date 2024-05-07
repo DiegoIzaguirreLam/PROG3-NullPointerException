@@ -58,6 +58,7 @@
         //Se ejecuta cuando la pagin ya se ha cargado
         window.onload = function () {
             const suggestionsList = document.querySelector('#suggestions');
+            suggestionsList.style.visibility = "hidden"
             const autocompleteInput = document.getElementById("search-autocomplete")
             const data = ['Dark souls 1', 'Elden Ring', 'Batman Arkham Origins', 'Hollow Knight', 'Phasmophobia'];
 
@@ -74,20 +75,36 @@
                 const filteredData = dataFilter(inputValue);
 
                 suggestionsList.innerHTML = '';
+                if (inputValue === "") {
+                    suggestionsList.style.visibility = "hidden"
+                } else {
 
-                // Agrega las sugerencias filtradas a la lista desplegable
-                filteredData.forEach((item) => {
-                    const option = document.createElement('li');
-                    const option2 = document.createElement('a');
-                    option2.setAttribute("class", "dropdown-item desplegableBusqueda");
-                    aut = "autoCompletarBarraBusqueda("+"'"+item+"'"+")"
-                    option2.setAttribute("onclick", aut)
-                    option2.innerHTML =item
-                    option.appendChild(option2)
-                 
-                    suggestionsList.appendChild(option);
-                });
-                console.log(filteredData);
+               
+                    // Agrega las sugerencias filtradas a la lista desplegable
+                    if (filteredData.length === 0) {
+                        suggestionsList.style.visibility = "hidden";
+                    } else {
+                        filteredData.forEach((item) => {
+                            console.log("ad");
+
+
+                            const option = document.createElement('li');
+                            const option2 = document.createElement('a');
+                            option2.setAttribute("class", "dropdown-item desplegableBusqueda");
+                            aut = "autoCompletarBarraBusqueda(" + "'" + item + "'" + ")"
+                            option2.setAttribute("onclick", aut)
+                            option2.innerHTML = item
+                            option.appendChild(option2)
+
+                            suggestionsList.appendChild(option);
+
+                            suggestionsList.style.visibility = "visible"
+
+
+                        });
+                    }
+                    console.log(filteredData);
+                }
             });
         }
         
