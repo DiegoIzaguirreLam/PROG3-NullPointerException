@@ -20,6 +20,7 @@ public class Hilo {
     private Date fechaModificacion;
     private Subforo subforo;
     private ArrayList<Mensaje> mensajes;
+    private String imagenUrl;
     private boolean oculto;
     private boolean activo;
 
@@ -27,7 +28,7 @@ public class Hilo {
     public Hilo(){
         
     }
-    public Hilo(boolean fijado, int idCreador, int nroMensajes, Date fechaCreacion, Date fechaModificacion, Subforo subforo, ArrayList<Mensaje> mensajes, boolean oculto) {
+    public Hilo(boolean fijado, int idCreador, int nroMensajes, Date fechaCreacion, Date fechaModificacion, Subforo subforo, ArrayList<Mensaje> mensajes, String imagenUrl, boolean oculto) {
         this.fijado = fijado;
         this.idCreador = idCreador;
         this.nroMensajes = nroMensajes;
@@ -36,6 +37,7 @@ public class Hilo {
         this.subforo = subforo;
         this.mensajes = mensajes;
         this.oculto = oculto;
+        this.imagenUrl = imagenUrl;
     }
 
     public int getIdHilo() {
@@ -102,6 +104,14 @@ public class Hilo {
         this.mensajes = mensajes;
     }
 
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
+    }
+    
     public boolean getOculto() {
         return oculto;
     }

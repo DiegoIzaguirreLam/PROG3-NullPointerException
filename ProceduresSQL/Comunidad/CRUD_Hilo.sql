@@ -6,15 +6,16 @@ CREATE PROCEDURE CREAR_HILO(
     IN _id_usuario INT,
     IN _fijado TINYINT,
     IN _fecha_creacion DATE,
-    IN _fecha_modificacion DATE
+    IN _fecha_modificacion DATE,
+	IN _imagen_url VARCHAR(200)
 )
 BEGIN
 	INSERT INTO hilo(fijado,fecha_creacion,
-    fecha_modificacion,fid_subforo,fid_creador,
+    fecha_modificacion,fid_subforo,fid_creador, imagen_url,
     nro_mensajes,oculto, activo)
     VALUES (_fijado,_fecha_creacion,
     _fecha_modificacion,_id_subforo,
-    _id_usuario,0,0, 1);
+    _id_usuario, _imagen_url, 0,0, 1);
 	SET _id_hilo = @@last_insert_id;
 
 END $
@@ -36,11 +37,12 @@ CREATE PROCEDURE EDITAR_HILO(
 	IN _id_hilo INT,
     IN _id_subforo INT,
     IN _fijado TINYINT,
-    IN _fecha_modificacion DATE
+    IN _fecha_modificacion DATE,
+	IN _imagen_url VARCHAR(200)
 )
 BEGIN
 	UPDATE hilo SET fijado = _fijado, fid_subforo = _id_subforo,
-    fecha_modificacion = _fecha_modificacion 
+    fecha_modificacion = _fecha_modificacion , imagen_url = _imagen_url
     WHERE id_hilo = _id_hilo; 
 END $
 

@@ -206,6 +206,7 @@ CREATE TABLE Hilo(
     nro_mensajes INT NOT NULL,
     fecha_creacion DATE NOT NULL,
     fecha_modificacion DATE NOT NULL,
+	imagen_url VARCHAR(200) NOT NULL,
     fid_subforo INT NOT NULL,
     fid_creador INT NOT NULL,
     oculto TINYINT NOT NULL,

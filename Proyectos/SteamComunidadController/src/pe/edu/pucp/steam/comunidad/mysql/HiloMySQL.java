@@ -40,6 +40,7 @@ public class HiloMySQL implements HiloDAO {
                     hilo.getFechaCreacion().getTime()));
             cs.setDate("_fecha_modificacion",new java.sql.Date(
                     hilo.getFechaModificacion().getTime()) );
+            cs.setString("_imagen_url", hilo.getImagenUrl());
             cs.executeUpdate();
             hilo.setIdHilo(cs.getInt("_id_hilo"));
             hilo.setOculto(false);
@@ -107,6 +108,7 @@ public class HiloMySQL implements HiloDAO {
             //cs.setString("_fijado", hilo.getFijado());
             cs.setDate("_fecha_modificacion", new java.sql.Date(
                     hilo.getFechaModificacion().getTime()));
+            cs.setString("_imagen_url", hilo.getImagenUrl());
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
