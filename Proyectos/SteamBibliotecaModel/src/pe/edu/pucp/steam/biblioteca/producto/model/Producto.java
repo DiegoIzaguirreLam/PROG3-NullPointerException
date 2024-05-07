@@ -17,17 +17,22 @@ abstract public class Producto {
     private double precio;
     private String descripcion;
     private double espacioDisco;
+    private String logoUrl;
+    private String portadaUrl;
     private Proveedor proveedor;
     private boolean activo;
 
     public Producto(){}
     
-    public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, Proveedor proveedor) {
+    public Producto(String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco,
+            String logoUrl, String portadaUrl, Proveedor proveedor) {
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
         this.precio = precio;
         this.descripcion = descripcion;
         this.espacioDisco = espacioDisco;
+        this.logoUrl = logoUrl;
+        this.portadaUrl = portadaUrl;
         this.proveedor = proveedor;
         this.activo = true;
     }
@@ -78,6 +83,22 @@ abstract public class Producto {
 
     public void setEspacioDisco(double espacioDisco) {
         this.espacioDisco = espacioDisco;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+    public String getPortadaUrl() {
+        return portadaUrl;
+    }
+
+    public void setPortadaUrl(String portadaUrl) {
+        this.portadaUrl = portadaUrl;
     }
 
     public Proveedor getProveedor() {

@@ -7,11 +7,10 @@ CREATE PROCEDURE INSERTAR_TIPOMONEDA(
 	IN _cambio_de_dolares DECIMAL(10,2)
 )
 BEGIN
-	INSERT INTO TipoMoneda(nombre, codigo, _cambio_de_dolares, fecha_cambio, activo)
-    VALUES (_NOMBRE, _CODIGO, _cambio_de_dolares, SYSDATE(), 1);
+	INSERT INTO TipoMoneda(nombre, codigo, cambio_de_dolares, fecha_cambio, activo)
+    VALUES (_nombre, _codigo, _cambio_de_dolares, SYSDATE(), 1);
     SET _id_tipo_moneda = @@last_insert_id;
 END$	
-
 
 DROP PROCEDURE IF EXISTS LISTAR_TIPOMONEDAS;
 DELIMITER $
@@ -32,7 +31,7 @@ BEGIN
 	UPDATE TipoMoneda
 	SET nombre = _nombre,
 		codigo = _codigo,
-		cambio_de_dolares = _cambio_de_dolares
+		cambio_de_dolares = _cambio_de_dolares,
 		fecha_cambio = SYSDATE()
 	WHERE id_tipo_moneda = _id_tipo_moneda;
 END$	

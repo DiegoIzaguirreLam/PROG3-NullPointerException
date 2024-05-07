@@ -26,6 +26,7 @@ public class PerfilMySQL implements PerfilDAO{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
+            cs.setString("_foto_url", perfil.getFotoUrl());
             cs.executeUpdate();
             resultado = 1;
             cs.close();
@@ -44,6 +45,7 @@ public class PerfilMySQL implements PerfilDAO{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_PERFIL(?)}");
             cs.setInt("_id_perfil", perfil.getIdPerfil());
+            cs.setString("_foto_url", perfil.getFotoUrl());
             cs.setBoolean("_oculto", perfil.getOculto());
             cs.executeUpdate();
             resultado = 1;
@@ -91,6 +93,7 @@ public class PerfilMySQL implements PerfilDAO{
             rs = cs.executeQuery();
             rs.next();
             perfil.setIdPerfil(rs.getInt("id_perfil"));
+            perfil.setFotoUrl(rs.getString("url_foto"));
             perfil.setActivo(rs.getBoolean("oculto"));
             ComentarioDAO daoComentario = new ComentarioMySQL();
             perfil.setComentarios(daoComentario.listarComentariosPerfil(perfil.getIdPerfil()));

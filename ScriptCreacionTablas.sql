@@ -140,6 +140,7 @@ CREATE TABLE MedallaUsuario(
 CREATE TABLE Perfil(
 	id_perfil INT,
 	usuario_id INT UNIQUE,
+    foto_url VARCHAR(200),
     oculto TINYINT NOT NULL,
     PRIMARY KEY(id_perfil),
     FOREIGN KEY(usuario_id) REFERENCES Usuario(UID)
@@ -287,6 +288,8 @@ CREATE TABLE Producto(
     precio DECIMAL(5,2) NOT NULL,
     descripcion VARCHAR(100) NOT NULL,
     espacio_disco DECIMAL(5,2) NOT NULL,
+    logo_url VARCHAR(200) NOT NULL,
+    portada_url VARCHAR(200) NOT NULL,
     tipo_producto ENUM('JUEGO', 'BANDASONORA', 'SOFTWARE'),
     fid_proveedor INT NOT NULL,
 	activo TINYINT NOT NULL,
