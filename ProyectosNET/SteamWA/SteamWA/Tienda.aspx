@@ -39,6 +39,13 @@
         .dropdown-item{
             cursor: pointer;
         }
+        #suggestions{
+
+            background-color: #392e47;
+        }
+        .desplegableBusqueda{
+            color: white;
+        }
     </style>
     <script>
         document.body.style.backgroundColor = '#24282f';
@@ -72,7 +79,7 @@
                 filteredData.forEach((item) => {
                     const option = document.createElement('li');
                     const option2 = document.createElement('a');
-                    option2.setAttribute("class", "dropdown-item");
+                    option2.setAttribute("class", "dropdown-item desplegableBusqueda");
                     aut = "autoCompletarBarraBusqueda("+"'"+item+"'"+")"
                     option2.setAttribute("onclick", aut)
                     option2.innerHTML =item
