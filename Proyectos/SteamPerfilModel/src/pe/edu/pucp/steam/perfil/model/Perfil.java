@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Perfil {
     private int idPerfil; //El id es el mismo que el del usuario por eso el constructor pide
+    private String fotoUrl;
     private boolean activo;
     private ArrayList<Expositor> expositores;
     private ArrayList<Comentario> comentarios;
@@ -54,5 +55,14 @@ public class Perfil {
     public void setComentarios(ArrayList<Comentario> comentarios) {
         this.comentarios = comentarios;
     }
+
+    public String getFotoUrl() {
+        return fotoUrl;
+    }
+
+    public void setFotoUrl(String fotoUrl) {
+        this.fotoUrl = fotoUrl;
+    }
+    
     
 }

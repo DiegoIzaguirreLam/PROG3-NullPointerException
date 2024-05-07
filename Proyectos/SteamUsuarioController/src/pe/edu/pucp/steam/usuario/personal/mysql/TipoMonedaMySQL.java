@@ -32,8 +32,8 @@ private Connection con;
                     + "(?,?,?,?)}");
             cs.registerOutParameter("_id_tipo_moneda",
                     java.sql.Types.INTEGER);
-            cs.setString("_NOMBRE", tipoMoneda.getNombre());
-            cs.setString("_CODIGO", tipoMoneda.getCodigo());
+            cs.setString("_nombre", tipoMoneda.getNombre());
+            cs.setString("_codigo", tipoMoneda.getCodigo());
             cs.setDouble("_cambio_de_dolares", tipoMoneda.getCambioDeDolares());
             cs.executeUpdate();
             tipoMoneda.setIdTipoMoneda(cs.getInt("_id_tipo_moneda"));
@@ -80,8 +80,8 @@ private Connection con;
             cs = con.prepareCall("{call INSERTAR_TIPOMONEDA"
                     + "(?,?,?,?)}");
             cs.setInt("_id_tipo_moneda", tipoMoneda.getIdTipoMoneda());
-            cs.setString("_NOMBRE", tipoMoneda.getNombre());
-            cs.setString("_CODIGO", tipoMoneda.getCodigo());
+            cs.setString("_nombre", tipoMoneda.getNombre());
+            cs.setString("_codigo", tipoMoneda.getCodigo());
             cs.setDouble("_cambio_de_dolares", tipoMoneda.getCambioDeDolares());
             resultado = cs.executeUpdate();
         }catch(Exception ex){

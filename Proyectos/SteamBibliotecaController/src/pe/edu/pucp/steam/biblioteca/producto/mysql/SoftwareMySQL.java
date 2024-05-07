@@ -28,7 +28,7 @@ public class SoftwareMySQL implements SoftwareDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_SOFTWARE"
-                    + "(?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_software",
                     java.sql.Types.INTEGER);
             cs.setInt("_fid_proveedor", software.getProveedor().getIdProveedor());
@@ -37,6 +37,8 @@ public class SoftwareMySQL implements SoftwareDAO{
             cs.setDouble("_precio", software.getPrecio());
             cs.setString("_descripcion", software.getDescripcion());
             cs.setDouble("_espacio_disco", software.getEspacioDisco());
+            cs.setString("_logo_url", software.getLogoUrl());
+            cs.setString("_portada_url", software.getPortadaUrl());
             cs.setBoolean("_activo", true);
             cs.setString("_requisitos", software.getRequisitos());
             cs.setString("_licencia", software.getLicencia());
@@ -57,7 +59,7 @@ public class SoftwareMySQL implements SoftwareDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_SOFTWARE"
-                    + "(?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_software", software.getIdProducto());
             cs.setInt("_fid_proveedor", software.getProveedor().getIdProveedor());
             cs.setString("_titulo", software.getTitulo());
@@ -65,6 +67,8 @@ public class SoftwareMySQL implements SoftwareDAO{
             cs.setDouble("_precio", software.getPrecio());
             cs.setString("_descripcion", software.getDescripcion());
             cs.setDouble("_espacio_disco", software.getEspacioDisco());
+            cs.setString("_logo_url", software.getLogoUrl());
+            cs.setString("_portada_url", software.getPortadaUrl());
             cs.setBoolean("_activo", software.isActivo());
             cs.setString("_requisitos", software.getRequisitos());
             cs.setString("_licencia", software.getLicencia());
@@ -110,6 +114,8 @@ public class SoftwareMySQL implements SoftwareDAO{
                 software.setPrecio(rs.getDouble("precio"));
                 software.setDescripcion(rs.getString("descripcion"));
                 software.setEspacioDisco(rs.getDouble("espacio_disco"));
+                software.setLogoUrl(rs.getString("logo_url"));
+                software.setPortadaUrl(rs.getString("portada_url"));
                 software.setRequisitos(rs.getString("requisitos"));
                 software.setLicencia(rs.getString("licencia"));
                 proveedor.setIdProveedor(rs.getInt("id_proveedor"));
@@ -142,6 +148,8 @@ public class SoftwareMySQL implements SoftwareDAO{
             software.setPrecio(rs.getDouble("precio"));
             software.setDescripcion(rs.getString("descripcion"));
             software.setEspacioDisco(rs.getDouble("espacio_disco"));
+            software.setLogoUrl(rs.getString("logo_url"));
+            software.setPortadaUrl(rs.getString("portada_url"));
             software.setRequisitos(rs.getString("requisitos"));
             software.setLicencia(rs.getString("licencia"));
             software.setActivo(rs.getBoolean("activo"));
