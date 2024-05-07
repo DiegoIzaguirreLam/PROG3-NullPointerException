@@ -13,5 +13,44 @@ namespace SteamWA
         {
 
         }
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Configuracion.aspx");
+        }
+
+        protected void lbEditarNombreCuenta_Click(object sender, EventArgs e)
+        {
+            txtNombreCuenta.Enabled = true;
+        }
+
+        protected void lbEditarNombrePerfil_Click(object sender, EventArgs e)
+        {
+            txtNombrePerfil.Enabled = true;
+        }
+
+        protected void lbEditarCorreo_Click(object sender, EventArgs e)
+        {
+            txtCorreo.Enabled = true;
+        }
+
+        protected void lbEditarTelefono_Click(object sender, EventArgs e)
+        {
+            txtTelefono.Enabled = true;
+        }
+
+        protected void lbEditarFechaNacimiento_Click(object sender, EventArgs e)
+        {
+            dtpFechaNacimiento.Disabled = false;
+        }
+
+        protected void lbEditarPais_Click(object sender, EventArgs e)
+        {
+            ddlPaises.Enabled = true;
+        }
     }
 }
