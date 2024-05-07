@@ -13,5 +13,16 @@ namespace SteamWA
         {
 
         }
+
+        protected void btnCarrito1_Click(object sender, EventArgs e)
+        {
+            /*string script = "window.onload = function() { showModalForm('form-modal-EliminarColeccion') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);*/
+        }
+
+        protected void btnCarro_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Carrito.aspx");
+        }
     }
 }
