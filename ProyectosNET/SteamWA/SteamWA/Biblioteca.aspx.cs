@@ -13,5 +13,12 @@ namespace SteamWA
         {
 
         }
+
+        protected void btnMostrarLogros_OnClick(object sender, EventArgs e)
+        {
+            string script = "window.onload = function() { showModalForm('form-modal-logros') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
     }
 }
