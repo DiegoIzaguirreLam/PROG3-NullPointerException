@@ -49,6 +49,10 @@
                     <a style="font-family: 'Exo 2'" href="Comunidad.aspx"><i class="fa-solid fa-users"></i>Comunidad</a>
                     <hr />
                 </li>
+                <li class="nav-item">
+                    <a style="font-family: 'Exo 2'" href="Amigos.aspx"><i class="fa-solid fa-user-group"></i>Amigos</a>
+                    <hr />
+                </li>
             </ul>
             <hr>
             <div class="d-flex justify-content-center p-0">
@@ -70,7 +74,7 @@
                 <div class="container-fluid">
                     <a style="font-family: 'Orbitron'" class="navbar-brand d-sm-none d-md-block d-none d-sm-block">Steam</a>
                     <form class="d-flex">
-                        <a class="text-white text-left mt-2"><i class="fa-solid fa-inbox"></i></a>
+                        <a class="text-white text-left mt-2" href="Notificaciones.aspx"><i class="fa-solid fa-inbox"></i></a>
                         <div style="font-family: 'Exo 2'" class="dropdown ps-3">
                             <button class="btn btn-outline-light dropdown-toggle"
                                 id="btnUsuario" data-bs-toggle="dropdown" type="button"
@@ -80,7 +84,7 @@
                             <ul class="dropdown-menu" aria-labelledby="btnUsuario" style="left:auto;right:0">
                                 <li><a class="dropdown-item" href="#">Perfil</a></li>
                                 <li><a class="dropdown-item" href="Configuracion.aspx">Configuración</a></li>
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
                             </ul>
                         </div>
                     </form>

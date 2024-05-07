@@ -108,6 +108,7 @@
     <Content Include="GestionarForo.aspx" />
     <Content Include="GestionarSubforo.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Notificaciones.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -132,6 +133,7 @@
     <Content Include="Scripts\Steam\Biblioteca.js" />
     <Content Include="Scripts\Steam\crearForo.js" />
     <Content Include="Scripts\Steam\GestionarColeccion.js" />
+    <Content Include="Scripts\Steam\mostrarNotificacion.js" />
     <Content Include="Tienda.aspx" />
     <Content Include="Web.config" />
     <Content Include="Steam.Master" />
@@ -207,6 +209,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notificaciones.aspx.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notificaciones.aspx.designer.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
