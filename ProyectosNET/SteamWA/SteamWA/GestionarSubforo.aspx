@@ -5,7 +5,7 @@
     <script src="Scripts/Steam/crearForo.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div class="container">
+    <div class="container fontSetterExo2">
         <div class="row align-items-center">
             <div class="col-md-7 row align-items-center">
                 <div class="col-md-auto align-items-lg-start">
@@ -26,7 +26,7 @@
         </div>
     </div>
     <hr />
-    <div class="container row">
+    <div class="container row fontSetterExo2">
         <asp:GridView ID="foros" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped">
             <Columns>
                 <asp:BoundField HeaderText="Nombre" DataField="nombre" />
@@ -39,7 +39,7 @@
             </Columns>
         </asp:GridView>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-4 fontSetterExo2">
         <!-- tarjeta 1 -->
         <div class="col-md-4">
             <div class="card bg-dark-subtle border-black">
@@ -53,7 +53,7 @@
                         - Sr. Tomasto
                         <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
                     </p>
-                    <a href="#" class="btn btn-light">Abrir Hilo</a>
+                    <asp:Button ID="btn3" CssClass="btn btn-light col-sm-4 border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" />
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
                 - Sr. Tomasto
                 <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
                     </p>
-                    <a href="#" class="btn btn-light">Abrir Hilo</a>
+                    <asp:Button ID="btn2" CssClass="btn btn-light col-sm-4 border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" />
                 </div>
             </div>
         </div>
@@ -87,14 +87,14 @@
                 - Sr. Tomasto
                 <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
                     </p>
-                    <a href="#" class="btn btn-light">Abrir Hilo</a>
+                    <asp:Button ID="btn1" CssClass="btn btn-light col-sm-4 border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" />
                 </div>
             </div>
         </div>
         <!-- mas tarjetas -->
     </div>
     <%--Clase modal para la creación de un Hilo--%>
-    <div class="modal border-white fade" id="form-modal-hilo">
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-hilo">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
@@ -105,19 +105,36 @@
                     <div class="container bg-dark">
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label mt-1" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" Height="150"/>
+                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control mt-1" Height="150" />
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer clearfix">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Crear"
-                                CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                        <div class="container row">
+                            <div class="col-md-5">
+                                <asp:Button ID="btnImagen" runat="server" Text="Imagen"
+                                    CssClass="justify-content-md-start btn btn-secondary bg-dark mb-2" />
+                            </div>
+                            <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
+                                <asp:Button ID="btnGuardar" runat="server" Text="Crear"
+                                    CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <%--Clase modal para la lectura y edición de un Hilo--%>
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-hilo-lector">
+       <div class="modal-dialog">
+           <div class="modal-content bg-secondary bg-opacity-50">
+               <div class="modal-header bg-dark">
+                   <div class="modal-content">
+                    </div>
+                </div>
+            </div>
+       </div>
     </div>
 </asp:Content>

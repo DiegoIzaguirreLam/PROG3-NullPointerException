@@ -5,7 +5,7 @@
     <script src="Scripts/Steam/crearForo.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div class="container">
+    <div class="container fontSetterExo2">
         <div class="row align-items-center">
             <div class="col-md-7 row align-items-center">
                 <div class="col-md-auto align-items-lg-start">
@@ -25,7 +25,7 @@
         </div>
     </div>
     <hr />
-    <div class="container">
+    <div class="container fontSetterExo2">
         <asp:GridView ID="gvSubforos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
             <Columns>
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
@@ -45,7 +45,7 @@
         </asp:GridView>
     </div>
     <!--Clase modal para la creación de un subforo-->
-    <div class="modal border-white fade" id="form-modal-subforo">
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-subforo">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
@@ -56,23 +56,29 @@
                     <div class="container bg-dark">
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblSubforo" runat="server" Text="Subforo:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblSubforo" runat="server" Text="Subforo:" CssClass="col-sm-3 col-form-label mt-1" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtSubforo" runat="server" CssClass="form-control" MaxLength="14"/>
+                                    <asp:TextBox ID="txtSubforo" runat="server" CssClass="form-control mt-1" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label mt-1" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" Height="150"/>
+                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control mt-1" Height="150" />
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer clearfix">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Crear"
-                                CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                        <div class="container row">
+                            <div class="col-md-5">
+                                <asp:Button ID="btnImagen" runat="server" Text="Imagen"
+                                    CssClass="justify-content-md-start btn btn-secondary bg-dark mb-2" />
+                            </div>
+                            <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
+                                <asp:Button ID="btnGuardar" runat="server" Text="Crear"
+                                    CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +86,7 @@
         </div>
     </div>
     <!--Clase modal para la actualización de un subforo-->
-    <div class="modal border-white fade" id="form-modal-actualizar">
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-actualizar">
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">

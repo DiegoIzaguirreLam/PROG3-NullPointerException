@@ -52,5 +52,11 @@ namespace SteamWA
             string script = "window.onload = function() { showModalForm('form-modal-hilo') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
+
+        protected void btnAbrirHilo_Click(object sender, EventArgs e)
+        {
+            string script = "window.onload = function() { showModalForm('form-modal-hilo-lector') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
     }
 }
