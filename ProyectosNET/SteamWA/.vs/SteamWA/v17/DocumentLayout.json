@@ -11,12 +11,8 @@
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\comunidad.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\piero\\onedrive\\escritorio\\repositorios\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\piero\\OneDrive\\Escritorio\\repositorios\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\piero\\OneDrive\\Escritorio\\repositorios\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\tienda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\tienda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,18 +57,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-05-07T17:21:21.408Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Tienda.aspx",
-              "DocumentMoniker": "C:\\Users\\piero\\OneDrive\\Escritorio\\repositorios\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Tienda.aspx",
-              "RelativeDocumentMoniker": "SteamWA\\Tienda.aspx",
-              "ToolTip": "C:\\Users\\piero\\OneDrive\\Escritorio\\repositorios\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Tienda.aspx",
-              "RelativeToolTip": "SteamWA\\Tienda.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T17:21:06.454Z"
             },
             {
               "$type": "Document",

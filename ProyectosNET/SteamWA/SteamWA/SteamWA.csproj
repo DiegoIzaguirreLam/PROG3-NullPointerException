@@ -108,6 +108,8 @@
     <Content Include="GestionarColeccion.aspx" />
     <Content Include="GestionarForo.aspx" />
     <Content Include="GestionarSubforo.aspx" />
+    <Content Include="Images\Captura de pantalla 2024-05-07 185011.png" />
+    <Content Include="Images\Captura de pantalla 2024-05-07 185034.png" />
     <Content Include="Images\loopy.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Notificaciones.aspx" />
