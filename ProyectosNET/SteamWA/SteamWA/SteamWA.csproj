@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Amigos.aspx" />
     <Content Include="Biblioteca.aspx" />
     <Content Include="Comunidad.aspx" />
     <Content Include="Configuracion.aspx" />
@@ -104,6 +105,8 @@
     <Content Include="GestionarColeccion.aspx" />
     <Content Include="GestionarForo.aspx" />
     <Content Include="GestionarSubforo.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -118,6 +121,7 @@
     <Content Include="Content\Fonts\webfonts\fa-solid-900.woff2" />
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Inicio.Master" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -131,6 +135,13 @@
     <Content Include="Steam.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Amigos.aspx.cs">
+      <DependentUpon>Amigos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Amigos.aspx.designer.cs">
+      <DependentUpon>Amigos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Biblioteca.aspx.cs">
       <DependentUpon>Biblioteca.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,7 +185,28 @@
     <Compile Include="GestionarSubforo.aspx.designer.cs">
       <DependentUpon>GestionarSubforo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inicio.Master.cs">
+      <DependentUpon>Inicio.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.Master.designer.cs">
+      <DependentUpon>Inicio.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Steam.Master.cs">
       <DependentUpon>Steam.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
