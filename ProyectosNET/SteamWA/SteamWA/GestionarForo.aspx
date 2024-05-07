@@ -16,7 +16,7 @@
                     <asp:Button ID="foro" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" OnClick="btnActualizarForo_Click" />
                 </div>
             </div>
-            <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="col text-end">
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Subforo" OnClick="btnCrearSubforo_Click" />
             </div>
         </div>
@@ -31,7 +31,7 @@
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                 <%--Se mostrará el primer mensaje del hilo fijado en el foro--%>
                 <asp:BoundField HeaderText="Mensaje" DataField="Mensaje" />
-                <asp:TemplateField>
+                <asp:TemplateField ItemStyle-CssClass="text-end">
                     <ItemTemplate>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
                             CommandArgument='<%# Eval("IdSubforo") %>' OnClick="lbAbrirSubforo_Click"></asp:LinkButton>

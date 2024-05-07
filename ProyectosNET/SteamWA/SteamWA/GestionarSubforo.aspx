@@ -20,7 +20,7 @@
                     <asp:Button ID="subforo" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" OnClick="btnActualizarSubforo_Click"/>
                 </div>
             </div>
-            <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="col text-end">
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Hilo" OnClick="btnCrearHilo_Click" />
             </div>
         </div>

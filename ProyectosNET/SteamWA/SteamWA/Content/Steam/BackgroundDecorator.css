@@ -1,0 +1,10 @@
+﻿.border-Gradient {
+    border: 1px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(90deg, #24282f 0%, #ffffff 45%, #ffffff 55%, #24282f 100%);
+}
+
+.border-shadow {
+    box-shadow: 0 0 5px #0d0523;
+}

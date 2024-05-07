@@ -5,6 +5,7 @@
     <script src="Scripts/Steam/crearForo.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
+    <link href="Content/Steam/FontAdder.css" rel="stylesheet" />
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-7 row align-items-center">
@@ -12,7 +13,7 @@
                     <asp:Button ID="return" CssClass="h5 bg-transparent border-0 fontSetterExo2" runat="server" Text="Comunidad" OnClick="btnActualizarComunidad_Click"/>
                 </div>
             </div>
-            <div class="col-md-5 d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="col text-end">
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light fontSetterExo2" runat="server" Text="Crear Foro" OnClick="btnCrearForo_Click" />
             </div>
         </div>
@@ -20,7 +21,7 @@
             <input type="text" class="form-control mt-3 fontSetterExo2" placeholder="Buscar Foros...">
         </div>
     </div>
-    <hr />
+    <hr class="border-Gradient border-shadow"/>
     <div class="container">
         <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
             <Columns>
@@ -30,7 +31,7 @@
                 <asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>
                 <asp:ButtonField HeaderText="Creador" DataTextField="Usuario" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" 
                                  HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                <asp:TemplateField>
+                <asp:TemplateField ItemStyle-CssClass="text-end">
                     <ItemTemplate>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
                             CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
