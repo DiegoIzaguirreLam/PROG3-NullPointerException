@@ -30,7 +30,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_BANDASONORA"
-                    + "(?,?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_banda_sonora",
                     java.sql.Types.INTEGER);
             cs.setInt("_fid_proveedor", bandaSonora.getProveedor().getIdProveedor());
@@ -39,6 +39,8 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             cs.setDouble("_precio", bandaSonora.getPrecio());
             cs.setString("_descripcion", bandaSonora.getDescripcion());
             cs.setDouble("_espacio_disco", bandaSonora.getEspacioDisco());
+            cs.setString("_logo_url", bandaSonora.getLogoUrl());
+            cs.setString("_portada_url", bandaSonora.getPortadaUrl());
             cs.setBoolean("_activo", true);
             cs.setString("_artista", bandaSonora.getArtista());
             cs.setString("_compositor", bandaSonora.getCompositor());
@@ -68,6 +70,8 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             cs.setDouble("_precio", bandaSonora.getPrecio());
             cs.setString("_descripcion", bandaSonora.getDescripcion());
             cs.setDouble("_espacio_disco", bandaSonora.getEspacioDisco());
+            cs.setString("_logo_url", bandaSonora.getLogoUrl());
+            cs.setString("_portada_url", bandaSonora.getPortadaUrl());
             cs.setBoolean("_activo", bandaSonora.isActivo());
             cs.setString("_artista", bandaSonora.getArtista());
             cs.setString("_compositor", bandaSonora.getCompositor());
@@ -114,6 +118,8 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
                 bandaSonora.setPrecio(rs.getDouble("precio"));
                 bandaSonora.setDescripcion(rs.getString("descripcion"));
                 bandaSonora.setEspacioDisco(rs.getDouble("espacio_disco"));
+                bandaSonora.setLogoUrl(rs.getString("logo_url"));
+                bandaSonora.setPortadaUrl(rs.getString("portada_url"));
                 bandaSonora.setArtista(rs.getString("artista"));
                 bandaSonora.setCompositor(rs.getString("compositor"));
                 bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());
@@ -147,6 +153,8 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             bandaSonora.setPrecio(rs.getDouble("precio"));
             bandaSonora.setDescripcion(rs.getString("descripcion"));
             bandaSonora.setEspacioDisco(rs.getDouble("espacio_disco"));
+            bandaSonora.setLogoUrl(rs.getString("logo_url"));
+            bandaSonora.setPortadaUrl(rs.getString("portada_url"));
             bandaSonora.setArtista(rs.getString("artista"));
             bandaSonora.setCompositor(rs.getString("compositor"));
             bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());

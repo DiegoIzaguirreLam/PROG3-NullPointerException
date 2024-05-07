@@ -28,21 +28,26 @@ import pe.edu.pucp.steam.biblioteca.producto.mysql.LogroMySQL;
 import pe.edu.pucp.steam.biblioteca.producto.mysql.ProveedorMySQL;
 import pe.edu.pucp.steam.biblioteca.producto.mysql.SoftwareMySQL;
 import pe.edu.pucp.steam.usuario.personal.dao.PaisDAO;
+import pe.edu.pucp.steam.usuario.personal.dao.TipoMonedaDAO;
 import pe.edu.pucp.steam.usuario.personal.mysql.PaisMySQL;
+import pe.edu.pucp.steam.usuario.personal.mysql.TipoMonedaMySQL;
 
 public class Principal {
     public static void main(String[] args) throws Exception {
         
         // Declaraciones de Variables por Usar
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        
+        String logoUrl, portadaUrl;        
         UsuarioDAO daoUsuario = new UsuarioMySQL();
         JuegoDAO daoJuego = new JuegoMySQL();
+        TipoMonedaDAO daoTipoMoneda = new TipoMonedaMySQL();
         PaisDAO daoPais = new PaisMySQL();
         ProveedorDAO daoProveedor = new ProveedorMySQL();
         
         TipoMoneda sol = new TipoMoneda("Sol", "PEN", 3.73, new Date());
         TipoMoneda euro = new TipoMoneda("Euro", "EUR", 0.91, new Date());
+        daoTipoMoneda.insertarTipoMoneda(sol);
+        daoTipoMoneda.insertarTipoMoneda(euro);
         //----------------------------------------------------------------------
         // Creación de los países
         System.out.println("Ahora, se van a registrar a los países.");
@@ -67,9 +72,8 @@ public class Principal {
         System.out.println("Todos los países registrados son:");
         ArrayList<Pais> paises = daoPais.listarPaises();
         for (Pais pais : paises) {
-            System.out.println(pais.getIdPais()+ ". "
-                               + pais.getNombre()+ " - "
-                               + pais.getMoneda());
+            System.out.println(pais.getIdPais()+ ". " + pais.getNombre()+ " - " + pais.getCodigo() + ". Moneda: " + pais.getMoneda().getCodigo() + " - Cambio de dolares: " +
+                                       pais.getMoneda().getCambioDeDolares());
         }
         System.out.println();
         System.out.println();
@@ -172,6 +176,8 @@ public class Principal {
         
         
         // CRUD JUEGO
+        logoUrl = "https://w7.pngwing.com/pngs/612/26/png-transparent-controller-gamepad-xbox-video-games-computer-game-icon.png";
+        portadaUrl = "https://static.vecteezy.com/system/resources/thumbnails/013/381/423/small/game-console-joystick-glowing-neon-buttons-signs-bright-signboard-light-banner-easy-to-edit-illustration-vector.jpg";
         Juego juego1 = new Juego();
         juego1.setTitulo("Juego 1");
         juego1.setFechaPublicacion(sdf.parse("01-01-0001"));
@@ -179,9 +185,13 @@ public class Principal {
         juego1.setRequisitosMinimos("Core i5 10th Generation");
         juego1.setRequisitosRecomendados("Core i7 12th Generation");
         juego1.setMultijugador(true);
+        juego1.setLogoUrl(logoUrl);
+        juego1.setPortadaUrl(portadaUrl);
         juego1.setActivo(true);
         juego1.setProveedor(proveedor1);
         
+        logoUrl = "https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png";
+        portadaUrl = "https://www.cnet.com/a/img/resize/1eb18178ce2eae10df475b4ebb62d8308a7fe6c8/hub/2014/02/14/341f3067-b0b5-11e3-a24e-d4ae52e62bcc/Flappy_Bird_Nick_02.jpg?auto=webp&fit=crop&height=675&width=1200";
         Juego juego2 = new Juego();
         juego2.setTitulo("Juego 2");
         juego2.setFechaPublicacion(sdf.parse("02-02-2024"));
@@ -189,6 +199,8 @@ public class Principal {
         juego2.setRequisitosMinimos("Core i3 8th Generation");
         juego2.setRequisitosRecomendados("Core i9 12th Generation");
         juego2.setMultijugador(true);
+        juego2.setLogoUrl(logoUrl);
+        juego2.setPortadaUrl(portadaUrl);
         juego2.setActivo(true);
         juego2.setProveedor(proveedor2);
         
@@ -214,10 +226,13 @@ public class Principal {
                                + juego.getRequisitosMinimos()+ " - "
                                + juego.getRequisitosRecomendados());
         }
- //BANDA SONORA
+        //BANDA SONORA
         BandaSonoraDAO daoBandaSonora = new BandaSonoraMySQL();
+        logoUrl = "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d0/02/e3/d002e325-299d-f87f-a737-7d7ad3c628ae/840095520225.jpg/1200x1200bf-60.jpg";
+        portadaUrl = "https://cdn.cloudflare.steamstatic.com/steam/apps/598190/header.jpg?t=1581550241";
         BandaSonora bandaSonora = new BandaSonora("Christopher Larkin", "Christopher Larkin", LocalTime.of(1, 4, 20), "Hollow Knight - Official Soundtrack", sdf.parse("20-04-2024"), 0, 
-                "Soundtrack Oficial del juego Hollow Knight, captura una vasta parte del mundo subterráneo del juego", 0, proveedor1);
+                "Soundtrack Oficial del juego Hollow Knight, captura una vasta parte del mundo subterráneo del juego", 0,
+                logoUrl, portadaUrl, proveedor1);
         if(daoBandaSonora.insertarBandaSonora(bandaSonora)!=0){
             System.out.println("La banda sonora fue registrada con éxito");
         }
@@ -240,12 +255,15 @@ public class Principal {
                     banda.getDuracion().toString()+ " - " + banda.getArtista() + " - " + banda.getDescripcion());
         }*/
 
+        //CRUD SOFTWARE
+        logoUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoRHLNX2m9GQ-ziMfqlaSkfZH8m5YnhovOAWASmw8Dg&s";
+        portadaUrl = "https://cdn.akamai.steamstatic.com/steam/apps/431960/header.jpg?t=1665921297";
         SoftwareDAO daoSoftware = new SoftwareMySQL();
         Software software1 = new Software("Core i5 7th Generation", "GPL", "Wallpaper Engine", sdf.parse("29-04-2004"),
-                5, "Aplicacion para fondos de pantalla en alta calidad y animados", 20, proveedor2);
+                5, "Aplicacion para fondos de pantalla en alta calidad y animados", 20, logoUrl, portadaUrl, proveedor2);
         
         if(daoSoftware.insertarSoftware(software1)!=0){
-            System.out.println("El software se elimino con exito");
+            System.out.println("El software se insertó con exito");
         }
         /*
         Software software = daoSoftware.buscarSoftware(6);

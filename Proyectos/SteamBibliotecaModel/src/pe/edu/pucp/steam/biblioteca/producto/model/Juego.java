@@ -20,8 +20,11 @@ public class Juego extends Producto{
 
     public Juego(){}
     
-    public Juego(String requisitosMinimos, String requisitosRecomendados, boolean multijugador, ArrayList<Logro> logros, ArrayList<Integer> idObjetos, String titulo, Date fechaPublicacion, double precio, String descripcion, double espacioDisco, Proveedor proveedor) {
-        super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, proveedor);
+    public Juego(String requisitosMinimos, String requisitosRecomendados, boolean multijugador,
+            ArrayList<Logro> logros, ArrayList<Integer> idObjetos, String titulo, Date fechaPublicacion,
+            double precio, String descripcion, double espacioDisco, String logoUrl, String portadaUrl,
+            Proveedor proveedor) {
+        super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, logoUrl, portadaUrl, proveedor);
         this.requisitosMinimos = requisitosMinimos;
         this.requisitosRecomendados = requisitosRecomendados;
         this.multijugador = multijugador;

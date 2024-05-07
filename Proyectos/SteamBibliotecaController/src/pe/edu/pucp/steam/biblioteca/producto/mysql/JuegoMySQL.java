@@ -29,7 +29,7 @@ public class JuegoMySQL implements JuegoDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_JUEGO"
-                    + "(?,?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_juego",
                     java.sql.Types.INTEGER);
             cs.setInt("_fid_proveedor", juego.getProveedor().getIdProveedor());
@@ -39,6 +39,8 @@ public class JuegoMySQL implements JuegoDAO{
             cs.setDouble("_precio", juego.getPrecio());
             cs.setString("_descripcion", juego.getDescripcion());
             cs.setDouble("_espacio_disco", juego.getEspacioDisco());
+            cs.setString("_logo_url", juego.getLogoUrl());
+            cs.setString("_portada_url", juego.getPortadaUrl());
             cs.setBoolean("_activo", true);
             cs.setString("_requisitos_minimos", juego.getRequisitosMinimos());
             cs.setString("_requisitos_recomendados", juego.getRequisitosRecomendados());
@@ -60,7 +62,7 @@ public class JuegoMySQL implements JuegoDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_JUEGO"
-                    + "(?,?,?,?,?,?,?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_juego", juego.getIdProducto());
             cs.setInt("_fid_proveedor", juego.getProveedor().getIdProveedor());
             cs.setString("_titulo", juego.getTitulo());
@@ -69,6 +71,8 @@ public class JuegoMySQL implements JuegoDAO{
             cs.setDouble("_precio", juego.getPrecio());
             cs.setString("_descripcion", juego.getDescripcion());
             cs.setDouble("_espacio_disco", juego.getEspacioDisco());
+            cs.setString("_logo_url", juego.getLogoUrl());
+            cs.setString("_portada_url", juego.getPortadaUrl());
             cs.setBoolean("_activo", juego.isActivo());
             cs.setString("_requisitos_minimos", juego.getRequisitosMinimos());
             cs.setString("_requisitos_recomendados", juego.getRequisitosRecomendados());
@@ -115,6 +119,8 @@ public class JuegoMySQL implements JuegoDAO{
                 juego.setPrecio(rs.getDouble("precio"));
                 juego.setDescripcion(rs.getString("descripcion"));
                 juego.setEspacioDisco(rs.getDouble("espacio_disco"));
+                juego.setLogoUrl(rs.getString("logo_url"));
+                juego.setPortadaUrl(rs.getString("portada_url"));
                 juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
                 juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
                 juego.setMultijugador(rs.getBoolean("multijugador"));
@@ -153,6 +159,8 @@ public class JuegoMySQL implements JuegoDAO{
             juego.setPrecio(rs.getDouble("precio"));
             juego.setDescripcion(rs.getString("descripcion"));
             juego.setEspacioDisco(rs.getDouble("espacio_disco"));
+            juego.setLogoUrl(rs.getString("logo_url"));
+            juego.setPortadaUrl(rs.getString("portada_url"));
             juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
             juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
             juego.setMultijugador(rs.getBoolean("multijugador"));

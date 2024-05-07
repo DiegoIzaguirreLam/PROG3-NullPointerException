@@ -109,6 +109,7 @@
     <Content Include="GestionarColeccion.aspx" />
     <Content Include="GestionarForo.aspx" />
     <Content Include="GestionarSubforo.aspx" />
+    <Content Include="Images\loopy.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Notificaciones.aspx" />
     <Content Include="Registro.aspx" />
@@ -284,9 +285,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
