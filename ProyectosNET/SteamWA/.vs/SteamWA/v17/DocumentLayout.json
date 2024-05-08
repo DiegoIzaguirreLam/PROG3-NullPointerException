@@ -53,7 +53,6 @@
               "RelativeDocumentMoniker": "SteamWA\\Steam.Master",
               "ToolTip": "C:\\Users\\piero\\OneDrive\\Escritorio\\repositorios\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Steam.Master",
               "RelativeToolTip": "SteamWA\\Steam.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-05-07T17:21:21.408Z",
               "EditorCaption": ""
@@ -68,8 +67,7 @@
               "RelativeToolTip": "SteamWA\\Comunidad.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T15:58:48.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-07T15:58:48.921Z"
             }
           ]
         }

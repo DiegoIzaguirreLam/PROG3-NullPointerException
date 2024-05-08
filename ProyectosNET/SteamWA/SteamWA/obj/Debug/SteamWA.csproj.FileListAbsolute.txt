@@ -33,3 +33,10 @@ C:\Users\sofia\Google Drive\11 PUCP\7mo ciclo\Programacion 3\PROG3-NullPointerEx
 C:\Users\sofia\Google Drive\11 PUCP\7mo ciclo\Programacion 3\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.CoreCompileInputs.cache
 C:\Users\sofia\Google Drive\11 PUCP\7mo ciclo\Programacion 3\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.dll
 C:\Users\sofia\Google Drive\11 PUCP\7mo ciclo\Programacion 3\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.pdb
+D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.dll.config
+D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.dll
+D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.pdb
+D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.AssemblyReference.cache
+D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.CoreCompileInputs.cache
+D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.dll
+D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.pdb

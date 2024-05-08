@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
+     <script src="Scripts/Steam/Tienda.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <style>
@@ -205,7 +206,11 @@
                         <h5 class="card-title">Nombre del Programa 1</h5>
                         <p class="card-text">Descripción breve del Programa 1.</p>
                         <p class="card-text">Precio: $10.99</p>
-                        <a href="#" class="btn btn-primary">Añadir al Carrito</a>
+                       
+                        <asp:LinkButton ID="btnCarrito1" CssClass="btn btn-primary" 
+                            runat="server" OnClick="btnCarrito1_Click"
+                            data-bs-toggle="modal" data-bs-target="#form-modal-añadido-carrito">Añadir al Carrito</asp:LinkButton> 
+
                     </div>
                 </div>
             </div>
@@ -262,4 +267,28 @@
                 </div>
             </div>
     </div>
+   
+    <!-- Modal -->
+
+<div class="modal fade " id="form-modal-añadido-carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content carouselDestacados border-Gradient" style="border-radius:0">
+      <div class="modal-header border-Gradient">
+        <h5 class="modal-title" id="exampleModalLabel" >Añadido al carro!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" style="border-radius:0.5rem"" alt="Juego 1">
+      </div>
+      <div class="modal-footer"  style="border-style:none">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"">Salir</button>
+            <asp:LinkButton ID="btnCarro" CssClass="btn btn-primary" 
+                            runat="server" OnClick="btnCarro_Click">Ir al carro</asp:LinkButton> 
+
+       
+      </div>
+    </div>
+  </div>
+</div>
+          
 </asp:Content>
