@@ -185,6 +185,8 @@ CREATE TABLE Foro(
 CREATE TABLE ForoUsuario(
 	fid_foro INT NOT NULL,
 	fid_usuario INT NOT NULL,
+	es_creador TINYINT NOT NULL,
+	es_suscriptor TINYINT NOT NULL,
 	activo TINYINT NOT NULL,
 	PRIMARY KEY(fid_foro, fid_usuario),
 	FOREIGN KEY(fid_foro) REFERENCES Foro(id_foro),
