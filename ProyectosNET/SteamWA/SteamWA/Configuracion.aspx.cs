@@ -13,16 +13,7 @@ namespace SteamWA
         {
 
         }
-        protected void btnRegresar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Configuracion.aspx");
-        }
-
+        /*
         protected void lbEditarNombreCuenta_Click(object sender, EventArgs e)
         {
             txtNombreCuenta.Enabled = true;
@@ -50,6 +41,29 @@ namespace SteamWA
 
         protected void lbEditarPais_Click(object sender, EventArgs e)
         {
+            ddlPaises.Enabled = true;
+        }
+        */
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Configuracion.aspx");
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string script = "window.onload = function() { showModalForm('form-modal-GuardarCambios') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            txtNombreCuenta.Enabled = true;
+            txtNombrePerfil.Enabled = true;
+            txtCorreo.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtTelefono.Enabled = true;
+            dtpFechaNacimiento.Disabled = false;
             ddlPaises.Enabled = true;
         }
     }

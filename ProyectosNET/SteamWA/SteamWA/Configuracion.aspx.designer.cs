@@ -51,15 +51,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtNombreCuenta;
 
         /// <summary>
-        /// Control lbEditarNombreCuenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditarNombreCuenta;
-
-        /// <summary>
         /// Control lblNombrePerfil.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombrePerfil;
-
-        /// <summary>
-        /// Control lbEditarNombrePerfil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditarNombrePerfil;
 
         /// <summary>
         /// Control lblCorreo.
@@ -105,15 +87,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
-        /// Control lbEditarCorreo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditarCorreo;
-
-        /// <summary>
         /// Control lblTelefono.
         /// </summary>
         /// <remarks>
@@ -130,15 +103,6 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-
-        /// <summary>
-        /// Control lbEditarTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditarTelefono;
 
         /// <summary>
         /// Control lblFechaNacimiento.
@@ -159,15 +123,6 @@ namespace SteamWA
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dtpFechaNacimiento;
 
         /// <summary>
-        /// Control lbEditarFechaNacimiento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditarFechaNacimiento;
-
-        /// <summary>
         /// Control lblPais.
         /// </summary>
         /// <remarks>
@@ -186,22 +141,13 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.DropDownList ddlPaises;
 
         /// <summary>
-        /// Control lbEditarPais.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditarPais;
-
-        /// <summary>
-        /// Control btnRegresar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
 
         /// <summary>
         /// Control btnGuardar.
@@ -211,5 +157,14 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
+
+        /// <summary>
+        /// Control btnEditar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditar;
     }
 }
