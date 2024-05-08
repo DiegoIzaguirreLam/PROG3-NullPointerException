@@ -15,6 +15,11 @@ BEGIN
 
 END $
 
+DROP PROCEDURE IF EXISTS LISTAR_FOROS;
+CREATE PROCEDURE LISTAR_FOROS()
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE f.es_creador = 1 AND activo = 1;
+END$
 
 DROP PROCEDURE IF EXISTS MOSTRAR_SUBFOROS_POR_FORO;
 DELIMITER $ 
