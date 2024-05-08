@@ -45,10 +45,6 @@ namespace SteamWA
         }
         */
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Configuracion.aspx");
-        }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -65,6 +61,11 @@ namespace SteamWA
             txtTelefono.Enabled = true;
             dtpFechaNacimiento.Disabled = false;
             ddlPaises.Enabled = true;
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Configuracion.aspx");
         }
     }
 }
