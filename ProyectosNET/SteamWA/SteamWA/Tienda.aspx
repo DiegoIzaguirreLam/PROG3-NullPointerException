@@ -31,6 +31,14 @@
     border-width: 1px;
     border-image-source: linear-gradient(90deg, #24282f 0%, #ffffff 45%, #ffffff 55%, #24282f 100%);
         }
+        .border-Gradient-Gray{
+
+ 
+    border: 1px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(90deg, #24282f 0%, #afafaf 45%, #afafaf 55%, #24282f 100%);
+        }
         .border-shadow{
             box-shadow: 0 0 5px #0d0523;
         }
@@ -272,18 +280,21 @@
 
 <div class="modal fade " id="form-modal-añadido-carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
-    <div class="modal-content carouselDestacados border-Gradient" style="border-radius:0">
-      <div class="modal-header border-Gradient">
-        <h5 class="modal-title" id="exampleModalLabel" >Añadido al carro!</h5>
+    <div class="modal-content carouselDestacados border-Gradient-Gray" style="border-radius:0">
+      <div class="modal-header border-Gradient-Gray" style="border:none">
+        <h5 class="modal-title" id="exampleModalLabel" >¡Añadido a tu carro!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-         <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" style="border-radius:0.5rem"" alt="Juego 1">
+      <div class="modal-body mx-3" style="background-color:#181721">
+           <div class="card-body">
+          <h5 class="card-title pb-2">Nombre del Programa 1</h5>
+         <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" style="border-radius:0.4rem"" alt="Juego 1">
+        </div>
       </div>
       <div class="modal-footer"  style="border-style:none">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"">Salir</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"">Seguir comprando</button>
             <asp:LinkButton ID="btnCarro" CssClass="btn btn-primary" 
-                            runat="server" OnClick="btnCarro_Click">Ir al carro</asp:LinkButton> 
+                            runat="server" OnClick="btnCarro_Click">Ver mi carro</asp:LinkButton> 
 
        
       </div>

@@ -13,5 +13,10 @@ namespace SteamWA
         {
 
         }
+
+        protected void btmComprar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Biblioteca.aspx");
+        }
     }
 }
