@@ -136,8 +136,10 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Scripts\Steam\Biblioteca.js" />
+    <Content Include="Scripts\Steam\Carrito.js" />
     <Content Include="Scripts\Steam\crearForo.js" />
     <Content Include="Scripts\Steam\GestionarColeccion.js" />
+    <Content Include="Scripts\Steam\mostrarModal.js" />
     <Content Include="Scripts\Steam\mostrarNotificacion.js" />
     <Content Include="Scripts\Steam\Tienda.js" />
     <Content Include="Tienda.aspx" />
