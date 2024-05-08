@@ -17,12 +17,27 @@
                 <div class="card bg-dark text-gray">
                     <div class="card-body">
                         <h5 class="card-title">Buscar por ID</h5>
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <span class="input-group">
                                 <input type="text" class="form-control" placeholder="Ingrese el UID">
                                 <asp:LinkButton ID="lbBuscarPorID" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>" />
                             </span>
                         </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-gray bg-navy" id="amigo">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>Amigo 1</span>
+                                    <div>
+                                        <button class="btn btn-primary">
+                                            <i class="fas fa-user-plus"></i>
+                                        </button>
+                                        <button class="btn btn-danger">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

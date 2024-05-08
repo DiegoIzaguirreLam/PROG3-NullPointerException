@@ -12,7 +12,7 @@
                 <h5>Filtrar por:</h5>
 
                 <div class="dropdown ps-3">
-                    <button class="btn btn-primary dropdown-toggle bg-navy text-gray" type="button" id="ddMostrar"
+                    <button class="btn bg-navy dropdown-toggle bg-navy btn-outline-light" type="button" id="ddMostrar"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Opciones
                     </button>
