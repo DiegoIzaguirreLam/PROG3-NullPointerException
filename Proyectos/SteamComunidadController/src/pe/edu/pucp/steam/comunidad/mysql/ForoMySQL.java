@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
+import pe.edu.pucp.steam.comunidad.model.OrigenForo;
 /**
  *
  * @author piero
@@ -129,6 +130,37 @@ public class ForoMySQL implements ForoDAO{
             }
         }
         return resultado;   
+    }
+
+    @Override
+    public ArrayList<Foro> listarForos() {
+        ArrayList<Foro> foros =  new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_FOROS}");
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Foro foro = new Foro();
+                foro.setIdForo(rs.getInt("id_foro"));
+                foro.setNombre(rs.getString("nombre"));
+                foro.setDescripcion(rs.getString("descripcion"));
+                foro.setOrigen(OrigenForo.valueOf(rs.getString("origen_foro")));
+                foro.setIdCreador(rs.getInt("id_user"));
+		foros.add(foro);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+			try{rs.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+			
+        }
+        return foros; 
     }
     
 }

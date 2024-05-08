@@ -14,6 +14,7 @@ import pe.edu.pucp.steam.comunidad.model.Subforo;
  */
 public interface ForoDAO {
     int insertarForo(Foro foro);
+    ArrayList<Foro> listarForos();
     ArrayList<Subforo> mostrarSubforosForo(Foro foro);
     int editarForo(Foro foro);
     int eliminarForo(Foro foro);

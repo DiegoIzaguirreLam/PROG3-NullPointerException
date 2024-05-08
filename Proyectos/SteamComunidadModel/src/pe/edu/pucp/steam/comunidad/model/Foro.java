@@ -24,6 +24,7 @@ public class Foro {
     public Foro(){
         
     }
+    
     public Foro(String nombre, String descripcion, OrigenForo origen, int idCreador, boolean oculto) {
         this.nombre = nombre;
         this.descripcion = descripcion;
