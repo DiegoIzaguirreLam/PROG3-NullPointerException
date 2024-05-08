@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/coleccion/dao/ColeccionDAO.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/producto/mysql/JuegoMySQL.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/producto/mysql/ProductoEtiquetaMySQL.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/producto/dao/ProductoEtiquetaDAO.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/producto/dao/ProductoDAO.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/coleccion/mysql/ColeccionMySQL.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/coleccion/dao/ProductoAdquiridoColeccionDAO.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/producto/mysql/ProductoMySQL.java</file>
+            <file>file:/C:/Users/Diego/OneDrive/Documentos/PUCP/2024-1/Programación%203/TA/PROG3-NullPointerException/Proyectos/SteamBibliotecaController/src/pe/edu/pucp/steam/biblioteca/coleccion/mysql/ProductoAdquiridoColeccionMySQL.java</file>
+        </group>
     </open-files>
 </project-private>

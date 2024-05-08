@@ -293,7 +293,7 @@ public class Principal {
         LogroDAO daoLogro = new LogroMySQL();
         Logro logro = new Logro("Sobrevivir un dia", "Lograr sobrevivir un dia no es facil", juego2);
         if(daoLogro.insertarLogro(logro)!=0){
-            System.out.println("Se realizo el registro correctamente");
+            System.out.println("Se realizo el registro del logro correctamente");
         }
         else{
             System.out.println("Error al realizar el registro");

@@ -4,14 +4,11 @@
  */
 package pe.edu.pucp.steam.biblioteca.producto.dao;
 
-import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
-
 /**
  *
- * @author piero
+ * @author Diego
  */
-public interface ProductoDAO {
-    ArrayList<Producto> listarProductos();
-    Producto buscarProducto(int idProducto);
+public interface ProductoEtiquetaDAO {
+    int agregarProductoEtiqueta(int idProducto, int idEtiqueta);
+    int eliminarProductoEtiqueta(int idProducto, int idEtiqueta);
 }
