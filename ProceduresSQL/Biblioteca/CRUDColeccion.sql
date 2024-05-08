@@ -55,10 +55,10 @@ CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS_COLECCION(
 	IN _fid_coleccion INT
 )
 BEGIN
-	SELECT c.nombre, p.titulo, p.descripcion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado, p.logo_url, p.portada_url
+	SELECT p.titulo as titulo_producto, p.descripcion, p.tipo_producto, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado, p.logo_url, p.portada_url
     FROM Coleccion c
     INNER JOIN ProductoAdquirido_Coleccion pc ON c.id_coleccion = pc.fid_coleccion
     INNER JOIN ProductoAdquirido pa ON  pa.id_producto_adquirido = pc.fid_producto_adquirido
     INNER JOIN Producto p ON p.id_producto = pa.fid_producto
-    WHERE c.id_coleccion = _fid_coleccion;
+    WHERE c.id_coleccion = _fid_coleccion AND pc.activo = 1 AND pa.activo = 1;
 END$
