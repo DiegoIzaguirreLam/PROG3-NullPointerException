@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    carrito 🚗 
+   
      <div class="container">
         <h1 class="mt-4">Tu carro de compra</h1>
          <hr />
