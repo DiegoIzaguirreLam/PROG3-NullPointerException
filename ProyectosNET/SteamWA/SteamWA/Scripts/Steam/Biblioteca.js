@@ -1,4 +1,4 @@
-﻿// Definir un objeto que almacene los detalles del programa, incluidos los logros
+﻿// hardcoding de programas
 var programas = {
     "Programa 1": {
         titulo: "Programa 1",
@@ -29,11 +29,10 @@ var programas = {
     }
 }
 
-// Función para mostrar la información del programa
 function mostrarInfoPrograma(nombrePrograma) {
     var programa = programas[nombrePrograma];
 
-    // cargar la información del programa
+    // cargar la informacion del programa (hardcoding)
     document.getElementById("imgPrograma").src = programa.imagen;
     document.getElementById("tituloPrograma").innerText = programa.titulo;
     document.getElementById("descripcionPrograma").innerText = programa.descripcion;
@@ -41,14 +40,13 @@ function mostrarInfoPrograma(nombrePrograma) {
     document.getElementById("fechaEjecucionPrograma").innerText = programa.fechaEjecucion;
     document.getElementById("actualizadoPrograma").innerText = programa.actualizado;
 
-    // Actualizar la lista de logros
+    // actualizas la lista de logros
     var logrosHTML = "";
     for (var i = 0; i < programa.logros.length; i++) {
         logrosHTML += "<li>" + programa.logros[i] + "</li>";
     }
     document.getElementById("ulLogros").innerHTML = logrosHTML;
 
-    // Mostrar el contenedor de la información del programa
     document.getElementById("infoPrograma").style.display = "block";
 }
 function showModalForm(modal) {

@@ -112,8 +112,10 @@
     <Content Include="Images\Captura de pantalla 2024-05-07 185011.png" />
     <Content Include="Images\Captura de pantalla 2024-05-07 185034.png" />
     <Content Include="Images\loopy.jpg" />
+    <Content Include="Images\user_profile_picture.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Notificaciones.aspx" />
+    <Content Include="Perfil.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -231,6 +233,13 @@
     </Compile>
     <Compile Include="Notificaciones.aspx.designer.cs">
       <DependentUpon>Notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
