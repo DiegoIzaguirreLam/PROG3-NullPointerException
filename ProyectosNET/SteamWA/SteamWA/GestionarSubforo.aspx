@@ -165,7 +165,7 @@
                             <div class="col-md-5 text-end">
                                 <p class="mt-3">
                                     - Sr. Tomasto Nojao
-                                    <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
+                                    <img src="Images/Captura%20de%20pantalla%202024-05-07%20185034.png" width="20" height="20" />
                                 </p>
                             </div>
                         </div>
@@ -176,9 +176,12 @@
                             <div class="col-md-5 text-end">
                                 <p class="mt-3">
                                     - Sr. Tomasto Feli
-                                    <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
+                                    <img src="Images/Captura%20de%20pantalla%202024-05-07%20185011.png" width="20" height="20" />
                                 </p>
                             </div>
+                        </div>
+                        <div class="container row">
+                            <asp:TextBox runat="server" CssClass="col-12 mb-3 rounded"></asp:TextBox>
                         </div>
                     </div>
                 </div>
