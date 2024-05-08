@@ -22,6 +22,7 @@ namespace SteamWA
                 dtAmigos.Rows.Add("1", "Amigo 1");
                 dtAmigos.Rows.Add("2", "Amigo 2");
                 dtAmigos.Rows.Add("3", "Amigo 3");
+                dtAmigos.Rows.Add("4", "Amigo 4");
 
                 lvAmigos.DataSource = dtAmigos;
                 lvAmigos.DataBind();
@@ -36,11 +37,17 @@ namespace SteamWA
         protected void btnEliminarAmigo_Click(object sender, EventArgs e)
         {
             // Modal
+            string script = "window.onload = function() { showModalForm('form-modal-EliminarAmigo') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+
         }
 
         protected void btnBloquearAmigo_Click(object sender, EventArgs e)
         {
             // Modal
+            string script = "window.onload = function() { showModalForm('form-modal-BloquearUsuario') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+
         }
     }
 }
