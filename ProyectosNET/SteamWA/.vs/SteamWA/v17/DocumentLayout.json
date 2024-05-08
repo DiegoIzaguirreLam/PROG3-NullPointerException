@@ -3,27 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\gestionarcoleccion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\gestionarcoleccion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\scripts\\steam\\biblioteca.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\scripts\\steam\\biblioteca.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\gestionarcoleccion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\gestionarcoleccion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\biblioteca.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\biblioteca.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\biblioteca.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\scripts\\steam\\biblioteca.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\scripts\\steam\\biblioteca.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\steam.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\perfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\perfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\perfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\diego\\onedrive\\documentos\\pucp\\2024-1\\programaci\u00F3n 3\\ta\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\perfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\steamwa\\perfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\perfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -42,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +62,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "GestionarColeccion.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarColeccion.aspx.cs",
+              "RelativeDocumentMoniker": "SteamWA\\GestionarColeccion.aspx.cs",
+              "ToolTip": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarColeccion.aspx.cs",
+              "RelativeToolTip": "SteamWA\\GestionarColeccion.aspx.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAcwBUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T06:00:03.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GestionarColeccion.aspx",
+              "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarColeccion.aspx",
+              "RelativeDocumentMoniker": "SteamWA\\GestionarColeccion.aspx",
+              "ToolTip": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarColeccion.aspx",
+              "RelativeToolTip": "SteamWA\\GestionarColeccion.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-05-08T05:35:01.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Perfil.aspx",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Perfil.aspx",
               "RelativeDocumentMoniker": "SteamWA\\Perfil.aspx",
@@ -73,14 +107,14 @@
               "RelativeDocumentMoniker": "SteamWA\\Biblioteca.aspx.cs",
               "ToolTip": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Biblioteca.aspx.cs",
               "RelativeToolTip": "SteamWA\\Biblioteca.aspx.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBcAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-08T00:50:32.101Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Biblioteca.js",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Scripts\\Steam\\Biblioteca.js",
               "RelativeDocumentMoniker": "SteamWA\\Scripts\\Steam\\Biblioteca.js",
@@ -93,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Biblioteca.aspx",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Biblioteca.aspx",
               "RelativeDocumentMoniker": "SteamWA\\Biblioteca.aspx",
@@ -106,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "GestionarSubforo.aspx",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\GestionarSubforo.aspx",
               "RelativeDocumentMoniker": "SteamWA\\GestionarSubforo.aspx",
@@ -114,11 +148,12 @@
               "RelativeToolTip": "SteamWA\\GestionarSubforo.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T23:15:58.664Z"
+              "WhenOpened": "2024-05-07T23:15:58.664Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Steam.Master",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Steam.Master",
               "RelativeDocumentMoniker": "SteamWA\\Steam.Master",
@@ -131,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Perfil.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Perfil.aspx.cs",
               "RelativeDocumentMoniker": "SteamWA\\Perfil.aspx.cs",
@@ -144,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Comunidad.aspx",
               "DocumentMoniker": "C:\\Users\\Diego\\OneDrive\\Documentos\\PUCP\\2024-1\\Programaci\u00F3n 3\\TA\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Comunidad.aspx",
               "RelativeDocumentMoniker": "SteamWA\\Comunidad.aspx",
@@ -152,7 +187,8 @@
               "RelativeToolTip": "SteamWA\\Comunidad.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-07T15:58:48.921Z"
+              "WhenOpened": "2024-05-07T15:58:48.921Z",
+              "EditorCaption": ""
             }
           ]
         }

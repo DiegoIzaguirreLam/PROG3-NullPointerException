@@ -19,5 +19,21 @@ namespace SteamWA
             string script = "window.onload = function() { showModalForm('form-modal-EliminarColeccion') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
+        protected void btnCancelar_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Biblioteca.aspx");
+        }
+
+        protected void btnGuardar_OnClick(object sender, EventArgs e)
+        {
+            //por implementar
+            Response.Redirect("Biblioteca.aspx");
+        }
+
+        protected void btnEliminar_OnClick(object sender, EventArgs e)
+        {
+            //por implementar
+            Response.Redirect("Biblioteca.aspx");
+        }
     }
 }

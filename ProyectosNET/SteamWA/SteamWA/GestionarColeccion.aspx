@@ -52,8 +52,8 @@
                 <div class="d-flex justify-content-between">
                     <asp:Button ID="btnEliminar" CssClass="btn btn-primary btn-danger bg-navy-50 text-gray" runat="server" Text="Eliminar" OnClick="btnEliminarColeccion_OnClick"/>
                     <div>
-                        <button type="button" class="btn btn-secondary bg-navy-50 text-gray me-2" href="Biblioteca.aspx">Cancelar</button>
-                        <button type="button" class="btn btn-primary bg-navy text-gray">Guardar</button>
+                        <asp:Button ID="btnCancelar" CssClass="btn btn-secondary bg-navy-50 text-gray me-2" runat="server" Text="Cancelar" OnClick="btnCancelar_OnClick"/>
+                        <asp:Button ID="btnGuardar" CssClass="btn btn-primary bg-navy text-gray" runat="server" Text="Guardar" OnClick="btnGuardar_OnClick"/>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary btn-danger">Eliminar</button>
+                        <asp:Button ID="btnEliminarConfirmacion" CssClass="btn btn-primary btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick"/>
                     </div>
                 </div>
             </div>

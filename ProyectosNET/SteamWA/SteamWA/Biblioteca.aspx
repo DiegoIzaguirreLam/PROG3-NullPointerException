@@ -103,12 +103,12 @@
                     <!-- Información del juego -->
                     <div class="program-info">
                         <h3 id="tituloPrograma">Titulo del Juego</h3>
-                        <p><span id="descripcionPrograma">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</span></p>                        
+                        <p><span id="descripcionPrograma">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</span></p>
                         <p><strong>Última ejecución:</strong> <span id="fechaEjecucionPrograma">10 de mayo de 2024</span></p>
                         <p><strong>Tiempo de uso:</strong> <span id="tiempoUsoPrograma">10 horas</span></p>
                         <p><strong>Actualizado:</strong> <span id="actualizadoPrograma">Sí</span></p>
                         <!-- Contenedor de logros y botón para jugar -->
-                        <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex flex-column">
                             <!-- Contenedor de logros -->
                             <div id="logrosPrograma" style="margin-bottom: 20px;">
                                 <h3>Logros</h3>
@@ -119,8 +119,10 @@
                                     <li>Logro 3</li>
                                 </ul>
                             </div>
-                            <!-- Botón para jugar -->
-                            <button id="btnJugar" type="button" class="btn btn-primary btn-success">Jugar</button>
+                            <!-- Botón para eliminar -->
+                            <div class="d-flex justify-content-end">
+                                <button id="btnJugar" type="button" class="btn btn-primary btn-success">Jugar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
