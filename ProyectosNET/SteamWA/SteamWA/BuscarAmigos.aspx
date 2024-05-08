@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <span class="input-group">
                                 <input type="text" class="form-control" placeholder="Ingrese el UID">
-                                <asp:LinkButton ID="lbBuscarPorID" runat="server" class="btn btn-primary" Text="<i class='fas fa-search'></i>" />
+                                <asp:LinkButton ID="lbBuscarPorID" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>" />
                             </span>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <span class="input-group">
                                 <input type="text" class="form-control" placeholder="Ingrese el nombre de usuario">
-                                <asp:LinkButton ID="lbBuscarPorNombre" runat="server" class="btn btn-primary" Text="<i class='fas fa-search'></i>"/>
+                                <asp:LinkButton ID="lbBuscarPorNombre" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>"/>
                             </span>
                         </div>
                     </div>
