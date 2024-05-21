@@ -28,6 +28,24 @@
 </head>
 <body style="background-color:#24282f;">
     <asp:ContentPlaceHolder ID="cphScripts" runat="server">
+        <script>
+            // Obtener todos los elementos de la lista
+            var items = document.querySelectorAll('.mynav .nav-item');
+
+            // Iterar sobre cada elemento de la lista
+            items.forEach(function (item) {
+                // Agregar un evento de clic a cada elemento
+                item.addEventListener('click', function () {
+                    // Eliminar la clase 'active' de todos los elementos
+                    items.forEach(function (item) {
+                        item.classList.remove('active');
+                    });
+                    // Agregar la clase 'active' solo al elemento clickeado
+                    this.classList.add('active');
+                });
+            });
+            console.log(items);
+        </script>
     </asp:ContentPlaceHolder>
     <div class="container-fluid d-flex p-0 h-100">
         <!--Menu Lateral-->
@@ -38,19 +56,19 @@
             <hr>
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a style="font-family: 'Exo 2'" href="Tienda.aspx"><i class="fa-solid fa-shop"></i>Tienda</a>
+                    <a id="itemTienda" style="font-family: 'Exo 2'" runat="server" href="Tienda.aspx"><i class="fa-solid fa-shop"></i>Tienda</a>
                     <hr />
                 </li>
                 <li class="nav-item">
-                    <a style="font-family: 'Exo 2'" href="Biblioteca.aspx"><i class="fa-solid fa-layer-group"></i>Biblioteca</a>
+                    <a id="itemBiblioteca" style="font-family: 'Exo 2'" runat="server" href="Biblioteca.aspx"><i class="fa-solid fa-layer-group"></i>Biblioteca</a>
                     <hr />
                 </li>
                 <li class="nav-item">
-                    <a style="font-family: 'Exo 2'" href="Comunidad.aspx"><i class="fa-solid fa-users"></i>Comunidad</a>
+                    <a id="itemComunidad" style="font-family: 'Exo 2'" runat="server" href="Comunidad.aspx"><i class="fa-solid fa-users"></i>Comunidad</a>
                     <hr />
                 </li>
                 <li class="nav-item">
-                    <a style="font-family: 'Exo 2'" href="Amigos.aspx"><i class="fa-solid fa-user-group"></i>Amigos</a>
+                    <a id="itemAmigos" style="font-family: 'Exo 2'" runat="server" href="Amigos.aspx"><i class="fa-solid fa-user-group"></i>Amigos</a>
                     <hr />
                 </li>
             </ul>

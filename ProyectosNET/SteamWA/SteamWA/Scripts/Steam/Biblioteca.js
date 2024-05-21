@@ -46,6 +46,7 @@ function mostrarInfoPrograma(nombrePrograma) {
         logrosHTML += "<li>" + programa.logros[i] + "</li>";
     }
     document.getElementById("ulLogros").innerHTML = logrosHTML;
+    document.getElementById("ulLogrosModal").innerHTML = logrosHTML;
 
     document.getElementById("infoPrograma").style.display = "block";
 }

@@ -27,6 +27,8 @@ namespace SteamWA
                 lvAmigos.DataSource = dtAmigos;
                 lvAmigos.DataBind();
             }
+            Steam master = (Steam)this.Master;
+            master.ItemAmigos.Attributes["class"] = "active";
         }
 
         protected void btnAgregarAmigo_Click(object sender, EventArgs e)

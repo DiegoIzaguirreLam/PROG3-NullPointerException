@@ -79,15 +79,15 @@
             <div class="col-md-4 me-4">
                 <!-- <h2>Listado de Programas</h2> -->
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-gray bg-navy" id="liPrograma1" onclick="mostrarInfoPrograma('Programa 1')">
+                    <li class="list-group-item text-gray bg-transparent" id="liPrograma1" onclick="mostrarInfoPrograma('Programa 1')">
                         <img src="Images/logo_juego1.jpg" height="30" />
                         Programa 1
                     </li>
-                    <li class="list-group-item text-gray bg-navy" id="liPrograma2" onclick="mostrarInfoPrograma('Programa 2')">
+                    <li class="list-group-item text-gray bg-transparent" id="liPrograma2" onclick="mostrarInfoPrograma('Programa 2')">
                         <img src="Images/logo_juego2.jpg" height="30" />
                         Programa 2
                     </li>
-                    <li class="list-group-item text-gray bg-navy" id="liPrograma3" onclick="mostrarInfoPrograma('Programa 3')">
+                    <li class="list-group-item text-gray bg-transparent" id="liPrograma3" onclick="mostrarInfoPrograma('Programa 3')">
                         <img src="Images/logo_juego3.jpg" height="30" />
                         Programa 3
                     </li>
@@ -113,7 +113,7 @@
                             <div id="logrosPrograma" style="margin-bottom: 20px;">
                                 <h3>Logros</h3>
                                 <ul id="ulLogros">
-                                    <!-- Aquí puedes agregar los logros (hardcoding para esta entrega) -->
+                                    <!-- logros -->
                                     <li>Logro 1</li>
                                     <li>Logro 2</li>
                                     <li>Logro 3</li>
@@ -121,10 +121,30 @@
                             </div>
                             <!-- Botón para eliminar -->
                             <div class="d-flex justify-content-end">
+                                <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-info" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Logros" OnClick="lbLogros_Click" />
                                 <button id="btnJugar" type="button" class="btn btn-primary btn-success">Jugar</button>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="form-modal-logros">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">Logros de juegos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Logros modal</p>
+                    <ul id="ulLogrosModal">
+                        <!-- logros -->
+                        <li>Logro 1</li>
+                        <li>Logro 2</li>
+                        <li>Logro 3</li>
+                    </ul>
                 </div>
             </div>
         </div>
