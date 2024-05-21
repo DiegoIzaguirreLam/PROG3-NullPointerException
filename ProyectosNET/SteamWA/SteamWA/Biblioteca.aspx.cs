@@ -11,14 +11,14 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Steam master = (Steam)this.Master;
+            master.ItemBiblioteca.Attributes["class"] = "active";
         }
 
-        protected void btnMostrarLogros_OnClick(object sender, EventArgs e)
+        protected void lbLogros_Click(object sender, EventArgs e)
         {
             string script = "window.onload = function() { showModalForm('form-modal-logros') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
-
     }
 }

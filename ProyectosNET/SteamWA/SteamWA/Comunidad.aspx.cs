@@ -18,6 +18,8 @@ namespace SteamWA
             foros.Add(proof);
             gvForos.DataSource = foros;
             gvForos.DataBind();
+            Steam master = (Steam)this.Master;
+            master.ItemComunidad.Attributes["class"] = "active";
         }
 
         protected void btnActualizarComunidad_Click(object sender, EventArgs e)
