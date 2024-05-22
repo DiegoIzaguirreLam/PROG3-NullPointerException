@@ -20,6 +20,9 @@ namespace SteamWA
             gvForos.DataBind();
             Steam master = (Steam)this.Master;
             master.ItemComunidad.Attributes["class"] = "active";
+            ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
+            a.hello("a");
+            
         }
 
         protected void btnActualizarComunidad_Click(object sender, EventArgs e)
