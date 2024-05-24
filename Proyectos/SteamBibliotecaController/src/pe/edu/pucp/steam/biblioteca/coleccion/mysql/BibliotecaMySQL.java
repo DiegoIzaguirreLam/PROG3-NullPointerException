@@ -62,16 +62,4 @@ public class BibliotecaMySQL implements BibliotecaDAO{
         return biblioteca;
     }
 
-    @Override
-    public ArrayList<ProductoAdquirido> listarObjetos(Biblioteca biblioteca) {
-        ProductoAdquiridoDAO productoAdquiridoDAO = new ProductoAdquiridoMySQL();
-        return productoAdquiridoDAO.listarProductosAdquiridos(biblioteca);
-    }
-
-    @Override
-    public ArrayList<Coleccion> listarColeccion(int idBiblioteca) {
-        ColeccionDAO coleccionDAO = new ColeccionMySQL();
-        return coleccionDAO.listarColecciones(idBiblioteca);
-    }
-    
 }

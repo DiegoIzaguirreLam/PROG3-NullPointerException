@@ -4,10 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.coleccion.dao;
 
-import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
-import pe.edu.pucp.steam.biblioteca.coleccion.model.Coleccion;
-import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 
 /**
  *
@@ -16,6 +13,4 @@ import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 public interface BibliotecaDAO {
     int insertarBiblioteca(Biblioteca biblioteca);
     Biblioteca buscarBiblioteca(int idUser);
-    ArrayList<ProductoAdquirido> listarObjetos(Biblioteca biblioteca);
-    ArrayList<Coleccion> listarColeccion(int idBiblioteca);
 }
