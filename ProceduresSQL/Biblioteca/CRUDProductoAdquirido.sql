@@ -10,19 +10,29 @@ CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO(
 BEGIN
 	INSERT INTO ProductoAdquirido
     (fecha_adquisicion,tiempo_uso,actualizado, oculto,
-    fid_biblioteca, fid_producto, fid_expositor, fid_movimiento, activo)
+    fid_biblioteca, fid_producto)
     VALUES(CURDATE(), CAST('00:00:00' AS TIME),false, false,
-    _fid_biblioteca,_fid_producto, 1);
-	SET _id_producto_adquirido = @@last_insert_id;
+    _fid_biblioteca,_fid_producto);
+    SET _id_producto_adquirido = @@last_insert_id;
 END$
 
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS;
 DELIMITER $
 CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS(
-	IN _id_biblioteca INT
+	IN _fid_biblioteca INT
 )
 BEGIN
-	SELECT * FROM ProductoAdquirido WHERE fid_biblioteca = _id_biblioteca;
+    SELECT pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
+    pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
+    p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    FROM ProductoAdquirido pa
+    INNER JOIN Producto p ON p.id_producto = pa.fid_producto
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
+    INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
+    WHERE p.activo = 1 and pa.fid_biblioteca = _fid_biblioteca;
 END$
 
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PRODUCTOADQUIRIDO;
@@ -68,6 +78,3 @@ CREATE PROCEDURE BUSCAR_PRODUCTOADQUIRIDO(
 BEGIN
     SELECT * FROM ProductoAdquirido WHERE id_producto_adquirido = _id_producto_adquirido;
 END$
-
-
-

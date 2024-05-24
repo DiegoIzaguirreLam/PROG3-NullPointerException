@@ -35,38 +35,42 @@ public class ProductoMySQL implements ProductoDAO {
         Producto producto = null;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_PRODUCTOS}");
+            cs = con.prepareCall("{call BUSCAR_PRODUCTO}");
+            cs.setInt("_id_producto", idProducto);
             rs = cs.executeQuery();
-            rs.next();
-            tipo = rs.getString("tipo_producto");
-            Proveedor proveedor = new Proveedor();
-            if(tipo.compareTo("JUEGO")==0){
-                producto = new Juego();
-                ((Juego)producto).setRequisitosMinimos(rs.getString("requisitos_minimos"));
-                ((Juego)producto).setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
-                ((Juego)producto).setMultijugador(rs.getBoolean("multijugador"));
-            } else if(tipo.compareTo("BANDASONORA")==0){
-                producto = new BandaSonora();
-                ((BandaSonora)producto).setArtista(rs.getString("artista"));
-                ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
-            } else if(tipo.compareTo("SOFTWARE")==0){
-                producto = new Software();
-                ((Software)producto).setRequisitos(rs.getString("requisitos"));
-                ((Software)producto).setLicencia(rs.getString("licencia"));
+            if(rs.next()){
+                tipo = rs.getString("tipo_producto");
+                Proveedor proveedor = new Proveedor();
+                if(tipo.compareTo("JUEGO")==0){
+                    producto = new Juego();
+                    ((Juego)producto).setRequisitosMinimos(rs.getString("requisitos_minimos"));
+                    ((Juego)producto).setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                    ((Juego)producto).setMultijugador(rs.getBoolean("multijugador"));
+                } else if(tipo.compareTo("BANDASONORA")==0){
+                    producto = new BandaSonora();
+                    ((BandaSonora)producto).setArtista(rs.getString("artista"));
+                    ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                } else if(tipo.compareTo("SOFTWARE")==0){
+                    producto = new Software();
+                    ((Software)producto).setRequisitos(rs.getString("requisitos"));
+                    ((Software)producto).setLicencia(rs.getString("licencia"));
+                }
+                producto.setIdProducto(rs.getInt("id_producto"));
+                producto.setTitulo(rs.getString("titulo"));
+                producto.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setDescripcion(rs.getString("descripcion"));
+                producto.setEspacioDisco(rs.getDouble("espacio_disco"));
+                producto.setLogoUrl(rs.getString("logo_url"));
+                producto.setPortadaUrl(rs.getString("portada_url"));
+                producto.setActivo(true);
+
+                proveedor.setIdProveedor(rs.getInt("id_proveedor"));
+                proveedor.setRazonSocial(rs.getString("razon_social"));
+                proveedor.setActivo(rs.getBoolean("proveedor_activo"));
+                producto.setProveedor(proveedor);
             }
-            producto.setIdProducto(rs.getInt("id_producto"));
-            producto.setTitulo(rs.getString("titulo"));
-            producto.setFechaPublicacion(rs.getDate("fecha_publicacion"));
-            producto.setPrecio(rs.getDouble("precio"));
-            producto.setDescripcion(rs.getString("descripcion"));
-            producto.setEspacioDisco(rs.getDouble("espacio_disco"));
-            producto.setActivo(rs.getBoolean("activo_producto"));
-            
-            proveedor.setIdProveedor(rs.getInt("id_proveedor"));
-            proveedor.setRazonSocial(rs.getString("razon_social"));
-            proveedor.setActivo(rs.getBoolean("proveedor_activo"));
-            producto.setProveedor(proveedor);
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         } finally{
@@ -108,6 +112,8 @@ public class ProductoMySQL implements ProductoDAO {
             producto.setPrecio(rs.getDouble("precio"));
             producto.setDescripcion(rs.getString("descripcion"));
             producto.setEspacioDisco(rs.getDouble("espacio_disco"));
+            producto.setLogoUrl(rs.getString("logo_url"));
+            producto.setPortadaUrl(rs.getString("portada_url"));
             producto.setActivo(rs.getBoolean("activo_producto"));
             
             proveedor.setIdProveedor(rs.getInt("id_proveedor"));

@@ -339,31 +339,28 @@ CREATE TABLE ProductoAdquirido_Coleccion (
 
 CREATE TABLE Juego(
 	id_juego INT,
-	id_producto INT UNIQUE,
     requisitos_minimos VARCHAR(200),
     requisitos_recomendados VARCHAR(200),
     multijugador TINYINT NOT NULL,
     PRIMARY KEY(id_juego),
-    FOREIGN KEY(id_producto) REFERENCES Producto(id_producto)
+    FOREIGN KEY(id_juego) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
 
 CREATE TABLE Software(
 	id_software INT,
-	id_producto INT UNIQUE,
     requisitos VARCHAR(200),
     licencia VARCHAR(40) NOT NULL,
     PRIMARY KEY(id_software),
-    FOREIGN KEY(id_producto) REFERENCES Producto(id_producto)
+    FOREIGN KEY(id_software) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
 
 CREATE TABLE BandaSonora(
 	id_banda_sonora INT,
-	id_producto INT UNIQUE,
     artista VARCHAR(100) NOT NULL,
     compositor VARCHAR(100) NOT NULL,
     duracion TIME NOT NULL,
     PRIMARY KEY(id_banda_sonora),
-    FOREIGN KEY(id_producto) REFERENCES Producto(id_producto)
+    FOREIGN KEY(id_banda_sonora) REFERENCES Producto(id_producto)
 )ENGINE=InnoDB;
 
 CREATE TABLE Logro(

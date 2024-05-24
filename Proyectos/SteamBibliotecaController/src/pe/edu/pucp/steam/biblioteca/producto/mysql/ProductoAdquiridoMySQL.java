@@ -4,16 +4,18 @@
  */
 package pe.edu.pucp.steam.biblioteca.producto.mysql;
 
-import pe.edu.pucp.steam.biblioteca.coleccion.mysql.BibliotecaMySQL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.coleccion.dao.BibliotecaDAO;
 import pe.edu.pucp.steam.biblioteca.producto.dao.ProductoAdquiridoDAO;
-import pe.edu.pucp.steam.biblioteca.producto.dao.ProductoDAO;
 import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
+import pe.edu.pucp.steam.biblioteca.producto.model.BandaSonora;
+import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
+import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
 import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
+import pe.edu.pucp.steam.biblioteca.producto.model.Proveedor;
+import pe.edu.pucp.steam.biblioteca.producto.model.Software;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
@@ -72,7 +74,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     }
 
     @Override
-    public int eliminarProducto(int idProducto) {
+    public int eliminarProductoAdquirido(int idProducto) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -90,26 +92,62 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     
     
     @Override
-    public ArrayList<ProductoAdquirido> listarProductosAdquiridos(Biblioteca biblioteca) {
+    public ArrayList<ProductoAdquirido> listarProductosAdquiridosPorIdBiblioteca(int idBiblioteca) {
         ArrayList<ProductoAdquirido> productosAdquiridos = new ArrayList<>();
         try{
-            int idProducto;
-            ProductoDAO productoDAO = new ProductoMySQL();
+            String tipo;
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call LISTAR_PRODUCTOSADQUIRIDOS(?)}");
-            cs.setInt("_id_biblioteca", biblioteca.getIdBiblioteca());
+            cs.setInt("_id_biblioteca", idBiblioteca);
             rs = cs.executeQuery();
             while(rs.next()){
-                ProductoAdquirido producto = new ProductoAdquirido();
-                producto.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
-                producto.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
-                producto.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
-                producto.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
-                producto.setActualizado(rs.getBoolean("actualizado"));
-                producto.setBiblioteca(biblioteca);
-                idProducto = rs.getInt("fid_producto");
-                producto.setProducto(productoDAO.buscarProducto(idProducto));
-                productosAdquiridos.add(producto);
+                ProductoAdquirido productoAdquirido = new ProductoAdquirido();
+                Producto producto = null;
+                Proveedor proveedor = new Proveedor();
+                Biblioteca biblioteca = new Biblioteca();
+                
+                productoAdquirido.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
+                productoAdquirido.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
+                productoAdquirido.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
+                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
+                productoAdquirido.setActualizado(rs.getBoolean("actualizado"));
+                productoAdquirido.setOculto(rs.getBoolean("oculto"));
+                
+                tipo = rs.getString("tipo_producto");
+                if (tipo.compareTo("JUEGO") == 0) {
+                    producto = new Juego();
+                    ((Juego)producto).setRequisitosMinimos(rs.getString("requisitos_minimos"));
+                    ((Juego)producto).setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                    ((Juego)producto).setMultijugador(rs.getBoolean("multijugador"));
+                } else if (tipo.compareTo("BANDASONORA") == 0) {
+                    producto = new BandaSonora();
+                    ((BandaSonora)producto).setArtista(rs.getString("artista"));
+                    ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                } else if (tipo.compareTo("SOFTWARE") == 0) {
+                    producto = new Software();
+                    ((Software)producto).setRequisitos(rs.getString("requisitos"));
+                    ((Software)producto).setLicencia(rs.getString("licencia"));
+                }
+                producto.setIdProducto(rs.getInt("id_producto"));
+                producto.setTitulo(rs.getString("titulo"));
+                producto.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setDescripcion(rs.getString("descripcion"));
+                producto.setEspacioDisco(rs.getDouble("espacio_disco"));
+                producto.setLogoUrl(rs.getString("logo_url"));
+                producto.setPortadaUrl(rs.getString("portada_url"));
+                producto.setActivo(rs.getBoolean("activo_producto"));
+
+                proveedor.setIdProveedor(rs.getInt("id_proveedor"));
+                proveedor.setRazonSocial(rs.getString("razon_social"));
+                proveedor.setActivo(rs.getBoolean("proveedor_activo"));
+                producto.setProveedor(proveedor);
+                
+                biblioteca.setIdBiblioteca(rs.getInt("id_biblioteca"));
+                productoAdquirido.setBiblioteca(biblioteca);
+                productoAdquirido.setProducto(producto);
+                productosAdquiridos.add(productoAdquirido);
             }
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -121,32 +159,66 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
 
     @Override
     public ProductoAdquirido buscarProductoAdquirido(int idProductoAdquirido) {
-        ProductoAdquirido producto = new ProductoAdquirido();
+        ProductoAdquirido productoAdquirido = new ProductoAdquirido();
         try{
-            int idBiblioteca, idProducto;
-            BibliotecaDAO bibliotecaDAO = new BibliotecaMySQL();
-            ProductoDAO productoDAO = new ProductoMySQL();
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_PRODUCTOADQUIRIDO(?)}");
             cs.setInt("_id_producto_adquirido", idProductoAdquirido);
             rs = cs.executeQuery();
             if(rs.next()){
-                producto.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
-                producto.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
-                producto.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
-                producto.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
-                producto.setActualizado(rs.getBoolean("actualizado"));
-                idBiblioteca = rs.getInt("fid_biblioteca");
-                idProducto = rs.getInt("fid_producto");
-                producto.setBiblioteca(bibliotecaDAO.buscarBiblioteca(idBiblioteca));
-                producto.setProducto(productoDAO.buscarProducto(idProducto));
+                String tipo;
+                Producto producto = null;
+                Proveedor proveedor = new Proveedor();
+                Biblioteca biblioteca = new Biblioteca();
+                
+                productoAdquirido.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
+                productoAdquirido.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
+                productoAdquirido.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
+                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
+                productoAdquirido.setActualizado(rs.getBoolean("actualizado"));
+                productoAdquirido.setOculto(rs.getBoolean("oculto"));
+                
+                tipo = rs.getString("tipo_producto");
+                if (tipo.compareTo("JUEGO") == 0) {
+                    producto = new Juego();
+                    ((Juego)producto).setRequisitosMinimos(rs.getString("requisitos_minimos"));
+                    ((Juego)producto).setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                    ((Juego)producto).setMultijugador(rs.getBoolean("multijugador"));
+                } else if (tipo.compareTo("BANDASONORA") == 0) {
+                    producto = new BandaSonora();
+                    ((BandaSonora)producto).setArtista(rs.getString("artista"));
+                    ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                } else if (tipo.compareTo("SOFTWARE") == 0) {
+                    producto = new Software();
+                    ((Software)producto).setRequisitos(rs.getString("requisitos"));
+                    ((Software)producto).setLicencia(rs.getString("licencia"));
+                }
+                producto.setIdProducto(rs.getInt("id_producto"));
+                producto.setTitulo(rs.getString("titulo"));
+                producto.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setDescripcion(rs.getString("descripcion"));
+                producto.setEspacioDisco(rs.getDouble("espacio_disco"));
+                producto.setLogoUrl(rs.getString("logo_url"));
+                producto.setPortadaUrl(rs.getString("portada_url"));
+                producto.setActivo(rs.getBoolean("activo_producto"));
+
+                proveedor.setIdProveedor(rs.getInt("id_proveedor"));
+                proveedor.setRazonSocial(rs.getString("razon_social"));
+                proveedor.setActivo(rs.getBoolean("proveedor_activo"));
+                producto.setProveedor(proveedor);
+                
+                biblioteca.setIdBiblioteca(rs.getInt("id_biblioteca"));
+                productoAdquirido.setBiblioteca(biblioteca);
+                productoAdquirido.setProducto(producto);
             }
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
-        return producto;
+        return productoAdquirido;
     }
 
   
