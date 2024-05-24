@@ -1,6 +1,15 @@
 ###################
 # compiled source #
 ###################
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
 *.com
 *.class
 *.dll
@@ -9,6 +18,9 @@
 *.dll.config
 *.cache
 *.suo
+[Dd]ebug/
+[Rr]elease/
+.vs/
 # Include dlls if they’re in the NuGet packages directory
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
