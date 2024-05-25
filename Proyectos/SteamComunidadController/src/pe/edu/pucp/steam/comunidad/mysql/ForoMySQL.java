@@ -56,38 +56,6 @@ public class ForoMySQL implements ForoDAO{
     }
 
     @Override
-    public ArrayList<Subforo> mostrarSubforosForo(Foro foro) {
-        ArrayList<Subforo> subforos =  new ArrayList<>();
-        try{
-            con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call MOSTRAR_SUBFOROS_POR_FORO"
-                    + "(?)}");
- 
-			cs.setInt("_id_foro", foro.getIdForo());
-            rs = cs.executeQuery();
-			while(rs.next()){
-                Subforo subforo = new Subforo();
-				subforo.setIdSubforo(rs.getInt("id_subforo"));
-				subforo.setNombre(rs.getString("nombre"));
-				subforos.add(subforo);
-                
-            }
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            
-            try{con.close();}catch(Exception ex){
-                System.out.println(ex.getMessage());
-            }
-			try{rs.close();}catch(Exception ex){
-                System.out.println(ex.getMessage());
-            }
-			
-        }
-        return subforos;   
-    }
-
-    @Override
     public int editarForo(Foro foro) {
       int resultado = 0;
         try{

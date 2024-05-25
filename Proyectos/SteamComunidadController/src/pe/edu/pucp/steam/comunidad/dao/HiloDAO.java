@@ -6,7 +6,7 @@ package pe.edu.pucp.steam.comunidad.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
-import pe.edu.pucp.steam.comunidad.model.Mensaje;
+import pe.edu.pucp.steam.comunidad.model.Subforo;
 
 
 /**
@@ -14,8 +14,8 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
  * @author piero
  */
 public interface HiloDAO {
-    int insertarHilo(Hilo hilo, int idUsuario);
-    ArrayList<Mensaje> mostrarMensajesHilo(Hilo hilo);
+    int insertarHilo(Hilo hilo);
+    ArrayList<Hilo> mostrarHilosSubforo(Subforo subforo);
     int editarHilo(Hilo hilo);
     int eliminarHilo(Hilo hilo);
 }

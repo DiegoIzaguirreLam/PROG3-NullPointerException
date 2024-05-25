@@ -4,6 +4,8 @@
  */
 package pe.edu.pucp.steam.comunidad.dao;
 
+import java.util.ArrayList;
+import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
 
 /**
@@ -11,7 +13,8 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
  * @author piero
  */
 public interface MensajeDAO {
-    int insertarMensaje(Mensaje mensaje, int idAutor);
+    int insertarMensaje(Mensaje mensaje);
+    ArrayList<Mensaje> mostrarMensajesHilo(Hilo hilo);
     int editarMensaje(Mensaje mensaje);
     int eliminarMensaje(Mensaje mensaje);
     String leerMensaje(Mensaje mensaje);

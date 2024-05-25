@@ -7,13 +7,13 @@ package pe.edu.pucp.steam.comunidad.mysql;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.comunidad.dao.HiloDAO;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
-import pe.edu.pucp.steam.comunidad.model.Mensaje;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
+import pe.edu.pucp.steam.comunidad.model.Subforo;
 /**
  *
  * @author piero
@@ -25,7 +25,7 @@ public class HiloMySQL implements HiloDAO {
     private ResultSet rs;
 
     @Override
-    public int insertarHilo(Hilo hilo, int idUsuario) {
+    public int insertarHilo(Hilo hilo) {
         int resultado=0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -34,7 +34,7 @@ public class HiloMySQL implements HiloDAO {
             cs.registerOutParameter("_id_hilo",
                     java.sql.Types.INTEGER);
             cs.setInt("_id_subforo", hilo.getSubforo().getIdSubforo());
-            cs.setInt("_id_usuario", idUsuario);
+            cs.setInt("_id_usuario", hilo.getIdCreador());
             cs.setBoolean("_fijado",hilo.isFijado());
             cs.setDate("_fecha_creacion", new java.sql.Date(
                     hilo.getFechaCreacion().getTime()));
@@ -60,24 +60,26 @@ public class HiloMySQL implements HiloDAO {
     }
 
     @Override
-    public ArrayList<Mensaje> mostrarMensajesHilo(Hilo hilo) {
-                ArrayList<Mensaje> mensajes =  new ArrayList<>();
+    public ArrayList<Hilo> mostrarHilosSubforo(Subforo subforo) {
+         ArrayList<Hilo> hilos =  new ArrayList<>();
+         
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call MOSTRAR_MENSAJES_POR_HILO"
+            cs = con.prepareCall("{call MOSTRAR_HILOS_POR_SUBFORO"
                     + "(?)}");
  
-			cs.setInt("_id_hilo", hilo.getIdHilo());
+			cs.setInt("_id_subforo", subforo.getIdSubforo());
             rs = cs.executeQuery();
 			while(rs.next()){
-                Mensaje mensaje = new Mensaje();
-				mensaje.setIdMensaje(rs.getInt("id_mensaje"));
-                                mensaje.setContenido(rs.getString("contenido"));
-                                mensaje.setFechaPublicacion(rs.getDate("fecha_publicacion"));
-                                mensaje.setFechaMaxEdicion(rs.getDate("fecha_max_edicion"));
-                                mensaje.setIdAutor(rs.getInt("fid_usuario"));
-                               
-				mensajes.add(mensaje);
+                Hilo hilo = new Hilo();
+              
+                                boolean b = ((rs.getInt("fijado")) != 0);
+				hilo.setIdHilo(rs.getInt("id_hilo"));
+				hilo.setFijado(b);
+                                hilo.setNroMensajes(rs.getInt("nro_mensajes"));
+                                hilo.setFechaCreacion(rs.getDate("fecha_creacion"));
+                                hilo.setFechaModificacion(rs.getDate("fecha_modificacion"));
+				hilos.add(hilo);
                 
             }
         }catch(Exception ex){
@@ -92,7 +94,7 @@ public class HiloMySQL implements HiloDAO {
             }
 			
         }
-        return mensajes;   
+        return hilos;   
     }
 
     @Override

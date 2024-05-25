@@ -57,26 +57,20 @@ public class SubforoMySQL implements SubforoDAO{
     }
 
     @Override
-    public ArrayList<Hilo> mostrarHilosSubforo(Subforo subforo) {
-         ArrayList<Hilo> hilos =  new ArrayList<>();
-         
+    public ArrayList<Subforo> mostrarSubforosForo(Foro foro) {
+        ArrayList<Subforo> subforos =  new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call MOSTRAR_HILOS_POR_SUBFORO"
+            cs = con.prepareCall("{call MOSTRAR_SUBFOROS_POR_FORO"
                     + "(?)}");
  
-			cs.setInt("_id_subforo", subforo.getIdSubforo());
+			cs.setInt("_id_foro", foro.getIdForo());
             rs = cs.executeQuery();
 			while(rs.next()){
-                Hilo hilo = new Hilo();
-              
-                                boolean b = ((rs.getInt("fijado")) != 0);
-				hilo.setIdHilo(rs.getInt("id_hilo"));
-				hilo.setFijado(b);
-                                hilo.setNroMensajes(rs.getInt("nro_mensajes"));
-                                hilo.setFechaCreacion(rs.getDate("fecha_creacion"));
-                                hilo.setFechaModificacion(rs.getDate("fecha_modificacion"));
-				hilos.add(hilo);
+                Subforo subforo = new Subforo();
+				subforo.setIdSubforo(rs.getInt("id_subforo"));
+				subforo.setNombre(rs.getString("nombre"));
+				subforos.add(subforo);
                 
             }
         }catch(Exception ex){
@@ -91,11 +85,11 @@ public class SubforoMySQL implements SubforoDAO{
             }
 			
         }
-        return hilos;   
+        return subforos;   
     }
 
     @Override
-    public int editarSubforo(Subforo subforo,Foro foro) {
+    public int editarSubforo(Subforo subforo) {
          int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
