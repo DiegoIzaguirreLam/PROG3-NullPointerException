@@ -15,6 +15,7 @@ public class GestorSanciones {
 
   
     private int idGestor; //Su constructor llamará al id del Usuario
+    private int idUsuario;
     private int contadorPalabras;
     private int contadorBaneos;
     private int contadorFaltas;
@@ -26,6 +27,10 @@ public class GestorSanciones {
     private ArrayList<Subforo> subforos;
     private boolean activo;
 
+    public GestorSanciones(){
+        
+    }
+    
     public GestorSanciones(int idGestor, int contadorPalabras, int contadorBaneos, int maxFaltas, int maxBaneos, Date finBan, int cantFaltas, int cantBaneos, ArrayList<Subforo> subforos) {
         this.idGestor = idGestor;
         this.contadorPalabras = contadorPalabras;
@@ -44,6 +49,14 @@ public class GestorSanciones {
 
     public void setIdGestor(int idGestor) {
         this.idGestor = idGestor;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public int getContadorPalabras() {

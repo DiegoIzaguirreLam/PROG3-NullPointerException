@@ -17,8 +17,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
     private ResultSet rs;
     
     @Override
-    public int insertarGestor(GestorSanciones gestorSanciones, Usuario usuario) {
-
+    public int insertarGestor(GestorSanciones gestorSanciones) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -26,7 +25,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
                     + "(?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_gestor",
                     java.sql.Types.INTEGER);
-            cs.setInt("_id_usuario", usuario.getUID());
+            cs.setInt("_id_usuario", gestorSanciones.getIdUsuario());
             cs.setInt("_contador_baneos",gestorSanciones.getContadorBaneos());
             cs.setInt("_contador_palabras",gestorSanciones.getContadorPalabras());
             cs.setInt("_max_faltas",gestorSanciones.getMaxFaltas());
@@ -86,4 +85,15 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
         }
         return resultado;
     }    
+
+    @Override
+    public GestorSanciones buscarGestor(int idUser) {
+        GestorSanciones gestor = new GestorSanciones();
+        try{
+            
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return gestor;
+    }
 }
