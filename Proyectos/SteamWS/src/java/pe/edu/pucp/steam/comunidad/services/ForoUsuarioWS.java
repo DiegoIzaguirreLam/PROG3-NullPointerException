@@ -17,8 +17,8 @@ import pe.edu.pucp.steam.comunidad.mysql.ForoUsuarioMySQL;
  *
  * @author GAMER
  */
-@WebService(serviceName="ForoUsuario")
-public class ForoUsuario {
+@WebService(serviceName="ForoUsuarioWS")
+public class ForoUsuarioWS {
 
     /** This is a sample web service operation */
     @WebMethod(operationName="crearRelacion")

@@ -31,4 +31,28 @@ public class GestorSancionesWS {
         }
         return resultado;
     }
+    
+    @WebMethod(operationName="actualizarGestor")
+    public int actualizarGestor(@WebParam(name="gestor") GestorSanciones gestor) {
+        int resultado=0;
+        try{
+            GestorSancionesDAO gestorDao = new GestorSancionesMySQL();
+            resultado = gestorDao.actualizarGestor(gestor);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    @WebMethod(operationName="buscarGestor")
+    public GestorSanciones buscarGestor(@WebParam(name="idUsuario")int idUsuario){
+        GestorSanciones gestor = new GestorSanciones();
+        try{
+            GestorSancionesDAO gestorDao = new GestorSancionesMySQL();
+            gestor = gestorDao.buscarGestor(idUsuario);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return gestor;
+    }
 }

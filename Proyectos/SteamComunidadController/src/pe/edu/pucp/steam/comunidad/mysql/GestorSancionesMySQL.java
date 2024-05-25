@@ -2,7 +2,6 @@ package pe.edu.pucp.steam.comunidad.mysql;
 
 import pe.edu.pucp.steam.comunidad.dao.GestorSancionesDAO;
 import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
-import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import java.sql.CallableStatement;
 
 import java.sql.Connection;
