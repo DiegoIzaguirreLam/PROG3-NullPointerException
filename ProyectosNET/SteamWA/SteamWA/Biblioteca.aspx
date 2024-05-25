@@ -79,17 +79,17 @@
             <div class="col-md-4 me-4">
                 <!-- <h2>Listado de Programas</h2> -->
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-gray bg-transparent" id="liPrograma1" onclick="mostrarInfoPrograma('Programa 1')">
+                    <li class="list-group-item text-gray bg-transparent" id="liPrograma1">
                         <img src="Images/logo_juego1.jpg" height="30" />
-                        Programa 1
+                        <asp:LinkButton ID="lbPrograma1" runat="server" Text="Programa 1" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='1' />
                     </li>
-                    <li class="list-group-item text-gray bg-transparent" id="liPrograma2" onclick="mostrarInfoPrograma('Programa 2')">
+                    <li class="list-group-item text-gray bg-transparent" id="liPrograma2">
                         <img src="Images/logo_juego2.jpg" height="30" />
-                        Programa 2
+                        <asp:LinkButton ID="lbPrograma2" runat="server" Text="Programa 2" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='2' />
                     </li>
-                    <li class="list-group-item text-gray bg-transparent" id="liPrograma3" onclick="mostrarInfoPrograma('Programa 3')">
+                    <li class="list-group-item text-gray bg-transparent" id="liPrograma3">
                         <img src="Images/logo_juego3.jpg" height="30" />
-                        Programa 3
+                        <asp:LinkButton ID="lbPrograma3" runat="server" Text="Programa 3" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='3' />
                     </li>
                 </ul>
             </div>
@@ -97,16 +97,16 @@
             <div class="border-end p-2"></div>
             <!-- parte derecha: información del programa seleccionado -->
             <div class="col-md-8 p-4">
-                <div id="infoPrograma" style="display: none;">
+                <div id="infoPrograma" runat="server" style="display: none;">
                     <!-- Imagen del juego -->
                     <img id="imgPrograma" src="" width="600" alt="Portada del juego">
                     <!-- Información del juego -->
                     <div class="program-info">
-                        <h3 id="tituloPrograma">Titulo del Juego</h3>
-                        <p><span id="descripcionPrograma">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</span></p>
-                        <p><strong>Última ejecución:</strong> <span id="fechaEjecucionPrograma">10 de mayo de 2024</span></p>
-                        <p><strong>Tiempo de uso:</strong> <span id="tiempoUsoPrograma">10 horas</span></p>
-                        <p><strong>Actualizado:</strong> <span id="actualizadoPrograma">Sí</span></p>
+                        <h3 id="tituloPrograma" runat="server">Titulo del Juego</h3>
+                        <p runat="server"><span id="descripcionPrograma">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</span></p>
+                        <p runat="server"><strong>Última ejecución:</strong> <span id="fechaEjecucionPrograma">10 de mayo de 2024</span></p>
+                        <p runat="server"><strong>Tiempo de uso:</strong> <span id="tiempoUsoPrograma">10 horas</span></p>
+                        <p runat="server"><strong>Actualizado:</strong> <span id="actualizadoPrograma">Sí</span></p>
                         <!-- Contenedor de logros y botón para jugar -->
                         <div class="d-flex flex-column">
                             <!-- Contenedor de logros -->

@@ -20,5 +20,15 @@ namespace SteamWA
             string script = "window.onload = function() { showModalForm('form-modal-logros') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
+
+        protected void lbPrograma_Click(object sender, EventArgs e)
+        {
+            String nProg = ((LinkButton)sender).CommandArgument;
+            //capturar id
+            //buscar programa en arreglo
+            tituloPrograma.InnerText = "Programa " + nProg;
+            infoPrograma.Style.Value = "block";
+        }
+
     }
 }
