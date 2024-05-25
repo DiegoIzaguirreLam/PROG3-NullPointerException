@@ -17,4 +17,5 @@ public interface LogroDAO {
     int eliminarLogro(int idLogro);
     ArrayList<Logro> listarLogros();
     Logro buscarLogro(int idLogro);
+    ArrayList<Logro> listarLogrosPorIdJuego(int idJuego);
 }

@@ -8,10 +8,13 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
 import pe.edu.pucp.steam.biblioteca.producto.dao.LogroDAO;
 import pe.edu.pucp.steam.biblioteca.producto.dao.LogroDesbloqueadoDAO;
 import pe.edu.pucp.steam.biblioteca.producto.dao.ProductoAdquiridoDAO;
+import pe.edu.pucp.steam.biblioteca.producto.model.Logro;
 import pe.edu.pucp.steam.biblioteca.producto.model.LogroDesbloqueado;
+import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
@@ -45,66 +48,25 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
     }
     
     @Override
-    public ArrayList<LogroDesbloqueado> listarLogrosProductoAdquirido(int idProductoAdquirido) {
-        ArrayList<LogroDesbloqueado> logrosDesbloqueados = new ArrayList<>(); 
+    public int actualizarLogroDesbloqueado(LogroDesbloqueado logro) {
+        int resultado = 0;
         try{
-            int fid_logro, fid_producto_adquirido;
-            LogroDAO logroDAO = new LogroMySQL();
-            ProductoAdquiridoDAO productoAdquiridoDAO = new ProductoAdquiridoMySQL();
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_LOGRODESBLOQUEADOPRODUCTO"
-                    + "(?)}");
-            cs.setInt("_id_producto_adquirido", idProductoAdquirido);
-            rs = cs.executeQuery();
-            while(rs.next()){
-                LogroDesbloqueado logroDesbloqueado = new LogroDesbloqueado(); 
-                logroDesbloqueado.setIdLogroDesbloqueado(rs.getInt("id_logro_desbloqueado"));
-                logroDesbloqueado.setFechaDesbloqueo(rs.getDate("fecha_desbloqueo")); 
-                fid_producto_adquirido = rs.getInt("fid_producto_adquirido");
-                fid_logro = rs.getInt("fid_logro");
-                logroDesbloqueado.setJuego(productoAdquiridoDAO.buscarProductoAdquirido(fid_producto_adquirido));
-                logroDesbloqueado.setLogro(logroDAO.buscarLogro(fid_logro));
-                logrosDesbloqueados.add(logroDesbloqueado);
-            }
+            cs = con.prepareCall("{call ACTUALIZAR_LOGRODESBLOQUEADO"
+                    + "(?,?)}");
+            cs.setInt("_id_logro_desbloqueado", logro.getIdLogroDesbloqueado());
+            cs.setDate("_fecha_desbloqueo", new java.sql.Date(logro.getFechaDesbloqueo().getTime()));
+            resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
-        return logrosDesbloqueados;
+        return resultado;
     }
     
     @Override
-    public LogroDesbloqueado buscarLogro(int idLogroDesbloqueado) {
-        LogroDesbloqueado logroDesbloqueado = new LogroDesbloqueado(); 
-        logroDesbloqueado.setIdLogroDesbloqueado(-1);
-        try{
-            int fid_logro, fid_producto_adquirido;
-            LogroDAO logroDAO = new LogroMySQL();
-            ProductoAdquiridoDAO productoAdquiridoDAO = new ProductoAdquiridoMySQL();
-            con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call BUSCAR_LOGRODESBLOQUEADO"
-                    + "(?)}");
-            cs.setInt("fid_logro", idLogroDesbloqueado);
-            rs = cs.executeQuery();
-            if(rs.next()){
-                logroDesbloqueado.setIdLogroDesbloqueado(rs.getInt("id_logro_desbloqueado"));
-                logroDesbloqueado.setFechaDesbloqueo(rs.getDate("fecha_desbloqueo")); 
-                fid_producto_adquirido = rs.getInt("fid_producto_adquirido");
-                fid_logro = rs.getInt("fid_logro");
-                logroDesbloqueado.setJuego(productoAdquiridoDAO.buscarProductoAdquirido(fid_producto_adquirido));
-                logroDesbloqueado.setLogro(logroDAO.buscarLogro(fid_logro));
-            }
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-        }
-        return logroDesbloqueado;
-    }
-
-    @Override
-    public int eliminarLogro(int idLogroDesbloqueado) {
+    public int eliminarLogroDesbloqueado(int idLogroDesbloqueado) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -120,6 +82,33 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
         return resultado;
     }
 
-    
-    
+    @Override
+    public ArrayList<LogroDesbloqueado> listarLogrosDesbloqueadosProductoAdquirido(int idProductoAdquirido) {
+        ArrayList<LogroDesbloqueado> logrosDesbloqueados = new ArrayList<>(); 
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_LOGRODESBLOQUEADOPRODUCTO"
+                    + "(?)}");
+            cs.setInt("_id_producto_adquirido", idProductoAdquirido);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                LogroDesbloqueado logroDesbloqueado = new LogroDesbloqueado(); 
+                Logro logro = new Logro();
+                logroDesbloqueado.setIdLogroDesbloqueado(rs.getInt("id_logro_desbloqueado"));
+                logroDesbloqueado.setFechaDesbloqueo(rs.getDate("fecha_desbloqueo")); 
+                
+                logro.setIdLogro(rs.getInt("id_logro"));
+                logro.setNombre(rs.getString("nombre_logro"));
+                logro.setDescripcion(rs.getString("descripcion_logro"));
+                logroDesbloqueado.setLogro(logro);
+                logroDesbloqueado.setJuego(null);
+                logrosDesbloqueados.add(logroDesbloqueado);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return logrosDesbloqueados;
+    }
 }

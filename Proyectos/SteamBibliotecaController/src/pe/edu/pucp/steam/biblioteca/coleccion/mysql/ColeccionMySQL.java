@@ -38,7 +38,7 @@ public class ColeccionMySQL implements ColeccionDAO{
             cs.setString("_nombre", coleccion.getNombre());
             cs.setInt("_fid_biblioteca", coleccion.getBiblioteca().getIdBiblioteca());
             cs.executeUpdate();
-            coleccion.setIdColeccion(cs.getInt("_id_proveedor"));
+            coleccion.setIdColeccion(cs.getInt("_id_coleccion"));
             resultado = coleccion.getIdColeccion();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -87,7 +87,7 @@ public class ColeccionMySQL implements ColeccionDAO{
     }
 
     @Override
-    public ArrayList<Coleccion> listarColecciones(int idBiblioteca) {
+    public ArrayList<Coleccion> listarColeccionesPorBiblioteca(int idBiblioteca) {
         ArrayList<Coleccion> colecciones = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
@@ -109,43 +109,6 @@ public class ColeccionMySQL implements ColeccionDAO{
         return colecciones;
     }
 
-    @Override
-    public ArrayList<ProductoAdquirido> listarProductosAdquiridos(int idColeccion) {
-        ArrayList<ProductoAdquirido> productosAdquiridos = new ArrayList<>();
-        try{
-            con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_PRODUCTOSADQUIRIDOS_COLECCION(?)}");
-            cs.setInt("_fid_coleccion", idColeccion);
-            rs = cs.executeQuery();
-            String tipo;
-            while(rs.next()){
-                Producto producto;
-                tipo = rs.getString("tipo_producto");
-                if(tipo.compareTo("JUEGO")==0){
-                    producto = new Juego();
-                } else if(tipo.compareTo("BANDASONORA")==0){
-                    producto = new BandaSonora();
-                } else{
-                    producto = new Software();
-                }
-                producto.setTitulo(rs.getString("titulo_producto"));
-                producto.setDescripcion(rs.getString("descripcion"));
-                producto.setLogoUrl(rs.getString("logo_url"));
-                producto.setPortadaUrl(rs.getString("portada_url"));
-                ProductoAdquirido productoAdquirido = new ProductoAdquirido();
-                productoAdquirido.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
-                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
-                productoAdquirido.setActualizado(rs.getBoolean("actualizado"));// no devuelve los productos
-                productoAdquirido.setActivo(true);
-                productoAdquirido.setProducto(producto);
-                productosAdquiridos.add(productoAdquirido);
-            }
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-        }
-        return productosAdquiridos;
-    }
+    
     
 }

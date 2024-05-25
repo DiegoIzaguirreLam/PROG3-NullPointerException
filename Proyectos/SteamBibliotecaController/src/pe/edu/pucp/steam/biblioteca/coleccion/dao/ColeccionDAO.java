@@ -16,6 +16,6 @@ public interface ColeccionDAO {
     int insertarColeccion(Coleccion coleccion);
     int actualizarColeccion(Coleccion coleccion);
     int eliminarColeccion(int idColeccion);
-    ArrayList<Coleccion> listarColecciones(int idBiblioteca);
-    ArrayList<ProductoAdquirido> listarProductosAdquiridos(int idColeccion);
+    ArrayList<Coleccion> listarColeccionesPorBiblioteca(int idBiblioteca);
+    
 }

@@ -84,16 +84,6 @@ public class EtiquetaMySQL implements EtiquetaDAO{
     }
 
     @Override
-    public ArrayList<Producto> listarProductos(Etiqueta etiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public ArrayList<ProductoAdquirido> listarAdquiridos(Etiqueta etiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public int eliminarEtiqueta(int idEtiqueta) {
         int resultado = 0;
         try{

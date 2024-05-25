@@ -16,6 +16,5 @@ public interface BandaSonoraDAO {
     int actualizarBandaSonora(BandaSonora bandaSonora);
     int eliminarBandaSonora(int idBandaSonora);
     ArrayList<BandaSonora> listarBandaSonoras();
-
-    public BandaSonora buscarBandaSonora(int idBandaSonora);
+    BandaSonora buscarBandaSonora(int idBandaSonora);
 }

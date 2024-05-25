@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="ComentarioWS">
-      <implementation-class>pe.edu.pucp.steam.perfil.services.ComentarioWS</implementation-class>
+    <service name="LogroDesbloqueadoWS">
+      <implementation-class>pe.edu.pucp.steam.biblioteca.producto.services.LogroDesbloqueadoWS</implementation-class>
     </service>
-    <service name="ExpositorWS">
-      <implementation-class>pe.edu.pucp.steam.perfil.services.ExpositorWS</implementation-class>
+    <service name="ProductoEtiquetaWS">
+      <implementation-class>pe.edu.pucp.steam.biblioteca.producto.services.ProductoEtiquetaWS</implementation-class>
     </service>
-    <service name="PerfilWS">
-      <implementation-class>pe.edu.pucp.steam.perfil.services.PerfilWS</implementation-class>
+    <service name="ProductoAdquiridoWS">
+      <implementation-class>pe.edu.pucp.steam.biblioteca.producto.services.ProductoAdquiridoWS</implementation-class>
+    </service>
+    <service name="ProductoWS">
+      <implementation-class>pe.edu.pucp.steam.biblioteca.producto.services.ProductoWS</implementation-class>
+    </service>
+    <service name="ProveedorWS">
+      <implementation-class>pe.edu.pucp.steam.biblioteca.producto.services.ProveedorWS</implementation-class>
+    </service>
+    <service name="SoftwareWS">
+      <implementation-class>pe.edu.pucp.steam.biblioteca.producto.services.SoftwareWS</implementation-class>
     </service>
   </services>
   <clients/>

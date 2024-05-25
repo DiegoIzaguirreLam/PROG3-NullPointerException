@@ -28,7 +28,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     private ResultSet rs;
     
     @Override
-    public int insertarProducto(ProductoAdquirido producto) {
+    public int insertarProductoAdquirido(ProductoAdquirido producto) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -50,7 +50,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     }
 
     @Override
-    public int actualizarProducto(ProductoAdquirido producto) {
+    public int actualizarProductoAdquirido(ProductoAdquirido producto) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
@@ -74,13 +74,13 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     }
 
     @Override
-    public int eliminarProductoAdquirido(int idProducto) {
+    public int eliminarProductoAdquirido(int idProductoAdquirido) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_PRODUCTOADQUIRIDO"
                     + "(?)}");
-            cs.setInt("_id_producto_adquirido", idProducto);
+            cs.setInt("_id_producto_adquirido", idProductoAdquirido);
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
