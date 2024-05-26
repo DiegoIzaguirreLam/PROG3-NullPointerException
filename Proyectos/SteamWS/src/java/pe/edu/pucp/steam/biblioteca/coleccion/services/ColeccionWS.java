@@ -16,7 +16,7 @@ import pe.edu.pucp.steam.biblioteca.coleccion.mysql.ColeccionMySQL;
  *
  * @author Diego
  */
-@WebService(serviceName = "buscarColeccion")
+@WebService(serviceName = "ColeccionWS")
 public class ColeccionWS {
     @WebMethod(operationName="insertarColeccion")
     public int insertarColeccion(@WebParam(name = "coleccion") Coleccion coleccion) {

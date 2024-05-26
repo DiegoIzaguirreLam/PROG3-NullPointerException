@@ -10,12 +10,8 @@ import pe.edu.pucp.steam.biblioteca.coleccion.mysql.ProductoAdquiridoColeccionMy
  *
  * @author Diego
  */
-@WebService(serviceName = "ProductoAdquiridoWS")
+@WebService(serviceName = "ProductoAdquiridoColeccionWS")
 public class ProductoAdquiridoColeccionWS {
-
-    /**
-     * This is a sample web service operation
-     */
     @WebMethod(operationName="insertarProductoAdquiridoAColeccion")
     public int insertarProductoAdquiridoAColeccion(@WebParam(name = "idColeccion") int idColeccion,
             @WebParam(name = "idProductoAdquirido") int idProductoAdquirido) {
