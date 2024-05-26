@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarLogro" type="tns:actualizarLogro" />
+  <xs:element name="actualizarLogroResponse" type="tns:actualizarLogroResponse" />
+  <xs:element name="buscarLogro" type="tns:buscarLogro" />
+  <xs:element name="buscarLogroResponse" type="tns:buscarLogroResponse" />
+  <xs:element name="eliminarLogro" type="tns:eliminarLogro" />
+  <xs:element name="eliminarLogroResponse" type="tns:eliminarLogroResponse" />
+  <xs:element name="insertarLogro" type="tns:insertarLogro" />
+  <xs:element name="insertarLogroResponse" type="tns:insertarLogroResponse" />
+  <xs:element name="listarLogros" type="tns:listarLogros" />
+  <xs:element name="listarLogrosPorIdJuego" type="tns:listarLogrosPorIdJuego" />
+  <xs:element name="listarLogrosPorIdJuegoResponse" type="tns:listarLogrosPorIdJuegoResponse" />
+  <xs:element name="listarLogrosResponse" type="tns:listarLogrosResponse" />
+  <xs:complexType name="listarLogrosPorIdJuego">
+    <xs:sequence>
+      <xs:element name="idJuego" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLogrosPorIdJuegoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:logro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="idLogro" type="xs:int" />
+      <xs:element minOccurs="0" name="juego" type="tns:juego" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="juego">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:producto">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="idObjetos" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="logros" nillable="true" type="tns:logro" />
+          <xs:element name="multijugador" type="xs:boolean" />
+          <xs:element minOccurs="0" name="requisitosMinimos" type="xs:string" />
+          <xs:element minOccurs="0" name="requisitosRecomendados" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="producto" abstract="true">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="espacioDisco" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
+      <xs:element name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="logoUrl" type="xs:string" />
+      <xs:element minOccurs="0" name="portadaUrl" type="xs:string" />
+      <xs:element name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="proveedor" type="tns:proveedor" />
+      <xs:element minOccurs="0" name="titulo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="proveedor">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idProveedor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarLogro">
+    <xs:sequence>
+      <xs:element name="idLogro" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarLogroResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:logro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarLogro">
+    <xs:sequence>
+      <xs:element name="idLogro" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarLogroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarLogro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="logro" type="tns:logro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarLogroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLogros">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarLogrosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:logro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLogro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="logro" type="tns:logro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLogroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="asignarBibliotecaUsuario" type="tns:asignarBibliotecaUsuario" />
+  <xs:element name="asignarBibliotecaUsuarioResponse" type="tns:asignarBibliotecaUsuarioResponse" />
+  <xs:element name="buscarBiblioteca" type="tns:buscarBiblioteca" />
+  <xs:element name="buscarBibliotecaResponse" type="tns:buscarBibliotecaResponse" />
+  <xs:complexType name="buscarBiblioteca">
+    <xs:sequence>
+      <xs:element name="buscarBiblioteca" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarBibliotecaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:biblioteca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="biblioteca">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="colecciones" nillable="true" type="tns:coleccion" />
+      <xs:element name="idBiblioteca" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:productoAdquirido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="coleccion">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="biblioteca" type="tns:biblioteca" />
+      <xs:element name="idColeccion" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:productoAdquirido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productoAdquirido">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="actualizado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="biblioteca" type="tns:biblioteca" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="colecciones" nillable="true" type="tns:coleccion" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="desbloqueados" nillable="true" type="tns:logroDesbloqueado" />
+      <xs:element minOccurs="0" name="fechaAdquisicion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaEjecutado" type="xs:dateTime" />
+      <xs:element name="idProductoAdquirido" type="xs:int" />
+      <xs:element name="oculto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+      <xs:element minOccurs="0" name="tiempoUso" type="tns:localTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logroDesbloqueado">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaDesbloqueo" type="xs:dateTime" />
+      <xs:element name="idLogroDesbloqueado" type="xs:int" />
+      <xs:element minOccurs="0" name="juego" type="tns:productoAdquirido" />
+      <xs:element minOccurs="0" name="logro" type="tns:logro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="idLogro" type="xs:int" />
+      <xs:element minOccurs="0" name="juego" type="tns:juego" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="juego">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:producto">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="idObjetos" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="logros" nillable="true" type="tns:logro" />
+          <xs:element name="multijugador" type="xs:boolean" />
+          <xs:element minOccurs="0" name="requisitosMinimos" type="xs:string" />
+          <xs:element minOccurs="0" name="requisitosRecomendados" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="producto" abstract="true">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="espacioDisco" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
+      <xs:element name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="logoUrl" type="xs:string" />
+      <xs:element minOccurs="0" name="portadaUrl" type="xs:string" />
+      <xs:element name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="proveedor" type="tns:proveedor" />
+      <xs:element minOccurs="0" name="titulo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="proveedor">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idProveedor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="localTime" final="extension restriction">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="asignarBibliotecaUsuario">
+    <xs:sequence>
+      <xs:element name="uid_usuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="asignarBibliotecaUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

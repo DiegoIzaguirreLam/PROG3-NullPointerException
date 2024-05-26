@@ -120,9 +120,9 @@
                                 </ul>
                             </div>
                             <!-- Botón para eliminar -->
-                            <div class="d-flex justify-content-end">
+                            <div class="d-flex justify-content-between">
                                 <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-info" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Logros" OnClick="lbLogros_Click" />
-                                <button id="btnJugar" type="button" class="btn btn-primary btn-success">Jugar</button>
+                                <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-success" Text="Jugar" />
                             </div>
                         </div>
                     </div>

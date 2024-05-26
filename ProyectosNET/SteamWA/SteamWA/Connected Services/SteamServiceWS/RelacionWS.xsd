@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="agregarAmigo" type="tns:agregarAmigo" />
+  <xs:element name="agregarAmigoResponse" type="tns:agregarAmigoResponse" />
+  <xs:element name="bloquearUsuario" type="tns:bloquearUsuario" />
+  <xs:element name="bloquearUsuarioResponse" type="tns:bloquearUsuarioResponse" />
+  <xs:element name="eliminarAmigo" type="tns:eliminarAmigo" />
+  <xs:element name="eliminarAmigoResponse" type="tns:eliminarAmigoResponse" />
+  <xs:complexType name="bloquearUsuario">
+    <xs:sequence>
+      <xs:element name="idUsuarioA" type="xs:int" />
+      <xs:element name="idUsuarioB" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bloquearUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="agregarAmigo">
+    <xs:sequence>
+      <xs:element name="idUsuarioA" type="xs:int" />
+      <xs:element name="idUsuarioB" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="agregarAmigoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarAmigo">
+    <xs:sequence>
+      <xs:element name="idUsuarioA" type="xs:int" />
+      <xs:element name="idUsuarioB" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarAmigoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

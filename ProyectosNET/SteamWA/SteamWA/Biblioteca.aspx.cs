@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SteamWA.SteamServiceWS;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,10 +11,12 @@ namespace SteamWA
 {
     public partial class Biblioteca : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Steam master = (Steam)this.Master;
             master.ItemBiblioteca.Attributes["class"] = "active";
+
         }
 
         protected void lbLogros_Click(object sender, EventArgs e)

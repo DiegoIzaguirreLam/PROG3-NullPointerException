@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="editarSubforo" type="tns:editarSubforo" />
+  <xs:element name="editarSubforoResponse" type="tns:editarSubforoResponse" />
+  <xs:element name="eliminarSubforo" type="tns:eliminarSubforo" />
+  <xs:element name="eliminarSubforoResponse" type="tns:eliminarSubforoResponse" />
+  <xs:element name="insertarSubforo" type="tns:insertarSubforo" />
+  <xs:element name="insertarSubforoResponse" type="tns:insertarSubforoResponse" />
+  <xs:element name="mostrarSubforosForo" type="tns:mostrarSubforosForo" />
+  <xs:element name="mostrarSubforosForoResponse" type="tns:mostrarSubforosForoResponse" />
+  <xs:complexType name="eliminarSubforo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="subforo">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="foro" type="tns:foro" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="hilos" nillable="true" type="tns:hilo" />
+      <xs:element name="idSubforo" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element name="oculto" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="foro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="idCreador" type="xs:int" />
+      <xs:element name="idForo" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element name="oculto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="origen" type="tns:origenForo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="subforos" nillable="true" type="tns:subforo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="suscritos" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hilo">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element name="fijado" type="xs:boolean" />
+      <xs:element name="idCreador" type="xs:int" />
+      <xs:element name="idHilo" type="xs:int" />
+      <xs:element minOccurs="0" name="imagenUrl" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mensajes" nillable="true" type="tns:mensaje" />
+      <xs:element name="nroMensajes" type="xs:int" />
+      <xs:element name="oculto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mensaje">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="contenido" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaMaxEdicion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="hilo" type="tns:hilo" />
+      <xs:element name="idAutor" type="xs:int" />
+      <xs:element name="idMensaje" type="xs:int" />
+      <xs:element name="oculto" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="respuestas" nillable="true" type="tns:mensaje" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarSubforoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mostrarSubforosForo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="foro" type="tns:foro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mostrarSubforosForoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editarSubforo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editarSubforoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarSubforo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarSubforoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="origenForo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STEAM" />
+      <xs:enumeration value="USUARIO" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

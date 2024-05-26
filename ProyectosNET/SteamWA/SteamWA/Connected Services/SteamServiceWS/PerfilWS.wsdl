@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://main.services.steam.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="PerfilWS" targetNamespace="http://main.services.steam.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SteamWS/PerfilWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="listarPerfiles">
+    <part name="parameters" element="tns:listarPerfiles" />
+  </message>
+  <message name="listarPerfilesResponse">
+    <part name="parameters" element="tns:listarPerfilesResponse" />
+  </message>
+  <message name="actualizaPerfil">
+    <part name="parameters" element="tns:actualizaPerfil" />
+  </message>
+  <message name="actualizaPerfilResponse">
+    <part name="parameters" element="tns:actualizaPerfilResponse" />
+  </message>
+  <message name="buscarPerfil">
+    <part name="parameters" element="tns:buscarPerfil" />
+  </message>
+  <message name="buscarPerfilResponse">
+    <part name="parameters" element="tns:buscarPerfilResponse" />
+  </message>
+  <message name="ocultarPerfil">
+    <part name="parameters" element="tns:ocultarPerfil" />
+  </message>
+  <message name="ocultarPerfilResponse">
+    <part name="parameters" element="tns:ocultarPerfilResponse" />
+  </message>
+  <message name="insertarPerfil">
+    <part name="parameters" element="tns:insertarPerfil" />
+  </message>
+  <message name="insertarPerfilResponse">
+    <part name="parameters" element="tns:insertarPerfilResponse" />
+  </message>
+  <portType name="PerfilWS">
+    <operation name="listarPerfiles">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/listarPerfilesRequest" message="tns:listarPerfiles" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/listarPerfilesResponse" message="tns:listarPerfilesResponse" />
+    </operation>
+    <operation name="actualizaPerfil">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/actualizaPerfilRequest" message="tns:actualizaPerfil" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/actualizaPerfilResponse" message="tns:actualizaPerfilResponse" />
+    </operation>
+    <operation name="buscarPerfil">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/buscarPerfilRequest" message="tns:buscarPerfil" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/buscarPerfilResponse" message="tns:buscarPerfilResponse" />
+    </operation>
+    <operation name="ocultarPerfil">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/ocultarPerfilRequest" message="tns:ocultarPerfil" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/ocultarPerfilResponse" message="tns:ocultarPerfilResponse" />
+    </operation>
+    <operation name="insertarPerfil">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/insertarPerfilRequest" message="tns:insertarPerfil" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/insertarPerfilResponse" message="tns:insertarPerfilResponse" />
+    </operation>
+  </portType>
+  <binding name="PerfilWSPortBinding" type="tns:PerfilWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarPerfiles">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizaPerfil">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarPerfil">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ocultarPerfil">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarPerfil">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="PerfilWS">
+    <port name="PerfilWSPort" binding="tns:PerfilWSPortBinding">
+      <soap:address location="http://localhost:8080/SteamWS/PerfilWS" />
+    </port>
+  </service>
+</definitions>

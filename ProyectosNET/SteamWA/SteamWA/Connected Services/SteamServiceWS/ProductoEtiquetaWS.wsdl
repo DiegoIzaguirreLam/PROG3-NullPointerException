@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://main.services.steam.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ProductoEtiquetaWS" targetNamespace="http://main.services.steam.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SteamWS/ProductoEtiquetaWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="eliminarProductoEtiqueta">
+    <part name="parameters" element="tns:eliminarProductoEtiqueta" />
+  </message>
+  <message name="eliminarProductoEtiquetaResponse">
+    <part name="parameters" element="tns:eliminarProductoEtiquetaResponse" />
+  </message>
+  <message name="agregarProductoEtiqueta">
+    <part name="parameters" element="tns:agregarProductoEtiqueta" />
+  </message>
+  <message name="agregarProductoEtiquetaResponse">
+    <part name="parameters" element="tns:agregarProductoEtiquetaResponse" />
+  </message>
+  <portType name="ProductoEtiquetaWS">
+    <operation name="eliminarProductoEtiqueta">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ProductoEtiquetaWS/eliminarProductoEtiquetaRequest" message="tns:eliminarProductoEtiqueta" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ProductoEtiquetaWS/eliminarProductoEtiquetaResponse" message="tns:eliminarProductoEtiquetaResponse" />
+    </operation>
+    <operation name="agregarProductoEtiqueta">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRequest" message="tns:agregarProductoEtiqueta" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaResponse" message="tns:agregarProductoEtiquetaResponse" />
+    </operation>
+  </portType>
+  <binding name="ProductoEtiquetaWSPortBinding" type="tns:ProductoEtiquetaWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="eliminarProductoEtiqueta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="agregarProductoEtiqueta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ProductoEtiquetaWS">
+    <port name="ProductoEtiquetaWSPort" binding="tns:ProductoEtiquetaWSPortBinding">
+      <soap:address location="http://localhost:8080/SteamWS/ProductoEtiquetaWS" />
+    </port>
+  </service>
+</definitions>
