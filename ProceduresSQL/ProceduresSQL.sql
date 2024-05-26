@@ -165,7 +165,7 @@ CREATE PROCEDURE ELIMINAR_COLECCION(
 	IN _id_coleccion INT
 )
 BEGIN
-	UPDATE FROM Coleccion SET activo = false where id_coleccion = _id_coleccion;
+	UPDATE Coleccion SET activo = false where id_coleccion = _id_coleccion;
 END$
 
 
@@ -178,19 +178,6 @@ BEGIN
 	SELECT * FROM Coleccion WHERE fid_biblioteca = _fid_biblioteca AND activo=1;
 END$
 
-DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS_COLECCION;
-DELIMITER $
-CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS_COLECCION(
-	IN _fid_coleccion INT
-)
-BEGIN
-	SELECT p.titulo as titulo_producto, p.descripcion, p.tipo_producto, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado, p.logo_url, p.portada_url
-    FROM Coleccion c
-    INNER JOIN ProductoAdquirido_Coleccion pc ON c.id_coleccion = pc.fid_coleccion
-    INNER JOIN ProductoAdquirido pa ON  pa.id_producto_adquirido = pc.fid_producto_adquirido
-    INNER JOIN Producto p ON p.id_producto = pa.fid_producto
-    WHERE c.id_coleccion = _fid_coleccion AND pc.activo = 1 AND pa.activo = 1;
-END$
 DROP PROCEDURE IF EXISTS INSERTAR_ETIQUETA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_ETIQUETA(
@@ -404,6 +391,20 @@ BEGIN
     WHERE l.id_logro = _id_logro;
 END$
 
+DROP PROCEDURE IF EXISTS LISTAR_LOGROS_X_ID_JUEGO;
+DELIMITER $
+CREATE PROCEDURE LISTAR_LOGROS_X_ID_JUEGO(
+	IN _id_juego INT
+)
+BEGIN
+	SELECT l.id_logro, l.nombre as nombre_logro, l.descripcion as descripcion_logro, p.id_producto, p.titulo,
+    p.fecha_publicacion, p.precio, p.descripcion as descripcion_producto, p.espacio_disco, p.activo as producto_activo,
+    j.multijugador, j.requisitos_minimos, j.requisitos_recomendados
+    FROM Logro l
+    INNER JOIN Juego j ON j.id_juego = l.fid_juego
+    INNER JOIN Producto p ON p.id_producto = l.fid_juego
+    WHERE l.activo = 1 AND j.id_juego=_id_juego;
+END$
 
 
 DROP PROCEDURE IF EXISTS INSERTAR_LOGRODESBLOQUEADO;
@@ -419,23 +420,17 @@ BEGIN
     SET _id_logro_desbloqueado = @@last_insert_id;
 END$
 
-DROP PROCEDURE IF EXISTS BUSCAR_LOGRODESBLOQUEADO;
-DELIMITER $
-CREATE PROCEDURE BUSCAR_LOGRODESBLOQUEADO(
-	IN _id_logro_desbloqueado INT
-)
-BEGIN
-	SELECT * FROM LogroDesbloqueado WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
-END$
-
-
 DROP PROCEDURE IF EXISTS LISTAR_LOGRODESBLOQUEADOPRODUCTO;
 DELIMITER $
 CREATE PROCEDURE LISTAR_LOGRODESBLOQUEADOPRODUCTO(
 	IN _id_producto_adquirido INT
 )
 BEGIN
-	SELECT * FROM LogroDesbloqueado WHERE id_producto_adquirido = _id_producto_adquirido;
+	SELECT ld.id_logro_desbloqueado, ld.fecha_desbloqueo, l.id_logro, l.nombre as nombre_logro, l.descripcion as descripcion_logro
+    FROM LogroDesbloqueado ld
+    INNER JOIN Logro l ON l.id_logro = ld.fid_logro
+    WHERE ld.activo = 1 AND l.activo = 1
+    AND ld.fid_producto_adquirido = _id_producto_adquirido;
 END$
 
 
@@ -443,15 +438,11 @@ DROP PROCEDURE IF EXISTS ACTUALIZAR_LOGRODESBLOQUEADO;
 DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_LOGRODESBLOQUEADO(
 	IN _id_logro_desbloqueado INT,
-    IN _fecha_desbloqueo DATE,
-    IN fid_logro INT,
-    IN fid_producto_adquirido INT
+    IN _fecha_desbloqueo DATE
 )
 BEGIN
 	UPDATE LogroDesbloqueado
-    SET fecha_desbloqueo = _fecha_desbloqueado,
-		fid_logro = _fid_logro,
-        fid_producto_adquirido = _fid_producto_adquirido
+    SET fecha_desbloqueo = _fecha_desbloqueado
 	WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
 END$
 
@@ -461,21 +452,77 @@ CREATE PROCEDURE ELIMINAR_LOGRODESBLOQUEADO(
 	IN _id_logro_desbloqueado INT
 )
 BEGIN
-	UPDATE LogroDesbloqueado SET activo = 0 WHERE id_logro_desbloqueado = _id_logro_desbloqueado
+	UPDATE LogroDesbloqueado SET activo = 0 WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
 END$
 
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS
 DELIMITER $
 CREATE PROCEDURE LISTAR_PRODUCTOS()
 BEGIN
 	SELECT p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
-    p.tipo_juego, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
-    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo as proveedor_activo
     FROM Producto p
-    INNER JOIN Juego j ON p.id_producto = j.id_juego
-    INNER JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
-    INNER JOIN Software s ON p.id_producto = s.id_software
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
     INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
     WHERE p.activo = 1;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_X_ETIQUETA;
+DELIMITER $
+CREATE PROCEDURE LISTAR_PRODUCTOS_X_ETIQUETA(
+	IN _id_etiqueta INT
+)
+BEGIN
+	SELECT p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
+    p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo as proveedor_activo
+    FROM Producto p
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
+    INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
+    INNER JOIN ProductoEtiqueta pe ON pe.fid_producto = p.id_producto
+    WHERE p.activo = 1 AND pe.fid_etiqueta = _id_etiqueta;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_X_TITULO_DESARROLLADOR;
+DELIMITER $
+CREATE PROCEDURE LISTAR_PRODUCTOS_X_TITULO_DESARROLLADOR(
+	IN _nombre VARCHAR(100)
+)
+BEGIN
+	SELECT p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
+    p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo as proveedor_activo
+    FROM Producto p
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
+    INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
+    WHERE p.activo = 1 AND CONCAT(p.titulo,' ',pr.razon_social) LIKE CONCAT('%',_nombre,'%');
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS BUSCAR_PRODUCTO;
+DELIMITER $
+CREATE PROCEDURE BUSCAR_PRODUCTO(
+	IN _id_producto INT
+)
+BEGIN
+	SELECT p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
+    p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo, pr.activo as proveedor_activo
+    FROM Producto p
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
+    INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
+    WHERE p.activo = 1 and p.id_producto = _id_producto;
 END$
 DELIMITER ;
 
@@ -490,19 +537,31 @@ CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO(
 BEGIN
 	INSERT INTO ProductoAdquirido
     (fecha_adquisicion,tiempo_uso,actualizado, oculto,
-    fid_biblioteca, fid_producto, fid_expositor, fid_movimiento, activo)
+    fid_biblioteca, fid_producto, activo)
     VALUES(CURDATE(), CAST('00:00:00' AS TIME),false, false,
     _fid_biblioteca,_fid_producto, 1);
-	SET _id_producto_adquirido = @@last_insert_id;
+    SET _id_producto_adquirido = @@last_insert_id;
 END$
 
-DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS;
+
+
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS_X_ID_BIBLIOTECA;
 DELIMITER $
-CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS(
-	IN _id_biblioteca INT
+CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS_X_ID_BIBLIOTECA(
+	IN _fid_biblioteca INT
 )
 BEGIN
-	SELECT * FROM ProductoAdquirido WHERE fid_biblioteca = _id_biblioteca;
+    SELECT pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
+    pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
+    p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    FROM ProductoAdquirido pa
+    INNER JOIN Producto p ON p.id_producto = pa.fid_producto
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
+    INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
+    WHERE p.activo = 1 and pa.fid_biblioteca = _fid_biblioteca;
 END$
 
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PRODUCTOADQUIRIDO;
@@ -549,8 +608,28 @@ BEGIN
     SELECT * FROM ProductoAdquirido WHERE id_producto_adquirido = _id_producto_adquirido;
 END$
 
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS_X_ID_COLECCION;
+DELIMITER $
+CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS_X_ID_COLECCION(
+	IN _id_coleccion INT
+)
+BEGIN
+    SELECT pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
+    pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
+    p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    FROM ProductoAdquirido_Coleccion pac, ProductoAdquirido pa
+    INNER JOIN Producto p ON p.id_producto = pa.fid_producto
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
+    INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
+    WHERE p.activo = 1 and 
+    pac.fid_coleccion = _fid_coleccion and pac.fid_producto_adquirido = pa.id_producto_adquirido and pa.activo = 1;
+END$
 
-
+select * from ProductoAdquirido_Coleccion;
+select * from ProductoAdquirido;
 DROP PROCEDURE IF EXISTS INSERTAR_PRODUCTOADQUIRIDO_COLECCION;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO_COLECCION(

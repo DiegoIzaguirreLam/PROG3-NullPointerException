@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 
 public class DBManager {
     private Connection con;
-    private String url = "jdbc:mysql://db-prog3-nullpointerexception.crrbqj2ohnvo.us-east-1.rds.amazonaws.com:3306/prog3nullpointerexception";
+    private String url = "jdbc:mysql://db-prog3-nullpointerexception.crrbqj2ohnvo.us-east-1.rds.amazonaws.com:"
+            + "3306/prog3nullpointerexception?useSSL=false";
     private String user = "admin";
     private String password = "prog3nullpointerexception";
     private static DBManager dbManager;

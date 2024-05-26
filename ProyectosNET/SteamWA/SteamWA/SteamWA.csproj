@@ -69,9 +69,108 @@
     <Content Include="Carrito.aspx" />
     <Content Include="Comunidad.aspx" />
     <Content Include="Configuracion.aspx" />
-    <None Include="Connected Services\ComunidadWS\configuration91.svcinfo" />
-    <None Include="Connected Services\ComunidadWS\configuration.svcinfo" />
-    <None Include="Connected Services\ComunidadWS\Reference.svcmap">
+    <None Include="Connected Services\SteamServices\BandaSonoraWS.wsdl" />
+    <None Include="Connected Services\SteamServices\BandaSonoraWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\BibliotecaWS.wsdl" />
+    <None Include="Connected Services\SteamServices\BibliotecaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\CarteraWS.wsdl" />
+    <None Include="Connected Services\SteamServices\CarteraWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ColeccionWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ColeccionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ComentarioWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ComentarioWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\EtiquetaWS.wsdl" />
+    <None Include="Connected Services\SteamServices\EtiquetaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ExpositorWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ForoUsuarioWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ForoUsuarioWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ForoWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ForoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\GestorSancionesWS.wsdl" />
+    <None Include="Connected Services\SteamServices\GestorSancionesWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\HiloWS.wsdl" />
+    <None Include="Connected Services\SteamServices\HiloWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\JuegoWS.wsdl" />
+    <None Include="Connected Services\SteamServices\LogroDesbloqueadoWS.wsdl" />
+    <None Include="Connected Services\SteamServices\LogroDesbloqueadoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\LogroWS.wsdl" />
+    <None Include="Connected Services\SteamServices\LogroWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\MedallaWS.wsdl" />
+    <None Include="Connected Services\SteamServices\MensajeWS.wsdl" />
+    <None Include="Connected Services\SteamServices\MensajeWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\MovimientoWS.wsdl" />
+    <None Include="Connected Services\SteamServices\MovimientoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\NotificacionWS.wsdl" />
+    <None Include="Connected Services\SteamServices\NotificacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\PaisWS.wsdl" />
+    <None Include="Connected Services\SteamServices\PaisWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\PerfilWS.wsdl" />
+    <None Include="Connected Services\SteamServices\PerfilWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ProductoAdquiridoColeccionWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ProductoAdquiridoColeccionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ProductoAdquiridoWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ProductoAdquiridoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ProductoEtiquetaWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ProductoEtiquetaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ProductoWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ProductoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\ProveedorWS.wsdl" />
+    <None Include="Connected Services\SteamServices\ProveedorWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\RelacionWS.wsdl" />
+    <None Include="Connected Services\SteamServices\RelacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\SoftwareWS.wsdl" />
+    <None Include="Connected Services\SteamServices\SteamServices.disco" />
+    <None Include="Connected Services\SteamServices\configuration91.svcinfo" />
+    <None Include="Connected Services\SteamServices\configuration.svcinfo" />
+    <None Include="Connected Services\SteamServices\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -140,13 +239,454 @@
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.woff2" />
     <Content Include="Inicio.Master" />
-    <None Include="Connected Services\ComunidadWS\ComunidadWS.wsdl" />
-    <None Include="Connected Services\ComunidadWS\ComunidadWS.xsd">
+    <None Include="Connected Services\SteamServices\ExpositorWS.wsdl" />
+    <None Include="Connected Services\SteamServices\JuegoWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\ComunidadWS\SteamWA.ComunidadWS.helloResponse.datasource">
+    <None Include="Connected Services\SteamServices\MedallaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\SoftwareWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizaPerfilResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarCarteraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarComentarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarExpositorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarGestorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarLogroDesbloqueadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarTiposMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.actualizarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.agregarAmigoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.agregarProductoEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.asignarBibliotecaUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.bandaSonora.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.biblioteca3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.bloquearUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarBibliotecaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarCarteraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarGestorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarMovimientoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarPerfilResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.buscarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.coleccion3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.comentario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.crearRelacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.editarForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.editarHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.editarMensajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.editarSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarAmigoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarExpositorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarLogroDesbloqueadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarMensajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarProductoAdquiridoDeColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarProductoEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarRelacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarTipoMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.eliminarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.etiqueta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.expositor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.foro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.gestorSanciones1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.hilo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarCarteraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarComentarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarExpositorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarGestorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarLogroDesbloqueadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarMedallaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarMensajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarMovimientoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarPerfilResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarProductoAdquiridoAColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarTipoMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.insertarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.juego1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarBandaSonorasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarColeccionesPorBibliotecaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarComentariosPerfilResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarComentariosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarExpositoresPerfilResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarExpositoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarForosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarJuegosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarLogrosDesbloqueadosProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarLogrosPorIdJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarLogrosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarMovimientosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarNotificacionesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarPerfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarProductosAdquiridosPorIdBibliotecaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarProductosAdquiridosPorIdColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarProductosPorEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarProductosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarProveedoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarSoftwaresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarSuscritosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarTiposMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.listarUsuariosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.logro1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.logroDesbloqueado1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.medalla.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.mensaje.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.mostrarHilosSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.mostrarMensajesHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.mostrarSubforosForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.movimiento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.notificacion1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.ocultarComentarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.ocultarExpositorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.ocultarPerfilResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.pais1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.perfil.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.producto1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.productoAdquirido1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.proveedor1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.software.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.subforo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.suscribirRelacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.suspenderUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.tipoMoneda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServices\SteamWA.SteamServices.usuario1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\SteamServices\SubforoWS.wsdl" />
+    <None Include="Connected Services\SteamServices\SubforoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\TipoMonedaWS.wsdl" />
+    <None Include="Connected Services\SteamServices\TipoMonedaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServices\UsuarioWS.wsdl" />
+    <None Include="Connected Services\SteamServices\UsuarioWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -206,7 +746,7 @@
     <Compile Include="Configuracion.aspx.designer.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ComunidadWS\Reference.cs">
+    <Compile Include="Connected Services\SteamServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -322,7 +862,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ComunidadWS\" />
+    <WCFMetadataStorage Include="Connected Services\SteamServices\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

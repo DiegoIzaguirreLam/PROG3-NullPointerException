@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.producto.biblioteca.steam.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="SoftwareWS" targetNamespace="http://services.producto.biblioteca.steam.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SteamWS/SoftwareWS?xsd=1" namespace="http://services.producto.biblioteca.steam.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="actualizarSoftware">
+    <part name="parameters" element="tns:actualizarSoftware" />
+  </message>
+  <message name="actualizarSoftwareResponse">
+    <part name="parameters" element="tns:actualizarSoftwareResponse" />
+  </message>
+  <message name="eliminarSoftware">
+    <part name="parameters" element="tns:eliminarSoftware" />
+  </message>
+  <message name="eliminarSoftwareResponse">
+    <part name="parameters" element="tns:eliminarSoftwareResponse" />
+  </message>
+  <message name="buscarSoftware">
+    <part name="parameters" element="tns:buscarSoftware" />
+  </message>
+  <message name="buscarSoftwareResponse">
+    <part name="parameters" element="tns:buscarSoftwareResponse" />
+  </message>
+  <message name="insertarSoftware">
+    <part name="parameters" element="tns:insertarSoftware" />
+  </message>
+  <message name="insertarSoftwareResponse">
+    <part name="parameters" element="tns:insertarSoftwareResponse" />
+  </message>
+  <message name="listarSoftwares">
+    <part name="parameters" element="tns:listarSoftwares" />
+  </message>
+  <message name="listarSoftwaresResponse">
+    <part name="parameters" element="tns:listarSoftwaresResponse" />
+  </message>
+  <portType name="SoftwareWS">
+    <operation name="actualizarSoftware">
+      <input wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest" message="tns:actualizarSoftware" />
+      <output wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse" message="tns:actualizarSoftwareResponse" />
+    </operation>
+    <operation name="eliminarSoftware">
+      <input wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
+      <output wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
+    </operation>
+    <operation name="buscarSoftware">
+      <input wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest" message="tns:buscarSoftware" />
+      <output wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse" message="tns:buscarSoftwareResponse" />
+    </operation>
+    <operation name="insertarSoftware">
+      <input wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest" message="tns:insertarSoftware" />
+      <output wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse" message="tns:insertarSoftwareResponse" />
+    </operation>
+    <operation name="listarSoftwares">
+      <input wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest" message="tns:listarSoftwares" />
+      <output wsam:Action="http://services.producto.biblioteca.steam.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse" message="tns:listarSoftwaresResponse" />
+    </operation>
+  </portType>
+  <binding name="SoftwareWSPortBinding" type="tns:SoftwareWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="actualizarSoftware">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarSoftware">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarSoftware">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarSoftware">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarSoftwares">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SoftwareWS">
+    <port name="SoftwareWSPort" binding="tns:SoftwareWSPortBinding">
+      <soap:address location="http://localhost:8080/SteamWS/SoftwareWS" />
+    </port>
+  </service>
+</definitions>

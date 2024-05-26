@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.producto.biblioteca.steam.pucp.edu.pe/" targetNamespace="http://services.producto.biblioteca.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarBandaSonora" type="tns:actualizarBandaSonora" />
+  <xs:element name="actualizarBandaSonoraResponse" type="tns:actualizarBandaSonoraResponse" />
+  <xs:element name="buscarBandaSonora" type="tns:buscarBandaSonora" />
+  <xs:element name="buscarBandaSonoraResponse" type="tns:buscarBandaSonoraResponse" />
+  <xs:element name="eliminarBandaSonora" type="tns:eliminarBandaSonora" />
+  <xs:element name="eliminarBandaSonoraResponse" type="tns:eliminarBandaSonoraResponse" />
+  <xs:element name="insertarBandaSonora" type="tns:insertarBandaSonora" />
+  <xs:element name="insertarBandaSonoraResponse" type="tns:insertarBandaSonoraResponse" />
+  <xs:element name="listarBandaSonoras" type="tns:listarBandaSonoras" />
+  <xs:element name="listarBandaSonorasResponse" type="tns:listarBandaSonorasResponse" />
+  <xs:complexType name="listarBandaSonoras">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarBandaSonorasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:bandaSonora" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bandaSonora">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:producto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="artista" type="xs:string" />
+          <xs:element minOccurs="0" name="compositor" type="xs:string" />
+          <xs:element minOccurs="0" name="duracion" type="tns:localTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="producto" abstract="true">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="espacioDisco" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
+      <xs:element name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="logoUrl" type="xs:string" />
+      <xs:element minOccurs="0" name="portadaUrl" type="xs:string" />
+      <xs:element name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="proveedor" type="tns:proveedor" />
+      <xs:element minOccurs="0" name="titulo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="localTime" final="extension restriction">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="proveedor">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idProveedor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarBandaSonora">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bandaSonora" type="tns:bandaSonora" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarBandaSonoraResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarBandaSonora">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bandaSonora" type="tns:bandaSonora" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarBandaSonoraResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarBandaSonora">
+    <xs:sequence>
+      <xs:element name="idBandaSonora" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarBandaSonoraResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bandaSonora" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarBandaSonora">
+    <xs:sequence>
+      <xs:element name="idBandaSonora" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarBandaSonoraResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

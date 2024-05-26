@@ -112,7 +112,7 @@ public class ProductoMySQL implements ProductoDAO {
                 producto.setEspacioDisco(rs.getDouble("espacio_disco"));
                 producto.setLogoUrl(rs.getString("logo_url"));
                 producto.setPortadaUrl(rs.getString("portada_url"));
-                producto.setActivo(rs.getBoolean("activo_producto"));
+                producto.setActivo(true);
 
                 proveedor.setIdProveedor(rs.getInt("id_proveedor"));
                 proveedor.setRazonSocial(rs.getString("razon_social"));
@@ -164,7 +164,7 @@ public class ProductoMySQL implements ProductoDAO {
                 producto.setEspacioDisco(rs.getDouble("espacio_disco"));
                 producto.setLogoUrl(rs.getString("logo_url"));
                 producto.setPortadaUrl(rs.getString("portada_url"));
-                producto.setActivo(rs.getBoolean("activo_producto"));
+                producto.setActivo(true);
 
                 proveedor.setIdProveedor(rs.getInt("id_proveedor"));
                 proveedor.setRazonSocial(rs.getString("razon_social"));
@@ -216,7 +216,7 @@ public class ProductoMySQL implements ProductoDAO {
                 producto.setEspacioDisco(rs.getDouble("espacio_disco"));
                 producto.setLogoUrl(rs.getString("logo_url"));
                 producto.setPortadaUrl(rs.getString("portada_url"));
-                producto.setActivo(rs.getBoolean("activo_producto"));
+                producto.setActivo(true);
 
                 proveedor.setIdProveedor(rs.getInt("id_proveedor"));
                 proveedor.setRazonSocial(rs.getString("razon_social"));
