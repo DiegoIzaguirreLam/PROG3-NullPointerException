@@ -78,7 +78,7 @@
             <!-- parte izquierda: lista de programas -->
             <div class="col-md-4 me-4">
                 <!-- <h2>Listado de Programas</h2> -->
-                <ul class="list-group list-group-flush">
+                <ul id="ulProgramas" runat="server" class="list-group list-group-flush">
                     <li class="list-group-item text-gray bg-transparent" id="liPrograma1">
                         <img src="Images/logo_juego1.jpg" height="30" />
                         <asp:LinkButton ID="lbPrograma1" runat="server" Text="Programa 1" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='1' />

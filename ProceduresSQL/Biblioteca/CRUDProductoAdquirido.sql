@@ -21,20 +21,20 @@ END$
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS_X_ID_BIBLIOTECA;
 DELIMITER $
 CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS_X_ID_BIBLIOTECA(
-	IN _fid_biblioteca INT
+	IN _id_biblioteca INT
 )
 BEGIN
     SELECT pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
     pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
     p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
-    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo as proveedor_activo, pa.fid_biblioteca as id_biblioteca
     FROM ProductoAdquirido pa
     INNER JOIN Producto p ON p.id_producto = pa.fid_producto
     LEFT JOIN Juego j ON p.id_producto = j.id_juego
     LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
     LEFT JOIN Software s ON p.id_producto = s.id_software
     INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
-    WHERE p.activo = 1 and pa.fid_biblioteca = _fid_biblioteca;
+    WHERE p.activo = 1 and pa.fid_biblioteca = _id_biblioteca;
 END$
 
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PRODUCTOADQUIRIDO;
@@ -90,7 +90,7 @@ BEGIN
     SELECT pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
     pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
     p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
-    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo as proveedor_activo, pa.fid_biblioteca as id_biblioteca
     FROM ProductoAdquirido_Coleccion pac, ProductoAdquirido pa
     INNER JOIN Producto p ON p.id_producto = pa.fid_producto
     LEFT JOIN Juego j ON p.id_producto = j.id_juego
@@ -100,6 +100,8 @@ BEGIN
     WHERE p.activo = 1 and 
     pac.fid_coleccion = _fid_coleccion and pac.fid_producto_adquirido = pa.id_producto_adquirido and pa.activo = 1;
 END$
+
+
 
 select * from ProductoAdquirido_Coleccion;
 select * from ProductoAdquirido;
