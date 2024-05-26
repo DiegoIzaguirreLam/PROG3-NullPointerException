@@ -26,14 +26,17 @@ public class BibliotecaMySQL implements BibliotecaDAO{
     private CallableStatement cs;
     private ResultSet rs;
     @Override
-    public int insertarBiblioteca(Biblioteca biblioteca) {
+    public int asignarBibliotecaUsuario(int uid_usuario) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_BIBLIOTECA"
-                    + "(?)}");
-            cs.setInt("_id_biblioteca", biblioteca.getIdBiblioteca());
-            resultado = cs.executeUpdate();
+                    + "(?,?)}");
+            cs.registerOutParameter("_id_biblioteca",
+                    java.sql.Types.INTEGER);
+            cs.setInt("_fid_usuario", uid_usuario);
+            cs.executeUpdate();
+            resultado = cs.getInt("_id_biblioteca");
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -43,14 +46,14 @@ public class BibliotecaMySQL implements BibliotecaDAO{
     }
 
     @Override
-    public Biblioteca buscarBiblioteca(int idUser) {
+    public Biblioteca buscarBiblioteca(int idBiblioteca) {
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.setIdBiblioteca(-1);
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_BIBLIOTECA"
                     + "(?)}");
-            cs.setInt("_id_biblioteca", biblioteca.getIdBiblioteca());
+            cs.setInt("_id_biblioteca", idBiblioteca);
             rs = cs.executeQuery();
             if(rs.next())
                 biblioteca.setIdBiblioteca(rs.getInt("id_biblioteca"));

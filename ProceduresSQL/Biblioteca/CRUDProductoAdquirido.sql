@@ -10,11 +10,13 @@ CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO(
 BEGIN
 	INSERT INTO ProductoAdquirido
     (fecha_adquisicion,tiempo_uso,actualizado, oculto,
-    fid_biblioteca, fid_producto)
+    fid_biblioteca, fid_producto, activo)
     VALUES(CURDATE(), CAST('00:00:00' AS TIME),false, false,
-    _fid_biblioteca,_fid_producto);
+    _fid_biblioteca,_fid_producto, 1);
     SET _id_producto_adquirido = @@last_insert_id;
 END$
+
+
 
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS_X_ID_BIBLIOTECA;
 DELIMITER $

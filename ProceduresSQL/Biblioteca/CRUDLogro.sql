@@ -73,4 +73,18 @@ BEGIN
     WHERE l.id_logro = _id_logro;
 END$
 
+DROP PROCEDURE IF EXISTS LISTAR_LOGROS_X_ID_JUEGO;
+DELIMITER $
+CREATE PROCEDURE LISTAR_LOGROS_X_ID_JUEGO(
+	IN _id_juego INT
+)
+BEGIN
+	SELECT l.id_logro, l.nombre as nombre_logro, l.descripcion as descripcion_logro, p.id_producto, p.titulo,
+    p.fecha_publicacion, p.precio, p.descripcion as descripcion_producto, p.espacio_disco, p.activo as producto_activo,
+    j.multijugador, j.requisitos_minimos, j.requisitos_recomendados
+    FROM Logro l
+    INNER JOIN Juego j ON j.id_juego = l.fid_juego
+    INNER JOIN Producto p ON p.id_producto = l.fid_juego
+    WHERE l.activo = 1 AND j.id_juego=_id_juego;
+END$
 

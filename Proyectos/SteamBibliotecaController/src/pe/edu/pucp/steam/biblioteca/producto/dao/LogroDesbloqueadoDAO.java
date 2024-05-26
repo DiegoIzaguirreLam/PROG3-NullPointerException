@@ -13,7 +13,7 @@ import pe.edu.pucp.steam.biblioteca.producto.model.LogroDesbloqueado;
  */
 public interface LogroDesbloqueadoDAO {
     int insertarLogroDesbloqueado(LogroDesbloqueado logro);
-    LogroDesbloqueado buscarLogro(int idLogroDesbloqueado);
-    int eliminarLogro(int idLogroDesbloqueado);
-    ArrayList<LogroDesbloqueado> listarLogrosProductoAdquirido(int idProductoAdquirido);
+    int actualizarLogroDesbloqueado(LogroDesbloqueado logro);
+    int eliminarLogroDesbloqueado(int idLogroDesbloqueado);
+    ArrayList<LogroDesbloqueado> listarLogrosDesbloqueadosProductoAdquirido(int idProductoAdquirido);
 }

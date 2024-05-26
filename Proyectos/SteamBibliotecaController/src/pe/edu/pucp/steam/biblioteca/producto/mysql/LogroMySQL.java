@@ -151,5 +151,39 @@ public class LogroMySQL implements LogroDAO{
         }
         return logro;
     }
-
+    
+    @Override
+    public ArrayList<Logro> listarLogrosPorIdJuego(int idJuego) {
+        ArrayList<Logro> logros = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_LOGROS_X_ID_JUEGO(?)}");
+            cs.setInt("_id_juego", idJuego);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Logro logro = new Logro();
+                Juego juego = new Juego();
+                logro.setIdLogro(rs.getInt("id_logro"));
+                logro.setNombre(rs.getString("nombre_logro"));
+                logro.setDescripcion(rs.getString("descripcion_logro"));
+                juego.setIdProducto(rs.getInt("id_producto"));
+                juego.setTitulo(rs.getString("titulo"));
+                juego.setFechaPublicacion(rs.getDate("fecha_publicacion"));
+                juego.setPrecio(rs.getDouble("precio"));
+                juego.setDescripcion(rs.getString("descripcion_producto"));
+                juego.setEspacioDisco(rs.getDouble("espacio_disco"));
+                juego.setActivo(rs.getBoolean("producto_activo"));
+                juego.setMultijugador(rs.getBoolean("multijugador"));
+                juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
+                juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                logro.setActivo(true);
+                logros.add(logro);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return logros;
+    }
 }

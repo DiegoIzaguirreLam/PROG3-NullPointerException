@@ -12,23 +12,17 @@ BEGIN
     SET _id_logro_desbloqueado = @@last_insert_id;
 END$
 
-DROP PROCEDURE IF EXISTS BUSCAR_LOGRODESBLOQUEADO;
-DELIMITER $
-CREATE PROCEDURE BUSCAR_LOGRODESBLOQUEADO(
-	IN _id_logro_desbloqueado INT
-)
-BEGIN
-	SELECT * FROM LogroDesbloqueado WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
-END$
-
-
 DROP PROCEDURE IF EXISTS LISTAR_LOGRODESBLOQUEADOPRODUCTO;
 DELIMITER $
 CREATE PROCEDURE LISTAR_LOGRODESBLOQUEADOPRODUCTO(
 	IN _id_producto_adquirido INT
 )
 BEGIN
-	SELECT * FROM LogroDesbloqueado WHERE id_producto_adquirido = _id_producto_adquirido;
+	SELECT ld.id_logro_desbloqueado, ld.fecha_desbloqueo, l.id_logro, l.nombre as nombre_logro, l.descripcion as descripcion_logro
+    FROM LogroDesbloqueado ld
+    INNER JOIN Logro l ON l.id_logro = ld.fid_logro
+    WHERE ld.activo = 1 AND l.activo = 1
+    AND ld.fid_producto_adquirido = _id_producto_adquirido;
 END$
 
 
@@ -36,15 +30,11 @@ DROP PROCEDURE IF EXISTS ACTUALIZAR_LOGRODESBLOQUEADO;
 DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_LOGRODESBLOQUEADO(
 	IN _id_logro_desbloqueado INT,
-    IN _fecha_desbloqueo DATE,
-    IN fid_logro INT,
-    IN fid_producto_adquirido INT
+    IN _fecha_desbloqueo DATE
 )
 BEGIN
 	UPDATE LogroDesbloqueado
-    SET fecha_desbloqueo = _fecha_desbloqueado,
-		fid_logro = _fid_logro,
-        fid_producto_adquirido = _fid_producto_adquirido
+    SET fecha_desbloqueo = _fecha_desbloqueado
 	WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
 END$
 
@@ -54,6 +44,6 @@ CREATE PROCEDURE ELIMINAR_LOGRODESBLOQUEADO(
 	IN _id_logro_desbloqueado INT
 )
 BEGIN
-	UPDATE LogroDesbloqueado SET activo = 0 WHERE id_logro_desbloqueado = _id_logro_desbloqueado
+	UPDATE LogroDesbloqueado SET activo = 0 WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
 END$
 

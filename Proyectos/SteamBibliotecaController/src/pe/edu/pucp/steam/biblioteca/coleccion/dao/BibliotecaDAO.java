@@ -11,6 +11,6 @@ import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
  * @author GAMER
  */
 public interface BibliotecaDAO {
-    int insertarBiblioteca(Biblioteca biblioteca);
+    int asignarBibliotecaUsuario(int UID);
     Biblioteca buscarBiblioteca(int idUser);
 }
