@@ -13,15 +13,15 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindingList<Foro> foros = new BindingList<Foro>();
-            Foro proof = new Foro(1, "PRUEBAAA", "Este es un foro", "GianLukaGG", "https://avatars.akamai.steamstatic.com/f698ccb1d89632d7f174c142b789b84d4ec2dab6_full.jpg");
-            foros.Add(proof);
-            gvForos.DataSource = foros;
-            gvForos.DataBind();
-            Steam master = (Steam)this.Master;
-            master.ItemComunidad.Attributes["class"] = "active";
-            ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
-            a.hello("a");
+            //BindingList<Foro> foros = new BindingList<Foro>();
+            //Foro proof = new Foro(1, "PRUEBAAA", "Este es un foro", "GianLukaGG", "https://avatars.akamai.steamstatic.com/f698ccb1d89632d7f174c142b789b84d4ec2dab6_full.jpg");
+            //foros.Add(proof);
+            //gvForos.DataSource = foros;
+            //gvForos.DataBind();
+            //Steam master = (Steam)this.Master;
+            //master.ItemComunidad.Attributes["class"] = "active";
+            //ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
+            //a.hello("a");
             
         }
 
