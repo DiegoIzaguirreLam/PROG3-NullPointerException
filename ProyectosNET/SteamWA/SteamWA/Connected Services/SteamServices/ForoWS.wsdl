@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.comunidad.steam.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ForoWS" targetNamespace="http://services.comunidad.steam.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SteamWS/ForoWS?xsd=1" namespace="http://services.comunidad.steam.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="editarForo">
+    <part name="parameters" element="tns:editarForo" />
+  </message>
+  <message name="editarForoResponse">
+    <part name="parameters" element="tns:editarForoResponse" />
+  </message>
+  <message name="insertarForo">
+    <part name="parameters" element="tns:insertarForo" />
+  </message>
+  <message name="insertarForoResponse">
+    <part name="parameters" element="tns:insertarForoResponse" />
+  </message>
+  <message name="eliminarForo">
+    <part name="parameters" element="tns:eliminarForo" />
+  </message>
+  <message name="eliminarForoResponse">
+    <part name="parameters" element="tns:eliminarForoResponse" />
+  </message>
+  <message name="listarForos">
+    <part name="parameters" element="tns:listarForos" />
+  </message>
+  <message name="listarForosResponse">
+    <part name="parameters" element="tns:listarForosResponse" />
+  </message>
+  <portType name="ForoWS">
+    <operation name="editarForo">
+      <input wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/editarForoRequest" message="tns:editarForo" />
+      <output wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/editarForoResponse" message="tns:editarForoResponse" />
+    </operation>
+    <operation name="insertarForo">
+      <input wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/insertarForoRequest" message="tns:insertarForo" />
+      <output wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/insertarForoResponse" message="tns:insertarForoResponse" />
+    </operation>
+    <operation name="eliminarForo">
+      <input wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/eliminarForoRequest" message="tns:eliminarForo" />
+      <output wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/eliminarForoResponse" message="tns:eliminarForoResponse" />
+    </operation>
+    <operation name="listarForos">
+      <input wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/listarForosRequest" message="tns:listarForos" />
+      <output wsam:Action="http://services.comunidad.steam.pucp.edu.pe/ForoWS/listarForosResponse" message="tns:listarForosResponse" />
+    </operation>
+  </portType>
+  <binding name="ForoWSPortBinding" type="tns:ForoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="editarForo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarForo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarForo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarForos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ForoWS">
+    <port name="ForoWSPort" binding="tns:ForoWSPortBinding">
+      <soap:address location="http://localhost:8080/SteamWS/ForoWS" />
+    </port>
+  </service>
+</definitions>

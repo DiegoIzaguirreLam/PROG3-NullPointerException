@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.producto.biblioteca.steam.pucp.edu.pe/" targetNamespace="http://services.producto.biblioteca.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarSoftware" type="tns:actualizarSoftware" />
+  <xs:element name="actualizarSoftwareResponse" type="tns:actualizarSoftwareResponse" />
+  <xs:element name="buscarSoftware" type="tns:buscarSoftware" />
+  <xs:element name="buscarSoftwareResponse" type="tns:buscarSoftwareResponse" />
+  <xs:element name="eliminarSoftware" type="tns:eliminarSoftware" />
+  <xs:element name="eliminarSoftwareResponse" type="tns:eliminarSoftwareResponse" />
+  <xs:element name="insertarSoftware" type="tns:insertarSoftware" />
+  <xs:element name="insertarSoftwareResponse" type="tns:insertarSoftwareResponse" />
+  <xs:element name="listarSoftwares" type="tns:listarSoftwares" />
+  <xs:element name="listarSoftwaresResponse" type="tns:listarSoftwaresResponse" />
+  <xs:complexType name="buscarSoftware">
+    <xs:sequence>
+      <xs:element name="idSoftware" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarSoftwareResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:software" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="software">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:producto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="licencia" type="xs:string" />
+          <xs:element minOccurs="0" name="requisitos" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="producto" abstract="true">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="espacioDisco" type="xs:double" />
+      <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
+      <xs:element name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="logoUrl" type="xs:string" />
+      <xs:element minOccurs="0" name="portadaUrl" type="xs:string" />
+      <xs:element name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="proveedor" type="tns:proveedor" />
+      <xs:element minOccurs="0" name="titulo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="proveedor">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idProveedor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarSoftware">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="software" type="tns:software" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarSoftwareResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarSoftware">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="software" type="tns:software" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarSoftwareResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarSoftwares">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarSoftwaresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:software" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarSoftware">
+    <xs:sequence>
+      <xs:element name="idSoftware" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarSoftwareResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

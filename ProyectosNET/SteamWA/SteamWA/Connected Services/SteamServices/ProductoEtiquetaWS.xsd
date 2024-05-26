@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.producto.biblioteca.steam.pucp.edu.pe/" targetNamespace="http://services.producto.biblioteca.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="agregarProductoEtiqueta" type="tns:agregarProductoEtiqueta" />
+  <xs:element name="agregarProductoEtiquetaResponse" type="tns:agregarProductoEtiquetaResponse" />
+  <xs:element name="eliminarProductoEtiqueta" type="tns:eliminarProductoEtiqueta" />
+  <xs:element name="eliminarProductoEtiquetaResponse" type="tns:eliminarProductoEtiquetaResponse" />
+  <xs:complexType name="eliminarProductoEtiqueta">
+    <xs:sequence>
+      <xs:element name="idProducto" type="xs:int" />
+      <xs:element name="idEtiqueta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProductoEtiquetaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="agregarProductoEtiqueta">
+    <xs:sequence>
+      <xs:element name="idProducto" type="xs:int" />
+      <xs:element name="idEtiqueta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="agregarProductoEtiquetaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
