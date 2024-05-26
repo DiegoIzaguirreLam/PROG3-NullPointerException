@@ -138,3 +138,7 @@ replay_pid*
 !/Proyectos/SteamWA/src/java/pe/edu/pucp/steam/services/lib/mysql-connector-j-8.3.0.jar
 !/Proyectos/SteamWS/src/java/pe/edu/pucp/steam/services/lib/mysql-connector-j-8.3.0.jar
 !/Proyectos/SteamWS/src/java/pe/edu/pucp/steam/services/lib/jakarta.xml.ws-api-4.0.1.jar
+Proyectos/SteamPerfilController/nbproject/
+Proyectos/SteamWS/nbproject/
+Proyectos/SteamWS/nbproject/
+Proyectos/SteamWS/nbproject/
