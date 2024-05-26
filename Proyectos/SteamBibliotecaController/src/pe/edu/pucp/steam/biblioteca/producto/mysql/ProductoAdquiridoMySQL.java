@@ -59,7 +59,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
             cs.setInt("_id_producto_adquirido", producto.getIdProductoAdquirido());
             cs.setDate("_fecha_adquisicion", new java.sql.Date(producto.getFechaAdquisicion().getTime()));
             cs.setDate("_fecha_ejecucion",new java.sql.Date(producto.getFechaEjecutado().getTime()));
-            cs.setTime("_tiempo_uso", java.sql.Time.valueOf(producto.getTiempoUso()));
+            cs.setTime("_tiempo_uso", new java.sql.Time(producto.getTiempoUso().getTime()));
             cs.setBoolean("_actualizado", producto.isActualizado());
             cs.setBoolean("_oculto", producto.isOculto());
             cs.setInt("_fid_biblioteca", producto.getBiblioteca().getIdBiblioteca());
@@ -109,7 +109,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                 productoAdquirido.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
                 productoAdquirido.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
                 productoAdquirido.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
-                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
+                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso"));
                 productoAdquirido.setActualizado(rs.getBoolean("actualizado"));
                 productoAdquirido.setOculto(rs.getBoolean("oculto"));
                 
@@ -123,7 +123,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                     producto = new BandaSonora();
                     ((BandaSonora)producto).setArtista(rs.getString("artista"));
                     ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion"));
                 } else if (tipo.compareTo("SOFTWARE") == 0) {
                     producto = new Software();
                     ((Software)producto).setRequisitos(rs.getString("requisitos"));
@@ -174,7 +174,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                 productoAdquirido.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
                 productoAdquirido.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
                 productoAdquirido.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
-                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
+                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso"));
                 productoAdquirido.setActualizado(rs.getBoolean("actualizado"));
                 productoAdquirido.setOculto(rs.getBoolean("oculto"));
                 
@@ -188,7 +188,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                     producto = new BandaSonora();
                     ((BandaSonora)producto).setArtista(rs.getString("artista"));
                     ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion"));
                 } else if (tipo.compareTo("SOFTWARE") == 0) {
                     producto = new Software();
                     ((Software)producto).setRequisitos(rs.getString("requisitos"));
@@ -239,7 +239,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                 productoAdquirido.setIdProductoAdquirido(rs.getInt("id_producto_adquirido"));
                 productoAdquirido.setFechaAdquisicion(rs.getDate("fecha_adquisicion"));
                 productoAdquirido.setFechaEjecutado(rs.getDate("fecha_ejecucion"));
-                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso").toLocalTime());
+                productoAdquirido.setTiempoUso(rs.getTime("tiempo_uso"));
                 productoAdquirido.setActualizado(rs.getBoolean("actualizado"));
                 productoAdquirido.setOculto(rs.getBoolean("oculto"));
                 
@@ -253,7 +253,7 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                     producto = new BandaSonora();
                     ((BandaSonora)producto).setArtista(rs.getString("artista"));
                     ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion"));
                 } else if (tipo.compareTo("SOFTWARE") == 0) {
                     producto = new Software();
                     ((Software)producto).setRequisitos(rs.getString("requisitos"));

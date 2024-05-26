@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/CarteraWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="buscarCartera">
+    <part name="parameters" element="tns:buscarCartera" />
+  </message>
+  <message name="buscarCarteraResponse">
+    <part name="parameters" element="tns:buscarCarteraResponse" />
+  </message>
   <message name="insertarCartera">
     <part name="parameters" element="tns:insertarCartera" />
   </message>
@@ -17,13 +23,11 @@
   <message name="actualizarCarteraResponse">
     <part name="parameters" element="tns:actualizarCarteraResponse" />
   </message>
-  <message name="buscarCartera">
-    <part name="parameters" element="tns:buscarCartera" />
-  </message>
-  <message name="buscarCarteraResponse">
-    <part name="parameters" element="tns:buscarCarteraResponse" />
-  </message>
   <portType name="CarteraWS">
+    <operation name="buscarCartera">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/buscarCarteraRequest" message="tns:buscarCartera" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/buscarCarteraResponse" message="tns:buscarCarteraResponse" />
+    </operation>
     <operation name="insertarCartera">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/insertarCarteraRequest" message="tns:insertarCartera" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/insertarCarteraResponse" message="tns:insertarCarteraResponse" />
@@ -32,13 +36,18 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/actualizarCarteraRequest" message="tns:actualizarCartera" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/actualizarCarteraResponse" message="tns:actualizarCarteraResponse" />
     </operation>
-    <operation name="buscarCartera">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/buscarCarteraRequest" message="tns:buscarCartera" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/CarteraWS/buscarCarteraResponse" message="tns:buscarCarteraResponse" />
-    </operation>
   </portType>
   <binding name="CarteraWSPortBinding" type="tns:CarteraWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="buscarCartera">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertarCartera">
       <soap:operation soapAction="" />
       <input>
@@ -49,15 +58,6 @@
       </output>
     </operation>
     <operation name="actualizarCartera">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarCartera">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ForoUsuarioWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="eliminarRelacion">
-    <part name="parameters" element="tns:eliminarRelacion" />
-  </message>
-  <message name="eliminarRelacionResponse">
-    <part name="parameters" element="tns:eliminarRelacionResponse" />
-  </message>
   <message name="crearRelacion">
     <part name="parameters" element="tns:crearRelacion" />
   </message>
   <message name="crearRelacionResponse">
     <part name="parameters" element="tns:crearRelacionResponse" />
   </message>
-  <message name="suscribirRelacion">
-    <part name="parameters" element="tns:suscribirRelacion" />
+  <message name="eliminarRelacion">
+    <part name="parameters" element="tns:eliminarRelacion" />
   </message>
-  <message name="suscribirRelacionResponse">
-    <part name="parameters" element="tns:suscribirRelacionResponse" />
+  <message name="eliminarRelacionResponse">
+    <part name="parameters" element="tns:eliminarRelacionResponse" />
   </message>
   <message name="listarSuscritos">
     <part name="parameters" element="tns:listarSuscritos" />
@@ -29,35 +23,32 @@
   <message name="listarSuscritosResponse">
     <part name="parameters" element="tns:listarSuscritosResponse" />
   </message>
+  <message name="suscribirRelacion">
+    <part name="parameters" element="tns:suscribirRelacion" />
+  </message>
+  <message name="suscribirRelacionResponse">
+    <part name="parameters" element="tns:suscribirRelacionResponse" />
+  </message>
   <portType name="ForoUsuarioWS">
-    <operation name="eliminarRelacion">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionRequest" message="tns:eliminarRelacion" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionResponse" message="tns:eliminarRelacionResponse" />
-    </operation>
     <operation name="crearRelacion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/crearRelacionRequest" message="tns:crearRelacion" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/crearRelacionResponse" message="tns:crearRelacionResponse" />
     </operation>
-    <operation name="suscribirRelacion">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionRequest" message="tns:suscribirRelacion" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionResponse" message="tns:suscribirRelacionResponse" />
+    <operation name="eliminarRelacion">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionRequest" message="tns:eliminarRelacion" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionResponse" message="tns:eliminarRelacionResponse" />
     </operation>
     <operation name="listarSuscritos">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/listarSuscritosRequest" message="tns:listarSuscritos" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/listarSuscritosResponse" message="tns:listarSuscritosResponse" />
     </operation>
+    <operation name="suscribirRelacion">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionRequest" message="tns:suscribirRelacion" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionResponse" message="tns:suscribirRelacionResponse" />
+    </operation>
   </portType>
   <binding name="ForoUsuarioWSPortBinding" type="tns:ForoUsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarRelacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="crearRelacion">
       <soap:operation soapAction="" />
       <input>
@@ -67,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="suscribirRelacion">
+    <operation name="eliminarRelacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -77,6 +68,15 @@
       </output>
     </operation>
     <operation name="listarSuscritos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="suscribirRelacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -26,12 +26,12 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="artista" type="xs:string" />
           <xs:element minOccurs="0" name="compositor" type="xs:string" />
-          <xs:element minOccurs="0" name="duracion" type="tns:localTime" />
+          <xs:element minOccurs="0" name="duracion" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="producto" abstract="true">
+  <xs:complexType name="producto">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element minOccurs="0" name="descripcion" type="xs:string" />
@@ -44,9 +44,6 @@
       <xs:element minOccurs="0" name="proveedor" type="tns:proveedor" />
       <xs:element minOccurs="0" name="titulo" type="xs:string" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="localTime" final="extension restriction">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="proveedor">
     <xs:sequence>

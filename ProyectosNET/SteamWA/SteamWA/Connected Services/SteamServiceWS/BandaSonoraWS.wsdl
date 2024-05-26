@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/BandaSonoraWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarBandaSonora">
-    <part name="parameters" element="tns:actualizarBandaSonora" />
+  <message name="insertarBandaSonora">
+    <part name="parameters" element="tns:insertarBandaSonora" />
   </message>
-  <message name="actualizarBandaSonoraResponse">
-    <part name="parameters" element="tns:actualizarBandaSonoraResponse" />
+  <message name="insertarBandaSonoraResponse">
+    <part name="parameters" element="tns:insertarBandaSonoraResponse" />
   </message>
   <message name="eliminarBandaSonora">
     <part name="parameters" element="tns:eliminarBandaSonora" />
@@ -17,11 +17,11 @@
   <message name="eliminarBandaSonoraResponse">
     <part name="parameters" element="tns:eliminarBandaSonoraResponse" />
   </message>
-  <message name="insertarBandaSonora">
-    <part name="parameters" element="tns:insertarBandaSonora" />
+  <message name="actualizarBandaSonora">
+    <part name="parameters" element="tns:actualizarBandaSonora" />
   </message>
-  <message name="insertarBandaSonoraResponse">
-    <part name="parameters" element="tns:insertarBandaSonoraResponse" />
+  <message name="actualizarBandaSonoraResponse">
+    <part name="parameters" element="tns:actualizarBandaSonoraResponse" />
   </message>
   <message name="listarBandaSonoras">
     <part name="parameters" element="tns:listarBandaSonoras" />
@@ -36,17 +36,17 @@
     <part name="parameters" element="tns:buscarBandaSonoraResponse" />
   </message>
   <portType name="BandaSonoraWS">
-    <operation name="actualizarBandaSonora">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraRequest" message="tns:actualizarBandaSonora" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraResponse" message="tns:actualizarBandaSonoraResponse" />
+    <operation name="insertarBandaSonora">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraRequest" message="tns:insertarBandaSonora" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraResponse" message="tns:insertarBandaSonoraResponse" />
     </operation>
     <operation name="eliminarBandaSonora">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraRequest" message="tns:eliminarBandaSonora" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraResponse" message="tns:eliminarBandaSonoraResponse" />
     </operation>
-    <operation name="insertarBandaSonora">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraRequest" message="tns:insertarBandaSonora" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraResponse" message="tns:insertarBandaSonoraResponse" />
+    <operation name="actualizarBandaSonora">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraRequest" message="tns:actualizarBandaSonora" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraResponse" message="tns:actualizarBandaSonoraResponse" />
     </operation>
     <operation name="listarBandaSonoras">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest" message="tns:listarBandaSonoras" />
@@ -59,7 +59,7 @@
   </portType>
   <binding name="BandaSonoraWSPortBinding" type="tns:BandaSonoraWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarBandaSonora">
+    <operation name="insertarBandaSonora">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -77,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarBandaSonora">
+    <operation name="actualizarBandaSonora">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

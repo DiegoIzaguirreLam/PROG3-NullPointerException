@@ -75,10 +75,36 @@ namespace SteamWA
         protected void lbPrograma_Click(object sender, EventArgs e)
         {
 
-            String nProg = ((LinkButton)sender).CommandArgument;
+            int idProductoAdquirido = Int32.Parse(((LinkButton)sender).CommandArgument);
             //capturar id
             //buscar programa en arreglo
-            tituloPrograma.InnerText = "Programa " + nProg;
+            productoAdquirido productoAdquirido = productosAdquiridos.SingleOrDefault(x => x.idProductoAdquirido == idProductoAdquirido);
+            producto producto = productoAdquirido.producto;
+            imgPrograma.Src = producto.portadaUrl;
+            txtTituloPrograma.InnerText = producto.titulo;
+            txtDescripcionPrograma.InnerText = producto.descripcion;
+            txtFechaEjecucionPrograma.InnerHtml = "<strong>Última ejecución: </strong>" + producto.fechaPublicacion.ToString("dd/MM/yyyy");
+            txtTiempoUsoPrograma.InnerHtml = "<strong>Tiempo de uso: </strong>" + productoAdquirido.tiempoUso.ToString("hh:mm:ss");
+            txtActualizadoPrograma.InnerHtml = "<strong>Actualizado: </strong>" + (productoAdquirido.actualizado ? "Sí" : "No");
+            if(producto is juego)
+            {
+                lbLogros.Visible = true;
+                divBotonesPrograma.Attributes["class"] = "d-flex justify-content-between";
+            }
+            else
+            {
+                lbLogros.Visible = false;
+                divBotonesPrograma.Attributes["class"] = "d-flex justify-content-end";
+            }
+
+            if (!productoAdquirido.actualizado)
+            {
+                lbJugar.Text = "Actualizar";
+            }
+            else
+            {
+                lbJugar.Text = "Jugar";
+            }
             infoPrograma.Style.Value = "block";
         }
 

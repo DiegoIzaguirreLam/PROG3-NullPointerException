@@ -19,7 +19,7 @@ public class ProductoAdquirido implements IConsultable{
     private int idProductoAdquirido;
     private Date fechaAdquisicion;
     private Date fechaEjecutado;
-    private LocalTime tiempoUso;
+    private Date tiempoUso;
     private boolean actualizado;
     private Producto producto;
     private ArrayList<LogroDesbloqueado> desbloqueados;
@@ -30,7 +30,7 @@ public class ProductoAdquirido implements IConsultable{
 
     public ProductoAdquirido(){};
 
-    public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, LocalTime tiempoUso, boolean actualizado, boolean oculto, Producto producto, ArrayList<LogroDesbloqueado> desbloqueados, ArrayList<Coleccion> colecciones, Biblioteca biblioteca) {
+    public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, Date tiempoUso, boolean actualizado, boolean oculto, Producto producto, ArrayList<LogroDesbloqueado> desbloqueados, ArrayList<Coleccion> colecciones, Biblioteca biblioteca) {
         this.fechaAdquisicion = fechaAdquisicion;
         this.fechaEjecutado = fechaEjecutado;
         this.tiempoUso = tiempoUso;
@@ -66,11 +66,11 @@ public class ProductoAdquirido implements IConsultable{
         this.fechaEjecutado = fechaEjecutado;
     }
 
-    public LocalTime getTiempoUso() {
+    public Date getTiempoUso() {
         return tiempoUso;
     }
 
-    public void setTiempoUso(LocalTime tiempoUso) {
+    public void setTiempoUso(Date tiempoUso) {
         this.tiempoUso = tiempoUso;
     }
 

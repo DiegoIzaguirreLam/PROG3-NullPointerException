@@ -48,7 +48,7 @@ public class ProductoMySQL implements ProductoDAO {
                     producto = new BandaSonora();
                     ((BandaSonora)producto).setArtista(rs.getString("artista"));
                     ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion"));
                 } else if(tipo.compareTo("SOFTWARE")==0){
                     producto = new Software();
                     ((Software)producto).setRequisitos(rs.getString("requisitos"));
@@ -98,7 +98,7 @@ public class ProductoMySQL implements ProductoDAO {
                     producto = new BandaSonora();
                     ((BandaSonora)producto).setArtista(rs.getString("artista"));
                     ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion"));
                 } else if(tipo.compareTo("SOFTWARE")==0){
                     producto = new Software();
                     ((Software)producto).setRequisitos(rs.getString("requisitos"));
@@ -150,7 +150,7 @@ public class ProductoMySQL implements ProductoDAO {
                     producto = new BandaSonora();
                     ((BandaSonora)producto).setArtista(rs.getString("artista"));
                     ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion"));
                 } else if(tipo.compareTo("SOFTWARE")==0){
                     producto = new Software();
                     ((Software)producto).setRequisitos(rs.getString("requisitos"));
@@ -202,7 +202,7 @@ public class ProductoMySQL implements ProductoDAO {
                     producto = new BandaSonora();
                     ((BandaSonora)producto).setArtista(rs.getString("artista"));
                     ((BandaSonora)producto).setCompositor(rs.getString("compositor"));
-                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion").toLocalTime());
+                    ((BandaSonora)producto).setDuracion(rs.getTime("duracion"));
                 } else if(tipo.compareTo("SOFTWARE")==0){
                     producto = new Software();
                     ((Software)producto).setRequisitos(rs.getString("requisitos"));

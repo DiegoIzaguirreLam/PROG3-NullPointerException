@@ -99,7 +99,7 @@
       <xs:element name="idProductoAdquirido" type="xs:int" />
       <xs:element name="oculto" type="xs:boolean" />
       <xs:element minOccurs="0" name="producto" type="tns:producto" />
-      <xs:element minOccurs="0" name="tiempoUso" type="tns:localTime" />
+      <xs:element minOccurs="0" name="tiempoUso" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="logroDesbloqueado">
@@ -133,7 +133,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="producto" abstract="true">
+  <xs:complexType name="producto">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element minOccurs="0" name="descripcion" type="xs:string" />
@@ -154,9 +154,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
       <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="localTime" final="extension restriction">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="cartera">
     <xs:sequence>
@@ -299,16 +296,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:notificacion" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarPais">
-    <xs:sequence>
-      <xs:element name="idPais" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarPaisResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:pais" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="actualizarPais">
     <xs:sequence>
       <xs:element minOccurs="0" name="pais" type="tns:pais" />
@@ -317,6 +304,16 @@
   <xs:complexType name="actualizarPaisResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPais">
+    <xs:sequence>
+      <xs:element name="idPais" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPaisResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:pais" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="metodoPago">

@@ -14,9 +14,9 @@ import java.util.Date;
 public class BandaSonora extends Producto{
     private String artista;
     private String compositor;
-    private LocalTime duracion;
+    private Date duracion;
 
-    public BandaSonora(String artista, String compositor, LocalTime duracion, String titulo, Date fechaPublicacion,
+    public BandaSonora(String artista, String compositor, Date duracion, String titulo, Date fechaPublicacion,
             double precio, String descripcion, double espacioDisco, String logoUrl, String portadaUrl, Proveedor proveedor) {
         super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, logoUrl, portadaUrl, proveedor);
         this.artista = artista;
@@ -42,11 +42,11 @@ public class BandaSonora extends Producto{
         this.compositor = compositor;
     }
 
-    public LocalTime getDuracion() {
+    public Date getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(LocalTime duracion) {
+    public void setDuracion(Date duracion) {
         this.duracion = duracion;
     }
 

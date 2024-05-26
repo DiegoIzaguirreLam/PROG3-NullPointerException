@@ -79,7 +79,7 @@
             <div class="col-md-4 me-4">
                 <!-- <h2>Listado de Programas</h2> -->
                 <ul id="ulProgramas" runat="server" class="list-group list-group-flush">
-                    <li class="list-group-item text-gray bg-transparent" id="liPrograma1">
+                    <%--<li class="list-group-item text-gray bg-transparent" id="liPrograma1">
                         <img src="Images/logo_juego1.jpg" height="30" />
                         <asp:LinkButton ID="lbPrograma1" runat="server" Text="Programa 1" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='1' />
                     </li>
@@ -90,7 +90,7 @@
                     <li class="list-group-item text-gray bg-transparent" id="liPrograma3">
                         <img src="Images/logo_juego3.jpg" height="30" />
                         <asp:LinkButton ID="lbPrograma3" runat="server" Text="Programa 3" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='3' />
-                    </li>
+                    </li>--%>
                 </ul>
             </div>
             <!-- línea divisoria vertical -->
@@ -99,29 +99,21 @@
             <div class="col-md-8 p-4">
                 <div id="infoPrograma" runat="server" style="display: none;">
                     <!-- Imagen del juego -->
-                    <img id="imgPrograma" src="" width="600" alt="Portada del juego">
+                    <div class="justify-content-center">
+                        <img id="imgPrograma" runat="server" width="650" alt="Portada del juego">
+                    </div>
                     <!-- Información del juego -->
                     <div class="program-info">
-                        <h3 id="tituloPrograma" runat="server">Titulo del Juego</h3>
-                        <p runat="server"><span id="descripcionPrograma">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</span></p>
-                        <p runat="server"><strong>Última ejecución:</strong> <span id="fechaEjecucionPrograma">10 de mayo de 2024</span></p>
-                        <p runat="server"><strong>Tiempo de uso:</strong> <span id="tiempoUsoPrograma">10 horas</span></p>
-                        <p runat="server"><strong>Actualizado:</strong> <span id="actualizadoPrograma">Sí</span></p>
+                        <h3 id="txtTituloPrograma" runat="server">Titulo del Juego</h3>
+                        <p id="txtDescripcionPrograma" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</p>
+                        <p id="txtFechaEjecucionPrograma" runat="server"></p>
+                        <p id="txtTiempoUsoPrograma" runat="server"></p>
+                        <p id="txtActualizadoPrograma" runat="server"></p>
                         <!-- Contenedor de logros y botón para jugar -->
                         <div class="d-flex flex-column">
-                            <!-- Contenedor de logros -->
-                            <div id="logrosPrograma" style="margin-bottom: 20px;">
-                                <h3>Logros</h3>
-                                <ul id="ulLogros">
-                                    <!-- logros -->
-                                    <li>Logro 1</li>
-                                    <li>Logro 2</li>
-                                    <li>Logro 3</li>
-                                </ul>
-                            </div>
                             <!-- Botón para eliminar -->
-                            <div class="d-flex justify-content-between">
-                                <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-info" Text="<i class='fa-solid fa-magnifying-glass pe-2'></i> Logros" OnClick="lbLogros_Click" />
+                            <div id="divBotonesPrograma" runat="server">
+                                <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-primary btn-dark" Text="<i class='fa-solid fa-gamepad'></i> Logros" OnClick="lbLogros_Click" />
                                 <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-success" Text="Jugar" />
                             </div>
                         </div>

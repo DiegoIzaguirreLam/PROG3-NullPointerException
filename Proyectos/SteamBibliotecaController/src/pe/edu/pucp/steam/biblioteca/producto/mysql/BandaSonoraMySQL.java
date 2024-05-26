@@ -44,7 +44,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             cs.setBoolean("_activo", true);
             cs.setString("_artista", bandaSonora.getArtista());
             cs.setString("_compositor", bandaSonora.getCompositor());
-            cs.setTime("_duracion", java.sql.Time.valueOf(bandaSonora.getDuracion()));
+            cs.setTime("_duracion", new java.sql.Time(bandaSonora.getDuracion().getTime()));
             cs.executeUpdate();
             bandaSonora.setIdProducto(cs.getInt("_id_banda_sonora"));
             resultado = bandaSonora.getIdProducto();
@@ -75,7 +75,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             cs.setBoolean("_activo", bandaSonora.isActivo());
             cs.setString("_artista", bandaSonora.getArtista());
             cs.setString("_compositor", bandaSonora.getCompositor());
-            cs.setTime("_duracion", java.sql.Time.valueOf(bandaSonora.getDuracion()));
+            cs.setTime("_duracion", new java.sql.Time(bandaSonora.getDuracion().getTime()));
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -122,7 +122,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
                 bandaSonora.setPortadaUrl(rs.getString("portada_url"));
                 bandaSonora.setArtista(rs.getString("artista"));
                 bandaSonora.setCompositor(rs.getString("compositor"));
-                bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());
+                bandaSonora.setDuracion(rs.getTime("duracion"));
                 proveedor.setIdProveedor(rs.getInt("id_proveedor"));
                 proveedor.setRazonSocial(rs.getString("razon_social"));
                 bandaSonora.setProveedor(proveedor);
@@ -157,7 +157,7 @@ public class BandaSonoraMySQL implements BandaSonoraDAO{
             bandaSonora.setPortadaUrl(rs.getString("portada_url"));
             bandaSonora.setArtista(rs.getString("artista"));
             bandaSonora.setCompositor(rs.getString("compositor"));
-            bandaSonora.setDuracion(rs.getTime("duracion").toLocalTime());
+            bandaSonora.setDuracion(rs.getTime("duracion"));
             bandaSonora.setActivo(rs.getBoolean("activo"));
             proveedor.setIdProveedor(rs.getInt("id_proveedor"));
             proveedor.setRazonSocial(rs.getString("razon_social"));

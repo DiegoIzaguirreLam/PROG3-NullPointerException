@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ExpositorWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarExpositor">
-    <part name="parameters" element="tns:actualizarExpositor" />
-  </message>
-  <message name="actualizarExpositorResponse">
-    <part name="parameters" element="tns:actualizarExpositorResponse" />
-  </message>
   <message name="listarExpositoresPerfil">
     <part name="parameters" element="tns:listarExpositoresPerfil" />
   </message>
   <message name="listarExpositoresPerfilResponse">
     <part name="parameters" element="tns:listarExpositoresPerfilResponse" />
+  </message>
+  <message name="actualizarExpositor">
+    <part name="parameters" element="tns:actualizarExpositor" />
+  </message>
+  <message name="actualizarExpositorResponse">
+    <part name="parameters" element="tns:actualizarExpositorResponse" />
   </message>
   <message name="ocultarExpositor">
     <part name="parameters" element="tns:ocultarExpositor" />
@@ -29,26 +29,26 @@
   <message name="listarExpositoresResponse">
     <part name="parameters" element="tns:listarExpositoresResponse" />
   </message>
-  <message name="eliminarExpositor">
-    <part name="parameters" element="tns:eliminarExpositor" />
-  </message>
-  <message name="eliminarExpositorResponse">
-    <part name="parameters" element="tns:eliminarExpositorResponse" />
-  </message>
   <message name="insertarExpositor">
     <part name="parameters" element="tns:insertarExpositor" />
   </message>
   <message name="insertarExpositorResponse">
     <part name="parameters" element="tns:insertarExpositorResponse" />
   </message>
+  <message name="eliminarExpositor">
+    <part name="parameters" element="tns:eliminarExpositor" />
+  </message>
+  <message name="eliminarExpositorResponse">
+    <part name="parameters" element="tns:eliminarExpositorResponse" />
+  </message>
   <portType name="ExpositorWS">
-    <operation name="actualizarExpositor">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/actualizarExpositorRequest" message="tns:actualizarExpositor" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/actualizarExpositorResponse" message="tns:actualizarExpositorResponse" />
-    </operation>
     <operation name="listarExpositoresPerfil">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/listarExpositoresPerfilRequest" message="tns:listarExpositoresPerfil" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/listarExpositoresPerfilResponse" message="tns:listarExpositoresPerfilResponse" />
+    </operation>
+    <operation name="actualizarExpositor">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/actualizarExpositorRequest" message="tns:actualizarExpositor" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/actualizarExpositorResponse" message="tns:actualizarExpositorResponse" />
     </operation>
     <operation name="ocultarExpositor">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/ocultarExpositorRequest" message="tns:ocultarExpositor" />
@@ -58,18 +58,18 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/listarExpositoresRequest" message="tns:listarExpositores" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/listarExpositoresResponse" message="tns:listarExpositoresResponse" />
     </operation>
-    <operation name="eliminarExpositor">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/eliminarExpositorRequest" message="tns:eliminarExpositor" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/eliminarExpositorResponse" message="tns:eliminarExpositorResponse" />
-    </operation>
     <operation name="insertarExpositor">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/insertarExpositorRequest" message="tns:insertarExpositor" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/insertarExpositorResponse" message="tns:insertarExpositorResponse" />
     </operation>
+    <operation name="eliminarExpositor">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/eliminarExpositorRequest" message="tns:eliminarExpositor" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ExpositorWS/eliminarExpositorResponse" message="tns:eliminarExpositorResponse" />
+    </operation>
   </portType>
   <binding name="ExpositorWSPortBinding" type="tns:ExpositorWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarExpositor">
+    <operation name="listarExpositoresPerfil">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -78,7 +78,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarExpositoresPerfil">
+    <operation name="actualizarExpositor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -105,7 +105,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarExpositor">
+    <operation name="insertarExpositor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -114,7 +114,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarExpositor">
+    <operation name="eliminarExpositor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

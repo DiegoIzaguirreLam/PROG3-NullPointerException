@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author GAMER
  */
-abstract public class Producto {
+public class Producto {
     private int idProducto;
     private String titulo;
     private Date fechaPublicacion;
