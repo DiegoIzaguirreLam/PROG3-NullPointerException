@@ -11,12 +11,12 @@
         <!-- dropdown checkbox con colecciones -->
         <div class="text-end">
             <div class="dropdown d-inline-block">
-                <button class="btn btn-primary dropdown-toggle bg-navy text-gray" type="button" id="dropdownColecciones"
+                <button class="btn btn-primary dropdown-toggle bg-navy" type="button" id="dropdownColecciones"
                     data-bs-toggle="dropdown" aria-expanded="false" style="float: right;">
                     Colecciones
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownColecciones">
-                    <li>
+                </button> 
+                <ul id="ddlColecciones" runat="server" class="dropdown-menu text-" aria-labelledby="dropdownColecciones">
+                    <%--<li>
                         <a class="dropdown-item" href="#">
                             <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="" id="chkColeccion1" />
@@ -42,7 +42,7 @@
                         <a class="dropdown-item" href="GestionarColeccion.aspx">
                             <i class="fa-solid fa-plus me-2"></i>Nueva Colección
                         </a>
-                    </li>
+                    </li>--%>
                 </ul>
             </div>
             <!-- dropdown de ordenar -->
@@ -53,22 +53,16 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownOrdenar">
                     <li>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ordenarOption" id="radioTiempo" value="tiempo" checked>
-                            <label class="form-check-label" for="radioTiempo">Por Tiempo de Juego</label>
-                        </div>
+                        <asp:RadioButton ID="rbNombre" runat="server" GroupName="orderCriteria" Text="Por Nombre" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ordenarOption" id="radioTamaño" value="tamaño" checked>
-                            <label class="form-check-label" for="radioTamaño">Por Tamaño</label>
-                        </div>
+                        <asp:RadioButton ID="rbTiempo" runat="server" GroupName="orderCriteria" Text="Por Uso" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ordenarOption" id="radioPrecio" value="precio" checked>
-                            <label class="form-check-label" for="radioPrecio">Por Precio</label>
-                        </div>
+                        <asp:RadioButton ID="rbTam" runat="server" GroupName="orderCriteria" Text="Por tamaño" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                    </li>
+                    <li>
+                        <asp:RadioButton ID="rbPrecio" runat="server" GroupName="orderCriteria" Text="Por precio" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                 </ul>
             </div>

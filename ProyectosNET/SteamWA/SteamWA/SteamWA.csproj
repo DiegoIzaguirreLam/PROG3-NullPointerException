@@ -753,6 +753,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Estado.cs" />
     <Compile Include="Foro.cs" />
     <Compile Include="GestionarColeccion.aspx.cs">
       <DependentUpon>GestionarColeccion.aspx</DependentUpon>

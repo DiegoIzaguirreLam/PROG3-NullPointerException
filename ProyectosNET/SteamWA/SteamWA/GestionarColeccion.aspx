@@ -6,45 +6,19 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
-        <h1 class="mt-4 mb-4">Gestionar Colección</h1>
+        <h1 id="hGestionarColeccion" runat="server" class="mt-4 mb-4">Gestionar Colección</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="nombreColeccion" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="txtNombreColeccion" text="Nombre de la Colección">
+                    <input id="txtNombreColeccion" runat="server" type="text" class="form-control" text="Nombre de la Colección">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Seleccione los programas</label>
                     <div class="table-responsive">
-                        <table class="table table-striped table-dark">
+                        <table id="tablaProductos" runat="server" class="table table-striped table-dark">
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="chkPrograma1">
-                                            <label class="form-check-label" for="chkPrograma1"></label>
-                                        </div>
-                                    </td>
-                                    <td>Programa 1</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="chkPrograma2">
-                                            <label class="form-check-label" for="chkPrograma2"></label>
-                                        </div>
-                                    </td>
-                                    <td>Programa 2</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="chkPrograma3">
-                                            <label class="form-check-label" for="chkPrograma3"></label>
-                                        </div>
-                                    </td>
-                                    <td>Programa 3</td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>

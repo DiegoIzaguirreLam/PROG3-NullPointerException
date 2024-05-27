@@ -160,7 +160,6 @@ namespace SteamWA
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
-
         protected void gvLogrosDesbloqueados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvLogrosDesbloqueados.PageIndex = e.NewPageIndex;
