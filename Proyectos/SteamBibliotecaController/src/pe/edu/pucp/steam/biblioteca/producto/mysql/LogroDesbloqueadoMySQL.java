@@ -34,8 +34,8 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
                     + "(?,?,?)}");
             cs.registerOutParameter("_id_logro_desbloqueado",
                     java.sql.Types.INTEGER);
-            cs.setInt("fid_logro", logro.getLogro().getIdLogro());
-            cs.setInt("fid_producto_adquirido", logro.getJuego().getIdProductoAdquirido());
+            cs.setInt("_fid_logro", logro.getLogro().getIdLogro());
+            cs.setInt("_fid_producto_adquirido", logro.getJuego().getIdProductoAdquirido());
             cs.executeUpdate();
             logro.setIdLogroDesbloqueado(cs.getInt("_id_logro_desbloqueado"));
             resultado = logro.getIdLogroDesbloqueado();
@@ -72,7 +72,7 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_LOGRODESBLOQUEADO"
                     + "(?)}");
-            cs.setInt("fid_logro", idLogroDesbloqueado);
+            cs.setInt("_id_logro_desbloqueado", idLogroDesbloqueado);
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
-        <h1 class="mt-4 d-inline-block">Biblioteca de Programas</h1>
+        <h1 class="mt-4 d-inline-block">Biblioteca de Productos</h1>
         <!-- dropdown checkbox con colecciones -->
         <div class="text-end">
             <div class="dropdown d-inline-block">
@@ -78,19 +78,7 @@
             <!-- parte izquierda: lista de programas -->
             <div class="col-md-4 me-4">
                 <!-- <h2>Listado de Programas</h2> -->
-                <ul id="ulProgramas" runat="server" class="list-group list-group-flush">
-                    <%--<li class="list-group-item text-gray bg-transparent" id="liPrograma1">
-                        <img src="Images/logo_juego1.jpg" height="30" />
-                        <asp:LinkButton ID="lbPrograma1" runat="server" Text="Programa 1" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='1' />
-                    </li>
-                    <li class="list-group-item text-gray bg-transparent" id="liPrograma2">
-                        <img src="Images/logo_juego2.jpg" height="30" />
-                        <asp:LinkButton ID="lbPrograma2" runat="server" Text="Programa 2" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='2' />
-                    </li>
-                    <li class="list-group-item text-gray bg-transparent" id="liPrograma3">
-                        <img src="Images/logo_juego3.jpg" height="30" />
-                        <asp:LinkButton ID="lbPrograma3" runat="server" Text="Programa 3" CssClass="text-decoration-none text-white" OnClick="lbPrograma_Click" CommandArgument='3' />
-                    </li>--%>
+                <ul id="ulProgramas" runat="server" class="list-group list-group-flush"> 
                 </ul>
             </div>
             <!-- línea divisoria vertical -->
@@ -122,21 +110,28 @@
             </div>
         </div>
     </div>
+
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div class="modal" id="form-modal-logros">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog">
             <div class="modal-content bg-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title">Logros de juegos</h5>
+                    <h5 id="hTituloModal" class="modal-title" runat="server">Logros de juegos</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Logros modal</p>
-                    <ul id="ulLogrosModal">
-                        <!-- logros -->
-                        <li>Logro 1</li>
-                        <li>Logro 2</li>
-                        <li>Logro 3</li>
-                    </ul>
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <%--<asp:LinkButton ID="lbPrueba" runat="server" CssClass="btn btn-primary btn-success" Text="Probar" OnClick="lbAgregarLogroDesbloqueado_Click"/>--%>
+
+                            <p id="pLogrosDesbloqueados" runat="server">Logros Desbloqueados</p>
+                            <ul id="ulLogrosDesbloqueadosModal" runat="server">
+                            </ul>
+                            <p id="pLogrosPorDesbloquear" runat="server">Logros Por Desbloquear</p>
+                            <ul id="ulLogrosModal" runat="server">
+                            </ul>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
             </div>
         </div>

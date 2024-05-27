@@ -13,7 +13,11 @@ namespace SteamWA
     public partial class Biblioteca : System.Web.UI.Page
     {
         private ProductoAdquiridoWSClient daoProductoAdquirido;
+        private LogroWSClient daoLogro;
+        private LogroDesbloqueadoWSClient daoLogroDesbloqueado;
         private BindingList<productoAdquirido> productosAdquiridos;
+        private BindingList<logro> logros;
+        private BindingList<logroDesbloqueado> logrosDesbloqueados;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +28,8 @@ namespace SteamWA
         protected void Page_Init(object sender, EventArgs e)
         {
             daoProductoAdquirido = new ProductoAdquiridoWSClient();
+            daoLogro = new LogroWSClient();
+            daoLogroDesbloqueado = new LogroDesbloqueadoWSClient();
             productoAdquirido[] productoArr = daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(1);
             productosAdquiridos = new BindingList<productoAdquirido>(productoArr);
 
@@ -66,18 +72,10 @@ namespace SteamWA
             }
         }
 
-        protected void lbLogros_Click(object sender, EventArgs e)
-        {
-            string script = "window.onload = function() { showModalForm('form-modal-logros') };";
-            ClientScript.RegisterStartupScript(GetType(), "", script, true);
-        }
-
+        
         protected void lbPrograma_Click(object sender, EventArgs e)
         {
-
             int idProductoAdquirido = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //capturar id
-            //buscar programa en arreglo
             productoAdquirido productoAdquirido = productosAdquiridos.SingleOrDefault(x => x.idProductoAdquirido == idProductoAdquirido);
             producto producto = productoAdquirido.producto;
             imgPrograma.Src = producto.portadaUrl;
@@ -105,7 +103,24 @@ namespace SteamWA
             {
                 lbJugar.Text = "Jugar";
             }
-            infoPrograma.Style.Value = "block";
+            infoPrograma.Style.Value = "block";            
+            Session["productoAdquiridoSeleccionado"] = productoAdquirido;
+        }
+
+        protected void lbLogros_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GestionarLogros.aspx");
+        }
+
+
+        protected void lbAgregarLogroDesbloqueado_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Tienda.aspx");
+        }
+
+        protected void lbEliminarLogroDesbloqueado_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Tienda.aspx");
         }
 
     }

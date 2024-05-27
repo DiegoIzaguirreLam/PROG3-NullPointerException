@@ -215,6 +215,7 @@
     <Content Include="Content\stylesBiblioteca.css" />
     <Content Include="GestionarColeccion.aspx" />
     <Content Include="GestionarForo.aspx" />
+    <Content Include="GestionarLogros.aspx" />
     <Content Include="GestionarSubforo.aspx" />
     <Content Include="Images\Captura de pantalla 2024-05-07 185011.png" />
     <Content Include="Images\Captura de pantalla 2024-05-07 185034.png" />
@@ -696,6 +697,7 @@
     <Content Include="Scripts\Steam\Carrito.js" />
     <Content Include="Scripts\Steam\crearForo.js" />
     <Content Include="Scripts\Steam\GestionarColeccion.js" />
+    <Content Include="Scripts\Steam\GestionarLogros.js" />
     <Content Include="Scripts\Steam\mostrarModal.js" />
     <Content Include="Scripts\Steam\mostrarNotificacion.js" />
     <Content Include="Scripts\Steam\Tienda.js" />
@@ -765,6 +767,13 @@
     </Compile>
     <Compile Include="GestionarForo.aspx.designer.cs">
       <DependentUpon>GestionarForo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarLogros.aspx.cs">
+      <DependentUpon>GestionarLogros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarLogros.aspx.designer.cs">
+      <DependentUpon>GestionarLogros.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarSubforo.aspx.cs">
       <DependentUpon>GestionarSubforo.aspx</DependentUpon>
