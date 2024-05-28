@@ -6,8 +6,9 @@ CREATE PROCEDURE INSERTAR_PRODUCTOETIQUETA(
     IN _fid_etiqueta INT
 )
 BEGIN
-	INSERT INTO ProductoEtiqueta(fid_producto,fid_etiqueta)
-    VALUES(_fid_producto, _fid_etiqueta);
+	INSERT INTO ProductoEtiqueta(fid_producto,fid_etiqueta,activo)
+    VALUES(_fid_producto, _fid_etiqueta,1)
+    ON DUPLICATE KEY UPDATE activo = 1;
 END$
 
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOETIQUETA;
@@ -38,7 +39,8 @@ CREATE PROCEDURE ELIMINAR_PRODUCTOETIQUETA(
     IN _fid_etiqueta INT
 )
 BEGIN
-	DELETE FROM ProductoEtiqueta 
+	UPDATE ProductoEtiqueta 
+    SET activo = 0
     WHERE fid_producto = _fid_producto
     AND fid_etiqueta = _fid_etiqueta;
 END$

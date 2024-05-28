@@ -36,7 +36,8 @@ DROP TABLE IF EXISTS TipoMoneda;
 CREATE TABLE TipoMoneda(
 	id_tipo_moneda INT AUTO_INCREMENT,
 	nombre VARCHAR(50) NOT NULL,
-	codigo VARCHAR(3) NOT NULL,
+	codigo CHAR(3) NOT NULL,
+	simbolo CHAR(3) NOT NULL,
 	cambio_de_dolares DECIMAL(10,2) NOT NULL,
 	fecha_cambio DATE NOT NULL,
 	activo TINYINT NOT NULL,
@@ -47,7 +48,7 @@ CREATE TABLE Pais(
 	id_pais INT AUTO_INCREMENT,
 	fid_moneda INT NOT NULL,
     nombre VARCHAR(100) NOT NULL,
-    codigo VARCHAR(3) NOT NULL,
+    codigo CHAR(3) NOT NULL,
 	activo TINYINT NOT NULL,
     PRIMARY KEY(id_pais),
 	FOREIGN KEY(fid_moneda) REFERENCES TipoMoneda(id_tipo_moneda)

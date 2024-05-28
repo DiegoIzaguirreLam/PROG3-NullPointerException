@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.usuario.personal.dao.TipoMonedaDAO;
-import pe.edu.pucp.steam.usuario.personal.model.Pais;
 import pe.edu.pucp.steam.usuario.personal.model.TipoMoneda;
 
 /**
@@ -29,11 +28,12 @@ private Connection con;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_TIPOMONEDA"
-                    + "(?,?,?,?)}");
+                    + "(?,?,?,?,?)}");
             cs.registerOutParameter("_id_tipo_moneda",
                     java.sql.Types.INTEGER);
             cs.setString("_nombre", tipoMoneda.getNombre());
             cs.setString("_codigo", tipoMoneda.getCodigo());
+            cs.setString("_simbolo", tipoMoneda.getSimbolo());
             cs.setDouble("_cambio_de_dolares", tipoMoneda.getCambioDeDolares());
             cs.executeUpdate();
             tipoMoneda.setIdTipoMoneda(cs.getInt("_id_tipo_moneda"));
@@ -59,6 +59,7 @@ private Connection con;
                 tipoMoneda.setIdTipoMoneda(rs.getInt("id_tipo_moneda"));
                 tipoMoneda.setNombre(rs.getString("nombre"));
                 tipoMoneda.setCodigo(rs.getString("codigo"));
+                tipoMoneda.setSimbolo(rs.getString("simbolo"));
                 tipoMoneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 tipoMoneda.setFechaCambio(sdf.parse(rs.getDate("fecha_cambio").toString()));
                 tipoMoneda.setActivo(true);
@@ -77,11 +78,12 @@ private Connection con;
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_TIPOMONEDA"
-                    + "(?,?,?,?)}");
+            cs = con.prepareCall("{call ACTUALIZAR_TIPOMONEDA"
+                    + "(?,?,?,?,?)}");
             cs.setInt("_id_tipo_moneda", tipoMoneda.getIdTipoMoneda());
             cs.setString("_nombre", tipoMoneda.getNombre());
             cs.setString("_codigo", tipoMoneda.getCodigo());
+            cs.setString("_simbolo", tipoMoneda.getSimbolo());
             cs.setDouble("_cambio_de_dolares", tipoMoneda.getCambioDeDolares());
             resultado = cs.executeUpdate();
         }catch(Exception ex){

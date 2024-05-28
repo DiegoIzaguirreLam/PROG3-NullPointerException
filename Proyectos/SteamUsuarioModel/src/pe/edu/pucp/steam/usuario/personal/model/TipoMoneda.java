@@ -14,6 +14,7 @@ public class TipoMoneda {
     private int idTipoMoneda;
     private String nombre;
     private String codigo;
+    private String simbolo;
     private double cambioDeDolares; // de dolar a esta nueva moneda
     private Date fechaCambio;
     private boolean activo;
@@ -26,8 +27,6 @@ public class TipoMoneda {
         this.cambioDeDolares = cambioDeDolares;
         this.fechaCambio = fechaCambio;
     }
-
-    
     
     public Date getFechaCambio() {
         return fechaCambio;
@@ -75,6 +74,14 @@ public class TipoMoneda {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public String getSimbolo() {
+        return simbolo;
+    }
+
+    public void setSimbolo(String simbolo) {
+        this.simbolo = simbolo;
     }
     
     

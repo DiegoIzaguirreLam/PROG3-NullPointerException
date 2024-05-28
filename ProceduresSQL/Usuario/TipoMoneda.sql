@@ -3,12 +3,13 @@ DELIMITER $
 CREATE PROCEDURE INSERTAR_TIPOMONEDA(
 	OUT _id_tipo_moneda INT,
 	IN _nombre VARCHAR(50),
-	IN _codigo VARCHAR(3),
+	IN _codigo CHAR(3),
+    IN _simbolo CHAR(3),
 	IN _cambio_de_dolares DECIMAL(10,2)
 )
 BEGIN
-	INSERT INTO TipoMoneda(nombre, codigo, cambio_de_dolares, fecha_cambio, activo)
-    VALUES (_nombre, _codigo, _cambio_de_dolares, SYSDATE(), 1);
+	INSERT INTO TipoMoneda(nombre, codigo, simbolo, cambio_de_dolares, fecha_cambio, activo)
+    VALUES (_nombre, _codigo, _simbolo, _cambio_de_dolares, SYSDATE(), 1);
     SET _id_tipo_moneda = @@last_insert_id;
 END$	
 
@@ -24,13 +25,15 @@ DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_TIPOMONEDA(
 	IN _id_tipo_moneda INT,
 	IN _nombre VARCHAR(50),
-	IN _codigo VARCHAR(3),
+	IN _codigo CHAR(3),
+	IN _simbolo CHAR(3),
 	IN _cambio_de_dolares DECIMAL(10,2)
 )
 BEGIN
 	UPDATE TipoMoneda
 	SET nombre = _nombre,
 		codigo = _codigo,
+        simbolo = _simbolo,
 		cambio_de_dolares = _cambio_de_dolares,
 		fecha_cambio = SYSDATE()
 	WHERE id_tipo_moneda = _id_tipo_moneda;
