@@ -5,10 +5,11 @@ CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO_COLECCION(
     IN _fid_producto_adquirido INT
 )
 BEGIN
-	INSERT INTO ProductoAdquirido_Coleccion(fid_coleccion, fid_producto_adquirido)
+	INSERT INTO ProductoAdquirido_Coleccion(fid_coleccion, fid_producto_adquirido, activo)
     VALUES (_fid_coleccion, _fid_producto_adquirido, 1);
 END$
 
+select * from ProductoAdquirido_Coleccion;
 
 DROP PROCEDURE IF EXISTS ELIMINAR_PRODUCTOADQUIRIDO_COLECCION;
 DELIMITER $

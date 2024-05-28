@@ -98,10 +98,6 @@ BEGIN
     LEFT JOIN Software s ON p.id_producto = s.id_software
     INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
     WHERE p.activo = 1 and 
-    pac.fid_coleccion = _fid_coleccion and pac.fid_producto_adquirido = pa.id_producto_adquirido and pa.activo = 1;
+    pac.fid_coleccion = _id_coleccion and pac.fid_producto_adquirido = pa.id_producto_adquirido and pa.activo = 1 and pac.activo=1;
 END$
 
-
-
-select * from ProductoAdquirido_Coleccion;
-select * from ProductoAdquirido;
