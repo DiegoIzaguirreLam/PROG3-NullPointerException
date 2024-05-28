@@ -358,9 +358,6 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarSoftwareResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.cartera.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.coleccion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -674,6 +671,18 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarUsuarioPorNombreCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarPaisesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.cartera.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarProductosPorTituloDesarrolladorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />

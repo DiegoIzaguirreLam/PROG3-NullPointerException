@@ -11,11 +11,23 @@
   <message name="listarLogrosPorIdJuegoResponse">
     <part name="parameters" element="tns:listarLogrosPorIdJuegoResponse" />
   </message>
+  <message name="buscarLogro">
+    <part name="parameters" element="tns:buscarLogro" />
+  </message>
+  <message name="buscarLogroResponse">
+    <part name="parameters" element="tns:buscarLogroResponse" />
+  </message>
   <message name="actualizarLogro">
     <part name="parameters" element="tns:actualizarLogro" />
   </message>
   <message name="actualizarLogroResponse">
     <part name="parameters" element="tns:actualizarLogroResponse" />
+  </message>
+  <message name="eliminarLogro">
+    <part name="parameters" element="tns:eliminarLogro" />
+  </message>
+  <message name="eliminarLogroResponse">
+    <part name="parameters" element="tns:eliminarLogroResponse" />
   </message>
   <message name="listarLogros">
     <part name="parameters" element="tns:listarLogros" />
@@ -29,26 +41,22 @@
   <message name="insertarLogroResponse">
     <part name="parameters" element="tns:insertarLogroResponse" />
   </message>
-  <message name="buscarLogro">
-    <part name="parameters" element="tns:buscarLogro" />
-  </message>
-  <message name="buscarLogroResponse">
-    <part name="parameters" element="tns:buscarLogroResponse" />
-  </message>
-  <message name="eliminarLogro">
-    <part name="parameters" element="tns:eliminarLogro" />
-  </message>
-  <message name="eliminarLogroResponse">
-    <part name="parameters" element="tns:eliminarLogroResponse" />
-  </message>
   <portType name="LogroWS">
     <operation name="listarLogrosPorIdJuego">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoRequest" message="tns:listarLogrosPorIdJuego" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoResponse" message="tns:listarLogrosPorIdJuegoResponse" />
     </operation>
+    <operation name="buscarLogro">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/buscarLogroRequest" message="tns:buscarLogro" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/buscarLogroResponse" message="tns:buscarLogroResponse" />
+    </operation>
     <operation name="actualizarLogro">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/actualizarLogroRequest" message="tns:actualizarLogro" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/actualizarLogroResponse" message="tns:actualizarLogroResponse" />
+    </operation>
+    <operation name="eliminarLogro">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/eliminarLogroRequest" message="tns:eliminarLogro" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/eliminarLogroResponse" message="tns:eliminarLogroResponse" />
     </operation>
     <operation name="listarLogros">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/listarLogrosRequest" message="tns:listarLogros" />
@@ -57,14 +65,6 @@
     <operation name="insertarLogro">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/insertarLogroRequest" message="tns:insertarLogro" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/insertarLogroResponse" message="tns:insertarLogroResponse" />
-    </operation>
-    <operation name="buscarLogro">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/buscarLogroRequest" message="tns:buscarLogro" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/buscarLogroResponse" message="tns:buscarLogroResponse" />
-    </operation>
-    <operation name="eliminarLogro">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/eliminarLogroRequest" message="tns:eliminarLogro" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/LogroWS/eliminarLogroResponse" message="tns:eliminarLogroResponse" />
     </operation>
   </portType>
   <binding name="LogroWSPortBinding" type="tns:LogroWS">
@@ -78,7 +78,25 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="buscarLogro">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="actualizarLogro">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarLogro">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -97,24 +115,6 @@
       </output>
     </operation>
     <operation name="insertarLogro">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarLogro">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarLogro">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

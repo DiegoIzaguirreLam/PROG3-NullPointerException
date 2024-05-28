@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/MedallaWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="buscarCartera">
-    <part name="parameters" element="tns:buscarCartera" />
-  </message>
-  <message name="buscarCarteraResponse">
-    <part name="parameters" element="tns:buscarCarteraResponse" />
-  </message>
   <message name="actualizarCartera">
     <part name="parameters" element="tns:actualizarCartera" />
   </message>
   <message name="actualizarCarteraResponse">
     <part name="parameters" element="tns:actualizarCarteraResponse" />
+  </message>
+  <message name="buscarCartera">
+    <part name="parameters" element="tns:buscarCartera" />
+  </message>
+  <message name="buscarCarteraResponse">
+    <part name="parameters" element="tns:buscarCarteraResponse" />
   </message>
   <message name="insertarMedalla">
     <part name="parameters" element="tns:insertarMedalla" />
@@ -24,13 +24,13 @@
     <part name="parameters" element="tns:insertarMedallaResponse" />
   </message>
   <portType name="MedallaWS">
-    <operation name="buscarCartera">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarCarteraRequest" message="tns:buscarCartera" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarCarteraResponse" message="tns:buscarCarteraResponse" />
-    </operation>
     <operation name="actualizarCartera">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/actualizarCarteraRequest" message="tns:actualizarCartera" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/actualizarCarteraResponse" message="tns:actualizarCarteraResponse" />
+    </operation>
+    <operation name="buscarCartera">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarCarteraRequest" message="tns:buscarCartera" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarCarteraResponse" message="tns:buscarCarteraResponse" />
     </operation>
     <operation name="insertarMedalla">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/insertarMedallaRequest" message="tns:insertarMedalla" />
@@ -39,7 +39,7 @@
   </portType>
   <binding name="MedallaWSPortBinding" type="tns:MedallaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="buscarCartera">
+    <operation name="actualizarCartera">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -48,7 +48,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarCartera">
+    <operation name="buscarCartera">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

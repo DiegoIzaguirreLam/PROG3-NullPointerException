@@ -24,31 +24,22 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.Label lblMensajeExito;
 
         /// <summary>
-        /// Control lblNombreCuenta.
+        /// Control lblMensajeError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreCuenta;
+        protected global::System.Web.UI.WebControls.Label lblMensajeError;
 
         /// <summary>
-        /// Control txtUsername.
+        /// Control txtNombreCuenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
-
-        /// <summary>
-        /// Control lblContrasenia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContrasenia;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreCuenta;
 
         /// <summary>
         /// Control txtPassword.
