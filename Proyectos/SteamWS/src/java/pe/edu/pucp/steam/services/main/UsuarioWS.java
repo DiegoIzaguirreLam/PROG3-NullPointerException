@@ -80,4 +80,17 @@ public class UsuarioWS {
         }
         return usuarios;
     }
+    
+    @WebMethod(operationName="buscarUsuarioPorNombreCuenta")
+    public Usuario buscarUsuarioPorNombreCuenta(@WebParam(name="nombreCuenta") String nombreCuenta) {
+        Usuario usuario = new Usuario();
+        usuario.setUID(0);
+        try{
+            UsuarioDAO usuarioDao = new UsuarioMySQL();
+            usuario = usuarioDao.buscarUsuarioPorNombreCuenta(nombreCuenta);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return usuario;
+    }
 }

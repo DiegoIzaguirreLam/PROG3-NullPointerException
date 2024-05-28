@@ -10,6 +10,8 @@ import java.sql.CallableStatement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
+import pe.edu.pucp.steam.usuario.personal.model.Pais;
+import pe.edu.pucp.steam.usuario.personal.model.TipoMoneda;
 
 public class UsuarioMySQL implements UsuarioDAO{
     private Connection con;
@@ -30,14 +32,11 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setString("_CONTRASENIA", jugador.getPassword());
             cs.setInt("_EDAD", jugador.getEdad());
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
-            cs.setInt("_VERIFICADO", 1);
+            cs.setBoolean("_VERIFICADO", true);
             cs.setInt("_EXPERIENCIA_NIVEL", jugador.getExpNivel());
             cs.setInt("_NIVEL", jugador.getNivel());
             cs.setInt("_EXPERIENCIA", jugador.getExperiencia());
-            pst = con.prepareStatement("SELECT ID_PAIS FROM Pais WHERE NOMBRE = '" + jugador.getPais().getNombre() + "'");
-            rs = pst.executeQuery();
-            rs.next();
-            cs.setInt("_FID_PAIS", rs.getInt("ID_PAIS"));
+            cs.setInt("_FID_PAIS", jugador.getPais().getIdPais());
             cs.executeUpdate();
             jugador.setUID(cs.getInt("_ID_USUARIO"));
             resultado = jugador.getUID();
@@ -63,16 +62,13 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setString("_CORREO", jugador.getCorreo());
             cs.setString("_TELEFONO", jugador.getTelefono());
             cs.setString("_CONTRASENIA", jugador.getPassword());
-            cs.setInt("__EDAD", jugador.getEdad());
+            cs.setInt("_EDAD", jugador.getEdad());
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setBoolean("_VERIFICADO", jugador.isVerificado());
             cs.setInt("_EXPERIENCIA_NIVEL", jugador.getExpNivel());
             cs.setInt("_NIVEL", jugador.getNivel());
             cs.setInt("_EXPERIENCIA", jugador.getExperiencia());
-            pst = con.prepareStatement("SELECT ID_PAIS FROM Pais WHERE NOMBRE = '" + jugador.getPais().getNombre() + "'");
-            rs = pst.executeQuery();
-            rs.next();
-            cs.setInt("_FID_PAIS", rs.getInt("ID_PAIS"));
+            cs.setInt("_FID_PAIS", jugador.getPais().getIdPais());
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -156,5 +152,45 @@ public class UsuarioMySQL implements UsuarioDAO{
             }
         }
         return users;
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorNombreCuenta(String nombreCuenta) {
+        Usuario usuario = new Usuario();
+        Pais pais = new Pais();
+        TipoMoneda moneda = new TipoMoneda();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_USUARIO_X_NOMBRE_CUENTA(?)}");
+            cs.setString(1, nombreCuenta);
+            rs = cs.executeQuery();
+            rs.next();
+            usuario.setUID(rs.getInt("UID"));
+            usuario.setNombreCuenta(rs.getString("nombre_cuenta"));
+            usuario.setNombrePerfil(rs.getString("nombre_perfil"));
+            usuario.setCorreo(rs.getString("correo"));
+            usuario.setTelefono(rs.getString("telefono"));
+            usuario.setPassword(rs.getString("contrasenia"));
+            usuario.setEdad(rs.getInt("edad"));
+            usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+            usuario.setVerificado(rs.getBoolean("verificado"));
+            usuario.setExpNivel(rs.getInt("experiencia_nivel"));
+            usuario.setExperiencia(rs.getInt("experiencia"));
+            usuario.setNivel(rs.getInt("nivel"));
+            usuario.setActivo(rs.getBoolean("activo"));
+            pais.setIdPais(rs.getInt("fid_pais"));
+            pais.setNombre(rs.getString("nombre_pais"));
+            moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
+            moneda.setNombre(rs.getString("nombre_moneda"));
+            moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
+            moneda.setCodigo(rs.getString("codigo_moneda"));
+            pais.setMoneda(moneda);
+            usuario.setPais(pais);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return usuario;
     }
 }
