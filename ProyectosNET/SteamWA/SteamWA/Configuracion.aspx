@@ -15,22 +15,23 @@
             <div class="card-body bg-navy">
                 <!-- UID -->
                 <div class="mb-4 row">
-                    <asp:Label ID="Label1" runat="server" Text="UID:" CssClass="col-sm-3 col-form-label text-white" />
+                    <asp:Label ID="lblUID" runat="server" Text="UID:" CssClass="col-sm-3 col-form-label text-white" />
                     <div class="col-sm-4">
                         <div class="input-group">
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" PlaceHolder="Id del usuario" Enabled="false" />
+                            <asp:TextBox ID="txtUID" runat="server" CssClass="form-control" PlaceHolder="Id del usuario" Enabled="false" />
                         </div>
                     </div>
                 </div>
 
-                <!-- nombre de cuenta -->
+                <!-- Nombre de cuenta -->
                 <div class="mb-4 row">
                     <asp:Label ID="lblNombreCuenta" runat="server" Text="Nombre de cuenta:" CssClass="col-sm-3 col-form-label text-white" />
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control" PlaceHolder="NombreUsuario" Enabled="false" />
+                            <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control" PlaceHolder="NombreUsuario" Enabled="false"/>
                             <%--<asp:LinkButton ID="lbEditarNombreCuenta" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarNombreCuenta_Click"/>--%>
                         </div>
+                        <asp:Label ID="lblErrorMensaje" runat="server" CssClass="text-white mt-1" Visible="false">El nombre de cuenta ya está en uso. Por favor, elija otro.</asp:Label>
                     </div>
                 </div>
 
@@ -73,7 +74,7 @@
                     <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento:" CssClass="col-sm-3 col-form-label text-white" />
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <input class="form-control" type="date" id="dtpFechaNacimiento" runat="server" disabled />
+                            <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Enabled="false" />
                             <%--<asp:LinkButton ID="lbEditarFechaNacimiento" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarFechaNacimiento_Click"/>--%>
                         </div>
                     </div>
@@ -118,7 +119,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
+                        <asp:Button ID="btnGuardarModal" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardarModal_Click"/>
                     </div>
                 </div>
             </div>

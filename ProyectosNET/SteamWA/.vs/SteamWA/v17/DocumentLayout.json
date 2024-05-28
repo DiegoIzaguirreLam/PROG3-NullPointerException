@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\configuracion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\configuracion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|c:\\users\\sofia\\google drive\\11 pucp\\7mo ciclo\\programacion 3\\prog3-nullpointerexception\\proyectosnet\\steamwa\\steamwa\\configuracion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{546EE796-C852-4847-A5BC-D58D47B5926B}|SteamWA\\SteamWA.csproj|solutionrelative:steamwa\\configuracion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,41 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Web.config",
-              "RelativeDocumentMoniker": "SteamWA\\Web.config",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Web.config",
-              "RelativeToolTip": "SteamWA\\Web.config",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAAAgAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-05-28T04:47:59.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Registro.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx.cs",
-              "RelativeDocumentMoniker": "SteamWA\\Registro.aspx.cs",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx.cs",
-              "RelativeToolTip": "SteamWA\\Registro.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD0AAAANAAAA",
+              "Title": "Configuracion.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Configuracion.aspx.cs",
+              "RelativeDocumentMoniker": "SteamWA\\Configuracion.aspx.cs",
+              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Configuracion.aspx.cs",
+              "RelativeToolTip": "SteamWA\\Configuracion.aspx.cs",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAYwGwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T04:44:59.564Z",
+              "WhenOpened": "2024-05-28T04:56:06.291Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Registro.aspx",
-              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx",
-              "RelativeDocumentMoniker": "SteamWA\\Registro.aspx",
-              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Registro.aspx",
-              "RelativeToolTip": "SteamWA\\Registro.aspx",
+              "Title": "Configuracion.aspx",
+              "DocumentMoniker": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Configuracion.aspx",
+              "RelativeDocumentMoniker": "SteamWA\\Configuracion.aspx",
+              "ToolTip": "C:\\Users\\sofia\\Google Drive\\11 PUCP\\7mo ciclo\\Programacion 3\\PROG3-NullPointerException\\ProyectosNET\\SteamWA\\SteamWA\\Configuracion.aspx",
+              "RelativeToolTip": "SteamWA\\Configuracion.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-28T04:44:55.954Z",
+              "WhenOpened": "2024-05-28T04:56:05.352Z",
               "EditorCaption": ""
             }
           ]
