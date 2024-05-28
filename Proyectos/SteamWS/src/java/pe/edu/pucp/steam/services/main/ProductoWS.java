@@ -56,4 +56,16 @@ public class ProductoWS {
         }
         return producto;
     }
+    
+    @WebMethod(operationName = "listarProductosPorTituloDesarrollador")
+    public ArrayList<Producto> listarProductosPorTituloDesarrollador(@WebParam(name = "tituloDesarrollador") String tituloDesarrollador) {
+         ArrayList<Producto> productos = null;
+        try{
+            ProductoDAO daoProducto = new ProductoMySQL();
+            productos = daoProducto.listarProductosPorTituloDesarrollador(tituloDesarrollador);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return productos;
+    }
 }
