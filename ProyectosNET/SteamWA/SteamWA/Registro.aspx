@@ -7,6 +7,9 @@
     <div class="container mt-5 ms-auto me-auto">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <div class="mb-4">
+                    <asp:Label ID="lblMensajeError" runat="server" CssClass="alert alert-danger" Visible="false" Width="100% "></asp:Label>
+                </div>
                 <h2 class="text-center mb-4"><strong>REGISTRO</strong></h2>
                 <div>
                     <h5 class="mt-4"><strong>Información de cuenta</strong></h5>
@@ -27,15 +30,19 @@
                         <div class="col-sm mb-3">
                             <asp:Label ID="lblContrasenia" runat="server" CssClass="form-label" Text="Contraseña" />
                             <div class="input-group">
-                                <asp:TextBox runat="server" ID="txtContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" Required="true" />
+                                <asp:TextBox runat="server" ID="txtContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" />
+                                <%--<asp:LinkButton ID="lbVisualizarContrasenia" runat="server" CssClass="btn btn-light" Text="<i class='fas fa-eye'></i>"/>--%>
                             </div>
                         </div>
                         <div class="col-sm mb-3">
                             <asp:Label ID="lblConfirmarContrasenia" runat="server" CssClass="form-label" Text="Confirma contraseña" />
                             <div class="input-group">
-                                <asp:TextBox runat="server" ID="txtConfirmaContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" Required="true" />
+                                <asp:TextBox runat="server" ID="txtConfirmaContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" />
+                                <%--<asp:LinkButton ID="lbVisualizarConfirmaContrasenia" runat="server" CssClass="btn btn-light" Text="<i class='fas fa-eye'></i>"/>--%>
                             </div>
                         </div>
+                        <asp:CompareValidator ID="cmpValContrasenia" runat="server" ErrorMessage="Contraseña y Confirma contraseña deben ser iguales."
+                            ControlToCompare="txtContrasenia" ControlToValidate="txtConfirmaContrasenia" Display="Dynamic" SetFocusOnError="true"></asp:CompareValidator>
                     </div>
                 </div>
                 <div>
@@ -55,7 +62,7 @@
                     <!-- Fecha de nacimiento -->
                     <div class="mb-3">
                         <asp:Label ID="lblFechaNacimiento" runat="server" CssClass="form-label" Text="Fecha Nacimiento:" />
-                        <asp:TextBox runat="server" ID="dtpFechaNacimiento" Type="Date" CssClass="form-control" Required="true" />
+                        <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Required="true" />
                     </div>
 
                     <!-- Edad -->

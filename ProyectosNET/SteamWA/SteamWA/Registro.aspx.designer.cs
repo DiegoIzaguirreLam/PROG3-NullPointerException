@@ -15,6 +15,15 @@ namespace SteamWA
     {
 
         /// <summary>
+        /// Control lblMensajeError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeError;
+
+        /// <summary>
         /// Control lblNombreCuenta.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtConfirmaContrasenia;
 
         /// <summary>
+        /// Control cmpValContrasenia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpValContrasenia;
+
+        /// <summary>
         /// Control lblCorreo.
         /// </summary>
         /// <remarks>
@@ -132,13 +150,13 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.Label lblFechaNacimiento;
 
         /// <summary>
-        /// Control dtpFechaNacimiento.
+        /// Control txtFechaNacimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dtpFechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
 
         /// <summary>
         /// Control lblEdad.
