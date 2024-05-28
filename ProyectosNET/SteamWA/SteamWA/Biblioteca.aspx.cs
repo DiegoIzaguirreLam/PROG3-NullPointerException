@@ -165,7 +165,7 @@ namespace SteamWA
             HtmlGenericControl newCollectionIcon = new HtmlGenericControl("i");
             newCollectionIcon.Attributes.Add("class", "fa-solid fa-plus me-2");
             newCollectionLink.Controls.Add(newCollectionIcon);
-            newCollectionLink.InnerText = "Nueva Colección";
+            newCollectionLink.InnerHtml = "<i class='fa-solid fa-plus'></i>Nueva Colección";
             newItem.Controls.Add(newCollectionLink);
             ddlColecciones.Controls.Add(newItem);
         }
@@ -222,8 +222,21 @@ namespace SteamWA
             imgPrograma.Src = producto.portadaUrl;
             txtTituloPrograma.InnerText = producto.titulo;
             txtDescripcionPrograma.InnerText = producto.descripcion;
-            txtFechaEjecucionPrograma.InnerHtml = "<strong>Última ejecución: </strong>" + producto.fechaPublicacion.ToString("dd/MM/yyyy");
-            txtTiempoUsoPrograma.InnerHtml = "<strong>Tiempo de uso: </strong>" + productoAdquirido.tiempoUso.ToString("hh:mm:ss");
+            txtFechaEjecucionPrograma.InnerHtml = "<strong>Última ejecución: </strong>" +
+                (productoAdquirido.fechaEjecutado.ToString("dd/MM/yyyy")=="01/01/0001" ? "Aún no ejecutado" : productoAdquirido.fechaEjecutado.ToString("dd/MM/yyyy"));
+            int horas = Int32.Parse(productoAdquirido.tiempoUso.ToString("HH"));
+            int minutos = Int32.Parse(productoAdquirido.tiempoUso.ToString("mm"));
+            txtTiempoUsoPrograma.InnerHtml = "<strong>Tiempo de uso: </strong>";
+            if (horas > 0 || minutos > 0)
+            {
+                txtTiempoUsoPrograma.InnerHtml += horas.ToString() + (horas==0 ? "" : (horas > 1 ? " horas " : " hora ")) +
+                    minutos.ToString() + (minutos==0 ? "" : (minutos > 1 ? " minutos" : " minuto"));
+            }
+            else
+            {
+                txtTiempoUsoPrograma.InnerHtml += "Aún no usado"; 
+            }
+
             txtActualizadoPrograma.InnerHtml = "<strong>Actualizado: </strong>" + (productoAdquirido.actualizado ? "Sí" : "No");
             if(producto is juego)
             {
@@ -272,11 +285,11 @@ namespace SteamWA
             } 
             else if (radioButton.ID == "rbTiempo")
             {
-                productosAdquiridosList.Sort((p1, p2) => p1.tiempoUso.CompareTo(p2.tiempoUso));
+                productosAdquiridosList.Sort((p1, p2) =>  p1.tiempoUso.ToString("HH:mm:ss").CompareTo(p2.tiempoUso.ToString("HH:mm:ss")));
             }
             else if(radioButton.ID == "rbTam")
             {
-                productosAdquiridosList.Sort((p1, p2) => p1.tiempoUso.CompareTo(p2.tiempoUso));
+                productosAdquiridosList.Sort((p1, p2) => p1.producto.espacioDisco.CompareTo(p2.producto.espacioDisco));
             }
             else if(radioButton.ID == "rbPrecio")
             {
@@ -286,5 +299,7 @@ namespace SteamWA
             Session["productosAdquiridos"] = productosAdquiridos;
             generarListaProductosAdquiridos();
         }
+
+        
     }
 }
