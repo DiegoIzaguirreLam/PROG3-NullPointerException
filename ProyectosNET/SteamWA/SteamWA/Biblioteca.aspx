@@ -36,6 +36,9 @@
                         <asp:RadioButton ID="rbTam" runat="server" GroupName="orderCriteria" Text="Por Tamaño" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
+                        <asp:RadioButton ID="rbFechaPub" runat="server" GroupName="orderCriteria" Text="Por Fecha Publicado" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                    </li>
+                    <li>
                         <asp:RadioButton ID="rbPrecio" runat="server" GroupName="orderCriteria" Text="Por Precio" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                 </ul>

@@ -2,14 +2,14 @@
 <xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="asignarBibliotecaUsuario" type="tns:asignarBibliotecaUsuario" />
   <xs:element name="asignarBibliotecaUsuarioResponse" type="tns:asignarBibliotecaUsuarioResponse" />
-  <xs:element name="buscarBiblioteca" type="tns:buscarBiblioteca" />
-  <xs:element name="buscarBibliotecaResponse" type="tns:buscarBibliotecaResponse" />
-  <xs:complexType name="buscarBiblioteca">
+  <xs:element name="buscarBibliotecaPorUID" type="tns:buscarBibliotecaPorUID" />
+  <xs:element name="buscarBibliotecaPorUIDResponse" type="tns:buscarBibliotecaPorUIDResponse" />
+  <xs:complexType name="buscarBibliotecaPorUID">
     <xs:sequence>
-      <xs:element name="buscarBiblioteca" type="xs:int" />
+      <xs:element name="buscarBibliotecaPorUID" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarBibliotecaResponse">
+  <xs:complexType name="buscarBibliotecaPorUIDResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:biblioteca" />
     </xs:sequence>

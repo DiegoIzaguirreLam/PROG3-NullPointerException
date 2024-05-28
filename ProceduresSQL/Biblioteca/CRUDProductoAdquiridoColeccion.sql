@@ -6,7 +6,8 @@ CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO_COLECCION(
 )
 BEGIN
 	INSERT INTO ProductoAdquirido_Coleccion(fid_coleccion, fid_producto_adquirido, activo)
-    VALUES (_fid_coleccion, _fid_producto_adquirido, 1);
+    VALUES (_fid_coleccion, _fid_producto_adquirido, 1)
+    ON DUPLICATE KEY UPDATE activo = 1;
 END$
 
 select * from ProductoAdquirido_Coleccion;
@@ -22,3 +23,5 @@ BEGIN
     SET activo = 0
     WHERE fid_coleccion = _fid_coleccion AND fid_producto_adquirido = _fid_producto_adquirido;
 END$
+
+

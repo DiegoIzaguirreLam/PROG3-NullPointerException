@@ -30,12 +30,12 @@ public class BibliotecaWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "buscarBiblioteca")
-    public Biblioteca buscarBiblioteca(@WebParam(name = "buscarBiblioteca") int idBiblioteca) { // le crea una biblioteca al usuario y retorna el num
+    @WebMethod(operationName = "buscarBibliotecaPorUID")
+    public Biblioteca buscarBiblioteca(@WebParam(name = "buscarBibliotecaPorUID") int UID) { // le crea una biblioteca al usuario y retorna el num
         Biblioteca biblioteca = null;
         try{
             BibliotecaDAO bibliotecaDAO = new BibliotecaMySQL();
-            biblioteca = bibliotecaDAO.buscarBiblioteca(idBiblioteca);
+            biblioteca = bibliotecaDAO.buscarBibliotecaPorUID(UID);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

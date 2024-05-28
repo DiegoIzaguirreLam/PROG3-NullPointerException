@@ -12,7 +12,6 @@ namespace SteamWA
 {
     public partial class GestionarLogros : System.Web.UI.Page
     {
-        private ProductoAdquiridoWSClient daoProductoAdquirido;
         private LogroWSClient daoLogro;
         private LogroDesbloqueadoWSClient daoLogroDesbloqueado;
         private productoAdquirido productoAdquirido;
@@ -30,12 +29,11 @@ namespace SteamWA
             else
             {
                 productoAdquirido = (productoAdquirido)Session["productoAdquiridoSeleccionado"];
-                daoProductoAdquirido = new ProductoAdquiridoWSClient();
                 daoLogro = new LogroWSClient();
                 daoLogroDesbloqueado = new LogroDesbloqueadoWSClient();
                 producto producto = productoAdquirido.producto;
 
-                hGestionarLogros.InnerHtml = "Gestionar Logros: " + producto.titulo;
+                hGestionarLogros.InnerHtml = producto.titulo + ": Logros";
                 logro[] logrosArr = daoLogro.listarLogrosPorIdJuego(producto.idProducto);
                 if (logrosArr != null)
                 {
@@ -172,6 +170,11 @@ namespace SteamWA
             gvLogrosPorDesbloquear.PageIndex = e.NewPageIndex;
             gvLogrosPorDesbloquear.DataSource = logrosNoDesbloqueados;
             gvLogrosPorDesbloquear.DataBind();
+        }
+
+        protected void lbVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Biblioteca.aspx");
         }
     }
 }

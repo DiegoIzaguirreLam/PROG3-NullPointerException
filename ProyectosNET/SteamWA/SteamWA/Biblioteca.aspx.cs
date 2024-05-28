@@ -20,6 +20,7 @@ namespace SteamWA
         private ColeccionWSClient daoColeccion;
         private ProductoAdquiridoColeccionWSClient daoProductoAdquiridoColeccion;
         private BindingList<coleccion> colecciones;
+        private BibliotecaWSClient daoBiblioteca;
         private int nColeccionesActivas;
         private int idBiblioteca;
 
@@ -31,14 +32,25 @@ namespace SteamWA
         }
         protected void Page_Init(object sender, EventArgs e)
         {
+            
             daoProductoAdquirido = new ProductoAdquiridoWSClient();
             daoColeccion = new ColeccionWSClient();
+            daoBiblioteca = new BibliotecaWSClient();
             daoProductoAdquiridoColeccion = new ProductoAdquiridoColeccionWSClient();
             productosColecciones = new BindingList<productoAdquirido>();
-            //idBiblioteca = ((usuario)Session[Usuario]).biblioteca.idBiblioteca;
-            idBiblioteca = 1;
+            //idBiblioteca = 1;
             if (!IsPostBack)
             {
+                if (Session["usuario"] != null)
+                {
+                    int uid = ((usuario)Session["usuario"]).UID;
+                    idBiblioteca = daoBiblioteca.buscarBibliotecaPorUID(uid).idBiblioteca;
+                    Session["idBiblioteca"] = idBiblioteca;
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
                 productoAdquirido[] productoArr = daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca);
                 if (productoArr != null)
                 {
@@ -71,13 +83,13 @@ namespace SteamWA
             }
             else
             {
+                idBiblioteca = (int)Session["idBiblioteca"];
                 productosAdquiridos = (BindingList<productoAdquirido>)Session["productosAdquiridos"];
                 nColeccionesActivas = (int)Session["nColeccionesActivas"];
                 productosColecciones = (BindingList<productoAdquirido>)Session["productosColecciones"];
                 generarListaProductosAdquiridos();
                 colecciones = (BindingList<coleccion>)Session["colecciones"];
                 generarListaColecciones();
-                //infoPrograma.Style.Value = "none";
             }
             
         }
@@ -285,16 +297,20 @@ namespace SteamWA
             } 
             else if (radioButton.ID == "rbTiempo")
             {
-                productosAdquiridosList.Sort((p1, p2) =>  p1.tiempoUso.ToString("HH:mm:ss").CompareTo(p2.tiempoUso.ToString("HH:mm:ss")));
+                productosAdquiridosList.Sort((p1, p2) =>  -1*(p1.tiempoUso.ToString("HH:mm:ss").CompareTo(p2.tiempoUso.ToString("HH:mm:ss"))));
             }
             else if(radioButton.ID == "rbTam")
             {
                 productosAdquiridosList.Sort((p1, p2) => p1.producto.espacioDisco.CompareTo(p2.producto.espacioDisco));
             }
+            else if(radioButton.ID == "rbFechaPub")
+            {
+                productosAdquiridosList.Sort((p1, p2) => p1.producto.fechaPublicacion.CompareTo(p2.producto.fechaPublicacion));
+            }
             else if(radioButton.ID == "rbPrecio")
             {
                 productosAdquiridosList.Sort((p1, p2) => p1.producto.precio.CompareTo(p2.producto.precio));
-            }
+            } 
             productosAdquiridos = new BindingList<productoAdquirido>(productosAdquiridosList);
             Session["productosAdquiridos"] = productosAdquiridos;
             generarListaProductosAdquiridos();

@@ -11,16 +11,14 @@ BEGIN
     SET _id_biblioteca = @@last_insert_id;
 END$
 
-INSERT INTO Biblioteca(id_biblioteca, fid_usuario) VALUES(1, 1);
 
-SELECT * from ProductoAdquirido;
 DROP PROCEDURE IF EXISTS BUSCAR_BIBLIOTECA;
 DELIMITER $
 CREATE PROCEDURE BUSCAR_BIBLIOTECA(
-	IN _id_biblioteca INT
+	IN _fid_usuario INT
 )
 BEGIN
-	SELECT * FROM Biblioteca WHERE id_biblioteca = _id_biblioteca;
+	SELECT * FROM Biblioteca WHERE fid_usuario = _fid_usuario;
 END$
 
 

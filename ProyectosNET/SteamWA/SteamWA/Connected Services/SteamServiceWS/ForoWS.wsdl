@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ForoWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="editarForo">
-    <part name="parameters" element="tns:editarForo" />
+  <message name="listarForos">
+    <part name="parameters" element="tns:listarForos" />
   </message>
-  <message name="editarForoResponse">
-    <part name="parameters" element="tns:editarForoResponse" />
+  <message name="listarForosResponse">
+    <part name="parameters" element="tns:listarForosResponse" />
   </message>
   <message name="insertarForo">
     <part name="parameters" element="tns:insertarForo" />
@@ -17,39 +17,39 @@
   <message name="insertarForoResponse">
     <part name="parameters" element="tns:insertarForoResponse" />
   </message>
-  <message name="listarForos">
-    <part name="parameters" element="tns:listarForos" />
-  </message>
-  <message name="listarForosResponse">
-    <part name="parameters" element="tns:listarForosResponse" />
-  </message>
   <message name="eliminarForo">
     <part name="parameters" element="tns:eliminarForo" />
   </message>
   <message name="eliminarForoResponse">
     <part name="parameters" element="tns:eliminarForoResponse" />
   </message>
+  <message name="editarForo">
+    <part name="parameters" element="tns:editarForo" />
+  </message>
+  <message name="editarForoResponse">
+    <part name="parameters" element="tns:editarForoResponse" />
+  </message>
   <portType name="ForoWS">
-    <operation name="editarForo">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/editarForoRequest" message="tns:editarForo" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/editarForoResponse" message="tns:editarForoResponse" />
+    <operation name="listarForos">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/listarForosRequest" message="tns:listarForos" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/listarForosResponse" message="tns:listarForosResponse" />
     </operation>
     <operation name="insertarForo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/insertarForoRequest" message="tns:insertarForo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/insertarForoResponse" message="tns:insertarForoResponse" />
     </operation>
-    <operation name="listarForos">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/listarForosRequest" message="tns:listarForos" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/listarForosResponse" message="tns:listarForosResponse" />
-    </operation>
     <operation name="eliminarForo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/eliminarForoRequest" message="tns:eliminarForo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/eliminarForoResponse" message="tns:eliminarForoResponse" />
     </operation>
+    <operation name="editarForo">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/editarForoRequest" message="tns:editarForo" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoWS/editarForoResponse" message="tns:editarForoResponse" />
+    </operation>
   </portType>
   <binding name="ForoWSPortBinding" type="tns:ForoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="editarForo">
+    <operation name="listarForos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarForos">
+    <operation name="eliminarForo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarForo">
+    <operation name="editarForo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

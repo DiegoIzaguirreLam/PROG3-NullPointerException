@@ -46,14 +46,14 @@ public class BibliotecaMySQL implements BibliotecaDAO{
     }
 
     @Override
-    public Biblioteca buscarBiblioteca(int idBiblioteca) {
+    public Biblioteca buscarBibliotecaPorUID(int UID) {
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.setIdBiblioteca(-1);
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_BIBLIOTECA"
                     + "(?)}");
-            cs.setInt("_id_biblioteca", idBiblioteca);
+            cs.setInt("_fid_usuario", UID);
             rs = cs.executeQuery();
             if(rs.next())
                 biblioteca.setIdBiblioteca(rs.getInt("id_biblioteca"));

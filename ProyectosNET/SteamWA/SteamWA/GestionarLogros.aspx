@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Steam.Master" AutoEventWireup="true" CodeBehind="GestionarLogros.aspx.cs" Inherits="SteamWA.GestionarLogros" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+    .btn-volver {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999;
+    }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/GestionarLogros.js"></script>
@@ -38,6 +46,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:LinkButton ID="lbVolver" runat="server" CssClass="btn bg-navy btn-outline-light" Text="<i class='fa-solid fa-arrow-left'></i> Volver" OnClick="lbVolver_Click"/>
     </div>
 
     <div class="modal fade" id="form-modal-EliminarLogroDesbloqueado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
