@@ -139,8 +139,10 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
-                        <div class="row mt-3 pb-4" id="contenedorProductos">
-                        </div>
+                        <asp:PlaceHolder ID="placeholderProductos" runat="server">
+                              
+                        </asp:PlaceHolder>
+                      
                     </ContentTemplate>
 
                     <Triggers>
