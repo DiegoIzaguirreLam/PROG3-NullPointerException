@@ -5,6 +5,8 @@
   <xs:element name="listarProductos" type="tns:listarProductos" />
   <xs:element name="listarProductosPorEtiqueta" type="tns:listarProductosPorEtiqueta" />
   <xs:element name="listarProductosPorEtiquetaResponse" type="tns:listarProductosPorEtiquetaResponse" />
+  <xs:element name="listarProductosPorTituloDesarrollador" type="tns:listarProductosPorTituloDesarrollador" />
+  <xs:element name="listarProductosPorTituloDesarrolladorResponse" type="tns:listarProductosPorTituloDesarrolladorResponse" />
   <xs:element name="listarProductosResponse" type="tns:listarProductosResponse" />
   <xs:complexType name="listarProductos">
     <xs:sequence />
@@ -36,6 +38,26 @@
       <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarProductosPorTituloDesarrollador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tituloDesarrollador" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosPorTituloDesarrolladorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProducto">
+    <xs:sequence>
+      <xs:element name="idProducto" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarProductosPorEtiqueta">
     <xs:sequence>
       <xs:element minOccurs="0" name="etiqueta" type="tns:etiqueta" />
@@ -51,16 +73,6 @@
   <xs:complexType name="listarProductosPorEtiquetaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarProducto">
-    <xs:sequence>
-      <xs:element name="idProducto" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarProductoResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

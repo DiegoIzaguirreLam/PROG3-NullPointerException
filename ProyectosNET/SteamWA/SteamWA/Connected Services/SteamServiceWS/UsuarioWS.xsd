@@ -2,6 +2,8 @@
 <xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="actualizarUsuario" type="tns:actualizarUsuario" />
   <xs:element name="actualizarUsuarioResponse" type="tns:actualizarUsuarioResponse" />
+  <xs:element name="buscarUsuarioPorNombreCuenta" type="tns:buscarUsuarioPorNombreCuenta" />
+  <xs:element name="buscarUsuarioPorNombreCuentaResponse" type="tns:buscarUsuarioPorNombreCuentaResponse" />
   <xs:element name="eliminarUsuario" type="tns:eliminarUsuario" />
   <xs:element name="eliminarUsuarioResponse" type="tns:eliminarUsuarioResponse" />
   <xs:element name="insertarUsuario" type="tns:insertarUsuario" />
@@ -10,9 +12,14 @@
   <xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse" />
   <xs:element name="suspenderUsuario" type="tns:suspenderUsuario" />
   <xs:element name="suspenderUsuarioResponse" type="tns:suspenderUsuarioResponse" />
-  <xs:complexType name="suspenderUsuario">
+  <xs:complexType name="buscarUsuarioPorNombreCuenta">
     <xs:sequence>
-      <xs:element minOccurs="0" name="jugador" type="tns:usuario" />
+      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioPorNombreCuentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="usuario">
@@ -281,6 +288,11 @@
       <xs:element minOccurs="0" name="fechaCambio" type="xs:dateTime" />
       <xs:element name="idTipoMoneda" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="suspenderUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="jugador" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="suspenderUsuarioResponse">

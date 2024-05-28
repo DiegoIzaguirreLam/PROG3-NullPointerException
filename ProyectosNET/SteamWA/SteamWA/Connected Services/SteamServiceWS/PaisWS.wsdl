@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/PaisWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarNotificaciones">
-    <part name="parameters" element="tns:listarNotificaciones" />
+  <message name="listarPaises">
+    <part name="parameters" element="tns:listarPaises" />
   </message>
-  <message name="listarNotificacionesResponse">
-    <part name="parameters" element="tns:listarNotificacionesResponse" />
+  <message name="listarPaisesResponse">
+    <part name="parameters" element="tns:listarPaisesResponse" />
   </message>
   <message name="actualizarPais">
     <part name="parameters" element="tns:actualizarPais" />
@@ -30,9 +30,9 @@
     <part name="parameters" element="tns:buscarPaisResponse" />
   </message>
   <portType name="PaisWS">
-    <operation name="listarNotificaciones">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PaisWS/listarNotificacionesRequest" message="tns:listarNotificaciones" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PaisWS/listarNotificacionesResponse" message="tns:listarNotificacionesResponse" />
+    <operation name="listarPaises">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PaisWS/listarPaisesRequest" message="tns:listarPaises" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PaisWS/listarPaisesResponse" message="tns:listarPaisesResponse" />
     </operation>
     <operation name="actualizarPais">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/PaisWS/actualizarPaisRequest" message="tns:actualizarPais" />
@@ -49,7 +49,7 @@
   </portType>
   <binding name="PaisWSPortBinding" type="tns:PaisWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarNotificaciones">
+    <operation name="listarPaises">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

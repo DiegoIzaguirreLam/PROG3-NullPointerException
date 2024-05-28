@@ -23,17 +23,23 @@
   <message name="eliminarUsuarioResponse">
     <part name="parameters" element="tns:eliminarUsuarioResponse" />
   </message>
+  <message name="listarUsuarios">
+    <part name="parameters" element="tns:listarUsuarios" />
+  </message>
+  <message name="listarUsuariosResponse">
+    <part name="parameters" element="tns:listarUsuariosResponse" />
+  </message>
   <message name="insertarUsuario">
     <part name="parameters" element="tns:insertarUsuario" />
   </message>
   <message name="insertarUsuarioResponse">
     <part name="parameters" element="tns:insertarUsuarioResponse" />
   </message>
-  <message name="listarUsuarios">
-    <part name="parameters" element="tns:listarUsuarios" />
+  <message name="buscarUsuarioPorNombreCuenta">
+    <part name="parameters" element="tns:buscarUsuarioPorNombreCuenta" />
   </message>
-  <message name="listarUsuariosResponse">
-    <part name="parameters" element="tns:listarUsuariosResponse" />
+  <message name="buscarUsuarioPorNombreCuentaResponse">
+    <part name="parameters" element="tns:buscarUsuarioPorNombreCuentaResponse" />
   </message>
   <portType name="UsuarioWS">
     <operation name="actualizarUsuario">
@@ -48,13 +54,17 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
     </operation>
+    <operation name="listarUsuarios">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
+    </operation>
     <operation name="insertarUsuario">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest" message="tns:insertarUsuario" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse" message="tns:insertarUsuarioResponse" />
     </operation>
-    <operation name="listarUsuarios">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
+    <operation name="buscarUsuarioPorNombreCuenta">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRequest" message="tns:buscarUsuarioPorNombreCuenta" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaResponse" message="tns:buscarUsuarioPorNombreCuentaResponse" />
     </operation>
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
@@ -86,6 +96,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="listarUsuarios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertarUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -95,7 +114,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarUsuarios">
+    <operation name="buscarUsuarioPorNombreCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
