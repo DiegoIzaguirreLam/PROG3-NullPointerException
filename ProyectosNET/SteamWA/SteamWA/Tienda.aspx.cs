@@ -55,7 +55,7 @@ namespace SteamWA
             try
             {
                 BindingList<SteamWA.SteamServiceWS.producto> lista =
-               new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
+               new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductosPorTituloDesarrollador(search_autocomplete.Text));
                 listaProductos = lista;
             }
             catch
