@@ -45,8 +45,8 @@ public class PaisWS {
         return resultado;
     }
     
-    @WebMethod(operationName="listarNotificaciones")
-    public ArrayList<Pais> listarNotificaciones() {
+    @WebMethod(operationName="listarPaises")
+    public ArrayList<Pais> listarPaises() {
         ArrayList<Pais> paises = new ArrayList<>();
         try{
             PaisDAO paisDao = new PaisMySQL();
