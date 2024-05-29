@@ -11,11 +11,11 @@
   <message name="mostrarSubforosForoResponse">
     <part name="parameters" element="tns:mostrarSubforosForoResponse" />
   </message>
-  <message name="editarSubforo">
-    <part name="parameters" element="tns:editarSubforo" />
+  <message name="insertarSubforo">
+    <part name="parameters" element="tns:insertarSubforo" />
   </message>
-  <message name="editarSubforoResponse">
-    <part name="parameters" element="tns:editarSubforoResponse" />
+  <message name="insertarSubforoResponse">
+    <part name="parameters" element="tns:insertarSubforoResponse" />
   </message>
   <message name="eliminarSubforo">
     <part name="parameters" element="tns:eliminarSubforo" />
@@ -23,28 +23,28 @@
   <message name="eliminarSubforoResponse">
     <part name="parameters" element="tns:eliminarSubforoResponse" />
   </message>
-  <message name="insertarSubforo">
-    <part name="parameters" element="tns:insertarSubforo" />
+  <message name="editarSubforo">
+    <part name="parameters" element="tns:editarSubforo" />
   </message>
-  <message name="insertarSubforoResponse">
-    <part name="parameters" element="tns:insertarSubforoResponse" />
+  <message name="editarSubforoResponse">
+    <part name="parameters" element="tns:editarSubforoResponse" />
   </message>
   <portType name="SubforoWS">
     <operation name="mostrarSubforosForo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/mostrarSubforosForoRequest" message="tns:mostrarSubforosForo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/mostrarSubforosForoResponse" message="tns:mostrarSubforosForoResponse" />
     </operation>
-    <operation name="editarSubforo">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/editarSubforoRequest" message="tns:editarSubforo" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/editarSubforoResponse" message="tns:editarSubforoResponse" />
+    <operation name="insertarSubforo">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/insertarSubforoRequest" message="tns:insertarSubforo" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/insertarSubforoResponse" message="tns:insertarSubforoResponse" />
     </operation>
     <operation name="eliminarSubforo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/eliminarSubforoRequest" message="tns:eliminarSubforo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/eliminarSubforoResponse" message="tns:eliminarSubforoResponse" />
     </operation>
-    <operation name="insertarSubforo">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/insertarSubforoRequest" message="tns:insertarSubforo" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/insertarSubforoResponse" message="tns:insertarSubforoResponse" />
+    <operation name="editarSubforo">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/editarSubforoRequest" message="tns:editarSubforo" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SubforoWS/editarSubforoResponse" message="tns:editarSubforoResponse" />
     </operation>
   </portType>
   <binding name="SubforoWSPortBinding" type="tns:SubforoWS">
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="editarSubforo">
+    <operation name="insertarSubforo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarSubforo">
+    <operation name="editarSubforo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

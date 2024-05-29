@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/NotificacionWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarNotificacion">
-    <part name="parameters" element="tns:insertarNotificacion" />
-  </message>
-  <message name="insertarNotificacionResponse">
-    <part name="parameters" element="tns:insertarNotificacionResponse" />
-  </message>
   <message name="eliminarNotificacion">
     <part name="parameters" element="tns:eliminarNotificacion" />
   </message>
   <message name="eliminarNotificacionResponse">
     <part name="parameters" element="tns:eliminarNotificacionResponse" />
+  </message>
+  <message name="insertarNotificacion">
+    <part name="parameters" element="tns:insertarNotificacion" />
+  </message>
+  <message name="insertarNotificacionResponse">
+    <part name="parameters" element="tns:insertarNotificacionResponse" />
   </message>
   <message name="actualizarNotificacion">
     <part name="parameters" element="tns:actualizarNotificacion" />
@@ -30,13 +30,13 @@
     <part name="parameters" element="tns:listarNotificacionesResponse" />
   </message>
   <portType name="NotificacionWS">
-    <operation name="insertarNotificacion">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionRequest" message="tns:insertarNotificacion" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionResponse" message="tns:insertarNotificacionResponse" />
-    </operation>
     <operation name="eliminarNotificacion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/eliminarNotificacionRequest" message="tns:eliminarNotificacion" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/eliminarNotificacionResponse" message="tns:eliminarNotificacionResponse" />
+    </operation>
+    <operation name="insertarNotificacion">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionRequest" message="tns:insertarNotificacion" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionResponse" message="tns:insertarNotificacionResponse" />
     </operation>
     <operation name="actualizarNotificacion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/actualizarNotificacionRequest" message="tns:actualizarNotificacion" />
@@ -49,7 +49,7 @@
   </portType>
   <binding name="NotificacionWSPortBinding" type="tns:NotificacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarNotificacion">
+    <operation name="eliminarNotificacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarNotificacion">
+    <operation name="insertarNotificacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -11,12 +11,6 @@
   <message name="eliminarRelacionResponse">
     <part name="parameters" element="tns:eliminarRelacionResponse" />
   </message>
-  <message name="listarSuscritos">
-    <part name="parameters" element="tns:listarSuscritos" />
-  </message>
-  <message name="listarSuscritosResponse">
-    <part name="parameters" element="tns:listarSuscritosResponse" />
-  </message>
   <message name="suscribirRelacion">
     <part name="parameters" element="tns:suscribirRelacion" />
   </message>
@@ -29,14 +23,16 @@
   <message name="crearRelacionResponse">
     <part name="parameters" element="tns:crearRelacionResponse" />
   </message>
+  <message name="listarSuscritos">
+    <part name="parameters" element="tns:listarSuscritos" />
+  </message>
+  <message name="listarSuscritosResponse">
+    <part name="parameters" element="tns:listarSuscritosResponse" />
+  </message>
   <portType name="ForoUsuarioWS">
     <operation name="eliminarRelacion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionRequest" message="tns:eliminarRelacion" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionResponse" message="tns:eliminarRelacionResponse" />
-    </operation>
-    <operation name="listarSuscritos">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/listarSuscritosRequest" message="tns:listarSuscritos" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/listarSuscritosResponse" message="tns:listarSuscritosResponse" />
     </operation>
     <operation name="suscribirRelacion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionRequest" message="tns:suscribirRelacion" />
@@ -45,6 +41,10 @@
     <operation name="crearRelacion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/crearRelacionRequest" message="tns:crearRelacion" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/crearRelacionResponse" message="tns:crearRelacionResponse" />
+    </operation>
+    <operation name="listarSuscritos">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/listarSuscritosRequest" message="tns:listarSuscritos" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ForoUsuarioWS/listarSuscritosResponse" message="tns:listarSuscritosResponse" />
     </operation>
   </portType>
   <binding name="ForoUsuarioWSPortBinding" type="tns:ForoUsuarioWS">
@@ -58,15 +58,6 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarSuscritos">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="suscribirRelacion">
       <soap:operation soapAction="" />
       <input>
@@ -77,6 +68,15 @@
       </output>
     </operation>
     <operation name="crearRelacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarSuscritos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

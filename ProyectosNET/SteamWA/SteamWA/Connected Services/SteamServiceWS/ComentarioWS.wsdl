@@ -23,17 +23,17 @@
   <message name="insertarComentarioResponse">
     <part name="parameters" element="tns:insertarComentarioResponse" />
   </message>
-  <message name="listarComentarios">
-    <part name="parameters" element="tns:listarComentarios" />
-  </message>
-  <message name="listarComentariosResponse">
-    <part name="parameters" element="tns:listarComentariosResponse" />
-  </message>
   <message name="ocultarComentario">
     <part name="parameters" element="tns:ocultarComentario" />
   </message>
   <message name="ocultarComentarioResponse">
     <part name="parameters" element="tns:ocultarComentarioResponse" />
+  </message>
+  <message name="listarComentarios">
+    <part name="parameters" element="tns:listarComentarios" />
+  </message>
+  <message name="listarComentariosResponse">
+    <part name="parameters" element="tns:listarComentariosResponse" />
   </message>
   <portType name="ComentarioWS">
     <operation name="actualizarComentario">
@@ -48,13 +48,13 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/insertarComentarioRequest" message="tns:insertarComentario" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/insertarComentarioResponse" message="tns:insertarComentarioResponse" />
     </operation>
-    <operation name="listarComentarios">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/listarComentariosRequest" message="tns:listarComentarios" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/listarComentariosResponse" message="tns:listarComentariosResponse" />
-    </operation>
     <operation name="ocultarComentario">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/ocultarComentarioRequest" message="tns:ocultarComentario" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/ocultarComentarioResponse" message="tns:ocultarComentarioResponse" />
+    </operation>
+    <operation name="listarComentarios">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/listarComentariosRequest" message="tns:listarComentarios" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ComentarioWS/listarComentariosResponse" message="tns:listarComentariosResponse" />
     </operation>
   </portType>
   <binding name="ComentarioWSPortBinding" type="tns:ComentarioWS">
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarComentarios">
+    <operation name="ocultarComentario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="ocultarComentario">
+    <operation name="listarComentarios">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

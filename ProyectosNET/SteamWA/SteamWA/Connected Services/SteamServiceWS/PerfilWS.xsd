@@ -2,10 +2,10 @@
 <xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="actualizaPerfil" type="tns:actualizaPerfil" />
   <xs:element name="actualizaPerfilResponse" type="tns:actualizaPerfilResponse" />
+  <xs:element name="asignarPerfilUsuario" type="tns:asignarPerfilUsuario" />
+  <xs:element name="asignarPerfilUsuarioResponse" type="tns:asignarPerfilUsuarioResponse" />
   <xs:element name="buscarPerfil" type="tns:buscarPerfil" />
   <xs:element name="buscarPerfilResponse" type="tns:buscarPerfilResponse" />
-  <xs:element name="insertarPerfil" type="tns:insertarPerfil" />
-  <xs:element name="insertarPerfilResponse" type="tns:insertarPerfilResponse" />
   <xs:element name="listarPerfiles" type="tns:listarPerfiles" />
   <xs:element name="listarPerfilesResponse" type="tns:listarPerfilesResponse" />
   <xs:element name="ocultarPerfil" type="tns:ocultarPerfil" />
@@ -132,6 +132,16 @@
       <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="asignarPerfilUsuario">
+    <xs:sequence>
+      <xs:element name="uid_usuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="asignarPerfilUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="buscarPerfil">
     <xs:sequence>
       <xs:element name="idUser" type="xs:int" />
@@ -148,16 +158,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizaPerfilResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarPerfil">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="perfil" type="tns:perfil" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarPerfilResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
