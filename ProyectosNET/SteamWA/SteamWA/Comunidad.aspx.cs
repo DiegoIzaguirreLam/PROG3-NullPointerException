@@ -11,6 +11,7 @@ namespace SteamWA
 {
     public partial class Comunidad : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //BindingList<Foro> foros = new BindingList<Foro>();

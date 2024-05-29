@@ -30,6 +30,7 @@
       <xs:element minOccurs="0" name="fechaCambio" type="xs:dateTime" />
       <xs:element name="idTipoMoneda" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="simbolo" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarPaisResponse">

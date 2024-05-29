@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/PerfilWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizaPerfil">
-    <part name="parameters" element="tns:actualizaPerfil" />
+  <message name="buscarPerfil">
+    <part name="parameters" element="tns:buscarPerfil" />
   </message>
-  <message name="actualizaPerfilResponse">
-    <part name="parameters" element="tns:actualizaPerfilResponse" />
+  <message name="buscarPerfilResponse">
+    <part name="parameters" element="tns:buscarPerfilResponse" />
   </message>
   <message name="ocultarPerfil">
     <part name="parameters" element="tns:ocultarPerfil" />
@@ -23,22 +23,22 @@
   <message name="listarPerfilesResponse">
     <part name="parameters" element="tns:listarPerfilesResponse" />
   </message>
-  <message name="buscarPerfil">
-    <part name="parameters" element="tns:buscarPerfil" />
-  </message>
-  <message name="buscarPerfilResponse">
-    <part name="parameters" element="tns:buscarPerfilResponse" />
-  </message>
   <message name="insertarPerfil">
     <part name="parameters" element="tns:insertarPerfil" />
   </message>
   <message name="insertarPerfilResponse">
     <part name="parameters" element="tns:insertarPerfilResponse" />
   </message>
+  <message name="actualizaPerfil">
+    <part name="parameters" element="tns:actualizaPerfil" />
+  </message>
+  <message name="actualizaPerfilResponse">
+    <part name="parameters" element="tns:actualizaPerfilResponse" />
+  </message>
   <portType name="PerfilWS">
-    <operation name="actualizaPerfil">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/actualizaPerfilRequest" message="tns:actualizaPerfil" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/actualizaPerfilResponse" message="tns:actualizaPerfilResponse" />
+    <operation name="buscarPerfil">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/buscarPerfilRequest" message="tns:buscarPerfil" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/buscarPerfilResponse" message="tns:buscarPerfilResponse" />
     </operation>
     <operation name="ocultarPerfil">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/ocultarPerfilRequest" message="tns:ocultarPerfil" />
@@ -48,18 +48,18 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/listarPerfilesRequest" message="tns:listarPerfiles" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/listarPerfilesResponse" message="tns:listarPerfilesResponse" />
     </operation>
-    <operation name="buscarPerfil">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/buscarPerfilRequest" message="tns:buscarPerfil" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/buscarPerfilResponse" message="tns:buscarPerfilResponse" />
-    </operation>
     <operation name="insertarPerfil">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/insertarPerfilRequest" message="tns:insertarPerfil" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/insertarPerfilResponse" message="tns:insertarPerfilResponse" />
     </operation>
+    <operation name="actualizaPerfil">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/actualizaPerfilRequest" message="tns:actualizaPerfil" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/PerfilWS/actualizaPerfilResponse" message="tns:actualizaPerfilResponse" />
+    </operation>
   </portType>
   <binding name="PerfilWSPortBinding" type="tns:PerfilWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizaPerfil">
+    <operation name="buscarPerfil">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="buscarPerfil">
+    <operation name="insertarPerfil">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarPerfil">
+    <operation name="actualizaPerfil">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

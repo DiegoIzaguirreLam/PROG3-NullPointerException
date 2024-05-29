@@ -17,17 +17,17 @@
   <message name="eliminarHiloResponse">
     <part name="parameters" element="tns:eliminarHiloResponse" />
   </message>
-  <message name="mostrarHilosSubforo">
-    <part name="parameters" element="tns:mostrarHilosSubforo" />
-  </message>
-  <message name="mostrarHilosSubforoResponse">
-    <part name="parameters" element="tns:mostrarHilosSubforoResponse" />
-  </message>
   <message name="editarHilo">
     <part name="parameters" element="tns:editarHilo" />
   </message>
   <message name="editarHiloResponse">
     <part name="parameters" element="tns:editarHiloResponse" />
+  </message>
+  <message name="mostrarHilosSubforo">
+    <part name="parameters" element="tns:mostrarHilosSubforo" />
+  </message>
+  <message name="mostrarHilosSubforoResponse">
+    <part name="parameters" element="tns:mostrarHilosSubforoResponse" />
   </message>
   <portType name="HiloWS">
     <operation name="insertarHilo">
@@ -38,13 +38,13 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloRequest" message="tns:eliminarHilo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloResponse" message="tns:eliminarHiloResponse" />
     </operation>
-    <operation name="mostrarHilosSubforo">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest" message="tns:mostrarHilosSubforo" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse" message="tns:mostrarHilosSubforoResponse" />
-    </operation>
     <operation name="editarHilo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/editarHiloRequest" message="tns:editarHilo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/editarHiloResponse" message="tns:editarHiloResponse" />
+    </operation>
+    <operation name="mostrarHilosSubforo">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest" message="tns:mostrarHilosSubforo" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse" message="tns:mostrarHilosSubforoResponse" />
     </operation>
   </portType>
   <binding name="HiloWSPortBinding" type="tns:HiloWS">
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="mostrarHilosSubforo">
+    <operation name="editarHilo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="editarHilo">
+    <operation name="mostrarHilosSubforo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
