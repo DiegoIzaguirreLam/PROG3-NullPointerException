@@ -31,7 +31,7 @@ namespace SteamWA
             daoForoUsuario = new ForoUsuarioWSClient();
 
             foro[] aux = daoForo.listarForos();
-            if(aux != null) foros = new BindingList<foro>(aux);
+            if (aux != null) foros = new BindingList<foro>(aux);
             //BindingList<Foro> foros = new BindingList<Foro>();
             //Foro proof = new Foro(1, "PRUEBAAA", "Este es un foro", "GianLukaGG", "https://avatars.akamai.steamstatic.com/f698ccb1d89632d7f174c142b789b84d4ec2dab6_full.jpg");
             //foros.Add(proof);
@@ -41,7 +41,6 @@ namespace SteamWA
             master.ItemComunidad.Attributes["class"] = "active";
             //ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
             //a.hello("a");
-            
         }
 
         protected void btnActualizarComunidad_Click(object sender, EventArgs e)
@@ -61,7 +60,7 @@ namespace SteamWA
             //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
             //Session["objeto"]=foro
-            Response.Redirect("GestionarForo.aspx?foro="+nombreForo);
+            Response.Redirect("GestionarForo.aspx?foro=" + nombreForo);
         }
 
         protected void lbActualizarInfoForo_Click(object sender, EventArgs e)

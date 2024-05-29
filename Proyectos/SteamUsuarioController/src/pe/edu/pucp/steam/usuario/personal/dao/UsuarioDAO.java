@@ -17,5 +17,6 @@ public interface UsuarioDAO {
     int suspenderUsuario(Usuario jugador); //Elimina logicamente
     int eliminarUsuario(Usuario jugador); //Elimina de la base de datos
     Usuario buscarUsuarioPorNombreCuenta (String nombreCuenta);
+    Usuario buscarUsuarioPorId (int uid);
     ArrayList<Usuario> listarUsuarios();
 }

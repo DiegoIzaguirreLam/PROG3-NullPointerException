@@ -2,6 +2,8 @@
 <xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="actualizarUsuario" type="tns:actualizarUsuario" />
   <xs:element name="actualizarUsuarioResponse" type="tns:actualizarUsuarioResponse" />
+  <xs:element name="buscarUsuarioPorId" type="tns:buscarUsuarioPorId" />
+  <xs:element name="buscarUsuarioPorIdResponse" type="tns:buscarUsuarioPorIdResponse" />
   <xs:element name="buscarUsuarioPorNombreCuenta" type="tns:buscarUsuarioPorNombreCuenta" />
   <xs:element name="buscarUsuarioPorNombreCuentaResponse" type="tns:buscarUsuarioPorNombreCuentaResponse" />
   <xs:element name="eliminarUsuario" type="tns:eliminarUsuario" />
@@ -310,6 +312,16 @@
   <xs:complexType name="actualizarUsuarioResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioPorId">
+    <xs:sequence>
+      <xs:element name="uid" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarUsuarios">

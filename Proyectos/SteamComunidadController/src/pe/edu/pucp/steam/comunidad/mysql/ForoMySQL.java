@@ -37,7 +37,7 @@ public class ForoMySQL implements ForoDAO{
                     java.sql.Types.INTEGER);
             cs.setString("_nombre", foro.getNombre());
             cs.setString("_descripcion",foro.getDescripcion());
-            cs.setString("_origen_foro", String.valueOf(foro.getOrigen().USUARIO));
+            cs.setString("_origen_foro", foro.getNombreCreador());
             cs.executeUpdate();
             foro.setIdForo(cs.getInt("_id_foro"));
             foro.setActivo(true);
@@ -144,7 +144,7 @@ public class ForoMySQL implements ForoDAO{
                 foro.setIdForo(rs.getInt("id_foro"));
                 foro.setNombre(rs.getString("nombre"));
                 foro.setDescripcion(rs.getString("descripcion"));
-                foro.setOrigen(OrigenForo.valueOf(rs.getString("origen_foro")));
+                foro.setNombreCreador(rs.getString("origen_foro"));
                 foro.setIdCreador(rs.getInt("id_user"));
 		foros.add(foro);
             }
@@ -176,7 +176,7 @@ public class ForoMySQL implements ForoDAO{
                 foro.setIdForo(rs.getInt("id_foro"));
                 foro.setNombre(rs.getString("nombre"));
                 foro.setDescripcion(rs.getString("descripcion"));
-                foro.setOrigen(OrigenForo.valueOf(rs.getString("origen_foro")));
+                foro.setNombreCreador(rs.getString("origen_foro"));
                 foro.setIdCreador(rs.getInt("id_user"));
 		foros.add(foro);
             }
@@ -208,7 +208,7 @@ public class ForoMySQL implements ForoDAO{
                 foro.setIdForo(rs.getInt("id_foro"));
                 foro.setNombre(rs.getString("nombre"));
                 foro.setDescripcion(rs.getString("descripcion"));
-                foro.setOrigen(OrigenForo.valueOf(rs.getString("origen_foro")));
+                foro.setNombreCreador(rs.getString("origen_foro"));
                 foro.setIdCreador(rs.getInt("id_user"));
 		foros.add(foro);
             }

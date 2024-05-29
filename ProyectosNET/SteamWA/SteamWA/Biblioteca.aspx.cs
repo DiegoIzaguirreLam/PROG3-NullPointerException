@@ -31,7 +31,7 @@ namespace SteamWA
         }
         protected void Page_Init(object sender, EventArgs e)
         {
-            
+
             daoProductoAdquirido = new ProductoAdquiridoWSClient();
             daoColeccion = new ColeccionWSClient();
             daoBiblioteca = new BibliotecaWSClient();
@@ -89,7 +89,7 @@ namespace SteamWA
                 colecciones = (BindingList<coleccion>)Session["colecciones"];
                 generarListaColecciones();
             }
-            
+
         }
 
         protected void generarListaProductosAdquiridos()
@@ -98,20 +98,20 @@ namespace SteamWA
             //productosAdquiridos = (BindingList<productoAdquirido>)Session["productosAdquiridos"];
             foreach (productoAdquirido productoAdquirido in productosAdquiridos)
             {
-                if (nColeccionesActivas>0 && productosColecciones.FirstOrDefault(x => x.idProductoAdquirido == productoAdquirido.idProductoAdquirido) == null) continue;
-                // Crear el elemento li
+                if (nColeccionesActivas > 0 && productosColecciones.FirstOrDefault(x => x.idProductoAdquirido == productoAdquirido.idProductoAdquirido) == null) continue;
+                // crear el elemento li
                 HtmlGenericControl li = new HtmlGenericControl("li");
                 li.Attributes["class"] = "list-group-item text-gray bg-transparent";
                 li.Attributes["id"] = "liPrograma" + productoAdquirido.idProductoAdquirido;
 
-                // Crear la imagen
+                // crear la imagen
                 HtmlImage img = new HtmlImage
                 {
                     Src = productoAdquirido.producto.logoUrl,
                     Height = 30
                 };
 
-                // Crear el LinkButton
+                // crear el linkbutton
                 LinkButton linkButton = new LinkButton
                 {
                     ID = "lbPrograma" + productoAdquirido.idProductoAdquirido,
@@ -121,12 +121,12 @@ namespace SteamWA
                 };
                 linkButton.Click += lbPrograma_Click;
 
-                // Agregar la imagen y el LinkButton al elemento li
+                // agregar la imagen y el linkbutton al li
                 li.Controls.Add(img);
-                li.Controls.Add(new Literal { Text = " " }); // Espacio entre la imagen y el LinkButton
+                li.Controls.Add(new Literal { Text = " " }); // espacio entre la imagen y el LinkButton
                 li.Controls.Add(linkButton);
 
-                // Agregar el elemento li a la lista ul
+                // agregar el elemento li a la lista ul
                 ulProgramas.Controls.Add(li);
             }
         }
@@ -197,7 +197,7 @@ namespace SteamWA
                 }
                 else
                 {
-                    foreach(productoAdquirido producto in blColeccionProductos)
+                    foreach (productoAdquirido producto in blColeccionProductos)
                     {
                         productoAdquirido productoEliminar = productosColecciones.FirstOrDefault(x => x.idProductoAdquirido == producto.idProductoAdquirido);
                         productosColecciones.Remove(productoEliminar);
@@ -231,22 +231,22 @@ namespace SteamWA
             txtTituloPrograma.InnerText = producto.titulo;
             txtDescripcionPrograma.InnerText = producto.descripcion;
             txtFechaEjecucionPrograma.InnerHtml = "<strong>Última ejecución: </strong>" +
-                (productoAdquirido.fechaEjecutado.ToString("dd/MM/yyyy")=="01/01/0001" ? "Aún no ejecutado" : productoAdquirido.fechaEjecutado.ToString("dd/MM/yyyy"));
+                (productoAdquirido.fechaEjecutado.ToString("dd/MM/yyyy") == "01/01/0001" ? "Aún no ejecutado" : productoAdquirido.fechaEjecutado.ToString("dd/MM/yyyy"));
             int horas = Int32.Parse(productoAdquirido.tiempoUso.ToString("HH"));
             int minutos = Int32.Parse(productoAdquirido.tiempoUso.ToString("mm"));
             txtTiempoUsoPrograma.InnerHtml = "<strong>Tiempo de uso: </strong>";
             if (horas > 0 || minutos > 0)
             {
-                txtTiempoUsoPrograma.InnerHtml += horas.ToString() + (horas==0 ? "" : (horas > 1 ? " horas " : " hora ")) +
-                    minutos.ToString() + (minutos==0 ? "" : (minutos > 1 ? " minutos" : " minuto"));
+                txtTiempoUsoPrograma.InnerHtml += (horas == 0 ? "" : (horas.ToString() + (horas > 1 ? " horas " : " hora ")))
+                    + (minutos == 0 ? "" : (minutos.ToString() + (minutos > 1 ? " minutos" : " minuto")));
             }
             else
             {
-                txtTiempoUsoPrograma.InnerHtml += "Aún no usado"; 
+                txtTiempoUsoPrograma.InnerHtml += "Aún no usado";
             }
 
             txtActualizadoPrograma.InnerHtml = "<strong>Actualizado: </strong>" + (productoAdquirido.actualizado ? "Sí" : "No");
-            if(producto is juego)
+            if (producto is juego)
             {
                 lbLogros.Visible = true;
                 divBotonesPrograma.Attributes["class"] = "d-flex justify-content-between";
@@ -290,27 +290,27 @@ namespace SteamWA
             if (radioButton.ID == "rbNombre")
             {
                 productosAdquiridosList.Sort((p1, p2) => string.Compare(p1.producto.titulo, p2.producto.titulo));
-            } 
+            }
             else if (radioButton.ID == "rbTiempo")
             {
-                productosAdquiridosList.Sort((p1, p2) =>  -1*(p1.tiempoUso.ToString("HH:mm:ss").CompareTo(p2.tiempoUso.ToString("HH:mm:ss"))));
+                productosAdquiridosList.Sort((p1, p2) => -1 * (p1.tiempoUso.ToString("HH:mm:ss").CompareTo(p2.tiempoUso.ToString("HH:mm:ss"))));
             }
-            else if(radioButton.ID == "rbTam")
+            else if (radioButton.ID == "rbTam")
             {
                 productosAdquiridosList.Sort((p1, p2) => p1.producto.espacioDisco.CompareTo(p2.producto.espacioDisco));
             }
-            else if(radioButton.ID == "rbFechaPub")
+            else if (radioButton.ID == "rbFechaPub")
             {
                 productosAdquiridosList.Sort((p1, p2) => p1.producto.fechaPublicacion.CompareTo(p2.producto.fechaPublicacion));
             }
-            else if(radioButton.ID == "rbPrecio")
+            else if (radioButton.ID == "rbPrecio")
             {
                 productosAdquiridosList.Sort((p1, p2) => p1.producto.precio.CompareTo(p2.producto.precio));
-            } 
+            }
             productosAdquiridos = new BindingList<productoAdquirido>(productosAdquiridosList);
             Session["productosAdquiridos"] = productosAdquiridos;
             generarListaProductosAdquiridos();
         }
-        
+
     }
 }

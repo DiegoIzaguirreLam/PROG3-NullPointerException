@@ -19,8 +19,11 @@
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" class="form-control mt-3 fontSetterExo2" placeholder="Buscar Foros...">
+            <input type="text" id="searchForos" class="form-control mt-3 fontSetterExo2" placeholder="Buscar Foros...">
         </div>
+    </div>
+    <div class="container mt-3">
+        <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" />
     </div>
     <hr "/>
     <div class="container">

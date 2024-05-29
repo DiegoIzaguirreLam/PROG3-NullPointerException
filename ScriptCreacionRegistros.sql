@@ -23,7 +23,6 @@ call INSERTAR_PRODUCTOETIQUETA(1, 2);
 call INSERTAR_PRODUCTOETIQUETA(1, 5);
 call INSERTAR_PRODUCTOETIQUETA(3, 2);
 call INSERTAR_PRODUCTOETIQUETA(3, 5);
-call INSERTAR_PRODUCTOETIQUETA(4, 4);
 
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_sofia', 'Sofia', 'a20210750@pucp.edu.pe', '123456789', 'password_sofia', 19, '2004-07-01', 1, 4, 2, 5, 1);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
@@ -38,3 +37,5 @@ CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,1);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,2);
 
+UPDATE ProductoAdquirido SET fecha_ejecucion='2024-05-29', tiempo_uso='01:20:23' where id_producto_adquirido=1;
+UPDATE ProductoAdquirido SET fecha_ejecucion='2024-05-29', tiempo_uso='00:18:38' where id_producto_adquirido=3;

@@ -20,7 +20,7 @@ CREATE PROCEDURE INSERTAR_JUEGO(
 BEGIN
 	INSERT INTO Producto(titulo,fecha_publicacion,precio,descripcion, espacio_disco,
     tipo_producto, logo_url, portada_url, fid_proveedor, activo) VALUES(_titulo, _fecha_publicacion,
-    _precio,_descripcion,_espacio_disco,'JUEGO',logo_url,portada_url,_fid_proveedor, _activo);
+    _precio,_descripcion,_espacio_disco,'JUEGO',_logo_url,_portada_url,_fid_proveedor, _activo);
     SET _id_juego = @@last_insert_id;
     INSERT INTO Juego(id_juego, requisitos_minimos, requisitos_recomendados,multijugador) VALUES(_id_juego, _requisitos_minimos, _requisitos_recomendados, _multijugador);
 END$

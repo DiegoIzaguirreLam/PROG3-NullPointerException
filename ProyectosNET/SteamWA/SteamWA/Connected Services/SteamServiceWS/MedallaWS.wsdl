@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/MedallaWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="buscarMedalla">
-    <part name="parameters" element="tns:buscarMedalla" />
-  </message>
-  <message name="buscarMedallaResponse">
-    <part name="parameters" element="tns:buscarMedallaResponse" />
-  </message>
   <message name="insertarMedalla">
     <part name="parameters" element="tns:insertarMedalla" />
   </message>
@@ -23,11 +17,13 @@
   <message name="actualizarMedallaResponse">
     <part name="parameters" element="tns:actualizarMedallaResponse" />
   </message>
+  <message name="buscarMedalla">
+    <part name="parameters" element="tns:buscarMedalla" />
+  </message>
+  <message name="buscarMedallaResponse">
+    <part name="parameters" element="tns:buscarMedallaResponse" />
+  </message>
   <portType name="MedallaWS">
-    <operation name="buscarMedalla">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarMedallaRequest" message="tns:buscarMedalla" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarMedallaResponse" message="tns:buscarMedallaResponse" />
-    </operation>
     <operation name="insertarMedalla">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/insertarMedallaRequest" message="tns:insertarMedalla" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/insertarMedallaResponse" message="tns:insertarMedallaResponse" />
@@ -36,18 +32,13 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/actualizarMedallaRequest" message="tns:actualizarMedalla" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/actualizarMedallaResponse" message="tns:actualizarMedallaResponse" />
     </operation>
+    <operation name="buscarMedalla">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarMedallaRequest" message="tns:buscarMedalla" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MedallaWS/buscarMedallaResponse" message="tns:buscarMedallaResponse" />
+    </operation>
   </portType>
   <binding name="MedallaWSPortBinding" type="tns:MedallaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="buscarMedalla">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="insertarMedalla">
       <soap:operation soapAction="" />
       <input>
@@ -58,6 +49,15 @@
       </output>
     </operation>
     <operation name="actualizarMedalla">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarMedalla">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
