@@ -73,6 +73,7 @@
                 <div class="container-fluid">
                     <a style="font-family: 'Orbitron'" class="navbar-brand d-sm-none d-md-block d-none d-sm-block">Steam</a>
                     <form class="d-flex">
+                        <a class="text-white text-left mt-2 me-3" href="Carrito.aspx"><i class="fa-solid fa-shopping-cart"></i></a>
                         <a class="text-white text-left mt-2" href="Notificaciones.aspx"><i class="fa-solid fa-inbox"></i></a>
                         <div style="font-family: 'Exo 2'" class="dropdown ps-3">
                             <button class="btn btn-outline-light dropdown-toggle"
