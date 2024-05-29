@@ -6,56 +6,58 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <style>
-        .divisionTienda{
-
+        .divisionTienda {
             background-image: linear-gradient(#364458, #24282f);
         }
-        #desplegableFiltro{
-            background-image:linear-gradient(90deg, #24282f 0%, #262c35 15%, #262c35 85%, #24282f 100%);
+
+        #desplegableFiltro {
+            background-image: linear-gradient(90deg, #24282f 0%, #262c35 15%, #262c35 85%, #24282f 100%);
             border-image-source: linear-gradient(90deg, rgb(36, 40, 47) 0%, rgb(122, 78, 78) 10%, rgb(90, 93, 122) 90%, rgb(36, 40, 47) 100%);
-
         }
-        .contenidoTiendo{
 
+        .contenidoTiendo {
             padding: 0 10px;
         }
-        .carouselDestacados{
+
+        .carouselDestacados {
             background-image: linear-gradient(90deg, #24282f 0%, #2e3b4e 45%, #2e3b4e 55%, #24282f 100%)
-
         }
-        .border-Gradient{
 
- 
-    border: 1px solid;
-    border-image-slice: 1;
-    border-width: 1px;
-    border-image-source: linear-gradient(90deg, #24282f 0%, #ffffff 45%, #ffffff 55%, #24282f 100%);
+        .border-Gradient {
+            border: 1px solid;
+            border-image-slice: 1;
+            border-width: 1px;
+            border-image-source: linear-gradient(90deg, #24282f 0%, #ffffff 45%, #ffffff 55%, #24282f 100%);
         }
-        .border-Gradient-Gray{
 
- 
-    border: 1px solid;
-    border-image-slice: 1;
-    border-width: 1px;
-    border-image-source: linear-gradient(90deg, #24282f 0%, #afafaf 45%, #afafaf 55%, #24282f 100%);
+        .border-Gradient-Gray {
+            border: 1px solid;
+            border-image-slice: 1;
+            border-width: 1px;
+            border-image-source: linear-gradient(90deg, #24282f 0%, #afafaf 45%, #afafaf 55%, #24282f 100%);
         }
-        .border-shadow{
+
+        .border-shadow {
             box-shadow: 0 0 5px #0d0523;
         }
-        .separador{
+
+        .separador {
             padding-bottom: 3rem;
         }
-        .dropdown-item{
+
+        .dropdown-item {
             cursor: pointer;
         }
-        #suggestions{
 
+        #suggestions {
             background-color: #392e47;
         }
-        .bgDesplegables{
+
+        .bgDesplegables {
             background-color: #392e47;
         }
-        .desplegableBusqueda{
+
+        .desplegableBusqueda {
             color: white;
         }
     </style>
@@ -114,7 +116,15 @@
             </div>
             <div class="col-md-4">
                 <label for="barRangoPrecio" class="form-label">Filtrar por tipo</label>
-                
+                <div class="dropdown">
+                <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownTipos"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
+                    Tipo de Producto
+                </button> 
+                <ul id="ddlTipos" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="dropdownTipos">
+                    
+                </ul>
+            </div>
              
             </div>
         </div>
