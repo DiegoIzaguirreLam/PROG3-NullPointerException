@@ -26,28 +26,28 @@ END $
 
 CREATE PROCEDURE LISTAR_FOROS()
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE f.es_creador = 1 AND activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1;
 END$
 
 CREATE PROCEDURE BUSCAR_FORO(
 	IN _nombre VARCHAR(100)
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE f.es_creador = 1 AND activo = 1 AND nombre LIKE CONCAT('%',_nombre,'%');
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1 AND nombre LIKE CONCAT('%',_nombre,'%');
 END$
 
 CREATE PROCEDURE LISTAR_CREADOS(
 	IN _iduser INT
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE f.es_creador = 1 AND activo = 1 AND f.fid_usuario = _iduser;
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1 AND f.fid_usuario = _iduser;
 END$
 
 CREATE PROCEDURE LISTAR_SUSCRITOS(
 	IN _iduser INT
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE f.es_suscriptor = 1 AND activo = 1 AND f.fid_usuario = _iduser INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND activo = 1;
 END$
 
 CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(

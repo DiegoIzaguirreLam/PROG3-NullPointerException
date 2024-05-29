@@ -685,6 +685,24 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarMedallaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarForosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarMedallaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarCreadosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarForosSuscritosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.medalla1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\SubforoWS.xsd">
       <SubType>Designer</SubType>

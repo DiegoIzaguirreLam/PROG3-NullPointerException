@@ -48,16 +48,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarProducto">
-    <xs:sequence>
-      <xs:element name="idProducto" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarProductoResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:producto" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarProductosPorEtiqueta">
     <xs:sequence>
       <xs:element minOccurs="0" name="etiqueta" type="tns:etiqueta" />
@@ -73,6 +63,16 @@
   <xs:complexType name="listarProductosPorEtiquetaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProducto">
+    <xs:sequence>
+      <xs:element name="idProducto" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

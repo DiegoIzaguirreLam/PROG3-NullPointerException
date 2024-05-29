@@ -16,6 +16,7 @@ public class Foro {
     private String descripcion;
     private OrigenForo origen;
     private int idCreador;
+    private String nombreCreador;
     private ArrayList<Integer> suscritos;
     private ArrayList<Subforo> subforos;
     private boolean oculto;
@@ -85,7 +86,13 @@ public class Foro {
         this.suscritos = suscritos;
     }
 
-    
+    public String getNombreCreador() {
+        return nombreCreador;
+    }
+
+    public void setNombreCreador(String nombreCreador) {
+        this.nombreCreador = nombreCreador;
+    }
     
     public void setSubforos(ArrayList<Subforo> subforos) {
         this.subforos = subforos;

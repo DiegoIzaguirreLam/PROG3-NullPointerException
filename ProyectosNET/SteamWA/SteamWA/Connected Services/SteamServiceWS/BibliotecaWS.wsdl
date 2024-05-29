@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/BibliotecaWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="asignarBibliotecaUsuario">
-    <part name="parameters" element="tns:asignarBibliotecaUsuario" />
-  </message>
-  <message name="asignarBibliotecaUsuarioResponse">
-    <part name="parameters" element="tns:asignarBibliotecaUsuarioResponse" />
-  </message>
   <message name="buscarBibliotecaPorUID">
     <part name="parameters" element="tns:buscarBibliotecaPorUID" />
   </message>
   <message name="buscarBibliotecaPorUIDResponse">
     <part name="parameters" element="tns:buscarBibliotecaPorUIDResponse" />
   </message>
+  <message name="asignarBibliotecaUsuario">
+    <part name="parameters" element="tns:asignarBibliotecaUsuario" />
+  </message>
+  <message name="asignarBibliotecaUsuarioResponse">
+    <part name="parameters" element="tns:asignarBibliotecaUsuarioResponse" />
+  </message>
   <portType name="BibliotecaWS">
-    <operation name="asignarBibliotecaUsuario">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BibliotecaWS/asignarBibliotecaUsuarioRequest" message="tns:asignarBibliotecaUsuario" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BibliotecaWS/asignarBibliotecaUsuarioResponse" message="tns:asignarBibliotecaUsuarioResponse" />
-    </operation>
     <operation name="buscarBibliotecaPorUID">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDRequest" message="tns:buscarBibliotecaPorUID" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDResponse" message="tns:buscarBibliotecaPorUIDResponse" />
     </operation>
+    <operation name="asignarBibliotecaUsuario">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BibliotecaWS/asignarBibliotecaUsuarioRequest" message="tns:asignarBibliotecaUsuario" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BibliotecaWS/asignarBibliotecaUsuarioResponse" message="tns:asignarBibliotecaUsuarioResponse" />
+    </operation>
   </portType>
   <binding name="BibliotecaWSPortBinding" type="tns:BibliotecaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="asignarBibliotecaUsuario">
+    <operation name="buscarBibliotecaPorUID">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="buscarBibliotecaPorUID">
+    <operation name="asignarBibliotecaUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

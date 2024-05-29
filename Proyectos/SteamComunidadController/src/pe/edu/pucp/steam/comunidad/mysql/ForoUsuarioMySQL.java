@@ -29,7 +29,7 @@ public class ForoUsuarioMySQL implements ForoUsuarioDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call CREAR_RELACION(?, ?)}");
+            cs = con.prepareCall("{call CREAR_RELACION_FORO(?, ?)}");
             cs.setInt("_fid_foro", idForo);
             cs.setInt("_fid_usuario", idUsuario);
             resultado = cs.executeUpdate();

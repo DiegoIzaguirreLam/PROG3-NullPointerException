@@ -30,7 +30,7 @@ public class HiloMySQL implements HiloDAO {
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call CREAR_HILO"
-                    + "(?,?,?,?,?)}");
+                    + "(?,?,?,?,?, ?, ?)}");
             cs.registerOutParameter("_id_hilo",
                     java.sql.Types.INTEGER);
             cs.setInt("_id_subforo", hilo.getSubforo().getIdSubforo());

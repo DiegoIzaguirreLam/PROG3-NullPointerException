@@ -26,11 +26,11 @@
     <div class="container">
         <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
             <Columns>
-                <asp:BoundField HeaderText="Nombre" DataField="Nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
-                <asp:BoundField HeaderText="Descripción" DataField="Descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
+                <asp:BoundField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
+                <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
                 <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
-                <asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>
-                <asp:ButtonField HeaderText="Creador" DataTextField="Usuario" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" 
+                <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
+                <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" 
                                  HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
                 <asp:TemplateField ItemStyle-CssClass="text-end">
                     <ItemTemplate>
@@ -93,8 +93,8 @@
                                     CssClass="justify-content-md-start btn btn-secondary bg-dark mb-2" />
                             </div>
                             <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
-                                <asp:Button ID="btnGuardar" runat="server" Text="Crear"
-                                    CssClass="justify-content-md-end btn btn-secondary bg-dark mb-2" />
+                                <asp:Button ID="btnGuardarForoModal" runat="server" Text="Crear"
+                                    CssClass="justify-content-md-end btn btn-secondary bg-dark mb-2" OnClick="btnGuardarForoModal_Click"/>
                             </div>
                         </div>
                     </div>

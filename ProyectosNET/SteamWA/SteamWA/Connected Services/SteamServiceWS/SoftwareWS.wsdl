@@ -11,11 +11,11 @@
   <message name="buscarSoftwareResponse">
     <part name="parameters" element="tns:buscarSoftwareResponse" />
   </message>
-  <message name="eliminarSoftware">
-    <part name="parameters" element="tns:eliminarSoftware" />
+  <message name="actualizarSoftware">
+    <part name="parameters" element="tns:actualizarSoftware" />
   </message>
-  <message name="eliminarSoftwareResponse">
-    <part name="parameters" element="tns:eliminarSoftwareResponse" />
+  <message name="actualizarSoftwareResponse">
+    <part name="parameters" element="tns:actualizarSoftwareResponse" />
   </message>
   <message name="insertarSoftware">
     <part name="parameters" element="tns:insertarSoftware" />
@@ -29,20 +29,20 @@
   <message name="listarSoftwaresResponse">
     <part name="parameters" element="tns:listarSoftwaresResponse" />
   </message>
-  <message name="actualizarSoftware">
-    <part name="parameters" element="tns:actualizarSoftware" />
+  <message name="eliminarSoftware">
+    <part name="parameters" element="tns:eliminarSoftware" />
   </message>
-  <message name="actualizarSoftwareResponse">
-    <part name="parameters" element="tns:actualizarSoftwareResponse" />
+  <message name="eliminarSoftwareResponse">
+    <part name="parameters" element="tns:eliminarSoftwareResponse" />
   </message>
   <portType name="SoftwareWS">
     <operation name="buscarSoftware">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest" message="tns:buscarSoftware" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse" message="tns:buscarSoftwareResponse" />
     </operation>
-    <operation name="eliminarSoftware">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
+    <operation name="actualizarSoftware">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest" message="tns:actualizarSoftware" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse" message="tns:actualizarSoftwareResponse" />
     </operation>
     <operation name="insertarSoftware">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest" message="tns:insertarSoftware" />
@@ -52,9 +52,9 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest" message="tns:listarSoftwares" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse" message="tns:listarSoftwaresResponse" />
     </operation>
-    <operation name="actualizarSoftware">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest" message="tns:actualizarSoftware" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse" message="tns:actualizarSoftwareResponse" />
+    <operation name="eliminarSoftware">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
     </operation>
   </portType>
   <binding name="SoftwareWSPortBinding" type="tns:SoftwareWS">
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarSoftware">
+    <operation name="actualizarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarSoftware">
+    <operation name="eliminarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

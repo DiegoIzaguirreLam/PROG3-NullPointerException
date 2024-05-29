@@ -32,12 +32,12 @@ public class ForoMySQL implements ForoDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call CREAR_FORO"
-                    + "(?,?,?)}");
+                    + "(?,?,?,?)}");
             cs.registerOutParameter("_id_foro",
                     java.sql.Types.INTEGER);
             cs.setString("_nombre", foro.getNombre());
             cs.setString("_descripcion",foro.getDescripcion());
-            cs.setString("_origen_foro", String.valueOf(foro.getOrigen()));
+            cs.setString("_origen_foro", String.valueOf(foro.getOrigen().USUARIO));
             cs.executeUpdate();
             foro.setIdForo(cs.getInt("_id_foro"));
             foro.setActivo(true);
@@ -66,7 +66,7 @@ public class ForoMySQL implements ForoDAO{
 			cs.setInt("_id_foro", foro.getIdForo());
             cs.setString("_nombre", foro.getNombre());
             cs.setString("_descripcion",foro.getDescripcion());
-            cs.setString("_origen_foro", String.valueOf(foro.getOrigen()));
+            cs.setString("_origen_foro", foro.getNombreCreador());
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -112,7 +112,7 @@ public class ForoMySQL implements ForoDAO{
                 foro.setIdForo(rs.getInt("id_foro"));
                 foro.setNombre(rs.getString("nombre"));
                 foro.setDescripcion(rs.getString("descripcion"));
-                foro.setOrigen(OrigenForo.valueOf(rs.getString("origen_foro")));
+                foro.setNombreCreador(rs.getString("origen_foro"));
                 foro.setIdCreador(rs.getInt("id_user"));
 		foros.add(foro);
             }

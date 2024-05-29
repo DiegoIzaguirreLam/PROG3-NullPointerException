@@ -23,7 +23,7 @@ public class MensajeMySQL implements MensajeDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call CREAR_MENSAJE"
-                    + "(?,?)}");
+                    + "(?,?,?,?,?)}");
             cs.registerOutParameter("_id_mensaje",
                     java.sql.Types.INTEGER);
             cs.setInt("_id_hilo", mensaje.getHilo().getIdHilo());
