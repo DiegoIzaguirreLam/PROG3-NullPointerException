@@ -15,15 +15,18 @@ public class CarteraMySQL implements CarteraDAO {
     private ResultSet rs;
     
     @Override
-    public int insertarCartera(Cartera cartera) {
+    public int asignarCarteraUsuario(int uid_usuario) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_CARTERA(?, ?, ?)}");
-            cs.setInt("_ID_CARTERA", cartera.getIdCartera());
-            cs.setDouble("_FONDOS", cartera.getFondos());
-            cs.setInt("_CANT_MOVIMIENTOS", cartera.getCantMovimientos());
-            resultado = cs.executeUpdate();
+            cs = con.prepareCall("{call INSERTAR_CARTERA(?, ?, ?, ?)}");
+            cs.registerOutParameter("_ID_CARTERA",
+                    java.sql.Types.INTEGER);
+            cs.setInt("_FID_USUARIO", uid_usuario);
+            cs.setDouble("_FONDOS", 0);
+            cs.setInt("_CANT_MOVIMIENTOS", 0);
+            cs.executeUpdate();
+            resultado = cs.getInt("_ID_CARTERA");
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{

@@ -11,7 +11,7 @@ import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
  * @author GAMER
  */
 public interface CarteraDAO {
-    int insertarCartera(Cartera cartera);
+    int asignarCarteraUsuario(int uid_usuario);
     int actualizarCartera(Cartera cartera);
     Cartera buscarCartera(int idCartera);
 }

@@ -20,12 +20,12 @@ import pe.edu.pucp.steam.usuario.jugador.mysql.CarteraMySQL;
 public class CarteraWS {
 
     /** This is a sample web service operation */
-    @WebMethod(operationName="insertarCartera")
-    public int insertarCartera(@WebParam(name="cartera") Cartera cartera) {
+    @WebMethod(operationName="asignarCarteraUsuario")
+    public int asignarCarteraUsuario(@WebParam(name = "uid_usuario") int uid_usuario) {
         int resultado=0;
         try{
             CarteraDAO carteraDao = new CarteraMySQL();
-            resultado = carteraDao.insertarCartera(cartera);
+            resultado = carteraDao.asignarCarteraUsuario(uid_usuario);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
