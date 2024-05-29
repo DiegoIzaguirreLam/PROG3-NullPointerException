@@ -51,7 +51,7 @@
         <!--Menu Lateral-->
         <div id="bdSidebar" class="sidebar d-flex flex-column p-3 bg-dark text-dark offcanvas-md offcanvas-start">
             <a href="#" class="navbar-brand">
-                <img src="Images/steam_logo.png" width="60" />
+                <img src="Images/logo_web.png" width="120"/>
             </a>
             <hr>
             <ul class="mynav nav nav-pills flex-column mb-auto">
@@ -74,8 +74,7 @@
             </ul>
             <hr>
             <div class="d-flex justify-content-center p-0">
-                <i class="fa-solid fa-book me-2"></i>
-                <img src="Images/valve_footer.png" width="60"/>
+                <img src="Images/volba_footer.png" width="120"/>
             </div>
         </div>
         <!-- Contenido Derecha -->
