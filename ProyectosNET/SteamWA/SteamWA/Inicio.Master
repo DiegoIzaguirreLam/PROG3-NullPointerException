@@ -33,8 +33,8 @@
             <div class="container-fluid">
                 <div class="ms-3">
                     <a class="navbar-brand d-md-block d-sm-block">
-                        <img src="Images/steam_logo.png" width="30" class="d-inline-block me-2" />
-                        STEAM
+                        <img src="Images/logo_web.png" width="50" class="d-inline-block" />
+                        STREAM
                     </a>
                 </div>
                 <form class="d-flex">
@@ -44,7 +44,7 @@
             </div>
         </nav>
         <!-- Contenido de la Página Web -->
-        <div class="text-gray bg-navy h-100" style="font-family: 'Montserrat'">
+        <div class="bg-navy h-100" style="font-family: 'Montserrat'">
             <form runat="server">
                 <asp:ContentPlaceHolder ID="cphContenido" runat="server">
                 </asp:ContentPlaceHolder>

@@ -11,11 +11,11 @@
                     <asp:Label ID="lblMensajeExito" runat="server" CssClass="alert alert-success" Visible="false" Width="100%" ></asp:Label>
                     <asp:Label ID="lblMensajeError" runat="server" CssClass="alert alert-danger" Visible="false" Width="100% "></asp:Label>
                 </div>
-                <div class="card">
-                    <div class="card-header">
-                        <strong>Iniciar sesión</strong>
-                    </div>
-                    <div class="card-body p-4">
+                <div class="card p-4">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h3><strong>INICIO DE SESIÓN</strong></h3>
+                        </div>
                         <div class="row gy-3 gy-md-4 overflow-hidden">
                             <div class="form-group col-12">
                                 <label id="lblNombreCuenta" class="form-label">Nombre de cuenta <span class="text-danger">*</span></label>

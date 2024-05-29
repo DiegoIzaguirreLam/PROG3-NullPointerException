@@ -6,7 +6,7 @@
     <script src="Scripts/Steam/Biblioteca.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div class="container">
+    <div class="container rounded-3 border-Gradient">
         <h1 class="mt-4 d-inline-block">Biblioteca de Productos</h1>
         <!-- dropdown checkbox con colecciones -->
         <div class="text-end">
@@ -27,25 +27,25 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownOrdenar">
                     <li>
-                        <asp:RadioButton ID="rbNombre" runat="server" GroupName="orderCriteria" Text="Por Nombre" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbNombre" runat="server" GroupName="orderCriteria" Text="Por Nombre" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbTiempo" runat="server" GroupName="orderCriteria" Text="Por Uso" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbTiempo" runat="server" GroupName="orderCriteria" Text="Por Uso" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbTam" runat="server" GroupName="orderCriteria" Text="Por Tamaño" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbTam" runat="server" GroupName="orderCriteria" Text="Por Tamaño" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbFechaPub" runat="server" GroupName="orderCriteria" Text="Por Recientes" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbFechaPub" runat="server" GroupName="orderCriteria" Text="Por Recientes" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbPrecio" runat="server" GroupName="orderCriteria" Text="Por Precio" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbPrecio" runat="server" GroupName="orderCriteria" Text="Por Precio" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                 </ul>
             </div>
         </div>
         <hr />
-        <div class="container d-flex">
+        <div class="container d-flex rounded-top rounded-bottom">
             <!-- parte izquierda: lista de programas -->
             <div class="col-md-4 me-4">
                 <!-- <h2>Listado de Programas</h2> -->
@@ -79,6 +79,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="mt-5">
+            <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Productos" />
         </div>
     </div>
 </asp:Content>

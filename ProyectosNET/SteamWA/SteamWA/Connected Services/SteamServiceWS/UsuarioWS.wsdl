@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/UsuarioWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="eliminarUsuario">
-    <part name="parameters" element="tns:eliminarUsuario" />
+  <message name="buscarUsuarioPorNombreCuenta">
+    <part name="parameters" element="tns:buscarUsuarioPorNombreCuenta" />
   </message>
-  <message name="eliminarUsuarioResponse">
-    <part name="parameters" element="tns:eliminarUsuarioResponse" />
+  <message name="buscarUsuarioPorNombreCuentaResponse">
+    <part name="parameters" element="tns:buscarUsuarioPorNombreCuentaResponse" />
   </message>
   <message name="actualizarUsuario">
     <part name="parameters" element="tns:actualizarUsuario" />
@@ -35,16 +35,16 @@
   <message name="insertarUsuarioResponse">
     <part name="parameters" element="tns:insertarUsuarioResponse" />
   </message>
-  <message name="buscarUsuarioPorNombreCuenta">
-    <part name="parameters" element="tns:buscarUsuarioPorNombreCuenta" />
+  <message name="eliminarUsuario">
+    <part name="parameters" element="tns:eliminarUsuario" />
   </message>
-  <message name="buscarUsuarioPorNombreCuentaResponse">
-    <part name="parameters" element="tns:buscarUsuarioPorNombreCuentaResponse" />
+  <message name="eliminarUsuarioResponse">
+    <part name="parameters" element="tns:eliminarUsuarioResponse" />
   </message>
   <portType name="UsuarioWS">
-    <operation name="eliminarUsuario">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
+    <operation name="buscarUsuarioPorNombreCuenta">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRequest" message="tns:buscarUsuarioPorNombreCuenta" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaResponse" message="tns:buscarUsuarioPorNombreCuentaResponse" />
     </operation>
     <operation name="actualizarUsuario">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
@@ -62,14 +62,14 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest" message="tns:insertarUsuario" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse" message="tns:insertarUsuarioResponse" />
     </operation>
-    <operation name="buscarUsuarioPorNombreCuenta">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRequest" message="tns:buscarUsuarioPorNombreCuenta" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaResponse" message="tns:buscarUsuarioPorNombreCuentaResponse" />
+    <operation name="eliminarUsuario">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
     </operation>
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarUsuario">
+    <operation name="buscarUsuarioPorNombreCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -114,7 +114,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="buscarUsuarioPorNombreCuenta">
+    <operation name="eliminarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

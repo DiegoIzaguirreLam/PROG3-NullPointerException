@@ -5,17 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/BandaSonoraWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarBandaSonoras">
-    <part name="parameters" element="tns:listarBandaSonoras" />
+  <message name="actualizarBandaSonora">
+    <part name="parameters" element="tns:actualizarBandaSonora" />
   </message>
-  <message name="listarBandaSonorasResponse">
-    <part name="parameters" element="tns:listarBandaSonorasResponse" />
-  </message>
-  <message name="buscarBandaSonora">
-    <part name="parameters" element="tns:buscarBandaSonora" />
-  </message>
-  <message name="buscarBandaSonoraResponse">
-    <part name="parameters" element="tns:buscarBandaSonoraResponse" />
+  <message name="actualizarBandaSonoraResponse">
+    <part name="parameters" element="tns:actualizarBandaSonoraResponse" />
   </message>
   <message name="eliminarBandaSonora">
     <part name="parameters" element="tns:eliminarBandaSonora" />
@@ -29,20 +23,22 @@
   <message name="insertarBandaSonoraResponse">
     <part name="parameters" element="tns:insertarBandaSonoraResponse" />
   </message>
-  <message name="actualizarBandaSonora">
-    <part name="parameters" element="tns:actualizarBandaSonora" />
+  <message name="listarBandaSonoras">
+    <part name="parameters" element="tns:listarBandaSonoras" />
   </message>
-  <message name="actualizarBandaSonoraResponse">
-    <part name="parameters" element="tns:actualizarBandaSonoraResponse" />
+  <message name="listarBandaSonorasResponse">
+    <part name="parameters" element="tns:listarBandaSonorasResponse" />
+  </message>
+  <message name="buscarBandaSonora">
+    <part name="parameters" element="tns:buscarBandaSonora" />
+  </message>
+  <message name="buscarBandaSonoraResponse">
+    <part name="parameters" element="tns:buscarBandaSonoraResponse" />
   </message>
   <portType name="BandaSonoraWS">
-    <operation name="listarBandaSonoras">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest" message="tns:listarBandaSonoras" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasResponse" message="tns:listarBandaSonorasResponse" />
-    </operation>
-    <operation name="buscarBandaSonora">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraRequest" message="tns:buscarBandaSonora" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraResponse" message="tns:buscarBandaSonoraResponse" />
+    <operation name="actualizarBandaSonora">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraRequest" message="tns:actualizarBandaSonora" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraResponse" message="tns:actualizarBandaSonoraResponse" />
     </operation>
     <operation name="eliminarBandaSonora">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraRequest" message="tns:eliminarBandaSonora" />
@@ -52,23 +48,18 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraRequest" message="tns:insertarBandaSonora" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraResponse" message="tns:insertarBandaSonoraResponse" />
     </operation>
-    <operation name="actualizarBandaSonora">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraRequest" message="tns:actualizarBandaSonora" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraResponse" message="tns:actualizarBandaSonoraResponse" />
+    <operation name="listarBandaSonoras">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest" message="tns:listarBandaSonoras" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasResponse" message="tns:listarBandaSonorasResponse" />
+    </operation>
+    <operation name="buscarBandaSonora">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraRequest" message="tns:buscarBandaSonora" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraResponse" message="tns:buscarBandaSonoraResponse" />
     </operation>
   </portType>
   <binding name="BandaSonoraWSPortBinding" type="tns:BandaSonoraWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarBandaSonoras">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarBandaSonora">
+    <operation name="actualizarBandaSonora">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +86,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarBandaSonora">
+    <operation name="listarBandaSonoras">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarBandaSonora">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -34,7 +34,7 @@ public class SubforoMySQL implements SubforoDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call CREAR_SUBFORO"
-                    + "(?,?)}");
+                    + "(?,?,?)}");
             cs.registerOutParameter("_id_subforo",
                     java.sql.Types.INTEGER);
             cs.setInt("_id_foro", subforo.getForo().getIdForo());

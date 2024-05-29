@@ -13,6 +13,9 @@ namespace SteamWA
     {
         private UsuarioWSClient daoUsuario;
         private PaisWSClient daoPais;
+        private BibliotecaWSClient daoBiblioteca;
+        private CarteraWSClient daoCartera;
+        private PerfilWSClient daoPerfil;
         private usuario usuario;
         private BindingList<pais> paises;
         protected void Page_Load(object sender, EventArgs e)
@@ -24,6 +27,9 @@ namespace SteamWA
         {
             daoUsuario = new UsuarioWSClient();
             daoPais = new PaisWSClient();
+            daoBiblioteca = new BibliotecaWSClient();
+            daoCartera = new CarteraWSClient();
+            daoPerfil = new PerfilWSClient();
             paises = new BindingList<pais>(daoPais.listarPaises().ToList());
             ddlPaises.DataTextField = "nombre";
             ddlPaises.DataValueField = "idPais";
@@ -47,16 +53,19 @@ namespace SteamWA
                 usuario.edad = Int32.Parse(txtEdad.Text);
                 usuario.pais = new pais();
                 usuario.pais.idPais = Int32.Parse(ddlPaises.SelectedValue);
-                int resultado = daoUsuario.insertarUsuario(usuario);
-                if (resultado != 0)
+                int UID = daoUsuario.insertarUsuario(usuario);
+                if (UID!=0)
                 {
+                    int resultado = daoBiblioteca.asignarBibliotecaUsuario(UID);
+                    //int resultado2 = daoCartera.asignarCarteraUsuario(UID);
+                    //int resultado3 = daoPerfil.asignarPerfilUsuario(UID);
                     Response.Redirect("Login.aspx?accion=registrado");
                 }
-                else
-                {
-                    lblMensajeError.Visible = true;
-                    lblMensajeError.Text = "Ocurrió un error. Vuelva a intentarlo";
-                }
+                //else
+                //{
+                //    lblMensajeError.Visible = true;
+                //    lblMensajeError.Text = "Ocurrió un error. Vuelva a intentarlo";
+                //}
             }
             else
             {

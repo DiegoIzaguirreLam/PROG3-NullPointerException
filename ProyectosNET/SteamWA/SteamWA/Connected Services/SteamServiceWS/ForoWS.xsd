@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://main.services.steam.pucp.edu.pe/" targetNamespace="http://main.services.steam.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="buscarForos" type="tns:buscarForos" />
+  <xs:element name="buscarForosResponse" type="tns:buscarForosResponse" />
   <xs:element name="editarForo" type="tns:editarForo" />
   <xs:element name="editarForoResponse" type="tns:editarForoResponse" />
   <xs:element name="eliminarForo" type="tns:eliminarForo" />
   <xs:element name="eliminarForoResponse" type="tns:eliminarForoResponse" />
   <xs:element name="insertarForo" type="tns:insertarForo" />
   <xs:element name="insertarForoResponse" type="tns:insertarForoResponse" />
+  <xs:element name="listarCreados" type="tns:listarCreados" />
+  <xs:element name="listarCreadosResponse" type="tns:listarCreadosResponse" />
   <xs:element name="listarForos" type="tns:listarForos" />
   <xs:element name="listarForosResponse" type="tns:listarForosResponse" />
-  <xs:complexType name="listarForos">
-    <xs:sequence />
+  <xs:element name="listarForosSuscritos" type="tns:listarForosSuscritos" />
+  <xs:element name="listarForosSuscritosResponse" type="tns:listarForosSuscritosResponse" />
+  <xs:complexType name="buscarForos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarForosResponse">
+  <xs:complexType name="buscarForosResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:foro" />
     </xs:sequence>
@@ -23,6 +31,7 @@
       <xs:element name="idCreador" type="xs:int" />
       <xs:element name="idForo" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCreador" type="xs:string" />
       <xs:element name="oculto" type="xs:boolean" />
       <xs:element minOccurs="0" name="origen" type="tns:origenForo" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="subforos" nillable="true" type="tns:subforo" />
@@ -67,6 +76,24 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="respuestas" nillable="true" type="tns:mensaje" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarForos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarForosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:foro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarForosSuscritos">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarForosSuscritosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:foro" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="eliminarForo">
     <xs:sequence>
       <xs:element minOccurs="0" name="foro" type="tns:foro" />
@@ -75,6 +102,16 @@
   <xs:complexType name="eliminarForoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCreados">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCreadosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:foro" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="editarForo">

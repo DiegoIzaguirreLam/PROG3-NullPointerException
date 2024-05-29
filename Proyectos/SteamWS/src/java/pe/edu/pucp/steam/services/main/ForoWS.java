@@ -66,4 +66,40 @@ public class ForoWS {
         }
         return resultado;
     }
+    
+    @WebMethod(operationName="buscarForos")
+    public ArrayList<Foro> buscarForos(@WebParam(name="nombre") String nombre) {
+        ArrayList<Foro> foros = new ArrayList<>();
+        try{
+            ForoDAO foroDao = new ForoMySQL();
+            foros = foroDao.buscarForos(nombre);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return foros;
+    }
+    
+    @WebMethod(operationName="listarCreados")
+    public ArrayList<Foro> listarCreados(@WebParam(name="nombre") int idUser) {
+        ArrayList<Foro> foros = new ArrayList<>();
+        try{
+            ForoDAO foroDao = new ForoMySQL();
+            foros = foroDao.listarCreados(idUser);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return foros;
+    }
+    
+    @WebMethod(operationName="listarForosSuscritos")
+    public ArrayList<Foro> listarForosSuscritos(@WebParam(name="nombre") int idUser) {
+        ArrayList<Foro> foros = new ArrayList<>();
+        try{
+            ForoDAO foroDao = new ForoMySQL();
+            foros = foroDao.listarSuscritos(idUser);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return foros;
+    }
 }

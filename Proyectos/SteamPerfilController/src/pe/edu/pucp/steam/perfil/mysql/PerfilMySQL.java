@@ -20,15 +20,17 @@ public class PerfilMySQL implements PerfilDAO{
     private ResultSet rs;
 
     @Override
-    public int insertarPerfil(Perfil perfil) {
+    public int asignarPerfilUsuario(int uid_usuario) {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_PERFIL(?)}");
-            cs.setInt("_id_perfil", perfil.getIdPerfil());
-            cs.setString("_foto_url", perfil.getFotoUrl());
+            cs = con.prepareCall("{call INSERTAR_PERFIL(?,?,?)}");
+            cs.registerOutParameter("_id_perfil",
+                    java.sql.Types.INTEGER);
+            cs.setInt("_fid_usuario", uid_usuario);
+            cs.setString("_foto_url", "[foto por defecto]");
             cs.executeUpdate();
-            resultado = 1;
+            resultado = cs.getInt("_id_perfil");
             cs.close();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

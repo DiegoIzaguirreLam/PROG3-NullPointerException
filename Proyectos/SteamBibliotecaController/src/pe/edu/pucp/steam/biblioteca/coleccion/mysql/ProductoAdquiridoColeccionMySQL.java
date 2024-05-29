@@ -7,13 +7,7 @@ package pe.edu.pucp.steam.biblioteca.coleccion.mysql;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import pe.edu.pucp.steam.biblioteca.coleccion.dao.ProductoAdquiridoColeccionDAO;
-import pe.edu.pucp.steam.biblioteca.producto.model.BandaSonora;
-import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
-import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
-import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
-import pe.edu.pucp.steam.biblioteca.producto.model.Software;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
@@ -60,6 +54,4 @@ public class ProductoAdquiridoColeccionMySQL implements ProductoAdquiridoColecci
         }
         return resultado;
     }
-    
-    
 }

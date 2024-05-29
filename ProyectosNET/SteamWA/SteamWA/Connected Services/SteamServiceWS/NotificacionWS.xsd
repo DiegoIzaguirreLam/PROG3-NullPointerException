@@ -194,6 +194,7 @@
       <xs:element name="idCreador" type="xs:int" />
       <xs:element name="idForo" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCreador" type="xs:string" />
       <xs:element name="oculto" type="xs:boolean" />
       <xs:element minOccurs="0" name="origen" type="tns:origenForo" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="subforos" nillable="true" type="tns:subforo" />
@@ -279,6 +280,7 @@
       <xs:element minOccurs="0" name="fechaCambio" type="xs:dateTime" />
       <xs:element name="idTipoMoneda" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="simbolo" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarNotificacionResponse">

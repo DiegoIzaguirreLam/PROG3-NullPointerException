@@ -1,4 +1,13 @@
 DROP PROCEDURE IF EXISTS CREAR_FORO;
+DROP PROCEDURE IF EXISTS LISTAR_FOROS;
+DROP PROCEDURE IF EXISTS BUSCAR_FORO;
+DROP PROCEDURE IF EXISTS LISTAR_CREADOS;
+DROP PROCEDURE IF EXISTS LISTAR_SUSCRITOS;
+DROP PROCEDURE IF EXISTS MOSTRAR_SUBFOROS_POR_FORO;
+DROP PROCEDURE IF EXISTS EDITAR_FORO;
+DROP PROCEDURE IF EXISTS DESACTIVAR_FORO;
+DROP PROCEDURE IF EXISTS ELIMINAR_FORO;
+
 DELIMITER $ 
 CREATE PROCEDURE CREAR_FORO(
 	OUT _id_foro INT ,
@@ -15,14 +24,32 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS LISTAR_FOROS;
 CREATE PROCEDURE LISTAR_FOROS()
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE f.es_creador = 1 AND activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1;
 END$
 
-DROP PROCEDURE IF EXISTS MOSTRAR_SUBFOROS_POR_FORO;
-DELIMITER $ 
+CREATE PROCEDURE BUSCAR_FORO(
+	IN _nombre VARCHAR(100)
+)
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1 AND nombre LIKE CONCAT('%',_nombre,'%');
+END$
+
+CREATE PROCEDURE LISTAR_CREADOS(
+	IN _iduser INT
+)
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1 AND f.fid_usuario = _iduser;
+END$
+
+CREATE PROCEDURE LISTAR_SUSCRITOS(
+	IN _iduser INT
+)
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND activo = 1;
+END$
+
 CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(
 	in _id_foro INT 
 )
@@ -32,9 +59,6 @@ BEGIN
 
 END $
 
-
-DROP PROCEDURE IF EXISTS EDITAR_FORO;
-DELIMITER $ 
 CREATE PROCEDURE EDITAR_FORO(
 	IN _id_foro INT,
 	IN _nombre VARCHAR(100),
@@ -49,8 +73,6 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS DESACTIVAR_FORO;
-DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_FORO(
 	IN _id_foro INT
 )
@@ -60,8 +82,6 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS ELIMINAR_FORO;
-DELIMITER $ 
 CREATE PROCEDURE ELIMINAR_FORO(
 	IN _id_foro INT
 )

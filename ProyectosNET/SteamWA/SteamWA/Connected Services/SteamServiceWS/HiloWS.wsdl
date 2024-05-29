@@ -5,6 +5,18 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/HiloWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="editarHilo">
+    <part name="parameters" element="tns:editarHilo" />
+  </message>
+  <message name="editarHiloResponse">
+    <part name="parameters" element="tns:editarHiloResponse" />
+  </message>
+  <message name="mostrarHilosSubforo">
+    <part name="parameters" element="tns:mostrarHilosSubforo" />
+  </message>
+  <message name="mostrarHilosSubforoResponse">
+    <part name="parameters" element="tns:mostrarHilosSubforoResponse" />
+  </message>
   <message name="insertarHilo">
     <part name="parameters" element="tns:insertarHilo" />
   </message>
@@ -17,19 +29,15 @@
   <message name="eliminarHiloResponse">
     <part name="parameters" element="tns:eliminarHiloResponse" />
   </message>
-  <message name="mostrarHilosSubforo">
-    <part name="parameters" element="tns:mostrarHilosSubforo" />
-  </message>
-  <message name="mostrarHilosSubforoResponse">
-    <part name="parameters" element="tns:mostrarHilosSubforoResponse" />
-  </message>
-  <message name="editarHilo">
-    <part name="parameters" element="tns:editarHilo" />
-  </message>
-  <message name="editarHiloResponse">
-    <part name="parameters" element="tns:editarHiloResponse" />
-  </message>
   <portType name="HiloWS">
+    <operation name="editarHilo">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/editarHiloRequest" message="tns:editarHilo" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/editarHiloResponse" message="tns:editarHiloResponse" />
+    </operation>
+    <operation name="mostrarHilosSubforo">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest" message="tns:mostrarHilosSubforo" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse" message="tns:mostrarHilosSubforoResponse" />
+    </operation>
     <operation name="insertarHilo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/insertarHiloRequest" message="tns:insertarHilo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/insertarHiloResponse" message="tns:insertarHiloResponse" />
@@ -38,17 +46,27 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloRequest" message="tns:eliminarHilo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloResponse" message="tns:eliminarHiloResponse" />
     </operation>
-    <operation name="mostrarHilosSubforo">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest" message="tns:mostrarHilosSubforo" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse" message="tns:mostrarHilosSubforoResponse" />
-    </operation>
-    <operation name="editarHilo">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/editarHiloRequest" message="tns:editarHilo" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/editarHiloResponse" message="tns:editarHiloResponse" />
-    </operation>
   </portType>
   <binding name="HiloWSPortBinding" type="tns:HiloWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="editarHilo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="mostrarHilosSubforo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertarHilo">
       <soap:operation soapAction="" />
       <input>
@@ -59,24 +77,6 @@
       </output>
     </operation>
     <operation name="eliminarHilo">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="mostrarHilosSubforo">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="editarHilo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
