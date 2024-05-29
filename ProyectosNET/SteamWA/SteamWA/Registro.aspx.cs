@@ -57,8 +57,8 @@ namespace SteamWA
                 if (UID!=0)
                 {
                     int resultado = daoBiblioteca.asignarBibliotecaUsuario(UID);
-                    int resultado2 = daoCartera.asignarCarteraUsuario(UID);
-                    int resultado3 = daoPerfil.asignarPerfilUsuario(UID);
+                    //int resultado2 = daoCartera.asignarCarteraUsuario(UID);
+                    //int resultado3 = daoPerfil.asignarPerfilUsuario(UID);
                     Response.Redirect("Login.aspx?accion=registrado");
                 }
                 //else
