@@ -12,7 +12,6 @@ namespace SteamWA
 {
     public partial class GestionarColeccion : System.Web.UI.Page
     {
-        private usuario usuario;
         private ColeccionWSClient daoColeccion;
         private ProductoAdquiridoColeccionWSClient daoProductoAdquiridoColeccion;
         private BindingList<productoAdquirido> productosAdquiridos;
@@ -23,11 +22,7 @@ namespace SteamWA
 
         protected void Page_Init(object sender, EventArgs e) //terminar coleccion: soporte a caso insertar/modificar
         {
-            if (Session["usuario"] != null)
-            {
-                usuario = (usuario)Session["usuario"];
-            }
-            else
+            if (Session["usuario"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
@@ -114,6 +109,10 @@ namespace SteamWA
             if (estado == Estado.NUEVO)
             {
                 resultado = daoColeccion.insertarColeccion(coleccionS);
+                if (resultado!=0)
+                {
+                    coleccionS.idColeccion = resultado;
+                }
             }
             else
             {
@@ -126,14 +125,14 @@ namespace SteamWA
         protected void guardaProductosAdquiridosColeccion()
         {
             int resultado = 0;
-            // Iterar a través de las filas de la tabla
+            // iterar filas de la tabla
             foreach (HtmlTableRow fila in tablaProductos.Rows)
             {
                 HtmlTableCell celdaCheckbox = fila.Cells[0];
-                // Buscar el control CheckBox en la primera celda de la fila
+                // buscar el checkbox que esta al inicio de la celda
                 CheckBox checkbox = celdaCheckbox.Controls.OfType<CheckBox>().FirstOrDefault();
                 int idProductoAdquirido = int.Parse(checkbox.Attributes["idProductoAdquirido"]);
-                // Verificar si el checkbox está marcado
+                // si el checkbox está marcado
                 if (checkbox.Checked)
                 {
                     if (productosEnColeccion != null && productosEnColeccion.SingleOrDefault(x => x.idProductoAdquirido == idProductoAdquirido)!=null) // si ya esta en la coleccion
@@ -147,7 +146,7 @@ namespace SteamWA
                         idProductoAdquirido);
                     }
                 }
-                else //si está eliminando un producto
+                else //si no esta marcado, se elimina el producto si que fue desmarcado
                 {
                     if(estado == Estado.ACTUALIZAR && productosEnColeccion!=null 
                         && productosEnColeccion.SingleOrDefault(x => x.idProductoAdquirido == idProductoAdquirido)!=null)
