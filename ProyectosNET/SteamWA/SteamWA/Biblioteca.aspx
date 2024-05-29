@@ -36,7 +36,7 @@
                         <asp:RadioButton ID="rbTam" runat="server" GroupName="orderCriteria" Text="Por Tamaño" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbFechaPub" runat="server" GroupName="orderCriteria" Text="Por Fecha Publicado" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbFechaPub" runat="server" GroupName="orderCriteria" Text="Por Recientes" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
                         <asp:RadioButton ID="rbPrecio" runat="server" GroupName="orderCriteria" Text="Por Precio" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
@@ -55,30 +55,30 @@
             <!-- línea divisoria vertical -->
             <div class="border-end p-2"></div>
             <!-- parte derecha: información del programa seleccionado -->
-                    <div class="col-md-8 p-4">
-                        <div id="infoPrograma" runat="server" style="display: none;">
-                            <!-- Imagen del juego -->
-                            <div class="justify-content-center">
-                                <img id="imgPrograma" runat="server" width="650" alt="Portada del juego">
-                            </div>
-                            <!-- Información del juego -->
-                            <div class="program-info">
-                                <h3 id="txtTituloPrograma" runat="server">Titulo del Juego</h3>
-                                <p id="txtDescripcionPrograma" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</p>
-                                <p id="txtFechaEjecucionPrograma" runat="server"></p>
-                                <p id="txtTiempoUsoPrograma" runat="server"></p>
-                                <p id="txtActualizadoPrograma" runat="server"></p>
-                                <!-- Contenedor de logros y botón para jugar -->
-                                <div class="d-flex flex-column">
-                                    <!-- Botón para eliminar -->
-                                    <div id="divBotonesPrograma" runat="server">
-                                        <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-primary btn-dark" Text="<i class='fa-solid fa-gamepad'></i> Logros" OnClick="lbLogros_Click" />
-                                        <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-success" Text="Jugar" />
-                                    </div>
-                                </div>
+            <div class="col-md-8 p-4">
+                <div id="infoPrograma" runat="server" style="display: none;">
+                    <!-- Imagen del juego -->
+                    <div class="justify-content-center">
+                        <img id="imgPrograma" runat="server" width="650" alt="Portada del juego">
+                    </div>
+                    <!-- Información del juego -->
+                    <div class="program-info">
+                        <h3 id="txtTituloPrograma" runat="server">Titulo del Juego</h3>
+                        <p id="txtDescripcionPrograma" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</p>
+                        <p id="txtFechaEjecucionPrograma" runat="server"></p>
+                        <p id="txtTiempoUsoPrograma" runat="server"></p>
+                        <p id="txtActualizadoPrograma" runat="server"></p>
+                        <!-- Contenedor de logros y botón para jugar -->
+                        <div class="d-flex flex-column">
+                            <!-- Botón para eliminar -->
+                            <div id="divBotonesPrograma" runat="server">
+                                <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-primary btn-dark" Text="<i class='fa-solid fa-gamepad'></i> Logros" OnClick="lbLogros_Click" />
+                                <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-success" Text="Jugar" />
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>

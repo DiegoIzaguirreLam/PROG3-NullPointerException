@@ -114,17 +114,11 @@ replay_pid*
 /Proyectos/SteamBibliotecaController/build/
 /Proyectos/SteamBibliotecaModel/build/
 /Proyectos/SteamDBManager/build/
-<<<<<<< HEAD
-/Proyectos/SteamInventarioController/build
 /Proyectos/SteamComunidadModel/build/
 /Proyectos/SteamComunidadController/build/
-/Proyectos/SteamInventarioModel/build/
 /Proyectos/SteamPerfilController/build/
-=======
 /Proyectos/SteamUsuarioController/build/
 /Proyectos/SteamUsuarioModel/build/
-/Proyectos/SteamInventarioModel/build/
->>>>>>> f4da093df441c57213195d92563e4f8e620e6e49
 /Proyectos/SteamPerfilModel/build/
 /Proyectos/SteamUsuarioModel/dist/
 /Proyectos/SteamPerfilController/dist/
@@ -138,7 +132,5 @@ replay_pid*
 !/Proyectos/SteamWA/src/java/pe/edu/pucp/steam/services/lib/mysql-connector-j-8.3.0.jar
 !/Proyectos/SteamWS/src/java/pe/edu/pucp/steam/services/lib/mysql-connector-j-8.3.0.jar
 !/Proyectos/SteamWS/src/java/pe/edu/pucp/steam/services/lib/jakarta.xml.ws-api-4.0.1.jar
-/Proyectos/SteamPerfilController/nbproject/
-/Proyectos/SteamWS/nbproject/
-/Proyectos/SteamWS/nbproject/
-/Proyectos/SteamWS/nbproject/
+/Proyectos/SteamPerfilController/nbproject/private/
+/Proyectos/SteamWS/nbproject/private/

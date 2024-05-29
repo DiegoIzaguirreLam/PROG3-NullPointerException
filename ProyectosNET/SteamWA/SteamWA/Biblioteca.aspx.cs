@@ -18,7 +18,6 @@ namespace SteamWA
         private BindingList<productoAdquirido> productosAdquiridos;
         private BindingList<productoAdquirido> productosColecciones;
         private ColeccionWSClient daoColeccion;
-        private ProductoAdquiridoColeccionWSClient daoProductoAdquiridoColeccion;
         private BindingList<coleccion> colecciones;
         private BibliotecaWSClient daoBiblioteca;
         private int nColeccionesActivas;
@@ -36,7 +35,6 @@ namespace SteamWA
             daoProductoAdquirido = new ProductoAdquiridoWSClient();
             daoColeccion = new ColeccionWSClient();
             daoBiblioteca = new BibliotecaWSClient();
-            daoProductoAdquiridoColeccion = new ProductoAdquiridoColeccionWSClient();
             productosColecciones = new BindingList<productoAdquirido>();
             //idBiblioteca = 1;
             if (!IsPostBack)
@@ -135,40 +133,38 @@ namespace SteamWA
 
         protected void generarListaColecciones()
         {
-            foreach(coleccion coleccion in colecciones)
+            if (colecciones != null)
             {
-                // Creamos un nuevo elemento de lista
-                HtmlGenericControl listItem = new HtmlGenericControl("li");
-
-                // Creamos un nuevo enlace para el elemento de lista
-                HtmlAnchor link = new HtmlAnchor();
-                link.Attributes.Add("class", "dropdown-item");
-                link.HRef = "#";
-
-                // Creamos el checkbox
-                CheckBox checkbox = new CheckBox();
-                checkbox.ID = "chk" + coleccion.idColeccion.ToString(); // Asignamos un ID único al checkbox
-                checkbox.Text = coleccion.nombre;
-                checkbox.CheckedChanged += CheckBox_CheckedChanged;
-                checkbox.AutoPostBack = true;
-
-                // Creamos el icono para editar la colección
-                LinkButton linkButton = new LinkButton
+                foreach (coleccion coleccion in colecciones)
                 {
-                    ID = "lbColeccion" + coleccion.idColeccion,
-                    Text = "<i class='fa-solid fa-pen-to-square'></i>",
-                    CssClass = "text-decoration-none text-dark justify-content-end",
-                    CommandArgument = coleccion.idColeccion.ToString()
-                };
-                linkButton.Click += lbColeccion_Click;
+                    HtmlGenericControl listItem = new HtmlGenericControl("li");
 
-                // Agregamos el enlace al elemento de lista
-                listItem.Controls.Add(checkbox);
-                listItem.Controls.Add(new Literal { Text = " " });
-                listItem.Controls.Add(linkButton);
+                    HtmlAnchor link = new HtmlAnchor();
+                    link.Attributes.Add("class", "dropdown-item");
+                    link.HRef = "#";
 
-                // Agregamos el elemento de lista a la lista desplegable
-                ddlColecciones.Controls.Add(listItem);
+                    CheckBox checkbox = new CheckBox();
+                    checkbox.ID = "chk" + coleccion.idColeccion.ToString(); // Asignamos un ID único al checkbox
+                    checkbox.Text = coleccion.nombre;
+                    checkbox.CheckedChanged += CheckBox_CheckedChanged;
+                    checkbox.AutoPostBack = true;
+
+                    LinkButton linkButton = new LinkButton
+                    {
+                        ID = "lbColeccion" + coleccion.idColeccion,
+                        Text = "<i class='fa-solid fa-pen-to-square'></i>",
+                        CssClass = "text-decoration-none text-dark justify-content-end",
+                        CommandArgument = coleccion.idColeccion.ToString()
+                    };
+                    linkButton.Click += lbColeccion_Click;
+
+                    // Agregamos el enlace al elemento de lista
+                    listItem.Controls.Add(checkbox);
+                    listItem.Controls.Add(new Literal { Text = " " });
+                    listItem.Controls.Add(linkButton);
+
+                    ddlColecciones.Controls.Add(listItem);
+                }
             }
             HtmlGenericControl newItem = new HtmlGenericControl("li");
             HtmlAnchor newCollectionLink = new HtmlAnchor();
@@ -315,7 +311,6 @@ namespace SteamWA
             Session["productosAdquiridos"] = productosAdquiridos;
             generarListaProductosAdquiridos();
         }
-
         
     }
 }

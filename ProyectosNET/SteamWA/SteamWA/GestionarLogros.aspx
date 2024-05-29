@@ -41,7 +41,7 @@
                 <asp:BoundField HeaderText="Descripcion" />
                 <asp:TemplateField ItemStyle-CssClass="text-end">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-check ps-2' style='color:#4BB543'></i>" CommandArgument='<%# Eval("idLogro") %>' OnClick="btnDesbloquearLogro_Click" />
+                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-check-double ps-2' style='color:#4BB543'></i>" CommandArgument='<%# Eval("idLogro") %>' OnClick="btnDesbloquearLogro_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

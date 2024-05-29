@@ -19,19 +19,18 @@ namespace SteamWA
         private BindingList<productoAdquirido> productosEnColeccion;
         private coleccion coleccionS;
         private Estado estado;
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            //usuario usuario = (usuario)Session["usuario"];
-            //if(usuario == null)
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
-
-
-        }
+        
 
         protected void Page_Init(object sender, EventArgs e) //terminar coleccion: soporte a caso insertar/modificar
         {
+            if (Session["usuario"] != null)
+            {
+                usuario = (usuario)Session["usuario"];
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
             daoColeccion = new ColeccionWSClient();
             daoProductoAdquiridoColeccion = new ProductoAdquiridoColeccionWSClient();
             productosAdquiridos = (BindingList<productoAdquirido>)Session["productosAdquiridos"];
@@ -66,12 +65,12 @@ namespace SteamWA
 
         protected void generarTablaProductosAdquiridos()
         {
-            // Recorrer la lista de productos y agregar cada uno como una fila a la tabla
+            // recorrer la lista de productos y agregar cada uno como una fila a la tabla
             foreach (productoAdquirido producto in productosAdquiridos)
             {
                 HtmlTableRow fila = new HtmlTableRow();
 
-                // Agregar la celda para el checkbox
+                // agregar la celda para el checkbox
                 HtmlTableCell celdaCheckbox = new HtmlTableCell();
                 CheckBox checkbox = new CheckBox();
                 checkbox.ID = "chkProductoAdquirido" + producto.idProductoAdquirido; // Asignar un ID único
@@ -83,14 +82,14 @@ namespace SteamWA
                 }
                 celdaCheckbox.Controls.Add(checkbox);
 
-                // Agregar la celda para el nombre del producto
+                // agregar la celda para el nombre del producto
                 HtmlTableCell celdaNombre = new HtmlTableCell();
                 celdaNombre.InnerText = producto.producto.titulo;
 
                 fila.Cells.Add(celdaCheckbox);
                 fila.Cells.Add(celdaNombre);
 
-                // Agregar la fila a la tabla
+                // agregar la fila a la tabla
                 tablaProductos.Rows.Add(fila);
             }
         }
@@ -111,8 +110,7 @@ namespace SteamWA
             if (coleccionS == null) coleccionS = new coleccion();
             coleccionS.nombre = txtNombreColeccion.Value;
             coleccionS.biblioteca = new biblioteca();
-            //coleccionS.biblioteca.idBiblioteca = usuario.biblioteca.idBiblioteca;
-            coleccionS.biblioteca.idBiblioteca = 1;
+            coleccionS.biblioteca.idBiblioteca = (int)Session["idBiblioteca"];
             if (estado == Estado.NUEVO)
             {
                 resultado = daoColeccion.insertarColeccion(coleccionS);
