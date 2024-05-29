@@ -6,7 +6,7 @@
 <head runat="server">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Mi Web</title>
+    <title>STREAM</title>
     <link href="Images/logo_web.png" rel="icon"/>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
@@ -28,24 +28,6 @@
 </head>
 <body style="background-color:#24282f;">
     <asp:ContentPlaceHolder ID="cphScripts" runat="server">
-        <script>
-            // Obtener todos los elementos de la lista
-            var items = document.querySelectorAll('.mynav .nav-item');
-
-            // Iterar sobre cada elemento de la lista
-            items.forEach(function (item) {
-                // Agregar un evento de clic a cada elemento
-                item.addEventListener('click', function () {
-                    // Eliminar la clase 'active' de todos los elementos
-                    items.forEach(function (item) {
-                        item.classList.remove('active');
-                    });
-                    // Agregar la clase 'active' solo al elemento clickeado
-                    this.classList.add('active');
-                });
-            });
-            console.log(items);
-        </script>
     </asp:ContentPlaceHolder>
     <div class="container-fluid d-flex p-0 h-100">
         <!--Menu Lateral-->
