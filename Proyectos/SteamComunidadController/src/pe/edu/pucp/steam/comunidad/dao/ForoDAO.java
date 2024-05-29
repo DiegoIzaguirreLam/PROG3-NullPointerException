@@ -14,6 +14,9 @@ import pe.edu.pucp.steam.comunidad.model.Foro;
 public interface ForoDAO {
     int insertarForo(Foro foro);
     ArrayList<Foro> listarForos();
+    ArrayList<Foro> buscarForos(String nombre);
+    ArrayList<Foro> listarCreados(int idUser);
+    ArrayList<Foro> listarSuscritos(int idUser);
     int editarForo(Foro foro);
     int eliminarForo(Foro foro);
 }
