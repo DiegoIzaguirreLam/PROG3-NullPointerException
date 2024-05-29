@@ -93,4 +93,18 @@ public class UsuarioWS {
         }
         return usuario;
     }
+    
+    @WebMethod(operationName="buscarUsuarioPorId")
+    public Usuario buscarUsuarioPorId(@WebParam(name="uid") int uid) {
+        Usuario usuario = null;
+        
+        try{
+            UsuarioDAO usuarioDao = new UsuarioMySQL();
+            usuario = usuarioDao.buscarUsuarioPorId(uid);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return usuario;
+    }
 }

@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ColeccionWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarColeccionesPorBiblioteca">
-    <part name="parameters" element="tns:listarColeccionesPorBiblioteca" />
-  </message>
-  <message name="listarColeccionesPorBibliotecaResponse">
-    <part name="parameters" element="tns:listarColeccionesPorBibliotecaResponse" />
-  </message>
   <message name="actualizarColeccion">
     <part name="parameters" element="tns:actualizarColeccion" />
   </message>
   <message name="actualizarColeccionResponse">
     <part name="parameters" element="tns:actualizarColeccionResponse" />
+  </message>
+  <message name="listarColeccionesPorBiblioteca">
+    <part name="parameters" element="tns:listarColeccionesPorBiblioteca" />
+  </message>
+  <message name="listarColeccionesPorBibliotecaResponse">
+    <part name="parameters" element="tns:listarColeccionesPorBibliotecaResponse" />
   </message>
   <message name="eliminarColeccion">
     <part name="parameters" element="tns:eliminarColeccion" />
@@ -30,13 +30,13 @@
     <part name="parameters" element="tns:insertarColeccionResponse" />
   </message>
   <portType name="ColeccionWS">
-    <operation name="listarColeccionesPorBiblioteca">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRequest" message="tns:listarColeccionesPorBiblioteca" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaResponse" message="tns:listarColeccionesPorBibliotecaResponse" />
-    </operation>
     <operation name="actualizarColeccion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ColeccionWS/actualizarColeccionRequest" message="tns:actualizarColeccion" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/ColeccionWS/actualizarColeccionResponse" message="tns:actualizarColeccionResponse" />
+    </operation>
+    <operation name="listarColeccionesPorBiblioteca">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRequest" message="tns:listarColeccionesPorBiblioteca" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaResponse" message="tns:listarColeccionesPorBibliotecaResponse" />
     </operation>
     <operation name="eliminarColeccion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/ColeccionWS/eliminarColeccionRequest" message="tns:eliminarColeccion" />
@@ -49,7 +49,7 @@
   </portType>
   <binding name="ColeccionWSPortBinding" type="tns:ColeccionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarColeccionesPorBiblioteca">
+    <operation name="actualizarColeccion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarColeccion">
+    <operation name="listarColeccionesPorBiblioteca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

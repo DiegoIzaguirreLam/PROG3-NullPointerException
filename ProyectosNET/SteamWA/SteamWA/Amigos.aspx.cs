@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SteamWA.SteamServiceWS;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -12,23 +14,33 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Datos para simular
-            if (!IsPostBack)
-            {
-                DataTable dtAmigos = new DataTable();
-                dtAmigos.Columns.Add("UID", typeof(string));
-                dtAmigos.Columns.Add("NombrePerfil", typeof(string));
+            // Cargar los amigos del usuario
+            if (!IsPostBack) cargarAmigos();
 
-                dtAmigos.Rows.Add("1", "Amigo 1");
-                dtAmigos.Rows.Add("2", "Amigo 2");
-                dtAmigos.Rows.Add("3", "Amigo 3");
-                dtAmigos.Rows.Add("4", "Amigo 4");
-
-                lvAmigos.DataSource = dtAmigos;
-                lvAmigos.DataBind();
-            }
             Steam master = (Steam)this.Master;
             master.ItemAmigos.Attributes["class"] = "active";
+        }
+
+        protected void cargarAmigos()
+        {
+            int idUsuario = ((usuario)Session["usuario"]).UID;
+
+            RelacionWSClient daoRelacion = new RelacionWSClient();
+            BindingList<usuario> amigos = new BindingList<usuario>
+                (daoRelacion.listarAmigosPorUsuario(idUsuario));
+
+            DataTable dtAmigos = new DataTable();
+
+            dtAmigos.Columns.Add("UID", typeof(int));
+            dtAmigos.Columns.Add("NombrePerfil", typeof(string));
+
+            foreach (usuario amigo in amigos)
+            {
+                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil);
+            }
+
+            lvAmigos.DataSource = dtAmigos;
+            lvAmigos.DataBind();
         }
 
         protected void btnAgregarAmigo_Click(object sender, EventArgs e)

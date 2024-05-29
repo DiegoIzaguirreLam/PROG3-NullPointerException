@@ -72,7 +72,7 @@ CREATE TABLE Usuario(
     FOREIGN KEY(fid_pais) REFERENCES Pais(id_pais)
 )ENGINE=InnoDB;
 
-CREATE TABLE Relacion(
+CREATE TABLE Relacion (
 	fid_usuarioa INT NOT NULL,
 	fid_usuariob INT NOT NULL,
 	amistad TINYINT NOT NULL,

@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/RelacionWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="listarAmigosPorUsuario">
+    <part name="parameters" element="tns:listarAmigosPorUsuario" />
+  </message>
+  <message name="listarAmigosPorUsuarioResponse">
+    <part name="parameters" element="tns:listarAmigosPorUsuarioResponse" />
+  </message>
   <message name="bloquearUsuario">
     <part name="parameters" element="tns:bloquearUsuario" />
   </message>
@@ -24,6 +30,10 @@
     <part name="parameters" element="tns:eliminarAmigoResponse" />
   </message>
   <portType name="RelacionWS">
+    <operation name="listarAmigosPorUsuario">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/RelacionWS/listarAmigosPorUsuarioRequest" message="tns:listarAmigosPorUsuario" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/RelacionWS/listarAmigosPorUsuarioResponse" message="tns:listarAmigosPorUsuarioResponse" />
+    </operation>
     <operation name="bloquearUsuario">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest" message="tns:bloquearUsuario" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse" message="tns:bloquearUsuarioResponse" />
@@ -39,6 +49,15 @@
   </portType>
   <binding name="RelacionWSPortBinding" type="tns:RelacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarAmigosPorUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="bloquearUsuario">
       <soap:operation soapAction="" />
       <input>

@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/GestorSancionesWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarGestor">
-    <part name="parameters" element="tns:insertarGestor" />
-  </message>
-  <message name="insertarGestorResponse">
-    <part name="parameters" element="tns:insertarGestorResponse" />
-  </message>
   <message name="actualizarGestor">
     <part name="parameters" element="tns:actualizarGestor" />
   </message>
@@ -23,11 +17,13 @@
   <message name="buscarGestorResponse">
     <part name="parameters" element="tns:buscarGestorResponse" />
   </message>
+  <message name="insertarGestor">
+    <part name="parameters" element="tns:insertarGestor" />
+  </message>
+  <message name="insertarGestorResponse">
+    <part name="parameters" element="tns:insertarGestorResponse" />
+  </message>
   <portType name="GestorSancionesWS">
-    <operation name="insertarGestor">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/insertarGestorRequest" message="tns:insertarGestor" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/insertarGestorResponse" message="tns:insertarGestorResponse" />
-    </operation>
     <operation name="actualizarGestor">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/actualizarGestorRequest" message="tns:actualizarGestor" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/actualizarGestorResponse" message="tns:actualizarGestorResponse" />
@@ -36,18 +32,13 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/buscarGestorRequest" message="tns:buscarGestor" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/buscarGestorResponse" message="tns:buscarGestorResponse" />
     </operation>
+    <operation name="insertarGestor">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/insertarGestorRequest" message="tns:insertarGestor" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/GestorSancionesWS/insertarGestorResponse" message="tns:insertarGestorResponse" />
+    </operation>
   </portType>
   <binding name="GestorSancionesWSPortBinding" type="tns:GestorSancionesWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarGestor">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="actualizarGestor">
       <soap:operation soapAction="" />
       <input>
@@ -58,6 +49,15 @@
       </output>
     </operation>
     <operation name="buscarGestor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarGestor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

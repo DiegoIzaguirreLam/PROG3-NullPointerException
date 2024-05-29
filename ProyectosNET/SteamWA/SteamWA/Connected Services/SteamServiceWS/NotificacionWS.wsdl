@@ -5,18 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/NotificacionWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="eliminarNotificacion">
-    <part name="parameters" element="tns:eliminarNotificacion" />
-  </message>
-  <message name="eliminarNotificacionResponse">
-    <part name="parameters" element="tns:eliminarNotificacionResponse" />
-  </message>
-  <message name="insertarNotificacion">
-    <part name="parameters" element="tns:insertarNotificacion" />
-  </message>
-  <message name="insertarNotificacionResponse">
-    <part name="parameters" element="tns:insertarNotificacionResponse" />
-  </message>
   <message name="actualizarNotificacion">
     <part name="parameters" element="tns:actualizarNotificacion" />
   </message>
@@ -29,15 +17,19 @@
   <message name="listarNotificacionesResponse">
     <part name="parameters" element="tns:listarNotificacionesResponse" />
   </message>
+  <message name="insertarNotificacion">
+    <part name="parameters" element="tns:insertarNotificacion" />
+  </message>
+  <message name="insertarNotificacionResponse">
+    <part name="parameters" element="tns:insertarNotificacionResponse" />
+  </message>
+  <message name="eliminarNotificacion">
+    <part name="parameters" element="tns:eliminarNotificacion" />
+  </message>
+  <message name="eliminarNotificacionResponse">
+    <part name="parameters" element="tns:eliminarNotificacionResponse" />
+  </message>
   <portType name="NotificacionWS">
-    <operation name="eliminarNotificacion">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/eliminarNotificacionRequest" message="tns:eliminarNotificacion" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/eliminarNotificacionResponse" message="tns:eliminarNotificacionResponse" />
-    </operation>
-    <operation name="insertarNotificacion">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionRequest" message="tns:insertarNotificacion" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionResponse" message="tns:insertarNotificacionResponse" />
-    </operation>
     <operation name="actualizarNotificacion">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/actualizarNotificacionRequest" message="tns:actualizarNotificacion" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/actualizarNotificacionResponse" message="tns:actualizarNotificacionResponse" />
@@ -46,10 +38,27 @@
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/listarNotificacionesRequest" message="tns:listarNotificaciones" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/listarNotificacionesResponse" message="tns:listarNotificacionesResponse" />
     </operation>
+    <operation name="insertarNotificacion">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionRequest" message="tns:insertarNotificacion" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/insertarNotificacionResponse" message="tns:insertarNotificacionResponse" />
+    </operation>
+    <operation name="eliminarNotificacion">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/eliminarNotificacionRequest" message="tns:eliminarNotificacion" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/NotificacionWS/eliminarNotificacionResponse" message="tns:eliminarNotificacionResponse" />
+    </operation>
   </portType>
   <binding name="NotificacionWSPortBinding" type="tns:NotificacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarNotificacion">
+    <operation name="actualizarNotificacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarNotificaciones">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,16 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarNotificacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarNotificaciones">
+    <operation name="eliminarNotificacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

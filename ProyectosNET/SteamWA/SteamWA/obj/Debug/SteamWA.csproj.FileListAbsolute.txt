@@ -40,3 +40,10 @@ D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPoi
 D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.CoreCompileInputs.cache
 D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.dll
 D:\Jesus\Ciclo 2024-1\Programación 3\TrabajoAcademico\Repositorio\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.pdb
+D:\Repositories\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.dll.config
+D:\Repositories\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.dll
+D:\Repositories\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\bin\SteamWA.pdb
+D:\Repositories\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.AssemblyReference.cache
+D:\Repositories\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.csproj.CoreCompileInputs.cache
+D:\Repositories\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.dll
+D:\Repositories\PROG3-NullPointerException\ProyectosNET\SteamWA\SteamWA\obj\Debug\SteamWA.pdb

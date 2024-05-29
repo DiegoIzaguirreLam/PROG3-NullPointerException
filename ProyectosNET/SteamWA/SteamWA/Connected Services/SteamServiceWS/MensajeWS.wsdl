@@ -11,11 +11,11 @@
   <message name="mostrarMensajesHiloResponse">
     <part name="parameters" element="tns:mostrarMensajesHiloResponse" />
   </message>
-  <message name="editarMensaje">
-    <part name="parameters" element="tns:editarMensaje" />
+  <message name="insertarMensaje">
+    <part name="parameters" element="tns:insertarMensaje" />
   </message>
-  <message name="editarMensajeResponse">
-    <part name="parameters" element="tns:editarMensajeResponse" />
+  <message name="insertarMensajeResponse">
+    <part name="parameters" element="tns:insertarMensajeResponse" />
   </message>
   <message name="eliminarMensaje">
     <part name="parameters" element="tns:eliminarMensaje" />
@@ -23,28 +23,28 @@
   <message name="eliminarMensajeResponse">
     <part name="parameters" element="tns:eliminarMensajeResponse" />
   </message>
-  <message name="insertarMensaje">
-    <part name="parameters" element="tns:insertarMensaje" />
+  <message name="editarMensaje">
+    <part name="parameters" element="tns:editarMensaje" />
   </message>
-  <message name="insertarMensajeResponse">
-    <part name="parameters" element="tns:insertarMensajeResponse" />
+  <message name="editarMensajeResponse">
+    <part name="parameters" element="tns:editarMensajeResponse" />
   </message>
   <portType name="MensajeWS">
     <operation name="mostrarMensajesHilo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/mostrarMensajesHiloRequest" message="tns:mostrarMensajesHilo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/mostrarMensajesHiloResponse" message="tns:mostrarMensajesHiloResponse" />
     </operation>
-    <operation name="editarMensaje">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/editarMensajeRequest" message="tns:editarMensaje" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/editarMensajeResponse" message="tns:editarMensajeResponse" />
+    <operation name="insertarMensaje">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/insertarMensajeRequest" message="tns:insertarMensaje" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/insertarMensajeResponse" message="tns:insertarMensajeResponse" />
     </operation>
     <operation name="eliminarMensaje">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/eliminarMensajeRequest" message="tns:eliminarMensaje" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/eliminarMensajeResponse" message="tns:eliminarMensajeResponse" />
     </operation>
-    <operation name="insertarMensaje">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/insertarMensajeRequest" message="tns:insertarMensaje" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/insertarMensajeResponse" message="tns:insertarMensajeResponse" />
+    <operation name="editarMensaje">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/editarMensajeRequest" message="tns:editarMensaje" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/MensajeWS/editarMensajeResponse" message="tns:editarMensajeResponse" />
     </operation>
   </portType>
   <binding name="MensajeWSPortBinding" type="tns:MensajeWS">
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="editarMensaje">
+    <operation name="insertarMensaje">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarMensaje">
+    <operation name="editarMensaje">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
