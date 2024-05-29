@@ -15,6 +15,15 @@ namespace SteamWA
     {
 
         /// <summary>
+        /// Control txtUID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUID;
+
+        /// <summary>
         /// Control lbBuscarPorID.
         /// </summary>
         /// <remarks>
@@ -24,6 +33,24 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.LinkButton lbBuscarPorID;
 
         /// <summary>
+        /// Control gvUsuariosPorID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvUsuariosPorID;
+
+        /// <summary>
+        /// Control txtNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+
+        /// <summary>
         /// Control lbBuscarPorNombre.
         /// </summary>
         /// <remarks>
@@ -31,5 +58,14 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbBuscarPorNombre;
+
+        /// <summary>
+        /// Control gvUsuariosPorNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvUsuariosPorNombre;
     }
 }

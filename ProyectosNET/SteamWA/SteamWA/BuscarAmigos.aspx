@@ -19,25 +19,28 @@
                         <h5 class="card-title">Buscar por ID</h5>
                         <div class="form-group mb-4">
                             <span class="input-group">
-                                <input type="text" class="form-control" placeholder="Ingrese el UID">
-                                <asp:LinkButton ID="lbBuscarPorID" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>" />
+                                <asp:TextBox ID="txtUID" runat="server" class="form-control"></asp:TextBox>
+                                <asp:LinkButton ID="lbBuscarPorID" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>" OnClick="lbBuscarPorID_Click" />
                             </span>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item text-gray bg-navy" id="amigo">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span>Amigo 1</span>
-                                    <div>
-                                        <button class="btn btn-primary">
-                                            <i class="fas fa-user-plus"></i>
-                                        </button>
-                                        <button class="btn btn-danger">
-                                            <i class="fas fa-ban"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <asp:GridView ID="gvUsuariosPorID" runat="server"
+                            AllowPaging="true" PageSize="5"
+                            OnPageIndexChanging="gvUsuariosPorID_PageIndexChanging"
+                            AutoGenerateColumns="false"
+                            CssClass="table table-hover table-responsive table-striped">
+                            <Columns>
+                                <asp:BoundField HeaderText="UID" DataField="uid" />
+                                <asp:BoundField HeaderText="Nombre del Perfil" DataField="nombrePerfil" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton runat="server"
+                                            Text="<i class='fa-solid fa-plus ps-2'></i>"
+                                            CommandArgument='<%# Eval("UID") %>'
+                                            OnClick="lbAgregarAmigo_Click" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
             </div>
@@ -46,13 +49,31 @@
             <div class="col-md-6 col-sm-12">
                 <div class="card bg-dark text-gray">
                     <div class="card-body">
-                        <h5 class="card-title">Por nombre de usuario</h5>
-                        <div class="form-group">
+                        <h5 class="card-title">Buscar por Nombre de Usuario</h5>
+                        <div class="form-group mb-4">
                             <span class="input-group">
-                                <input type="text" class="form-control" placeholder="Ingrese el nombre de usuario">
-                                <asp:LinkButton ID="lbBuscarPorNombre" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>"/>
+                                <asp:TextBox ID="txtNombre" runat="server" class="form-control"></asp:TextBox>
+                                <asp:LinkButton ID="lbBuscarPorNombre" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>" OnClick="lbBuscarPorNombre_Click" />
                             </span>
                         </div>
+                        <asp:GridView ID="gvUsuariosPorNombre" runat="server"
+                            AllowPaging="true" PageSize="5"
+                            OnPageIndexChanging="gvUsuariosPorNombre_PageIndexChanging"
+                            AutoGenerateColumns="false"
+                            CssClass="table table-hover table-responsive table-striped">
+                            <Columns>
+                                <asp:BoundField HeaderText="UID" DataField="uid" />
+                                <asp:BoundField HeaderText="Nombre del Perfil" DataField="nombrePerfil" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton runat="server"
+                                            Text="<i class='fa-solid fa-plus ps-2'></i>"
+                                            CommandArgument='<%# Eval("UID") %>'
+                                            OnClick="lbAgregarAmigo_Click" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
             </div>
