@@ -52,6 +52,9 @@
 
             background-color: #392e47;
         }
+        .bgDesplegables{
+            background-color: #392e47;
+        }
         .desplegableBusqueda{
             color: white;
         }
@@ -91,10 +94,28 @@
             </p>
         </div>
         <!--Desplegable de filtros-->
-        <div class="collapse px-2 py-2 border-Gradient carouselDestacados" id="desplegableFiltro">
-            <div class="w-25">
+        <div class="collapse row mt-3 px-2 py-2 border-Gradient carouselDestacados" id="desplegableFiltro">
+            <div class="col-md-4">
                 <label for="barRangoPrecio" class="form-label">Filtrar por precio</label>
                 <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio">
+            </div>
+            <div class="col-md-4 ">
+                <label for="barRangoPrecio" class="form-label">Filtrar por etiqueta</label>
+
+                 <div class="dropdown">
+                <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownColecciones"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
+                    Etiquetas
+                </button> 
+                <ul id="ddlEtiquetas" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="dropdownColecciones">
+                    
+                </ul>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <label for="barRangoPrecio" class="form-label">Filtrar por tipo</label>
+                
+             
             </div>
         </div>
         <div class="carouselDestacados">

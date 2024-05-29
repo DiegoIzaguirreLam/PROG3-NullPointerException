@@ -1,5 +1,6 @@
 ﻿using SteamWA.SteamServiceWS;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Printing;
@@ -16,17 +17,19 @@ namespace SteamWA
     {
         private SteamWA.SteamServiceWS.ProductoWSClient daoProducto;
         BindingList<SteamWA.SteamServiceWS.producto> listaProductos;
+        private SteamWA.SteamServiceWS.EtiquetaWSClient daoEtiqueta;
         protected void Page_Load(object sender, EventArgs e)
         {
             Steam master = (Steam)this.Master;
             master.ItemTienda.Attributes["class"] = "active";
             
             daoProducto = new SteamServiceWS.ProductoWSClient();
-           
-            if (!IsPostBack)
+            
+            if (!IsPostBack )
             {
-                
-            listaProductos = 
+                Session["listaProdEt"] = null;
+                Session["DicProdEtDic"] = null;
+                listaProductos = 
             new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Tienda", "<script src='Scripts/Steam/Tienda.js'></script>", false);
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -39,6 +42,132 @@ namespace SteamWA
 
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
             }
+            
+            
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            daoEtiqueta = new SteamWA.SteamServiceWS.EtiquetaWSClient();
+            BindingList<etiqueta> etiquetas =new BindingList<etiqueta>(daoEtiqueta.listarEtiquetas());
+            
+            foreach(etiqueta et in etiquetas)
+            {
+                CheckBox chk = new CheckBox();
+                chk.ID = "chk" + (et.idEtiqueta).ToString();
+                HtmlGenericControl liEti = new HtmlGenericControl("li");
+                HtmlGenericControl contr = new HtmlGenericControl("div");
+                contr.Attributes["class"] = "d-flex ps-2";
+                chk.CheckedChanged += Chk_CheckedChanged;
+                chk.AutoPostBack = true;
+                liEti.Attributes["class"] = "ps-2 text-light";
+                liEti.InnerText = et.nombre;
+            
+                contr.Controls.Add(chk);
+                contr.Controls.Add(liEti);
+                ddlEtiquetas.Controls.Add(contr);
+            }
+            
+        }
+
+        private void Chk_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            etiqueta et = new etiqueta();
+            string idString = (checkBox.ID);
+            char idChar = idString[idString.Length - 1];
+            int id = Int32.Parse(idChar.ToString());
+            et.idEtiqueta = id;
+            BindingList<producto> listaProdEtG = (BindingList<producto>)Session["listaProdEt"];
+            Dictionary<int, int> DicProdEtG = (Dictionary<int, int>)Session["DicProdEtDic"];
+
+            try
+            {
+                listaProductos =
+             new BindingList<producto>(daoProducto.listarProductosPorEtiqueta(et));
+
+                if (checkBox.Checked)
+                {
+
+
+                    if (listaProdEtG == null)
+                    {
+                        
+                        listaProdEtG = new BindingList<producto>();
+                    }
+                    if (DicProdEtG == null)
+                    {
+                        DicProdEtG = new Dictionary<int, int>();
+                    }
+                    foreach (producto pr in listaProductos)
+                    {
+                        producto prodEncontrado = listaProdEtG.FirstOrDefault(p => p.idProducto == pr.idProducto);
+                        if (prodEncontrado != null)
+                        {
+                            DicProdEtG[pr.idProducto] += 1;
+                        }
+                        else
+                        {
+                            if (!DicProdEtG.ContainsKey(pr.idProducto))
+                            {
+                                DicProdEtG.Add(pr.idProducto, 0);
+                            }
+                            DicProdEtG[pr.idProducto] += 1;
+                            listaProdEtG.Add(pr);
+                        }
+                    }
+                    Session["listaProdEt"] = listaProdEtG;
+                    Session["DicProdEtDic"] = DicProdEtG;
+                    mostrarListaProductos(listaProdEtG);
+                }
+                else
+                {
+                   
+                    if (listaProdEtG != null)
+                    {
+
+                        foreach (producto pr in listaProductos)
+                        {
+                            producto prodEncontrado = listaProdEtG.FirstOrDefault(p => p.idProducto == pr.idProducto);
+                            if (prodEncontrado != null)
+                            {
+                                if(DicProdEtG[prodEncontrado.idProducto] == 1)
+                                {
+                                    DicProdEtG.Remove(prodEncontrado.idProducto);
+                                    listaProdEtG.Remove(prodEncontrado);
+                                }
+                                else
+                                {
+                                    DicProdEtG[prodEncontrado.idProducto] -= 1;
+                                }
+                              
+                            }
+                            else
+                            {
+
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        listaProdEtG = new BindingList<producto>();
+                        DicProdEtG = new Dictionary<int, int>();
+                    }
+                    
+                    Session["listaProdEt"] = listaProdEtG;
+                    Session["DicProdEtDic"] = DicProdEtG;
+                    mostrarListaProductos(listaProdEtG);
+                }
+            }
+            catch
+            {
+                mostrarListaProductos(listaProdEtG);
+            }
+             
+            
+
         }
 
         protected void btnCarrito1_Click(object sender, EventArgs e)
@@ -72,8 +201,7 @@ namespace SteamWA
                 listaProductos = null;
             }
            
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            string json = serializer.Serialize(listaProductos);
+           
             Session["ListaProductos"] = listaProductos;
             mostrarListaProductos(listaProductos);
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
@@ -81,56 +209,60 @@ namespace SteamWA
 
         public void mostrarListaProductos(BindingList<SteamWA.SteamServiceWS.producto> lProds)
         {
-            HtmlGenericControl divHtmlContainer = new HtmlGenericControl("div");
+            if (lProds != null)
+            {
+                HtmlGenericControl divHtmlContainer = new HtmlGenericControl("div");
             divHtmlContainer.Attributes["class"] = "row mt-3 pb-4";
             divHtmlContainer.Attributes["id"] = "contenedorProductos";
-            foreach (producto prod in listaProductos)
-            {
-             
-                HtmlGenericControl divHtmlCardColumn = new HtmlGenericControl("div");
-                HtmlGenericControl divHtmlCard = new HtmlGenericControl("div");
-                
-                divHtmlCardColumn.Attributes["class"] = "col-md-4";
-                divHtmlCard.Attributes["class"] = "card bg-dark-subtle border-shadow mb-4";
+            
+                foreach (producto prod in lProds)
+                {
 
-                divHtmlContainer.Controls.Add(divHtmlCardColumn);
-                divHtmlCardColumn.Controls.Add(divHtmlCard);
+                    HtmlGenericControl divHtmlCardColumn = new HtmlGenericControl("div");
+                    HtmlGenericControl divHtmlCard = new HtmlGenericControl("div");
 
-                
-                Image imagen = new Image();
-                imagen.ImageUrl = prod.portadaUrl;
-                imagen.CssClass = "card-img-top";
-                imagen.Attributes["height"] = "200";
+                    divHtmlCardColumn.Attributes["class"] = "col-md-4";
+                    divHtmlCard.Attributes["class"] = "card bg-dark-subtle border-shadow mb-4";
 
-                HtmlGenericControl divHtmlCardBody = new HtmlGenericControl("div");
-                divHtmlCardBody.Attributes["class"] = "card-body";
+                    divHtmlContainer.Controls.Add(divHtmlCardColumn);
+                    divHtmlCardColumn.Controls.Add(divHtmlCard);
 
-                HtmlGenericControl divHtmlCardTitle = new HtmlGenericControl("h5");
-                divHtmlCardTitle.Attributes["class"] = "card-title";
-                divHtmlCardTitle.InnerText = prod.titulo;
 
-                HtmlGenericControl divHtmlCardDesc = new HtmlGenericControl("p");
-                divHtmlCardDesc.Attributes["class"] = "card-text";
-                divHtmlCardDesc.InnerText = prod.descripcion;
+                    Image imagen = new Image();
+                    imagen.ImageUrl = prod.portadaUrl;
+                    imagen.CssClass = "card-img-top";
+                    imagen.Attributes["height"] = "200";
 
-                HtmlGenericControl divHtmlCardPrice= new HtmlGenericControl("p");
-                divHtmlCardPrice.Attributes["class"] = "card-text";
-                divHtmlCardPrice.InnerText = "Precio: " + (prod.precio).ToString();
+                    HtmlGenericControl divHtmlCardBody = new HtmlGenericControl("div");
+                    divHtmlCardBody.Attributes["class"] = "card-body";
 
-                LinkButton buttonCarrito = new LinkButton();
-                buttonCarrito.CssClass = "btn btn-primary";
-                buttonCarrito.ID = "btnCarritos" + prod.idProducto;
-                buttonCarrito.Attributes["data-bs-toggle"] = "modal";
-                buttonCarrito.Attributes["data-bs-target"] = "#form-modal-añadido-carrito";
-                buttonCarrito.OnClientClick = "btnCarrito1_Click";
-                buttonCarrito.Text = "Añadir al carrito";
-                divHtmlCard.Controls.Add(imagen);
-                divHtmlCard.Controls.Add(divHtmlCardBody);
-                divHtmlCardBody.Controls.Add(divHtmlCardTitle);
-                divHtmlCardBody.Controls.Add(divHtmlCardDesc);
-                divHtmlCardBody.Controls.Add(divHtmlCardPrice);
-                divHtmlCardBody.Controls.Add(buttonCarrito);
-                placeholderProductos.Controls.Add(divHtmlContainer);
+                    HtmlGenericControl divHtmlCardTitle = new HtmlGenericControl("h5");
+                    divHtmlCardTitle.Attributes["class"] = "card-title";
+                    divHtmlCardTitle.InnerText = prod.titulo;
+
+                    HtmlGenericControl divHtmlCardDesc = new HtmlGenericControl("p");
+                    divHtmlCardDesc.Attributes["class"] = "card-text";
+                    divHtmlCardDesc.InnerText = prod.descripcion;
+
+                    HtmlGenericControl divHtmlCardPrice = new HtmlGenericControl("p");
+                    divHtmlCardPrice.Attributes["class"] = "card-text";
+                    divHtmlCardPrice.InnerText = "Precio: " + (prod.precio).ToString();
+
+                    LinkButton buttonCarrito = new LinkButton();
+                    buttonCarrito.CssClass = "btn btn-primary";
+                    buttonCarrito.ID = "btnCarritos" + prod.idProducto;
+                    buttonCarrito.Attributes["data-bs-toggle"] = "modal";
+                    buttonCarrito.Attributes["data-bs-target"] = "#form-modal-añadido-carrito";
+                    buttonCarrito.OnClientClick = "btnCarrito1_Click";
+                    buttonCarrito.Text = "Añadir al carrito";
+                    divHtmlCard.Controls.Add(imagen);
+                    divHtmlCard.Controls.Add(divHtmlCardBody);
+                    divHtmlCardBody.Controls.Add(divHtmlCardTitle);
+                    divHtmlCardBody.Controls.Add(divHtmlCardDesc);
+                    divHtmlCardBody.Controls.Add(divHtmlCardPrice);
+                    divHtmlCardBody.Controls.Add(buttonCarrito);
+                    placeholderProductos.Controls.Add(divHtmlContainer);
+                }
             }
         }
     }
