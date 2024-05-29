@@ -114,16 +114,14 @@ BEGIN
     SET _id_biblioteca = @@last_insert_id;
 END$
 
-INSERT INTO Biblioteca(id_biblioteca, fid_usuario) VALUES(1, 1);
 
-SELECT * from ProductoAdquirido;
 DROP PROCEDURE IF EXISTS BUSCAR_BIBLIOTECA;
 DELIMITER $
 CREATE PROCEDURE BUSCAR_BIBLIOTECA(
-	IN _id_biblioteca INT
+	IN _fid_usuario INT
 )
 BEGIN
-	SELECT * FROM Biblioteca WHERE id_biblioteca = _id_biblioteca;
+	SELECT * FROM Biblioteca WHERE fid_usuario = _fid_usuario;
 END$
 
 
@@ -177,7 +175,6 @@ CREATE PROCEDURE LISTAR_COLECCIONES(
 BEGIN
 	SELECT * FROM Coleccion WHERE fid_biblioteca = _fid_biblioteca AND activo=1;
 END$
-
 DROP PROCEDURE IF EXISTS INSERTAR_ETIQUETA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_ETIQUETA(
@@ -239,7 +236,7 @@ CREATE PROCEDURE INSERTAR_JUEGO(
 BEGIN
 	INSERT INTO Producto(titulo,fecha_publicacion,precio,descripcion, espacio_disco,
     tipo_producto, logo_url, portada_url, fid_proveedor, activo) VALUES(_titulo, _fecha_publicacion,
-    _precio,_descripcion,_espacio_disco,'JUEGO',logo_url,portada_url,_fid_proveedor, _activo);
+    _precio,_descripcion,_espacio_disco,'JUEGO',_logo_url,_portada_url,_fid_proveedor, _activo);
     SET _id_juego = @@last_insert_id;
     INSERT INTO Juego(id_juego, requisitos_minimos, requisitos_recomendados,multijugador) VALUES(_id_juego, _requisitos_minimos, _requisitos_recomendados, _multijugador);
 END$
@@ -411,11 +408,11 @@ DROP PROCEDURE IF EXISTS INSERTAR_LOGRODESBLOQUEADO;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_LOGRODESBLOQUEADO(
 	OUT _id_logro_desbloqueado INT,
-    IN fid_logro INT,
-    IN fid_producto_adquirido INT
+    IN _fid_logro INT,
+    IN _fid_producto_adquirido INT
 )
 BEGIN
-    INSERT INTO Logro(fecha_desbloqueo,fid_logro,fid_producto_adquirido, activo) 
+    INSERT INTO LogroDesbloqueado(fecha_desbloqueo,fid_logro,fid_producto_adquirido, activo) 
     VALUES (CURDATE(),_fid_logro,_fid_producto_adquirido, 1);
     SET _id_logro_desbloqueado = @@last_insert_id;
 END$
@@ -548,20 +545,20 @@ END$
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOSADQUIRIDOS_X_ID_BIBLIOTECA;
 DELIMITER $
 CREATE PROCEDURE LISTAR_PRODUCTOSADQUIRIDOS_X_ID_BIBLIOTECA(
-	IN _fid_biblioteca INT
+	IN _id_biblioteca INT
 )
 BEGIN
     SELECT pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
     pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
     p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
-    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo as proveedor_activo, pa.fid_biblioteca as id_biblioteca
     FROM ProductoAdquirido pa
     INNER JOIN Producto p ON p.id_producto = pa.fid_producto
     LEFT JOIN Juego j ON p.id_producto = j.id_juego
     LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
     LEFT JOIN Software s ON p.id_producto = s.id_software
     INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
-    WHERE p.activo = 1 and pa.fid_biblioteca = _fid_biblioteca;
+    WHERE p.activo = 1 and pa.fid_biblioteca = _id_biblioteca;
 END$
 
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PRODUCTOADQUIRIDO;
@@ -617,7 +614,7 @@ BEGIN
     SELECT pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
     pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
     p.tipo_producto, j.requisitos_minimos, j.requisitos_recomendados, j.multijugador,
-    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social
+    bs.artista, bs.compositor, bs.duracion, s.requisitos, s.licencia, pr.id_proveedor, pr.razon_social, pr.activo as proveedor_activo, pa.fid_biblioteca as id_biblioteca
     FROM ProductoAdquirido_Coleccion pac, ProductoAdquirido pa
     INNER JOIN Producto p ON p.id_producto = pa.fid_producto
     LEFT JOIN Juego j ON p.id_producto = j.id_juego
@@ -625,11 +622,9 @@ BEGIN
     LEFT JOIN Software s ON p.id_producto = s.id_software
     INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
     WHERE p.activo = 1 and 
-    pac.fid_coleccion = _fid_coleccion and pac.fid_producto_adquirido = pa.id_producto_adquirido and pa.activo = 1;
+    pac.fid_coleccion = _id_coleccion and pac.fid_producto_adquirido = pa.id_producto_adquirido and pa.activo = 1 and pac.activo=1;
 END$
 
-select * from ProductoAdquirido_Coleccion;
-select * from ProductoAdquirido;
 DROP PROCEDURE IF EXISTS INSERTAR_PRODUCTOADQUIRIDO_COLECCION;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO_COLECCION(
@@ -637,10 +632,12 @@ CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO_COLECCION(
     IN _fid_producto_adquirido INT
 )
 BEGIN
-	INSERT INTO ProductoAdquirido_Coleccion(fid_coleccion, fid_producto_adquirido)
-    VALUES (_fid_coleccion, _fid_producto_adquirido, 1);
+	INSERT INTO ProductoAdquirido_Coleccion(fid_coleccion, fid_producto_adquirido, activo)
+    VALUES (_fid_coleccion, _fid_producto_adquirido, 1)
+    ON DUPLICATE KEY UPDATE activo = 1;
 END$
 
+select * from ProductoAdquirido_Coleccion;
 
 DROP PROCEDURE IF EXISTS ELIMINAR_PRODUCTOADQUIRIDO_COLECCION;
 DELIMITER $
@@ -653,6 +650,9 @@ BEGIN
     SET activo = 0
     WHERE fid_coleccion = _fid_coleccion AND fid_producto_adquirido = _fid_producto_adquirido;
 END$
+
+
+
 DROP PROCEDURE IF EXISTS INSERTAR_PRODUCTOETIQUETA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PRODUCTOETIQUETA(
@@ -660,8 +660,9 @@ CREATE PROCEDURE INSERTAR_PRODUCTOETIQUETA(
     IN _fid_etiqueta INT
 )
 BEGIN
-	INSERT INTO ProductoEtiqueta(fid_producto,fid_etiqueta)
-    VALUES(_fid_producto, _fid_etiqueta);
+	INSERT INTO ProductoEtiqueta(fid_producto,fid_etiqueta,activo)
+    VALUES(_fid_producto, _fid_etiqueta,1)
+    ON DUPLICATE KEY UPDATE activo = 1;
 END$
 
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOETIQUETA;
@@ -692,7 +693,8 @@ CREATE PROCEDURE ELIMINAR_PRODUCTOETIQUETA(
     IN _fid_etiqueta INT
 )
 BEGIN
-	DELETE FROM ProductoEtiqueta 
+	UPDATE ProductoEtiqueta 
+    SET activo = 0
     WHERE fid_producto = _fid_producto
     AND fid_etiqueta = _fid_etiqueta;
 END$
@@ -714,7 +716,7 @@ DROP PROCEDURE IF EXISTS LISTAR_PROVEEDORES;
 DELIMITER $
 CREATE PROCEDURE LISTAR_PROVEEDORES()
 BEGIN
-	SELECT * FROM Proveedor;
+	SELECT * FROM Proveedor WHERE activo=1;
 END$
 
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PROVEEDOR;
@@ -736,7 +738,7 @@ CREATE PROCEDURE ELIMINAR_PROVEEDOR(
 )
 BEGIN
 	UPDATE Proveedor
-    SET activo = false
+    SET activo = 0
     WHERE id_proveedor = _id_proveedor;
     UPDATE Producto
     SET oculto = true
@@ -843,6 +845,15 @@ END$
 
 
 DROP PROCEDURE IF EXISTS CREAR_FORO;
+DROP PROCEDURE IF EXISTS LISTAR_FOROS;
+DROP PROCEDURE IF EXISTS BUSCAR_FORO;
+DROP PROCEDURE IF EXISTS LISTAR_CREADOS;
+DROP PROCEDURE IF EXISTS LISTAR_SUSCRITOS;
+DROP PROCEDURE IF EXISTS MOSTRAR_SUBFOROS_POR_FORO;
+DROP PROCEDURE IF EXISTS EDITAR_FORO;
+DROP PROCEDURE IF EXISTS DESACTIVAR_FORO;
+DROP PROCEDURE IF EXISTS ELIMINAR_FORO;
+
 DELIMITER $ 
 CREATE PROCEDURE CREAR_FORO(
 	OUT _id_foro INT ,
@@ -859,14 +870,32 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS LISTAR_FOROS;
 CREATE PROCEDURE LISTAR_FOROS()
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE f.es_creador = 1 AND activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1;
 END$
 
-DROP PROCEDURE IF EXISTS MOSTRAR_SUBFOROS_POR_FORO;
-DELIMITER $ 
+CREATE PROCEDURE BUSCAR_FORO(
+	IN _nombre VARCHAR(100)
+)
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1 AND nombre LIKE CONCAT('%',_nombre,'%');
+END$
+
+CREATE PROCEDURE LISTAR_CREADOS(
+	IN _iduser INT
+)
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro c INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_creador = 1 AND c.activo = 1 AND f.fid_usuario = _iduser;
+END$
+
+CREATE PROCEDURE LISTAR_SUSCRITOS(
+	IN _iduser INT
+)
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND activo = 1;
+END$
+
 CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(
 	in _id_foro INT 
 )
@@ -876,9 +905,6 @@ BEGIN
 
 END $
 
-
-DROP PROCEDURE IF EXISTS EDITAR_FORO;
-DELIMITER $ 
 CREATE PROCEDURE EDITAR_FORO(
 	IN _id_foro INT,
 	IN _nombre VARCHAR(100),
@@ -893,8 +919,6 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS DESACTIVAR_FORO;
-DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_FORO(
 	IN _id_foro INT
 )
@@ -904,8 +928,6 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS ELIMINAR_FORO;
-DELIMITER $ 
 CREATE PROCEDURE ELIMINAR_FORO(
 	IN _id_foro INT
 )
@@ -916,10 +938,10 @@ BEGIN
 END $
 
 
-DROP PROCEDURE IF EXISTS CREAR_RELACION;
-DROP PROCEDURE IF EXISTS ELIMINAR_RELACION;
+DROP PROCEDURE IF EXISTS CREAR_RELACION_FORO;
+DROP PROCEDURE IF EXISTS ELIMINAR_RELACION_FORO;
 DELIMITER $
-CREATE PROCEDURE CREAR_RELACION(
+CREATE PROCEDURE CREAR_RELACION_FORO(
 	IN _fid_foro INT,
 	IN _fid_usuario INT
 )
@@ -935,7 +957,7 @@ BEGIN
 	INSERT INTO ForoUsuario (fid_foro, fid_usuario, es_creador, es_suscriptor, activo)
 	VALUES (_fid_foro, _fid_usuario, 0, 1, 1);
 END$
-CREATE PROCEDURE ELIMINAR_RELACION(
+CREATE PROCEDURE ELIMINAR_RELACION_FORO(
 	IN _fid_foro INT,
 	IN _fid_usuario INT
 )
@@ -1365,9 +1387,7 @@ BEGIN
     UPDATE Expositor
     SET activo = false
     WHERE id_expositor = _id_expositor; 
-END$
-
-DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
+END$DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PERFIL(
 	OUT _id_perfil INT,
@@ -1424,9 +1444,7 @@ BEGIN
     UPDATE Perfil
     SET oculto = true
     WHERE id_perfil = _id_perfil; 
-END$
-
-DROP PROCEDURE IF EXISTS INSERTAR_CARTERA;
+END$DROP PROCEDURE IF EXISTS INSERTAR_CARTERA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_CARTERA(
 	OUT _ID_CARTERA INT,
@@ -1439,7 +1457,6 @@ BEGIN
 	VALUES (_FID_USUARIO, _FONDOS, _CANT_MOVIMIENTOS, true);
     SET _ID_CARTERA = @@last_insert_id;
 END $
-
 DELIMITER ;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_CARTERA;
 DELIMITER $
@@ -1574,7 +1591,7 @@ DELIMITER $
 CREATE PROCEDURE CREAR_PAIS(
 	OUT _ID_PAIS INT,
     IN _NOMBRE VARCHAR(100),
-    IN _CODIGO VARCHAR(100),
+    IN _CODIGO CHAR(3),
     IN _FID_MONEDA INT
 )
 BEGIN
@@ -1624,59 +1641,78 @@ END $
 DELIMITER ;DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
 DROP PROCEDURE IF EXISTS ELIMINAR_AMIGO;
 DROP PROCEDURE IF EXISTS BLOQUEAR_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_POR_USUARIO;
 
 DELIMITER $ 
 CREATE PROCEDURE AGREGAR_AMIGO(
-	IN _fid_usuario_a INT,
+    IN _fid_usuario_a INT,
     IN _fid_usuario_b INT 
 )
 BEGIN
-	-- En caso ya exista la relación
-	IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
+    -- En caso ya exista la relación
+    IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
         UPDATE Relacion 
         SET amistad = 1, activo = 1
         WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
     ELSE
-        INSERT INTO Relacion (_fid_usuario_a, _fid_usuario_b, amistad, bloqueo, activo) 
-        VALUES (usuario_a, usuario_b, 1, 0, 1);
+        INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
+        VALUES (_fid_usuario_a, _fid_usuario_b, 1, 0, 1);
     END IF;
+
 END $
 
 CREATE PROCEDURE ELIMINAR_AMIGO(
-	IN _fid_usuario_a INT,
+    IN _fid_usuario_a INT,
     IN _fid_usuario_b INT 
 )
 BEGIN
-	UPDATE Relacion 
+    UPDATE Relacion 
     SET amistad = 0
-    WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
+    WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) 
+       OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
 END $
 
 CREATE PROCEDURE BLOQUEAR_USUARIO(
-	IN _fid_usuario_a INT,
+    IN _fid_usuario_a INT,
     IN _fid_usuario_b INT 
 )
 BEGIN
-	-- En caso ya exista la relación
-	IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
+    -- En caso ya exista la relación
+    IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
         UPDATE Relacion 
         SET bloqueo = 1, activo = 1
         WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
     ELSE
-        INSERT INTO Relacion (_fid_usuario_a, _fid_usuario_b, amistad, bloqueo, activo) 
-        VALUES (usuario_a, usuario_b, 0, 1, 1);
+        INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
+        VALUES (_fid_usuario_a, _fid_usuario_b, 0, 1, 1);
     END IF;
+END $
+
+CREATE PROCEDURE LISTAR_AMIGOS_POR_USUARIO(
+	IN _id_usuario INT
+)
+BEGIN
+	SELECT fid_usuarioa AS "ID Usuario A",
+		   fid_usuariob AS "ID Usuario B",
+           amistad      AS "Amistad",
+           bloqueo      AS "Bloqueo"
+    FROM Relacion
+    WHERE (fid_usuarioa = _id_usuario OR
+		  fid_usuariob = _id_usuario) AND
+          amistad = TRUE AND
+          activo = TRUE;
 END $DROP PROCEDURE IF EXISTS INSERTAR_TIPOMONEDA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_TIPOMONEDA(
 	OUT _id_tipo_moneda INT,
 	IN _nombre VARCHAR(50),
-	IN _codigo VARCHAR(3),
+	IN _codigo CHAR(3),
+    IN _simbolo CHAR(3),
 	IN _cambio_de_dolares DECIMAL(10,2)
 )
 BEGIN
-	INSERT INTO TipoMoneda(nombre, codigo, cambio_de_dolares, fecha_cambio, activo)
-    VALUES (_nombre, _codigo, _cambio_de_dolares, SYSDATE(), 1);
+	INSERT INTO TipoMoneda(nombre, codigo, simbolo, cambio_de_dolares, fecha_cambio, activo)
+    VALUES (_nombre, _codigo, _simbolo, _cambio_de_dolares, SYSDATE(), 1);
     SET _id_tipo_moneda = @@last_insert_id;
 END$	
 
@@ -1692,13 +1728,15 @@ DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_TIPOMONEDA(
 	IN _id_tipo_moneda INT,
 	IN _nombre VARCHAR(50),
-	IN _codigo VARCHAR(3),
+	IN _codigo CHAR(3),
+	IN _simbolo CHAR(3),
 	IN _cambio_de_dolares DECIMAL(10,2)
 )
 BEGIN
 	UPDATE TipoMoneda
 	SET nombre = _nombre,
 		codigo = _codigo,
+        simbolo = _simbolo,
 		cambio_de_dolares = _cambio_de_dolares,
 		fecha_cambio = SYSDATE()
 	WHERE id_tipo_moneda = _id_tipo_moneda;
@@ -1807,4 +1845,22 @@ BEGIN
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE _nombre_cuenta LIKE nombre_cuenta;
+END$
+
+-- Procedimiento para obtener el registro del usuario dado un ID
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
+
+DELIMITER $
+CREATE PROCEDURE BUSCAR_USUARIO_POR_ID (
+	IN _uid INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+    u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+    p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    WHERE u.UID = _uid AND u.activo = TRUE;
 END$

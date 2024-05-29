@@ -1,1 +1,2 @@
 # PROG3-NullPointerException
+Los usuarios y contraseñas para ingresar se encuentran en el archivo “Usuarios.txt”, los scripts de creación de tablas, procedimientos y registros se encuentran por separado en los archivos “ScriptCreacionTablas.sql”, “ScriptCreacionProcedures.sql” y “ScriptCreacionRegistros.sql”. El script que incluye los 3 se encuentra como “ScriptGeneral.sql”.
