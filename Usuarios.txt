@@ -1,0 +1,7 @@
+Cuenta 1:
+Nombre de cuenta: cuenta_sofia
+Password: password_sofia
+
+Cuenta 2:
+Nombre de cuenta: cuenta_fabricio
+Password: password_fabricio

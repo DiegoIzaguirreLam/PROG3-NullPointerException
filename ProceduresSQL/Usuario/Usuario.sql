@@ -91,3 +91,21 @@ BEGIN
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE _nombre_cuenta LIKE nombre_cuenta;
 END$
+
+-- Procedimiento para obtener el registro del usuario dado un ID
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
+
+DELIMITER $
+CREATE PROCEDURE BUSCAR_USUARIO_POR_ID (
+	IN _uid INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+    u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+    p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    WHERE u.UID = _uid AND u.activo = TRUE;
+END$
