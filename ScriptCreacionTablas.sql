@@ -97,12 +97,13 @@ CREATE TABLE Notificacion(
 
 /* PAQUETE JUGADOR */
 CREATE TABLE Cartera(
-	id_cartera INT,
+	id_cartera INT AUTO_INCREMENT,
+    fid_usuario INT,
     fondos DECIMAL(10,2) NOT NULL,
     cantidad_movimientos INT NOT NULL,
 	activo TINYINT NOT NULL,
-    FOREIGN KEY(id_cartera) REFERENCES Usuario(UID),
-    PRIMARY KEY(id_cartera)
+    PRIMARY KEY(id_cartera),
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE Movimiento(
@@ -139,12 +140,12 @@ CREATE TABLE MedallaUsuario(
 
 /* PAQUETE PERFIL */
 CREATE TABLE Perfil(
-	id_perfil INT,
-	usuario_id INT UNIQUE,
+	id_perfil INT AUTO_INCREMENT,
+	fid_usuario INT UNIQUE,
     foto_url VARCHAR(200),
     oculto TINYINT NOT NULL,
     PRIMARY KEY(id_perfil),
-    FOREIGN KEY(usuario_id) REFERENCES Usuario(UID)
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE Expositor(

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import pe.edu.pucp.steam.perfil.model.Perfil;
 
 public interface PerfilDAO {
-    int insertarPerfil(Perfil perfil); //Cuando un user se registre se llamará este método
+    int asignarPerfilUsuario(int uid_usuario); //Cuando un user se registre se llamará este método
     int actualizaPerfil(Perfil perfil);
     int ocultarPerfil(Perfil perfil);
     Perfil buscarPerfil(int idUser);

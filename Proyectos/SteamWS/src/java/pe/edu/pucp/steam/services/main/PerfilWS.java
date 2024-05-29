@@ -21,12 +21,12 @@ import pe.edu.pucp.steam.perfil.mysql.PerfilMySQL;
 public class PerfilWS {
 
     /** This is a sample web service operation */
-    @WebMethod(operationName="insertarPerfil")
-    public int insertarPerfil(@WebParam(name="perfil") Perfil perfil) {
+    @WebMethod(operationName="asignarPerfilUsuario")
+    public int asignarPerfilUsuario(@WebParam(name = "uid_usuario") int uid_usuario) {
         int resultado=0;
         try{
             PerfilDAO perfilDao = new PerfilMySQL();
-            resultado = perfilDao.insertarPerfil(perfil);
+            resultado = perfilDao.asignarPerfilUsuario(uid_usuario);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

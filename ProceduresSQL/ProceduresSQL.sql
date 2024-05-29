@@ -1365,15 +1365,19 @@ BEGIN
     UPDATE Expositor
     SET activo = false
     WHERE id_expositor = _id_expositor; 
-END$DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
+END$
+
+DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PERFIL(
-	IN _id_perfil INT,
+	OUT _id_perfil INT,
+    IN _fid_usuario INT,
     IN _foto_url VARCHAR(200)
 )
 BEGIN
-	INSERT INTO Perfil(id_perfil, usuario_id, foto_url, oculto) 
-    VALUES(_id_perfil, _id_perfil, _foto_url, false);
+	INSERT INTO Perfil(fid_usuario, foto_url, oculto) 
+    VALUES(_fid_usuario, _foto_url, false);
+    SET _id_perfil = @@last_insert_id;
 END$
 
 
@@ -1420,17 +1424,22 @@ BEGIN
     UPDATE Perfil
     SET oculto = true
     WHERE id_perfil = _id_perfil; 
-END$DROP PROCEDURE IF EXISTS CREAR_CARTERA;
+END$
+
+DROP PROCEDURE IF EXISTS INSERTAR_CARTERA;
 DELIMITER $
-CREATE PROCEDURE CREAR_CARTERA(
-	IN _ID_CARTERA INT,
+CREATE PROCEDURE INSERTAR_CARTERA(
+	OUT _ID_CARTERA INT,
+    IN _FID_USUARIO INT,
     IN _FONDOS DECIMAL(10, 2),
     IN _CANT_MOVIMIENTOS INT
 )
 BEGIN
-	INSERT INTO Cartera(ID_CARTERA, FONDOS, CANT_MOVIMIENTOS, ACTIVO)
-	VALUES (_ID_CARTERA, _FONDOS, _CANT_MOVIMIENTOS, 1);
+	INSERT INTO Cartera(FID_USUARIO, FONDOS, CANT_MOVIMIENTOS, ACTIVO)
+	VALUES (_FID_USUARIO, _FONDOS, _CANT_MOVIMIENTOS, true);
+    SET _ID_CARTERA = @@last_insert_id;
 END $
+
 DELIMITER ;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_CARTERA;
 DELIMITER $

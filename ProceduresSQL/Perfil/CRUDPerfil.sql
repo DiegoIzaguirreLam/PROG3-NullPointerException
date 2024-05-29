@@ -1,12 +1,14 @@
 DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PERFIL(
-	IN _id_perfil INT,
+	OUT _id_perfil INT,
+    IN _fid_usuario INT,
     IN _foto_url VARCHAR(200)
 )
 BEGIN
-	INSERT INTO Perfil(id_perfil, usuario_id, foto_url, oculto) 
-    VALUES(_id_perfil, _id_perfil, _foto_url, false);
+	INSERT INTO Perfil(fid_usuario, foto_url, oculto) 
+    VALUES(_fid_usuario, _foto_url, false);
+    SET _id_perfil = @@last_insert_id;
 END$
 
 
