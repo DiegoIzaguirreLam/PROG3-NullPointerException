@@ -23,7 +23,7 @@ public class MedallaWS {
 
     /** This is a sample web service operation */
     @WebMethod(operationName="insertarMedalla")
-    public int insertarMedalla(@WebParam(name="cartera") Medalla medalla) {
+    public int insertarMedalla(@WebParam(name="medalla") Medalla medalla) {
         int resultado=0;
         try{
             MedallaDAO medallaDao = new MedallaMySQL();
@@ -34,8 +34,8 @@ public class MedallaWS {
         return resultado;
     }
     
-    @WebMethod(operationName="actualizarCartera")
-    public int actualizarCartera(@WebParam(name="cartera") Medalla medalla) {
+    @WebMethod(operationName="actualizarMedalla")
+    public int actualizarMedalla(@WebParam(name="medalla") Medalla medalla) {
         int resultado=0;
         try{
             MedallaDAO medallaDao = new MedallaMySQL();
@@ -46,8 +46,8 @@ public class MedallaWS {
         return resultado;
     }
     
-    @WebMethod(operationName="buscarCartera")
-    public ArrayList<Medalla> buscarCartera(@WebParam(name="cartera") Usuario usuario) {
+    @WebMethod(operationName="buscarMedalla")
+    public ArrayList<Medalla> buscarMedalla(@WebParam(name="usuario") Usuario usuario) {
         ArrayList<Medalla> medallas = new ArrayList<>();
         try{
             MedallaDAO medallaDao = new MedallaMySQL();
