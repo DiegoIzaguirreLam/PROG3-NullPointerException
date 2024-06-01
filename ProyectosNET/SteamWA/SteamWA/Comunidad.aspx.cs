@@ -32,9 +32,6 @@ namespace SteamWA
 
             foro[] aux = daoForo.listarForos();
             if (aux != null) foros = new BindingList<foro>(aux);
-            //BindingList<Foro> foros = new BindingList<Foro>();
-            //Foro proof = new Foro(1, "PRUEBAAA", "Este es un foro", "GianLukaGG", "https://avatars.akamai.steamstatic.com/f698ccb1d89632d7f174c142b789b84d4ec2dab6_full.jpg");
-            //foros.Add(proof);
             gvForos.DataSource = foros;
             gvForos.DataBind();
             Steam master = (Steam)this.Master;
@@ -107,6 +104,14 @@ namespace SteamWA
             neomensaje.contenido = txtMensajeInicial.Text;
             id = daoMensaje.insertarMensaje(neomensaje);
             Response.Redirect("Comunidad.aspx");
+        }
+
+        protected void txtBusquedaForo_TextChanged(object sender, EventArgs e)
+        {
+            foro[] aux = daoForo.buscarForos(txtBusquedaForo.Text);
+            if (aux != null) foros = new BindingList<foro>(aux);
+            gvForos.DataSource = foros;
+            gvForos.DataBind();
         }
     }
 }

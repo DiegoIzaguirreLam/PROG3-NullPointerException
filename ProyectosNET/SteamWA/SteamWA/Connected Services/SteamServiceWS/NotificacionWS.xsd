@@ -8,8 +8,18 @@
   <xs:element name="insertarNotificacionResponse" type="tns:insertarNotificacionResponse" />
   <xs:element name="listarNotificaciones" type="tns:listarNotificaciones" />
   <xs:element name="listarNotificacionesResponse" type="tns:listarNotificacionesResponse" />
-  <xs:complexType name="listarNotificaciones">
+  <xs:complexType name="eliminarNotificacion">
     <xs:sequence>
+      <xs:element minOccurs="0" name="notificacion" type="tns:notificacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="notificacion">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idNotificacion" type="xs:int" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element name="revisada" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tipo" type="tns:tipoNotificacion" />
       <xs:element minOccurs="0" name="usuario" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
@@ -253,16 +263,6 @@
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="notificacion">
-    <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="idNotificacion" type="xs:int" />
-      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
-      <xs:element name="revisada" type="xs:boolean" />
-      <xs:element minOccurs="0" name="tipo" type="tns:tipoNotificacion" />
-      <xs:element minOccurs="0" name="usuario" type="tns:usuario" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="pais">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
@@ -283,19 +283,19 @@
       <xs:element minOccurs="0" name="simbolo" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarNotificacionesResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:notificacion" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarNotificacion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="notificacion" type="tns:notificacion" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="eliminarNotificacionResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarNotificaciones">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarNotificacionesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:notificacion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarNotificacion">
@@ -318,6 +318,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:simpleType name="tipoNotificacion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AMIGOS" />
+      <xs:enumeration value="JUEGOS" />
+      <xs:enumeration value="BIBLIOTECA" />
+      <xs:enumeration value="FOROS" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="metodoPago">
     <xs:restriction base="xs:string">
       <xs:enumeration value="PAYPAL" />
@@ -335,14 +343,6 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="STEAM" />
       <xs:enumeration value="USUARIO" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="tipoNotificacion">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="AMIGOS" />
-      <xs:enumeration value="JUEGOS" />
-      <xs:enumeration value="BIBLIOTECA" />
-      <xs:enumeration value="FOROS" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

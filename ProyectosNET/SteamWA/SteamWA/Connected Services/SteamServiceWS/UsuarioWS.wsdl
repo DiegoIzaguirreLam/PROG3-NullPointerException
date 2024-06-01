@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/UsuarioWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarUsuario">
-    <part name="parameters" element="tns:insertarUsuario" />
-  </message>
-  <message name="insertarUsuarioResponse">
-    <part name="parameters" element="tns:insertarUsuarioResponse" />
-  </message>
   <message name="eliminarUsuario">
     <part name="parameters" element="tns:eliminarUsuario" />
   </message>
   <message name="eliminarUsuarioResponse">
     <part name="parameters" element="tns:eliminarUsuarioResponse" />
   </message>
-  <message name="actualizarUsuario">
-    <part name="parameters" element="tns:actualizarUsuario" />
+  <message name="insertarUsuario">
+    <part name="parameters" element="tns:insertarUsuario" />
   </message>
-  <message name="actualizarUsuarioResponse">
-    <part name="parameters" element="tns:actualizarUsuarioResponse" />
+  <message name="insertarUsuarioResponse">
+    <part name="parameters" element="tns:insertarUsuarioResponse" />
   </message>
   <message name="buscarUsuarioPorId">
     <part name="parameters" element="tns:buscarUsuarioPorId" />
@@ -29,17 +23,23 @@
   <message name="buscarUsuarioPorIdResponse">
     <part name="parameters" element="tns:buscarUsuarioPorIdResponse" />
   </message>
-  <message name="suspenderUsuario">
-    <part name="parameters" element="tns:suspenderUsuario" />
-  </message>
-  <message name="suspenderUsuarioResponse">
-    <part name="parameters" element="tns:suspenderUsuarioResponse" />
-  </message>
   <message name="listarUsuarios">
     <part name="parameters" element="tns:listarUsuarios" />
   </message>
   <message name="listarUsuariosResponse">
     <part name="parameters" element="tns:listarUsuariosResponse" />
+  </message>
+  <message name="actualizarUsuario">
+    <part name="parameters" element="tns:actualizarUsuario" />
+  </message>
+  <message name="actualizarUsuarioResponse">
+    <part name="parameters" element="tns:actualizarUsuarioResponse" />
+  </message>
+  <message name="suspenderUsuario">
+    <part name="parameters" element="tns:suspenderUsuario" />
+  </message>
+  <message name="suspenderUsuarioResponse">
+    <part name="parameters" element="tns:suspenderUsuarioResponse" />
   </message>
   <message name="buscarUsuarioPorNombreCuenta">
     <part name="parameters" element="tns:buscarUsuarioPorNombreCuenta" />
@@ -48,29 +48,29 @@
     <part name="parameters" element="tns:buscarUsuarioPorNombreCuentaResponse" />
   </message>
   <portType name="UsuarioWS">
-    <operation name="insertarUsuario">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest" message="tns:insertarUsuario" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse" message="tns:insertarUsuarioResponse" />
-    </operation>
     <operation name="eliminarUsuario">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
     </operation>
-    <operation name="actualizarUsuario">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
+    <operation name="insertarUsuario">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest" message="tns:insertarUsuario" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse" message="tns:insertarUsuarioResponse" />
     </operation>
     <operation name="buscarUsuarioPorId">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdRequest" message="tns:buscarUsuarioPorId" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdResponse" message="tns:buscarUsuarioPorIdResponse" />
     </operation>
-    <operation name="suspenderUsuario">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest" message="tns:suspenderUsuario" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse" message="tns:suspenderUsuarioResponse" />
-    </operation>
     <operation name="listarUsuarios">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
+    </operation>
+    <operation name="actualizarUsuario">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
+    </operation>
+    <operation name="suspenderUsuario">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest" message="tns:suspenderUsuario" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse" message="tns:suspenderUsuarioResponse" />
     </operation>
     <operation name="buscarUsuarioPorNombreCuenta">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRequest" message="tns:buscarUsuarioPorNombreCuenta" />
@@ -79,15 +79,6 @@
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="eliminarUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -97,7 +88,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarUsuario">
+    <operation name="insertarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -115,7 +106,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="suspenderUsuario">
+    <operation name="listarUsuarios">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -124,7 +115,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarUsuarios">
+    <operation name="actualizarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="suspenderUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

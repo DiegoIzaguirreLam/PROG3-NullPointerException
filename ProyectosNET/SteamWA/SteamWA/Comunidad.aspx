@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" id="searchForos" class="form-control mt-3 fontSetterExo2" placeholder="Buscar Foros...">
+            <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged"></asp:TextBox>
         </div>
     </div>
     <div class="container mt-3">

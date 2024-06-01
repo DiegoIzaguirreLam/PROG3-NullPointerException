@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/HiloWS?xsd=1" namespace="http://main.services.steam.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="eliminarHilo">
-    <part name="parameters" element="tns:eliminarHilo" />
-  </message>
-  <message name="eliminarHiloResponse">
-    <part name="parameters" element="tns:eliminarHiloResponse" />
-  </message>
   <message name="insertarHilo">
     <part name="parameters" element="tns:insertarHilo" />
   </message>
   <message name="insertarHiloResponse">
     <part name="parameters" element="tns:insertarHiloResponse" />
+  </message>
+  <message name="eliminarHilo">
+    <part name="parameters" element="tns:eliminarHilo" />
+  </message>
+  <message name="eliminarHiloResponse">
+    <part name="parameters" element="tns:eliminarHiloResponse" />
   </message>
   <message name="mostrarHilosSubforo">
     <part name="parameters" element="tns:mostrarHilosSubforo" />
@@ -30,13 +30,13 @@
     <part name="parameters" element="tns:editarHiloResponse" />
   </message>
   <portType name="HiloWS">
-    <operation name="eliminarHilo">
-      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloRequest" message="tns:eliminarHilo" />
-      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloResponse" message="tns:eliminarHiloResponse" />
-    </operation>
     <operation name="insertarHilo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/insertarHiloRequest" message="tns:insertarHilo" />
       <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/insertarHiloResponse" message="tns:insertarHiloResponse" />
+    </operation>
+    <operation name="eliminarHilo">
+      <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloRequest" message="tns:eliminarHilo" />
+      <output wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/eliminarHiloResponse" message="tns:eliminarHiloResponse" />
     </operation>
     <operation name="mostrarHilosSubforo">
       <input wsam:Action="http://main.services.steam.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest" message="tns:mostrarHilosSubforo" />
@@ -49,7 +49,7 @@
   </portType>
   <binding name="HiloWSPortBinding" type="tns:HiloWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarHilo">
+    <operation name="insertarHilo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarHilo">
+    <operation name="eliminarHilo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
