@@ -136,7 +136,7 @@ public class ForoMySQL implements ForoDAO{
         ArrayList<Foro> foros =  new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call BUSCAR_FORO}");
+            cs = con.prepareCall("{call BUSCAR_FORO(?)}");
             cs.setString("_nombre", nombre);
             rs = cs.executeQuery();
             while(rs.next()){

@@ -42,6 +42,15 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtBusquedaForo;
 
         /// <summary>
+        /// Control btnSuscritos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSuscritos;
+
+        /// <summary>
         /// Control lbReporte.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbReporte;
+
+        /// <summary>
+        /// Control btnCreados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreados;
 
         /// <summary>
         /// Control gvForos.

@@ -9,7 +9,7 @@
     <div class="container">
         <h1 class="mt-4">Comunidad</h1>
         <div class="row align-items-center">
-            <div class="col-md-7 row align-items-center">
+            <div class="col-md-7 row align-items-start">
                 <div class="col-md-auto align-items-lg-start">
                     <asp:Button ID="return" CssClass="h5 bg-transparent border-0 fontSetterExo2" runat="server" Text="Comunidad" OnClick="btnActualizarComunidad_Click"/>
                 </div>
@@ -22,8 +22,18 @@
             <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged"></asp:TextBox>
         </div>
     </div>
-    <div class="container mt-3">
-        <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" />
+    <div class="container mt-3 fontSetterExo2">
+        <div class="row align-items-center">
+            <div class="col-sm-4 text-start">
+                <asp:Button ID="btnSuscritos" runat="server" CssClass="btn btn-dark border-light" Text="Suscritos" OnClick="btnSuscritos_Click"/>
+            </div>
+            <div class="col text-center">
+                <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary align-middle btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" />
+            </div>
+            <div class="col text-end">
+                <asp:Button ID="btnCreados" runat="server" CssClass="btn btn-dark border-light" Text="Creados" OnClick="btnCreados_Click"/>
+            </div>
+        </div>
     </div>
     <hr "/>
     <div class="container">

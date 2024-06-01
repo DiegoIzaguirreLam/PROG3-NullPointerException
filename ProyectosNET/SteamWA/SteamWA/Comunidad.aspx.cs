@@ -30,10 +30,13 @@ namespace SteamWA
             daoMensaje = new MensajeWSClient();
             daoForoUsuario = new ForoUsuarioWSClient();
 
-            foro[] aux = daoForo.listarForos();
-            if (aux != null) foros = new BindingList<foro>(aux);
-            gvForos.DataSource = foros;
-            gvForos.DataBind();
+            if (!IsPostBack)
+            {
+                foro[] aux = daoForo.listarForos();
+                if (aux != null) foros = new BindingList<foro>(aux);
+                gvForos.DataSource = foros;
+                gvForos.DataBind();
+            }
             Steam master = (Steam)this.Master;
             master.ItemComunidad.Attributes["class"] = "active";
             //ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
@@ -42,7 +45,7 @@ namespace SteamWA
 
         protected void btnActualizarComunidad_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Comunidad.aspx");
+            //Response.Redirect("Comunidad.aspx");
         }
 
         protected void btnCrearForo_Click(object sender, EventArgs e)
@@ -112,6 +115,16 @@ namespace SteamWA
             if (aux != null) foros = new BindingList<foro>(aux);
             gvForos.DataSource = foros;
             gvForos.DataBind();
+        }
+
+        protected void btnSuscritos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCreados_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

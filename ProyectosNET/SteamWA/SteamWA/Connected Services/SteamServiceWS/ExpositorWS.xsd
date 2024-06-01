@@ -12,9 +12,12 @@
   <xs:element name="listarExpositoresResponse" type="tns:listarExpositoresResponse" />
   <xs:element name="ocultarExpositor" type="tns:ocultarExpositor" />
   <xs:element name="ocultarExpositorResponse" type="tns:ocultarExpositorResponse" />
-  <xs:complexType name="eliminarExpositor">
+  <xs:complexType name="listarExpositores">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarExpositoresResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="expositor" type="tns:expositor" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:expositor" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="expositor">
@@ -131,17 +134,14 @@
       <xs:element minOccurs="0" name="texto" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="eliminarExpositor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="expositor" type="tns:expositor" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="eliminarExpositorResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarExpositores">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarExpositoresResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:expositor" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarExpositoresPerfil">
