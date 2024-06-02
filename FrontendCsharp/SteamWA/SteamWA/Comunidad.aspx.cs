@@ -36,7 +36,9 @@ namespace SteamWA
                 if (aux != null) foros = new BindingList<foro>(aux);
                 gvForos.DataSource = foros;
                 gvForos.DataBind();
+                Session["forosAux"] = foros;
             }
+            
             Steam master = (Steam)this.Master;
             master.ItemComunidad.Attributes["class"] = "active";
             //ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
@@ -56,11 +58,11 @@ namespace SteamWA
 
         protected void lbAbrirForo_Click(object sender, EventArgs e)
         {
-            string nombreForo = "pruebita";
-            //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
-            //Session["objeto"]=foro
-            Response.Redirect("GestionarForo.aspx?foro=" + nombreForo);
+            foros = (BindingList<foro>)Session["forosAux"];
+            int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
+            Session["objeto"] = foro;
+            Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
         }
 
         protected void lbActualizarInfoForo_Click(object sender, EventArgs e)
@@ -119,7 +121,13 @@ namespace SteamWA
 
         protected void btnSuscritos_Click(object sender, EventArgs e)
         {
-
+            usuario user = (usuario)Session["usuario"];
+            foro[] aux = daoForo.listarForosSuscritos(user.UID);
+            if (aux != null) creados = new BindingList<foro>(aux);
+            gvCreados.DataSource = creados;
+            gvCreados.DataBind();
+            string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
         protected void btnCreados_Click(object sender, EventArgs e)
@@ -143,6 +151,24 @@ namespace SteamWA
         {
             gvCreados.PageIndex = e.NewPageIndex;
             gvCreados.DataBind();
+        }
+
+        protected void gvSuscritos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCreados.PageIndex = e.NewPageIndex;
+            gvCreados.DataBind();
+        }
+
+        protected void gvForos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName == "AbrirForo")
+            {
+                foros = (BindingList<foro>)Session["forosAux"];
+                int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+                foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
+                Session["objeto"] = foro;
+                Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
+            }
         }
     }
 }

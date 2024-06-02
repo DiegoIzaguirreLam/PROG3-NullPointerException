@@ -168,7 +168,7 @@ public class ForoMySQL implements ForoDAO{
         ArrayList<Foro> foros =  new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_CREADOS}");
+            cs = con.prepareCall("{call LISTAR_CREADOS(?)}");
             cs.setInt("_iduser", idUser);
             rs = cs.executeQuery();
             while(rs.next()){
@@ -200,7 +200,7 @@ public class ForoMySQL implements ForoDAO{
         ArrayList<Foro> foros =  new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_SUSCRITOS}");
+            cs = con.prepareCall("{call LISTAR_SUSCRITOS(?)}");
             cs.setInt("_iduser", idUser);
             rs = cs.executeQuery();
             while(rs.next()){

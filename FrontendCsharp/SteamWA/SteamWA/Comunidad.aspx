@@ -36,10 +36,10 @@
         </div>
     </div>
     <hr "/>
-    <div class="container">
-        <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvForos_PageIndexChanging">
+    <div class="container fontSetterExo2">
+        <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvForos_PageIndexChanging" OnRowCommand="gvForos_RowCommand">
             <Columns>
-                <asp:BoundField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
+                <asp:ButtonField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" ButtonType="Button" CommandName="AbrirForo"/>
                 <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
                 <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
                 <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
@@ -51,8 +51,6 @@
                             CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
                             CommandArgument='<%# Eval("IdForo") %>' OnClick="lbActualizarInfoForo_Click" />
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbEliminarForo_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -125,6 +123,41 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
+                        <div class="container row">
+                            <div class="mb-3">
+                                <asp:Label ID="lblNTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" />
+                                <div class="col-sm-12 col-4">
+                                    <asp:TextBox ID="txtNTema" runat="server" CssClass="form-control" MaxLength="14"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container row">
+                            <div class="mb-3">
+                                <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
+                                <div class="col-sm-12">
+                                    <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer clearfix">
+                            <asp:Button ID="btnActualizar" runat="server" Text="Guardar"
+                                CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Clase modal para mostrar Foros creados-->
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-creados">
+        <div class="modal-dialog">
+            <div class="modal-content bg-secondary bg-opacity-50">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title border-white">Mis Foros</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content">
+                    <div class="container bg-dark">
                         <asp:GridView ID="gvCreados" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvCreados_PageIndexChanging">
                             <Columns>
                                 <asp:BoundField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
@@ -147,43 +180,42 @@
                         </asp:GridView>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!--Clase modal para mostrar Foros suscritos-->
+<div class="modal border-white fade fontSetterExo2" id="form-modal-suscritos">
+    <div class="modal-dialog">
+        <div class="modal-content bg-secondary bg-opacity-50">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title border-white">Mis Foros</h5>
+                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-content">
+                <div class="container bg-dark">
+                    <asp:GridView ID="gvSuscritos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvSuscritos_PageIndexChanging">
+                        <Columns>
+                            <asp:BoundField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                            <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                            <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
+                            <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
+                            <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
+                                HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                            <asp:TemplateField ItemStyle-CssClass="text-end">
+                                <ItemTemplate>
+                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
+                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
+                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
+                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbActualizarInfoForo_Click" />
+                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
+                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbEliminarForo_Click" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
         </div>
     </div>
-    <!--Clase modal para mostrar Foros creados-->
-    <div class="modal border-white fade fontSetterExo2" id="form-modal-creados">
-        <div class="modal-dialog">
-            <div class="modal-content bg-secondary bg-opacity-50">
-                <div class="modal-header bg-dark">
-                    <h5 class="modal-title border-white">Mis Foros</h5>
-                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-content">
-                    <div class="container bg-dark">
-                        <div class="container row">
-                            <div class="mb-3">
-                                <asp:Label ID="Label1" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" />
-                                <div class="col-sm-12 col-4">
-                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" MaxLength="14" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container row">
-                            <div class="mb-3">
-                                <asp:Label ID="Label2" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
-                                <div class="col-sm-12">
-                                    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Height="50" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer clearfix">
-                            <asp:Button ID="Button1" runat="server" Text="Guardar"
-                                CssClass="float-end btn btn-secondary bg-dark mb-2" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </asp:Content>
