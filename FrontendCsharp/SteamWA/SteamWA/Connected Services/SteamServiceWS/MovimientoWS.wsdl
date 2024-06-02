@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.softprog.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="MovimientoWS" targetNamespace="http://services.softprog.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SteamWS/MovimientoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="insertarMovimiento">
+    <part name="parameters" element="tns:insertarMovimiento" />
+  </message>
+  <message name="insertarMovimientoResponse">
+    <part name="parameters" element="tns:insertarMovimientoResponse" />
+  </message>
+  <message name="listarMovimientos">
+    <part name="parameters" element="tns:listarMovimientos" />
+  </message>
+  <message name="listarMovimientosResponse">
+    <part name="parameters" element="tns:listarMovimientosResponse" />
+  </message>
+  <message name="buscarMovimiento">
+    <part name="parameters" element="tns:buscarMovimiento" />
+  </message>
+  <message name="buscarMovimientoResponse">
+    <part name="parameters" element="tns:buscarMovimientoResponse" />
+  </message>
+  <portType name="MovimientoWS">
+    <operation name="insertarMovimiento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoRequest" message="tns:insertarMovimiento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoResponse" message="tns:insertarMovimientoResponse" />
+    </operation>
+    <operation name="listarMovimientos">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/MovimientoWS/listarMovimientosRequest" message="tns:listarMovimientos" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/MovimientoWS/listarMovimientosResponse" message="tns:listarMovimientosResponse" />
+    </operation>
+    <operation name="buscarMovimiento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/MovimientoWS/buscarMovimientoRequest" message="tns:buscarMovimiento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/MovimientoWS/buscarMovimientoResponse" message="tns:buscarMovimientoResponse" />
+    </operation>
+  </portType>
+  <binding name="MovimientoWSPortBinding" type="tns:MovimientoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="insertarMovimiento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarMovimientos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarMovimiento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="MovimientoWS">
+    <port name="MovimientoWSPort" binding="tns:MovimientoWSPortBinding">
+      <soap:address location="http://localhost:8080/SteamWS/MovimientoWS" />
+    </port>
+  </service>
+</definitions>

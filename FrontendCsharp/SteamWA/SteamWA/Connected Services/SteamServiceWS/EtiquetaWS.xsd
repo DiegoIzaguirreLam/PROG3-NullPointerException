@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarEtiqueta" type="tns:actualizarEtiqueta" />
+  <xs:element name="actualizarEtiquetaResponse" type="tns:actualizarEtiquetaResponse" />
+  <xs:element name="eliminarEtiqueta" type="tns:eliminarEtiqueta" />
+  <xs:element name="eliminarEtiquetaResponse" type="tns:eliminarEtiquetaResponse" />
+  <xs:element name="insertarEtiqueta" type="tns:insertarEtiqueta" />
+  <xs:element name="insertarEtiquetaResponse" type="tns:insertarEtiquetaResponse" />
+  <xs:element name="listarEtiquetas" type="tns:listarEtiquetas" />
+  <xs:element name="listarEtiquetasResponse" type="tns:listarEtiquetasResponse" />
+  <xs:complexType name="actualizarEtiqueta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="etiqueta" type="tns:etiqueta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="etiqueta">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idEtiqueta" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarEtiquetaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarEtiqueta">
+    <xs:sequence>
+      <xs:element name="idEtiqueta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarEtiquetaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEtiquetas">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEtiquetasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:etiqueta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarEtiqueta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="etiqueta" type="tns:etiqueta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarEtiquetaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

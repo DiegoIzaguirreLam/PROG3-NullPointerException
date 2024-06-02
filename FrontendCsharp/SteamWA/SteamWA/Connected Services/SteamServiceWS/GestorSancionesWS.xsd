@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarGestor" type="tns:actualizarGestor" />
+  <xs:element name="actualizarGestorResponse" type="tns:actualizarGestorResponse" />
+  <xs:element name="buscarGestor" type="tns:buscarGestor" />
+  <xs:element name="buscarGestorResponse" type="tns:buscarGestorResponse" />
+  <xs:element name="insertarGestor" type="tns:insertarGestor" />
+  <xs:element name="insertarGestorResponse" type="tns:insertarGestorResponse" />
+  <xs:complexType name="actualizarGestor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="gestor" type="tns:gestorSanciones" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="gestorSanciones">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="cantBaneos" type="xs:int" />
+      <xs:element name="cantFaltas" type="xs:int" />
+      <xs:element name="contadorBaneos" type="xs:int" />
+      <xs:element name="contadorFaltas" type="xs:int" />
+      <xs:element name="contadorPalabras" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaFinBan" type="xs:dateTime" />
+      <xs:element name="idGestor" type="xs:int" />
+      <xs:element name="idUsuario" type="xs:int" />
+      <xs:element name="maxBaneos" type="xs:int" />
+      <xs:element name="maxFaltas" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="subforos" nillable="true" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="subforo">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="foro" type="tns:foro" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="hilos" nillable="true" type="tns:hilo" />
+      <xs:element name="idSubforo" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element name="oculto" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="foro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="idCreador" type="xs:int" />
+      <xs:element name="idForo" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCreador" type="xs:string" />
+      <xs:element name="oculto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="origen" type="tns:origenForo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="subforos" nillable="true" type="tns:subforo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="suscritos" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hilo">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element name="fijado" type="xs:boolean" />
+      <xs:element name="idCreador" type="xs:int" />
+      <xs:element name="idHilo" type="xs:int" />
+      <xs:element minOccurs="0" name="imagenUrl" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mensajes" nillable="true" type="tns:mensaje" />
+      <xs:element name="nroMensajes" type="xs:int" />
+      <xs:element name="oculto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mensaje">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="contenido" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaMaxEdicion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="hilo" type="tns:hilo" />
+      <xs:element name="idAutor" type="xs:int" />
+      <xs:element name="idMensaje" type="xs:int" />
+      <xs:element name="oculto" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="respuestas" nillable="true" type="tns:mensaje" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarGestorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarGestor">
+    <xs:sequence>
+      <xs:element name="idUsuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarGestorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:gestorSanciones" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarGestor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="gestor" type="tns:gestorSanciones" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarGestorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="origenForo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STEAM" />
+      <xs:enumeration value="USUARIO" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
