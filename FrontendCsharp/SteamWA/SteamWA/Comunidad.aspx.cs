@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Web;
@@ -61,12 +62,16 @@ namespace SteamWA
             foros = (BindingList<foro>)Session["forosAux"];
             int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
-            Session["objeto"] = foro;
+            Session["foroPadre"] = foro;
             Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
         }
 
         protected void lbActualizarInfoForo_Click(object sender, EventArgs e)
         {
+            foros = (BindingList<foro>)Session["forosAux"];
+            int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
+            Session["foroParaActualizar"] = foro;
             string script = "window.onload = function() { showModalForm('form-modal-edicion') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -74,6 +79,26 @@ namespace SteamWA
         protected void lbEliminarForo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void lbDesuscribir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbSuscribirForo_Click(object sender, EventArgs e)
+        {
+            usuario user = (usuario)Session["usuario"];
+            daoForoUsuario.suscribirRelacion(Int32.Parse(((LinkButton)sender).CommandArgument), user.UID);
+        }
+
+        protected void btnActualizarForo_Click(object sender, EventArgs e)
+        {
+            foro actforo = (foro)Session["foroParaActualizar"];
+            actforo.nombre = txtNTema.Text;
+            actforo.descripcion = txtNDescripcion.Text;
+            daoForo.editarForo(actforo);
+            Response.Redirect("Comunidad.aspx");
         }
 
         protected void btnGuardarForoModal_Click(object sender, EventArgs e)
@@ -124,8 +149,8 @@ namespace SteamWA
             usuario user = (usuario)Session["usuario"];
             foro[] aux = daoForo.listarForosSuscritos(user.UID);
             if (aux != null) creados = new BindingList<foro>(aux);
-            gvCreados.DataSource = creados;
-            gvCreados.DataBind();
+            gvSuscritos.DataSource = creados;
+            gvSuscritos.DataBind();
             string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -137,6 +162,7 @@ namespace SteamWA
             if (aux != null) creados = new BindingList<foro>(aux);
             gvCreados.DataSource = creados;
             gvCreados.DataBind();
+            Session["ForosCreados"] = creados;
             string script = "window.onload = function() { showModalForm('form-modal-creados') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -164,11 +190,29 @@ namespace SteamWA
             if(e.CommandName == "AbrirForo")
             {
                 foros = (BindingList<foro>)Session["forosAux"];
-                int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
-                foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
-                Session["objeto"] = foro;
+                int idForo = Convert.ToInt32(e.CommandArgument);
+                foro foro = foros[idForo];
+                Session["foroPadre"] = foro;
+                Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
+            }
+            if (e.CommandName == "AbrirForoCreado")
+            {
+                foros = (BindingList<foro>)Session["forosAux"];
+                int idForo = Convert.ToInt32(e.CommandArgument);
+                foro foro = creados[idForo];
+                Session["foroPadre"] = foro;
+                Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
+            }
+            if (e.CommandName == "AbrirForoSuscrito")
+            {
+                foros = (BindingList<foro>)Session["forosAux"];
+                int idForo = Convert.ToInt32(e.CommandArgument);
+                foro foro = suscritos[idForo];
+                Session["foroPadre"] = foro;
                 Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
             }
         }
+
+        
     }
 }

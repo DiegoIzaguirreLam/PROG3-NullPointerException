@@ -63,7 +63,7 @@ public class ForoMySQL implements ForoDAO{
             cs = con.prepareCall("{call EDITAR_FORO"
                     + "(?,?,?,?)}");
  
-			cs.setInt("_id_foro", foro.getIdForo());
+	    cs.setInt("_id_foro", foro.getIdForo());
             cs.setString("_nombre", foro.getNombre());
             cs.setString("_descripcion",foro.getDescripcion());
             cs.setString("_origen_foro", foro.getNombreCreador());

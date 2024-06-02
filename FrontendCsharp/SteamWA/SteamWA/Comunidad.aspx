@@ -39,7 +39,7 @@
     <div class="container fontSetterExo2">
         <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvForos_PageIndexChanging" OnRowCommand="gvForos_RowCommand">
             <Columns>
-                <asp:ButtonField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" ButtonType="Button" CommandName="AbrirForo"/>
+                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForo" />
                 <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
                 <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
                 <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
@@ -47,10 +47,8 @@
                                  HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
                 <asp:TemplateField ItemStyle-CssClass="text-end">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbActualizarInfoForo_Click" />
+                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-plus' style='color: #ffffff;'></i>"
+                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbSuscribirForo_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -140,8 +138,8 @@
                             </div>
                         </div>
                         <div class="card-footer clearfix">
-                            <asp:Button ID="btnActualizar" runat="server" Text="Guardar"
-                                CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                            <asp:Button ID="btnActualizarForo" runat="server" Text="Guardar"
+                                CssClass="float-end btn btn-secondary bg-dark mb-2" OnClick="btnActualizarForo_Click"/>
                         </div>
                     </div>
                 </div>
@@ -158,9 +156,9 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
-                        <asp:GridView ID="gvCreados" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvCreados_PageIndexChanging">
+                        <asp:GridView ID="gvCreados" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvCreados_PageIndexChanging" OnRowCommand="gvForos_RowCommand">
                             <Columns>
-                                <asp:BoundField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoCreado" />
                                 <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
                                 <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
                                 <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
@@ -168,12 +166,10 @@
                                     HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
                                 <asp:TemplateField ItemStyle-CssClass="text-end">
                                     <ItemTemplate>
-                                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-                                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
                                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbActualizarInfoForo_Click" />
+                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbActualizarInfoForo_Click" />
                                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                                            CommandArgument='<%# Eval("IdForo") %>' OnClick="lbEliminarForo_Click" />
+                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbEliminarForo_Click" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -193,9 +189,9 @@
             </div>
             <div class="modal-content">
                 <div class="container bg-dark">
-                    <asp:GridView ID="gvSuscritos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvSuscritos_PageIndexChanging">
+                    <asp:GridView ID="gvSuscritos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvSuscritos_PageIndexChanging" OnRowCommand="gvForos_RowCommand">
                         <Columns>
-                            <asp:BoundField HeaderText="Nombre" DataField="nombre" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                            <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoSuscrito" />
                             <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
                             <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
                             <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
@@ -203,12 +199,8 @@
                                 HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
                             <asp:TemplateField ItemStyle-CssClass="text-end">
                                 <ItemTemplate>
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbAbrirForo_Click"></asp:LinkButton>
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbActualizarInfoForo_Click" />
                                     <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbEliminarForo_Click" />
+                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbDesuscribir_Click" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
