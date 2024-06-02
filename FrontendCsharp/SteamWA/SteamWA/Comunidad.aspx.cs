@@ -175,6 +175,7 @@ namespace SteamWA
             if (aux != null) creados = new BindingList<foro>(aux);
             gvSuscritos.DataSource = creados;
             gvSuscritos.DataBind();
+            Session["ForosSuscritos"] = suscritos;
             string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -193,20 +194,23 @@ namespace SteamWA
 
         protected void gvForos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            gvForos.DataSource = (BindingList<foro>)Session["forosAux"];
             gvForos.PageIndex = e.NewPageIndex;
             gvForos.DataBind();
         }
 
         protected void gvCreados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
             gvCreados.PageIndex = e.NewPageIndex;
             gvCreados.DataBind();
         }
 
         protected void gvSuscritos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvCreados.PageIndex = e.NewPageIndex;
-            gvCreados.DataBind();
+            gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
+            gvSuscritos.PageIndex = e.NewPageIndex;
+            gvSuscritos.DataBind();
         }
 
         protected void gvForos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -221,7 +225,7 @@ namespace SteamWA
             }
             if (e.CommandName == "AbrirForoCreado")
             {
-                foros = (BindingList<foro>)Session["forosAux"];
+                creados = (BindingList<foro>)Session["ForosCreados"];
                 int idForo = Convert.ToInt32(e.CommandArgument);
                 foro foro = creados[idForo];
                 Session["foroPadre"] = foro;
@@ -229,7 +233,7 @@ namespace SteamWA
             }
             if (e.CommandName == "AbrirForoSuscrito")
             {
-                foros = (BindingList<foro>)Session["forosAux"];
+                suscritos = (BindingList<foro>)Session["ForosSuscritos"];
                 int idForo = Convert.ToInt32(e.CommandArgument);
                 foro foro = suscritos[idForo];
                 Session["foroPadre"] = foro;
