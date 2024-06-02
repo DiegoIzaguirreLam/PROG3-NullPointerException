@@ -185,12 +185,13 @@ CREATE TABLE Foro(
 
 /* Crear tabla Foro_Usuario */
 CREATE TABLE ForoUsuario(
+	id_Relacion_ForoUsuario INT AUTO_INCREMENT,
 	fid_foro INT NOT NULL,
 	fid_usuario INT NOT NULL,
 	es_creador TINYINT NOT NULL,
 	es_suscriptor TINYINT NOT NULL,
 	activo TINYINT NOT NULL,
-	PRIMARY KEY(fid_foro, fid_usuario),
+	PRIMARY KEY(id_Relacion_ForoUsuario),
 	FOREIGN KEY(fid_foro) REFERENCES Foro(id_foro),
 	FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;

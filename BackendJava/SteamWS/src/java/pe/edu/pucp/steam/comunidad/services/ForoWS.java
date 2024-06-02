@@ -60,7 +60,7 @@ public class ForoWS {
         int resultado=0;
         try{
             ForoDAO foroDao = new ForoMySQL();
-            resultado = foroDao.insertarForo(foro);
+            resultado = foroDao.eliminarForo(foro);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

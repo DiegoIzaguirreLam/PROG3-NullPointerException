@@ -17,7 +17,7 @@ CREATE PROCEDURE CREAR_FORO(
 )
 
 BEGIN
-	INSERT INTO foro(nombre,descripcion,
+	INSERT INTO Foro(nombre,descripcion,
     origen_foro,oculto, activo) VALUES (_nombre,_descripcion,
     _origen_foro,0, 1);
 	SET _id_foro = @@last_insert_id;
@@ -47,7 +47,7 @@ CREATE PROCEDURE LISTAR_SUSCRITOS(
 	IN _iduser INT
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND c.activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser AND f.activo = 1 INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND c.activo = 1;
 END$
 
 CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(
@@ -66,7 +66,7 @@ CREATE PROCEDURE EDITAR_FORO(
     IN _origen_foro VARCHAR(100)
 )
 BEGIN
-	UPDATE foro SET nombre = _nombre,
+	UPDATE Foro SET nombre = _nombre,
     descripcion = _descripcion,
     origen_foro = _origen_foro 
     WHERE id_foro = _id_foro; 
@@ -77,7 +77,7 @@ CREATE PROCEDURE DESACTIVAR_FORO(
 	IN _id_foro INT
 )
 BEGIN
-	UPDATE foro SET oculto = 1
+	UPDATE Foro SET oculto = 1
     WHERE id_foro = _id_foro; 
 
 END $
@@ -86,7 +86,7 @@ CREATE PROCEDURE ELIMINAR_FORO(
 	IN _id_foro INT
 )
 BEGIN
-	UPDATE foro SET activo = 0
+	UPDATE Foro SET activo = 0
     WHERE id_foro = _id_foro; 
 
 END $

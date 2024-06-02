@@ -84,7 +84,7 @@ public class ForoMySQL implements ForoDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call DESACTIVAR_FORO"
+            cs = con.prepareCall("{call ELIMINAR_FORO"
                     + "(?)}");
  
 	    cs.setInt("_id_foro", foro.getIdForo());

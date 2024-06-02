@@ -69,7 +69,7 @@ public class ForoUsuarioMySQL implements ForoUsuarioDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call ELIMINAR_RELACION(?, ?)}");
+            cs = con.prepareCall("{call ELIMINAR_RELACION_FORO(?, ?)}");
             cs.setInt("_fid_foro", idForo);
             cs.setInt("_fid_usuario", idUsuario);
             resultado = cs.executeUpdate();
@@ -114,6 +114,26 @@ public class ForoUsuarioMySQL implements ForoUsuarioDAO{
 			
         }
         return foros; 
+    }
+
+    @Override
+    public int desuscribirRelacion(int idForo, int idUsuario) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call DESUSCRIBIR_RELACION_FORO(?, ?)}");
+            cs.setInt("_fid_foro", idForo);
+            cs.setInt("_fid_usuario", idUsuario);
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+        return resultado; 
     }
     
 }

@@ -2,6 +2,8 @@
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="crearRelacion" type="tns:crearRelacion" />
   <xs:element name="crearRelacionResponse" type="tns:crearRelacionResponse" />
+  <xs:element name="desuscribirRelacion" type="tns:desuscribirRelacion" />
+  <xs:element name="desuscribirRelacionResponse" type="tns:desuscribirRelacionResponse" />
   <xs:element name="eliminarRelacion" type="tns:eliminarRelacion" />
   <xs:element name="eliminarRelacionResponse" type="tns:eliminarRelacionResponse" />
   <xs:element name="listarSuscritos" type="tns:listarSuscritos" />
@@ -88,6 +90,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarRelacionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="desuscribirRelacion">
+    <xs:sequence>
+      <xs:element name="idForo" type="xs:int" />
+      <xs:element name="idUsuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="desuscribirRelacionResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

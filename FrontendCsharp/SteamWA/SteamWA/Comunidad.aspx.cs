@@ -72,24 +72,47 @@ namespace SteamWA
             int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
             Session["foroParaActualizar"] = foro;
+            txtNTema.Text = foro.nombre;
+            txtNDescripcion.Text = foro.descripcion;
             string script = "window.onload = function() { showModalForm('form-modal-edicion') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
         protected void lbEliminarForo_Click(object sender, EventArgs e)
         {
-
+            foros = (BindingList<foro>)Session["forosAux"];
+            int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
+            daoForoUsuario.eliminarRelacion(foro.idForo, foro.idCreador);
+            if (daoForo.eliminarForo(foro) != 0) Response.Redirect("Comunidad.aspx");
         }
 
         protected void lbDesuscribir_Click(object sender, EventArgs e)
         {
-
+            foros = (BindingList<foro>)Session["forosAux"];
+            usuario user = (usuario)Session["usuario"];
+            int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
+            if (daoForoUsuario.desuscribirRelacion(foro.idForo, user.UID) != 0) Response.Redirect("Comunidad.aspx");
         }
 
         protected void lbSuscribirForo_Click(object sender, EventArgs e)
         {
+            foros = (BindingList<foro>)Session["forosAux"];
+            int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
             usuario user = (usuario)Session["usuario"];
-            daoForoUsuario.suscribirRelacion(Int32.Parse(((LinkButton)sender).CommandArgument), user.UID);
+            foro[] aux = daoForo.listarForosSuscritos(user.UID);
+            foro checker = null;
+            if (aux != null)
+            {
+                BindingList<foro> auxSuscritos = new BindingList<foro>(aux);
+                checker = auxSuscritos.SingleOrDefault(x => x.idForo == idForo);
+            }
+            if (checker == null) //No debe de encontrarlo para que pueda suscribirse, así evita suscribirse n veces
+            {
+                daoForoUsuario.suscribirRelacion(Int32.Parse(((LinkButton)sender).CommandArgument), user.UID);
+            }
         }
 
         protected void btnActualizarForo_Click(object sender, EventArgs e)
@@ -116,6 +139,7 @@ namespace SteamWA
             neoforo.nombreCreador = user.nombrePerfil.ToString();
             id = daoForo.insertarForo(neoforo);
             daoForoUsuario.crearRelacion(id, user.UID);
+            daoForoUsuario.suscribirRelacion(id, user.UID);
             neoforo.idForo = id;
             neosubforo.foro = neoforo;
             neosubforo.nombre = txtInicial.Text;

@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/JuegoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarJuego">
-    <part name="parameters" element="tns:actualizarJuego" />
+  <message name="listarJuegos">
+    <part name="parameters" element="tns:listarJuegos" />
   </message>
-  <message name="actualizarJuegoResponse">
-    <part name="parameters" element="tns:actualizarJuegoResponse" />
+  <message name="listarJuegosResponse">
+    <part name="parameters" element="tns:listarJuegosResponse" />
   </message>
   <message name="buscarJuego">
     <part name="parameters" element="tns:buscarJuego" />
@@ -17,11 +17,11 @@
   <message name="buscarJuegoResponse">
     <part name="parameters" element="tns:buscarJuegoResponse" />
   </message>
-  <message name="listarJuegos">
-    <part name="parameters" element="tns:listarJuegos" />
+  <message name="actualizarJuego">
+    <part name="parameters" element="tns:actualizarJuego" />
   </message>
-  <message name="listarJuegosResponse">
-    <part name="parameters" element="tns:listarJuegosResponse" />
+  <message name="actualizarJuegoResponse">
+    <part name="parameters" element="tns:actualizarJuegoResponse" />
   </message>
   <message name="eliminarJuego">
     <part name="parameters" element="tns:eliminarJuego" />
@@ -36,17 +36,17 @@
     <part name="parameters" element="tns:insertarJuegoResponse" />
   </message>
   <portType name="JuegoWS">
-    <operation name="actualizarJuego">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoRequest" message="tns:actualizarJuego" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoResponse" message="tns:actualizarJuegoResponse" />
+    <operation name="listarJuegos">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/listarJuegosRequest" message="tns:listarJuegos" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/listarJuegosResponse" message="tns:listarJuegosResponse" />
     </operation>
     <operation name="buscarJuego">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoRequest" message="tns:buscarJuego" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoResponse" message="tns:buscarJuegoResponse" />
     </operation>
-    <operation name="listarJuegos">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/listarJuegosRequest" message="tns:listarJuegos" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/listarJuegosResponse" message="tns:listarJuegosResponse" />
+    <operation name="actualizarJuego">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoRequest" message="tns:actualizarJuego" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoResponse" message="tns:actualizarJuegoResponse" />
     </operation>
     <operation name="eliminarJuego">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/eliminarJuegoRequest" message="tns:eliminarJuego" />
@@ -59,7 +59,7 @@
   </portType>
   <binding name="JuegoWSPortBinding" type="tns:JuegoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarJuego">
+    <operation name="listarJuegos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -77,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarJuegos">
+    <operation name="actualizarJuego">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

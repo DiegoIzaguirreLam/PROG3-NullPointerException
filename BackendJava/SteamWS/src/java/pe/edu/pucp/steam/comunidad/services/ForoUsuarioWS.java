@@ -57,6 +57,18 @@ public class ForoUsuarioWS {
         return resultado;
     }
     
+    @WebMethod(operationName="desuscribirRelacion")
+    public int desuscribirRelacion(@WebParam(name="idForo") int idForo, @WebParam(name="idUsuario") int idUsuario) {
+        int resultado=0;
+        try{
+            ForoUsuarioDAO foroUsuarioDao = new ForoUsuarioMySQL();
+            resultado = foroUsuarioDao.desuscribirRelacion(idForo, idUsuario);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
     @WebMethod(operationName="listarSuscritos")
     public ArrayList<Foro> listarSuscritos(@WebParam(name="idUsuario") int idUsuario) {
         ArrayList<Foro> foros = new ArrayList<>();
