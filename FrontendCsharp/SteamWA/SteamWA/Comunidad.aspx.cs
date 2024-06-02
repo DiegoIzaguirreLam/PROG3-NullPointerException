@@ -124,7 +124,25 @@ namespace SteamWA
 
         protected void btnCreados_Click(object sender, EventArgs e)
         {
+            usuario user = (usuario)Session["usuario"];
+            foro[] aux = daoForo.listarCreados(user.UID);
+            if (aux != null) creados = new BindingList<foro>(aux);
+            gvCreados.DataSource = creados;
+            gvCreados.DataBind();
+            string script = "window.onload = function() { showModalForm('form-modal-creados') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
 
+        protected void gvForos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvForos.PageIndex = e.NewPageIndex;
+            gvForos.DataBind();
+        }
+
+        protected void gvCreados_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCreados.PageIndex = e.NewPageIndex;
+            gvCreados.DataBind();
         }
     }
 }
