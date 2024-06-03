@@ -29,3 +29,12 @@
     border-width: 1px;
     border-image-source: linear-gradient(90deg, #24282f 0%, #ffffff 45%, #ffffff 55%, #24282f 100%);
 }
+
+.bgDesplegables {
+    background-color: #392e47;
+}
+
+
+.new-hover-effect:hover {
+    background-color: #4a4a4a;
+}

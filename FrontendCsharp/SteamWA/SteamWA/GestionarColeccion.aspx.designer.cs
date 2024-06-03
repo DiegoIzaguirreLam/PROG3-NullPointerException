@@ -24,6 +24,15 @@ namespace SteamWA
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hGestionarColeccion;
 
         /// <summary>
+        /// Control lblMensajeError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeError;
+
+        /// <summary>
         /// Control txtNombreColeccion.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace SteamWA
         protected global::System.Web.UI.HtmlControls.HtmlTable tablaProductos;
 
         /// <summary>
+        /// Control divBotonesColeccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBotonesColeccion;
+
+        /// <summary>
         /// Control btnEliminar.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEliminar;
+
+        /// <summary>
+        /// Control divCancelarGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCancelarGuardar;
 
         /// <summary>
         /// Control btnCancelar.

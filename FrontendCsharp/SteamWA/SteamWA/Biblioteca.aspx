@@ -11,38 +11,41 @@
         <!-- dropdown checkbox con colecciones -->
         <div class="text-end">
             <div class="dropdown d-inline-block">
+                <asp:LinkButton ID="lbLimpiarFiltros" runat="server" Text="<i class='fa-solid fa-filter-circle-xmark'></i>" CssClass="btn bg-navy btn-outline-light" OnClick="lbLimpiarFiltros_Click" />
                 <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownColecciones"
-                    data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Colecciones
-                </button> 
-                <ul id="ddlColecciones" runat="server" class="dropdown-menu text-" aria-labelledby="dropdownColecciones">
-                    
+       
+                </button>
+                <ul id="ddlColecciones" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="dropdownColecciones">
                 </ul>
             </div>
-            <!-- dropdown de ordenar -->
+            <!-- Botones para ordenar -->
             <div class="dropdown d-inline-block">
                 <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownOrdenar"
-                    data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Ordenar
+       
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownOrdenar">
+                <ul class="dropdown-menu bgDesplegables" aria-labelledby="dropdownOrdenar">
                     <li>
-                        <asp:RadioButton ID="rbNombre" runat="server" GroupName="orderCriteria" Text="Por Nombre" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbNombre" runat="server" GroupName="orderCriteria" Text=" Por Nombre" CssClass="ps-2 text-light" Style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbTiempo" runat="server" GroupName="orderCriteria" Text="Por Uso" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbTiempo" runat="server" GroupName="orderCriteria" Text=" Por Uso" CssClass="ps-2 text-light" Style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbTam" runat="server" GroupName="orderCriteria" Text="Por Tamaño" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbTam" runat="server" GroupName="orderCriteria" Text=" Por Tamaño" CssClass="ps-2 text-light" Style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbFechaPub" runat="server" GroupName="orderCriteria" Text="Por Recientes" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbFechaPub" runat="server" GroupName="orderCriteria" Text=" Por Recientes" CssClass="ps-2 text-light" Style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                     <li>
-                        <asp:RadioButton ID="rbPrecio" runat="server" GroupName="orderCriteria" Text="Por Precio" style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
+                        <asp:RadioButton ID="rbPrecio" runat="server" GroupName="orderCriteria" Text=" Por Precio" CssClass="ps-2 text-light" Style="padding-left: 10px;" AutoPostBack="True" OnCheckedChanged="RadioButton_CheckedChanged" />
                     </li>
                 </ul>
             </div>
+        </div>
         </div>
         <hr />
         <div class="container d-flex rounded-top rounded-bottom">

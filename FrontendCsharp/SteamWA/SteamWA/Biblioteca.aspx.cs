@@ -52,7 +52,10 @@ namespace SteamWA
                 productoAdquirido[] productoArr = daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca);
                 if (productoArr != null)
                 {
-                    productosAdquiridos = new BindingList<productoAdquirido>(productoArr);
+                    List<productoAdquirido> productosAdquiridosList = new List<productoAdquirido>(productoArr);
+                    productosAdquiridosList.Sort((p1, p2) => string.Compare(p1.producto.titulo, p2.producto.titulo));
+                    productosAdquiridos = new BindingList<productoAdquirido>(productosAdquiridosList);
+                    rbNombre.Checked = true;
                     generarListaProductosAdquiridos();
                     Session["productosAdquiridos"] = productosAdquiridos;
                 }
@@ -78,6 +81,7 @@ namespace SteamWA
                 Session["colecciones"] = colecciones;
                 Session["nColeccionesActivas"] = 0;
                 Session["productosColecciones"] = new BindingList<productoAdquirido>();
+                lbLimpiarFiltros.Visible = false;
             }
             else
             {
@@ -145,7 +149,15 @@ namespace SteamWA
 
                     CheckBox checkbox = new CheckBox();
                     checkbox.ID = "chk" + coleccion.idColeccion.ToString(); // Asignamos un ID único al checkbox
-                    checkbox.Text = coleccion.nombre;
+                    if (coleccion.nombre.Length <= 13)
+                    {
+                        checkbox.Text = coleccion.nombre;
+                    }
+                    else
+                    {
+                        checkbox.Text = coleccion.nombre.Substring(0, 13) + "...";
+                    }
+                    checkbox.CssClass = "ps-2 text-light";
                     checkbox.CheckedChanged += CheckBox_CheckedChanged;
                     checkbox.AutoPostBack = true;
 
@@ -153,28 +165,28 @@ namespace SteamWA
                     {
                         ID = "lbColeccion" + coleccion.idColeccion,
                         Text = "<i class='fa-solid fa-pen-to-square'></i>",
-                        CssClass = "text-decoration-none text-dark justify-content-end",
+                        CssClass = "ps-2 text-light",
                         CommandArgument = coleccion.idColeccion.ToString()
                     };
                     linkButton.Click += lbColeccion_Click;
 
                     // Agregamos el enlace al elemento de lista
                     listItem.Controls.Add(checkbox);
-                    listItem.Controls.Add(new Literal { Text = " " });
                     listItem.Controls.Add(linkButton);
 
                     ddlColecciones.Controls.Add(listItem);
                 }
             }
             HtmlGenericControl newItem = new HtmlGenericControl("li");
-            HtmlAnchor newCollectionLink = new HtmlAnchor();
-            newCollectionLink.Attributes.Add("class", "dropdown-item");
-            newCollectionLink.HRef = "GestionarColeccion.aspx";
-            HtmlGenericControl newCollectionIcon = new HtmlGenericControl("i");
-            newCollectionIcon.Attributes.Add("class", "fa-solid fa-plus me-2");
-            newCollectionLink.Controls.Add(newCollectionIcon);
-            newCollectionLink.InnerHtml = "<i class='fa-solid fa-plus'></i>Nueva Colección";
-            newItem.Controls.Add(newCollectionLink);
+            LinkButton lbNuevaColeccion = new LinkButton
+            {
+                ID = "lbNuevaColeccion",
+                Text = "<i class='fa-solid fa-plus'></i> Nueva Colección",
+                CssClass = "text-decoration-none text-light"
+            };
+            lbNuevaColeccion.Click += lbNuevaColeccion_Click;
+            newItem.Attributes.Add("class", "dropdown-item new-hover-effect");
+            newItem.Controls.Add(lbNuevaColeccion);
             ddlColecciones.Controls.Add(newItem);
         }
 
@@ -220,6 +232,8 @@ namespace SteamWA
             Session["productosColecciones"] = productosColecciones;
             generarListaProductosAdquiridos();
             infoPrograma.Visible = false;
+            if (nColeccionesActivas > 0) lbLimpiarFiltros.Visible = true;
+            else lbLimpiarFiltros.Visible = false;
         }
 
         protected void lbPrograma_Click(object sender, EventArgs e)
@@ -283,6 +297,11 @@ namespace SteamWA
             Response.Redirect("GestionarColeccion.aspx?accion=modificar");
         }
 
+        protected void lbNuevaColeccion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GestionarColeccion.aspx");
+        }
+
         protected void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
@@ -312,5 +331,27 @@ namespace SteamWA
             generarListaProductosAdquiridos();
         }
 
+        protected void lbLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            productosColecciones = new BindingList<productoAdquirido>();
+            Session["productosColecciones"] = productosColecciones;
+            nColeccionesActivas = 0;
+            Session["nColeccionesActivas"] = nColeccionesActivas;
+            foreach (Control control in ddlColecciones.Controls)
+            {
+                if (control is HtmlGenericControl listItem)
+                {
+                    foreach (Control innerControl in listItem.Controls)
+                    {
+                        if (innerControl is CheckBox checkbox)
+                        {
+                            checkbox.Checked = false;
+                        }
+                    }
+                }
+            }
+            generarListaProductosAdquiridos();
+            lbLimpiarFiltros.Visible = false;
+        }
     }
 }

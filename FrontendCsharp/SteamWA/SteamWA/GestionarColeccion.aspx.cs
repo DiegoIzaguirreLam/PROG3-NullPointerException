@@ -46,12 +46,16 @@ namespace SteamWA
                 txtNombreColeccion.Value = coleccionS.nombre;
                 estado = Estado.ACTUALIZAR;
                 hGestionarColeccion.InnerText = "Editar Colección";
+                divBotonesColeccion.Attributes["class"] = "d-flex justify-content-between";
             }
             else
             {
                 coleccionS = null;
                 txtNombreColeccion.Value = "";
                 estado = Estado.NUEVO;
+                btnEliminar.Visible = false;
+                divBotonesColeccion.Attributes["class"] = "";
+                divCancelarGuardar.Attributes["class"] = "d-flex justify-content-between";
                 hGestionarColeccion.InnerText = "Nueva Colección";
             }
             
@@ -102,8 +106,21 @@ namespace SteamWA
         protected void btnGuardar_OnClick(object sender, EventArgs e)
         {
             int resultado = 0;
+            BindingList<coleccion> colecciones = (BindingList<coleccion>)Session["colecciones"];
             if (coleccionS == null) coleccionS = new coleccion();
-            coleccionS.nombre = txtNombreColeccion.Value;
+            coleccionS.nombre = txtNombreColeccion.Value.Trim();
+            if (coleccionS.nombre == "")
+            {
+                lblMensajeError.Visible = true;
+                lblMensajeError.Text = "Por favor, ingrese un nombre válido para la colección";
+                return;
+            }
+            if(colecciones!=null && colecciones.SingleOrDefault(x => x.nombre == coleccionS.nombre) != null)
+            {
+                lblMensajeError.Visible = true;
+                lblMensajeError.Text = "Ya tiene una colección con este nombre";
+                return;
+            }
             coleccionS.biblioteca = new biblioteca();
             coleccionS.biblioteca.idBiblioteca = (int)Session["idBiblioteca"];
             if (estado == Estado.NUEVO)
@@ -146,7 +163,7 @@ namespace SteamWA
                         idProductoAdquirido);
                     }
                 }
-                else //si no esta marcado, se elimina el producto si que fue desmarcado
+                else //si no esta marcado, se elimina el producto si es que estaba marcado
                 {
                     if(estado == Estado.ACTUALIZAR && productosEnColeccion!=null 
                         && productosEnColeccion.SingleOrDefault(x => x.idProductoAdquirido == idProductoAdquirido)!=null)
@@ -164,7 +181,6 @@ namespace SteamWA
             {
                 daoColeccion.eliminarColeccion(coleccionS.idColeccion);
             }
-            
             Response.Redirect("Biblioteca.aspx");
         }
     }

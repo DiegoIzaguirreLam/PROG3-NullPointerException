@@ -10,8 +10,9 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="nombreColeccion" class="form-label">Nombre</label>
-                    <input id="txtNombreColeccion" runat="server" type="text" class="form-control" text="Nombre de la Colección">
+                    <asp:Label ID="lblMensajeError" runat="server" CssClass="alert alert-danger mt-4" Visible="false" Width="100% "></asp:Label>
+                    <label for="nombreColeccion" class="form-label">Nombre <span class="text-danger">*</span></label>
+                    <input id="txtNombreColeccion" runat="server" type="text" class="form-control" placeholder="Nombre de la Colección" required minlength="1" maxlength="25">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Seleccione los programas</label>
@@ -23,11 +24,11 @@
                         </table>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <asp:Button ID="btnEliminar" CssClass="btn btn-primary btn-danger bg-navy-50 text-gray" runat="server" Text="Eliminar" OnClick="btnEliminarColeccion_OnClick"/>
-                    <div>
-                        <asp:Button ID="btnCancelar" CssClass="btn btn-secondary bg-navy-50 text-gray me-2" runat="server" Text="Cancelar" OnClick="btnCancelar_OnClick"/>
-                        <asp:Button ID="btnGuardar" CssClass="btn btn-primary bg-navy text-gray" runat="server" Text="Guardar" OnClick="btnGuardar_OnClick"/>
+                <div id="divBotonesColeccion" runat="server" class="d-flex justify-content-between">
+                    <asp:Button ID="btnEliminar" CssClass="btn btn-primary btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminarColeccion_OnClick"/>
+                    <div id="divCancelarGuardar" runat="server">
+                        <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_OnClick"/>
+                        <asp:Button ID="btnGuardar" CssClass="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_OnClick"/>
                     </div>
                 </div>
             </div>
