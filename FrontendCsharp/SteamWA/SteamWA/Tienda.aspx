@@ -97,11 +97,11 @@
         </div>
         <!--Desplegable de filtros-->
         <div class="collapse row mt-3 px-2 py-2 border-Gradient carouselDestacados" id="desplegableFiltro">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label for="barRangoPrecio" class="form-label">Filtrar por precio</label>
                 <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio">
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-3 ">
                 <label for="barRangoPrecio" class="form-label">Filtrar por etiqueta</label>
 
                  <div class="dropdown">
@@ -114,7 +114,7 @@
                 </ul>
             </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label for="barRangoPrecio" class="form-label">Filtrar por tipo</label>
                 <div class="dropdown">
                 <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownTipos"
@@ -124,8 +124,14 @@
                 <ul id="ddlTipos" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="dropdownTipos">
                     
                 </ul>
-            </div>
+                </div>
              
+            </div>
+            <div class="col-md-3">
+                                <label for="barRangoPrecio" class="form-label">Limpiar Filtros</label>
+                <div class="dropdown">
+                <asp:LinkButton ID="btnLimpFiltro" cssClass="btn btn-outline-light" runat="server" OnClick="btnLimpFiltro_Click">🗑 Limpiar</asp:LinkButton>
+                    </div>
             </div>
         </div>
         <div class="carouselDestacados">
@@ -168,22 +174,11 @@
             <div class="px-3">
                 <h5 class="mt-1">Todos los productos</h5>
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
+              
                         <asp:PlaceHolder ID="placeholderProductos" runat="server">
                               
                         </asp:PlaceHolder>
-                      
-                    </ContentTemplate>
-
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="btnBuscar" EventName="Click" />
-                    </Triggers>
-                </asp:UpdatePanel>
-                <script type="text/javascript">
-                    // Restaura la posición de desplazamiento después de que se complete la actualización parcial
-                    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(restaurarPosicionDesplazamiento);
-                </script>
+                 
             </div>
         </div>
     </div>

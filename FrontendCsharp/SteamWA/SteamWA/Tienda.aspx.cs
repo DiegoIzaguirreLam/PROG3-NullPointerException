@@ -50,6 +50,7 @@ namespace SteamWA
         {
             daoEtiqueta = new SteamWA.SteamServiceWS.EtiquetaWSClient();
             BindingList<etiqueta> etiquetas = new BindingList<etiqueta>(daoEtiqueta.listarEtiquetas());
+            BindingList<CheckBox> CheckBoxFiltroEtiqueta = new BindingList<CheckBox>();
 
             foreach (etiqueta et in etiquetas)
             {
@@ -66,16 +67,25 @@ namespace SteamWA
                 contr.Controls.Add(chk);
                 contr.Controls.Add(liEti);
                 ddlEtiquetas.Controls.Add(contr);
+                CheckBoxFiltroEtiqueta.Add(chk);
             }
-
+            Session["CheckBoxFiltroEtiqueta"] = CheckBoxFiltroEtiqueta;
             BindingList<string> tipos = new BindingList<string>();
+            tipos.Add("Todos");
             tipos.Add("Software");
             tipos.Add("Banda Sonora");
             tipos.Add("Juego");
-            for (int i = 0; i < 3; i++)
+            BindingList<RadioButton> CheckBoxFiltroTipo = new BindingList<RadioButton>();
+
+            for (int i = 0; i < 4; i++)
             {
-                CheckBox chk2 = new CheckBox();
-                chk2.ID = "chkTipo" + (i + 1).ToString();
+                RadioButton chk2 = new RadioButton();
+                chk2.GroupName = "ListaRadioTipo";
+                chk2.ID = "chkTipo" + (i).ToString();
+                if (i == 0)
+                {
+                    chk2.Checked = true;
+                }
                 HtmlGenericControl liEti2 = new HtmlGenericControl("li");
                 HtmlGenericControl contr2 = new HtmlGenericControl("div");
                 contr2.Attributes["class"] = "d-flex ps-2";
@@ -87,13 +97,17 @@ namespace SteamWA
                 contr2.Controls.Add(chk2);
                 contr2.Controls.Add(liEti2);
                 ddlTipos.Controls.Add(contr2);
+                CheckBoxFiltroTipo.Add(chk2);
+                
             }
+            Session["CheckBoxFiltroTipo"] = CheckBoxFiltroTipo;
 
 
         }
 
         private void Chk2_CheckedChanged(object sender, EventArgs e)
         {
+            BindingList<RadioButton> CheckBoxFiltroTipo = (BindingList<RadioButton>)Session["CheckBoxFiltroTipo"];
             CheckBox checkBox = (CheckBox)sender;
             string idString = (checkBox.ID);
             char idChar = idString[idString.Length - 1];
@@ -106,7 +120,11 @@ namespace SteamWA
             SoftwareWSClient daoTempSoftware = new SoftwareWSClient();
             foreach (producto pr in listaProductos)
             {
-                if (id == 1)
+                if (id == 0)
+                {
+                    listaProdsTipo = new BindingList<producto> ( daoProducto.listarProductos() );
+                }
+                else if (id == 1)
                 {
                     software soft = daoTempSoftware.buscarSoftware(pr.idProducto);
                     if (soft.titulo != null)
@@ -140,8 +158,12 @@ namespace SteamWA
                 }
 
             }
-            checkBox.Checked = false;
-
+            /*foreach(CheckBox ch in CheckBoxFiltroTipo)
+            {
+                ch.Checked= false;
+            }
+            checkBox.Checked = true;
+            */
             mostrarListaProductos(listaProdsTipo);
 
         }
@@ -277,9 +299,29 @@ namespace SteamWA
                 listaProductos = null;
             }
 
+            limpiarCamposFiltros();
 
             Session["ListaProductos"] = listaProductos;
             mostrarListaProductos(listaProductos);
+
+            //Busqueda Asincrona
+            /*
+               <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>-->
+                        <asp:PlaceHolder ID="placeholderProductos" runat="server">
+                              
+                        </asp:PlaceHolder>
+                        <!--
+                    </ContentTemplate>
+
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnBuscar" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+                <script type="text/javascript">
+                    // Restaura la posición de desplazamiento después de que se complete la actualización parcial
+                    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(restaurarPosicionDesplazamiento);
+                </script>-->*/
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
         }
 
@@ -339,6 +381,36 @@ namespace SteamWA
                     divHtmlCardBody.Controls.Add(buttonCarrito);
                     placeholderProductos.Controls.Add(divHtmlContainer);
                 }
+            }
+        }
+
+        protected void btnLimpFiltro_Click(object sender, EventArgs e)
+        {
+            limpiarCamposFiltros();
+            mostrarListaProductos( new BindingList<producto>(daoProducto.listarProductos()));
+        }
+        protected void limpiarCamposFiltros()
+        {
+            BindingList<RadioButton> CheckBoxFiltroTipo = (BindingList<RadioButton>)Session["CheckBoxFiltroTipo"];
+            BindingList<CheckBox> CheckBoxFiltroEtiqueta = (BindingList<CheckBox>)Session["CheckBoxFiltroEtiqueta"];
+
+            foreach (RadioButton r in CheckBoxFiltroTipo)
+            {
+                string idString = (r.ID);
+                char idChar = idString[idString.Length - 1];
+                int id = Int32.Parse(idChar.ToString());
+                r.Checked = false;
+                if (id == 0)
+                {
+                    r.Checked = true;
+                }
+
+
+
+            }
+            foreach (CheckBox c in CheckBoxFiltroEtiqueta)
+            {
+                c.Checked = false;
             }
         }
     }
