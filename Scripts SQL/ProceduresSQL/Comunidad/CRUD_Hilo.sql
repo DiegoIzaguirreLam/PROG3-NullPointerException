@@ -10,7 +10,7 @@ CREATE PROCEDURE CREAR_HILO(
 	IN _imagen_url VARCHAR(200)
 )
 BEGIN
-	INSERT INTO hilo(fijado,fecha_creacion,
+	INSERT INTO Hilo(fijado,fecha_creacion,
     fecha_modificacion,fid_subforo,fid_creador, imagen_url,
     nro_mensajes,oculto, activo)
     VALUES (_fijado,_fecha_creacion,

@@ -5,8 +5,9 @@
     <script src="Scripts/Steam/crearForo.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div class="container fontSetterExo2">
-        <div class="row align-items-center">
+    <div class="container">
+        <h1 class="mt-4">Comunidad</h1>
+        <div class="row align-items-center fontSetterExo2">
             <div class="col-md-7 row align-items-center">
                 <div class="col-md-auto align-items-lg-start">
                     <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" OnClick="btnVolverComunidad_Click" />
@@ -28,7 +29,7 @@
     <div class="container fontSetterExo2">
         <asp:GridView ID="gvSubforos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
             <Columns>
-                <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+                <asp:BoundField HeaderText="Nombre" DataField="nombre" />
                 <%--Se mostrará el primer mensaje del hilo fijado en el foro--%>
                 <asp:BoundField HeaderText="Mensaje" DataField="Mensaje" />
                 <asp:TemplateField ItemStyle-CssClass="text-end">

@@ -6,18 +6,26 @@ using System.Web;
 using System.Web.Caching;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SteamWA.SteamServiceWS;
 
 namespace SteamWA
 {
     public partial class GestionarForo : System.Web.UI.Page
     {
+        BindingList<subforo> subforos;
+        SubforoWSClient daoSubforo;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindingList<Subforo> subforos = new BindingList<Subforo>();
-            Subforo proff = new Subforo(1, "Batman goood!", "El mejor super de todos!");
-            subforos.Add(proff);
-            gvSubforos.DataSource = subforos;
-            gvSubforos.DataBind();
+            daoSubforo = new SubforoWSClient();
+            if (!IsPostBack)
+            {
+                foro auxForo = (foro)Session["foroPadre"];
+                subforo[] aux = daoSubforo.mostrarSubforosForo(auxForo);
+                if(aux != null) subforos = new BindingList<subforo>(aux);
+                gvSubforos.DataSource = subforos;
+                gvSubforos.DataBind();
+            }
             String nombre = Request.QueryString["foro"];
             if(nombre != null)
             {

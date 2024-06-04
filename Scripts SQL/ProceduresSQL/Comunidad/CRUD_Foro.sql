@@ -54,7 +54,7 @@ CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(
 	in _id_foro INT 
 )
 BEGIN
-	SELECT * FROM subforo WHERE fid_foro = _id_foro 
+	SELECT * FROM Subforo WHERE fid_foro = _id_foro 
     AND oculto = 0;
 
 END $

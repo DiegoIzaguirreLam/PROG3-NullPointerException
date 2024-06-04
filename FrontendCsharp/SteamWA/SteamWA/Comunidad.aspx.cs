@@ -22,6 +22,7 @@ namespace SteamWA
         HiloWSClient daoHilo;
         MensajeWSClient daoMensaje;
         ForoUsuarioWSClient daoForoUsuario;
+        int[] pageIndex;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,12 @@ namespace SteamWA
             daoMensaje = new MensajeWSClient();
             daoForoUsuario = new ForoUsuarioWSClient();
 
+            pageIndex = (int[])Session["IndexPages"];
+            if (pageIndex == null)
+            {
+                pageIndex = new int[3];
+                Session["IndexPages"] = pageIndex;
+            }
             if (!IsPostBack)
             {
                 foro[] aux = daoForo.listarForos();
@@ -196,6 +203,8 @@ namespace SteamWA
         {
             gvForos.DataSource = (BindingList<foro>)Session["forosAux"];
             gvForos.PageIndex = e.NewPageIndex;
+            pageIndex[0] = e.NewPageIndex;
+            Session["IndexPages"] = pageIndex;
             gvForos.DataBind();
         }
 
@@ -203,6 +212,8 @@ namespace SteamWA
         {
             gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
             gvCreados.PageIndex = e.NewPageIndex;
+            pageIndex[1] = e.NewPageIndex;
+            Session["IndexPages"] = pageIndex;
             gvCreados.DataBind();
         }
 
@@ -210,16 +221,19 @@ namespace SteamWA
         {
             gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
             gvSuscritos.PageIndex = e.NewPageIndex;
+            pageIndex[2] = e.NewPageIndex;
+            Session["IndexPages"] = pageIndex;
             gvSuscritos.DataBind();
         }
 
         protected void gvForos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            pageIndex = (int[])Session["IndexPages"];
             if(e.CommandName == "AbrirForo")
             {
                 foros = (BindingList<foro>)Session["forosAux"];
                 int idForo = Convert.ToInt32(e.CommandArgument);
-                foro foro = foros[idForo];
+                foro foro = foros[idForo + 5 * pageIndex[0]];
                 Session["foroPadre"] = foro;
                 Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
             }
@@ -227,7 +241,7 @@ namespace SteamWA
             {
                 creados = (BindingList<foro>)Session["ForosCreados"];
                 int idForo = Convert.ToInt32(e.CommandArgument);
-                foro foro = creados[idForo];
+                foro foro = creados[idForo + 5 * pageIndex[1]];
                 Session["foroPadre"] = foro;
                 Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
             }
@@ -235,7 +249,7 @@ namespace SteamWA
             {
                 suscritos = (BindingList<foro>)Session["ForosSuscritos"];
                 int idForo = Convert.ToInt32(e.CommandArgument);
-                foro foro = suscritos[idForo];
+                foro foro = suscritos[idForo+5 * pageIndex[2]];
                 Session["foroPadre"] = foro;
                 Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
             }
