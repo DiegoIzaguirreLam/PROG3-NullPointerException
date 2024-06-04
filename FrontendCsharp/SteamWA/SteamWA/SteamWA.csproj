@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgregarFondos.aspx" />
     <Content Include="Amigos.aspx" />
     <Content Include="Biblioteca.aspx" />
     <Content Include="BuscarAmigos.aspx" />
@@ -174,6 +175,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="ConfirmarCompra.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -213,6 +215,7 @@
     <Content Include="Content\Steam\FontAdder.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\stylesBiblioteca.css" />
+    <Content Include="GestionarCartera.aspx" />
     <Content Include="GestionarColeccion.aspx" />
     <Content Include="GestionarForo.aspx" />
     <Content Include="GestionarLogros.aspx" />
@@ -729,6 +732,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\Steam\ConfirmarCompra.js" />
     <Content Include="Scripts\Steam\Biblioteca.js" />
     <Content Include="Scripts\Steam\Carrito.js" />
     <Content Include="Scripts\Steam\crearForo.js" />
@@ -742,6 +746,13 @@
     <Content Include="Steam.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarFondos.aspx.cs">
+      <DependentUpon>AgregarFondos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarFondos.aspx.designer.cs">
+      <DependentUpon>AgregarFondos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Amigos.aspx.cs">
       <DependentUpon>Amigos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -784,6 +795,13 @@
     <Compile Include="Configuracion.aspx.designer.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmarCompra.aspx.cs">
+      <DependentUpon>ConfirmarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmarCompra.aspx.designer.cs">
+      <DependentUpon>ConfirmarCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SteamServiceWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -791,6 +809,13 @@
     </Compile>
     <Compile Include="Estado.cs" />
     <Compile Include="Foro.cs" />
+    <Compile Include="GestionarCartera.aspx.cs">
+      <DependentUpon>GestionarCartera.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarCartera.aspx.designer.cs">
+      <DependentUpon>GestionarCartera.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionarColeccion.aspx.cs">
       <DependentUpon>GestionarColeccion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

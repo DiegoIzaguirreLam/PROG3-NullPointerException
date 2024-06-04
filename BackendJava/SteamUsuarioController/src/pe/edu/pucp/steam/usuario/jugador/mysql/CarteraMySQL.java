@@ -62,7 +62,7 @@ public class CarteraMySQL implements CarteraDAO {
         Cartera cartera = new Cartera();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_USUARIO(?, ?, ?)}");
+            cs = con.prepareCall("{call BUSCAR_CARTERA(?)}");
             cs.setInt("_ID_CARTERA", idCartera);
             rs = cs.executeQuery();
             rs.next();
