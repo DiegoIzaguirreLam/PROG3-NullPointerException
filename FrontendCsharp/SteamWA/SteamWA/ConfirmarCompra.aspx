@@ -17,7 +17,7 @@
                         <!-- Puedes insertar aquí los detalles de la compra -->
                         <div class="d-flex justify-content-between">
                             <p>Monto a ser agregado a su cartera: </p>
-                            <p id="pMonto" runat="server">$10.00</p>
+                            <p id="pMonto" runat="server"></p>
                         </div>
                         <!-- Línea horizontal -->
                         <hr />

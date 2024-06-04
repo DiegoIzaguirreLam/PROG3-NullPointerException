@@ -44,6 +44,7 @@ namespace SteamWA
         {
             btnPagar.Text = "Pagar con Tarjeta";
             btnPagar.Visible = true;
+            metodoPago = "tarjeta";
             dropdownMetodo.InnerText = "Tarjeta";
             Session["metodoPago"] = metodoPago;
         }
