@@ -52,7 +52,7 @@ namespace SteamWA
             btnPagar.Text = "Pagar con Paypal";
             btnPagar.Visible = false;
             pNoSoportado.Visible = true;
-            pNoSoportado.InnerText = "Este método de pago aún no es soportado por Stream";
+            pNoSoportado.InnerHtml = "<i class='fa-solid fa-circle-exclamation'></i>" + " Este método de pago aún no es soportado por Stream";
             metodoPago = "paypal";
             dropdownMetodo.InnerText = "Paypal";
             Session["metodoPago"] = metodoPago;
@@ -63,7 +63,7 @@ namespace SteamWA
             btnPagar.Text = "Pagar con Tarjeta";
             btnPagar.Visible = false;
             pNoSoportado.Visible = true;
-            pNoSoportado.InnerText = "Este método de pago aún no es soportado por Stream";
+            pNoSoportado.InnerHtml = "<i class='fa-solid fa-circle-exclamation'></i>" + " Este método de pago aún no es soportado por Stream";
             metodoPago = "tarjeta";
             dropdownMetodo.InnerText = "Tarjeta";
             Session["metodoPago"] = metodoPago;
@@ -79,7 +79,7 @@ namespace SteamWA
             }
             else
             {
-                pNoSoportado.InnerText = "Ha agotado sus regalos de Stream. Espere a recibir más.";
+                pNoSoportado.InnerHtml = "<i class='fa-solid fa-circle-exclamation'></i>" + " Ha agotado sus regalos de Stream. Espere a recibir más.";
                 pNoSoportado.Visible = true;
             }
             metodoPago = "giftCard";
