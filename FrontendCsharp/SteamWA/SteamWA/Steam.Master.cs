@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SteamWA.SteamServiceWS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,9 +21,11 @@ namespace SteamWA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                // Si existe el usuario
+                if (Session["usuario"] != null) { nombreUsuario.InnerText = ((usuario)Session["usuario"]).nombrePerfil; }
+            }
         }
-
-        
     }
 }

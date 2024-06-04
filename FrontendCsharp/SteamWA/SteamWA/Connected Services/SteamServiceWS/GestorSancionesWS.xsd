@@ -2,10 +2,10 @@
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="actualizarGestor" type="tns:actualizarGestor" />
   <xs:element name="actualizarGestorResponse" type="tns:actualizarGestorResponse" />
+  <xs:element name="asignarGestorUsuario" type="tns:asignarGestorUsuario" />
+  <xs:element name="asignarGestorUsuarioResponse" type="tns:asignarGestorUsuarioResponse" />
   <xs:element name="buscarGestor" type="tns:buscarGestor" />
   <xs:element name="buscarGestorResponse" type="tns:buscarGestorResponse" />
-  <xs:element name="insertarGestor" type="tns:insertarGestor" />
-  <xs:element name="insertarGestorResponse" type="tns:insertarGestorResponse" />
   <xs:complexType name="actualizarGestor">
     <xs:sequence>
       <xs:element minOccurs="0" name="gestor" type="tns:gestorSanciones" />
@@ -84,6 +84,16 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="asignarGestorUsuario">
+    <xs:sequence>
+      <xs:element name="uid_usuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="asignarGestorUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="buscarGestor">
     <xs:sequence>
       <xs:element name="idUsuario" type="xs:int" />
@@ -92,16 +102,6 @@
   <xs:complexType name="buscarGestorResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:gestorSanciones" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarGestor">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="gestor" type="tns:gestorSanciones" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarGestorResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="origenForo">

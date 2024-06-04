@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/RelacionWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="listarAmigosPorUsuario">
+    <part name="parameters" element="tns:listarAmigosPorUsuario" />
+  </message>
+  <message name="listarAmigosPorUsuarioResponse">
+    <part name="parameters" element="tns:listarAmigosPorUsuarioResponse" />
+  </message>
   <message name="agregarAmigo">
     <part name="parameters" element="tns:agregarAmigo" />
   </message>
@@ -23,13 +29,11 @@
   <message name="bloquearUsuarioResponse">
     <part name="parameters" element="tns:bloquearUsuarioResponse" />
   </message>
-  <message name="listarAmigosPorUsuario">
-    <part name="parameters" element="tns:listarAmigosPorUsuario" />
-  </message>
-  <message name="listarAmigosPorUsuarioResponse">
-    <part name="parameters" element="tns:listarAmigosPorUsuarioResponse" />
-  </message>
   <portType name="RelacionWS">
+    <operation name="listarAmigosPorUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/listarAmigosPorUsuarioRequest" message="tns:listarAmigosPorUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/listarAmigosPorUsuarioResponse" message="tns:listarAmigosPorUsuarioResponse" />
+    </operation>
     <operation name="agregarAmigo">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/agregarAmigoRequest" message="tns:agregarAmigo" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/agregarAmigoResponse" message="tns:agregarAmigoResponse" />
@@ -42,13 +46,18 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest" message="tns:bloquearUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse" message="tns:bloquearUsuarioResponse" />
     </operation>
-    <operation name="listarAmigosPorUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/listarAmigosPorUsuarioRequest" message="tns:listarAmigosPorUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/listarAmigosPorUsuarioResponse" message="tns:listarAmigosPorUsuarioResponse" />
-    </operation>
   </portType>
   <binding name="RelacionWSPortBinding" type="tns:RelacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarAmigosPorUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="agregarAmigo">
       <soap:operation soapAction="" />
       <input>
@@ -68,15 +77,6 @@
       </output>
     </operation>
     <operation name="bloquearUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarAmigosPorUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

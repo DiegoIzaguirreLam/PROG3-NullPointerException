@@ -23,6 +23,12 @@
   <message name="actualizarUsuarioResponse">
     <part name="parameters" element="tns:actualizarUsuarioResponse" />
   </message>
+  <message name="listarUsuarios">
+    <part name="parameters" element="tns:listarUsuarios" />
+  </message>
+  <message name="listarUsuariosResponse">
+    <part name="parameters" element="tns:listarUsuariosResponse" />
+  </message>
   <message name="suspenderUsuario">
     <part name="parameters" element="tns:suspenderUsuario" />
   </message>
@@ -34,12 +40,6 @@
   </message>
   <message name="eliminarUsuarioResponse">
     <part name="parameters" element="tns:eliminarUsuarioResponse" />
-  </message>
-  <message name="listarUsuarios">
-    <part name="parameters" element="tns:listarUsuarios" />
-  </message>
-  <message name="listarUsuariosResponse">
-    <part name="parameters" element="tns:listarUsuariosResponse" />
   </message>
   <message name="buscarUsuarioPorId">
     <part name="parameters" element="tns:buscarUsuarioPorId" />
@@ -60,6 +60,10 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
     </operation>
+    <operation name="listarUsuarios">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
+    </operation>
     <operation name="suspenderUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest" message="tns:suspenderUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse" message="tns:suspenderUsuarioResponse" />
@@ -67,10 +71,6 @@
     <operation name="eliminarUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
-    </operation>
-    <operation name="listarUsuarios">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
     </operation>
     <operation name="buscarUsuarioPorId">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdRequest" message="tns:buscarUsuarioPorId" />
@@ -106,6 +106,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="listarUsuarios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="suspenderUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -116,15 +125,6 @@
       </output>
     </operation>
     <operation name="eliminarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarUsuarios">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

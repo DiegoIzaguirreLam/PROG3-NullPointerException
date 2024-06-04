@@ -69,6 +69,15 @@ namespace SteamWA
         protected global::System.Web.UI.HtmlControls.HtmlAnchor itemAmigos;
 
         /// <summary>
+        /// Control nombreUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nombreUsuario;
+
+        /// <summary>
         /// Control cphContenido.
         /// </summary>
         /// <remarks>

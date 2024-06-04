@@ -79,7 +79,7 @@
                             <button class="btn btn-outline-light dropdown-toggle"
                                 id="btnUsuario" data-bs-toggle="dropdown" type="button"
                                 aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Usuario
+                                <i class="fas fa-user me-2"></i><span id="nombreUsuario" runat="server">Usuario</span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnUsuario" style="left:auto;right:0">
                                 <li><a class="dropdown-item" href="Perfil.aspx">Perfil</a></li>

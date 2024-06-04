@@ -20,12 +20,12 @@ import pe.edu.pucp.steam.comunidad.mysql.GestorSancionesMySQL;
 public class GestorSancionesWS {
 
     /** This is a sample web service operation */
-    @WebMethod(operationName="insertarGestor")
-    public int insertarGestor(@WebParam(name="gestor") GestorSanciones gestor) {
+    @WebMethod(operationName="asignarGestorUsuario")
+    public int asignarGestorUsuario(@WebParam(name="uid_usuario") int uid_usuario) {
         int resultado=0;
         try{
             GestorSancionesDAO gestorDao = new GestorSancionesMySQL();
-            resultado = gestorDao.insertarGestor(gestor);
+            resultado = gestorDao.asignarGestorUsuario(uid_usuario);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

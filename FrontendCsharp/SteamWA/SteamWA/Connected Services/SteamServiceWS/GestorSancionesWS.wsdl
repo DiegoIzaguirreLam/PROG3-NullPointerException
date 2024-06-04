@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/GestorSancionesWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarGestor">
-    <part name="parameters" element="tns:insertarGestor" />
+  <message name="asignarGestorUsuario">
+    <part name="parameters" element="tns:asignarGestorUsuario" />
   </message>
-  <message name="insertarGestorResponse">
-    <part name="parameters" element="tns:insertarGestorResponse" />
+  <message name="asignarGestorUsuarioResponse">
+    <part name="parameters" element="tns:asignarGestorUsuarioResponse" />
   </message>
   <message name="actualizarGestor">
     <part name="parameters" element="tns:actualizarGestor" />
@@ -24,9 +24,9 @@
     <part name="parameters" element="tns:buscarGestorResponse" />
   </message>
   <portType name="GestorSancionesWS">
-    <operation name="insertarGestor">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/insertarGestorRequest" message="tns:insertarGestor" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/insertarGestorResponse" message="tns:insertarGestorResponse" />
+    <operation name="asignarGestorUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/asignarGestorUsuarioRequest" message="tns:asignarGestorUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/asignarGestorUsuarioResponse" message="tns:asignarGestorUsuarioResponse" />
     </operation>
     <operation name="actualizarGestor">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorRequest" message="tns:actualizarGestor" />
@@ -39,7 +39,7 @@
   </portType>
   <binding name="GestorSancionesWSPortBinding" type="tns:GestorSancionesWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarGestor">
+    <operation name="asignarGestorUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
