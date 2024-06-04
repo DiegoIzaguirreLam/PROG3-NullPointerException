@@ -45,7 +45,7 @@ namespace SteamWA
         {
             double monto = Double.Parse(((LinkButton)sender).CommandArgument);
             Session["monto"] = monto;
-            Response.Redirect("AgregarFondos.aspx");
+            Response.Redirect("SeleccionarMetodoPago.aspx");
         }
 
     }

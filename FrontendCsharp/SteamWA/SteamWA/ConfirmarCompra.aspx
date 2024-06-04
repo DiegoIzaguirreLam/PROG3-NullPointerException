@@ -8,8 +8,8 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="text-decoration-none text-white bg-transparent border-0" href="GestionarCartera.aspx">Cartera  <i class="fa-solid fa-caret-right"></i></a></li>
-                <li class="breadcrumb-item"><a class="text-decoration-none text-white bg-transparent border-0" href="AgregarFondos.aspx">Método de Pago  <i class="fa-solid fa-caret-right"></i></a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none text-white bg-transparent border-0" href="GestionarCartera.aspx">Cartera     <i class="fa-solid fa-caret-right"></i></a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none text-white bg-transparent border-0" href="SeleccionarMetodoPago.aspx">Método de Pago     <i class="fa-solid fa-caret-right"></i></a></li>
                 <li class="breadcrumb-item text-decoration-none text-white fw-bold active" aria-current="page">Confirmar Compra</li>
             </ol>
         </nav>

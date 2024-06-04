@@ -45,7 +45,7 @@ namespace SteamWA
 
         protected void lbCambiar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AgregarFondos.aspx");
+            Response.Redirect("SeleccionarMetodoPago.aspx");
         }
 
         protected void btnPagar_Click(object sender, EventArgs e)
