@@ -185,7 +185,7 @@
    
     <!-- Modal -->
 
-<div class="modal fade " id="form-modal-añadido-carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="form-modal-añadido-carrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content carouselDestacados border-Gradient-Gray" style="border-radius:0">
       <div class="modal-header border-Gradient-Gray" style="border:none">
@@ -194,8 +194,9 @@
       </div>
       <div class="modal-body mx-3" style="background-color:#181721">
            <div class="card-body">
-          <h5 class="card-title pb-2">Nombre del Programa 1</h5>
-         <img src="Images/portada_juego1.jpg" height="200" class="card-img-top" style="border-radius:0.4rem"" alt="Juego 1">
+          <h5 id="labelModal" runat="server" class="card-title pb-2"></h5>
+              
+               <asp:Image ID="modalImagen"  height="200" CssClass="card-img-top" style="border-radius:0.4rem" runat="server" />
         </div>
       </div>
       <div class="modal-footer"  style="border-style:none">

@@ -1,5 +1,8 @@
 ﻿document.body.style.backgroundColor = '#24282f';
-
+function showModalForm(modal) {
+    var modalForm = new bootstrap.Modal(document.getElementById(modal));
+    modalForm.toggle();
+}
 function autoCompletarBarraBusqueda(item) {
     const autocompleteInput = document.getElementById("search_autocomplete")
     autocompleteInput.value = item

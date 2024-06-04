@@ -25,8 +25,7 @@ namespace SteamWA
 
             daoProducto = new SteamServiceWS.ProductoWSClient();
 
-            if (!IsPostBack)
-            {
+          
                 Session["listaProdEt"] = null;
                 Session["DicProdEtDic"] = null;
                 listaProductos =
@@ -41,7 +40,7 @@ namespace SteamWA
 
 
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
-            }
+            
 
 
         }
@@ -158,6 +157,7 @@ namespace SteamWA
                 }
 
             }
+            //Session["listaProdEt"] = listaProdsTipo;
             /*foreach(CheckBox ch in CheckBoxFiltroTipo)
             {
                 ch.Checked= false;
@@ -178,7 +178,11 @@ namespace SteamWA
             et.idEtiqueta = id;
             BindingList<producto> listaProdEtG = (BindingList<producto>)Session["listaProdEt"];
             Dictionary<int, int> DicProdEtG = (Dictionary<int, int>)Session["DicProdEtDic"];
+            
+            BindingList<CheckBox> CheckBoxFiltroEtiqueta = (BindingList<CheckBox>)Session["CheckBoxFiltroEtiqueta"];
 
+            
+            
             try
             {
                 listaProductos =
@@ -268,10 +272,17 @@ namespace SteamWA
 
         }
 
-        protected void btnCarrito1_Click(object sender, EventArgs e)
+        protected void btnCarrito1_Click(object sender, CommandEventArgs e)
         {
-            /*string script = "window.onload = function() { showModalForm('form-modal-EliminarColeccion') };";
-            ClientScript.RegisterStartupScript(GetType(), "", script, true);*/
+            string argumentos = (e.CommandArgument.ToString());
+            string[] listarArgs = argumentos.Split('¿');
+            int id = Int32.Parse(listarArgs[0]);
+            string url = (listarArgs[1]);
+            string titulo = (listarArgs[2]);
+            modalImagen.ImageUrl = url;
+            labelModal.InnerText = titulo;
+            string script = "window.onload = function() { showModalForm('form-modal-añadido-carrito') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
         protected void btnCarro_Click(object sender, EventArgs e)
@@ -281,6 +292,8 @@ namespace SteamWA
 
         protected void search_Click(object sender, EventArgs e)
         {
+           
+
             SteamWA.SteamServiceWS.etiqueta etiqueta = new SteamWA.SteamServiceWS.etiqueta();
             etiqueta.nombre = "accion";
             if (listaProductos == null)
@@ -330,6 +343,7 @@ namespace SteamWA
             if (lProds != null)
             {
                 HtmlGenericControl divHtmlContainer = new HtmlGenericControl("div");
+                placeholderProductos.Controls.Clear();
                 divHtmlContainer.Attributes["class"] = "row mt-3 pb-4";
                 divHtmlContainer.Attributes["id"] = "contenedorProductos";
 
@@ -369,9 +383,13 @@ namespace SteamWA
                     LinkButton buttonCarrito = new LinkButton();
                     buttonCarrito.CssClass = "btn btn-primary";
                     buttonCarrito.ID = "btnCarritos" + prod.idProducto;
-                    buttonCarrito.Attributes["data-bs-toggle"] = "modal";
-                    buttonCarrito.Attributes["data-bs-target"] = "#form-modal-añadido-carrito";
-                    buttonCarrito.OnClientClick = "btnCarrito1_Click";
+                   // buttonCarrito.Attributes["data-bs-toggle"] = "modal";
+                    //buttonCarrito.Attributes["data-bs-target"] = "#form-modal-añadido-carrito";
+                    buttonCarrito.CommandArgument = (prod.idProducto).ToString() + "¿" + (prod.portadaUrl).ToString() + "¿" +
+                        (prod.titulo).ToString();
+
+
+                    buttonCarrito.Command += btnCarrito1_Click;
                     buttonCarrito.Text = "Añadir al carrito";
                     divHtmlCard.Controls.Add(imagen);
                     divHtmlCard.Controls.Add(divHtmlCardBody);
