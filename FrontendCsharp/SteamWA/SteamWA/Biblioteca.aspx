@@ -15,7 +15,6 @@
                 <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownColecciones"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Colecciones
-       
                 </button>
                 <ul id="ddlColecciones" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="dropdownColecciones">
                 </ul>
@@ -25,7 +24,6 @@
                 <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownOrdenar"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Ordenar
-       
                 </button>
                 <ul class="dropdown-menu bgDesplegables" aria-labelledby="dropdownOrdenar">
                     <li>
@@ -46,45 +44,44 @@
                 </ul>
             </div>
         </div>
+    </div>
+    <hr />
+    <div class="container d-flex rounded-top rounded-bottom">
+        <!-- parte izquierda: lista de programas -->
+        <div class="col-md-4 me-4">
+            <!-- <h2>Listado de Programas</h2> -->
+            <ul id="ulProgramas" runat="server" class="list-group list-group-flush">
+            </ul>
         </div>
-        <hr />
-        <div class="container d-flex rounded-top rounded-bottom">
-            <!-- parte izquierda: lista de programas -->
-            <div class="col-md-4 me-4">
-                <!-- <h2>Listado de Programas</h2> -->
-                <ul id="ulProgramas" runat="server" class="list-group list-group-flush"> 
-                </ul>
-            </div>
-            <!-- línea divisoria vertical -->
-            <div class="border-end p-2"></div>
-            <!-- parte derecha: información del programa seleccionado -->
-            <div class="col-md-8 p-4">
-                <div id="infoPrograma" runat="server" style="display: none;">
-                    <!-- Imagen del juego -->
-                    <div class="justify-content-center">
-                        <img id="imgPrograma" runat="server" width="650" alt="Portada del juego">
-                    </div>
-                    <!-- Información del juego -->
-                    <div class="program-info">
-                        <h3 id="txtTituloPrograma" runat="server">Titulo del Juego</h3>
-                        <p id="txtDescripcionPrograma" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</p>
-                        <p id="txtFechaEjecucionPrograma" runat="server"></p>
-                        <p id="txtTiempoUsoPrograma" runat="server"></p>
-                        <p id="txtActualizadoPrograma" runat="server"></p>
-                        <!-- Contenedor de logros y botón para jugar -->
-                        <div class="d-flex flex-column">
-                            <!-- Botón para eliminar -->
-                            <div id="divBotonesPrograma" runat="server">
-                                <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-primary btn-dark" Text="<i class='fa-solid fa-gamepad'></i> Logros" OnClick="lbLogros_Click" />
-                                <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-success" Text="Jugar" />
-                            </div>
+        <!-- línea divisoria vertical -->
+        <div class="border-end p-2"></div>
+        <!-- parte derecha: información del programa seleccionado -->
+        <div class="col-md-8 p-4">
+            <div id="infoPrograma" runat="server" style="display: none;">
+                <!-- Imagen del juego -->
+                <div class="justify-content-center">
+                    <img id="imgPrograma" runat="server" width="650" alt="Portada del juego">
+                </div>
+                <!-- Información del juego -->
+                <div class="program-info">
+                    <h3 id="txtTituloPrograma" runat="server">Titulo del Juego</h3>
+                    <p id="txtDescripcionPrograma" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</p>
+                    <p id="txtFechaEjecucionPrograma" runat="server"></p>
+                    <p id="txtTiempoUsoPrograma" runat="server"></p>
+                    <p id="txtActualizadoPrograma" runat="server"></p>
+                    <!-- Contenedor de logros y botón para jugar -->
+                    <div class="d-flex flex-column">
+                        <!-- Botón para eliminar -->
+                        <div id="divBotonesPrograma" runat="server">
+                            <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-primary btn-dark" Text="<i class='fa-solid fa-gamepad'></i> Logros" OnClick="lbLogros_Click" />
+                            <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-success" Text="Jugar" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="mt-5">
-            <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Productos" />
-        </div>
+    </div>
+    <div class="mt-5 d-flex justify-content-start">
+        <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Productos" />
     </div>
 </asp:Content>

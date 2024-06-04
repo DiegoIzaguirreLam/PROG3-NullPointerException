@@ -63,7 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AgregarFondos.aspx" />
+    <Content Include="SeleccionarMetodoPago.aspx" />
     <Content Include="Amigos.aspx" />
     <Content Include="Biblioteca.aspx" />
     <Content Include="BuscarAmigos.aspx" />
@@ -752,12 +752,12 @@
     <Content Include="Steam.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarFondos.aspx.cs">
-      <DependentUpon>AgregarFondos.aspx</DependentUpon>
+    <Compile Include="SeleccionarMetodoPago.aspx.cs">
+      <DependentUpon>SeleccionarMetodoPago.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AgregarFondos.aspx.designer.cs">
-      <DependentUpon>AgregarFondos.aspx</DependentUpon>
+    <Compile Include="SeleccionarMetodoPago.aspx.designer.cs">
+      <DependentUpon>SeleccionarMetodoPago.aspx</DependentUpon>
     </Compile>
     <Compile Include="Amigos.aspx.cs">
       <DependentUpon>Amigos.aspx</DependentUpon>

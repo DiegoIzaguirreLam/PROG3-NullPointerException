@@ -26,6 +26,9 @@ call INSERTAR_PRODUCTOETIQUETA(3, 5);
 
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_sofia', 'Sofia', 'a20210750@pucp.edu.pe', '123456789', 'password_sofia', 19, '2004-07-01', 1, 4, 2, 5, 1);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
+call INSERTAR_CARTERA(@id_cartera, @id_usuario, 0, 0);
+call INSERTAR_PERFIL(@id_perfil, @id_usuario, "Images/foto_perfil.png");
+CALL INSERTAR_GESTOR(@id_gestor, @id_usuario, 0, 0, 0, 3, 3, 0, 0);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,1);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,2);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,3);
@@ -34,6 +37,9 @@ call INSERTAR_COLECCION(@_id_coleccion, 'Frecuentes', @id_biblioteca);
 
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_fabricio', 'Fabricio', 'a20214115@pucp.edu.pe', '987654321', 'password_fabricio', 20, '2003-12-06', 1, 1, 3, 4, 2);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
+call INSERTAR_CARTERA(@id_cartera, @id_usuario, 0, 0);
+call INSERTAR_PERFIL(@id_perfil, @id_usuario, "Images/foto_perfil.png");
+CALL INSERTAR_GESTOR(@id_gestor, @id_usuario, 0, 0, 0, 3, 3, 0, 0);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,1);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,2);
 

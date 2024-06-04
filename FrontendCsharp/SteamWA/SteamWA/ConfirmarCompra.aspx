@@ -6,6 +6,13 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-decoration-none text-white bg-transparent border-0" href="GestionarCartera.aspx">Cartera     <i class="fa-solid fa-caret-right"></i></a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none text-white bg-transparent border-0" href="SeleccionarMetodoPago.aspx">Método de Pago     <i class="fa-solid fa-caret-right"></i></a></li>
+                <li class="breadcrumb-item text-decoration-none text-white fw-bold active" aria-current="page">Confirmar Compra</li>
+            </ol>
+        </nav>
         <div class="row">
             <!-- Parte izquierda -->
             <div class="col-md-6">
@@ -53,7 +60,7 @@
                 <div class="card mb-4 bg-dark text-white">
                     <div class="card-body">
                         <h5 class="card-title">Comprando en STREAM</h5>
-                        <p class="card-text">Texto de detalle sobre la compra.</p>
+                        <p class="card-text">Una vez complete esta transacción, su método de pago escogido será debitado y recibirá un mensaje confirmando el recibo de su compra</p>
                         <asp:LinkButton ID="btnPagar" runat="server" CssClass="btn btn-success" Text="Pagar" OnClick="btnPagar_Click" />
                     </div>
                 </div>

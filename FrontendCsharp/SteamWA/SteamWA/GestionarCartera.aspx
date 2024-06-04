@@ -13,7 +13,8 @@
     <div class="container">
         <h1 class="mt-4 mb-4">Cartera</h1>
         <h2 id="hCartera" runat="server" class="mb-3">Agregar fondos a la cartera de 'Usuario'</h2>
-        <p class="mb-4">Los fondos en su cartera de Stream pueden ser usados para comprar cualquiera de los productos que puede encontrar en a tienda</p>
+        <p class="mb-4">Los fondos en su cartera de Stream pueden ser usados para comprar cualquiera de los productos que puede encontrar en la tienda.
+            <br /> Vas a tener la oportunidad de revisar tu orden antes de que sea colocada.</p>
         
         <div class="row">
             <!-- Columna de recuadros de montos -->

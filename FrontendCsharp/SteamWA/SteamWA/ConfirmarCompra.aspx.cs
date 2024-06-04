@@ -39,13 +39,13 @@ namespace SteamWA
             daoMovimiento = new MovimientoWSClient();
             pMonto.InnerText = simbolo_moneda + monto.ToString("N2");
             pTotal.InnerText = simbolo_moneda + monto.ToString("N2");
-            pMetodoPago.InnerText = "Método de Pago: " + metodoPagoStr;
-            pCuenta.InnerText = "Cuenta de STREAM: " + usuario.nombreCuenta;
+            pMetodoPago.InnerText = "Método de Pago: " + metodoPagoStr.ToUpper();
+            pCuenta.InnerHtml = "Cuenta de STREAM: <strong>" + usuario.nombreCuenta + "</strong>";
         }
 
         protected void lbCambiar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AgregarFondos.aspx");
+            Response.Redirect("SeleccionarMetodoPago.aspx");
         }
 
         protected void btnPagar_Click(object sender, EventArgs e)

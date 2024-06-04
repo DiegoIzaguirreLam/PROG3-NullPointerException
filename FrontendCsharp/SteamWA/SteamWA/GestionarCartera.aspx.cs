@@ -1,6 +1,7 @@
 ﻿using SteamWA.SteamServiceWS;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +13,7 @@ namespace SteamWA
     {
         private cartera cartera;
         private CarteraWSClient daoCartera;
+        private MovimientoWSClient daoMovimiento;
         private PaisWSClient daoPais;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,6 +23,7 @@ namespace SteamWA
                 Response.Redirect("Login.aspx");
             }
             daoCartera = new CarteraWSClient();
+            daoMovimiento = new MovimientoWSClient();
             daoPais = new PaisWSClient();
             cartera = daoCartera.buscarCartera(usuario.UID);
             pais pais = daoPais.buscarPais(usuario.pais.idPais);
@@ -31,21 +34,23 @@ namespace SteamWA
             else
             {
                 pBalanceCartera.InnerText = pais.moneda.simbolo + cartera.fondos.ToString("N2");
+                cartera.movimientos = daoMovimiento.listarMovimientos(cartera);
                 Session["cartera"] = cartera;
             }
+
             hAgregar15.InnerText = "Agregar " + pais.moneda.simbolo + "15";
             hAgregar30.InnerText = "Agregar " + pais.moneda.simbolo + "30";
             hAgregar50.InnerText = "Agregar " + pais.moneda.simbolo + "50";
             hAgregar100.InnerText = "Agregar " + pais.moneda.simbolo + "100";
             hCartera.InnerHtml = "Agregar fondos a la cartera de <strong>" + usuario.nombreCuenta + "</strong>";
-            Session["simbolo"] = pais.moneda.simbolo;
+            Session["moneda"] = pais.moneda;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             double monto = Double.Parse(((LinkButton)sender).CommandArgument);
             Session["monto"] = monto;
-            Response.Redirect("AgregarFondos.aspx");
+            Response.Redirect("SeleccionarMetodoPago.aspx");
         }
 
     }
