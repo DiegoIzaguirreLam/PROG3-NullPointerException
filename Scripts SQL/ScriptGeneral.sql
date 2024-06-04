@@ -239,9 +239,9 @@ CREATE TABLE Mensaje(
 )ENGINE=InnoDB;
 
 CREATE TABLE GestorSanciones(
-	id_gestor INT,
-	id_usuario INT UNIQUE,
-    fin_ban DATE NOT NULL,
+	id_gestor INT AUTO_INCREMENT,
+	fid_usuario INT UNIQUE,
+    fin_ban DATE NULL,
     cant_faltas INT NOT NULL,
     cant_baneos INT NOT NULL,
     contador_faltas INT NOT NULL,
@@ -251,7 +251,7 @@ CREATE TABLE GestorSanciones(
     max_baneos INT NOT NULL,
 	activo TINYINT NOT NULL,
     PRIMARY KEY(id_gestor),
-    FOREIGN KEY(id_usuario) REFERENCES Usuario(UID)
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 /*PAQUETE BIBLIOTECA*/
@@ -1359,44 +1359,41 @@ CREATE PROCEDURE LISTAR_SUSCRITOS(
 BEGIN
 	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE fid_usuario = _fid_usuario AND f.es_suscriptor = 1 AND activo = 1;
 END$
-DROP PROCEDURE IF EXISTS CREAR_GESTOR;
+DROP PROCEDURE IF EXISTS INSERTAR_GESTOR;
 DELIMITER $ 
-CREATE PROCEDURE CREAR_GESTOR(
+CREATE PROCEDURE INSERTAR_GESTOR(
 	OUT _id_gestor INT ,
-    IN _id_usuario INT,
+    IN _fid_usuario INT,
     IN _contador_faltas INT,
     IN _contador_baneos INT,
     IN _contador_palabras INT,
     IN _max_faltas INT,
     IN _max_baneos INT,
     IN _cant_baneos INT,
-    IN _cant_faltas INT,
-    IN _fin_ban DATE
+    IN _cant_faltas INT
 )
 BEGIN
-	INSERT INTO hilo(id_gestor, id_usuario, contador_faltas,
+	INSERT INTO GestorSanciones(fid_usuario, contador_faltas,
     contador_baneos,contador_palabras,
     max_faltas,max_baneos,
     cant_baneos, cant_faltas,
-    fin_ban, activo)
-    VALUES (_id_usuario, _id_usuario, _contador_faltas,
+	activo)
+    VALUES (_fid_usuario, _contador_faltas,
     _contador_baneos,contador_palabras,
     _max_faltas,_max_baneos,
     _cant_baneos, _cant_faltas,
-    _fin_ban, 1);
+    true);
 	SET _id_gestor = @@last_insert_id;
-
 END $
 
 DROP PROCEDURE IF EXISTS BUSCAR_GESTOR;
 DELIMITER $ 
 CREATE PROCEDURE BUSCAR_GESTOR(
-	in _id_gestor INT 
+	in _fid_usuario INT 
 )
 BEGIN
-	SELECT * FROM gestorsanciones
-    WHERE id_gestor = _id_gestor;
-
+	SELECT * FROM GestorSanciones
+    WHERE fid_usuario = _fid_usuario;
 END $
 
 
@@ -1414,7 +1411,7 @@ CREATE PROCEDURE EDITAR_GESTOR(
     IN _fin_ban DATE
 )
 BEGIN
-	UPDATE gestorsanciones SET
+	UPDATE GestorSanciones SET
     contador_faltas = _contador_faltas,
     contador_baneos = _contador_baneos,
     contador_palabras = _contador_palabras,
@@ -1425,9 +1422,6 @@ BEGIN
     fin_ban = _fin_ban
     WHERE id_gestor = _id_gestor; 
 END $
-
-
-
 /*Pruebas*/
 
 
