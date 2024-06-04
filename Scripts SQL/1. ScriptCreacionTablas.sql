@@ -240,9 +240,9 @@ CREATE TABLE Mensaje(
 )ENGINE=InnoDB;
 
 CREATE TABLE GestorSanciones(
-	id_gestor INT,
-	id_usuario INT UNIQUE,
-    fin_ban DATE NOT NULL,
+	id_gestor INT AUTO_INCREMENT,
+	fid_usuario INT UNIQUE,
+    fin_ban DATE NULL,
     cant_faltas INT NOT NULL,
     cant_baneos INT NOT NULL,
     contador_faltas INT NOT NULL,
@@ -252,7 +252,7 @@ CREATE TABLE GestorSanciones(
     max_baneos INT NOT NULL,
 	activo TINYINT NOT NULL,
     PRIMARY KEY(id_gestor),
-    FOREIGN KEY(id_usuario) REFERENCES Usuario(UID)
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 /*PAQUETE BIBLIOTECA*/
