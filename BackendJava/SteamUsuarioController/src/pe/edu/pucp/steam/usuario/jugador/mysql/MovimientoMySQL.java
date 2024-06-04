@@ -36,7 +36,7 @@ public class MovimientoMySQL implements MovimientoDAO{
                     java.sql.Types.INTEGER);
             cs.setString("_ID_TRANSACCION", movimiento.getIdTransaccion());
             cs.setDate("_FECHA_TRANSACCION", new java.sql.Date(movimiento.getFecha().getTime()));
-            cs.setDouble("_MONTO_PAGO", movimiento.getMonto());
+            cs.setDouble("_MONTO", movimiento.getMonto());
             cs.setString("_TIPO", movimiento.getTipo().toString());
             cs.setString("_METODO_PAGO", movimiento.getMetodoPago().toString());
             cs.setInt("_FID_CARTERA", movimiento.getCartera().getIdCartera());

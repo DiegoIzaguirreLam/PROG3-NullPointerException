@@ -136,22 +136,22 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:productoAdquirido" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="actualizarProductoAdquirido">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="productoAdquirido" type="tns:productoAdquirido" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="actualizarProductoAdquiridoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarProductoAdquirido">
     <xs:sequence>
       <xs:element minOccurs="0" name="productoAdquirido" type="tns:productoAdquirido" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarProductoAdquiridoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarProductoAdquirido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="productoAdquirido" type="tns:productoAdquirido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarProductoAdquiridoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

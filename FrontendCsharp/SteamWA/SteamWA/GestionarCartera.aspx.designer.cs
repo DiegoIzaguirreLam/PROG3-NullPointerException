@@ -15,6 +15,24 @@ namespace SteamWA
     {
 
         /// <summary>
+        /// Control hCartera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hCartera;
+
+        /// <summary>
+        /// Control hAgregar15.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hAgregar15;
+
+        /// <summary>
         /// Control btnAgregar15.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAgregar15;
+
+        /// <summary>
+        /// Control hAgregar30.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hAgregar30;
 
         /// <summary>
         /// Control btnAgregar30.
@@ -33,6 +60,15 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.LinkButton btnAgregar30;
 
         /// <summary>
+        /// Control hAgregar50.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hAgregar50;
+
+        /// <summary>
         /// Control btnAgregar50.
         /// </summary>
         /// <remarks>
@@ -40,6 +76,15 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAgregar50;
+
+        /// <summary>
+        /// Control hAgregar100.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hAgregar100;
 
         /// <summary>
         /// Control btnAgregar100.

@@ -38,11 +38,13 @@
                     <asp:Label id="lblMontoTxt" runat="server" Text="Monto a pagar: "/>
                     <asp:Label id="lblMontoNumero" runat="server" Text=""/>
                 </div>
-
+                <hr />
+                <p id="pNoSoportado" runat="server">Este método de pago aún no es soportado por Stream</p>
                 <!-- Botones de pago -->
                 <div id="divBotonesPago" class="mb-4 d-flex justify-content-end">
-                    <asp:LinkButton id="btnPagar" CssClass="btn btn-primary btn-success" runat="server" Text="Pagar" Visible="false" OnClick="btnPagar_Click" />
+                    <asp:LinkButton ID="btnPagar" CssClass="btn btn-primary btn-success" runat="server" Text="Pagar" Visible="false" OnClick="btnPagar_Click" />
                 </div>
+
             </div>
         </div>
     </div>

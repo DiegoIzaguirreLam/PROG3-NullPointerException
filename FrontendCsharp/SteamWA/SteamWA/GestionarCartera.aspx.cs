@@ -18,9 +18,6 @@ namespace SteamWA
             usuario usuario = (usuario)Session["usuario"];
             if (usuario == null)
             {
-                //UsuarioWSClient daoUsuario = new UsuarioWSClient();
-                //usuario = daoUsuario.buscarUsuarioPorId(2);
-                //Session["usuario"] = usuario;
                 Response.Redirect("Login.aspx");
             }
             daoCartera = new CarteraWSClient();
@@ -36,6 +33,12 @@ namespace SteamWA
                 pBalanceCartera.InnerText = pais.moneda.simbolo + cartera.fondos.ToString("N2");
                 Session["cartera"] = cartera;
             }
+            hAgregar15.InnerText = "Agregar " + pais.moneda.simbolo + "15";
+            hAgregar30.InnerText = "Agregar " + pais.moneda.simbolo + "30";
+            hAgregar50.InnerText = "Agregar " + pais.moneda.simbolo + "50";
+            hAgregar100.InnerText = "Agregar " + pais.moneda.simbolo + "100";
+            hCartera.InnerHtml = "Agregar fondos a la cartera de <strong>" + usuario.nombreCuenta + "</strong>";
+            Session["simbolo"] = pais.moneda.simbolo;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

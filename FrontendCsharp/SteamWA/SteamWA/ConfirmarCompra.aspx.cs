@@ -10,6 +10,7 @@ namespace SteamWA
 {
     public partial class ConfirmarCompra : System.Web.UI.Page
     {
+        private usuario usuario;
         private string metodoPagoStr;
         private double monto;
         private cartera cartera;
@@ -18,7 +19,8 @@ namespace SteamWA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            usuario usuario = (usuario)Session["usuario"];
+            string simbolo_moneda = (string)Session["simbolo"];
+            usuario = (usuario)Session["usuario"];
             cartera = (cartera)Session["cartera"];
             if (usuario == null || cartera == null)
             {
@@ -35,8 +37,8 @@ namespace SteamWA
             }
             daoCartera = new CarteraWSClient();
             daoMovimiento = new MovimientoWSClient();
-            pMonto.InnerText = monto.ToString("N2");
-            pTotal.InnerText = monto.ToString("N2");
+            pMonto.InnerText = simbolo_moneda + monto.ToString("N2");
+            pTotal.InnerText = simbolo_moneda + monto.ToString("N2");
             pMetodoPago.InnerText = "Método de Pago: " + metodoPagoStr;
             pCuenta.InnerText = "Cuenta de STREAM: " + usuario.nombreCuenta;
         }
@@ -76,6 +78,10 @@ namespace SteamWA
                 }
                 else if (metodoPagoStr == "giftCard")
                 {
+
+                    cartera.fondos += monto;
+                    cartera.cantMovimientos++;
+
                     metodoPago = metodoPago.GIFTCARD;
                     btnAceptarModal.Visible = false;
                     lbContinuarATienda.Visible = true;
@@ -87,11 +93,9 @@ namespace SteamWA
                     movimiento.cartera = cartera;
                     movimiento.monto = monto;
                     movimiento.tipo = tipoMovimiento.DEPOSITO;
-                    
-                    cartera.fondos += monto;
-                    cartera.cantMovimientos++;
+                    movimiento.idTransaccion = "GIFTCARD-" + usuario.nombreCuenta.ToUpper() + "-" + cartera.cantMovimientos.ToString("D5");
 
-                    if (daoMovimiento.insertarMovimiento(movimiento)== 1 && daoCartera.actualizarCartera(cartera) == 1)
+                    if (daoMovimiento.insertarMovimiento(movimiento)!=0 && daoCartera.actualizarCartera(cartera) != 0)
                     {
                         txtFondosModal.InnerText = "Se han agregado los fondos de manera exitosa";
                     }
