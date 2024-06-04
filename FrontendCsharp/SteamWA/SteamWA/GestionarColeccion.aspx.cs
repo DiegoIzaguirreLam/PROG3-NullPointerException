@@ -109,13 +109,15 @@ namespace SteamWA
             BindingList<coleccion> colecciones = (BindingList<coleccion>)Session["colecciones"];
             if (coleccionS == null) coleccionS = new coleccion();
             coleccionS.nombre = txtNombreColeccion.Value.Trim();
+            if(estado == Estado.NUEVO)
+                coleccionS.idColeccion = -1;
             if (coleccionS.nombre == "")
             {
                 lblMensajeError.Visible = true;
                 lblMensajeError.Text = "Por favor, ingrese un nombre válido para la colección";
                 return;
             }
-            if(colecciones!=null && colecciones.SingleOrDefault(x => x.nombre == coleccionS.nombre) != null)
+            if(colecciones!=null && (colecciones.SingleOrDefault(x => x.nombre == coleccionS.nombre && x.idColeccion != coleccionS.idColeccion))!= null)
             {
                 lblMensajeError.Visible = true;
                 lblMensajeError.Text = "Ya tiene una colección con este nombre";

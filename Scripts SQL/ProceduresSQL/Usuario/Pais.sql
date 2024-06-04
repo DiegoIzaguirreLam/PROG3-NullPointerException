@@ -19,7 +19,11 @@ CREATE PROCEDURE BUSCAR_PAIS(
 	IN _ID_PAIS INT
 )
 BEGIN
-	SELECT * FROM Pais WHERE ID_PAIS = _ID_PAIS;
+	SELECT p.id_pais, p.nombre as nombre_pais, p.codigo as codigo_pais, m.id_tipo_moneda, 
+    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.simbolo, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
+    FROM Pais p
+    INNER JOIN TipoMoneda m ON m.id_tipo_moneda = p.fid_moneda
+    WHERE p.activo = 1 AND p.id_pais = _id_pais;
 END $
 DELIMITER ;
 
@@ -28,7 +32,7 @@ DELIMITER $
 CREATE PROCEDURE LISTAR_PAISES()
 BEGIN
 	SELECT p.id_pais, p.nombre as nombre_pais, p.codigo as codigo_pais, m.id_tipo_moneda, 
-    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
+    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.simbolo, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
     FROM Pais p
     INNER JOIN TipoMoneda m ON m.id_tipo_moneda = p.fid_moneda
     WHERE p.activo = 1;
@@ -51,3 +55,5 @@ BEGIN
     WHERE id_pais = _id_pais;
 END $
 DELIMITER ;
+
+

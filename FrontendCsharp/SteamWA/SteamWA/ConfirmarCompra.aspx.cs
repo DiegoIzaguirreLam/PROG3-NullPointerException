@@ -19,7 +19,8 @@ namespace SteamWA
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario usuario = (usuario)Session["usuario"];
-            if (usuario == null)
+            cartera = (cartera)Session["cartera"];
+            if (usuario == null || cartera == null)
             {
                 Response.Redirect("Login.aspx");
             }
@@ -104,5 +105,11 @@ namespace SteamWA
             string script = "window.onload = function() { showModalForm('form-modal-FondosAgregados') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
+
+        protected void lbContinuarATienda_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Tienda.aspx");
+        }
+
     }
 }

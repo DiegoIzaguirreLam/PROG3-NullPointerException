@@ -58,17 +58,18 @@ public class CarteraMySQL implements CarteraDAO {
     }
 
     @Override
-    public Cartera buscarCartera(int idCartera) {
+    public Cartera buscarCartera(int uid_usuario) {
         Cartera cartera = new Cartera();
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_CARTERA(?)}");
-            cs.setInt("_ID_CARTERA", idCartera);
+            cs.setInt("_fid_usuario", uid_usuario);
             rs = cs.executeQuery();
-            rs.next();
-            cartera.setIdCartera(rs.getInt("ID_CARTERA"));
-            cartera.setFondos(rs.getDouble("FONDOS"));
-            cartera.setCantMovimientos(rs.getInt("CANT_MOVIMIENTOS"));
+            if(rs.next()){
+                cartera.setIdCartera(rs.getInt("id_cartera"));
+                cartera.setFondos(rs.getDouble("fondos"));
+                cartera.setCantMovimientos(rs.getInt("cantidad_movimientos"));
+            }
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{

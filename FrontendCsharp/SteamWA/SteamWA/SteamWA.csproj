@@ -475,6 +475,9 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarForoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarGestorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarHiloResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -712,7 +715,7 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.desuscribirRelacionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.asignarGestorUsuarioResponse.datasource">
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.asignarGestorUsuarioResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.verificarUsuarioResponse.datasource">

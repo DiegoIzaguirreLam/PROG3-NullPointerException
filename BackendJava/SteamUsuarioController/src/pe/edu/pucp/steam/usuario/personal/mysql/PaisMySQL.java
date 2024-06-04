@@ -65,6 +65,7 @@ public class PaisMySQL implements PaisDAO{
                 tipoMoneda.setIdTipoMoneda(rs.getInt("id_tipo_moneda"));
                 tipoMoneda.setNombre(rs.getString("nombre_moneda"));
                 tipoMoneda.setCodigo(rs.getString("codigo_moneda"));
+                tipoMoneda.setSimbolo(rs.getString("simbolo"));
                 tipoMoneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 tipoMoneda.setFechaCambio(sdf.parse(rs.getDate("fecha_cambio").toString()));
                 tipoMoneda.setActivo(rs.getBoolean("moneda_activa"));
@@ -82,12 +83,11 @@ public class PaisMySQL implements PaisDAO{
     @Override
     public Pais buscarPais(int idPais) {
         Pais pais = new Pais();
-        pais.setIdPais(-1);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BUSCAR_PAIS(?)}");
-            cs.setInt("_ID_PAIS", pais.getIdPais());
+            cs.setInt("_ID_PAIS", idPais);
             rs = cs.executeQuery();
             rs.next();
             TipoMoneda tipoMoneda = new TipoMoneda();
@@ -99,6 +99,7 @@ public class PaisMySQL implements PaisDAO{
             tipoMoneda.setIdTipoMoneda(rs.getInt("id_tipo_moneda"));
             tipoMoneda.setNombre(rs.getString("nombre_moneda"));
             tipoMoneda.setCodigo(rs.getString("codigo_moneda"));
+            tipoMoneda.setSimbolo(rs.getString("simbolo"));
             tipoMoneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
             tipoMoneda.setFechaCambio(sdf.parse(rs.getDate("fecha_cambio").toString()));
             tipoMoneda.setActivo(rs.getBoolean("moneda_activa"));

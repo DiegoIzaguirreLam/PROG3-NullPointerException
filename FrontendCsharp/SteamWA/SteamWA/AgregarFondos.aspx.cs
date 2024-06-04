@@ -62,9 +62,5 @@ namespace SteamWA
             Response.Redirect("ConfirmarCompra.aspx");
         }
 
-        protected void lbContinuarATienda_OnClick(object sender, EventArgs e)
-        {
-            Response.Redirect("Tienda.aspx");
-        }
     }
 }
