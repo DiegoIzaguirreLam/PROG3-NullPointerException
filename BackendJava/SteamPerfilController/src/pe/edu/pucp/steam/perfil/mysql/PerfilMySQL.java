@@ -28,7 +28,7 @@ public class PerfilMySQL implements PerfilDAO{
             cs.registerOutParameter("_id_perfil",
                     java.sql.Types.INTEGER);
             cs.setInt("_fid_usuario", uid_usuario);
-            cs.setString("_foto_url", "[foto por defecto]");
+            cs.setString("_foto_url", "https://i.imgur.com/c7tUWcg.png");
             cs.executeUpdate();
             resultado = cs.getInt("_id_perfil");
             cs.close();
