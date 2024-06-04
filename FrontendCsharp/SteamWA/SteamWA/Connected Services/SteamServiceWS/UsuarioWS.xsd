@@ -14,6 +14,8 @@
   <xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse" />
   <xs:element name="suspenderUsuario" type="tns:suspenderUsuario" />
   <xs:element name="suspenderUsuarioResponse" type="tns:suspenderUsuarioResponse" />
+  <xs:element name="verificarUsuario" type="tns:verificarUsuario" />
+  <xs:element name="verificarUsuarioResponse" type="tns:verificarUsuarioResponse" />
   <xs:complexType name="suspenderUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="jugador" type="tns:usuario" />
@@ -312,6 +314,17 @@
   <xs:complexType name="eliminarUsuarioResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarUsuario">

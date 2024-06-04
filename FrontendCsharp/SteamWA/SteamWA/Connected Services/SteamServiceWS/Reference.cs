@@ -10168,6 +10168,15 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarUsuarioPorIdResponse> buscarUsuarioPorIdAsync(SteamWA.SteamServiceWS.buscarUsuarioPorIdRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.verificarUsuarioResponse verificarUsuario(SteamWA.SteamServiceWS.verificarUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.verificarUsuarioResponse> verificarUsuarioAsync(SteamWA.SteamServiceWS.verificarUsuarioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10414,6 +10423,47 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreCuenta;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string password;
+        
+        public verificarUsuarioRequest() {
+        }
+        
+        public verificarUsuarioRequest(string nombreCuenta, string password) {
+            this.nombreCuenta = nombreCuenta;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.usuario @return;
+        
+        public verificarUsuarioResponse() {
+        }
+        
+        public verificarUsuarioResponse(SteamWA.SteamServiceWS.usuario @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface UsuarioWSChannel : SteamWA.SteamServiceWS.UsuarioWS, System.ServiceModel.IClientChannel {
     }
@@ -10598,6 +10648,31 @@ namespace SteamWA.SteamServiceWS {
             SteamWA.SteamServiceWS.buscarUsuarioPorIdRequest inValue = new SteamWA.SteamServiceWS.buscarUsuarioPorIdRequest();
             inValue.uid = uid;
             return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).buscarUsuarioPorIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.verificarUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.verificarUsuario(SteamWA.SteamServiceWS.verificarUsuarioRequest request) {
+            return base.Channel.verificarUsuario(request);
+        }
+        
+        public SteamWA.SteamServiceWS.usuario verificarUsuario(string nombreCuenta, string password) {
+            SteamWA.SteamServiceWS.verificarUsuarioRequest inValue = new SteamWA.SteamServiceWS.verificarUsuarioRequest();
+            inValue.nombreCuenta = nombreCuenta;
+            inValue.password = password;
+            SteamWA.SteamServiceWS.verificarUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).verificarUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.verificarUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.verificarUsuarioAsync(SteamWA.SteamServiceWS.verificarUsuarioRequest request) {
+            return base.Channel.verificarUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.verificarUsuarioResponse> verificarUsuarioAsync(string nombreCuenta, string password) {
+            SteamWA.SteamServiceWS.verificarUsuarioRequest inValue = new SteamWA.SteamServiceWS.verificarUsuarioRequest();
+            inValue.nombreCuenta = nombreCuenta;
+            inValue.password = password;
+            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).verificarUsuarioAsync(inValue);
         }
     }
     

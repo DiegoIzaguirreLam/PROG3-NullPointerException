@@ -107,4 +107,17 @@ public class UsuarioWS {
         
         return usuario;
     }
+    
+    @WebMethod(operationName="verificarUsuario")
+    public Usuario verificarUsuario(@WebParam(name="nombreCuenta") String nombreCuenta, 
+            @WebParam(name="password") String password) {
+        Usuario usuario = new Usuario();
+        try{
+            UsuarioDAO usuarioDao = new UsuarioMySQL();
+            usuario = usuarioDao.verificarCuenta(nombreCuenta, password);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return usuario;
+    }
 }

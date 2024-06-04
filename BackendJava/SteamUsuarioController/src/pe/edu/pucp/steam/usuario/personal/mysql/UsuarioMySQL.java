@@ -238,4 +238,47 @@ public class UsuarioMySQL implements UsuarioDAO{
         
         return usuario;
     }
+    
+    @Override
+    public Usuario verificarCuenta(String nombreCuenta, String password) {
+        Usuario usuario = new Usuario();
+        Pais pais = new Pais();
+        TipoMoneda moneda = new TipoMoneda();
+        usuario.setUID(0);
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call VERIFICAR_USUARIO(?,?)}");
+            cs.setString(1, nombreCuenta);
+            cs.setString(2, password);
+            rs = cs.executeQuery();
+            if(rs.next()){
+                usuario.setUID(rs.getInt("UID"));
+                usuario.setNombreCuenta(rs.getString("nombre_cuenta"));
+                usuario.setNombrePerfil(rs.getString("nombre_perfil"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setTelefono(rs.getString("telefono"));
+                usuario.setPassword(rs.getString("contrasenia"));
+                usuario.setEdad(rs.getInt("edad"));
+                usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+                usuario.setVerificado(rs.getBoolean("verificado"));
+                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
+                usuario.setExperiencia(rs.getInt("experiencia"));
+                usuario.setNivel(rs.getInt("nivel"));
+                usuario.setActivo(rs.getBoolean("activo"));
+                pais.setIdPais(rs.getInt("fid_pais"));
+                pais.setNombre(rs.getString("nombre_pais"));
+                moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
+                moneda.setNombre(rs.getString("nombre_moneda"));
+                moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
+                moneda.setCodigo(rs.getString("codigo_moneda"));
+                pais.setMoneda(moneda);
+                usuario.setPais(pais);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return usuario;
+    }
 }

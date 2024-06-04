@@ -35,34 +35,32 @@ namespace SteamWA
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            usuarioIngresado = daoUsuario.buscarUsuarioPorNombreCuenta(txtNombreCuenta.Text);
-            // Existe el usuario
-            if (usuarioIngresado.UID != 0)
+            if (txtNombreCuenta.Text.Trim() != "")
             {
-                // Contraseña coincide
-                if (usuarioIngresado.password == txtPassword.Text)
+                usuarioIngresado = daoUsuario.verificarUsuario(txtNombreCuenta.Text, txtPassword.Text);
+                // Existe el usuario
+                if (usuarioIngresado.UID != 0)
                 {
                     Session["usuario"] = usuarioIngresado;
-
                     Response.Redirect("Tienda.aspx");
                 }
                 else
                 {
-                    // Vuelve a pedir contraseña
+                    // Muestra mensaje de error
+                    txtNombreCuenta.Text = string.Empty;
                     txtPassword.Text = string.Empty;
                     lblMensajeExito.Visible = false;
                     lblMensajeError.Visible = true;
-                    lblMensajeError.Text = "No ha ingresado correctamente su contraseña. Vuelva a intentarlo";
+                    lblMensajeError.Text = "El usuario y/o la contraseña no son válidos. Intente de nuevo";
                 }
             }
             else
             {
-                // Muestra mensaje de error y pregunta si quiere volver a ingresar o dirigirse a pantalla de registro
                 txtNombreCuenta.Text = string.Empty;
                 txtPassword.Text = string.Empty;
                 lblMensajeExito.Visible = false;
                 lblMensajeError.Visible = true;
-                lblMensajeError.Text = "Usuario inexistente. Vuelva a intentarlo";
+                lblMensajeError.Text = "Nombre de cuenta inválido. Intente de nuevo";
             }
         }
     }

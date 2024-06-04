@@ -29,20 +29,20 @@
                         <div class="form-group mb-3">
                             <label id="lblNombreCuenta" class="form-label" runat="server">Nombre de cuenta <span class="text-danger">*</span></label>
                             <asp:TextBox runat="server" ID="txtNombreCuenta" CssClass="form-control" placeholder="Ingrese su nombre de cuenta" Required="true" />
-                            <asp:RegularExpressionValidator ID="regexNombreCuenta" runat="server" ControlToValidate="txtNombreCuenta"
+                            <%--<asp:RegularExpressionValidator ID="regexNombreCuenta" runat="server" ControlToValidate="txtNombreCuenta"
                                 ErrorMessage="El nombre de cuenta debe tener entre 1 y 20 caracteres y no contener espacios"
                                 ValidationExpression="^\S{1,20}$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
-                            </asp:RegularExpressionValidator>
+                            </asp:RegularExpressionValidator>--%>
                         </div>
 
                         <!-- Nombre de perfil -->
                         <div class="mb-3">
                             <label id="lblNombrePerfil" class="form-label" runat="server">Nombre de perfil <span class="text-danger">*</span></label>
                             <asp:TextBox runat="server" ID="txtNombrePerfil" CssClass="form-control" placeholder="Ingrese su nombre de perfil" Required="true" />
-                            <asp:RegularExpressionValidator ID="regexNombrePerfil" runat="server" ControlToValidate="txtNombrePerfil"
+                            <%--<asp:RegularExpressionValidator ID="regexNombrePerfil" runat="server" ControlToValidate="txtNombrePerfil"
                                 ErrorMessage="El nombre de perfil debe tener entre 1 y 50 caracteres"
                                 ValidationExpression="^.{1,50}$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
-                            </asp:RegularExpressionValidator>
+                            </asp:RegularExpressionValidator>--%>
                         </div>
 
                         <!-- Contraseña -->

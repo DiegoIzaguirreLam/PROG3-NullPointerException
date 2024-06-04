@@ -1768,7 +1768,7 @@ BEGIN
 						CONTRASENIA, EDAD, FECHA_NACIMIENTO, VERIFICADO,
                         EXPERIENCIA_NIVEL, NIVEL, EXPERIENCIA, FID_PAIS, ACTIVO)
 	VALUES (_NOMBRE_CUENTA, _NOMBRE_PERFIL, _CORREO, _TELEFONO,
-			_CONTRASENIA, _EDAD, _FECHA_NACIMIENTO, _VERIFICADO,
+			MD5(_CONTRASENIA), _EDAD, _FECHA_NACIMIENTO, _VERIFICADO,
 			_EXPERIENCIA_NIVEL, _NIVEL, _EXPERIENCIA, _FID_PAIS, true);
     SET _ID_USUARIO = @@last_insert_id;
 END $
@@ -1792,7 +1792,7 @@ CREATE PROCEDURE ACTUALIZAR_USUARIO(
 )
 BEGIN
 	UPDATE Usuario SET NOMBRE_CUENTA = _NOMBRE_CUENTA, NOMBRE_PERFIL = _NOMBRE_PERFIL,
-					   CORREO = _CORREO, TELEFONO = _TELEFONO, CONTRASENIA = _CONTRASENIA,
+					   CORREO = _CORREO, TELEFONO = _TELEFONO, CONTRASENIA = MD5(_CONTRASENIA),
                        EDAD = _EDAD, FECHA_NACIMIENTO = _FECHA_NACIMIENTO, VERIFICADO = _VERIFICADO,
                        EXPERIENCIA_NIVEL = _EXPERIENCIA_NIVEL, NIVEL = _NIVEL, EXPERIENCIA = _EXPERIENCIA,
                        FID_PAIS = _FID_PAIS
@@ -1856,4 +1856,20 @@ BEGIN
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.UID = _uid AND u.activo = TRUE;
+END$
+DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
+DELIMITER $
+CREATE PROCEDURE VERIFICAR_USUARIO (
+	IN _nombre_cuenta VARCHAR(100),
+    IN _contrasenia VARCHAR(100)
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+    u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+    p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    WHERE u.nombre_cuenta = _nombre_cuenta AND u.contrasenia = md5(_contrasenia);
 END$

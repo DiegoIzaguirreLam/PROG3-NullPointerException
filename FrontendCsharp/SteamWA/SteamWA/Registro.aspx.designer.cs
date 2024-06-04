@@ -42,15 +42,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtNombreCuenta;
 
         /// <summary>
-        /// Control regexNombreCuenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexNombreCuenta;
-
-        /// <summary>
         /// Control lblNombrePerfil.
         /// </summary>
         /// <remarks>
@@ -67,15 +58,6 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombrePerfil;
-
-        /// <summary>
-        /// Control regexNombrePerfil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexNombrePerfil;
 
         /// <summary>
         /// Control lblContrasenia.

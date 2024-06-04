@@ -18,5 +18,6 @@ public interface UsuarioDAO {
     int eliminarUsuario(Usuario jugador); //Elimina de la base de datos
     Usuario buscarUsuarioPorNombreCuenta (String nombreCuenta);
     Usuario buscarUsuarioPorId (int uid);
+    Usuario verificarCuenta (String nombreCuenta, String password);
     ArrayList<Usuario> listarUsuarios();
 }

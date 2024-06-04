@@ -47,6 +47,12 @@
   <message name="buscarUsuarioPorIdResponse">
     <part name="parameters" element="tns:buscarUsuarioPorIdResponse" />
   </message>
+  <message name="verificarUsuario">
+    <part name="parameters" element="tns:verificarUsuario" />
+  </message>
+  <message name="verificarUsuarioResponse">
+    <part name="parameters" element="tns:verificarUsuarioResponse" />
+  </message>
   <portType name="UsuarioWS">
     <operation name="buscarUsuarioPorNombreCuenta">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRequest" message="tns:buscarUsuarioPorNombreCuenta" />
@@ -75,6 +81,10 @@
     <operation name="buscarUsuarioPorId">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdRequest" message="tns:buscarUsuarioPorId" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdResponse" message="tns:buscarUsuarioPorIdResponse" />
+    </operation>
+    <operation name="verificarUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioRequest" message="tns:verificarUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioResponse" message="tns:verificarUsuarioResponse" />
     </operation>
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
@@ -134,6 +144,15 @@
       </output>
     </operation>
     <operation name="buscarUsuarioPorId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="verificarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
