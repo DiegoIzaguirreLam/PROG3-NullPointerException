@@ -33,6 +33,15 @@ namespace SteamWA
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddlColecciones;
 
         /// <summary>
+        /// Control dropdownOrdenar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton dropdownOrdenar;
+
+        /// <summary>
         /// Control rbNombre.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,24 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbPrecio;
+
+        /// <summary>
+        /// Control pBibliotecaVacia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pBibliotecaVacia;
+
+        /// <summary>
+        /// Control contenedorProgramas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contenedorProgramas;
 
         /// <summary>
         /// Control ulProgramas.

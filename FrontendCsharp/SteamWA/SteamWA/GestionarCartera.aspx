@@ -61,7 +61,7 @@
             <div class="col-md-6">
                 <div class="mb-4">
                     <h4>Balance actual en cartera</h4>
-                    <p id="pBalanceCartera" runat="server" class="display-4">S/.100.00</p>
+                    <p id="pBalanceCartera" runat="server" class="display-4">S/.-</p>
                 </div>
             </div>
         </div>

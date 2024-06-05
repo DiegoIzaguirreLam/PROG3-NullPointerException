@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -59,12 +60,22 @@ namespace SteamWA
         {
             string input = txtMontoPersonalizado.Text.Trim();
             double montoPersonalizado;
-            if(!double.TryParse(input, out montoPersonalizado))
+
+            if (!double.TryParse(input, out montoPersonalizado))
             {
                 lblMensajeError.Text = "Por favor ingrese un valor numérico válido";
                 lblMensajeError.Visible = true;
                 return;
             }
+
+            string inputNormalizada = montoPersonalizado.ToString("F2");
+            if (!Regex.IsMatch(inputNormalizada, @"^\d+(\.\d{1,2})?$")) // para ver si tiene como maximo 2 decimales
+            {
+                lblMensajeError.Text = "Por favor, ingrese un valor numérico válido con como máximo 2 decimales.";
+                lblMensajeError.Visible = true;
+                return;
+            }
+
             if(montoPersonalizado < 15)
             {
                 lblMensajeError.Text = "El monto debe ser mayor o igual a " + pais.moneda.simbolo + "15.00";
