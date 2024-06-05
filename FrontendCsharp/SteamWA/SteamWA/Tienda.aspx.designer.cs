@@ -33,6 +33,24 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.LinkButton btnBuscar;
 
         /// <summary>
+        /// Control rdbNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbNombre;
+
+        /// <summary>
+        /// Control rdbPrecio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbPrecio;
+
+        /// <summary>
         /// Control ddlEtiquetas.
         /// </summary>
         /// <remarks>

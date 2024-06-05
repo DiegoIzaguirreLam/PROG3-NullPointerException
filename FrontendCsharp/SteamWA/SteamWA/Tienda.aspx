@@ -77,13 +77,22 @@
             <ul class="dropdown-menu" aria-labelledby="search-autocomplete" id="suggestions">
             </ul>
             <div class="dropdown ps-3">
-                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownOrdenar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-light dropdown-toggle " type="button" id="dropdownOrdenar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ordenar
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownOrdenar">
-                    <li><a class="dropdown-item" href="#">Por relevancia</a></li>
-                    <li><a class="dropdown-item" href="#">Por nombre</a></li>
-                    <li><a class="dropdown-item" href="#">Por precio</a></li>
+                <ul class="dropdown-menu bgDesplegables" aria-labelledby="dropdownOrdenar">
+                    
+
+                    <li class="d-flex ps-2">
+                     <asp:RadioButton ID="rdbNombre" runat="server" GroupName="listaOrdenar" AutoPostBack="true" OnCheckedChanged="rdbNombre_CheckedChanged" />
+                    <p class="ps-2 m-0 text-light"> Por nombre </>
+                    </li>
+
+                    <li class="d-flex ps-2">
+                     <asp:RadioButton ID="rdbPrecio" runat="server" GroupName="listaOrdenar" OnCheckedChanged="rdbPrecio_CheckedChanged" AutoPostBack="true" />
+                    <p class="ps-2 m-0 text-light"> Por precio </>
+                    </li>
+                     
                 </ul>
             </div>
 
@@ -105,8 +114,8 @@
                 <label for="barRangoPrecio" class="form-label">Filtrar por etiqueta</label>
 
                  <div class="dropdown">
-                <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownColecciones"
-                    data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
+                <button class="btn btn-primary btn-dark dropdown-toggle" style="--bs-btn-bg: #323842" type="button" id="dropdownColecciones"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Etiquetas
                 </button> 
                 <ul id="ddlEtiquetas" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="dropdownColecciones">
@@ -117,11 +126,11 @@
             <div class="col-md-3">
                 <label for="barRangoPrecio" class="form-label">Filtrar por tipo</label>
                 <div class="dropdown">
-                <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownTipos"
-                    data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
+                <button class="btn btn-primary btn-dark dropdown-toggle" style="--bs-btn-bg: #323842" type="button" id="dropdownTipos"
+                    data-bs-toggle="dropdown" aria-expanded="false" >
                     Tipo de Producto
                 </button> 
-                <ul id="ddlTipos" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="dropdownTipos">
+                <ul id="ddlTipos" runat="server" class="dropdown-menu bgDesplegables text-"  aria-labelledby="dropdownTipos">
                     
                 </ul>
                 </div>
@@ -130,7 +139,7 @@
             <div class="col-md-3">
                                 <label for="barRangoPrecio" class="form-label">Limpiar Filtros</label>
                 <div class="dropdown">
-                <asp:LinkButton ID="btnLimpFiltro" cssClass="btn btn-outline-light" runat="server" OnClick="btnLimpFiltro_Click">🗑 Limpiar</asp:LinkButton>
+                <asp:LinkButton ID="btnLimpFiltro" cssClass="btn btn-primary btn-dark" style="--bs-btn-bg: #323842" runat="server" OnClick="btnLimpFiltro_Click">🗑 Limpiar</asp:LinkButton>
                     </div>
             </div>
         </div>

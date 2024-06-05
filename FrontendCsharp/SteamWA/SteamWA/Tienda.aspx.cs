@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.UI;
@@ -18,15 +19,43 @@ namespace SteamWA
         private SteamWA.SteamServiceWS.ProductoWSClient daoProducto;
         BindingList<SteamWA.SteamServiceWS.producto> listaProductos;
         private SteamWA.SteamServiceWS.EtiquetaWSClient daoEtiqueta;
+        private SteamWA.SteamServiceWS.BibliotecaWSClient daoBiblioteca;
+        private SteamWA.SteamServiceWS.ProductoAdquiridoWSClient daoProductoAdquirido;
+        private int idBiblioteca;
+        private BindingList<productoAdquirido> listaProductoAdq;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             Steam master = (Steam)this.Master;
             master.ItemTienda.Attributes["class"] = "active";
+            int uid;
+                if (Session["usuario"] != null)
+                {
+                uid = ((usuario)Session["usuario"]).UID;
+                daoBiblioteca = new SteamServiceWS.BibliotecaWSClient();
+                daoProductoAdquirido = new SteamServiceWS.ProductoAdquiridoWSClient();
+                idBiblioteca = daoBiblioteca.buscarBibliotecaPorUID(uid).idBiblioteca;
+                if (daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca) == null)
+                {
+                    listaProductoAdq = null;
+                }
+                else
+                {
+                    listaProductoAdq = new BindingList<productoAdquirido>(daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca));
+                }
+               
+                 }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            
+          
 
             daoProducto = new SteamServiceWS.ProductoWSClient();
 
-          
-                Session["listaProdEt"] = null;
+           
+            Session["listaProdEt"] = null;
                 Session["DicProdEtDic"] = null;
                 listaProductos =
             new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
@@ -34,7 +63,12 @@ namespace SteamWA
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 string json = serializer.Serialize(listaProductos);
                 Session["ListaProductos"] = listaProductos;
-
+                if(Session["ElementosCarrito"] == null)
+                {
+                    BindingList<producto> listaCarrito = new BindingList<producto>();
+                    Session["ElementosCarrito"] = listaCarrito;
+                }
+            
                 mostrarListaProductos(listaProductos);
 
 
@@ -281,8 +315,28 @@ namespace SteamWA
             string titulo = (listarArgs[2]);
             modalImagen.ImageUrl = url;
             labelModal.InnerText = titulo;
+            BindingList<producto> listaProd = new BindingList<producto>((BindingList<producto>)Session["ListaProductos"]);
+            if (Session["ElementosCarrito"] != null)
+            {
+                BindingList<producto> listaCarrito = (BindingList<producto>)Session["ElementosCarrito"];
+                producto prodEncontrado = listaCarrito.FirstOrDefault(p => p.idProducto == id);
+                if (prodEncontrado == null)
+                {
+                    producto prodCarrito = listaProd.FirstOrDefault(p => p.idProducto == id);
+                    listaCarrito.Add(prodCarrito);
+                    Session["ElementosCarrito"] = listaCarrito;
+
+                }
+                
+            }
+            
+
+            
+            
             string script = "window.onload = function() { showModalForm('form-modal-añadido-carrito') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            mostrarListaProductos(listaProd);
+
         }
 
         protected void btnCarro_Click(object sender, EventArgs e)
@@ -340,6 +394,11 @@ namespace SteamWA
 
         public void mostrarListaProductos(BindingList<SteamWA.SteamServiceWS.producto> lProds)
         {
+            if (Session["ElementosCarrito"] != null)
+            {
+                BindingList<producto> listaCarrito = (BindingList<producto>)Session["ElementosCarrito"];
+
+            }
             if (lProds != null)
             {
                 HtmlGenericControl divHtmlContainer = new HtmlGenericControl("div");
@@ -353,8 +412,8 @@ namespace SteamWA
                     HtmlGenericControl divHtmlCardColumn = new HtmlGenericControl("div");
                     HtmlGenericControl divHtmlCard = new HtmlGenericControl("div");
 
-                    divHtmlCardColumn.Attributes["class"] = "col-md-4";
-                    divHtmlCard.Attributes["class"] = "card bg-dark-subtle border-shadow mb-4";
+                    divHtmlCardColumn.Attributes["class"] = "col-md-4 mb-4";
+                    divHtmlCard.Attributes["class"] = "card h-100 bg-dark-subtle border-shadow";
 
                     divHtmlContainer.Controls.Add(divHtmlCardColumn);
                     divHtmlCardColumn.Controls.Add(divHtmlCard);
@@ -383,14 +442,41 @@ namespace SteamWA
                     LinkButton buttonCarrito = new LinkButton();
                     buttonCarrito.CssClass = "btn btn-primary";
                     buttonCarrito.ID = "btnCarritos" + prod.idProducto;
-                   // buttonCarrito.Attributes["data-bs-toggle"] = "modal";
-                    //buttonCarrito.Attributes["data-bs-target"] = "#form-modal-añadido-carrito";
+                 
                     buttonCarrito.CommandArgument = (prod.idProducto).ToString() + "¿" + (prod.portadaUrl).ToString() + "¿" +
                         (prod.titulo).ToString();
 
 
                     buttonCarrito.Command += btnCarrito1_Click;
                     buttonCarrito.Text = "Añadir al carrito";
+
+                     if (Session["ElementosCarrito"] != null)
+                         {
+                BindingList<producto> listaCarrito = (BindingList<producto>)Session["ElementosCarrito"];
+                        producto prodCarrito = listaCarrito.FirstOrDefault(p => p.idProducto == prod.idProducto);
+                      
+                        
+                        if (prodCarrito !=null){
+                            buttonCarrito.Enabled = false;
+                            buttonCarrito.BackColor = System.Drawing.Color.Gray;
+                            buttonCarrito.BorderColor = System.Drawing.Color.Transparent;
+                            buttonCarrito.Text = "Ya añadido";
+                        }
+
+                    }
+                    if (listaProductoAdq != null)
+                    {
+                        foreach (productoAdquirido p in listaProductoAdq)
+                        {
+                            if ((p.producto).idProducto == prod.idProducto)
+                            {
+                                buttonCarrito.Enabled = false;
+                                buttonCarrito.BackColor = System.Drawing.Color.Green;
+                                buttonCarrito.BorderColor = System.Drawing.Color.Transparent;
+                                buttonCarrito.Text = "Adquirido";
+                            }
+                        }
+                    }
                     divHtmlCard.Controls.Add(imagen);
                     divHtmlCard.Controls.Add(divHtmlCardBody);
                     divHtmlCardBody.Controls.Add(divHtmlCardTitle);
@@ -430,6 +516,18 @@ namespace SteamWA
             {
                 c.Checked = false;
             }
+            rdbNombre.Checked = false;
+            rdbPrecio.Checked = false;
+        }
+
+        protected void rdbPrecio_CheckedChanged(object sender, EventArgs e)
+        {
+            mostrarListaProductos(new BindingList<producto>( listaProductos.OrderBy(producto => producto.precio).ToList()));
+        }
+
+        protected void rdbNombre_CheckedChanged(object sender, EventArgs e)
+        {
+            mostrarListaProductos(new BindingList<producto>(listaProductos.OrderBy(producto => producto.titulo).ToList()));
         }
     }
 }
