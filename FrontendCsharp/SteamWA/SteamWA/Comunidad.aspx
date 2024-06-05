@@ -76,7 +76,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" Height="50" Required="true"/>
+                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" Height="50" />
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblInicial" runat="server" Text="Subforo Inicial:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtInicial" runat="server" CssClass="form-control" MaxLength="14" Required="true"/>
+                                    <asp:TextBox ID="txtInicial" runat="server" CssClass="form-control" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" Height="150" Required="true"/>
+                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" Height="150"/>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblNTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12 col-4">
-                                    <asp:TextBox ID="txtNTema" runat="server" CssClass="form-control" MaxLength="14" Required="true"/>
+                                    <asp:TextBox ID="txtNTema" runat="server" CssClass="form-control" MaxLength="14"/>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50" Required="true"/>
+                                    <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50"/>
                                 </div>
                             </div>
                         </div>
