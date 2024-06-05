@@ -8,6 +8,8 @@
   <xs:element name="insertarLogroDesbloqueadoResponse" type="tns:insertarLogroDesbloqueadoResponse" />
   <xs:element name="listarLogrosDesbloqueadosProductoAdquirido" type="tns:listarLogrosDesbloqueadosProductoAdquirido" />
   <xs:element name="listarLogrosDesbloqueadosProductoAdquiridoResponse" type="tns:listarLogrosDesbloqueadosProductoAdquiridoResponse" />
+  <xs:element name="listarLogrosPorUsuario" type="tns:listarLogrosPorUsuario" />
+  <xs:element name="listarLogrosPorUsuarioResponse" type="tns:listarLogrosPorUsuarioResponse" />
   <xs:complexType name="eliminarLogroDesbloqueado">
     <xs:sequence>
       <xs:element name="idLogroDesbloqueado" type="xs:int" />
@@ -18,9 +20,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarLogroDesbloqueado">
+  <xs:complexType name="listarLogrosPorUsuario">
     <xs:sequence>
-      <xs:element minOccurs="0" name="logroDesbloqueado" type="tns:logroDesbloqueado" />
+      <xs:element name="idUsuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLogrosPorUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:logroDesbloqueado" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="logroDesbloqueado">
@@ -107,17 +114,22 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="insertarLogroDesbloqueadoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="actualizarLogroDesbloqueado">
     <xs:sequence>
       <xs:element minOccurs="0" name="logroDesbloqueado" type="tns:logroDesbloqueado" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarLogroDesbloqueadoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLogroDesbloqueado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="logroDesbloqueado" type="tns:logroDesbloqueado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLogroDesbloqueadoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

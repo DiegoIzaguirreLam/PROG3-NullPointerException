@@ -1,26 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.steam.biblioteca.producto.mysql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
-import pe.edu.pucp.steam.biblioteca.producto.dao.LogroDAO;
 import pe.edu.pucp.steam.biblioteca.producto.dao.LogroDesbloqueadoDAO;
-import pe.edu.pucp.steam.biblioteca.producto.dao.ProductoAdquiridoDAO;
+import pe.edu.pucp.steam.biblioteca.producto.model.Juego;
 import pe.edu.pucp.steam.biblioteca.producto.model.Logro;
 import pe.edu.pucp.steam.biblioteca.producto.model.LogroDesbloqueado;
 import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
-/**
- *
- * @author piero
- */
 public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
     private Connection con;
     private CallableStatement cs;
@@ -110,5 +100,50 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return logrosDesbloqueados;
+    }
+
+    @Override
+    public ArrayList<LogroDesbloqueado> listarLogrosPorUsuario(int idUsuario) {
+        ArrayList<LogroDesbloqueado> logros = null;
+        
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_LOGROS_POR_USUARIO(?)}");
+            cs.setInt(1, idUsuario);
+            rs = cs.executeQuery();
+            
+            while(rs.next()) {
+                LogroDesbloqueado logroDesbloqueado = new LogroDesbloqueado(); 
+                Logro logro = new Logro();
+                Juego juego = new Juego();
+                ProductoAdquirido productoAdquirido = new ProductoAdquirido();
+                
+                logroDesbloqueado.setFechaDesbloqueo(rs.getDate("Fecha de Desbloqueo"));
+                logro.setNombre(rs.getString("Nombre del Logro"));
+                logro.setDescripcion(rs.getString("Descripción del Logro"));
+                juego.setTitulo(rs.getString("Título del Juego"));
+                juego.setLogoUrl(rs.getString("URL del Logo"));
+                
+                productoAdquirido.setProducto(juego);
+                
+                logroDesbloqueado.setLogro(logro);
+                logroDesbloqueado.setJuego(productoAdquirido);
+                
+                if (logros == null) logros = new ArrayList<LogroDesbloqueado>();
+                logros.add(logroDesbloqueado);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try { if (rs != null) rs.close(); }
+            catch (Exception ex)
+            { System.out.println(ex.getMessage()); }
+            
+            try { if (con != null) con.close(); }
+            catch (Exception ex)
+            { System.out.println(ex.getMessage()); }
+        }
+        
+        return logros;
     }
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package pe.edu.pucp.steam.biblioteca.producto.services;
 
 import jakarta.jws.WebService;
@@ -12,10 +8,6 @@ import pe.edu.pucp.steam.biblioteca.producto.dao.LogroDesbloqueadoDAO;
 import pe.edu.pucp.steam.biblioteca.producto.model.LogroDesbloqueado;
 import pe.edu.pucp.steam.biblioteca.producto.mysql.LogroDesbloqueadoMySQL;
 
-/**
- *
- * @author Diego
- */
 @WebService(serviceName = "LogroDesbloqueadoWS", targetNamespace="http://services.softprog.pucp.edu.pe/")
 public class LogroDesbloqueadoWS {
 
@@ -65,5 +57,20 @@ public class LogroDesbloqueadoWS {
             System.out.println(ex.getMessage());
         }
         return logrosDesbloqueados;
+    }
+    
+    @WebMethod(operationName = "listarLogrosPorUsuario")
+    public ArrayList<LogroDesbloqueado> listarLogrosPorUsuario(
+            @WebParam(name = "idUsuario") int idUsuario) {
+        ArrayList<LogroDesbloqueado> logros = null;
+        
+        try{
+            LogroDesbloqueadoDAO logrosDao = new LogroDesbloqueadoMySQL();
+            logros = logrosDao.listarLogrosPorUsuario(idUsuario);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return logros;
     }
 }
