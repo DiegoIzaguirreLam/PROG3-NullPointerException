@@ -44,6 +44,17 @@
                         <asp:LinkButton ID="btnAgregar100" runat="server" Text="Agregar fondos" CssClass="btn btn-success ms-2" OnClick="btnAgregar_Click" CommandArgument="100.00"/>
                     </div>
                 </div>
+                <div class="mb-4 bg-gradient-gray p-3 rounded position-relative">
+                    <h3 id="hAgregarPersonalizado" runat="server" class="text-light mb-3">Agregar monto personalizado</h3>
+                    <div class="d-flex d-inline-block">
+                        <asp:Label ID="txtMonedaPersonalizado" runat="server" CssClass="text-white mt-2" Visible="true"></asp:Label>
+                        <asp:TextBox ID="txtMontoPersonalizado" runat="server" CssClass="form-control bg-dark ms-2 text-white" Placeholder="Ingrese el monto" width="100" />
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <asp:LinkButton ID="btnAgregarPersonalizado" runat="server" Text="Agregar fondos" CssClass="btn btn-success ms-2" OnClick="btnAgregarPersonalizado_Click"/>
+                    </div>
+                    <asp:Label ID="lblMensajeError" runat="server" CssClass="alert alert-danger mt-4" Visible="false" Width="100% "></asp:Label>
+                </div>
             </div>
 
             <!-- Columna del balance actual -->

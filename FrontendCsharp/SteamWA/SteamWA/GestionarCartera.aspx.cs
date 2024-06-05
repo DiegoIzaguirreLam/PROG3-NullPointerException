@@ -12,6 +12,7 @@ namespace SteamWA
     public partial class GestionarCartera : System.Web.UI.Page
     {
         private cartera cartera;
+        private pais pais;
         private CarteraWSClient daoCartera;
         private MovimientoWSClient daoMovimiento;
         private PaisWSClient daoPais;
@@ -26,7 +27,7 @@ namespace SteamWA
             daoMovimiento = new MovimientoWSClient();
             daoPais = new PaisWSClient();
             cartera = daoCartera.buscarCartera(usuario.UID);
-            pais pais = daoPais.buscarPais(usuario.pais.idPais);
+            pais = daoPais.buscarPais(usuario.pais.idPais);
             if(cartera == null)
             {
                 Response.Redirect("Login.aspx");
@@ -43,6 +44,7 @@ namespace SteamWA
             hAgregar50.InnerText = "Agregar " + pais.moneda.simbolo + "50";
             hAgregar100.InnerText = "Agregar " + pais.moneda.simbolo + "100";
             hCartera.InnerHtml = "Agregar fondos a la cartera de <strong>" + usuario.nombreCuenta + "</strong>";
+            txtMonedaPersonalizado.Text = pais.moneda.simbolo;
             Session["moneda"] = pais.moneda;
         }
 
@@ -53,5 +55,24 @@ namespace SteamWA
             Response.Redirect("SeleccionarMetodoPago.aspx");
         }
 
+        protected void btnAgregarPersonalizado_Click(object sender, EventArgs e)
+        {
+            string input = txtMontoPersonalizado.Text.Trim();
+            double montoPersonalizado;
+            if(!double.TryParse(input, out montoPersonalizado))
+            {
+                lblMensajeError.Text = "Por favor ingrese un valor numérico válido";
+                lblMensajeError.Visible = true;
+                return;
+            }
+            if(montoPersonalizado < 15)
+            {
+                lblMensajeError.Text = "El monto debe ser mayor o igual a " + pais.moneda.simbolo + "15.00";
+                lblMensajeError.Visible = true;
+                return;
+            }
+            Session["monto"] = montoPersonalizado;
+            Response.Redirect("SeleccionarMetodoPago.aspx");
+        }
     }
 }
