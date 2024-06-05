@@ -19,7 +19,7 @@
     </style>
     <div class="container">
         <h1 class="mt-4">Notificaciones</h1>
-        <div class="container-fluid">
+        <%--<div class="container-fluid">
             <div class="col d-flex justify-content-end align-items-center">
                 <h5 class="me-4">Filtrar por:</h5>
                 <div class="dropdown">
@@ -31,8 +31,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
-
+        </div>--%>
         <hr />
         <asp:ScriptManager runat="server"></asp:ScriptManager>
 
@@ -62,6 +61,14 @@
                                 <asp:Label runat="server" Text="No hay notificaciones" CssClass="display-7 text-center" />
                             </div>
                         </EmptyDataTemplate>
+                        <%--<LayoutTemplate>
+                            <div id="itemPlaceholder" runat="server"></div>
+                            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="lvNotificaciones" PageSize="3">
+                                <Fields>
+                                    <asp:NumericPagerField ButtonCount="10" />
+                                </Fields>
+                            </asp:DataPager>
+                        </LayoutTemplate>--%>
                     </asp:ListView>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -82,7 +89,7 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
                     <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClientClick='<%# "confirmarEliminar(" + Eval("IdNotificacion") + ")" %>' OnClick="btnEliminar_Click" />
-                    <asp:Button ID="btnMarcarNoLeido" CssClass="btn btn-primary" runat="server" Text="Marcar como no leído" OnClick="btnMarcarNoLeido_Click" />
+                    <asp:Button ID="btnMarcarNoLeido" CssClass="btn btn-light" runat="server" Text="Marcar como no leído" OnClick="btnMarcarNoLeido_Click" />
                 </div>
             </div>
         </div>

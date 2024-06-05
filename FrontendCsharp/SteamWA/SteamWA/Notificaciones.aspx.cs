@@ -21,28 +21,28 @@ namespace SteamWA
         protected void Page_Init(object sender, EventArgs e)
         {
             daoNotificacion = new NotificacionWSClient();
-            BindingList<string> tiposNotificaciones = new BindingList<string>();
-            tiposNotificaciones.Add("Amigos");
-            tiposNotificaciones.Add("Juegos");
-            tiposNotificaciones.Add("Foros");
-            tiposNotificaciones.Add("Biblioteca");
+            //BindingList<string> tiposNotificaciones = new BindingList<string>();
+            //tiposNotificaciones.Add("Amigos");
+            //tiposNotificaciones.Add("Juegos");
+            //tiposNotificaciones.Add("Foros");
+            //tiposNotificaciones.Add("Biblioteca");
 
-            foreach (string tipoN in tiposNotificaciones)
-            {
-                CheckBox chk = new CheckBox();
-                chk.ID = "chk" + tipoN;
-                HtmlGenericControl liNot = new HtmlGenericControl("li");
-                HtmlGenericControl contr = new HtmlGenericControl("div");
-                contr.Attributes["class"] = "d-flex ps-2";
-                chk.CheckedChanged += Chk_CheckedChanged;
-                chk.AutoPostBack = true;
-                liNot.Attributes["class"] = "ps-2 text-light";
-                liNot.InnerText = tipoN;
+            //foreach (string tipoN in tiposNotificaciones)
+            //{
+            //    CheckBox chk = new CheckBox();
+            //    chk.ID = "chk" + tipoN;
+            //    HtmlGenericControl liNot = new HtmlGenericControl("li");
+            //    HtmlGenericControl contr = new HtmlGenericControl("div");
+            //    contr.Attributes["class"] = "d-flex ps-2";
+            //    chk.CheckedChanged += Chk_CheckedChanged;
+            //    chk.AutoPostBack = true;
+            //    liNot.Attributes["class"] = "ps-2 text-light";
+            //    liNot.InnerText = tipoN;
 
-                contr.Controls.Add(chk);
-                contr.Controls.Add(liNot);
-                ddlTipoNotif.Controls.Add(contr);
-            }
+            //    contr.Controls.Add(chk);
+            //    contr.Controls.Add(liNot);
+            //    ddlTipoNotif.Controls.Add(contr);
+            //}
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace SteamWA
             notificacion notificacion = (notificacion)Session["notificacionSeleccionada"];
             int resultado = daoNotificacion.eliminarNotificacion(notificacion);
             Session["notificacionSeleccionada"] = null;
-            //ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
         protected void btnMarcarNoLeido_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace SteamWA
             notificacion.revisada = false;
             int resultado = daoNotificacion.actualizarNotificacion(notificacion);
             Session["notificacionSeleccionada"] = null;
-            //ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
     }
 }
