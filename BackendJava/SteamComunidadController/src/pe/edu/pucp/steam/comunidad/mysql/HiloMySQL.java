@@ -5,6 +5,7 @@
 package pe.edu.pucp.steam.comunidad.mysql;
 
 import java.util.ArrayList;
+import java.util.Date;
 import pe.edu.pucp.steam.comunidad.dao.HiloDAO;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
@@ -36,10 +37,8 @@ public class HiloMySQL implements HiloDAO {
             cs.setInt("_id_subforo", hilo.getSubforo().getIdSubforo());
             cs.setInt("_id_usuario", hilo.getIdCreador());
             cs.setBoolean("_fijado",hilo.isFijado());
-            cs.setDate("_fecha_creacion", new java.sql.Date(
-                    hilo.getFechaCreacion().getTime()));
-            cs.setDate("_fecha_modificacion",new java.sql.Date(
-                    hilo.getFechaModificacion().getTime()) );
+            cs.setDate("_fecha_creacion", new java.sql.Date((new Date()).getTime()));
+            cs.setDate("_fecha_modificacion",new java.sql.Date((new Date()).getTime()));
             cs.setString("_imagen_url", hilo.getImagenUrl());
             cs.executeUpdate();
             hilo.setIdHilo(cs.getInt("_id_hilo"));

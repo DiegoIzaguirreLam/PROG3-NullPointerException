@@ -68,7 +68,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label fontSetterExo2" />
                                 <div class="col-sm-12 col-4">
-                                    <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" MaxLength="14"/>
+                                    <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" MaxLength="14" Required="true"></asp:TextBox>
                                 </div>
                             </div>
                         </div>

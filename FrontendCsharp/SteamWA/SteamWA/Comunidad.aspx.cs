@@ -155,8 +155,9 @@ namespace SteamWA
             neohilo.fechaCreacion = DateTime.Now;
             neohilo.idCreador = user.UID;
             neohilo.subforo = neosubforo;
-            neohilo.fechaModificacion = DateTime.Now;
+            neohilo.fechaModificacion = DateTime.Parse(DateTime.Now.ToString());
             neohilo.fijado = true;
+            neohilo.imagenUrl = "asdds";
             id = daoHilo.insertarHilo(neohilo);
             neohilo.idHilo = id;
             neomensaje.hilo = neohilo;
