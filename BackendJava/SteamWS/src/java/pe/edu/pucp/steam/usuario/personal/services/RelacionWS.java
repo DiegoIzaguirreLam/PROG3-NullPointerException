@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
-
 package pe.edu.pucp.steam.usuario.personal.services;
 
 import jakarta.jws.WebService;
@@ -13,16 +8,13 @@ import pe.edu.pucp.steam.usuario.personal.dao.RelacionDAO;
 import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import pe.edu.pucp.steam.usuario.personal.mysql.RelacionMySQL;
 
-/**
- *
- * @author GAMER
- */
-@WebService(serviceName="RelacionWS", targetNamespace="http://services.softprog.pucp.edu.pe/")
+@WebService(serviceName="RelacionWS",
+            targetNamespace="http://services.softprog.pucp.edu.pe/")
 public class RelacionWS {
 
-    /** This is a sample web service operation */
     @WebMethod(operationName="agregarAmigo")
-    public int agregarAmigo(@WebParam(name="idUsuarioA") int idUsuarioA, @WebParam(name="idUsuarioB") int idUsuarioB) {
+    public int agregarAmigo(@WebParam(name="idUsuarioA") int idUsuarioA,
+                            @WebParam(name="idUsuarioB") int idUsuarioB) {
         int resultado=0;
         try{
             RelacionDAO relacionDao = new RelacionMySQL();
@@ -34,7 +26,8 @@ public class RelacionWS {
     }
     
     @WebMethod(operationName="eliminarAmigo")
-    public int eliminarAmigo(@WebParam(name="idUsuarioA") int idUsuarioA, @WebParam(name="idUsuarioB") int idUsuarioB) {
+    public int eliminarAmigo(@WebParam(name="idUsuarioA") int idUsuarioA,
+                             @WebParam(name="idUsuarioB") int idUsuarioB) {
         int resultado=0;
         try{
             RelacionDAO relacionDao = new RelacionMySQL();
@@ -46,7 +39,8 @@ public class RelacionWS {
     }
     
     @WebMethod(operationName="bloquearUsuario")
-    public int bloquearUsuario(@WebParam(name="idUsuarioA") int idUsuarioA, @WebParam(name="idUsuarioB") int idUsuarioB) {
+    public int bloquearUsuario(@WebParam(name="idUsuarioA") int idUsuarioA,
+                               @WebParam(name="idUsuarioB") int idUsuarioB) {
         int resultado=0;
         try{
             RelacionDAO relacionDao = new RelacionMySQL();
