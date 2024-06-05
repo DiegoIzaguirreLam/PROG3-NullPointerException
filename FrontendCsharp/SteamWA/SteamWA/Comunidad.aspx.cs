@@ -123,6 +123,7 @@ namespace SteamWA
                 daoForoUsuario.suscribirRelacion(Int32.Parse(((LinkButton)sender).CommandArgument), user.UID);
                 notificacion notificacionForo = new notificacion();
                 notificacionForo.tipoSpecified = true;
+                notificacionForo.usuario = (usuario)Session["usuario"];
                 notificacionForo.tipo = tipoNotificacion.FOROS;
                 notificacionForo.mensaje = "Te has suscrito al foro " + foro.nombre;
                 int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
@@ -132,10 +133,17 @@ namespace SteamWA
         protected void btnActualizarForo_Click(object sender, EventArgs e)
         {
             foro actforo = (foro)Session["foroParaActualizar"];
+            string nAntiguo = actforo.nombre;
             actforo.nombre = txtNTema.Text;
             actforo.descripcion = txtNDescripcion.Text;
             if (txtNTema.Text.CompareTo("") == 0 || txtNDescripcion.Text.CompareTo("") == 0) return;
             daoForo.editarForo(actforo);
+            notificacion notificacionForo = new notificacion();
+            notificacionForo.tipoSpecified = true;
+            notificacionForo.usuario = (usuario)Session["usuario"];
+            notificacionForo.tipo = tipoNotificacion.FOROS;
+            if(nAntiguo.CompareTo(actforo.nombre) != 0) notificacionForo.mensaje = "Te has actualiazado el foro " + nAntiguo + " ahora llamado " + actforo.nombre;
+            int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
             Response.Redirect("Comunidad.aspx");
         }
 
@@ -173,6 +181,12 @@ namespace SteamWA
             neomensaje.idAutor = user.UID;
             neomensaje.contenido = txtMensajeInicial.Text;
             id = daoMensaje.insertarMensaje(neomensaje);
+            notificacion notificacionForo = new notificacion();
+            notificacionForo.tipoSpecified = true;
+            notificacionForo.usuario = (usuario)Session["usuario"];
+            notificacionForo.tipo = tipoNotificacion.FOROS;
+            notificacionForo.mensaje = "Has creado el foro " + neoforo.nombre;
+            int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
             Response.Redirect("Comunidad.aspx");
         }
 
