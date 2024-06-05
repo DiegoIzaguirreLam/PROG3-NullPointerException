@@ -23,7 +23,7 @@
                                     <div class="input-group-text">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control btn-outline-dark" Required="true"></asp:TextBox>
+                                    <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control btn-outline-dark" Required="true" MaxLength="25"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group col-12">
@@ -32,7 +32,7 @@
                                     <div class="input-group-text">
                                         <i class="fas fa-key"></i>
                                     </div>
-                                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control btn-outline-dark" TextMode="Password" Required="true"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control btn-outline-dark" TextMode="Password" Required="true" MaxLength="20"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-12">

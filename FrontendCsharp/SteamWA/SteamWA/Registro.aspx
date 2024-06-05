@@ -28,7 +28,7 @@
                         <!-- Nombre de cuenta -->
                         <div class="form-group mb-3">
                             <label id="lblNombreCuenta" class="form-label" runat="server">Nombre de cuenta <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtNombreCuenta" CssClass="form-control" placeholder="Ingrese su nombre de cuenta" Required="true" />
+                            <asp:TextBox runat="server" ID="txtNombreCuenta" CssClass="form-control" placeholder="Ingrese su nombre de cuenta" Required="true" MaxLength="25"/>
                             <%--<asp:RegularExpressionValidator ID="regexNombreCuenta" runat="server" ControlToValidate="txtNombreCuenta"
                                 ErrorMessage="El nombre de cuenta debe tener entre 1 y 20 caracteres y no contener espacios"
                                 ValidationExpression="^\S{1,20}$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
@@ -38,7 +38,7 @@
                         <!-- Nombre de perfil -->
                         <div class="mb-3">
                             <label id="lblNombrePerfil" class="form-label" runat="server">Nombre de perfil <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtNombrePerfil" CssClass="form-control" placeholder="Ingrese su nombre de perfil" Required="true" />
+                            <asp:TextBox runat="server" ID="txtNombrePerfil" CssClass="form-control" placeholder="Ingrese su nombre de perfil" Required="true" MaxLength="50"/>
                             <%--<asp:RegularExpressionValidator ID="regexNombrePerfil" runat="server" ControlToValidate="txtNombrePerfil"
                                 ErrorMessage="El nombre de perfil debe tener entre 1 y 50 caracteres"
                                 ValidationExpression="^.{1,50}$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
@@ -50,14 +50,14 @@
                             <div class="col-sm mb-3">
                                 <label id="lblContrasenia" class="form-label" runat="server">Contraseña <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" />
+                                    <asp:TextBox runat="server" ID="txtContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" Required="true" MaxLength="20"/>
                                     <%--<asp:LinkButton ID="lbVisualizarContrasenia" runat="server" CssClass="btn btn-light" Text="<i class='fas fa-eye'></i>"/>--%>
                                 </div>
                             </div>
                             <div class="col-sm mb-3">
                                 <label id="lblConfirmarContrasenia" class="form-label" runat="server">Confirma contraseña <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtConfirmaContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" />
+                                    <asp:TextBox runat="server" ID="txtConfirmaContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" Required="true" MaxLength="20"/>
                                     <%--<asp:LinkButton ID="lbVisualizarConfirmaContrasenia" runat="server" CssClass="btn btn-light" Text="<i class='fas fa-eye'></i>"/>--%>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                         <!-- Correo electronico -->
                         <div class="mb-3">
                             <label id="lblCorreo" class="form-label" runat="server">Correo electrónico <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtCorreo" Type="Email" CssClass="form-control" placeholder="Ingrese su correo electrónico" Required="true" />
+                            <asp:TextBox runat="server" ID="txtCorreo" Type="Email" CssClass="form-control" placeholder="Ingrese su correo electrónico" Required="true" MaxLength="50"/>
                             <asp:RegularExpressionValidator ID="regexCorreo" runat="server" ControlToValidate="txtCorreo"
                                 ErrorMessage="Por favor, ingrese un correo electrónico válido."
                                 ValidationExpression="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
@@ -80,7 +80,7 @@
                         <!-- Telefono -->
                         <div class="mb-3">
                             <label id="lblTelefono" class="form-label" runat="server">Teléfono <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtTelefono" Type="Phone" CssClass="form-control" placeholder="Ingrese su número de teléfono" Required="true" />
+                            <asp:TextBox runat="server" ID="txtTelefono" Type="Phone" CssClass="form-control" placeholder="Ingrese su número de teléfono" Required="true" MaxLength="15"/>
                             <asp:RegularExpressionValidator ID="regexTelefono" runat="server" ControlToValidate="txtTelefono"
                                 ErrorMessage="Por favor, ingrese un número de teléfono válido." ValidationExpression="^\d+$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
                             </asp:RegularExpressionValidator>

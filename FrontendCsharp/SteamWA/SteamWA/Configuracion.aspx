@@ -41,7 +41,7 @@
                     <label id="lblNombreCuenta" class="col-sm-3 col-form-label text-white">Nombre de cuenta <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control" PlaceHolder="NombreUsuario" Enabled="false" Required="true"/>
+                            <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control" PlaceHolder="NombreUsuario" Enabled="false" Required="true" MaxLength="25"/>
                             <%--<asp:LinkButton ID="lbEditarNombreCuenta" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarNombreCuenta_Click"/>--%>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                     <label id="lblNombrePerfil" class="col-sm-3 col-form-label text-white" runat="server">Nombre de perfil <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtNombrePerfil" runat="server" CssClass="form-control" PlaceHolder="NombrePerfil" Enabled="false" Required="true"/>
+                            <asp:TextBox ID="txtNombrePerfil" runat="server" CssClass="form-control" PlaceHolder="NombrePerfil" Enabled="false" Required="true" MaxLength="50"/>
                             <%--<asp:LinkButton ID="lbEditarNombrePerfil" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarNombrePerfil_Click"/>--%>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <label id="lblCorreo" class="col-sm-3 col-form-label text-white" runat="server">Correo electrónico <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" PlaceHolder="usuario@gmail.com" Enabled="false" Required="true"/>
+                            <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" PlaceHolder="usuario@gmail.com" Enabled="false" Required="true" MaxLength="50"/>
                             <%--<asp:LinkButton ID="lbEditarCorreo" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarCorreo_Click"/>--%>
                         </div>
                         <asp:RegularExpressionValidator ID="regexCorreo" runat="server" ControlToValidate="txtCorreo"
@@ -79,7 +79,7 @@
                     <label id="lblTelefono" class="col-sm-3 col-form-label text-white" runat="server">Telefono <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" PlaceHolder="#########" Enabled="false" Required="true"/>
+                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" PlaceHolder="#########" Enabled="false" Required="true" MaxLength="15"/>
                             <%--<asp:LinkButton ID="lbEditarTelefono" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarTelefono_Click"/>--%>
                         </div>
                         <asp:RegularExpressionValidator ID="regexTelefono" runat="server" ControlToValidate="txtTelefono"
