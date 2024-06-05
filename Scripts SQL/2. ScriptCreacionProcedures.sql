@@ -863,7 +863,7 @@ CREATE PROCEDURE CREAR_FORO(
 )
 
 BEGIN
-	INSERT INTO foro(nombre,descripcion,
+	INSERT INTO Foro(nombre,descripcion,
     origen_foro,oculto, activo) VALUES (_nombre,_descripcion,
     _origen_foro,0, 1);
 	SET _id_foro = @@last_insert_id;
@@ -893,14 +893,14 @@ CREATE PROCEDURE LISTAR_SUSCRITOS(
 	IN _iduser INT
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser AND f.activo = 1 INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND c.activo = 1;
 END$
 
 CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(
 	in _id_foro INT 
 )
 BEGIN
-	SELECT * FROM subforo WHERE fid_foro = _id_foro 
+	SELECT * FROM Subforo WHERE fid_foro = _id_foro 
     AND oculto = 0;
 
 END $
@@ -912,7 +912,7 @@ CREATE PROCEDURE EDITAR_FORO(
     IN _origen_foro VARCHAR(100)
 )
 BEGIN
-	UPDATE foro SET nombre = _nombre,
+	UPDATE Foro SET nombre = _nombre,
     descripcion = _descripcion,
     origen_foro = _origen_foro 
     WHERE id_foro = _id_foro; 
@@ -923,7 +923,7 @@ CREATE PROCEDURE DESACTIVAR_FORO(
 	IN _id_foro INT
 )
 BEGIN
-	UPDATE foro SET oculto = 1
+	UPDATE Foro SET oculto = 1
     WHERE id_foro = _id_foro; 
 
 END $
@@ -932,7 +932,7 @@ CREATE PROCEDURE ELIMINAR_FORO(
 	IN _id_foro INT
 )
 BEGIN
-	UPDATE foro SET activo = 0
+	UPDATE Foro SET activo = 0
     WHERE id_foro = _id_foro; 
 
 END $
@@ -940,6 +940,10 @@ END $
 
 DROP PROCEDURE IF EXISTS CREAR_RELACION_FORO;
 DROP PROCEDURE IF EXISTS ELIMINAR_RELACION_FORO;
+DROP PROCEDURE IF EXISTS SUSCRIBIR_RELACION;
+DROP PROCEDURE IF EXISTS LISTAR_SUSCRITOS_FOROUSER;
+DROP PROCEDURE IF EXISTS DESUSCRIBIR_RELACION_FORO;
+
 DELIMITER $
 CREATE PROCEDURE CREAR_RELACION_FORO(
 	IN _fid_foro INT,
@@ -947,7 +951,7 @@ CREATE PROCEDURE CREAR_RELACION_FORO(
 )
 BEGIN
 	INSERT INTO ForoUsuario (fid_foro, fid_usuario, es_creador, es_suscriptor, activo)
-	VALUES (_fid_foro, _fid_usuario, 1, 1, 1);
+	VALUES (_fid_foro, _fid_usuario, 1, 0, 1);
 END$
 CREATE PROCEDURE SUSCRIBIR_RELACION(
 	IN _fid_foro INT,
@@ -963,14 +967,93 @@ CREATE PROCEDURE ELIMINAR_RELACION_FORO(
 )
 BEGIN
 	UPDATE ForoUsuario SET activo=0 
-	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario;
+	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario AND es_creador = 1;
 END$
-CREATE PROCEDURE LISTAR_SUSCRITOS(
+CREATE PROCEDURE DESUSCRIBIR_RELACION_FORO(
+	IN _fid_foro INT,
+	IN _fid_usuario INT
+)
+BEGIN
+	UPDATE ForoUsuario SET activo=0 
+	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario AND es_suscriptor = 1;
+END$
+CREATE PROCEDURE LISTAR_SUSCRITOS_FOROUSER(
 	IN _fid_usuario INT
 )
 BEGIN
 	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE fid_usuario = _fid_usuario AND f.es_suscriptor = 1 AND activo = 1;
-END$
+END$DROP PROCEDURE IF EXISTS CREAR_GESTOR;
+DELIMITER $ 
+CREATE PROCEDURE CREAR_GESTOR(
+	OUT _id_gestor INT ,
+    IN _id_usuario INT,
+    IN _contador_faltas INT,
+    IN _contador_baneos INT,
+    IN _contador_palabras INT,
+    IN _max_faltas INT,
+    IN _max_baneos INT,
+    IN _cant_baneos INT,
+    IN _cant_faltas INT,
+    IN _fin_ban DATE
+)
+BEGIN
+	INSERT INTO hilo(id_gestor, id_usuario, contador_faltas,
+    contador_baneos,contador_palabras,
+    max_faltas,max_baneos,
+    cant_baneos, cant_faltas,
+    fin_ban, activo)
+    VALUES (_id_usuario, _id_usuario, _contador_faltas,
+    _contador_baneos,contador_palabras,
+    _max_faltas,_max_baneos,
+    _cant_baneos, _cant_faltas,
+    _fin_ban, 1);
+	SET _id_gestor = @@last_insert_id;
+
+END $
+
+DROP PROCEDURE IF EXISTS BUSCAR_GESTOR;
+DELIMITER $ 
+CREATE PROCEDURE BUSCAR_GESTOR(
+	in _id_gestor INT 
+)
+BEGIN
+	SELECT * FROM gestorsanciones
+    WHERE id_gestor = _id_gestor;
+
+END $
+
+
+DROP PROCEDURE IF EXISTS EDITAR_GESTOR;
+DELIMITER $ 
+CREATE PROCEDURE EDITAR_GESTOR(
+    IN _id_gestor INT,
+    IN _contador_faltas INT,
+    IN _contador_baneos INT,
+    IN _contador_palabras INT,
+    IN _max_faltas INT,
+    IN _max_baneos INT,
+    IN _cant_baneos INT,
+    IN _cant_faltas INT,
+    IN _fin_ban DATE
+)
+BEGIN
+	UPDATE gestorsanciones SET
+    contador_faltas = _contador_faltas,
+    contador_baneos = _contador_baneos,
+    contador_palabras = _contador_palabras,
+    max_faltas = _max_faltas,
+    max_baneos = _max_baneos,
+    cant_baneos = _cant_baneos,
+    cant_faltas = _cant_faltas,
+    fin_ban = _fin_ban
+    WHERE id_gestor = _id_gestor; 
+END $
+
+
+
+/*Pruebas*/
+
+
 DROP PROCEDURE IF EXISTS INSERTAR_GESTOR;
 DELIMITER $ 
 CREATE PROCEDURE INSERTAR_GESTOR(
@@ -1033,10 +1116,12 @@ BEGIN
     cant_faltas = _cant_faltas,
     fin_ban = _fin_ban
     WHERE id_gestor = _id_gestor; 
-END $
+END $DROP PROCEDURE IF EXISTS CREAR_HILO;
+DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJES_POR_HILO;
+DROP PROCEDURE IF EXISTS EDITAR_HILO;
+DROP PROCEDURE IF EXISTS DESACTIVAR_HILO;
+DROP PROCEDURE IF EXISTS ELIMINAR_HILO;
 
-/*Pruebas*/
-DROP PROCEDURE IF EXISTS CREAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE CREAR_HILO(
 	OUT _id_hilo INT ,
@@ -1048,7 +1133,7 @@ CREATE PROCEDURE CREAR_HILO(
 	IN _imagen_url VARCHAR(200)
 )
 BEGIN
-	INSERT INTO hilo(fijado,fecha_creacion,
+	INSERT INTO Hilo(fijado,fecha_creacion,
     fecha_modificacion,fid_subforo,fid_creador, imagen_url,
     nro_mensajes,oculto, activo)
     VALUES (_fijado,_fecha_creacion,
@@ -1058,18 +1143,16 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJES_POR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE MOSTRAR_MENSAJES_POR_HILO(
 	in _id_hilo INT 
 )
 BEGIN
-	SELECT * FROM mensaje WHERE fid_hilo = _id_hilo 
+	SELECT * FROM Mensaje WHERE fid_hilo = _id_hilo 
     AND oculto = 0;
 
 END $
 
-DROP PROCEDURE IF EXISTS EDITAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_HILO(
 	IN _id_hilo INT,
@@ -1079,37 +1162,37 @@ CREATE PROCEDURE EDITAR_HILO(
 	IN _imagen_url VARCHAR(200)
 )
 BEGIN
-	UPDATE hilo SET fijado = _fijado, fid_subforo = _id_subforo,
+	UPDATE Hilo SET fijado = _fijado, fid_subforo = _id_subforo,
     fecha_modificacion = _fecha_modificacion , imagen_url = _imagen_url
     WHERE id_hilo = _id_hilo; 
 END $
 
-
-
-DROP PROCEDURE IF EXISTS DESACTIVAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_HILO(
 	IN _id_hilo INT
 )
 BEGIN
-	UPDATE hilo SET oculto = 1
+	UPDATE Hilo SET oculto = 1
     WHERE id_hilo = _id_hilo; 
 
 END $
 
-DROP PROCEDURE IF EXISTS ELIMINAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE ELIMINAR_HILO(
 	IN _id_hilo INT
 )
 BEGIN
-	UPDATE hilo SET activo = 0
+	UPDATE Hilo SET activo = 0
     WHERE id_hilo = _id_hilo; 
 
 END $
 
 
 DROP PROCEDURE IF EXISTS CREAR_SUBFORO;
+DROP PROCEDURE IF EXISTS MOSTRAR_HILOS_POR_SUBFORO;
+DROP PROCEDURE IF EXISTS EDITAR_SUBFORO;
+DROP PROCEDURE IF EXISTS DESACTIVAR_SUBFORO;
+
 DELIMITER $ 
 CREATE PROCEDURE CREAR_SUBFORO(
 	OUT _id_subforo INT ,
@@ -1117,71 +1200,72 @@ CREATE PROCEDURE CREAR_SUBFORO(
     IN _nombre VARCHAR(100)
 )
 BEGIN
-	INSERT INTO subforo(fid_foro,nombre,oculto, activo) 
+	INSERT INTO Subforo(fid_foro,nombre,oculto, activo) 
     VALUES (_id_foro,_nombre,0, 1);
 	SET _id_subforo = @@last_insert_id;
 
 END $
 
-DROP PROCEDURE IF EXISTS MOSTRAR_HILOS_POR_SUBFORO;
 DELIMITER $ 
 CREATE PROCEDURE MOSTRAR_HILOS_POR_SUBFORO(
 	in _id_subforo INT 
 )
 BEGIN
-	SELECT * FROM hilo WHERE 
+	SELECT * FROM Hilo WHERE 
     fid_subforo = _id_subforo
     AND oculto = 0;
 
 END $
 
-DROP PROCEDURE IF EXISTS EDITAR_SUBFORO;
+
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_SUBFORO(
 	IN _id_subforo INT,
 	IN _nombre VARCHAR(100)
 )
 BEGIN
-	UPDATE subforo SET nombre = _nombre
+	UPDATE Subforo SET nombre = _nombre
     WHERE id_subforo = _id_subforo; 
 
 END $
 
-DROP PROCEDURE IF EXISTS DESACTIVAR_SUBFORO;
 DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_SUBFORO(
 	IN _id_subforo INT
 )
 BEGIN
-	UPDATE foro SET oculto = 1
+	UPDATE Foro SET oculto = 1
     WHERE id_subforo = _id_subforo; 
 
 END $
 DROP PROCEDURE IF EXISTS CREAR_MENSAJE;
+DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJE;
+DROP PROCEDURE IF EXISTS EDITAR_MENSAJE;
+DROP PROCEDURE IF EXISTS DESACTIVAR_MENSAJE;
+DROP PROCEDURE IF EXISTS ELIMINAR_MENSAJE;
+
 DELIMITER $ 
 CREATE PROCEDURE CREAR_MENSAJE(
 	OUT _id_mensaje INT,
     IN _contenido VARCHAR(300),
     IN _fecha_publicacion DATE,
     IN _fecha_max_edicion DATE,
-    IN _padre INT,
     IN _id_hilo INT,
     IN _id_usuario INT
 )
 BEGIN
-	INSERT INTO mensaje(contenido,fecha_publicacion,
-    fecha_max_edicion,padre,
+	INSERT INTO Mensaje(contenido,fecha_publicacion,
+    fecha_max_edicion,
     fid_hilo,fid_usuario,oculto, activo)
     VALUES (_contenido,_fecha_publicacion,
-    _fecha_max_edicion,_padre,
+    _fecha_max_edicion,
     _id_hilo,_id_usuario,0, 1);
 	SET _id_mensaje = @@last_insert_id;
-    UPDATE hilo SET nro_mensajes = nro_mensajes +1 
+    UPDATE Hilo SET nro_mensajes = nro_mensajes +1 
     WHERE id_hilo = _id_hilo;
 
 END $
 
-DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE MOSTRAR_MENSAJE(
 	in _id_mensaje INT 
@@ -1193,7 +1277,6 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS EDITAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_MENSAJE(
 	IN _id_mensaje INT,
@@ -1202,30 +1285,28 @@ CREATE PROCEDURE EDITAR_MENSAJE(
     IN _fecha_max_edicion DATE
 )
 BEGIN
-	UPDATE mensaje SET contenido = _contenido,
+	UPDATE Mensaje SET contenido = _contenido,
     fid_hilo = _id_hilo,
     fecha_max_edicion = _fecha_max_edicion
     WHERE id_mensaje = _id_mensaje; 
 END $
 
-DROP PROCEDURE IF EXISTS DESACTIVAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_MENSAJE(
 	IN _id_mensaje INT
 )
 BEGIN
-	UPDATE mensaje SET oculto = 1
+	UPDATE Mensaje SET oculto = 1
     WHERE id_mensaje = _id_mensaje; 
 
 END $
 
-DROP PROCEDURE IF EXISTS ELIMINAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE ELIMINAR_MENSAJE(
 	IN _id_mensaje INT
 )
 BEGIN
-	UPDATE mensaje SET activo = 0
+	UPDATE Mensaje SET activo = 0
     WHERE id_mensaje = _id_mensaje; 
 
 END $
@@ -1459,18 +1540,19 @@ CREATE PROCEDURE ACTUALIZAR_CARTERA(
     IN _CANT_MOVIMIENTOS INT
 )
 BEGIN
-	UPDATE Cartera SET FONDOS = _FONDOS, CANT_MOVIMIENTOS = _CANT_MOVIMIENTOS WHERE ID_CARTERA = _ID_CARTERA;
+	UPDATE Cartera SET FONDOS = _FONDOS, cantidad_movimientos = _CANT_MOVIMIENTOS WHERE ID_CARTERA = _ID_CARTERA;
 END $
 DELIMITER ;
 DROP PROCEDURE IF EXISTS BUSCAR_CARTERA;
 DELIMITER $
 CREATE PROCEDURE BUSCAR_CARTERA(
-	IN _ID_CARTERA INT
+	IN _fid_usuario INT
 )
 BEGIN
-	SELECT * FROM Cartera WHERE ID_CARTERA = _ID_CARTERA;
-END $
+	SELECT * FROM Cartera WHERE fid_usuario = _fid_usuario;
+END$
 DELIMITER ;
+
 DROP PROCEDURE IF EXISTS CREAR_MEDALLA;
 DELIMITER $
 CREATE PROCEDURE CREAR_MEDALLA(
@@ -1508,14 +1590,14 @@ CREATE PROCEDURE CREAR_MOVIMIENTO(
 	OUT _ID_MOVIMIENTO INT,
     IN _ID_TRANSACCION VARCHAR(100),
     IN _FECHA_TRANSACCION DATE,
-    IN _MONTO_PAGO DECIMAL(10, 2),
+    IN _MONTO DECIMAL(10, 2),
     IN _TIPO VARCHAR(100),
     IN _METODO_PAGO VARCHAR(100),
     IN _FID_CARTERA INT
 )
 BEGIN
-	INSERT INTO Movimiento(ID_TRANSACCION, FECHA_TRANSACCION, MONTO_PAGO, TIPO, METODO_PAGO, FID_CARTERA)
-	VALUES (_ID_TRANSACCION, _FECHA_TRANSACCION, _MONTO_PAGO, _TIPO, _METODO_PAGO, _FID_CARTERA);
+	INSERT INTO Movimiento(ID_TRANSACCION, FECHA_TRANSACCION, MONTO, TIPO, METODO_PAGO, FID_CARTERA, activo)
+	VALUES (_ID_TRANSACCION, _FECHA_TRANSACCION, _MONTO, _TIPO, _METODO_PAGO, _FID_CARTERA, 1);
 	SET _ID_MOVIMIENTO = @@last_insert_id;
 END $
 DELIMITER ;
@@ -1525,7 +1607,7 @@ CREATE PROCEDURE LISTAR_MOVIMIENTOS(
 	IN _FID_CARTERA INT
 )
 BEGIN
-	SELECT * FROM Movimiento WHERE FID_CARTERA = _FID_CARTERA;
+	SELECT id_movimiento, id_transaccion, fecha_transaccion as fecha, monto, tipo, metodo_pago, fid_cartera FROM Movimiento WHERE FID_CARTERA = _FID_CARTERA;
 END $
 DELIMITER ;
 DROP PROCEDURE IF EXISTS BUSCAR_MOVIMIENTO;
@@ -1534,7 +1616,7 @@ CREATE PROCEDURE BUSCAR_MOVIMIENTO(
 	IN _ID_MOVIMIENTO INT
 )
 BEGIN
-	SELECT * FROM Movimiento WHERE ID_MOVIMIENTO = _ID_MOVIMIENTO;
+	SELECT id_movimiento, id_transaccion, fecha_transaccion as fecha, monto, tipo, metodo_pago, fid_cartera FROM Movimiento WHERE ID_MOVIMIENTO = _ID_MOVIMIENTO;
 END $
 DELIMITER ;
 DROP PROCEDURE IF EXISTS CREAR_NOTIFICACION;
@@ -1604,7 +1686,11 @@ CREATE PROCEDURE BUSCAR_PAIS(
 	IN _ID_PAIS INT
 )
 BEGIN
-	SELECT * FROM Pais WHERE ID_PAIS = _ID_PAIS;
+	SELECT p.id_pais, p.nombre as nombre_pais, p.codigo as codigo_pais, m.id_tipo_moneda, 
+    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.simbolo, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
+    FROM Pais p
+    INNER JOIN TipoMoneda m ON m.id_tipo_moneda = p.fid_moneda
+    WHERE p.activo = 1 AND p.id_pais = _id_pais;
 END $
 DELIMITER ;
 
@@ -1613,7 +1699,7 @@ DELIMITER $
 CREATE PROCEDURE LISTAR_PAISES()
 BEGIN
 	SELECT p.id_pais, p.nombre as nombre_pais, p.codigo as codigo_pais, m.id_tipo_moneda, 
-    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
+    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.simbolo, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
     FROM Pais p
     INNER JOIN TipoMoneda m ON m.id_tipo_moneda = p.fid_moneda
     WHERE p.activo = 1;
@@ -1635,7 +1721,10 @@ BEGIN
         fid_moneda = _fid_moneda
     WHERE id_pais = _id_pais;
 END $
-DELIMITER ;DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
 DROP PROCEDURE IF EXISTS ELIMINAR_AMIGO;
 DROP PROCEDURE IF EXISTS BLOQUEAR_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_POR_USUARIO;
