@@ -3,9 +3,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/mostrarModal.js"></script>
+    <script type="text/javascript">
+        function validarEdad(source, args) {
+            var fechaNacimiento = new Date(document.getElementById('<%= txtFechaNacimiento.ClientID %>').value);
+            var hoy = new Date();
+            var edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            var mes = hoy.getMonth() - fechaNacimiento.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+            args.IsValid = edad >= 13;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
+        <asp:Label ID="lblMensajeError" runat="server" CssClass="alert alert-danger mt-4" Visible="false" Width="100% "></asp:Label>
         <div class="card w-auto border-0 ms-5 me-5">
             <!-- Header -->
             <div class="card-header bg-navy">
@@ -25,23 +38,22 @@
 
                 <!-- Nombre de cuenta -->
                 <div class="mb-4 row">
-                    <asp:Label ID="lblNombreCuenta" runat="server" Text="Nombre de cuenta:" CssClass="col-sm-3 col-form-label text-white" />
+                    <label id="lblNombreCuenta" class="col-sm-3 col-form-label text-white">Nombre de cuenta <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control" PlaceHolder="NombreUsuario" Enabled="false"/>
+                            <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control" PlaceHolder="NombreUsuario" Enabled="false" Required="true"/>
                             <%--<asp:LinkButton ID="lbEditarNombreCuenta" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarNombreCuenta_Click"/>--%>
                         </div>
-                        <asp:Label ID="lblErrorMensaje" runat="server" CssClass="text-white mt-1" Visible="false">El nombre de cuenta ya está en uso. Por favor, elija otro.</asp:Label>
                     </div>
                 </div>
 
 
                 <!-- nombre del perfil -->
                 <div class="mb-4 row">
-                    <asp:Label ID="lblNombrePerfil" runat="server" Text="Nombre de perfil:" CssClass="col-sm-3 col-form-label text-white" />
+                    <label id="lblNombrePerfil" class="col-sm-3 col-form-label text-white" runat="server">Nombre de perfil <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtNombrePerfil" runat="server" CssClass="form-control" PlaceHolder="NombrePerfil" Enabled="false" />
+                            <asp:TextBox ID="txtNombrePerfil" runat="server" CssClass="form-control" PlaceHolder="NombrePerfil" Enabled="false" Required="true"/>
                             <%--<asp:LinkButton ID="lbEditarNombrePerfil" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarNombrePerfil_Click"/>--%>
                         </div>
                     </div>
@@ -49,43 +61,52 @@
 
                 <!-- correo -->
                 <div class="mb-4 row ">
-                    <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:" CssClass="col-sm-3 col-form-label text-white" />
+                    <label id="lblCorreo" class="col-sm-3 col-form-label text-white" runat="server">Correo electrónico <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" PlaceHolder="usuario@gmail.com" Enabled="false" />
+                            <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" PlaceHolder="usuario@gmail.com" Enabled="false" Required="true"/>
                             <%--<asp:LinkButton ID="lbEditarCorreo" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarCorreo_Click"/>--%>
                         </div>
+                        <asp:RegularExpressionValidator ID="regexCorreo" runat="server" ControlToValidate="txtCorreo"
+                            ErrorMessage="Por favor, ingrese un correo electrónico válido."
+                            ValidationExpression="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" Display="Dynamic" ForeColor="White" SetFocusOnError="true">
+                        </asp:RegularExpressionValidator>
                     </div>
                 </div>
 
                 <!-- telefono -->
                 <div class="mb-4 row">
-                    <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" CssClass="col-sm-3 col-form-label text-white" />
+                    <label id="lblTelefono" class="col-sm-3 col-form-label text-white" runat="server">Telefono <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" PlaceHolder="#########" Enabled="false" />
+                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" PlaceHolder="#########" Enabled="false" Required="true"/>
                             <%--<asp:LinkButton ID="lbEditarTelefono" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarTelefono_Click"/>--%>
                         </div>
+                        <asp:RegularExpressionValidator ID="regexTelefono" runat="server" ControlToValidate="txtTelefono"
+                            ErrorMessage="Por favor, ingrese un número de teléfono válido." ValidationExpression="^\d+$" Display="Dynamic" ForeColor="White" SetFocusOnError="true">
+                        </asp:RegularExpressionValidator>
                     </div>
                 </div>
 
                 <!-- fecha de nacimiento -->
                 <div class="mb-4 row">
-                    <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento:" CssClass="col-sm-3 col-form-label text-white" />
+                    <label id="lblFechaNacimiento" class="col-sm-3 col-form-label text-white" runat="server">Fecha de nacimiento <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Enabled="false" />
+                            <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Enabled="false" Required="true"/>
                             <%--<asp:LinkButton ID="lbEditarFechaNacimiento" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarFechaNacimiento_Click"/>--%>
                         </div>
+                        <asp:CustomValidator ID="cvFechaNacimiento" runat="server" ErrorMessage="Debe ser mayor de 13 años para continuar."
+                            ControlToValidate="txtFechaNacimiento" ClientValidationFunction="validarEdad" Display="Dynamic" ForeColor="White" SetFocusOnError="true" />
                     </div>
                 </div>
 
                 <!-- país -->
                 <div class="mb-4 row align-items-center">
-                    <asp:Label ID="lblPais" runat="server" Text="País:" CssClass="col-sm-3 col-form-label text-white" />
+                    <label id="lblPais" class="col-sm-3 col-form-label text-white" runat="server">Pais <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <asp:DropDownList CssClass="form-control" runat="server" ID="ddlPaises" data-style="btn-primary" Enabled="false" Placeholder="Seleccionar país...">
+                            <asp:DropDownList CssClass="form-control" runat="server" ID="ddlPaises" data-style="btn-primary" Enabled="false" Placeholder="Seleccionar país..." Required="true">
                             </asp:DropDownList>
                             <%--<asp:LinkButton ID="lbEditarPais" runat="server" Text="<i class='fa-solid fa-pen-to-square'></i>" CssClass="btn btn-outline-secondary" Onclick="lbEditarPais_Click"/>--%>
                         </div>
