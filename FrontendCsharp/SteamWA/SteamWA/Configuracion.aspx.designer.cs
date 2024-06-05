@@ -15,6 +15,15 @@ namespace SteamWA
     {
 
         /// <summary>
+        /// Control lblMensajeError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeError;
+
+        /// <summary>
         /// Control lblUID.
         /// </summary>
         /// <remarks>
@@ -33,15 +42,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtUID;
 
         /// <summary>
-        /// Control lblNombreCuenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreCuenta;
-
-        /// <summary>
         /// Control txtNombreCuenta.
         /// </summary>
         /// <remarks>
@@ -51,22 +51,13 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtNombreCuenta;
 
         /// <summary>
-        /// Control lblErrorMensaje.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMensaje;
-
-        /// <summary>
         /// Control lblNombrePerfil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombrePerfil;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblNombrePerfil;
 
         /// <summary>
         /// Control txtNombrePerfil.
@@ -84,7 +75,7 @@ namespace SteamWA
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCorreo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCorreo;
 
         /// <summary>
         /// Control txtCorreo.
@@ -96,13 +87,22 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
+        /// Control regexCorreo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexCorreo;
+
+        /// <summary>
         /// Control lblTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefono;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTelefono;
 
         /// <summary>
         /// Control txtTelefono.
@@ -114,13 +114,22 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
         /// <summary>
+        /// Control regexTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexTelefono;
+
+        /// <summary>
         /// Control lblFechaNacimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaNacimiento;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblFechaNacimiento;
 
         /// <summary>
         /// Control txtFechaNacimiento.
@@ -132,13 +141,22 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
 
         /// <summary>
+        /// Control cvFechaNacimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvFechaNacimiento;
+
+        /// <summary>
         /// Control lblPais.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPais;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPais;
 
         /// <summary>
         /// Control ddlPaises.

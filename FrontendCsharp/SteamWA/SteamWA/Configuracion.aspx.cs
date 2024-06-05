@@ -16,7 +16,6 @@ namespace SteamWA
         private PaisWSClient daoPais;
         private BindingList<usuario> usuarios;
         private BindingList<pais> paises;
-        private string nombreCuentaOriginal;
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario = (usuario)Session["usuario"];
@@ -57,6 +56,20 @@ namespace SteamWA
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (txtNombreCuenta.Text.Trim() == "")
+            {
+                lblMensajeError.Visible = true;
+                lblMensajeError.Text = "Nombre de cuenta inválido. Por favor ingrese otro nombre.";
+                txtNombreCuenta.Text = string.Empty;
+                return;
+            }
+            if (txtNombrePerfil.Text.Trim() == "")
+            {
+                lblMensajeError.Visible = true;
+                lblMensajeError.Text = "Nombre de perfil inválido. Por favor ingrese otro nombre.";
+                txtNombrePerfil.Text = string.Empty;
+                return;
+            }
             // Verificar si el nombre de cuenta ha cambiado
             if (txtNombreCuenta.Text != (string)Session["cuentaOriginal"])
             {
@@ -64,14 +77,14 @@ namespace SteamWA
                 usuario usuarioRepetido = usuarios.SingleOrDefault(u => u.nombreCuenta == txtNombreCuenta.Text);
                 if (usuarioRepetido != null)
                 {
-                    lblErrorMensaje.Visible = true;
+                    lblMensajeError.Visible = true;
+                    lblMensajeError.Text = "El nombre de cuenta ya está en uso. Por favor, elija otro.";
                     txtNombreCuenta.Text = string.Empty;
                     return; // Salir del evento sin guardar si se encuentra un nombre de cuenta duplicado
                 }
             }
-
             // Continuar con el proceso de guardado si no se encontró ningún nombre de cuenta duplicado
-            lblErrorMensaje.Visible = false;
+            lblMensajeError.Visible = false;
             string script = "window.onload = function() { showModalForm('form-modal-GuardarCambios') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }

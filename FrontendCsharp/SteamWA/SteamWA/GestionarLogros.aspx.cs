@@ -18,7 +18,7 @@ namespace SteamWA
         private BindingList<logro> logros;
         private BindingList<logro> logrosNoDesbloqueados;
         private BindingList<logroDesbloqueado> logrosDesbloqueados;
-
+        private NotificacionWSClient daoNotificacion;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +31,7 @@ namespace SteamWA
                 productoAdquirido = (productoAdquirido)Session["productoAdquiridoSeleccionado"];
                 daoLogro = new LogroWSClient();
                 daoLogroDesbloqueado = new LogroDesbloqueadoWSClient();
+                daoNotificacion = new NotificacionWSClient();
                 producto producto = productoAdquirido.producto;
 
                 hGestionarLogros.InnerHtml = producto.titulo + ": Logros";
@@ -155,9 +156,19 @@ namespace SteamWA
             logroDesbloqueado.logro = logros.SingleOrDefault(x => x.idLogro == idLogro);
             logroDesbloqueado.juego = productoAdquirido;
             daoLogroDesbloqueado.insertarLogroDesbloqueado(logroDesbloqueado);
+            agregarNotificacion();
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
+        public void agregarNotificacion()
+        {
+            notificacion notificacionJuego = new notificacion();
+            notificacionJuego.usuario = (usuario)Session["usuario"];
+            notificacionJuego.tipoSpecified = true;
+            notificacionJuego.tipo = tipoNotificacion.JUEGOS;
+            notificacionJuego.mensaje = "Has conseguido un nuevo logro en "+productoAdquirido.producto.titulo;
+            int resultado = daoNotificacion.insertarNotificacion(notificacionJuego);
+        }
         protected void gvLogrosDesbloqueados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvLogrosDesbloqueados.PageIndex = e.NewPageIndex;

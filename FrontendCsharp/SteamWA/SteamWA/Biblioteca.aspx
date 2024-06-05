@@ -21,7 +21,7 @@
             </div>
             <!-- Botones para ordenar -->
             <div class="dropdown d-inline-block">
-                <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownOrdenar"
+                <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownOrdenar" runat="server"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Ordenar
                 </button>
@@ -46,7 +46,8 @@
         </div>
     </div>
     <hr />
-    <div class="container d-flex rounded-top rounded-bottom">
+    <p id="pBibliotecaVacia" runat="server" visible="false">Usted no cuenta con productos en su biblioteca por el momento</p>
+    <div id="contenedorProgramas" runat="server" class="container d-flex rounded-top rounded-bottom">
         <!-- parte izquierda: lista de programas -->
         <div class="col-md-4 me-4">
             <!-- <h2>Listado de Programas</h2> -->

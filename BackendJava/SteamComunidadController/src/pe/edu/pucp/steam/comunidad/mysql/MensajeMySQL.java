@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import pe.edu.pucp.steam.comunidad.model.Hilo;
 
 public class MensajeMySQL implements MensajeDAO{
@@ -23,16 +24,14 @@ public class MensajeMySQL implements MensajeDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call CREAR_MENSAJE"
-                    + "(?,?,?,?,?)}");
+                    + "(?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_mensaje",
                     java.sql.Types.INTEGER);
             cs.setInt("_id_hilo", mensaje.getHilo().getIdHilo());
             cs.setInt("_id_usuario",mensaje.getIdAutor());
             cs.setString("_contenido",mensaje.getContenido());
-            cs.setDate("_fecha_publicacion", new java.sql.Date(
-                    mensaje.getFechaPublicacion().getTime()));
-            cs.setDate("_fecha_max_edicion", new java.sql.Date(
-                    mensaje.getFechaMaxEdicion().getTime()));
+            cs.setDate("_fecha_publicacion", new java.sql.Date((new Date()).getTime()));
+            cs.setDate("_fecha_max_edicion", new java.sql.Date((new Date()).getTime()));
             cs.executeUpdate();
             mensaje.setIdMensaje(cs.getInt("_id_mensaje"));
             mensaje.setOculto(false);

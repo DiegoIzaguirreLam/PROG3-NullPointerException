@@ -6,7 +6,6 @@ package pe.edu.pucp.steam.comunidad.mysql;
 
 import java.util.ArrayList;
 import pe.edu.pucp.steam.comunidad.dao.SubforoDAO;
-import pe.edu.pucp.steam.comunidad.model.Hilo;
 import pe.edu.pucp.steam.comunidad.model.Subforo;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.comunidad.model.Foro;

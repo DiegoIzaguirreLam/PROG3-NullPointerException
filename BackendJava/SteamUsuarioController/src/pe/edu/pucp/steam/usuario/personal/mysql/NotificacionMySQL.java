@@ -69,11 +69,12 @@ public class NotificacionMySQL implements NotificacionDAO{
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_NOTIFICACION"
-                    + "(?,?,?,?)}");
+                    + "(?,?,?,?,?)}");
             cs.setInt("_ID_NOTIFICACION", notificacion.getIdNotificacion());
             cs.setString("_TIPO", notificacion.getTipo().toString());
             cs.setString("_MENSAJE", notificacion.getMensaje());
             cs.setInt("_FID_USUARIO", notificacion.getUsuario().getUID());
+            cs.setBoolean("_REVISADA", notificacion.isRevisada());
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

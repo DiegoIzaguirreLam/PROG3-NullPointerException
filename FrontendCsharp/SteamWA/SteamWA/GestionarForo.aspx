@@ -27,19 +27,18 @@
     </div>
     <hr />
     <div class="container fontSetterExo2">
-        <asp:GridView ID="gvSubforos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark">
+        <asp:GridView ID="gvSubforos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" OnRowDataBound="gvSubforos_RowDataBound">
             <Columns>
-                <asp:BoundField HeaderText="Nombre" DataField="nombre" />
+                <asp:BoundField HeaderText="Nombre" />
                 <%--Se mostrará el primer mensaje del hilo fijado en el foro--%>
-                <asp:BoundField HeaderText="Mensaje" DataField="Mensaje" />
                 <asp:TemplateField ItemStyle-CssClass="text-end">
                     <ItemTemplate>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdSubforo") %>' OnClick="lbAbrirSubforo_Click"></asp:LinkButton>
+                            CommandArgument='<%# Eval("idSubforo") %>' OnClick="lbAbrirSubforo_Click"></asp:LinkButton>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdSubforo") %>' OnClick="lbActualizarSubforo_Click" />
+                            CommandArgument='<%# Eval("idSubforo") %>' OnClick="lbActualizarSubforo_Click" />
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("IdSubforo") %>' OnClick="lbEliminarSubforo_Click" />
+                            CommandArgument='<%# Eval("idSubforo") %>' OnClick="lbEliminarSubforo_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
