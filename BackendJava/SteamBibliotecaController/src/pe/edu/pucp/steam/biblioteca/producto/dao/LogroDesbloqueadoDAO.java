@@ -16,4 +16,5 @@ public interface LogroDesbloqueadoDAO {
     int actualizarLogroDesbloqueado(LogroDesbloqueado logro);
     int eliminarLogroDesbloqueado(int idLogroDesbloqueado);
     ArrayList<LogroDesbloqueado> listarLogrosDesbloqueadosProductoAdquirido(int idProductoAdquirido);
+    ArrayList<LogroDesbloqueado> listarLogrosPorUsuario(int idUsuario);
 }

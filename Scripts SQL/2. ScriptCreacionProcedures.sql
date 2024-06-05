@@ -1877,3 +1877,34 @@ BEGIN
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.nombre_cuenta = _nombre_cuenta AND u.contrasenia = md5(_contrasenia);
 END$
+
+-- ----------------------------------------------------------------------------------------
+-- Autor: Fabricio
+-- ----------------------------------------------------------------------------------------
+-- Procedimiento que enlista todos los logros que tiene un usuario
+-- Recopila la información de la Fecha de Desbloqueo, Nombre del
+-- Logro, Descripción del Logro, Título del Juego y la URL del Logo.
+-- ----------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS LISTAR_LOGROS_POR_USUARIO;
+-- ----------------------------------------------------------------------------------------
+DELIMITER $ 
+CREATE PROCEDURE LISTAR_LOGROS_POR_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
+		   lo.nombre AS "Nombre del Logro",
+           lo.descripcion AS "Descripción del Logro",
+           pr.titulo AS "Título del Juego",
+           pr.logo_url AS "URL del Logo"
+    FROM LogroDesbloqueado ld
+    INNER JOIN Logro             lo ON ld.fid_logro = lo.id_logro
+    INNER JOIN Juego             ju ON lo.fid_juego = ju.id_juego
+    INNER JOIN Producto          pr ON ju.id_juego  = pr.id_producto
+    INNER JOIN ProductoAdquirido pa ON ld.fid_producto_adquirido = pa.id_producto_adquirido
+    WHERE ld.activo = true AND
+		  lo.activo = true AND
+          pr.activo = true AND
+          pa.fid_biblioteca = _id_usuario;
+END $
+-- ----------------------------------------------------------------------------------------

@@ -11,18 +11,6 @@
   <message name="buscarSoftwareResponse">
     <part name="parameters" element="tns:buscarSoftwareResponse" />
   </message>
-  <message name="insertarSoftware">
-    <part name="parameters" element="tns:insertarSoftware" />
-  </message>
-  <message name="insertarSoftwareResponse">
-    <part name="parameters" element="tns:insertarSoftwareResponse" />
-  </message>
-  <message name="eliminarSoftware">
-    <part name="parameters" element="tns:eliminarSoftware" />
-  </message>
-  <message name="eliminarSoftwareResponse">
-    <part name="parameters" element="tns:eliminarSoftwareResponse" />
-  </message>
   <message name="actualizarSoftware">
     <part name="parameters" element="tns:actualizarSoftware" />
   </message>
@@ -35,18 +23,22 @@
   <message name="listarSoftwaresResponse">
     <part name="parameters" element="tns:listarSoftwaresResponse" />
   </message>
+  <message name="eliminarSoftware">
+    <part name="parameters" element="tns:eliminarSoftware" />
+  </message>
+  <message name="eliminarSoftwareResponse">
+    <part name="parameters" element="tns:eliminarSoftwareResponse" />
+  </message>
+  <message name="insertarSoftware">
+    <part name="parameters" element="tns:insertarSoftware" />
+  </message>
+  <message name="insertarSoftwareResponse">
+    <part name="parameters" element="tns:insertarSoftwareResponse" />
+  </message>
   <portType name="SoftwareWS">
     <operation name="buscarSoftware">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest" message="tns:buscarSoftware" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse" message="tns:buscarSoftwareResponse" />
-    </operation>
-    <operation name="insertarSoftware">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest" message="tns:insertarSoftware" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse" message="tns:insertarSoftwareResponse" />
-    </operation>
-    <operation name="eliminarSoftware">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
     </operation>
     <operation name="actualizarSoftware">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest" message="tns:actualizarSoftware" />
@@ -55,6 +47,14 @@
     <operation name="listarSoftwares">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest" message="tns:listarSoftwares" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse" message="tns:listarSoftwaresResponse" />
+    </operation>
+    <operation name="eliminarSoftware">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
+    </operation>
+    <operation name="insertarSoftware">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest" message="tns:insertarSoftware" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse" message="tns:insertarSoftwareResponse" />
     </operation>
   </portType>
   <binding name="SoftwareWSPortBinding" type="tns:SoftwareWS">
@@ -68,7 +68,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarSoftware">
+    <operation name="actualizarSoftware">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarSoftwares">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,16 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarSoftware">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarSoftwares">
+    <operation name="insertarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/CarteraWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="asignarCarteraUsuario">
-    <part name="parameters" element="tns:asignarCarteraUsuario" />
+  <message name="buscarCartera">
+    <part name="parameters" element="tns:buscarCartera" />
   </message>
-  <message name="asignarCarteraUsuarioResponse">
-    <part name="parameters" element="tns:asignarCarteraUsuarioResponse" />
+  <message name="buscarCarteraResponse">
+    <part name="parameters" element="tns:buscarCarteraResponse" />
   </message>
   <message name="actualizarCartera">
     <part name="parameters" element="tns:actualizarCartera" />
@@ -17,29 +17,29 @@
   <message name="actualizarCarteraResponse">
     <part name="parameters" element="tns:actualizarCarteraResponse" />
   </message>
-  <message name="buscarCartera">
-    <part name="parameters" element="tns:buscarCartera" />
+  <message name="asignarCarteraUsuario">
+    <part name="parameters" element="tns:asignarCarteraUsuario" />
   </message>
-  <message name="buscarCarteraResponse">
-    <part name="parameters" element="tns:buscarCarteraResponse" />
+  <message name="asignarCarteraUsuarioResponse">
+    <part name="parameters" element="tns:asignarCarteraUsuarioResponse" />
   </message>
   <portType name="CarteraWS">
-    <operation name="asignarCarteraUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioRequest" message="tns:asignarCarteraUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioResponse" message="tns:asignarCarteraUsuarioResponse" />
+    <operation name="buscarCartera">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/buscarCarteraRequest" message="tns:buscarCartera" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/buscarCarteraResponse" message="tns:buscarCarteraResponse" />
     </operation>
     <operation name="actualizarCartera">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/actualizarCarteraRequest" message="tns:actualizarCartera" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/actualizarCarteraResponse" message="tns:actualizarCarteraResponse" />
     </operation>
-    <operation name="buscarCartera">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/buscarCarteraRequest" message="tns:buscarCartera" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/buscarCarteraResponse" message="tns:buscarCarteraResponse" />
+    <operation name="asignarCarteraUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioRequest" message="tns:asignarCarteraUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioResponse" message="tns:asignarCarteraUsuarioResponse" />
     </operation>
   </portType>
   <binding name="CarteraWSPortBinding" type="tns:CarteraWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="asignarCarteraUsuario">
+    <operation name="buscarCartera">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -57,7 +57,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="buscarCartera">
+    <operation name="asignarCarteraUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
