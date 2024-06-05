@@ -22,6 +22,7 @@ namespace SteamWA
         HiloWSClient daoHilo;
         MensajeWSClient daoMensaje;
         ForoUsuarioWSClient daoForoUsuario;
+        NotificacionWSClient daoNotificacion;
         int[] pageIndex;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace SteamWA
             daoHilo = new HiloWSClient();
             daoMensaje = new MensajeWSClient();
             daoForoUsuario = new ForoUsuarioWSClient();
+            daoNotificacion = new NotificacionWSClient();
 
             pageIndex = (int[])Session["IndexPages"];
             if (pageIndex == null)
@@ -119,6 +121,11 @@ namespace SteamWA
             if (checker == null) //No debe de encontrarlo para que pueda suscribirse, así evita suscribirse n veces
             {
                 daoForoUsuario.suscribirRelacion(Int32.Parse(((LinkButton)sender).CommandArgument), user.UID);
+                notificacion notificacionForo = new notificacion();
+                notificacionForo.tipoSpecified = true;
+                notificacionForo.tipo = tipoNotificacion.FOROS;
+                notificacionForo.mensaje = "Te has suscrito al foro " + foro.nombre;
+                int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
             }
         }
 
@@ -127,6 +134,7 @@ namespace SteamWA
             foro actforo = (foro)Session["foroParaActualizar"];
             actforo.nombre = txtNTema.Text;
             actforo.descripcion = txtNDescripcion.Text;
+            if (txtNTema.Text.CompareTo("") == 0 || txtNDescripcion.Text.CompareTo("") == 0) return;
             daoForo.editarForo(actforo);
             Response.Redirect("Comunidad.aspx");
         }
@@ -139,7 +147,7 @@ namespace SteamWA
             usuario user = (usuario)Session["usuario"];
             hilo neohilo = new hilo();
             mensaje neomensaje = new mensaje();
-            if (user == null) return;
+            if (user == null || txtTema.Text.CompareTo("")==0 || txtDescripcion.Text.CompareTo("") == 0 || txtInicial.Text.CompareTo("") == 0 || txtMensajeInicial.Text.CompareTo("") == 0) return;
             neoforo.nombre = txtTema.Text;
             neoforo.descripcion = txtDescripcion.Text;
             neoforo.origen = origenForo.USUARIO;
@@ -180,10 +188,17 @@ namespace SteamWA
         {
             usuario user = (usuario)Session["usuario"];
             foro[] aux = daoForo.listarForosSuscritos(user.UID);
-            if (aux != null) creados = new BindingList<foro>(aux);
-            gvSuscritos.DataSource = creados;
+            if (aux != null) suscritos = new BindingList<foro>(aux);
+            gvSuscritos.DataSource = suscritos;
             gvSuscritos.DataBind();
             Session["ForosSuscritos"] = suscritos;
+            if(aux == null)
+            {
+                suscritos = new BindingList<foro>();
+                suscritos.Add(new foro());
+                gvSuscritos.DataSource = suscritos;
+                gvSuscritos.DataBind();
+            }
             string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -196,6 +211,13 @@ namespace SteamWA
             gvCreados.DataSource = creados;
             gvCreados.DataBind();
             Session["ForosCreados"] = creados;
+            if (aux == null)
+            {
+                creados = new BindingList<foro>();
+                creados.Add(new foro());
+                gvSuscritos.DataSource = creados;
+                gvSuscritos.DataBind();
+            }
             string script = "window.onload = function() { showModalForm('form-modal-creados') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
