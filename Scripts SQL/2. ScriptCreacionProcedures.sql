@@ -1677,7 +1677,7 @@ BEGIN
     -- En caso ya exista la relación
     IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
         UPDATE Relacion 
-        SET bloqueo = 1, activo = 1
+        SET amistad = 0, bloqueo = 1, activo = 1
         WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
     ELSE
         INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
