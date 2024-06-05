@@ -46,7 +46,7 @@ namespace SteamWA
             {
                 usuario usuarioNuevo = daoUsuario.buscarUsuarioPorNombreCuenta(txtNombreCuenta.Text);
                 // Solo si no existe el nombre de cuenta
-                if (usuarioNuevo.UID == 0)
+                if (usuarioNuevo==null)
                 {
                     usuario = new usuario();
                     usuario.nombreCuenta = txtNombreCuenta.Text;
