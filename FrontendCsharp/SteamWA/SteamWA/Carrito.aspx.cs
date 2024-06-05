@@ -19,6 +19,7 @@ namespace SteamWA
         private SteamServiceWS.ProductoAdquiridoWSClient daoProductoAdquirido;
         private SteamWA.SteamServiceWS.BibliotecaWSClient daoBiblioteca;
         private SteamServiceWS.CarteraWSClient daoCartera;
+        private SteamServiceWS.NotificacionWSClient daoNotificacion;
         protected void Page_Load(object sender, EventArgs e)
         {
             daoBiblioteca = new SteamServiceWS.BibliotecaWSClient();
@@ -27,6 +28,7 @@ namespace SteamWA
             daoMovimiento = new SteamServiceWS.MovimientoWSClient();
             daoProductoAdquirido = new SteamServiceWS.ProductoAdquiridoWSClient();
             daoCartera = new SteamServiceWS.CarteraWSClient();
+            daoNotificacion = new SteamServiceWS.NotificacionWSClient();
             cartera = daoCartera.buscarCartera(((usuario)Session["usuario"]).UID);
              listaCarrito = null;
             if (Session["ElementosCarrito"] != null)
@@ -70,7 +72,7 @@ namespace SteamWA
                     pA.biblioteca = bibl;
                     pA.tiempoUso = new DateTime(0);
                     daoProductoAdquirido.insertarProductoAdquirido(pA);
-
+                    agregarNotificacion(pA.producto);
                 }
                     cartera.fondos = cartera.fondos - double.Parse(valorTotal.Value.ToString());
                     daoCartera.actualizarCartera(cartera);
@@ -168,5 +170,14 @@ namespace SteamWA
             }
         }
 
+        public void agregarNotificacion(producto producto)
+        {
+            notificacion notificacion = new notificacion();
+            notificacion.mensaje = "Se ha agregado un nuevo producto: "+producto.titulo+ " a tu Biblioteca";
+            notificacion.tipoSpecified = true;
+            notificacion.tipo = tipoNotificacion.BIBLIOTECA;
+            notificacion.usuario = (usuario)Session["usuario"];
+            int resultado = daoNotificacion.insertarNotificacion(notificacion);
+        }
     }
 }
