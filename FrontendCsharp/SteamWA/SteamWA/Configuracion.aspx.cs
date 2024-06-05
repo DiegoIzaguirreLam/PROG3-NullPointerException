@@ -16,7 +16,6 @@ namespace SteamWA
         private PaisWSClient daoPais;
         private BindingList<usuario> usuarios;
         private BindingList<pais> paises;
-        private string nombreCuentaOriginal;
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario = (usuario)Session["usuario"];
