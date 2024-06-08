@@ -70,12 +70,13 @@
                     <p id="txtFechaEjecucionPrograma" runat="server"></p>
                     <p id="txtTiempoUsoPrograma" runat="server"></p>
                     <p id="txtActualizadoPrograma" runat="server"></p>
+                    <p id="txtEspacioPrograma" runat="server"></p>
                     <!-- Contenedor de logros y botón para jugar -->
                     <div class="d-flex flex-column">
                         <!-- Botón para eliminar -->
                         <div id="divBotonesPrograma" runat="server">
                             <asp:LinkButton ID="lbLogros" runat="server" CssClass="btn btn-primary btn-dark" Text="<i class='fa-solid fa-gamepad'></i> Logros" OnClick="lbLogros_Click" />
-                            <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-success" Text="Jugar" />
+                            <asp:LinkButton ID="lbJugar" runat="server" CssClass="btn btn-primary btn-dark me-4" Text="Jugar" OnClick="lbJugar_Click"/>
                         </div>
                     </div>
                 </div>

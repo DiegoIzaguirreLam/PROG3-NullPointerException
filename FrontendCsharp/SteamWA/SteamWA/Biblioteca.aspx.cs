@@ -104,6 +104,7 @@ namespace SteamWA
         {
             ulProgramas.Controls.Clear();
             //productosAdquiridos = (BindingList<productoAdquirido>)Session["productosAdquiridos"];
+            if (productosAdquiridos == null) return;
             foreach (productoAdquirido productoAdquirido in productosAdquiridos)
             {
                 if (nColeccionesActivas > 0 && productosColecciones.FirstOrDefault(x => x.idProductoAdquirido == productoAdquirido.idProductoAdquirido) == null) continue;
@@ -262,8 +263,20 @@ namespace SteamWA
             {
                 txtTiempoUsoPrograma.InnerHtml += "Aún no usado";
             }
-
             txtActualizadoPrograma.InnerHtml = "<strong>Actualizado: </strong>" + (productoAdquirido.actualizado ? "Sí" : "No");
+            if (productoAdquirido.actualizado) txtEspacioPrograma.InnerHtml = "<strong>Espacio Ocupado</strong>: ";
+            else txtEspacioPrograma.InnerHtml = "<strong>Espacio Requerido</strong>: ";
+
+            if (producto.espacioDisco >= 1024)
+            {
+                double espacioGB = producto.espacioDisco;
+                txtEspacioPrograma.InnerHtml += espacioGB.ToString("N2") + " GB";
+            }
+            else
+            {
+                txtEspacioPrograma.InnerHtml += producto.espacioDisco.ToString("N2") + " MB";
+            }
+
             if (producto is juego)
             {
                 lbLogros.Visible = true;
@@ -309,6 +322,7 @@ namespace SteamWA
         protected void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
+            if (productosAdquiridos == null || productosAdquiridos.Count==1) return;
             List<productoAdquirido> productosAdquiridosList = productosAdquiridos.ToList();
             if (radioButton.ID == "rbNombre")
             {
@@ -356,6 +370,37 @@ namespace SteamWA
             }
             generarListaProductosAdquiridos();
             lbLimpiarFiltros.Visible = false;
+        }
+
+        protected void lbJugar_Click(object sender, EventArgs e)
+        {
+            productoAdquirido productoAdquirido = (productoAdquirido)Session["productoAdquiridoSeleccionado"];
+            if (!productoAdquirido.actualizado)
+            {
+                productoAdquirido.actualizado = true;
+                if (daoProductoAdquirido.actualizarProductoAdquirido(productoAdquirido) == 1)
+                {
+                    productoAdquirido productoAdquiridoEnList = productosAdquiridos.SingleOrDefault(x => x.idProductoAdquirido == productoAdquirido.idProductoAdquirido);
+                    productoAdquiridoEnList.actualizado = true;
+                    txtActualizadoPrograma.InnerHtml = "<strong>Actualizado: </strong>Sí";
+                    txtEspacioPrograma.InnerHtml = "<strong>Espacio Ocupado: </strong>";
+                    lbJugar.Text = "Jugar";
+                    if (productoAdquirido.producto.espacioDisco >= 1024)
+                    {
+                        double espacioGB = productoAdquirido.producto.espacioDisco;
+                        txtEspacioPrograma.InnerHtml += espacioGB.ToString("N2") + " GB";
+                    }
+                    else
+                    {
+                        txtEspacioPrograma.InnerHtml += productoAdquirido.producto.espacioDisco.ToString("N2") + " MB";
+                    }
+                }
+            }
+            else
+            {
+
+            }
+
         }
     }
 }

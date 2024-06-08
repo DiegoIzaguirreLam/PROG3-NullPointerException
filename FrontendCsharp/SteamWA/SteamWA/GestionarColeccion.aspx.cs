@@ -29,7 +29,6 @@ namespace SteamWA
             daoColeccion = new ColeccionWSClient();
             daoProductoAdquiridoColeccion = new ProductoAdquiridoColeccionWSClient();
             productosAdquiridos = (BindingList<productoAdquirido>)Session["productosAdquiridos"];
-            if (productosAdquiridos == null) Response.Redirect("Biblioteca.aspx");
 
             string accion = Request.QueryString["accion"];
             if (accion != null && accion=="modificar")
@@ -58,8 +57,17 @@ namespace SteamWA
                 divCancelarGuardar.Attributes["class"] = "d-flex justify-content-between";
                 hGestionarColeccion.InnerText = "Nueva Colección";
             }
-            
-            generarTablaProductosAdquiridos();
+            if (productosAdquiridos == null)
+            {
+                tablaProductos.Visible = false;
+                lblSinProductos.Visible = true;
+            }
+            else
+            {
+                generarTablaProductosAdquiridos();
+                tablaProductos.Visible = true;
+                lblSinProductos.Visible = false;
+            }
         }
 
         protected void generarTablaProductosAdquiridos()

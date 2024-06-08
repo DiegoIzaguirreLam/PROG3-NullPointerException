@@ -12,7 +12,7 @@
                 <div class="mb-3">
                     <asp:Label ID="lblMensajeError" runat="server" CssClass="alert alert-danger mt-4" Visible="false" Width="100% "></asp:Label>
                     <label for="nombreColeccion" class="form-label">Nombre <span class="text-danger">*</span></label>
-                    <input id="txtNombreColeccion" runat="server" type="text" class="form-control" placeholder="Nombre de la Colección" required minlength="1" maxlength="25">
+                    <input id="txtNombreColeccion" runat="server" type="text" class="form-control" placeholder="Nombre de la Colección" minlength="1" maxlength="25">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Seleccione los programas</label>
@@ -23,6 +23,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <asp:Label id="lblSinProductos" runat="server" Text="Aún no tiene productos adquiridos" visible="false"/>
                 </div>
                 <div id="divBotonesColeccion" runat="server" class="d-flex justify-content-between">
                     <asp:Button ID="btnEliminar" CssClass="btn btn-primary btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminarColeccion_OnClick"/>

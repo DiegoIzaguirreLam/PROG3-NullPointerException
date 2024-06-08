@@ -58,7 +58,10 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
                     + "(?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_producto_adquirido", producto.getIdProductoAdquirido());
             cs.setDate("_fecha_adquisicion", new java.sql.Date(producto.getFechaAdquisicion().getTime()));
-            cs.setDate("_fecha_ejecucion",new java.sql.Date(producto.getFechaEjecutado().getTime()));
+            if(producto.getFechaEjecutado()!=null)
+                cs.setDate("_fecha_ejecucion",new java.sql.Date(producto.getFechaEjecutado().getTime()));
+            else
+                cs.setDate("_fecha_ejecucion", null);
             cs.setTime("_tiempo_uso", new java.sql.Time(producto.getTiempoUso().getTime()));
             cs.setBoolean("_actualizado", producto.isActualizado());
             cs.setBoolean("_oculto", producto.isOculto());
