@@ -73,9 +73,10 @@ BEGIN
     INNER JOIN Juego             ju ON lo.fid_juego = ju.id_juego
     INNER JOIN Producto          pr ON ju.id_juego  = pr.id_producto
     INNER JOIN ProductoAdquirido pa ON ld.fid_producto_adquirido = pa.id_producto_adquirido
+    INNER JOIN Biblioteca 		 bl	ON pa.fid_biblioteca = bl.id_biblioteca
     WHERE ld.activo = true AND
 		  lo.activo = true AND
           pr.activo = true AND
-          pa.fid_biblioteca = _id_usuario;
+          bl.fid_usuario= _id_usuario;
 END $
 -- ----------------------------------------------------------------------------------------

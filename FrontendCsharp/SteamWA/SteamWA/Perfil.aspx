@@ -89,7 +89,7 @@
 
                         <!-- GridView para listar los logros del usuario -->
                         <asp:GridView ID="gvLogros" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="5"
-                            OnPageIndexChanging="gvLogros_PageIndexChanging">
+                            OnPageIndexChanging="gvLogros_PageIndexChanging" OnRowDataBound="gvLogros_RowDataBound">
                             <Columns>
                                 <asp:TemplateField HeaderText="Logo">
                                     <ItemTemplate>
@@ -97,16 +97,16 @@
                                     </ItemTemplate>
                                     <ItemStyle CssClass="column-space" />
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="TituloJuego" HeaderText="Título">
+                                <asp:BoundField HeaderText="Título">
                                     <ItemStyle CssClass="column-space" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="NombreLogro" HeaderText="Logro">
+                                <asp:BoundField HeaderText="Logro">
                                     <ItemStyle CssClass="column-space" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="DescripcionLogro" HeaderText="Descripción">
+                                <asp:BoundField HeaderText="Descripción">
                                     <ItemStyle CssClass="column-space" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="FechaDesbloqueo" HeaderText="Fecha" DataFormatString="{0:dd-MM-yyyy}">
+                                <asp:BoundField HeaderText="Fecha" DataFormatString="{0:dd-MM-yyyy}">
                                     <ItemStyle CssClass="column-space" />
                                 </asp:BoundField>
                             </Columns>

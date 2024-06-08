@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace SteamWA
@@ -85,6 +86,22 @@ namespace SteamWA
             gvLogros.DataBind();
         }
 
+        protected void gvLogros_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                logroDesbloqueado logro = (logroDesbloqueado)e.Row.DataItem;
+                HtmlImage img = new HtmlImage();
+                img.Src = logro.juego.producto.logoUrl;
+                img.Height = 50;
+                img.Width = 50;
+                e.Row.Cells[0].Controls.Add(img);
+                e.Row.Cells[1].Text = logro.juego.producto.titulo;
+                e.Row.Cells[2].Text = logro.logro.nombre;
+                e.Row.Cells[3].Text = logro.logro.descripcion;
+                e.Row.Cells[4].Text = logro.fechaDesbloqueo.ToString("dd/MM/yyyy");
+            }
+        }
     }
 }
 
