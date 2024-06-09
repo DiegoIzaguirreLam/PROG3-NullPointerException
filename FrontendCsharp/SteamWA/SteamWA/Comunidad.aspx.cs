@@ -243,24 +243,35 @@ namespace SteamWA
             pageIndex[0] = e.NewPageIndex;
             Session["IndexPages"] = pageIndex;
             gvForos.DataBind();
+            ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
         protected void gvCreados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
+            //gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
             gvCreados.PageIndex = e.NewPageIndex;
             pageIndex[1] = e.NewPageIndex;
             Session["IndexPages"] = pageIndex;
+            //gvCreados.DataBind();
+            gvCreados.DataSource = creados = (BindingList<foro>)Session["ForosCreados"];
             gvCreados.DataBind();
+            Session["ForosCreados"] = creados;
+            string script = "window.onload = function() { showModalForm('form-modal-creados') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
         protected void gvSuscritos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
+            //gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
             gvSuscritos.PageIndex = e.NewPageIndex;
             pageIndex[2] = e.NewPageIndex;
             Session["IndexPages"] = pageIndex;
+            //gvSuscritos.DataBind();
+            gvSuscritos.DataSource = suscritos = (BindingList<foro>)Session["ForosSuscritos"];
             gvSuscritos.DataBind();
+            Session["ForosSuscritos"] = suscritos;
+            string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
         protected void gvForos_RowCommand(object sender, GridViewCommandEventArgs e)
