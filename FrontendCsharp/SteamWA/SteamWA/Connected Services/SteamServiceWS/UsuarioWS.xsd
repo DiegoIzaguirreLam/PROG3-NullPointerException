@@ -11,6 +11,8 @@
   <xs:element name="insertarUsuario" type="tns:insertarUsuario" />
   <xs:element name="insertarUsuarioResponse" type="tns:insertarUsuarioResponse" />
   <xs:element name="listarUsuarios" type="tns:listarUsuarios" />
+  <xs:element name="listarUsuariosPorNombreCuenta" type="tns:listarUsuariosPorNombreCuenta" />
+  <xs:element name="listarUsuariosPorNombreCuentaResponse" type="tns:listarUsuariosPorNombreCuentaResponse" />
   <xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse" />
   <xs:element name="suspenderUsuario" type="tns:suspenderUsuario" />
   <xs:element name="suspenderUsuarioResponse" type="tns:suspenderUsuarioResponse" />
@@ -295,6 +297,16 @@
   <xs:complexType name="suspenderUsuarioResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarUsuariosPorNombreCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarUsuariosPorNombreCuentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="buscarUsuarioPorNombreCuenta">

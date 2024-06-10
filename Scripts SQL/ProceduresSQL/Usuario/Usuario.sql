@@ -1,4 +1,12 @@
 DROP PROCEDURE IF EXISTS CREAR_USUARIO;
+DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
+DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
+DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIO_X_NOMBRE_CUENTA;
+
 DELIMITER $
 CREATE PROCEDURE CREAR_USUARIO(
 	OUT _ID_USUARIO INT,
@@ -24,8 +32,9 @@ BEGIN
 			_EXPERIENCIA_NIVEL, _NIVEL, _EXPERIENCIA, _FID_PAIS, true);
     SET _ID_USUARIO = @@last_insert_id;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+
+
+
 DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_USUARIO(
 	IN _ID_USUARIO INT,
@@ -50,8 +59,8 @@ BEGIN
                        FID_PAIS = _FID_PAIS
 	WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
+
+
 DELIMITER $
 CREATE PROCEDURE SUSPENDER_USUARIO(
 	IN _ID_USUARIO INT
@@ -68,15 +77,17 @@ CREATE PROCEDURE ELIMINAR_USUARIO(
 BEGIN
 	DELETE FROM Usuario WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
+
+
+
 DELIMITER $
 CREATE PROCEDURE LISTAR_USUARIO()
 BEGIN
 	SELECT * FROM Usuario;
 END $
 DELIMITER ;
-DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
+
+
 DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_X_NOMBRE_CUENTA(
 	IN _nombre_cuenta VARCHAR(100)
@@ -92,8 +103,6 @@ BEGIN
     WHERE _nombre_cuenta LIKE nombre_cuenta;
 END$
 
--- Procedimiento para obtener el registro del usuario dado un ID
-DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
 
 DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_POR_ID (
@@ -109,7 +118,8 @@ BEGIN
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.UID = _uid AND u.activo = TRUE;
 END$
-DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
+
+
 DELIMITER $
 CREATE PROCEDURE VERIFICAR_USUARIO (
 	IN _nombre_cuenta VARCHAR(100),
@@ -124,4 +134,22 @@ BEGIN
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.nombre_cuenta = _nombre_cuenta AND u.contrasenia = md5(_contrasenia);
+END$
+
+
+-- Enlista todos los usuarios que coincidan con el nombre ingresado
+DELIMITER $
+CREATE PROCEDURE LISTAR_USUARIO_X_NOMBRE_CUENTA (
+	IN _nombre_cuenta VARCHAR(100)
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+		   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+    	   u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+    	   p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    WHERE nombre_cuenta LIKE CONCAT('%', _nombre_cuenta, '%') AND
+		  u.activo = true;
 END$
