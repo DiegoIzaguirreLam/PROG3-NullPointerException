@@ -86,4 +86,38 @@
     <div class="mt-5 d-flex justify-content-start">
         <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Productos" />
     </div>
+
+    <div class="modal fade" id="form-modal-agregarTiempoUso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="container bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lblAgregarTiempoUso">Agregar Tiempo de Uso</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Inserte el tiempo de uso que desee registrar. El tiempo de juego que ingrese debe ser menor a 4 horas.</p>
+                    <asp:Label ID="lblTiempoUsoModal" runat="server" Text="Tiempo Usado" />
+                    <div class="d-flex">
+                        <div class="input-wrapper">
+                            <asp:TextBox ID="txtTiempoUsoModalHH" runat="server" type="number" CssClass="rounded" Style="width: 100%;" oninput="validarValor(this, 3);"/>
+                            <span class="input-label">Horas</span>
+                        </div>
+                        <div class="input-wrapper">
+                            <asp:TextBox ID="txtTiempoUsoModalMM" runat="server" type="number" CssClass="rounded" Style="width: 100%;" oninput="validarValor(this, 59);"/>
+                            <span class="input-label">Minutos</span>
+                        </div>
+                        <div class="input-wrapper">
+                            <asp:TextBox ID="txtTiempoUsoModalSS" runat="server" type="number" CssClass="rounded" Style="width: 100%;" oninput="validarValor(this, 59);"/>
+                            <span class="input-label">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <asp:Button ID="btnAgregarModal" CssClass="btn btn-primary btn-success" runat="server" Text="Agregar Tiempo" OnClick="btnAgregarModal_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </asp:Content>

@@ -24,6 +24,15 @@ namespace SteamWA
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hCartera;
 
         /// <summary>
+        /// Control pCreditoUtilizado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pCreditoUtilizado;
+
+        /// <summary>
         /// Control hAgregar15.
         /// </summary>
         /// <remarks>

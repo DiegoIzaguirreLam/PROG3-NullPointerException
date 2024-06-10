@@ -291,10 +291,12 @@ namespace SteamWA
             if (!productoAdquirido.actualizado)
             {
                 lbJugar.Text = "Actualizar";
+                lbJugar.CssClass = "btn btn-primary btn-dark me-4";
             }
             else
             {
-                lbJugar.Text = "Jugar";
+                lbJugar.Text = "Registrar Uso";
+                lbJugar.CssClass = "btn btn-primary btn-success me-4";
             }
             infoPrograma.Style.Value = "block";
             infoPrograma.Visible = true;
@@ -398,9 +400,44 @@ namespace SteamWA
             }
             else
             {
-
+                txtTiempoUsoModalHH.Text = "0";
+                txtTiempoUsoModalMM.Text = "0";
+                txtTiempoUsoModalSS.Text = "0";
+                string script = "window.onload = function() { showModalForm('form-modal-agregarTiempoUso') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
             }
 
+        }
+
+        protected void btnAgregarModal_Click(object sender, EventArgs e)
+        {
+            int horas, minutos, segundos;
+
+            horas = Convert.ToInt32(txtTiempoUsoModalHH.Text);
+            minutos = Convert.ToInt32(txtTiempoUsoModalMM.Text);
+            segundos = Convert.ToInt32(txtTiempoUsoModalSS.Text);
+            productoAdquirido producto = (productoAdquirido)Session["productoAdquiridoSeleccionado"];
+           
+
+            TimeSpan tiempoUsoAgregado = new TimeSpan(horas, minutos, segundos);
+
+            producto.tiempoUsoSpecified = true;
+            producto.fechaEjecutadoSpecified = true;
+            producto.tiempoUso = producto.tiempoUso.Add(tiempoUsoAgregado);
+            producto.fechaEjecutado = DateTime.Now;
+
+            if (daoProductoAdquirido.actualizarProductoAdquirido(producto) != 0)
+            {
+                horas = Int32.Parse(producto.tiempoUso.ToString("HH"));
+                minutos = Int32.Parse(producto.tiempoUso.ToString("mm"));
+                txtTiempoUsoPrograma.InnerHtml = "<strong>Tiempo de uso: </strong>";
+                if (horas > 0 || minutos > 0)
+                {
+                    txtFechaEjecucionPrograma.InnerHtml = "<strong>Última ejecución: </strong>" + producto.fechaEjecutado.ToString("dd/MM/yyyy");
+                    txtTiempoUsoPrograma.InnerHtml += (horas == 0 ? "" : (horas.ToString() + (horas > 1 ? " horas " : " hora ")))
+                        + (minutos == 0 ? "" : (minutos.ToString() + (minutos > 1 ? " minutos" : " minuto")));
+                }
+            }
         }
     }
 }

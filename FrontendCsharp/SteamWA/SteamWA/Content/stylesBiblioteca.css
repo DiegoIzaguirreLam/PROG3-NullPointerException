@@ -38,3 +38,26 @@
 .new-hover-effect:hover {
     background-color: #4a4a4a;
 }
+
+
+.input-wrapper {
+    margin-right: 10px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+.input-wrapper input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-wrapper .input-label {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 12px;
+    color: #888;
+}
+
