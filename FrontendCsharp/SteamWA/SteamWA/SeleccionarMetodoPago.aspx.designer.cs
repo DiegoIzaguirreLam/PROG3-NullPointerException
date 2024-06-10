@@ -33,24 +33,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.LinkButton btnGiftCard;
 
         /// <summary>
-        /// Control btnPaypal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnPaypal;
-
-        /// <summary>
-        /// Control btnTarjeta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnTarjeta;
-
-        /// <summary>
         /// Control lblMontoTxt.
         /// </summary>
         /// <remarks>

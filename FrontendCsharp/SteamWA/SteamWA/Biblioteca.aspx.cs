@@ -291,12 +291,10 @@ namespace SteamWA
             if (!productoAdquirido.actualizado)
             {
                 lbJugar.Text = "Actualizar";
-                lbJugar.CssClass = "btn btn-primary btn-dark me-4";
             }
             else
             {
-                lbJugar.Text = "Registrar Uso";
-                lbJugar.CssClass = "btn btn-primary btn-success me-4";
+                lbJugar.Text = "Jugar";
             }
             infoPrograma.Style.Value = "block";
             infoPrograma.Visible = true;
@@ -437,6 +435,7 @@ namespace SteamWA
                     txtTiempoUsoPrograma.InnerHtml += (horas == 0 ? "" : (horas.ToString() + (horas > 1 ? " horas " : " hora ")))
                         + (minutos == 0 ? "" : (minutos.ToString() + (minutos > 1 ? " minutos" : " minuto")));
                 }
+                
             }
         }
     }

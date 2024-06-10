@@ -8,6 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
+    <script src="Scripts/Steam/GestionarCartera.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
@@ -49,7 +50,7 @@
                     <h3 id="hAgregarPersonalizado" runat="server" class="text-light mb-3">Agregar monto personalizado</h3>
                     <div class="d-flex d-inline-block">
                         <asp:Label ID="txtMonedaPersonalizado" runat="server" CssClass="text-white mt-2" Visible="true"></asp:Label>
-                        <asp:TextBox ID="txtMontoPersonalizado" runat="server" CssClass="form-control bg-dark ms-2 text-white" Placeholder="Ingrese el monto" width="100" />
+                        <asp:TextBox ID="txtMontoPersonalizado" runat="server" CssClass="form-control bg-dark ms-2 text-white" Placeholder="Ingrese el monto" Width="100" oninput="validarValor(this)" />
                     </div>
                     <div class="d-flex justify-content-end">
                         <asp:LinkButton ID="btnAgregarPersonalizado" runat="server" Text="Agregar fondos" CssClass="btn btn-success ms-2" OnClick="btnAgregarPersonalizado_Click"/>

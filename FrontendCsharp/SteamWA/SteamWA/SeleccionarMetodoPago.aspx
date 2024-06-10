@@ -37,12 +37,12 @@
                         <li>
                             <asp:LinkButton ID="btnGiftCard" runat="server" Text="Gift Card" CssClass="btn ps-2 text-white" OnClick="btnGiftCard_Click" />
                         </li>
-                        <li>
+                        <%--<li>
                             <asp:LinkButton ID="btnPaypal" runat="server" Text="PayPal" CssClass="btn ps-2 text-white" OnClick="btnPaypal_Click" />
                         </li>
                         <li>
                             <asp:LinkButton ID="btnTarjeta" runat="server" Text="Tarjeta" CssClass="btn ps-2 text-white" OnClick="btnTarjeta_Click" />
-                        </li>
+                        </li>--%>
                     </ul>
                 </div>
             </div>
