@@ -5,6 +5,9 @@
     <script src="Scripts/Steam/crearForo.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
+    <div class="container">
+        <h1 class="mt-4">Comunidad</h1>
+    </div>
     <div class="container fontSetterExo2">
         <div class="row align-items-center">
             <div class="col-md-7 row align-items-center">

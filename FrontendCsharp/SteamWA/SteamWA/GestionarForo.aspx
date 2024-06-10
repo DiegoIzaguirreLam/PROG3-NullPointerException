@@ -27,18 +27,14 @@
     </div>
     <hr />
     <div class="container fontSetterExo2">
-        <asp:GridView ID="gvSubforos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" OnRowDataBound="gvSubforos_RowDataBound">
+        <asp:GridView ID="gvSubforos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" AllowPaging="true" OnPageIndexChanging="gvSubforos_PageIndexChanging" OnRowCommand="gvSubforos_RowCommand">
             <Columns>
-                <asp:BoundField HeaderText="Nombre" />
+                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirSubforo" />
                 <%--Se mostrará el primer mensaje del hilo fijado en el foro--%>
                 <asp:TemplateField ItemStyle-CssClass="text-end">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-up-right-and-down-left-from-center' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("idSubforo") %>' OnClick="lbAbrirSubforo_Click"></asp:LinkButton>
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
                             CommandArgument='<%# Eval("idSubforo") %>' OnClick="lbActualizarSubforo_Click" />
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                            CommandArgument='<%# Eval("idSubforo") %>' OnClick="lbEliminarSubforo_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -77,7 +73,7 @@
                             </div>
                             <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <asp:Button ID="btnGuardar" runat="server" Text="Crear"
-                                    CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                                    CssClass="float-end btn btn-secondary bg-dark mb-2" OnClick="btnGuardar_Click"/>
                             </div>
                         </div>
                     </div>
