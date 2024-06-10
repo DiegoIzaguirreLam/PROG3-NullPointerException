@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\Steam\Amigos.js" />
+    <Content Include="Scripts\Steam\BuscarAmigos.js" />
     <Content Include="SeleccionarMetodoPago.aspx" />
     <Content Include="Amigos.aspx" />
     <Content Include="Biblioteca.aspx" />
@@ -723,6 +724,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarUsuariosPorNombreCuentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />

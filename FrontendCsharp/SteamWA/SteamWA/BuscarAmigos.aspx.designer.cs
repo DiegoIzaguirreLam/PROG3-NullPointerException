@@ -21,7 +21,7 @@ namespace SteamWA
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtUID;
 
         /// <summary>
         /// lbBuscarPorID control.
@@ -48,7 +48,7 @@ namespace SteamWA
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombre;
 
         /// <summary>
         /// lbBuscarPorNombre control.

@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
-
 package pe.edu.pucp.steam.usuario.personal.services;
 
 import jakarta.jws.WebService;
@@ -13,14 +8,9 @@ import pe.edu.pucp.steam.usuario.personal.dao.UsuarioDAO;
 import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import pe.edu.pucp.steam.usuario.personal.mysql.UsuarioMySQL;
 
-/**
- *
- * @author GAMER
- */
 @WebService(serviceName="UsuarioWS", targetNamespace="http://services.softprog.pucp.edu.pe/")
 public class UsuarioWS {
 
-    /** This is a sample web service operation */
     @WebMethod(operationName="insertarUsuario")
     public int insertarUsuario(@WebParam(name="jugador") Usuario jugador) {
         int resultado=0;
@@ -119,5 +109,20 @@ public class UsuarioWS {
             System.out.println(ex.getMessage());
         }
         return usuario;
+    }
+    
+    @WebMethod(operationName="listarUsuariosPorNombreCuenta")
+    public ArrayList<Usuario> listarUsuariosPorNombreCuenta
+        (@WebParam(name="nombreCuenta") String nombreCuenta) {
+        ArrayList<Usuario> usuarios = null;
+        
+        try{
+            UsuarioDAO usuarioDao = new UsuarioMySQL();
+            usuarios = usuarioDao.listarUsuariosPorNombreCuenta(nombreCuenta);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return usuarios;
     }
 }
