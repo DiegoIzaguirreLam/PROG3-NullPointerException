@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ExpositorWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarExpositores">
-    <part name="parameters" element="tns:listarExpositores" />
+  <message name="insertarExpositor">
+    <part name="parameters" element="tns:insertarExpositor" />
   </message>
-  <message name="listarExpositoresResponse">
-    <part name="parameters" element="tns:listarExpositoresResponse" />
+  <message name="insertarExpositorResponse">
+    <part name="parameters" element="tns:insertarExpositorResponse" />
   </message>
   <message name="ocultarExpositor">
     <part name="parameters" element="tns:ocultarExpositor" />
@@ -17,11 +17,11 @@
   <message name="ocultarExpositorResponse">
     <part name="parameters" element="tns:ocultarExpositorResponse" />
   </message>
-  <message name="insertarExpositor">
-    <part name="parameters" element="tns:insertarExpositor" />
+  <message name="listarExpositores">
+    <part name="parameters" element="tns:listarExpositores" />
   </message>
-  <message name="insertarExpositorResponse">
-    <part name="parameters" element="tns:insertarExpositorResponse" />
+  <message name="listarExpositoresResponse">
+    <part name="parameters" element="tns:listarExpositoresResponse" />
   </message>
   <message name="eliminarExpositor">
     <part name="parameters" element="tns:eliminarExpositor" />
@@ -42,17 +42,17 @@
     <part name="parameters" element="tns:listarExpositoresPerfilResponse" />
   </message>
   <portType name="ExpositorWS">
-    <operation name="listarExpositores">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresRequest" message="tns:listarExpositores" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresResponse" message="tns:listarExpositoresResponse" />
+    <operation name="insertarExpositor">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorRequest" message="tns:insertarExpositor" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorResponse" message="tns:insertarExpositorResponse" />
     </operation>
     <operation name="ocultarExpositor">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorRequest" message="tns:ocultarExpositor" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorResponse" message="tns:ocultarExpositorResponse" />
     </operation>
-    <operation name="insertarExpositor">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorRequest" message="tns:insertarExpositor" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorResponse" message="tns:insertarExpositorResponse" />
+    <operation name="listarExpositores">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresRequest" message="tns:listarExpositores" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresResponse" message="tns:listarExpositoresResponse" />
     </operation>
     <operation name="eliminarExpositor">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorRequest" message="tns:eliminarExpositor" />
@@ -69,7 +69,7 @@
   </portType>
   <binding name="ExpositorWSPortBinding" type="tns:ExpositorWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarExpositores">
+    <operation name="insertarExpositor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -87,7 +87,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarExpositor">
+    <operation name="listarExpositores">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

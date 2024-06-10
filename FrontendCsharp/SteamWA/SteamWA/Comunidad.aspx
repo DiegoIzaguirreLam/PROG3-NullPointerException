@@ -180,34 +180,35 @@
         </div>
     </div>
     <!--Clase modal para mostrar Foros suscritos-->
-<div class="modal border-white fade fontSetterExo2" id="form-modal-suscritos">
-    <div class="modal-dialog">
-        <div class="modal-content bg-secondary bg-opacity-50">
-            <div class="modal-header bg-dark">
-                <h5 class="modal-title border-white">Mis Foros</h5>
-                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-content">
-                <div class="container bg-dark">
-                    <asp:GridView ID="gvSuscritos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvSuscritos_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
-                        <Columns>
-                            <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoSuscrito" />
-                            <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                            <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
-                            <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
-                            <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
-                                HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                            <asp:TemplateField ItemStyle-CssClass="text-end">
-                                <ItemTemplate>
-                                    <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                                        CommandArgument='<%# Eval("idForo") %>' OnClick="lbDesuscribir_Click" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-suscritos">
+        <div class="modal-dialog">
+            <div class="modal-content bg-secondary bg-opacity-50">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title border-white">Mis Foros</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content">
+                    <div class="container bg-dark">
+                        <asp:GridView ID="gvSuscritos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvSuscritos_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
+                            <Columns>
+                                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoSuscrito" />
+                                <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
+                                <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
+                                <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
+                                    HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                <asp:TemplateField ItemStyle-CssClass="text-end">
+                                    <ItemTemplate>
+                                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
+                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbDesuscribir_Click" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <%--Modal para mostrar que no hay que mostrar--%>
 </asp:Content>

@@ -14,17 +14,29 @@ namespace SteamWA
     {
         BindingList<subforo> subforos;
         SubforoWSClient daoSubforo;
+        int pageIndex;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             daoSubforo = new SubforoWSClient();
+            
+            if (Session["IndexPagesSubforo"] == null)
+            {
+                pageIndex = 0;
+                Session["IndexPagesSubforo"] = pageIndex;
+            }
+            else pageIndex = (int)Session["IndexPagesSubforo"];
+
             if (!IsPostBack)
             {
+                pageIndex = 0;
+                Session["IndexPagesSubforo"] = pageIndex;
                 foro auxForo = (foro)Session["foroPadre"];
                 subforo[] aux = daoSubforo.mostrarSubforosForo(auxForo);
                 if(aux != null) subforos = new BindingList<subforo>(aux);
                 gvSubforos.DataSource = subforos;
                 gvSubforos.DataBind();
+                Session["subforos"] = subforos;
             }
             String nombre = Request.QueryString["foro"];
             if(nombre != null)
@@ -74,12 +86,26 @@ namespace SteamWA
 
         }
 
-        protected void gvSubforos_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvSubforos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+
+        }
+
+        protected void gvSubforos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "AbrirSubforo")
             {
-                e.Row.Cells[0].Text = DataBinder.Eval(e.Row.DataItem, "nombre").ToString();
+                subforos = (BindingList<subforo>)Session["subforos"];
+                int idSubforo = Convert.ToInt32(e.CommandArgument);
+                subforo sub = subforos[idSubforo + 5 * pageIndex];
+                Session["subforoPadre"] = sub;
+                Response.Redirect("GestionarSubforo.aspx?subforo=" + sub.nombre);
             }
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

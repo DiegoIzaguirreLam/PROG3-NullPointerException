@@ -4,23 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SteamWA.SteamServiceWS;
 
 namespace SteamWA
 {
     public partial class GestionarSubforo : System.Web.UI.Page
     {
-        string padre;
+        foro padre;
         protected void Page_Load(object sender, EventArgs e)
         {
             string nombre = Request.QueryString["subforo"];
-            padre = Session["foro_nombre"].ToString();
+            padre = (foro)Session["foroPadre"];
             if (nombre != null)
             {
                 subforo.Text = nombre;
             }
             if(padre != null)
             {
-                nombreForo.Text = padre;
+                nombreForo.Text = padre.nombre;
             }
         }
 
@@ -34,7 +35,7 @@ namespace SteamWA
             //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
             //Session["objeto"]=foro
-            Response.Redirect("GestionarForo.aspx?foro=" + padre);
+            Response.Redirect("GestionarForo.aspx?foro=" + padre.nombre);
         }
 
         protected void btnActualizarSubforo_Click(object sender, EventArgs e)

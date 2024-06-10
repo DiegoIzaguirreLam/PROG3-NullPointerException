@@ -15,6 +15,7 @@ public class Subforo {
     private Foro foro;
     private String nombre;
     private ArrayList<Hilo> hilos;
+    private String mensaje;
     private boolean oculto;
     private boolean activo;
     
@@ -77,6 +78,11 @@ public class Subforo {
         this.activo = activo;
     }
 
-    
-    
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 }

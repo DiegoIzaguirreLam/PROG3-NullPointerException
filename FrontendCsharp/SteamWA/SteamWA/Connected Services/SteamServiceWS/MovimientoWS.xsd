@@ -195,6 +195,7 @@
       <xs:element minOccurs="0" name="foro" type="tns:foro" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="hilos" nillable="true" type="tns:hilo" />
       <xs:element name="idSubforo" type="xs:int" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element name="oculto" type="xs:boolean" />
     </xs:sequence>

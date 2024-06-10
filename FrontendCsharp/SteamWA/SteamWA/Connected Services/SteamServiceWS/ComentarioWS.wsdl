@@ -23,17 +23,17 @@
   <message name="ocultarComentarioResponse">
     <part name="parameters" element="tns:ocultarComentarioResponse" />
   </message>
-  <message name="listarComentariosPerfil">
-    <part name="parameters" element="tns:listarComentariosPerfil" />
-  </message>
-  <message name="listarComentariosPerfilResponse">
-    <part name="parameters" element="tns:listarComentariosPerfilResponse" />
-  </message>
   <message name="actualizarComentario">
     <part name="parameters" element="tns:actualizarComentario" />
   </message>
   <message name="actualizarComentarioResponse">
     <part name="parameters" element="tns:actualizarComentarioResponse" />
+  </message>
+  <message name="listarComentariosPerfil">
+    <part name="parameters" element="tns:listarComentariosPerfil" />
+  </message>
+  <message name="listarComentariosPerfilResponse">
+    <part name="parameters" element="tns:listarComentariosPerfilResponse" />
   </message>
   <portType name="ComentarioWS">
     <operation name="listarComentarios">
@@ -48,13 +48,13 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioRequest" message="tns:ocultarComentario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioResponse" message="tns:ocultarComentarioResponse" />
     </operation>
-    <operation name="listarComentariosPerfil">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosPerfilRequest" message="tns:listarComentariosPerfil" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosPerfilResponse" message="tns:listarComentariosPerfilResponse" />
-    </operation>
     <operation name="actualizarComentario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/actualizarComentarioRequest" message="tns:actualizarComentario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/actualizarComentarioResponse" message="tns:actualizarComentarioResponse" />
+    </operation>
+    <operation name="listarComentariosPerfil">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosPerfilRequest" message="tns:listarComentariosPerfil" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosPerfilResponse" message="tns:listarComentariosPerfilResponse" />
     </operation>
   </portType>
   <binding name="ComentarioWSPortBinding" type="tns:ComentarioWS">
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarComentariosPerfil">
+    <operation name="actualizarComentario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarComentario">
+    <operation name="listarComentariosPerfil">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

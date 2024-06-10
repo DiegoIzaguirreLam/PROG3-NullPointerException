@@ -42,13 +42,29 @@ namespace SteamWA
             }
             if (!IsPostBack)
             {
+                pageIndex = new int[3];
+                Session["IndexPages"] = pageIndex;
                 foro[] aux = daoForo.listarForos();
                 if (aux != null) foros = new BindingList<foro>(aux);
                 gvForos.DataSource = foros;
                 gvForos.DataBind();
                 Session["forosAux"] = foros;
             }
-            
+            if (Session["MostrarCreados"] != null && (Boolean)Session["MostrarCreados"] == true)
+            {
+                Session["MostrarCreados"] = false;
+                creados = (BindingList<foro>)Session["ForosCreados"];
+                gvCreados.DataSource = creados;
+                gvCreados.DataBind();
+                pageIndex = (int[])Session["IndexPages"];
+                if (pageIndex[1] >= (int)(creados.Count / 5))
+                {
+                    pageIndex[1] = (int)(creados.Count / 5) - 1;
+                    Session["IndexPages"] = pageIndex;
+                }
+                string script = "window.onload = function() { showModalForm('form-modal-creados') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            }
             Steam master = (Steam)this.Master;
             master.ItemComunidad.Attributes["class"] = "active";
             //ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
@@ -89,20 +105,42 @@ namespace SteamWA
 
         protected void lbEliminarForo_Click(object sender, EventArgs e)
         {
-            foros = (BindingList<foro>)Session["forosAux"];
+            foros = (BindingList<foro>)Session["ForosCreados"];
             int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
             daoForoUsuario.eliminarRelacion(foro.idForo, foro.idCreador);
+            Session["MostrarCreados"] = true;
+            List<foro> aux = foros.ToList();
+            aux.Remove(foro);
+            foros = new BindingList<foro>(aux);
+            Session["ForosCreados"] = foros;
             if (daoForo.eliminarForo(foro) != 0) Response.Redirect("Comunidad.aspx");
         }
 
         protected void lbDesuscribir_Click(object sender, EventArgs e)
         {
-            foros = (BindingList<foro>)Session["forosAux"];
+            foros = (BindingList<foro>)Session["ForosSuscritos"];
             usuario user = (usuario)Session["usuario"];
             int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
             foro foro = foros.SingleOrDefault(x => x.idForo == idForo);
-            if (daoForoUsuario.desuscribirRelacion(foro.idForo, user.UID) != 0) Response.Redirect("Comunidad.aspx");
+            Session["MostrarSuscritos"] = true;
+            List<foro> aux = foros.ToList();
+            aux.Remove(foro);
+            foros = new BindingList<foro>(aux);
+            if (daoForoUsuario.desuscribirRelacion(foro.idForo, user.UID) != 0)
+            {
+                gvSuscritos.DataSource = foros;
+                gvSuscritos.DataBind();
+                Session["ForosSuscritos"] = foros;
+                pageIndex = (int[])Session["IndexPages"];
+                if (pageIndex[2] >= (int)(foros.Count / 5))
+                {
+                    pageIndex[2] = (int)(foros.Count / 5) - 1;
+                    Session["IndexPages"] = pageIndex;
+                }
+                string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            }
         }
 
         protected void lbSuscribirForo_Click(object sender, EventArgs e)
@@ -206,13 +244,6 @@ namespace SteamWA
             gvSuscritos.DataSource = suscritos;
             gvSuscritos.DataBind();
             Session["ForosSuscritos"] = suscritos;
-            if(aux == null)
-            {
-                suscritos = new BindingList<foro>();
-                suscritos.Add(new foro());
-                gvSuscritos.DataSource = suscritos;
-                gvSuscritos.DataBind();
-            }
             string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -225,13 +256,6 @@ namespace SteamWA
             gvCreados.DataSource = creados;
             gvCreados.DataBind();
             Session["ForosCreados"] = creados;
-            if (aux == null)
-            {
-                creados = new BindingList<foro>();
-                creados.Add(new foro());
-                gvSuscritos.DataSource = creados;
-                gvSuscritos.DataBind();
-            }
             string script = "window.onload = function() { showModalForm('form-modal-creados') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -248,7 +272,7 @@ namespace SteamWA
 
         protected void gvCreados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
+            gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
             gvCreados.PageIndex = e.NewPageIndex;
             pageIndex[1] = e.NewPageIndex;
             Session["IndexPages"] = pageIndex;
@@ -262,7 +286,7 @@ namespace SteamWA
 
         protected void gvSuscritos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
+            gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
             gvSuscritos.PageIndex = e.NewPageIndex;
             pageIndex[2] = e.NewPageIndex;
             Session["IndexPages"] = pageIndex;
