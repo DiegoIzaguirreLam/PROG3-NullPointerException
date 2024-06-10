@@ -11,11 +11,11 @@
   <message name="actualizaPerfilResponse">
     <part name="parameters" element="tns:actualizaPerfilResponse" />
   </message>
-  <message name="ocultarPerfil">
-    <part name="parameters" element="tns:ocultarPerfil" />
+  <message name="listarPerfiles">
+    <part name="parameters" element="tns:listarPerfiles" />
   </message>
-  <message name="ocultarPerfilResponse">
-    <part name="parameters" element="tns:ocultarPerfilResponse" />
+  <message name="listarPerfilesResponse">
+    <part name="parameters" element="tns:listarPerfilesResponse" />
   </message>
   <message name="buscarPerfil">
     <part name="parameters" element="tns:buscarPerfil" />
@@ -23,11 +23,11 @@
   <message name="buscarPerfilResponse">
     <part name="parameters" element="tns:buscarPerfilResponse" />
   </message>
-  <message name="listarPerfiles">
-    <part name="parameters" element="tns:listarPerfiles" />
+  <message name="ocultarPerfil">
+    <part name="parameters" element="tns:ocultarPerfil" />
   </message>
-  <message name="listarPerfilesResponse">
-    <part name="parameters" element="tns:listarPerfilesResponse" />
+  <message name="ocultarPerfilResponse">
+    <part name="parameters" element="tns:ocultarPerfilResponse" />
   </message>
   <message name="asignarPerfilUsuario">
     <part name="parameters" element="tns:asignarPerfilUsuario" />
@@ -40,17 +40,17 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/actualizaPerfilRequest" message="tns:actualizaPerfil" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/actualizaPerfilResponse" message="tns:actualizaPerfilResponse" />
     </operation>
-    <operation name="ocultarPerfil">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/ocultarPerfilRequest" message="tns:ocultarPerfil" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/ocultarPerfilResponse" message="tns:ocultarPerfilResponse" />
+    <operation name="listarPerfiles">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesRequest" message="tns:listarPerfiles" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesResponse" message="tns:listarPerfilesResponse" />
     </operation>
     <operation name="buscarPerfil">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/buscarPerfilRequest" message="tns:buscarPerfil" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/buscarPerfilResponse" message="tns:buscarPerfilResponse" />
     </operation>
-    <operation name="listarPerfiles">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesRequest" message="tns:listarPerfiles" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesResponse" message="tns:listarPerfilesResponse" />
+    <operation name="ocultarPerfil">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/ocultarPerfilRequest" message="tns:ocultarPerfil" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/ocultarPerfilResponse" message="tns:ocultarPerfilResponse" />
     </operation>
     <operation name="asignarPerfilUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioRequest" message="tns:asignarPerfilUsuario" />
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="ocultarPerfil">
+    <operation name="listarPerfiles">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarPerfiles">
+    <operation name="ocultarPerfil">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

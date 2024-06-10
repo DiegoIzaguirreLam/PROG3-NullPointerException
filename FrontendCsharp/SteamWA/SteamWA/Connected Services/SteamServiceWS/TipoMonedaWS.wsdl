@@ -5,23 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/TipoMonedaWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarTiposMoneda">
-    <part name="parameters" element="tns:actualizarTiposMoneda" />
-  </message>
-  <message name="actualizarTiposMonedaResponse">
-    <part name="parameters" element="tns:actualizarTiposMonedaResponse" />
-  </message>
   <message name="insertarTipoMoneda">
     <part name="parameters" element="tns:insertarTipoMoneda" />
   </message>
   <message name="insertarTipoMonedaResponse">
     <part name="parameters" element="tns:insertarTipoMonedaResponse" />
-  </message>
-  <message name="eliminarTipoMoneda">
-    <part name="parameters" element="tns:eliminarTipoMoneda" />
-  </message>
-  <message name="eliminarTipoMonedaResponse">
-    <part name="parameters" element="tns:eliminarTipoMonedaResponse" />
   </message>
   <message name="listarTiposMoneda">
     <part name="parameters" element="tns:listarTiposMoneda" />
@@ -29,27 +17,39 @@
   <message name="listarTiposMonedaResponse">
     <part name="parameters" element="tns:listarTiposMonedaResponse" />
   </message>
+  <message name="eliminarTipoMoneda">
+    <part name="parameters" element="tns:eliminarTipoMoneda" />
+  </message>
+  <message name="eliminarTipoMonedaResponse">
+    <part name="parameters" element="tns:eliminarTipoMonedaResponse" />
+  </message>
+  <message name="actualizarTiposMoneda">
+    <part name="parameters" element="tns:actualizarTiposMoneda" />
+  </message>
+  <message name="actualizarTiposMonedaResponse">
+    <part name="parameters" element="tns:actualizarTiposMonedaResponse" />
+  </message>
   <portType name="TipoMonedaWS">
-    <operation name="actualizarTiposMoneda">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/actualizarTiposMonedaRequest" message="tns:actualizarTiposMoneda" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/actualizarTiposMonedaResponse" message="tns:actualizarTiposMonedaResponse" />
-    </operation>
     <operation name="insertarTipoMoneda">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaRequest" message="tns:insertarTipoMoneda" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaResponse" message="tns:insertarTipoMonedaResponse" />
-    </operation>
-    <operation name="eliminarTipoMoneda">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaRequest" message="tns:eliminarTipoMoneda" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaResponse" message="tns:eliminarTipoMonedaResponse" />
     </operation>
     <operation name="listarTiposMoneda">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/listarTiposMonedaRequest" message="tns:listarTiposMoneda" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/listarTiposMonedaResponse" message="tns:listarTiposMonedaResponse" />
     </operation>
+    <operation name="eliminarTipoMoneda">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaRequest" message="tns:eliminarTipoMoneda" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaResponse" message="tns:eliminarTipoMonedaResponse" />
+    </operation>
+    <operation name="actualizarTiposMoneda">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/actualizarTiposMonedaRequest" message="tns:actualizarTiposMoneda" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/actualizarTiposMonedaResponse" message="tns:actualizarTiposMonedaResponse" />
+    </operation>
   </portType>
   <binding name="TipoMonedaWSPortBinding" type="tns:TipoMonedaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarTiposMoneda">
+    <operation name="insertarTipoMoneda">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarTipoMoneda">
+    <operation name="listarTiposMoneda">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTiposMoneda">
+    <operation name="actualizarTiposMoneda">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
