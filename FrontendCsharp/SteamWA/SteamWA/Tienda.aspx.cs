@@ -50,8 +50,7 @@ namespace SteamWA
                 {
                     Response.Redirect("Login.aspx");
                 }
-            BindingList<int> listaIdProductoProdAdq = new BindingList<int>(daoProductoAdquirido.listarIdProductoProductoAdquirido());
-
+           
 
             daoProducto = new SteamServiceWS.ProductoWSClient();
 
@@ -100,6 +99,32 @@ namespace SteamWA
                 barRangoPrecio.Value = "5";
                 labelito.InnerText = "Todos";
             }
+
+            //Carousel Destacados:
+            BindingList<int> listaIdProductoProdAdq = new BindingList<int>(daoProductoAdquirido.listarIdProductoProductoAdquirido());
+            BindingList<producto> listaProductosDestacados = new BindingList<producto>(listaProductos);
+            foreach (producto prod in listaProductosDestacados)
+            {
+                prod.precio = 0;
+            }
+            foreach (int id in listaIdProductoProdAdq)
+            {
+                foreach (producto prod in listaProductosDestacados)
+                {
+                    if (prod.idProducto == id)
+                    {
+                        prod.precio += 1;
+                    }
+                }
+            }
+            listaProductosDestacados = new BindingList<producto>(listaProductosDestacados.OrderByDescending(producto => producto.precio).ToList());
+            carDestImg1.Src = listaProductosDestacados[0].portadaUrl;
+            carDestImg2.Src = listaProductosDestacados[1].portadaUrl;
+            carDestImg3.Src = listaProductosDestacados[2].portadaUrl;
+            
+            
+            
+            //Mostrar productos incial;
             mostrarListaProductos(listaProductos);
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
 

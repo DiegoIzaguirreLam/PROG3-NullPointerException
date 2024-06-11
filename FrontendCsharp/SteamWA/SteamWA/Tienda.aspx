@@ -164,13 +164,13 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="Images/portada_juego2.jpg" class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
+                                <img src="Images/portada_juego2.jpg" id="carDestImg1" runat="server" class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego4.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
+                                <img src="Images/portada_juego4.jpg" id="carDestImg2" runat="server" class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego5.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
+                                <img src="Images/portada_juego5.jpg" id="carDestImg3" runat="server"  class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
