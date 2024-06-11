@@ -22,18 +22,37 @@
         }
 
         .card-img-height {
-            height: 220px; /* ajusta esta altura según tus necesidades */
+            height: 220px;
         }
 
         .column-space {
-            padding-right: 50px; /* Cambia el valor según tu preferencia */
+            padding-right: 50px;
+        }
+    </style>
+
+    <style>
+        .pagination a, .pagination span {
+            margin: 0 3px;
+            padding: 4px 8px;
+            text-decoration: none;
+            color: #007bff;
         }
 
+            .pagination a:hover {
+                background-color: #f8f9fa;
+                border-color: #dee2e6;
+            }
+
+        .pagination span {
+            background-color: #007bff;
+            color: #fff;
+        }
     </style>
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
+    <script src="Scripts/Steam/mostrarModal.js"></script>
 </asp:Content>
 
 
@@ -41,7 +60,7 @@
     <div class="container">
         <div class="row">
             <!-- Información General del Usuario -->
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card mb-3">
                     <img src="Images/user_profile_picture.jpg" class="card-img-top" alt="Avatar del Usuario">
                     <div class="card-body bg-info-subtle">
@@ -64,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 container-gradient rounded-4">
+            <div class="col-md-8 container-gradient rounded-4">
 
                 <!-- Barra de Navegación -->
                 <ul class="nav nav-tabs m-3" role="tablist">
@@ -75,122 +94,141 @@
                         <asp:LinkButton ID="lbActividad" CssClass="nav-link bg-navy text-light" runat="server" OnClick="lbActividad_Click">Actividad Reciente</asp:LinkButton>
                     </li>
                     <li class="nav-item">
-                        <asp:LinkButton ID="lbInfoPersonal" CssClass="nav-link bg-navy text-light" runat="server" OnClick="lbInfoPersonal_Click">Información Personal</asp:LinkButton>
+                        <asp:LinkButton ID="lbUsuariosBloqueados" CssClass="nav-link bg-navy text-light" runat="server" OnClick="lbUsuariosBloqueados_Click">Usuarios Bloqueados</asp:LinkButton>
                     </li>
                 </ul>
 
-                <!-- Contenido de cada Pestaña -->
-                <asp:MultiView ID="MultiView1" runat="server">
+                <div class="m-3">
+                    <!-- Contenido de cada Pestaña -->
+                    <asp:MultiView ID="MultiView1" runat="server">
 
 
-                    <!-- Vista para Logros Obtenidos -->
-                    <asp:View ID="ViewLogrosObtenidos" runat="server">
-                        <asp:Label ID="lblNoLogros" runat="server" Text="Aún no has conseguido ningún logro. ¡Comienza a jugar para ganar logros y mejorar tu perfil!" Visible="False" CssClass="text-center" />
+                        <!-- Vista para Logros Obtenidos -->
+                        <asp:View ID="ViewLogrosObtenidos" runat="server">
+                            <asp:Label ID="lblNoLogros" runat="server" Text="Aún no has conseguido ningún logro. ¡Comienza a jugar para ganar logros y mejorar tu perfil!" Visible="False" CssClass="text-center" />
 
-                        <!-- GridView para listar los logros del usuario -->
-                        <asp:GridView ID="gvLogros" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="5"
-                            OnPageIndexChanging="gvLogros_PageIndexChanging" OnRowDataBound="gvLogros_RowDataBound">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Logo">
-                                    <ItemTemplate>
-                                        <img src="Images/logo_juego4.jpg" style="height: 50px; width: 50px;" />
-                                    </ItemTemplate>
-                                    <ItemStyle CssClass="column-space" />
-                                </asp:TemplateField>
-                                <asp:BoundField HeaderText="Título">
-                                    <ItemStyle CssClass="column-space" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="Logro">
-                                    <ItemStyle CssClass="column-space" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="Descripción">
-                                    <ItemStyle CssClass="column-space" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="Fecha" DataFormatString="{0:dd-MM-yyyy}">
-                                    <ItemStyle CssClass="column-space" />
-                                </asp:BoundField>
-                            </Columns>
-                        </asp:GridView>
+                            <!-- GridView para listar los logros del usuario -->
+                            <asp:GridView ID="gvLogros" runat="server" AutoGenerateColumns="False"
+                                AllowPaging="True" PageSize="5"
+                                CssClass="table table-responsive table-striped table-dark"
+                                OnPageIndexChanging="gvLogros_PageIndexChanging"
+                                OnRowDataBound="gvLogros_RowDataBound">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Logo">
+                                        <ItemTemplate>
+                                            <img src="Images/logo_juego4.jpg" style="height: 50px; width: 50px;" />
+                                        </ItemTemplate>
+                                        <ItemStyle CssClass="column-space" />
+                                    </asp:TemplateField>
+                                    <asp:BoundField HeaderText="Título">
+                                        <ItemStyle CssClass="column-space" />
+                                    </asp:BoundField>
+                                    <asp:BoundField HeaderText="Logro">
+                                        <ItemStyle CssClass="column-space" />
+                                    </asp:BoundField>
+                                    <asp:BoundField HeaderText="Descripción">
+                                        <ItemStyle CssClass="column-space" />
+                                    </asp:BoundField>
+                                    <asp:BoundField HeaderText="Fecha" DataFormatString="{0:dd-MM-yyyy}">
+                                        <ItemStyle CssClass="column-space" />
+                                    </asp:BoundField>
+                                </Columns>
+                            </asp:GridView>
 
-                    </asp:View>
+                        </asp:View>
 
 
 
 
-                    <!-- Vista para Actividad Reciente -->
-                    <asp:View ID="ViewActividadReciente" runat="server">
-                        <!-- Contenido de Actividad Reciente -->
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <div class="card bg-dark-subtle h-100">
-                                    <img src="Images/portada_juego1.jpg" class="card-img-top img-fluid card-img-height" alt="Phasmophobia">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Phasmophobia</h5>
-                                        <p>Información del tiempo jugado desde que se compró. </p>
-                                        <div class="progress mb-2">
-                                            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="88"></div>
+                        <!-- Vista para Actividad Reciente -->
+                        <asp:View ID="ViewActividadReciente" runat="server">
+                            <!-- Contenido de Actividad Reciente -->
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="card bg-dark-subtle h-100">
+                                        <img src="Images/portada_juego1.jpg" class="card-img-top img-fluid card-img-height" alt="Phasmophobia">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Phasmophobia</h5>
+                                            <p>Información del tiempo jugado desde que se compró. </p>
+                                            <div class="progress mb-2">
+                                                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="88"></div>
+                                            </div>
+                                            <p class="card-text">Última vez jugado: 2024-05-01</p>
                                         </div>
-                                        <p class="card-text">Última vez jugado: 2024-05-01</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card bg-dark-subtle h-100">
+                                        <img src="Images/portada_juego3.jpg" class="card-img-top img-fluid card-img-height" alt="Dark Souls Remastered">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dark Souls Remastered</h5>
+                                            <p>Información del tiempo jugado desde que se compró. </p>
+                                            <div class="progress mb-2">
+                                                <div class="progress-bar" role="progressbar" style="width: 21%;" aria-valuenow="21" aria-valuemin="0" aria-valuemax="98"></div>
+                                            </div>
+                                            <p class="card-text">Última vez jugado: 2024-04-29</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card bg-dark-subtle h-100">
-                                    <img src="Images/portada_juego3.jpg" class="card-img-top img-fluid card-img-height" alt="Dark Souls Remastered">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dark Souls Remastered</h5>
-                                        <p>Información del tiempo jugado desde que se compró. </p>
-                                        <div class="progress mb-2">
-                                            <div class="progress-bar" role="progressbar" style="width: 21%;" aria-valuenow="21" aria-valuemin="0" aria-valuemax="98"></div>
-                                        </div>
-                                        <p class="card-text">Última vez jugado: 2024-04-29</p>
-                                    </div>
+                        </asp:View>
+
+
+
+
+                        <!-- Vista para Información Personal -->
+                        <asp:View ID="ViewInfoPersonal" runat="server">
+                            <!-- GridView de usuarios bloqueados -->
+                            <div style="margin-bottom: 12px;">
+                                <h4>Bloquear un usuario</h4>
+                                <asp:Label runat="server" Text="Bloquear a un usuario es una acción permanente. Puedes bloquear a un usuario que sea tu amigo o ingresando su ID de usuario:" CssClass="text-light" Style="margin-top: 100px;"></asp:Label>
+                                <div class="col my-3">
+                                    <input id="inputIdBloquear" runat="server" type="number" placeholder="Ingresa un ID para bloquear" class="col-5" style="margin-right: 20px; height: 38px;" />
+                                    <asp:LinkButton ID="lbBloquearID" runat="server" Text="Bloquear" CssClass="btn btn-danger" OnClick="lbBloquearID_Click" />
                                 </div>
                             </div>
-                        </div>
-                    </asp:View>
+                            <asp:GridView ID="gvBloqueados" runat="server"
+                                AllowPaging="true" PageSize="2"
+                                OnPageIndexChanging="gvBloqueados_PageIndexChanging"
+                                AutoGenerateColumns="false"
+                                CssClass="table table-responsive table-striped table-dark"
+                                PagerStyle-CssClass="pagination">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="UID">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblUID" runat="server" Text='<%# Eval("uid") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField HeaderText="Nombre del Perfil" DataField="nombrePerfil" />
+                                    <asp:BoundField HeaderText="Nombre de la Cuenta" DataField="nombreCuenta" />
+                                </Columns>
+                            </asp:GridView>
+                        </asp:View>
 
 
+                    </asp:MultiView>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-                    <!-- Vista para Información Personal -->
-                    <asp:View ID="ViewInfoPersonal" runat="server">
-                        <!-- Contenido de Información Personal -->
-                        <div class="form-group row my-2">
-                            <label for="txtNombre" class="col-sm-3 col-form-label">Nombre:</label>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" ReadOnly="true">John Doe</asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <label for="txtCorreo" class="col-sm-3 col-form-label">Correo electrónico:</label>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" ReadOnly="true">johndoe@example.com</asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <label for="txtTelefono" class="col-sm-3 col-form-label">Teléfono:</label>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" ReadOnly="true">1234567890</asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <label for="txtFechaNacimiento" class="col-sm-3 col-form-label">Fecha de nacimiento:</label>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" ReadOnly="true">01/01/1990</asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <div class="col-sm-12 text-right mt-4">
-                                <asp:Button ID="btnEditarInfo" runat="server" Text="Editar Información" CssClass="btn btn-primary" />
-                            </div>
-                        </div>
-                    </asp:View>
-
-
-
-
-                </asp:MultiView>
+    <!-- Modal de Confirmación de Bloqueo de Usuario -->
+    <div id="modalBloquearUsuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="container bg-dark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="lblEliminarAmigo">Bloquear un Usuario</h5>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="lblConfirmacionUsuario" CssClass="text-light" Text="TODO: Cambiar texto" runat="server"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <asp:LinkButton runat="server" ID="btnBloquearModal" type="button" CssClass="btn btn-primary btn-danger" OnClick="btnBloquearModal_Click">Bloquear</asp:LinkButton>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -17,6 +17,12 @@
   <message name="listarBandaSonorasResponse">
     <part name="parameters" element="tns:listarBandaSonorasResponse" />
   </message>
+  <message name="insertarBandaSonora">
+    <part name="parameters" element="tns:insertarBandaSonora" />
+  </message>
+  <message name="insertarBandaSonoraResponse">
+    <part name="parameters" element="tns:insertarBandaSonoraResponse" />
+  </message>
   <message name="actualizarBandaSonora">
     <part name="parameters" element="tns:actualizarBandaSonora" />
   </message>
@@ -29,12 +35,6 @@
   <message name="eliminarBandaSonoraResponse">
     <part name="parameters" element="tns:eliminarBandaSonoraResponse" />
   </message>
-  <message name="insertarBandaSonora">
-    <part name="parameters" element="tns:insertarBandaSonora" />
-  </message>
-  <message name="insertarBandaSonoraResponse">
-    <part name="parameters" element="tns:insertarBandaSonoraResponse" />
-  </message>
   <portType name="BandaSonoraWS">
     <operation name="buscarBandaSonora">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraRequest" message="tns:buscarBandaSonora" />
@@ -44,6 +44,10 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest" message="tns:listarBandaSonoras" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasResponse" message="tns:listarBandaSonorasResponse" />
     </operation>
+    <operation name="insertarBandaSonora">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraRequest" message="tns:insertarBandaSonora" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraResponse" message="tns:insertarBandaSonoraResponse" />
+    </operation>
     <operation name="actualizarBandaSonora">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraRequest" message="tns:actualizarBandaSonora" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/actualizarBandaSonoraResponse" message="tns:actualizarBandaSonoraResponse" />
@@ -51,10 +55,6 @@
     <operation name="eliminarBandaSonora">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraRequest" message="tns:eliminarBandaSonora" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraResponse" message="tns:eliminarBandaSonoraResponse" />
-    </operation>
-    <operation name="insertarBandaSonora">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraRequest" message="tns:insertarBandaSonora" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraResponse" message="tns:insertarBandaSonoraResponse" />
     </operation>
   </portType>
   <binding name="BandaSonoraWSPortBinding" type="tns:BandaSonoraWS">
@@ -77,6 +77,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="insertarBandaSonora">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="actualizarBandaSonora">
       <soap:operation soapAction="" />
       <input>
@@ -87,15 +96,6 @@
       </output>
     </operation>
     <operation name="eliminarBandaSonora">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarBandaSonora">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

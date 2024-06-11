@@ -6,6 +6,8 @@ DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
 DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
 DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_USUARIO_X_NOMBRE_CUENTA;
+DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_X_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_BLOQUEADOS_X_USUARIO;
 
 DELIMITER $
 CREATE PROCEDURE CREAR_USUARIO(
@@ -152,4 +154,36 @@ BEGIN
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE nombre_cuenta LIKE CONCAT('%', _nombre_cuenta, '%') AND
 		  u.activo = true;
+END$
+
+CREATE PROCEDURE LISTAR_AMIGOS_X_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
+                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
+    WHERE r.amistad = true AND u.activo = true;
+END$
+
+CREATE PROCEDURE LISTAR_BLOQUEADOS_X_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
+                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
+    WHERE r.bloqueo = true AND u.activo = true;
 END$

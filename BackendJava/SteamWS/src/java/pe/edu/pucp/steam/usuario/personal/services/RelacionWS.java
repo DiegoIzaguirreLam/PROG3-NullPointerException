@@ -50,19 +50,4 @@ public class RelacionWS {
         }
         return resultado;
     }
-    
-    @WebMethod(operationName="listarAmigosPorUsuario")
-    public ArrayList<Usuario>
-        listarAmigosPorUsuario(@WebParam(name="idUsuarioA") int idUsuario) {
-        ArrayList<Usuario> amigos = null;
-        
-        try{
-            RelacionDAO relacionDao = new RelacionMySQL();
-            amigos = relacionDao.listarAmigosPorUsuario(idUsuario);
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        
-        return amigos;
-    }
 }

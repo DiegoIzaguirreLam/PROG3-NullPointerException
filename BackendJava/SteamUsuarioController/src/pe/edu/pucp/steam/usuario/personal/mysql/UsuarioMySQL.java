@@ -347,4 +347,108 @@ public class UsuarioMySQL implements UsuarioDAO{
         
         return usuarios;
     }
+
+    @Override
+    public ArrayList<Usuario> listarAmigosPorUsuario(int idUsuario) {
+        ArrayList<Usuario> amigos = null;
+        
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_AMIGOS_X_USUARIO(?)}");
+            cs.setInt(1, idUsuario);
+            rs = cs.executeQuery();
+            
+            while (rs.next()) {
+                if (amigos == null) amigos = new ArrayList<>();
+                
+                Usuario usuario = new Usuario();
+                Pais pais = new Pais();
+                TipoMoneda moneda = new TipoMoneda();
+                
+                usuario.setUID(rs.getInt("UID"));
+                usuario.setNombreCuenta(rs.getString("nombre_cuenta"));
+                usuario.setNombrePerfil(rs.getString("nombre_perfil"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setTelefono(rs.getString("telefono"));
+                usuario.setPassword(rs.getString("contrasenia"));
+                usuario.setEdad(rs.getInt("edad"));
+                usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+                usuario.setVerificado(rs.getBoolean("verificado"));
+                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
+                usuario.setExperiencia(rs.getInt("experiencia"));
+                usuario.setNivel(rs.getInt("nivel"));
+                usuario.setActivo(rs.getBoolean("activo"));
+                pais.setIdPais(rs.getInt("fid_pais"));
+                pais.setNombre(rs.getString("nombre_pais"));
+                moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
+                moneda.setNombre(rs.getString("nombre_moneda"));
+                moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
+                moneda.setCodigo(rs.getString("codigo_moneda"));
+                pais.setMoneda(moneda);
+                usuario.setPais(pais);
+                
+                amigos.add(usuario);
+            }
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try { con.close(); }
+            catch(Exception ex)
+            { System.out.println(ex.getMessage()); }
+        }
+        
+        return amigos;
+    }
+
+    @Override
+    public ArrayList<Usuario> listarBloqueadosPorUsuario(int idUsuario) {
+        ArrayList<Usuario> bloqueados = null;
+        
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_BLOQUEADOS_X_USUARIO(?)}");
+            cs.setInt(1, idUsuario);
+            rs = cs.executeQuery();
+            
+            while (rs.next()) {
+                if (bloqueados == null) bloqueados = new ArrayList<>();
+                
+                Usuario usuario = new Usuario();
+                Pais pais = new Pais();
+                TipoMoneda moneda = new TipoMoneda();
+                
+                usuario.setUID(rs.getInt("UID"));
+                usuario.setNombreCuenta(rs.getString("nombre_cuenta"));
+                usuario.setNombrePerfil(rs.getString("nombre_perfil"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setTelefono(rs.getString("telefono"));
+                usuario.setPassword(rs.getString("contrasenia"));
+                usuario.setEdad(rs.getInt("edad"));
+                usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+                usuario.setVerificado(rs.getBoolean("verificado"));
+                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
+                usuario.setExperiencia(rs.getInt("experiencia"));
+                usuario.setNivel(rs.getInt("nivel"));
+                usuario.setActivo(rs.getBoolean("activo"));
+                pais.setIdPais(rs.getInt("fid_pais"));
+                pais.setNombre(rs.getString("nombre_pais"));
+                moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
+                moneda.setNombre(rs.getString("nombre_moneda"));
+                moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
+                moneda.setCodigo(rs.getString("codigo_moneda"));
+                pais.setMoneda(moneda);
+                usuario.setPais(pais);
+                
+                bloqueados.add(usuario);
+            }
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try { con.close(); }
+            catch(Exception ex)
+            { System.out.println(ex.getMessage()); }
+        }
+        
+        return bloqueados;
+    }
 }

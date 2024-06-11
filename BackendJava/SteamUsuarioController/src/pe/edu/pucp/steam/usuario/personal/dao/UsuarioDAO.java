@@ -13,4 +13,6 @@ public interface UsuarioDAO {
     Usuario verificarCuenta (String nombreCuenta, String password);
     ArrayList<Usuario> listarUsuarios();
     ArrayList<Usuario> listarUsuariosPorNombreCuenta(String nombreCuenta);
+    ArrayList<Usuario> listarAmigosPorUsuario(int idUsuario);
+    ArrayList<Usuario> listarBloqueadosPorUsuario(int idUsuario);
 }

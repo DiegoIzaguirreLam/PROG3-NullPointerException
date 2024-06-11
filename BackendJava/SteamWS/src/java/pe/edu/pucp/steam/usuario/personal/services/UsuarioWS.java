@@ -8,7 +8,9 @@ import pe.edu.pucp.steam.usuario.personal.dao.UsuarioDAO;
 import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import pe.edu.pucp.steam.usuario.personal.mysql.UsuarioMySQL;
 
-@WebService(serviceName="UsuarioWS", targetNamespace="http://services.softprog.pucp.edu.pe/")
+@WebService(serviceName="UsuarioWS",
+            targetNamespace="http://services.softprog.pucp.edu.pe/")
+
 public class UsuarioWS {
 
     @WebMethod(operationName="insertarUsuario")
@@ -124,5 +126,35 @@ public class UsuarioWS {
         }
         
         return usuarios;
+    }
+        
+    @WebMethod(operationName="listarAmigosPorUsuario")
+    public ArrayList<Usuario>
+        listarAmigosPorUsuario(@WebParam(name="idUsuario") int idUsuario) {
+        ArrayList<Usuario> amigos = null;
+        
+        try{
+            UsuarioDAO usuarioDao = new UsuarioMySQL();
+            amigos = usuarioDao.listarAmigosPorUsuario(idUsuario);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return amigos;
+    }
+        
+    @WebMethod(operationName="listarBloqueadosPorUsuario")
+    public ArrayList<Usuario>
+        listarBloqueadosPorUsuario(@WebParam(name="idUsuario") int idUsuario) {
+        ArrayList<Usuario> bloqueados = null;
+        
+        try{
+            UsuarioDAO usuarioDao = new UsuarioMySQL();
+            bloqueados = usuarioDao.listarBloqueadosPorUsuario(idUsuario);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return bloqueados;
     }
 }

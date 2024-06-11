@@ -1,7 +1,6 @@
 DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
 DROP PROCEDURE IF EXISTS ELIMINAR_AMIGO;
 DROP PROCEDURE IF EXISTS BLOQUEAR_USUARIO;
-DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_POR_USUARIO;
 
 DELIMITER $ 
 CREATE PROCEDURE AGREGAR_AMIGO(
@@ -46,19 +45,4 @@ BEGIN
         INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
         VALUES (_fid_usuario_a, _fid_usuario_b, 0, 1, 1);
     END IF;
-END $
-
-CREATE PROCEDURE LISTAR_AMIGOS_POR_USUARIO(
-	IN _id_usuario INT
-)
-BEGIN
-	SELECT fid_usuarioa AS "ID Usuario A",
-		   fid_usuariob AS "ID Usuario B",
-           amistad      AS "Amistad",
-           bloqueo      AS "Bloqueo"
-    FROM Relacion
-    WHERE (fid_usuarioa = _id_usuario OR
-		  fid_usuariob = _id_usuario) AND
-          amistad = TRUE AND
-          activo = TRUE;
 END $
