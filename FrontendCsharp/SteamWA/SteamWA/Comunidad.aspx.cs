@@ -180,7 +180,7 @@ namespace SteamWA
             notificacionForo.tipoSpecified = true;
             notificacionForo.usuario = (usuario)Session["usuario"];
             notificacionForo.tipo = tipoNotificacion.FOROS;
-            if(nAntiguo.CompareTo(actforo.nombre) != 0) notificacionForo.mensaje = "Te has actualiazado el foro " + nAntiguo + " ahora llamado " + actforo.nombre;
+            if(nAntiguo.CompareTo(actforo.nombre) != 0) notificacionForo.mensaje = "Has actualiazado el foro " + nAntiguo + " ahora llamado " + actforo.nombre;
             int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
             Response.Redirect("Comunidad.aspx");
         }
@@ -272,7 +272,7 @@ namespace SteamWA
 
         protected void gvCreados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
+            //gvCreados.DataSource = (BindingList<foro>)Session["ForosCreados"];
             gvCreados.PageIndex = e.NewPageIndex;
             pageIndex[1] = e.NewPageIndex;
             Session["IndexPages"] = pageIndex;
@@ -286,7 +286,7 @@ namespace SteamWA
 
         protected void gvSuscritos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
+            //gvSuscritos.DataSource = (BindingList<foro>)Session["ForosSuscritos"];
             gvSuscritos.PageIndex = e.NewPageIndex;
             pageIndex[2] = e.NewPageIndex;
             Session["IndexPages"] = pageIndex;

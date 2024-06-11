@@ -100,8 +100,8 @@
                             </div>
                         </div>
                         <div class="card-footer clearfix">
-                            <asp:Button ID="Button1" runat="server" Text="Actualizar"
-                                CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                            <asp:Button ID="btnActualizaSubforo" runat="server" Text="Actualizar"
+                                CssClass="float-end btn btn-secondary bg-dark mb-2" OnClick="btnActualizaSubforo_Click" />
                         </div>
                     </div>
                 </div>

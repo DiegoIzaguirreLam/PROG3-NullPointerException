@@ -38,7 +38,7 @@
         </div>
     </div>
     <hr "/>
-    <div class="container fontSetterExo2">
+    <div class="container fontSetterExo2 mb-5">
         <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvForos_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
             <Columns>
                 <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForo" />
@@ -55,6 +55,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:Label runat="server" CssClass="bg-transparent text-dark" Text="."></asp:Label>
     </div>
     <!--Clase modal para la creación de un foro-->
     <div class="modal border-white fade fontSetterExo2" id="form-modal-foro">
