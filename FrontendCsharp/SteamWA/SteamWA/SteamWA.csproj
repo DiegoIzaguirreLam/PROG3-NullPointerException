@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\Steam\Amigos.js" />
+    <Content Include="Scripts\Steam\Comunidad.js" />
     <Content Include="Scripts\Steam\GestionarCartera.js" />
     <Content Include="SeleccionarMetodoPago.aspx" />
     <Content Include="Amigos.aspx" />

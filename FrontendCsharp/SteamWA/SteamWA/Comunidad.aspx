@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/crearForo.js"></script>
+    <script src="Scripts/Steam/Comunidad.js?v4"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <link href="Content/Steam/FontAdder.css" rel="stylesheet" />
@@ -19,7 +20,8 @@
             </div>
         </div>
         <div class="search-bar">
-            <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged" oninput="buscarForo_js()"></asp:TextBox>
+            <%--<asp:Label runat="server" ID="pruebaLabel" CssClass="bg-white" Text="djsakdhasjkd"></asp:Label>--%>
         </div>
     </div>
     <div class="container mt-3 fontSetterExo2">
