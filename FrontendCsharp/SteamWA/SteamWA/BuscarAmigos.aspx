@@ -3,6 +3,24 @@
     Inherits="SteamWA.BuscarAmigos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .pagination a, .pagination span {
+            margin: 0 3px;
+            padding: 4px 8px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            .pagination a:hover {
+                background-color: #f8f9fa;
+                border-color: #dee2e6;
+            }
+
+        .pagination span {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
@@ -73,9 +91,14 @@
                 OnPageIndexChanging="gvUsuarios_PageIndexChanging"
                 OnRowDataBound="gvUsuarios_RowDataBound"
                 AutoGenerateColumns="false"
-                CssClass="table table-hover table-responsive table-striped table-dark">
+                CssClass="table table-hover table-responsive table-striped table-dark"
+                PagerStyle-CssClass="pagination">
                 <Columns>
-                    <asp:BoundField HeaderText="UID" DataField="uid" />
+                    <asp:TemplateField HeaderText="UID">
+                        <ItemTemplate>
+                            <asp:Label ID="lblUID" runat="server" Text='<%# Eval("uid") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField HeaderText="Nombre del Perfil" DataField="nombrePerfil" />
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -84,6 +107,7 @@
                                 CommandArgument='<%# Eval("UID") %>'
                                 OnClick="lbAgregarAmigo_Click" />
                             <asp:Label ID="lblYaEsAmigo" Text="¡Ya son amigos!" runat="server" CssClass="text-success" Visible="false"></asp:Label>
+                            <asp:Label ID="lblEstaBloqueado" Text="Este usuario ha sido bloqueado." runat="server" CssClass="text-danger" Visible="false"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

@@ -14,13 +14,26 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) lbLogros_Click(null, null);
+            // En la primera carga, se obtienen los datos de la base de datos
+            if (!IsPostBack)
+            {
+                // Obtener información de la base de datos
+                usuario usuario = cargarDatosUsuario();
+                cargarLogrosBaseDeDatos(usuario.UID);
+                cargarBloqueadosBaseDeDatos(usuario.UID);
 
-            cargarDatosUsuario();
-            cargarLogrosUsuario();
+                // Para que la pantalla inicie en la vista de logros
+                lbLogros_Click(null, null);
+            }
+
+            // Enlazar los GridView con los datos
+            gvLogros.DataSource = (BindingList<logroDesbloqueado>)Session["logrosDesbloqueados"];
+            gvLogros.DataBind();
+            gvBloqueados.DataSource = (BindingList<usuario>)Session["bloqueados"];
+            gvBloqueados.DataBind();
         }
 
-        protected void cargarDatosUsuario()
+        protected usuario cargarDatosUsuario()
         {
             usuario usuario = (usuario)Session["usuario"];
 
@@ -36,11 +49,14 @@ namespace SteamWA
                 lblVerificado.Style["color"] = "green";
                 iconVerificado.Style["color"] = "green";
             }
+
+            return usuario;
         }
 
-        protected void cargarLogrosUsuario()
+        protected void cargarLogrosBaseDeDatos(int idUsuario)
         {
-            int idUsuario = ((usuario)Session["usuario"]).UID;
+            // Se asume que la variable de sesión tiene los logros actualizados
+            if (Session["logrosDesbloqueados"] != null) return;
 
             LogroDesbloqueadoWSClient daoLogro = new LogroDesbloqueadoWSClient();
             logroDesbloqueado[] listaLogros = daoLogro.listarLogrosPorUsuario(idUsuario);
@@ -51,16 +67,31 @@ namespace SteamWA
                 return;
             }
 
-            BindingList<logroDesbloqueado> logros = new BindingList<logroDesbloqueado>(listaLogros);
-            gvLogros.DataSource = logros;
-            gvLogros.DataBind();
+            Session["logrosDesbloqueados"] = new BindingList<logroDesbloqueado>(listaLogros);
+        }
+
+        protected void cargarBloqueadosBaseDeDatos(int idUsuario)
+        {
+            // Se asume que la variable sesión ya tiene los bloqueados actualizados
+            if (Session["bloqueados"] != null) return;
+
+            UsuarioWSClient daoUsuario = new UsuarioWSClient();
+
+            // Se obtienen los bloqueados del usuario de la base de datos
+            usuario[] listaBloqueados = daoUsuario.listarBloqueadosPorUsuario(idUsuario);
+
+            // Si no tiene bloqueados, no se hace nada
+            if (listaBloqueados == null) return;
+
+            // Se guardan los bloqueados en la sesión
+            Session["bloqueados"] = new BindingList<usuario>(listaBloqueados);
         }
 
         protected void lbLogros_Click(object sender, EventArgs e)
         {
             lbLogros.CssClass = "nav-link bg-navy text-light bg-gradient";
             lbActividad.CssClass = "nav-link bg-navy text-light";
-            lbInfoPersonal.CssClass = "nav-link bg-navy text-light";
+            lbUsuariosBloqueados.CssClass = "nav-link bg-navy text-light";
             MultiView1.SetActiveView(ViewLogrosObtenidos);
         }
 
@@ -68,15 +99,15 @@ namespace SteamWA
         {
             lbLogros.CssClass = "nav-link bg-navy text-light";
             lbActividad.CssClass = "nav-link bg-navy text-light bg-gradient";
-            lbInfoPersonal.CssClass = "nav-link bg-navy text-light";
+            lbUsuariosBloqueados.CssClass = "nav-link bg-navy text-light";
             MultiView1.SetActiveView(ViewActividadReciente);
         }
 
-        protected void lbInfoPersonal_Click(object sender, EventArgs e)
+        protected void lbUsuariosBloqueados_Click(object sender, EventArgs e)
         {
             lbLogros.CssClass = "nav-link bg-navy text-light";
             lbActividad.CssClass = "nav-link bg-navy text-light";
-            lbInfoPersonal.CssClass = "nav-link bg-navy text-light bg-gradient";
+            lbUsuariosBloqueados.CssClass = "nav-link bg-navy text-light bg-gradient";
             MultiView1.SetActiveView(ViewInfoPersonal);
         }
 
@@ -102,21 +133,83 @@ namespace SteamWA
                 e.Row.Cells[4].Text = logro.fechaDesbloqueo.ToString("dd/MM/yyyy");
             }
         }
+
+        protected void gvBloqueados_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvBloqueados.PageIndex = e.NewPageIndex;
+            gvBloqueados.DataSource = (BindingList<usuario>)Session["bloqueados"];
+            gvBloqueados.DataBind();
+        }
+
+        protected void lbBloquearID_Click(object sender, EventArgs e)
+        {
+            // Obtener el usuario por bloquear
+            UsuarioWSClient usuarioDao = new UsuarioWSClient();
+            int idUsuarioPorBloquear = Int32.Parse(inputIdBloquear.Value);
+            usuario usuarioPorBloquear = usuarioDao.buscarUsuarioPorId(idUsuarioPorBloquear);
+            BindingList<usuario> bloqueados = (BindingList<usuario>)Session["bloqueados"];
+
+            btnBloquearModal.Visible = false;
+
+            if (usuarioPorBloquear == null)
+            {
+                lblConfirmacionUsuario.Text = $"Error: no existe el usuario con " +
+                                              $"ID = {idUsuarioPorBloquear}.";
+            }
+            else if (idUsuarioPorBloquear == ((usuario)Session["usuario"]).UID)
+            {
+                lblConfirmacionUsuario.Text = $"Error: tú eres el usuario con" +
+                                              $"ID = {idUsuarioPorBloquear}.\n" +
+                                              $"No puedes bloquearte a ti mismo.";
+            }
+            else if (bloqueados.Any(u => u.UID == idUsuarioPorBloquear))
+            {
+                lblConfirmacionUsuario.Text = $"El usuario {usuarioPorBloquear.nombrePerfil} " +
+                                              $"({usuarioPorBloquear.nombreCuenta}) con " +
+                                              $"ID = {idUsuarioPorBloquear} ya está bloqueado.";
+            }
+            else
+            {
+                btnBloquearModal.Visible = true;
+
+                // Mostrar el modal de confirmación de bloqueo
+                lblConfirmacionUsuario.Text = $"¿Estás seguro de que deseas bloquear a " +
+                                              $"{usuarioPorBloquear.nombrePerfil} " +
+                                              $"({usuarioPorBloquear.nombreCuenta}) con " +
+                                              $"ID = {idUsuarioPorBloquear}?\n" +
+                                              $"¡Recuerda que esta acción es permanente!";
+
+                // Guardar el usuario por bloquear en una variable temporal de sesión
+                Session["usuarioPorBloquear"] = usuarioPorBloquear;
+            }
+
+            inputIdBloquear.Value = "";
+            string script = "window.onload = function() { showModalForm('modalBloquearUsuario') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        protected void btnBloquearModal_Click(object sender, EventArgs e)
+        {
+            int idUsuario = ((usuario)Session["usuario"]).UID;
+            usuario usuarioPorBloquear = (usuario)Session["usuarioPorBloquear"];
+
+            // Bloqueo en la base de datos
+            RelacionWSClient daoRelacion = new RelacionWSClient();
+            daoRelacion.bloquearUsuario(idUsuario, usuarioPorBloquear.UID);
+
+            // Se obtiene la variable ReadOnly
+            BindingList<usuario> bloqueadosReadOnly = (BindingList<usuario>)Session["bloqueados"];
+
+            // Se crea copia de la variable ReadOnly
+            BindingList<usuario> bloqueados = new BindingList<usuario>(bloqueadosReadOnly.ToList());
+
+            // Añadir el usuario a los bloqueados
+            bloqueados.Add(usuarioPorBloquear);
+
+            // Actualización de las variables en la sesión
+            Session["bloqueados"] = bloqueados;
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
+        }
     }
 }
-
-
-/*public string TituloJuego
-        {
-            get { return this.juego.producto.titulo; }
-        }
-
-        public string NombreLogro
-        {
-            get { return this.logro.nombre; }
-        }
-
-        public string DescripcionLogro
-        {
-            get { return this.logro.descripcion; }
-        }*/

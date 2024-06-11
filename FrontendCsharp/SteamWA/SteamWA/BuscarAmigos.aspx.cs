@@ -151,16 +151,22 @@ namespace SteamWA
         {
             if (e.Row.RowType != DataControlRowType.DataRow) return;
 
-            // Si no tiene amigos, se deben enlistar todos
+            verificarUsuarioEsAmigo(e);
+            verificarUsuarioEsBloqueado(e);
+        }
+
+        protected void verificarUsuarioEsAmigo(GridViewRowEventArgs e)
+        {
+            // Si no tiene amigos, no se hace nada
             BindingList<usuario> amigos = (BindingList<usuario>)Session["amigos"];
             if (amigos == null) return;
 
             // Obtener el valor del campo UID
-            int idAmigoFila = Int32.Parse(DataBinder.Eval(e.Row.DataItem, "UID").ToString());
+            int idUsuarioFila = Int32.Parse(DataBinder.Eval(e.Row.DataItem, "UID").ToString());
             int idUsuario = ((usuario)Session["usuario"]).UID;
 
             // Verificar si el usuario en la fila ya es amigo
-            bool yaEsAmigo = amigos.Any(u => u.UID == idAmigoFila || u.UID == idUsuario);
+            bool yaEsAmigo = amigos.Any(u => u.UID == idUsuarioFila);
 
             // Buscar el LinkButton dentro de la fila
             LinkButton lbAgregarAmigo = (LinkButton)e.Row.FindControl("lbAgregarAmigo");
@@ -170,6 +176,29 @@ namespace SteamWA
 
             lbAgregarAmigo.Visible = !yaEsAmigo;
             lblYaEsAmigo.Visible = yaEsAmigo;
+        }
+
+        protected void verificarUsuarioEsBloqueado(GridViewRowEventArgs e)
+        {
+            // Si no tiene bloqueados, no se hace nada
+            BindingList<usuario> bloqueados = (BindingList<usuario>)Session["bloqueados"];
+            if (bloqueados == null) return;
+
+            // Obtener el valor del campo UID
+            int idUsuarioFila = Int32.Parse(DataBinder.Eval(e.Row.DataItem, "UID").ToString());
+            int idUsuario = ((usuario)Session["usuario"]).UID;
+
+            // Verificar si el usuario en la fila está bloqueado
+            bool estaBloqueado = bloqueados.Any(u => u.UID == idUsuarioFila);
+
+            // Buscar el LinkButton dentro de la fila
+            LinkButton lbAgregarAmigo = (LinkButton)e.Row.FindControl("lbAgregarAmigo");
+
+            // Buscar el Label dentro de la fila
+            Label lblEstaBloqueado = (Label)e.Row.FindControl("lblEstaBloqueado");
+
+            lbAgregarAmigo.Visible = !estaBloqueado && lbAgregarAmigo.Visible;
+            lblEstaBloqueado.Visible = estaBloqueado;
         }
     }
 }
