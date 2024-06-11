@@ -11,7 +11,7 @@
         <!-- dropdown checkbox con colecciones -->
         <div class="text-end">
             <div class="dropdown d-inline-block">
-                <asp:LinkButton ID="lbLimpiarFiltros" runat="server" Text="<i class='fa-solid fa-filter-circle-xmark'></i> Limpiar Colecciones" CssClass="btn bg-navy btn-outline-light" OnClick="lbLimpiarFiltros_Click" />
+                <asp:LinkButton ID="lbLimpiarFiltros" runat="server" Text="<i class='fa-solid fa-filter-circle-xmark'></i> Limpiar Selección" CssClass="btn bg-navy btn-outline-light" OnClick="lbLimpiarFiltros_Click" />
                 <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="dropdownColecciones"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Colecciones

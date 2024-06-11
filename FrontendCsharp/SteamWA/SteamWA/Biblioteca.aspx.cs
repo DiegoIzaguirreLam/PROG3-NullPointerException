@@ -411,11 +411,15 @@ namespace SteamWA
         {
             int horas, minutos, segundos;
 
-            horas = Convert.ToInt32(txtTiempoUsoModalHH.Text);
-            minutos = Convert.ToInt32(txtTiempoUsoModalMM.Text);
-            segundos = Convert.ToInt32(txtTiempoUsoModalSS.Text);
+            horas = (txtTiempoUsoModalHH.Text!="")?Convert.ToInt32(txtTiempoUsoModalHH.Text):0;
+            minutos = (txtTiempoUsoModalMM.Text!="")?Convert.ToInt32(txtTiempoUsoModalMM.Text):0;
+            segundos = (txtTiempoUsoModalSS.Text!="")?Convert.ToInt32(txtTiempoUsoModalSS.Text):0;
             productoAdquirido producto = (productoAdquirido)Session["productoAdquiridoSeleccionado"];
-           
+            
+            if(horas==0 && minutos==0 && segundos == 0)
+            {
+                return;
+            }
 
             TimeSpan tiempoUsoAgregado = new TimeSpan(horas, minutos, segundos);
 

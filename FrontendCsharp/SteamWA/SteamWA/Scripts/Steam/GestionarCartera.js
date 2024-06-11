@@ -16,6 +16,21 @@ function validarValor(input) {
         input.value = 0;
         return;
     }
+
+    if (numero == 0) {
+        input.value = 0;
+        return;
+    }
+
+    if (valor.charAt(0) == "0") {
+        input.value = input.value.substring(1);
+    }
+
+    if (numero > 999999) {
+        // Si excede, truncar el valor a 6 dígitos
+        input.value = valor.slice(0, 6);
+    }
+
     var partes = valor.split('.');
     if (partes.length > 1 && partes[1].length > 2) {
         // Si hay más de dos dígitos decimales, truncar la entrada
