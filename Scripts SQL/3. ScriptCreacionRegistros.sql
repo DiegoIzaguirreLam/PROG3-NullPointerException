@@ -4,9 +4,9 @@ CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Euro', 'EUR', '€', 0.91);
 CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Dólar', 'USD', '$', 1);
 
 CALL CREAR_PAIS(@id_pais, 'Peru', 'PER', 1);
-CALL CREAR_PAIS(@id_pais, 'Francia', 'FR', 1);
-CALL CREAR_PAIS(@id_pais, 'Estados Unidos', 'US', 1);
-CALL CREAR_PAIS(@id_pais, 'Chile', 'CL', 1);
+CALL CREAR_PAIS(@id_pais, 'Francia', 'FR', 2);
+CALL CREAR_PAIS(@id_pais, 'Estados Unidos', 'US', 3);
+CALL CREAR_PAIS(@id_pais, 'España', 'ES', 2);
 
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 1');
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 2');
