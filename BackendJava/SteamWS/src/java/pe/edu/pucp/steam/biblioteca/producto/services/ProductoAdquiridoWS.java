@@ -90,4 +90,15 @@ public class ProductoAdquiridoWS {
         }
         return productoAdquirido;
     }
+    @WebMethod(operationName = "listarIdProductoProductoAdquirido")
+    public ArrayList<Integer> listarIdProductoProductoAdquirido() {
+        ArrayList<Integer> listaIdProductos = null;
+        try{
+            ProductoAdquiridoDAO daoProductoAdquirido = new ProductoAdquiridoMySQL();
+            listaIdProductos = daoProductoAdquirido.listarIdProductoProductoAdquirido();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return listaIdProductos;
+    }
 }

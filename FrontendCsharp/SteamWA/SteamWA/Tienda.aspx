@@ -60,6 +60,11 @@
         .desplegableBusqueda {
             color: white;
         }
+
+        .carousel-img-game{
+            width:1280px;
+            max-width: 75%;
+        }
     </style>
     
     <div class="container">
@@ -159,7 +164,7 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="Images/portada_juego2.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">
+                                <img src="Images/portada_juego2.jpg" class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="Images/portada_juego4.jpg" class="d-block w-75 ms-auto me-auto border-shadow rounded-3" alt="...">

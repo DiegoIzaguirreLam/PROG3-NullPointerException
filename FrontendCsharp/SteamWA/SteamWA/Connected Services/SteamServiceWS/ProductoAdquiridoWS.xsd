@@ -8,6 +8,8 @@
   <xs:element name="eliminarProductoAdquiridoResponse" type="tns:eliminarProductoAdquiridoResponse" />
   <xs:element name="insertarProductoAdquirido" type="tns:insertarProductoAdquirido" />
   <xs:element name="insertarProductoAdquiridoResponse" type="tns:insertarProductoAdquiridoResponse" />
+  <xs:element name="listarIdProductoProductoAdquirido" type="tns:listarIdProductoProductoAdquirido" />
+  <xs:element name="listarIdProductoProductoAdquiridoResponse" type="tns:listarIdProductoProductoAdquiridoResponse" />
   <xs:element name="listarProductosAdquiridosPorIdBiblioteca" type="tns:listarProductosAdquiridosPorIdBiblioteca" />
   <xs:element name="listarProductosAdquiridosPorIdBibliotecaResponse" type="tns:listarProductosAdquiridosPorIdBibliotecaResponse" />
   <xs:element name="listarProductosAdquiridosPorIdColeccion" type="tns:listarProductosAdquiridosPorIdColeccion" />
@@ -104,6 +106,14 @@
       <xs:element name="idProveedor" type="xs:int" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
       <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarIdProductoProductoAdquirido">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarIdProductoProductoAdquiridoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarProductoAdquirido">

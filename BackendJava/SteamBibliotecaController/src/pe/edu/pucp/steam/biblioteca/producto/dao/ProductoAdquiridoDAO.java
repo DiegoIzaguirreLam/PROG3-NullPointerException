@@ -17,5 +17,6 @@ public interface ProductoAdquiridoDAO {
     int eliminarProductoAdquirido(int idProductoAdquirido);
     ArrayList<ProductoAdquirido> listarProductosAdquiridosPorIdBiblioteca(int idBiblioteca);
     ArrayList<ProductoAdquirido> listarProductosAdquiridosPorIdColeccion(int idColeccion);
+    ArrayList<Integer> listarIdProductoProductoAdquirido();
     ProductoAdquirido buscarProductoAdquirido(int idProductoAdquirido);
 }

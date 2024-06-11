@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/PerfilWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarPerfiles">
-    <part name="parameters" element="tns:listarPerfiles" />
-  </message>
-  <message name="listarPerfilesResponse">
-    <part name="parameters" element="tns:listarPerfilesResponse" />
-  </message>
   <message name="ocultarPerfil">
     <part name="parameters" element="tns:ocultarPerfil" />
   </message>
   <message name="ocultarPerfilResponse">
     <part name="parameters" element="tns:ocultarPerfilResponse" />
+  </message>
+  <message name="listarPerfiles">
+    <part name="parameters" element="tns:listarPerfiles" />
+  </message>
+  <message name="listarPerfilesResponse">
+    <part name="parameters" element="tns:listarPerfilesResponse" />
   </message>
   <message name="actualizaPerfil">
     <part name="parameters" element="tns:actualizaPerfil" />
@@ -36,13 +36,13 @@
     <part name="parameters" element="tns:asignarPerfilUsuarioResponse" />
   </message>
   <portType name="PerfilWS">
-    <operation name="listarPerfiles">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesRequest" message="tns:listarPerfiles" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesResponse" message="tns:listarPerfilesResponse" />
-    </operation>
     <operation name="ocultarPerfil">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/ocultarPerfilRequest" message="tns:ocultarPerfil" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/ocultarPerfilResponse" message="tns:ocultarPerfilResponse" />
+    </operation>
+    <operation name="listarPerfiles">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesRequest" message="tns:listarPerfiles" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesResponse" message="tns:listarPerfilesResponse" />
     </operation>
     <operation name="actualizaPerfil">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/actualizaPerfilRequest" message="tns:actualizaPerfil" />
@@ -59,7 +59,7 @@
   </portType>
   <binding name="PerfilWSPortBinding" type="tns:PerfilWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarPerfiles">
+    <operation name="ocultarPerfil">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="ocultarPerfil">
+    <operation name="listarPerfiles">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

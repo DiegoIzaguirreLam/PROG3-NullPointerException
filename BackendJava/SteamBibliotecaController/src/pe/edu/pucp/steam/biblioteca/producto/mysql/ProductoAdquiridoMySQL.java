@@ -289,4 +289,29 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
         }
         return productosAdquiridos;
     }
+    
+    @Override
+    public ArrayList<Integer> listarIdProductoProductoAdquirido() {
+        ArrayList<Integer> ListaIdProductos = new ArrayList<>();
+        try{
+            
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_PRODUCTOADQUIRIDO()}");
+            
+            rs = cs.executeQuery();
+            while(rs.next()){
+                
+                
+               
+                int id = (rs.getInt("fid_producto"));
+               
+                ListaIdProductos.add(id);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return ListaIdProductos;
+    }
 }

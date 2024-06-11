@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/UsuarioWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarUsuariosPorNombreCuenta">
-    <part name="parameters" element="tns:listarUsuariosPorNombreCuenta" />
+  <message name="suspenderUsuario">
+    <part name="parameters" element="tns:suspenderUsuario" />
   </message>
-  <message name="listarUsuariosPorNombreCuentaResponse">
-    <part name="parameters" element="tns:listarUsuariosPorNombreCuentaResponse" />
+  <message name="suspenderUsuarioResponse">
+    <part name="parameters" element="tns:suspenderUsuarioResponse" />
   </message>
-  <message name="buscarUsuarioPorNombreCuenta">
-    <part name="parameters" element="tns:buscarUsuarioPorNombreCuenta" />
+  <message name="insertarUsuario">
+    <part name="parameters" element="tns:insertarUsuario" />
   </message>
-  <message name="buscarUsuarioPorNombreCuentaResponse">
-    <part name="parameters" element="tns:buscarUsuarioPorNombreCuentaResponse" />
-  </message>
-  <message name="verificarUsuario">
-    <part name="parameters" element="tns:verificarUsuario" />
-  </message>
-  <message name="verificarUsuarioResponse">
-    <part name="parameters" element="tns:verificarUsuarioResponse" />
+  <message name="insertarUsuarioResponse">
+    <part name="parameters" element="tns:insertarUsuarioResponse" />
   </message>
   <message name="actualizarUsuario">
     <part name="parameters" element="tns:actualizarUsuario" />
@@ -41,23 +35,17 @@
   <message name="buscarUsuarioPorIdResponse">
     <part name="parameters" element="tns:buscarUsuarioPorIdResponse" />
   </message>
-  <message name="insertarUsuario">
-    <part name="parameters" element="tns:insertarUsuario" />
+  <message name="verificarUsuario">
+    <part name="parameters" element="tns:verificarUsuario" />
   </message>
-  <message name="insertarUsuarioResponse">
-    <part name="parameters" element="tns:insertarUsuarioResponse" />
+  <message name="verificarUsuarioResponse">
+    <part name="parameters" element="tns:verificarUsuarioResponse" />
   </message>
   <message name="listarUsuarios">
     <part name="parameters" element="tns:listarUsuarios" />
   </message>
   <message name="listarUsuariosResponse">
     <part name="parameters" element="tns:listarUsuariosResponse" />
-  </message>
-  <message name="suspenderUsuario">
-    <part name="parameters" element="tns:suspenderUsuario" />
-  </message>
-  <message name="suspenderUsuarioResponse">
-    <part name="parameters" element="tns:suspenderUsuarioResponse" />
   </message>
   <message name="listarAmigosPorUsuario">
     <part name="parameters" element="tns:listarAmigosPorUsuario" />
@@ -71,18 +59,26 @@
   <message name="listarBloqueadosPorUsuarioResponse">
     <part name="parameters" element="tns:listarBloqueadosPorUsuarioResponse" />
   </message>
+  <message name="listarUsuariosPorNombreCuenta">
+    <part name="parameters" element="tns:listarUsuariosPorNombreCuenta" />
+  </message>
+  <message name="listarUsuariosPorNombreCuentaResponse">
+    <part name="parameters" element="tns:listarUsuariosPorNombreCuentaResponse" />
+  </message>
+  <message name="buscarUsuarioPorNombreCuenta">
+    <part name="parameters" element="tns:buscarUsuarioPorNombreCuenta" />
+  </message>
+  <message name="buscarUsuarioPorNombreCuentaResponse">
+    <part name="parameters" element="tns:buscarUsuarioPorNombreCuentaResponse" />
+  </message>
   <portType name="UsuarioWS">
-    <operation name="listarUsuariosPorNombreCuenta">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosPorNombreCuentaRequest" message="tns:listarUsuariosPorNombreCuenta" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosPorNombreCuentaResponse" message="tns:listarUsuariosPorNombreCuentaResponse" />
+    <operation name="suspenderUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest" message="tns:suspenderUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse" message="tns:suspenderUsuarioResponse" />
     </operation>
-    <operation name="buscarUsuarioPorNombreCuenta">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRequest" message="tns:buscarUsuarioPorNombreCuenta" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaResponse" message="tns:buscarUsuarioPorNombreCuentaResponse" />
-    </operation>
-    <operation name="verificarUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioRequest" message="tns:verificarUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioResponse" message="tns:verificarUsuarioResponse" />
+    <operation name="insertarUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest" message="tns:insertarUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse" message="tns:insertarUsuarioResponse" />
     </operation>
     <operation name="actualizarUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
@@ -96,17 +92,13 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdRequest" message="tns:buscarUsuarioPorId" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdResponse" message="tns:buscarUsuarioPorIdResponse" />
     </operation>
-    <operation name="insertarUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest" message="tns:insertarUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse" message="tns:insertarUsuarioResponse" />
+    <operation name="verificarUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioRequest" message="tns:verificarUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioResponse" message="tns:verificarUsuarioResponse" />
     </operation>
     <operation name="listarUsuarios">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosRequest" message="tns:listarUsuarios" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
-    </operation>
-    <operation name="suspenderUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest" message="tns:suspenderUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse" message="tns:suspenderUsuarioResponse" />
     </operation>
     <operation name="listarAmigosPorUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioRequest" message="tns:listarAmigosPorUsuario" />
@@ -116,10 +108,18 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioRequest" message="tns:listarBloqueadosPorUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioResponse" message="tns:listarBloqueadosPorUsuarioResponse" />
     </operation>
+    <operation name="listarUsuariosPorNombreCuenta">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosPorNombreCuentaRequest" message="tns:listarUsuariosPorNombreCuenta" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosPorNombreCuentaResponse" message="tns:listarUsuariosPorNombreCuentaResponse" />
+    </operation>
+    <operation name="buscarUsuarioPorNombreCuenta">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRequest" message="tns:buscarUsuarioPorNombreCuenta" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaResponse" message="tns:buscarUsuarioPorNombreCuentaResponse" />
+    </operation>
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarUsuariosPorNombreCuenta">
+    <operation name="suspenderUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -128,16 +128,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="buscarUsuarioPorNombreCuenta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="verificarUsuario">
+    <operation name="insertarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -173,7 +164,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarUsuario">
+    <operation name="verificarUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -183,15 +174,6 @@
       </output>
     </operation>
     <operation name="listarUsuarios">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="suspenderUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -210,6 +192,24 @@
       </output>
     </operation>
     <operation name="listarBloqueadosPorUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarUsuariosPorNombreCuenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarUsuarioPorNombreCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

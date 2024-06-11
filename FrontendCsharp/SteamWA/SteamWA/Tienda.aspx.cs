@@ -17,6 +17,7 @@ namespace SteamWA
     public partial class Tienda : System.Web.UI.Page
     {
         private SteamWA.SteamServiceWS.ProductoWSClient daoProducto;
+      
         private BindingList<SteamWA.SteamServiceWS.producto> listaProductos;
         private SteamWA.SteamServiceWS.EtiquetaWSClient daoEtiqueta;
         private SteamWA.SteamServiceWS.BibliotecaWSClient daoBiblioteca;
@@ -49,8 +50,8 @@ namespace SteamWA
                 {
                     Response.Redirect("Login.aspx");
                 }
-            
-          
+            BindingList<int> listaIdProductoProdAdq = new BindingList<int>(daoProductoAdquirido.listarIdProductoProductoAdquirido());
+
 
             daoProducto = new SteamServiceWS.ProductoWSClient();
 
@@ -402,25 +403,7 @@ namespace SteamWA
             Session["ListaProductos"] = listaProductos;
             mostrarListaProductos(listaProductos);
 
-            //Busqueda Asincrona
-            /*
-               <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>-->
-                        <asp:PlaceHolder ID="placeholderProductos" runat="server">
-                              
-                        </asp:PlaceHolder>
-                        <!--
-                    </ContentTemplate>
-
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="btnBuscar" EventName="Click" />
-                    </Triggers>
-                </asp:UpdatePanel>
-                <script type="text/javascript">
-                    // Restaura la posición de desplazamiento después de que se complete la actualización parcial
-                    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(restaurarPosicionDesplazamiento);
-                </script>-->*/
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
+           
         }
 
         public void mostrarListaProductos(BindingList<SteamWA.SteamServiceWS.producto> lProds)
