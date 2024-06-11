@@ -17,7 +17,7 @@ namespace SteamWA
     public partial class Tienda : System.Web.UI.Page
     {
         private SteamWA.SteamServiceWS.ProductoWSClient daoProducto;
-        BindingList<SteamWA.SteamServiceWS.producto> listaProductos;
+        private BindingList<SteamWA.SteamServiceWS.producto> listaProductos;
         private SteamWA.SteamServiceWS.EtiquetaWSClient daoEtiqueta;
         private SteamWA.SteamServiceWS.BibliotecaWSClient daoBiblioteca;
         private SteamWA.SteamServiceWS.ProductoAdquiridoWSClient daoProductoAdquirido;
@@ -55,8 +55,8 @@ namespace SteamWA
             daoProducto = new SteamServiceWS.ProductoWSClient();
 
            
-            Session["listaProdEt"] = null;
-                Session["DicProdEtDic"] = null;
+            //Session["listaProdEt"] = null;
+               // Session["DicProdEtDic"] = null;
                 listaProductos =
             new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "Tienda", "<script src='Scripts/Steam/Tienda.js'></script>", false);
@@ -68,13 +68,40 @@ namespace SteamWA
                     BindingList<producto> listaCarrito = new BindingList<producto>();
                     Session["ElementosCarrito"] = listaCarrito;
                 }
-            
-                mostrarListaProductos(listaProductos);
 
 
+            BindingList<producto> listaTemp =
+            new BindingList<SteamWA.SteamServiceWS.producto>();
+            if (Request.Form[barRangoPrecio.UniqueID] != null)
+            {
+               
+                string valor = Request.Form[barRangoPrecio.UniqueID];
+               foreach ( producto p in listaProductos)
+                {
+                    if(p.precio <= (double.Parse(valor)*20))
+                    {
+                        listaTemp.Add(p);
+                    }
+                }
+                labelito.InnerText = "S/."+(double.Parse(valor) * 20).ToString();
+                if(double.Parse(valor) == 5)
+                {
+                    labelito.InnerText = "Todos";
+                }else if(double.Parse(valor) == 0)
+                {
+                    labelito.InnerText = "Gratis";
+                }
+                listaProductos = listaTemp;
+                
+            }
+            else
+            {
+                barRangoPrecio.Value = "5";
+                labelito.InnerText = "Todos";
+            }
+            mostrarListaProductos(listaProductos);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
 
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
-            
 
 
         }
@@ -299,6 +326,10 @@ namespace SteamWA
             }
             catch
             {
+                if (listaProdEtG == null)
+                {
+                    listaProdEtG = new BindingList<producto>();
+                }
                 mostrarListaProductos(listaProdEtG);
             }
 
@@ -329,10 +360,10 @@ namespace SteamWA
                 }
                 
             }
-            
 
-            
-            
+
+
+            limpiarCamposFiltros();
             string script = "window.onload = function() { showModalForm('form-modal-añadido-carrito') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
             mostrarListaProductos(listaProd);
@@ -518,6 +549,9 @@ namespace SteamWA
             }
             rdbNombre.Checked = false;
             rdbPrecio.Checked = false;
+
+            barRangoPrecio.Value = "5";
+            labelito.InnerText = "Todos";
         }
 
         protected void rdbPrecio_CheckedChanged(object sender, EventArgs e)

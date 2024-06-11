@@ -8,8 +8,30 @@ function autoCompletarBarraBusqueda(item) {
     autocompleteInput.value = item
 
 }
+
+
+
+$(document).ready(function () {
+    $('#cphContenido_barRangoPrecio').change(function () {
+        console.log("wia");
+        var precio;
+        var val = $('#cphContenido_barRangoPrecio').val();
+        if (val == "0") {
+            precio = "Gratis";
+        } else if (val == "5") {
+            precio = "Todos";
+        } else {
+            precio = "S/."+(((Number(val)) * 20)).toString();
+        }
+        $('#cphContenido_labelito').text(precio);
+        __doPostBack('<%= barRangoPrecio.ClientID %>', '');
+    });
+});
+
 //Se ejecuta cuando la pagin ya se ha cargado
 window.onload = function () {
+  
+
     const suggestionsList = document.querySelector('#suggestions');
     suggestionsList.style.visibility = "hidden"
     const autocompleteInput = document.getElementById("search_autocomplete")

@@ -107,8 +107,10 @@
         <!--Desplegable de filtros-->
         <div class="collapse row mt-3 px-2 py-2 border-Gradient carouselDestacados" id="desplegableFiltro">
             <div class="col-md-3">
-                <label for="barRangoPrecio" class="form-label">Filtrar por precio</label>
-                <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio">
+                <label for="barRangoPrecio" class="form-label">Filtrar por precio:</label>
+                
+                <label id="labelito"  style="color:lightgreen" runat="server"></label>
+                <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio" runat="server">
             </div>
             <div class="col-md-3 ">
                 <label for="barRangoPrecio" class="form-label">Filtrar por etiqueta</label>
