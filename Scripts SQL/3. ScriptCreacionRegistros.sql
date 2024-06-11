@@ -1,9 +1,12 @@
 
 CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Sol', 'PEN', 'S/.', 3.73);
 CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Euro', 'EUR', '€', 0.91);
+CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Dólar', 'USD', '$', 1);
 
 CALL CREAR_PAIS(@id_pais, 'Peru', 'PER', 1);
 CALL CREAR_PAIS(@id_pais, 'Francia', 'FR', 1);
+CALL CREAR_PAIS(@id_pais, 'Estados Unidos', 'US', 1);
+CALL CREAR_PAIS(@id_pais, 'Chile', 'CL', 1);
 
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 1');
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 2');
@@ -26,6 +29,10 @@ call INSERTAR_PRODUCTOETIQUETA(1, 2);
 call INSERTAR_PRODUCTOETIQUETA(1, 5);
 call INSERTAR_PRODUCTOETIQUETA(3, 2);
 call INSERTAR_PRODUCTOETIQUETA(3, 5);
+call INSERTAR_PRODUCTOETIQUETA(4, 3);
+call INSERTAR_PRODUCTOETIQUETA(4, 4);
+call INSERTAR_PRODUCTOETIQUETA(5, 3);
+call INSERTAR_PRODUCTOETIQUETA(5, 5);
 
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_sofia', 'Sofia', 'a20210750@pucp.edu.pe', '123456789', 'password_sofia', 19, '2004-07-01', 1, 4, 2, 5, 1);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);

@@ -31,7 +31,7 @@
     </asp:ContentPlaceHolder>
     <div class="container-fluid d-flex p-0 h-100">
         <!--Menu Lateral-->
-        <div id="bdSidebar" class="sidebar d-flex flex-column p-3 bg-dark text-dark offcanvas-md offcanvas-start">
+        <div id="bdSidebar" class="sidebar d-flex flex-column p-3 bg-dark text-dark">
             <a href="#" class="navbar-brand">
                 <img src="Images/logo_web.png" width="120"/>
             </a>
@@ -62,12 +62,12 @@
         <!-- Contenido Derecha -->
         <div class="bg-light flex-fill">
             <!-- Barra superior para dispositivos pequeños -->
-            <div class="p-2 d-md-none d-flex text-white bg-dark">
+           <%--<div class="p-2 d-md-none d-flex text-white bg-dark">
                 <a data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" class="text-white" href="#">
                     <i class="fa-solid fa-bars"></i>
                 </a>
                 <img src="Images/logo_web.png" class="ms-3" width="30">
-            </div>
+            </div>--%>
             <!-- Barra de Usuario -->
             <nav class="navbar navbar-dark bg-dark d-none d-md-block">
                 <div class="container-fluid">

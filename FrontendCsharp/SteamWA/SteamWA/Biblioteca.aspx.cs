@@ -20,6 +20,7 @@ namespace SteamWA
         private ColeccionWSClient daoColeccion;
         private BindingList<coleccion> colecciones;
         private BibliotecaWSClient daoBiblioteca;
+        private NotificacionWSClient daoNotificacion;
         private int nColeccionesActivas;
         private int idBiblioteca;
 
@@ -36,6 +37,7 @@ namespace SteamWA
             daoColeccion = new ColeccionWSClient();
             daoBiblioteca = new BibliotecaWSClient();
             productosColecciones = new BindingList<productoAdquirido>();
+            daoNotificacion = new NotificacionWSClient();
             //idBiblioteca = 1;
             if (!IsPostBack)
             {
@@ -269,7 +271,7 @@ namespace SteamWA
 
             if (producto.espacioDisco >= 1024)
             {
-                double espacioGB = producto.espacioDisco;
+                double espacioGB = producto.espacioDisco / 1024;
                 txtEspacioPrograma.InnerHtml += espacioGB.ToString("N2") + " GB";
             }
             else
@@ -294,7 +296,7 @@ namespace SteamWA
             }
             else
             {
-                lbJugar.Text = "Jugar";
+                lbJugar.Text = "Agregar Uso";
             }
             infoPrograma.Style.Value = "block";
             infoPrograma.Visible = true;
@@ -384,16 +386,22 @@ namespace SteamWA
                     productoAdquiridoEnList.actualizado = true;
                     txtActualizadoPrograma.InnerHtml = "<strong>Actualizado: </strong>Sí";
                     txtEspacioPrograma.InnerHtml = "<strong>Espacio Ocupado: </strong>";
-                    lbJugar.Text = "Jugar";
+                    lbJugar.Text = "Agregar Uso";
                     if (productoAdquirido.producto.espacioDisco >= 1024)
                     {
-                        double espacioGB = productoAdquirido.producto.espacioDisco;
+                        double espacioGB = productoAdquirido.producto.espacioDisco/1024;
                         txtEspacioPrograma.InnerHtml += espacioGB.ToString("N2") + " GB";
                     }
                     else
                     {
                         txtEspacioPrograma.InnerHtml += productoAdquirido.producto.espacioDisco.ToString("N2") + " MB";
                     }
+                    notificacion notificacionBiblioteca = new notificacion();
+                    notificacionBiblioteca.tipoSpecified = true;
+                    notificacionBiblioteca.usuario = (usuario)Session["usuario"];
+                    notificacionBiblioteca.tipo = tipoNotificacion.BIBLIOTECA;
+                    notificacionBiblioteca.mensaje = "Se actualizó " + productoAdquirido.producto.titulo;
+                    int resultado = daoNotificacion.insertarNotificacion(notificacionBiblioteca);
                 }
             }
             else

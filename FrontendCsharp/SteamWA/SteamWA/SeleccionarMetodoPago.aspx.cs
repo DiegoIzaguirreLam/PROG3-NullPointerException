@@ -92,7 +92,7 @@ namespace SteamWA
             else
             {
                 double montoPermitido = (100-montoDolares)*moneda.cambioDeDolares;
-                pNoSoportado.InnerHtml = "<i class='fa-solid fa-circle-exclamation'></i>" + " No cuenta con suficientes fondos de regalo de Stream (" + moneda.simbolo + montoPermitido.ToString("N2") + " restante). Escoja otra opción o espere a recibir más.";
+                pNoSoportado.InnerHtml = "<i class='fa-solid fa-circle-exclamation'></i>" + " No cuenta con suficientes fondos de regalo de STREAM (" + moneda.simbolo + montoPermitido.ToString("N2") + " restante). Escoja otra opción o espere a recibir más.";
                 pNoSoportado.Visible = true;
             }
             metodoPago = "giftCard";

@@ -61,7 +61,7 @@
             <div id="infoPrograma" runat="server" style="display: none;">
                 <!-- Imagen del juego -->
                 <div class="justify-content-center">
-                    <img id="imgPrograma" runat="server" width="650" alt="Portada del juego">
+                    <img id="imgPrograma" class="imgProgramaSeleccion" src="https://forums.launchbox-app.com/uploads/monthly_2021_01/arcade.thumb.png.ab29c6ebe950002a8b6dcf0ba04e7917.png" runat="server" width="650" alt="Portada del juego">
                 </div>
                 <!-- Información del juego -->
                 <div class="program-info">
@@ -95,7 +95,7 @@
                         <h5 class="modal-title" id="lblAgregarTiempoUso">Agregar Tiempo de Uso</h5>
                     </div>
                     <div class="modal-body">
-                        <p>Inserte el tiempo de uso que desee registrar. El tiempo registre debe ser menor a 4 horas.</p>
+                        <p>Inserte el tiempo de uso que desee registrar. El tiempo que registre debe ser menor a 4 horas.</p>
                         <asp:Label ID="lblTiempoUsoModal" runat="server" Text="Tiempo Usado" />
                         <div class="d-flex">
                             <div class="input-wrapper">
