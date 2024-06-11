@@ -3,7 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script type="text/javascript">
-
         function validarEdad(source, args) {
             var fechaNacimiento = new Date(document.getElementById('<%= txtFechaNacimiento.ClientID %>').value);
             var hoy = new Date();
@@ -13,6 +12,14 @@
                 edad--;
             }
             args.IsValid = edad >= 13;
+        }
+
+        function soloNumeros(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode != 43 && charCode > 31 && (charCode < 48 || charCode > 57) && (charCode != 45)) {
+                return false;
+            }
+            return true;
         }
     </script>
 </asp:Content>
@@ -39,10 +46,6 @@
                         <div class="mb-3">
                             <label id="lblNombrePerfil" class="form-label" runat="server">Nombre de perfil <span class="text-danger">*</span></label>
                             <asp:TextBox runat="server" ID="txtNombrePerfil" CssClass="form-control" placeholder="Ingrese su nombre de perfil" Required="true" MaxLength="50"/>
-                            <%--<asp:RegularExpressionValidator ID="regexNombrePerfil" runat="server" ControlToValidate="txtNombrePerfil"
-                                ErrorMessage="El nombre de perfil debe tener entre 1 y 50 caracteres"
-                                ValidationExpression="^.{1,50}$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
-                            </asp:RegularExpressionValidator>--%>
                         </div>
 
                         <!-- Contraseña -->
@@ -80,10 +83,10 @@
                         <!-- Telefono -->
                         <div class="mb-3">
                             <label id="lblTelefono" class="form-label" runat="server">Teléfono <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtTelefono" Type="Phone" CssClass="form-control" placeholder="Ingrese su número de teléfono" Required="true" MaxLength="15"/>
-                            <asp:RegularExpressionValidator ID="regexTelefono" runat="server" ControlToValidate="txtTelefono"
+                            <asp:TextBox runat="server" ID="txtTelefono" Type="Phone" CssClass="form-control" placeholder="Ingrese su número de teléfono" Required="true" MaxLength="15" onkeypress="return soloNumeros(event)"/>
+                            <%--<asp:RegularExpressionValidator ID="regexTelefono" runat="server" ControlToValidate="txtTelefono"
                                 ErrorMessage="Por favor, ingrese un número de teléfono válido." ValidationExpression="^\d+$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
-                            </asp:RegularExpressionValidator>
+                            </asp:RegularExpressionValidator>--%>
                         </div>
 
                         <!-- Fecha de nacimiento -->
