@@ -112,7 +112,7 @@ CREATE TABLE Movimiento(
     fecha_transaccion DATE NOT NULL,
     monto DECIMAL(10,2) NOT NULL,
     tipo VARCHAR(100) NOT NULL,
-    metodo_pago VARCHAR(100) NOT NULL,
+    metodo_pago VARCHAR(100),
 	activo TINYINT NOT NULL,
     fid_cartera INT NOT NULL,
     PRIMARY KEY(id_movimiento),

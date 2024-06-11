@@ -38,7 +38,9 @@ public class MovimientoMySQL implements MovimientoDAO{
             cs.setDate("_FECHA_TRANSACCION", new java.sql.Date(movimiento.getFecha().getTime()));
             cs.setDouble("_MONTO", movimiento.getMonto());
             cs.setString("_TIPO", movimiento.getTipo().toString());
-            cs.setString("_METODO_PAGO", movimiento.getMetodoPago().toString());
+            MetodoPago metodoPago = movimiento.getMetodoPago();
+            if(metodoPago!=null) cs.setString("_METODO_PAGO", metodoPago.toString());
+            else cs.setString("_METODO_PAGO", null);
             cs.setInt("_FID_CARTERA", movimiento.getCartera().getIdCartera());
             cs.executeUpdate();
             movimiento.setIdMovimiento(cs.getInt("_ID_MOVIMIENTO"));
@@ -66,7 +68,7 @@ public class MovimientoMySQL implements MovimientoDAO{
                 movimiento.setFecha(rs.getDate("fecha"));
                 movimiento.setMonto(rs.getDouble("monto"));
                 movimiento.setTipo(TipoMovimiento.valueOf(rs.getString("tipo")));
-                movimiento.setMetodoPago(MetodoPago.valueOf(rs.getString("metodo_pago")));
+                if(movimiento.getTipo()==TipoMovimiento.DEPOSITO) movimiento.setMetodoPago(MetodoPago.valueOf(rs.getString("metodo_pago")));
                 movimiento.setCartera(new Cartera());
                 movimiento.getCartera().setIdCartera(rs.getInt("fid_cartera"));
                 movimientos.add(movimiento);

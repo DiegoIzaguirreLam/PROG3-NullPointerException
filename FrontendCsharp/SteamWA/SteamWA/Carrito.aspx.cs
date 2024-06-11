@@ -58,8 +58,10 @@ namespace SteamWA
                 mov.idTransaccion = "COMPRAPRODUCTOS_"+ ((usuario)Session["usuario"]).nombreCuenta+ (double.Parse(valorTotal.Value.ToString()) / listaCarrito.Count).ToString();
                 mov.cartera = cartera;
                 mov.monto = double.Parse(valorTotal.Value.ToString());
+                mov.fechaSpecified = true;
+                mov.tipoSpecified = true;
                 mov.fecha = DateTime.Now;
-                mov.tipo = tipoMovimiento.DEPOSITO;
+                mov.tipo = tipoMovimiento.RETIRO;
                 daoMovimiento.insertarMovimiento(mov);
                 biblioteca bibl = daoBiblioteca.buscarBibliotecaPorUID(((usuario)Session["usuario"]).UID);
                 foreach (producto p in listaCarrito)

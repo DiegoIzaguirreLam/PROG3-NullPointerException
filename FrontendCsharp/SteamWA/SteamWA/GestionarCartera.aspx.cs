@@ -40,16 +40,16 @@ namespace SteamWA
                 cartera.movimientos = daoMovimiento.listarMovimientos(cartera);
                 Session["cartera"] = cartera;
             }
-
-            foreach (movimiento movimiento in cartera.movimientos)
+            if (cartera.movimientos != null)
             {
-                if (movimiento.tipo == tipoMovimiento.DEPOSITO && movimiento.metodoPago == SteamServiceWS.metodoPago.GIFTCARD)
+                foreach (movimiento movimiento in cartera.movimientos)
                 {
-                    montoUsado += movimiento.monto;
+                    if (movimiento.tipo == tipoMovimiento.DEPOSITO && movimiento.metodoPago == SteamServiceWS.metodoPago.GIFTCARD)
+                    {
+                        montoUsado += movimiento.monto;
+                    }
                 }
             }
-
-
 
             hAgregar15.InnerText = "Agregar " + pais.moneda.simbolo + "15";
             hAgregar30.InnerText = "Agregar " + pais.moneda.simbolo + "30";
