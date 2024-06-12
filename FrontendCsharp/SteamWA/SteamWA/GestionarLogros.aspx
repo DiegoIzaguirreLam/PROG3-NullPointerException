@@ -16,7 +16,7 @@
     <div class="container fontSetterExo2">
         <h1 id="hGestionarLogros" runat="server" class="mt-4 d-inline-block">Gestionar logros</h1>
         <p id="pLogros" runat="server"></p>
-        <h2>Logros Desbloqueados</h2>
+        <h2 id="h2LogrosDesbloqueados" runat="server">Logros Desbloqueados</h2>
         <p id="pLogrosDesbloqueados" runat="server"></p>
         <asp:GridView ID="gvLogrosDesbloqueados" runat="server" AutoGenerateColumns="false"
             CssClass="table table-hover table-responsive table-striped table-dark" OnRowDataBound="gvLogrosDesbloqueados_RowDataBound" OnPageIndexChanging="gvLogrosDesbloqueados_PageIndexChanging">
@@ -32,7 +32,7 @@
             </Columns>
         </asp:GridView>
         <hr />
-        <h2>Logros por Desbloquear</h2>
+        <h2 id="h2LogrosPorDesbloquear" runat="server">Logros por Desbloquear</h2>
         <p id="pLogrosPorDesbloquear" runat="server"></p>
         <asp:GridView ID="gvLogrosPorDesbloquear" runat="server" AutoGenerateColumns="false"
             CssClass="table table-hover table-responsive table-striped table-dark" OnRowDataBound="gvLogrosPorDesbloquear_RowDataBound" OnPageIndexChanging="gvLogrosPorDesbloquear_PageIndexChanging">

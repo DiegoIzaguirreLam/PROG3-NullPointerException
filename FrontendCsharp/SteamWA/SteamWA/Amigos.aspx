@@ -37,10 +37,10 @@
                                 <div class="card bg-dark text-light amigo-card position-relative">
                                     <div class="card-body d-flex flex-column">
                                         <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <img src="Images/foto_perfil.png" alt="Imagen de amigo" class="me-3 mb-3 mb-sm-0" style="max-width: 100px;" />
+                                            <div class="d-flex align-items-center my-2">
+                                                <img src="Images/foto_perfil.png" alt="Imagen de amigo" class="me-3 mb-3 mb-sm-0" style="max-width: 70px;" />
                                                 <div>
-                                                    <h5 class="card-title mb-0"><%# Eval("NombrePerfil") %></h5>
+                                                    <h5 class="card-title mb-0 text-truncate" style="max-width: 140px;"><%# Eval("NombrePerfil") %></h5>
                                                     <p class="card-text">ID: <%# Eval("UID") %></p>
                                                 </div>
                                             </div>
@@ -98,7 +98,10 @@
                         <h5 class="modal-title" id="lblBloquearUsuario">Bloquear Usuario</h5>
                     </div>
                     <div class="modal-body">
-                        <p>¿Está seguro que desea bloquear este usuario?</p>
+                        <p>
+                            ¿Estás seguro de que deseas bloquear este usuario?
+                            Recuerda que el bloqueo es permanente.
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

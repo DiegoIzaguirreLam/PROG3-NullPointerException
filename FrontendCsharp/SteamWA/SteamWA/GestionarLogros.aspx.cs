@@ -12,98 +12,116 @@ namespace SteamWA
 {
     public partial class GestionarLogros : System.Web.UI.Page
     {
-        private LogroWSClient daoLogro;
-        private LogroDesbloqueadoWSClient daoLogroDesbloqueado;
-        private productoAdquirido productoAdquirido;
-        private BindingList<logro> logros;
-        private BindingList<logro> logrosNoDesbloqueados;
-        private BindingList<logroDesbloqueado> logrosDesbloqueados;
+        private productoAdquirido productoAdquiridoSeleccionado;
+        private BindingList<logro> logrosDelJuego = null;
+        private BindingList<logro> logrosNoDesbloqueados = null;
+        private BindingList<logroDesbloqueado> logrosDesbloqueados = null;
         private NotificacionWSClient daoNotificacion;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["productoAdquiridoSeleccionado"] == null)
-            {
+            // Si todavía no se ha seleccionado ningún producto de la biblioteca
+            productoAdquiridoSeleccionado = (productoAdquirido)Session["productoAdquiridoSeleccionado"];
+            if (productoAdquiridoSeleccionado == null)
                 Response.Redirect("Biblioteca.aspx");
+
+            // Obtener el juego correspondiente al producto adquirido
+            producto juegoSeleccionado = productoAdquiridoSeleccionado.producto;
+            hGestionarLogros.InnerHtml = juegoSeleccionado.titulo + ": Logros";
+
+            // No mostrar ningún contenido
+            gvLogrosDesbloqueados.Visible  = false;
+            gvLogrosPorDesbloquear.Visible = false;
+            h2LogrosDesbloqueados.Visible  = false;
+            h2LogrosPorDesbloquear.Visible = false;
+            pLogrosDesbloqueados.Visible   = false;
+            pLogrosPorDesbloquear.Visible  = false;
+
+            // Obtener los logros correspondientes al juego
+            obtenerLogrosDeJuego(juegoSeleccionado);
+            if (logrosDelJuego == null)
+            {
+                pLogros.InnerText = "Aún no hay logros disponibles para este juego.";
+                return;
+            }
+
+            // Obtener los logros desbloqueados por el usuario en su juego
+            h2LogrosDesbloqueados.Visible = true;
+            obtenerLogrosDesbloqueados();
+            if (logrosDesbloqueados == null)
+            {
+                pLogrosDesbloqueados.InnerText = "Aquí se mostrarán tus logros desbloqueados.";
+                pLogrosDesbloqueados.Visible = true;
             }
             else
             {
-                productoAdquirido = (productoAdquirido)Session["productoAdquiridoSeleccionado"];
-                daoLogro = new LogroWSClient();
-                daoLogroDesbloqueado = new LogroDesbloqueadoWSClient();
-                daoNotificacion = new NotificacionWSClient();
-                producto producto = productoAdquirido.producto;
+                gvLogrosDesbloqueados.DataSource = logrosDesbloqueados;
+                gvLogrosDesbloqueados.DataBind();
+                gvLogrosDesbloqueados.Visible = true;
+            }
 
-                hGestionarLogros.InnerHtml = producto.titulo + ": Logros";
-                logro[] logrosArr = daoLogro.listarLogrosPorIdJuego(producto.idProducto);
-                if (logrosArr != null)
-                {
-                    logros = new BindingList<logro>(logrosArr);
-                    logrosNoDesbloqueados = new BindingList<logro>();
-                }
-                else
-                {
-                    logros = null;
-                    logrosNoDesbloqueados = null;
-                }
+            // Obtener los logros no desbloqueados por el usuario en su juego
+            obtenerLogrosNoDesbloqueados();
+            if (logrosNoDesbloqueados == null)
+            {
+                pLogrosPorDesbloquear.InnerText = "¡Felicidades! Has desbloqueado todos los logros de este juego.";
+                pLogrosPorDesbloquear.Visible = true;
+            }
+            else
+            {
+                gvLogrosPorDesbloquear.DataSource = logrosNoDesbloqueados;
+                gvLogrosPorDesbloquear.DataBind();
 
-                if (logros != null)
-                {
-                    logroDesbloqueado[] logrosDesbloqueadosArr = daoLogroDesbloqueado.listarLogrosDesbloqueadosProductoAdquirido(productoAdquirido.idProductoAdquirido);
-                    if (logrosDesbloqueadosArr != null)
-                    {
-                        logrosDesbloqueados = new BindingList<logroDesbloqueado>(logrosDesbloqueadosArr);
-                    }
-                    else
-                    {
-                        logrosDesbloqueados = null;
-                    }
-                    foreach (logro logro in logros)
-                    {
-                        if (logrosDesbloqueados != null && logrosDesbloqueados.FirstOrDefault(x => x.logro.idLogro == logro.idLogro) != null) continue;
-                        logrosNoDesbloqueados.Add(logro);
-                    }
-
-                    if (logrosDesbloqueados != null)
-                    {
-                        gvLogrosDesbloqueados.DataSource = logrosDesbloqueados;
-                        gvLogrosDesbloqueados.DataBind();
-                        pLogrosDesbloqueados.Visible = false;
-                        gvLogrosDesbloqueados.Visible = true;
-                    }
-                    else
-                    {
-                        pLogrosDesbloqueados.InnerText = "Aquí se mostrarán sus logros desbloqueados";
-                        pLogrosDesbloqueados.Visible = true;
-                        gvLogrosDesbloqueados.Visible = false;
-                    }
-
-                    if (logrosNoDesbloqueados.Count != 0)
-                    {
-                        gvLogrosPorDesbloquear.DataSource = logrosNoDesbloqueados;
-                        gvLogrosPorDesbloquear.DataBind();
-                        pLogrosPorDesbloquear.Visible = false;
-                        gvLogrosPorDesbloquear.Visible = true;
-                    }
-                    else
-                    {
-                        pLogrosPorDesbloquear.InnerText = "Felicidades, ha desbloqueado todos los logros de este juego";
-                        pLogrosPorDesbloquear.Visible = true;
-                        gvLogrosPorDesbloquear.Visible = false;
-                    }
-                }
-                else
-                {
-                    pLogros.InnerText = "Aún no hay logros disponibles para este juego";
-                    gvLogrosDesbloqueados.Visible = false;
-                    gvLogrosPorDesbloquear.Visible = false;
-                }
+                gvLogrosPorDesbloquear.Visible = true;
+                h2LogrosPorDesbloquear.Visible = true;
             }
         }
 
-        protected void Page_Init(object sender, EventArgs e)
+        protected void obtenerLogrosDeJuego(producto juegoSeleccionado)
         {
-            
+            // Obtener los logros del juego de la base de datos
+            LogroWSClient daoLogro = new LogroWSClient();
+            logro[] listaLogrosDelJuego = daoLogro.listarLogrosPorIdJuego(juegoSeleccionado.idProducto);
+
+            // Si el juego tiene logros, se asigna al atributo logrosDelJuego
+            logrosDelJuego = listaLogrosDelJuego != null ?
+                             new BindingList<logro>(listaLogrosDelJuego) :
+                             null;
+        }
+
+        protected void obtenerLogrosDesbloqueados()
+        {
+            // Obtener los logros desbloqueados por el usuario de la base de datos
+            LogroDesbloqueadoWSClient daoLogroDesbloqueado = new LogroDesbloqueadoWSClient();
+            logroDesbloqueado[] listaLogrosDesbloqueados =
+                daoLogroDesbloqueado.listarLogrosDesbloqueadosProductoAdquirido(
+                    productoAdquiridoSeleccionado.idProductoAdquirido);
+
+            // Si el usuario ha desbloqueado logros, se asigna al atributo logrosDesbloqueados
+            logrosDesbloqueados = listaLogrosDesbloqueados != null ?
+                                  new BindingList<logroDesbloqueado>(listaLogrosDesbloqueados) :
+                                  null;
+        }
+
+        protected void obtenerLogrosNoDesbloqueados()
+        {
+            // Si el usuario no ha desbloqueado logros, entonces los logros no desbloqueados son los logros del juego
+            if (logrosDesbloqueados == null)
+            {
+                logrosNoDesbloqueados = logrosDelJuego;
+                return;
+            }
+
+            if (logrosDesbloqueados.Count == logrosDelJuego.Count) return;
+
+            // Se agregan todos los logros del juego que no estén desbloqueados
+            logrosNoDesbloqueados = new BindingList<logro>();
+            foreach (logro logroDelJuego in logrosDelJuego)
+            {
+                bool esLogroNoDesbloqueado = logrosDesbloqueados.FirstOrDefault(
+                    x => x.logro.idLogro == logroDelJuego.idLogro) == null;
+                if (esLogroNoDesbloqueado) logrosNoDesbloqueados.Add(logroDelJuego);
+            }
         }
 
         protected void gvLogrosDesbloqueados_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -144,18 +162,29 @@ namespace SteamWA
 
         protected void btnEliminarLogroDesbloqueadoConfirmacionModal_OnClick(object sender, EventArgs e)
         {
-            int idLogroDesbloqueado = (int)Session["idLogroDesbloqueado"];
-            daoLogroDesbloqueado.eliminarLogroDesbloqueado(idLogroDesbloqueado);
+            // Obtener el ID del logro por eliminar
+            int idLogroPorEliminar = (int)Session["idLogroDesbloqueado"];
+
+            // Eliminar el logro en la base de datos
+            LogroDesbloqueadoWSClient daoLogroDesbloqueado = new LogroDesbloqueadoWSClient();
+            daoLogroDesbloqueado.eliminarLogroDesbloqueado(idLogroPorEliminar);
+
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
         protected void btnDesbloquearLogroConfirmacionModal_OnClick(object sender, EventArgs e)
         {
-            int idLogro = (int)Session["idLogro"];
-            logroDesbloqueado logroDesbloqueado = new logroDesbloqueado();
-            logroDesbloqueado.logro = logros.SingleOrDefault(x => x.idLogro == idLogro);
-            logroDesbloqueado.juego = productoAdquirido;
-            daoLogroDesbloqueado.insertarLogroDesbloqueado(logroDesbloqueado);
+            int idLogroPorDesbloquear = (int)Session["idLogro"];
+
+            // Crear un nuevo objeto de desbloqueo de logro
+            logroDesbloqueado nuevoLogroDesbloqueado = new logroDesbloqueado();
+            nuevoLogroDesbloqueado.logro = logrosDelJuego.SingleOrDefault(x => x.idLogro == idLogroPorDesbloquear);
+            nuevoLogroDesbloqueado.juego = productoAdquiridoSeleccionado;
+
+            // Desbloquear el logro para el usuario en la base de datos
+            LogroDesbloqueadoWSClient daoLogroDesbloqueado = new LogroDesbloqueadoWSClient();
+            daoLogroDesbloqueado.insertarLogroDesbloqueado(nuevoLogroDesbloqueado);
+
             agregarNotificacion();
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
@@ -166,7 +195,8 @@ namespace SteamWA
             notificacionJuego.usuario = (usuario)Session["usuario"];
             notificacionJuego.tipoSpecified = true;
             notificacionJuego.tipo = tipoNotificacion.JUEGOS;
-            notificacionJuego.mensaje = "Has conseguido un nuevo logro en "+productoAdquirido.producto.titulo;
+            notificacionJuego.mensaje = "Has conseguido un nuevo logro en "+productoAdquiridoSeleccionado.producto.titulo;
+            daoNotificacion = new NotificacionWSClient();
             int resultado = daoNotificacion.insertarNotificacion(notificacionJuego);
         }
         protected void gvLogrosDesbloqueados_PageIndexChanging(object sender, GridViewPageEventArgs e)
