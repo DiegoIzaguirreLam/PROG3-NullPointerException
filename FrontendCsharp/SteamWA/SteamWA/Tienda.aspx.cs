@@ -118,9 +118,10 @@ namespace SteamWA
                 }
             }
             listaProductosDestacados = new BindingList<producto>(listaProductosDestacados.OrderByDescending(producto => producto.precio).ToList());
-            //carDestImg1.Src = listaProductosDestacados[0].portadaUrl;
-            //carDestImg2.Src = listaProductosDestacados[1].portadaUrl;
-            //carDestImg3.Src = listaProductosDestacados[2].portadaUrl;
+
+            imgDest1.ImageUrl = listaProductosDestacados[0].portadaUrl;
+            imgDest2.ImageUrl = listaProductosDestacados[1].portadaUrl;
+            imgDest3.ImageUrl = listaProductosDestacados[2].portadaUrl;
             
             
             

@@ -164,13 +164,15 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="Images/portada_juego2.jpg" id="carDestImg1" runat="server" class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
+                               <asp:Image ID="imgDest1" CssClass="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" runat="server" />
+
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego4.jpg" id="carDestImg2" runat="server" class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
+                                <asp:Image ID="imgDest2" CssClass="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" runat="server" />
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/portada_juego5.jpg" id="carDestImg3" runat="server"  class="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" alt="...">
+                                <asp:Image ID="imgDest3" CssClass="d-block ms-auto me-auto border-shadow rounded-3 carousel-img-game" runat="server" />
+            
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
