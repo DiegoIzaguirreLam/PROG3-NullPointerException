@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
@@ -15,11 +16,13 @@ namespace SteamWA
     {
         private BindingList<producto> listaCarrito;
         private cartera cartera;
+        private tipoMoneda moneda;
         private SteamServiceWS.MovimientoWSClient daoMovimiento;
         private SteamServiceWS.ProductoAdquiridoWSClient daoProductoAdquirido;
         private SteamWA.SteamServiceWS.BibliotecaWSClient daoBiblioteca;
         private SteamServiceWS.CarteraWSClient daoCartera;
         private SteamServiceWS.NotificacionWSClient daoNotificacion;
+        private SteamServiceWS.PaisWSClient daoPais;
         protected void Page_Load(object sender, EventArgs e)
         {
             daoBiblioteca = new SteamServiceWS.BibliotecaWSClient();
@@ -30,7 +33,14 @@ namespace SteamWA
             daoCartera = new SteamServiceWS.CarteraWSClient();
             daoNotificacion = new SteamServiceWS.NotificacionWSClient();
             cartera = daoCartera.buscarCartera(((usuario)Session["usuario"]).UID);
-             listaCarrito = null;
+            if (Session["moneda"]!=null) moneda = (tipoMoneda)Session["moneda"];
+            else
+            {
+                daoPais = new PaisWSClient();
+                pais pais = daoPais.buscarPais(((usuario)Session["usuario"]).pais.idPais);
+                moneda = pais.moneda;
+            }
+            listaCarrito = null;
             if (Session["ElementosCarrito"] != null)
             {
                 listaCarrito = (BindingList<producto>)Session["ElementosCarrito"];
@@ -40,9 +50,18 @@ namespace SteamWA
                     montoTotal += Double.Parse(p.precio.ToString());
                    
                 }
-                labelTotalCarrito.InnerText = "Total Estimado: S/." + montoTotal.ToString();
+                labelTotalCarrito.InnerText = "Total Estimado: " + moneda.simbolo + (montoTotal * moneda.cambioDeDolares).ToString("N2");
                 valorTotal.Value = montoTotal.ToString();
-                  mostrarListaProductos(listaCarrito);
+                if (listaCarrito.Count>0)
+                {
+                    mostrarListaProductos(listaCarrito);
+                    btmComprar.Visible = true;
+                }
+                else
+                {
+                    labelTotalCarrito.InnerText = "Aún no tiene productos en su carrito, agregue productos de la tienda y regrese a comprarlos!";
+                    btmComprar.Visible = false;
+                }
 
             }
         }
@@ -62,8 +81,10 @@ namespace SteamWA
                 mov.tipoSpecified = true;
                 mov.fecha = DateTime.Now;
                 mov.tipo = tipoMovimiento.RETIRO;
-                daoMovimiento.insertarMovimiento(mov);
+               
                 biblioteca bibl = daoBiblioteca.buscarBibliotecaPorUID(((usuario)Session["usuario"]).UID);
+
+                BindingList<productoAdquirido> productosAdquiridos = new BindingList<productoAdquirido>();    
                 foreach (producto p in listaCarrito)
                 {
                     productoAdquirido pA = new productoAdquirido();
@@ -73,11 +94,13 @@ namespace SteamWA
                     pA.fechaAdquisicion = DateTime.Now;
                     pA.biblioteca = bibl;
                     pA.tiempoUso = new DateTime(0);
-                    daoProductoAdquirido.insertarProductoAdquirido(pA);
+                    productosAdquiridos.Add(pA);
                     agregarNotificacion(pA.producto);
                 }
-                    cartera.fondos = cartera.fondos - double.Parse(valorTotal.Value.ToString());
-                    daoCartera.actualizarCartera(cartera);
+                mov.producto = productosAdquiridos.ToArray();
+                daoMovimiento.insertarMovimiento(mov);
+                cartera.fondos = cartera.fondos - double.Parse(valorTotal.Value.ToString());
+                daoCartera.actualizarCartera(cartera);
                 listaCarrito = null;
                 Session["ElementosCarrito"] = null;
                 Response.Redirect("Biblioteca.aspx");

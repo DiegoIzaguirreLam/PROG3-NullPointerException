@@ -14,6 +14,7 @@ namespace SteamWA
         private string metodoPagoStr;
         private double monto;
         private cartera cartera;
+        private tipoMoneda moneda;
         private CarteraWSClient daoCartera;
         private MovimientoWSClient daoMovimiento;
 
@@ -22,6 +23,7 @@ namespace SteamWA
             string simbolo_moneda = (string)Session["simbolo"];
             usuario = (usuario)Session["usuario"];
             cartera = (cartera)Session["cartera"];
+            moneda = (tipoMoneda)Session["moneda"];
             if (usuario == null || cartera == null)
             {
                 Response.Redirect("Login.aspx");
@@ -78,7 +80,7 @@ namespace SteamWA
                 }
                 else if (metodoPagoStr == "giftCard")
                 {
-
+                    monto /= moneda.cambioDeDolares; //monto en dolares
                     cartera.fondos += monto;
                     cartera.cantMovimientos++;
 
@@ -94,7 +96,6 @@ namespace SteamWA
                     movimiento.monto = monto;
                     movimiento.tipo = tipoMovimiento.DEPOSITO;
                     movimiento.idTransaccion = "GIFTCARD-" + usuario.nombreCuenta.ToUpper() + "-" + cartera.cantMovimientos.ToString("D5");
-
                     if (daoMovimiento.insertarMovimiento(movimiento)!=0 && daoCartera.actualizarCartera(cartera) != 0)
                     {
                         txtFondosModal.InnerText = "Se han agregado los fondos de manera exitosa";

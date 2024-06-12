@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
+import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.usuario.jugador.dao.MovimientoDAO;
 import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
@@ -44,6 +46,20 @@ public class MovimientoMySQL implements MovimientoDAO{
             cs.setInt("_FID_CARTERA", movimiento.getCartera().getIdCartera());
             cs.executeUpdate();
             movimiento.setIdMovimiento(cs.getInt("_ID_MOVIMIENTO"));
+            if(movimiento.getTipo()==TipoMovimiento.RETIRO){
+                ArrayList<ProductoAdquirido> pAs = movimiento.getProducto();
+                for(ProductoAdquirido pA : pAs){
+                    cs = con.prepareCall("{call INSERTAR_PRODUCTOADQUIRIDO"
+                        + "(?,?,?,?)}");
+                    cs.registerOutParameter("_id_producto_adquirido",
+                            java.sql.Types.INTEGER);
+                    cs.setInt("_fid_biblioteca", pA.getBiblioteca().getIdBiblioteca());
+                    cs.setInt("_fid_producto", pA.getProducto().getIdProducto());
+                    cs.setInt("_fid_movimiento", movimiento.getIdMovimiento());
+                    cs.executeUpdate();
+                    pA.setIdProductoAdquirido(cs.getInt("_id_producto_adquirido"));
+                }
+            }
             resultado = movimiento.getIdMovimiento();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

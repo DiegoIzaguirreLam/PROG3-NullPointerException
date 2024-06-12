@@ -5,14 +5,15 @@ DELIMITER $
 CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO(
 	OUT _id_producto_adquirido INT,
 	IN _fid_biblioteca INT,
-	IN _fid_producto INT
+	IN _fid_producto INT,
+    IN _fid_movimiento INT
 )
 BEGIN
 	INSERT INTO ProductoAdquirido
     (fecha_adquisicion,tiempo_uso,actualizado, oculto,
-    fid_biblioteca, fid_producto, activo)
+    fid_biblioteca, fid_producto, fid_movimiento, activo)
     VALUES(CURDATE(), CAST('00:00:00' AS TIME),false, false,
-    _fid_biblioteca,_fid_producto, 1);
+    _fid_biblioteca,_fid_producto, _fid_movimiento, 1);
     SET _id_producto_adquirido = @@last_insert_id;
 END$
 

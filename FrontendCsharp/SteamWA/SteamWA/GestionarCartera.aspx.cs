@@ -36,7 +36,7 @@ namespace SteamWA
             }
             else
             {
-                pBalanceCartera.InnerText = pais.moneda.simbolo + cartera.fondos.ToString("N2");
+                pBalanceCartera.InnerText = pais.moneda.simbolo + (cartera.fondos*pais.moneda.cambioDeDolares).ToString("N2");
                 cartera.movimientos = daoMovimiento.listarMovimientos(cartera);
                 Session["cartera"] = cartera;
             }
@@ -49,6 +49,7 @@ namespace SteamWA
                         montoUsado += movimiento.monto;
                     }
                 }
+                montoUsado *= pais.moneda.cambioDeDolares;
             }
 
             hAgregar15.InnerText = "Agregar " + pais.moneda.simbolo + "15";

@@ -7,6 +7,7 @@ package pe.edu.pucp.steam.usuario.jugador.model;
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
+import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 
 /**
  *
@@ -20,11 +21,11 @@ public class Movimiento {
     private TipoMovimiento tipo;
     private MetodoPago metodoPago;
     private Cartera cartera;
-    private ArrayList<Producto> producto;
+    private ArrayList<ProductoAdquirido> producto;
     
     public Movimiento(){};
 
-    public Movimiento(String idTransaccion, Date fecha, double monto, TipoMovimiento tipo, MetodoPago metodoPago, Cartera cartera, ArrayList<Producto> producto) {
+    public Movimiento(String idTransaccion, Date fecha, double monto, TipoMovimiento tipo, MetodoPago metodoPago, Cartera cartera, ArrayList<ProductoAdquirido> producto) {
         this.idTransaccion = idTransaccion;
         this.fecha = fecha;
         this.monto = monto;
@@ -90,11 +91,11 @@ public class Movimiento {
         this.cartera = cartera;
     }
 
-    public ArrayList<Producto> getProducto() {
+    public ArrayList<ProductoAdquirido> getProducto() {
         return producto;
     }
 
-    public void setProducto(ArrayList<Producto> producto) {
+    public void setProducto(ArrayList<ProductoAdquirido> producto) {
         this.producto = producto;
     }
 }
