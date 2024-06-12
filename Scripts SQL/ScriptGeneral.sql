@@ -112,7 +112,7 @@ CREATE TABLE Movimiento(
     fecha_transaccion DATE NOT NULL,
     monto DECIMAL(10,2) NOT NULL,
     tipo VARCHAR(100) NOT NULL,
-    metodo_pago VARCHAR(100) NOT NULL,
+    metodo_pago VARCHAR(100),
 	activo TINYINT NOT NULL,
     fid_cartera INT NOT NULL,
     PRIMARY KEY(id_movimiento),
@@ -185,12 +185,13 @@ CREATE TABLE Foro(
 
 /* Crear tabla Foro_Usuario */
 CREATE TABLE ForoUsuario(
+	id_Relacion_ForoUsuario INT AUTO_INCREMENT,
 	fid_foro INT NOT NULL,
 	fid_usuario INT NOT NULL,
 	es_creador TINYINT NOT NULL,
 	es_suscriptor TINYINT NOT NULL,
 	activo TINYINT NOT NULL,
-	PRIMARY KEY(fid_foro, fid_usuario),
+	PRIMARY KEY(id_Relacion_ForoUsuario),
 	FOREIGN KEY(fid_foro) REFERENCES Foro(id_foro),
 	FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -291,8 +292,8 @@ CREATE TABLE Producto(
     titulo VARCHAR(100) NOT NULL,
     fecha_publicacion DATE NOT NULL,
     precio DECIMAL(5,2) NOT NULL,
-    descripcion VARCHAR(100) NOT NULL,
-    espacio_disco DECIMAL(5,2) NOT NULL,
+    descripcion VARCHAR(200) NOT NULL,
+    espacio_disco DECIMAL(10,2) NOT NULL,
     logo_url VARCHAR(200) NOT NULL,
     portada_url VARCHAR(200) NOT NULL,
     tipo_producto ENUM('JUEGO', 'BANDASONORA', 'SOFTWARE'),
@@ -840,6 +841,39 @@ BEGIN
 	UPDATE LogroDesbloqueado SET activo = 0 WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
 END$
 
+
+
+-- ----------------------------------------------------------------------------------------
+-- Autor: Fabricio
+-- ----------------------------------------------------------------------------------------
+-- Procedimiento que enlista todos los logros que tiene un usuario
+-- Recopila la información de la Fecha de Desbloqueo, Nombre del
+-- Logro, Descripción del Logro, Título del Juego y la URL del Logo.
+-- ----------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS LISTAR_LOGROS_POR_USUARIO;
+-- ----------------------------------------------------------------------------------------
+DELIMITER $ 
+CREATE PROCEDURE LISTAR_LOGROS_POR_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
+		   lo.nombre AS "Nombre del Logro",
+           lo.descripcion AS "Descripción del Logro",
+           pr.titulo AS "Título del Juego",
+           pr.logo_url AS "URL del Logo"
+    FROM LogroDesbloqueado ld
+    INNER JOIN Logro             lo ON ld.fid_logro = lo.id_logro
+    INNER JOIN Juego             ju ON lo.fid_juego = ju.id_juego
+    INNER JOIN Producto          pr ON ju.id_juego  = pr.id_producto
+    INNER JOIN ProductoAdquirido pa ON ld.fid_producto_adquirido = pa.id_producto_adquirido
+    INNER JOIN Biblioteca 		 bl	ON pa.fid_biblioteca = bl.id_biblioteca
+    WHERE ld.activo = true AND
+		  lo.activo = true AND
+          pr.activo = true AND
+          bl.fid_usuario= _id_usuario;
+END $
+-- ----------------------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS
 DELIMITER $
 CREATE PROCEDURE LISTAR_PRODUCTOS()
@@ -917,14 +951,15 @@ DELIMITER $
 CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO(
 	OUT _id_producto_adquirido INT,
 	IN _fid_biblioteca INT,
-	IN _fid_producto INT
+	IN _fid_producto INT,
+    IN _fid_movimiento INT
 )
 BEGIN
 	INSERT INTO ProductoAdquirido
     (fecha_adquisicion,tiempo_uso,actualizado, oculto,
-    fid_biblioteca, fid_producto, activo)
+    fid_biblioteca, fid_producto, fid_movimiento, activo)
     VALUES(CURDATE(), CAST('00:00:00' AS TIME),false, false,
-    _fid_biblioteca,_fid_producto, 1);
+    _fid_biblioteca,_fid_producto, _fid_movimiento, 1);
     SET _id_producto_adquirido = @@last_insert_id;
 END$
 
@@ -1251,7 +1286,7 @@ CREATE PROCEDURE CREAR_FORO(
 )
 
 BEGIN
-	INSERT INTO foro(nombre,descripcion,
+	INSERT INTO Foro(nombre,descripcion,
     origen_foro,oculto, activo) VALUES (_nombre,_descripcion,
     _origen_foro,0, 1);
 	SET _id_foro = @@last_insert_id;
@@ -1281,14 +1316,14 @@ CREATE PROCEDURE LISTAR_SUSCRITOS(
 	IN _iduser INT
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, c.fid_usuario as id_user FROM Foro o INNER JOIN ForoUsuario f ON f.fid_foro = id_foro AND f.es_suscriptor = 1 AND o.activo = 1 AND f.fid_usuario = _iduser AND f.activo = 1 INNER JOIN ForoUsuario c ON c.fid_foro = id_foro WHERE c.es_creador = 1 AND c.activo = 1;
 END$
 
 CREATE PROCEDURE MOSTRAR_SUBFOROS_POR_FORO(
 	in _id_foro INT 
 )
 BEGIN
-	SELECT * FROM subforo WHERE fid_foro = _id_foro 
+	SELECT * FROM Subforo WHERE fid_foro = _id_foro 
     AND oculto = 0;
 
 END $
@@ -1300,7 +1335,7 @@ CREATE PROCEDURE EDITAR_FORO(
     IN _origen_foro VARCHAR(100)
 )
 BEGIN
-	UPDATE foro SET nombre = _nombre,
+	UPDATE Foro SET nombre = _nombre,
     descripcion = _descripcion,
     origen_foro = _origen_foro 
     WHERE id_foro = _id_foro; 
@@ -1311,7 +1346,7 @@ CREATE PROCEDURE DESACTIVAR_FORO(
 	IN _id_foro INT
 )
 BEGIN
-	UPDATE foro SET oculto = 1
+	UPDATE Foro SET oculto = 1
     WHERE id_foro = _id_foro; 
 
 END $
@@ -1320,7 +1355,7 @@ CREATE PROCEDURE ELIMINAR_FORO(
 	IN _id_foro INT
 )
 BEGIN
-	UPDATE foro SET activo = 0
+	UPDATE Foro SET activo = 0
     WHERE id_foro = _id_foro; 
 
 END $
@@ -1328,6 +1363,10 @@ END $
 
 DROP PROCEDURE IF EXISTS CREAR_RELACION_FORO;
 DROP PROCEDURE IF EXISTS ELIMINAR_RELACION_FORO;
+DROP PROCEDURE IF EXISTS SUSCRIBIR_RELACION;
+DROP PROCEDURE IF EXISTS LISTAR_SUSCRITOS_FOROUSER;
+DROP PROCEDURE IF EXISTS DESUSCRIBIR_RELACION_FORO;
+
 DELIMITER $
 CREATE PROCEDURE CREAR_RELACION_FORO(
 	IN _fid_foro INT,
@@ -1335,7 +1374,7 @@ CREATE PROCEDURE CREAR_RELACION_FORO(
 )
 BEGIN
 	INSERT INTO ForoUsuario (fid_foro, fid_usuario, es_creador, es_suscriptor, activo)
-	VALUES (_fid_foro, _fid_usuario, 1, 1, 1);
+	VALUES (_fid_foro, _fid_usuario, 1, 0, 1);
 END$
 CREATE PROCEDURE SUSCRIBIR_RELACION(
 	IN _fid_foro INT,
@@ -1351,14 +1390,93 @@ CREATE PROCEDURE ELIMINAR_RELACION_FORO(
 )
 BEGIN
 	UPDATE ForoUsuario SET activo=0 
-	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario;
+	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario AND es_creador = 1;
 END$
-CREATE PROCEDURE LISTAR_SUSCRITOS(
+CREATE PROCEDURE DESUSCRIBIR_RELACION_FORO(
+	IN _fid_foro INT,
 	IN _fid_usuario INT
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE fid_usuario = _fid_usuario AND f.es_suscriptor = 1 AND activo = 1;
+	UPDATE ForoUsuario SET activo=0 
+	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario AND es_suscriptor = 1;
 END$
+CREATE PROCEDURE LISTAR_SUSCRITOS_FOROUSER(
+	IN _fid_usuario INT
+)
+BEGIN
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE fid_usuario = _fid_usuario AND f.es_suscriptor = 1 AND f.activo = 1;
+END$DROP PROCEDURE IF EXISTS CREAR_GESTOR;
+DELIMITER $ 
+CREATE PROCEDURE CREAR_GESTOR(
+	OUT _id_gestor INT ,
+    IN _id_usuario INT,
+    IN _contador_faltas INT,
+    IN _contador_baneos INT,
+    IN _contador_palabras INT,
+    IN _max_faltas INT,
+    IN _max_baneos INT,
+    IN _cant_baneos INT,
+    IN _cant_faltas INT,
+    IN _fin_ban DATE
+)
+BEGIN
+	INSERT INTO hilo(id_gestor, id_usuario, contador_faltas,
+    contador_baneos,contador_palabras,
+    max_faltas,max_baneos,
+    cant_baneos, cant_faltas,
+    fin_ban, activo)
+    VALUES (_id_usuario, _id_usuario, _contador_faltas,
+    _contador_baneos,contador_palabras,
+    _max_faltas,_max_baneos,
+    _cant_baneos, _cant_faltas,
+    _fin_ban, 1);
+	SET _id_gestor = @@last_insert_id;
+
+END $
+
+DROP PROCEDURE IF EXISTS BUSCAR_GESTOR;
+DELIMITER $ 
+CREATE PROCEDURE BUSCAR_GESTOR(
+	in _id_gestor INT 
+)
+BEGIN
+	SELECT * FROM gestorsanciones
+    WHERE id_gestor = _id_gestor;
+
+END $
+
+
+DROP PROCEDURE IF EXISTS EDITAR_GESTOR;
+DELIMITER $ 
+CREATE PROCEDURE EDITAR_GESTOR(
+    IN _id_gestor INT,
+    IN _contador_faltas INT,
+    IN _contador_baneos INT,
+    IN _contador_palabras INT,
+    IN _max_faltas INT,
+    IN _max_baneos INT,
+    IN _cant_baneos INT,
+    IN _cant_faltas INT,
+    IN _fin_ban DATE
+)
+BEGIN
+	UPDATE gestorsanciones SET
+    contador_faltas = _contador_faltas,
+    contador_baneos = _contador_baneos,
+    contador_palabras = _contador_palabras,
+    max_faltas = _max_faltas,
+    max_baneos = _max_baneos,
+    cant_baneos = _cant_baneos,
+    cant_faltas = _cant_faltas,
+    fin_ban = _fin_ban
+    WHERE id_gestor = _id_gestor; 
+END $
+
+
+
+/*Pruebas*/
+
+
 DROP PROCEDURE IF EXISTS INSERTAR_GESTOR;
 DELIMITER $ 
 CREATE PROCEDURE INSERTAR_GESTOR(
@@ -1421,11 +1539,12 @@ BEGIN
     cant_faltas = _cant_faltas,
     fin_ban = _fin_ban
     WHERE id_gestor = _id_gestor; 
-END $
-/*Pruebas*/
+END $DROP PROCEDURE IF EXISTS CREAR_HILO;
+DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJES_POR_HILO;
+DROP PROCEDURE IF EXISTS EDITAR_HILO;
+DROP PROCEDURE IF EXISTS DESACTIVAR_HILO;
+DROP PROCEDURE IF EXISTS ELIMINAR_HILO;
 
-
-DROP PROCEDURE IF EXISTS CREAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE CREAR_HILO(
 	OUT _id_hilo INT ,
@@ -1437,7 +1556,7 @@ CREATE PROCEDURE CREAR_HILO(
 	IN _imagen_url VARCHAR(200)
 )
 BEGIN
-	INSERT INTO hilo(fijado,fecha_creacion,
+	INSERT INTO Hilo(fijado,fecha_creacion,
     fecha_modificacion,fid_subforo,fid_creador, imagen_url,
     nro_mensajes,oculto, activo)
     VALUES (_fijado,_fecha_creacion,
@@ -1447,18 +1566,16 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJES_POR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE MOSTRAR_MENSAJES_POR_HILO(
 	in _id_hilo INT 
 )
 BEGIN
-	SELECT * FROM mensaje WHERE fid_hilo = _id_hilo 
+	SELECT * FROM Mensaje WHERE fid_hilo = _id_hilo 
     AND oculto = 0;
 
 END $
 
-DROP PROCEDURE IF EXISTS EDITAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_HILO(
 	IN _id_hilo INT,
@@ -1468,37 +1585,37 @@ CREATE PROCEDURE EDITAR_HILO(
 	IN _imagen_url VARCHAR(200)
 )
 BEGIN
-	UPDATE hilo SET fijado = _fijado, fid_subforo = _id_subforo,
+	UPDATE Hilo SET fijado = _fijado, fid_subforo = _id_subforo,
     fecha_modificacion = _fecha_modificacion , imagen_url = _imagen_url
     WHERE id_hilo = _id_hilo; 
 END $
 
-
-
-DROP PROCEDURE IF EXISTS DESACTIVAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_HILO(
 	IN _id_hilo INT
 )
 BEGIN
-	UPDATE hilo SET oculto = 1
+	UPDATE Hilo SET oculto = 1
     WHERE id_hilo = _id_hilo; 
 
 END $
 
-DROP PROCEDURE IF EXISTS ELIMINAR_HILO;
 DELIMITER $ 
 CREATE PROCEDURE ELIMINAR_HILO(
 	IN _id_hilo INT
 )
 BEGIN
-	UPDATE hilo SET activo = 0
+	UPDATE Hilo SET activo = 0
     WHERE id_hilo = _id_hilo; 
 
 END $
 
 
 DROP PROCEDURE IF EXISTS CREAR_SUBFORO;
+DROP PROCEDURE IF EXISTS MOSTRAR_HILOS_POR_SUBFORO;
+DROP PROCEDURE IF EXISTS EDITAR_SUBFORO;
+DROP PROCEDURE IF EXISTS DESACTIVAR_SUBFORO;
+
 DELIMITER $ 
 CREATE PROCEDURE CREAR_SUBFORO(
 	OUT _id_subforo INT ,
@@ -1506,71 +1623,72 @@ CREATE PROCEDURE CREAR_SUBFORO(
     IN _nombre VARCHAR(100)
 )
 BEGIN
-	INSERT INTO subforo(fid_foro,nombre,oculto, activo) 
+	INSERT INTO Subforo(fid_foro,nombre,oculto, activo) 
     VALUES (_id_foro,_nombre,0, 1);
 	SET _id_subforo = @@last_insert_id;
 
 END $
 
-DROP PROCEDURE IF EXISTS MOSTRAR_HILOS_POR_SUBFORO;
 DELIMITER $ 
 CREATE PROCEDURE MOSTRAR_HILOS_POR_SUBFORO(
 	in _id_subforo INT 
 )
 BEGIN
-	SELECT * FROM hilo WHERE 
+	SELECT * FROM Hilo WHERE 
     fid_subforo = _id_subforo
     AND oculto = 0;
 
 END $
 
-DROP PROCEDURE IF EXISTS EDITAR_SUBFORO;
+
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_SUBFORO(
 	IN _id_subforo INT,
 	IN _nombre VARCHAR(100)
 )
 BEGIN
-	UPDATE subforo SET nombre = _nombre
+	UPDATE Subforo SET nombre = _nombre
     WHERE id_subforo = _id_subforo; 
 
 END $
 
-DROP PROCEDURE IF EXISTS DESACTIVAR_SUBFORO;
 DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_SUBFORO(
 	IN _id_subforo INT
 )
 BEGIN
-	UPDATE foro SET oculto = 1
+	UPDATE Foro SET oculto = 1
     WHERE id_subforo = _id_subforo; 
 
 END $
 DROP PROCEDURE IF EXISTS CREAR_MENSAJE;
+DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJE;
+DROP PROCEDURE IF EXISTS EDITAR_MENSAJE;
+DROP PROCEDURE IF EXISTS DESACTIVAR_MENSAJE;
+DROP PROCEDURE IF EXISTS ELIMINAR_MENSAJE;
+
 DELIMITER $ 
 CREATE PROCEDURE CREAR_MENSAJE(
 	OUT _id_mensaje INT,
     IN _contenido VARCHAR(300),
     IN _fecha_publicacion DATE,
     IN _fecha_max_edicion DATE,
-    IN _padre INT,
     IN _id_hilo INT,
     IN _id_usuario INT
 )
 BEGIN
-	INSERT INTO mensaje(contenido,fecha_publicacion,
-    fecha_max_edicion,padre,
+	INSERT INTO Mensaje(contenido,fecha_publicacion,
+    fecha_max_edicion,
     fid_hilo,fid_usuario,oculto, activo)
     VALUES (_contenido,_fecha_publicacion,
-    _fecha_max_edicion,_padre,
+    _fecha_max_edicion,
     _id_hilo,_id_usuario,0, 1);
 	SET _id_mensaje = @@last_insert_id;
-    UPDATE hilo SET nro_mensajes = nro_mensajes +1 
+    UPDATE Hilo SET nro_mensajes = nro_mensajes +1 
     WHERE id_hilo = _id_hilo;
 
 END $
 
-DROP PROCEDURE IF EXISTS MOSTRAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE MOSTRAR_MENSAJE(
 	in _id_mensaje INT 
@@ -1582,7 +1700,6 @@ BEGIN
 
 END $
 
-DROP PROCEDURE IF EXISTS EDITAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE EDITAR_MENSAJE(
 	IN _id_mensaje INT,
@@ -1591,30 +1708,28 @@ CREATE PROCEDURE EDITAR_MENSAJE(
     IN _fecha_max_edicion DATE
 )
 BEGIN
-	UPDATE mensaje SET contenido = _contenido,
+	UPDATE Mensaje SET contenido = _contenido,
     fid_hilo = _id_hilo,
     fecha_max_edicion = _fecha_max_edicion
     WHERE id_mensaje = _id_mensaje; 
 END $
 
-DROP PROCEDURE IF EXISTS DESACTIVAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_MENSAJE(
 	IN _id_mensaje INT
 )
 BEGIN
-	UPDATE mensaje SET oculto = 1
+	UPDATE Mensaje SET oculto = 1
     WHERE id_mensaje = _id_mensaje; 
 
 END $
 
-DROP PROCEDURE IF EXISTS ELIMINAR_MENSAJE;
 DELIMITER $ 
 CREATE PROCEDURE ELIMINAR_MENSAJE(
 	IN _id_mensaje INT
 )
 BEGIN
-	UPDATE mensaje SET activo = 0
+	UPDATE Mensaje SET activo = 0
     WHERE id_mensaje = _id_mensaje; 
 
 END $
@@ -1848,18 +1963,19 @@ CREATE PROCEDURE ACTUALIZAR_CARTERA(
     IN _CANT_MOVIMIENTOS INT
 )
 BEGIN
-	UPDATE Cartera SET FONDOS = _FONDOS, CANT_MOVIMIENTOS = _CANT_MOVIMIENTOS WHERE ID_CARTERA = _ID_CARTERA;
+	UPDATE Cartera SET FONDOS = _FONDOS, cantidad_movimientos = _CANT_MOVIMIENTOS WHERE ID_CARTERA = _ID_CARTERA;
 END $
 DELIMITER ;
 DROP PROCEDURE IF EXISTS BUSCAR_CARTERA;
 DELIMITER $
 CREATE PROCEDURE BUSCAR_CARTERA(
-	IN _ID_CARTERA INT
+	IN _fid_usuario INT
 )
 BEGIN
-	SELECT * FROM Cartera WHERE ID_CARTERA = _ID_CARTERA;
-END $
+	SELECT * FROM Cartera WHERE fid_usuario = _fid_usuario;
+END$
 DELIMITER ;
+
 DROP PROCEDURE IF EXISTS CREAR_MEDALLA;
 DELIMITER $
 CREATE PROCEDURE CREAR_MEDALLA(
@@ -1897,14 +2013,14 @@ CREATE PROCEDURE CREAR_MOVIMIENTO(
 	OUT _ID_MOVIMIENTO INT,
     IN _ID_TRANSACCION VARCHAR(100),
     IN _FECHA_TRANSACCION DATE,
-    IN _MONTO_PAGO DECIMAL(10, 2),
+    IN _MONTO DECIMAL(10, 2),
     IN _TIPO VARCHAR(100),
     IN _METODO_PAGO VARCHAR(100),
     IN _FID_CARTERA INT
 )
 BEGIN
-	INSERT INTO Movimiento(ID_TRANSACCION, FECHA_TRANSACCION, MONTO_PAGO, TIPO, METODO_PAGO, FID_CARTERA)
-	VALUES (_ID_TRANSACCION, _FECHA_TRANSACCION, _MONTO_PAGO, _TIPO, _METODO_PAGO, _FID_CARTERA);
+	INSERT INTO Movimiento(ID_TRANSACCION, FECHA_TRANSACCION, MONTO, TIPO, METODO_PAGO, FID_CARTERA, activo)
+	VALUES (_ID_TRANSACCION, _FECHA_TRANSACCION, _MONTO, _TIPO, _METODO_PAGO, _FID_CARTERA, 1);
 	SET _ID_MOVIMIENTO = @@last_insert_id;
 END $
 DELIMITER ;
@@ -1914,7 +2030,7 @@ CREATE PROCEDURE LISTAR_MOVIMIENTOS(
 	IN _FID_CARTERA INT
 )
 BEGIN
-	SELECT * FROM Movimiento WHERE FID_CARTERA = _FID_CARTERA;
+	SELECT id_movimiento, id_transaccion, fecha_transaccion as fecha, monto, tipo, metodo_pago, fid_cartera FROM Movimiento WHERE FID_CARTERA = _FID_CARTERA;
 END $
 DELIMITER ;
 DROP PROCEDURE IF EXISTS BUSCAR_MOVIMIENTO;
@@ -1923,9 +2039,10 @@ CREATE PROCEDURE BUSCAR_MOVIMIENTO(
 	IN _ID_MOVIMIENTO INT
 )
 BEGIN
-	SELECT * FROM Movimiento WHERE ID_MOVIMIENTO = _ID_MOVIMIENTO;
+	SELECT id_movimiento, id_transaccion, fecha_transaccion as fecha, monto, tipo, metodo_pago, fid_cartera FROM Movimiento WHERE ID_MOVIMIENTO = _ID_MOVIMIENTO;
 END $
-DELIMITER ;DROP PROCEDURE IF EXISTS CREAR_NOTIFICACION;
+DELIMITER ;
+DROP PROCEDURE IF EXISTS CREAR_NOTIFICACION;
 DELIMITER $
 CREATE PROCEDURE CREAR_NOTIFICACION(
 	OUT _ID_NOTIFICACION INT,
@@ -1992,7 +2109,11 @@ CREATE PROCEDURE BUSCAR_PAIS(
 	IN _ID_PAIS INT
 )
 BEGIN
-	SELECT * FROM Pais WHERE ID_PAIS = _ID_PAIS;
+	SELECT p.id_pais, p.nombre as nombre_pais, p.codigo as codigo_pais, m.id_tipo_moneda, 
+    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.simbolo, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
+    FROM Pais p
+    INNER JOIN TipoMoneda m ON m.id_tipo_moneda = p.fid_moneda
+    WHERE p.activo = 1 AND p.id_pais = _id_pais;
 END $
 DELIMITER ;
 
@@ -2001,7 +2122,7 @@ DELIMITER $
 CREATE PROCEDURE LISTAR_PAISES()
 BEGIN
 	SELECT p.id_pais, p.nombre as nombre_pais, p.codigo as codigo_pais, m.id_tipo_moneda, 
-    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
+    m.nombre as nombre_moneda, m.codigo as codigo_moneda, m.simbolo, m.cambio_de_dolares, m.fecha_cambio, m.activo as moneda_activa
     FROM Pais p
     INNER JOIN TipoMoneda m ON m.id_tipo_moneda = p.fid_moneda
     WHERE p.activo = 1;
@@ -2023,10 +2144,12 @@ BEGIN
         fid_moneda = _fid_moneda
     WHERE id_pais = _id_pais;
 END $
-DELIMITER ;DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
 DROP PROCEDURE IF EXISTS ELIMINAR_AMIGO;
 DROP PROCEDURE IF EXISTS BLOQUEAR_USUARIO;
-DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_POR_USUARIO;
 
 DELIMITER $ 
 CREATE PROCEDURE AGREGAR_AMIGO(
@@ -2065,27 +2188,12 @@ BEGIN
     -- En caso ya exista la relación
     IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
         UPDATE Relacion 
-        SET bloqueo = 1, activo = 1
+        SET amistad = 0, bloqueo = 1, activo = 1
         WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
     ELSE
         INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
         VALUES (_fid_usuario_a, _fid_usuario_b, 0, 1, 1);
     END IF;
-END $
-
-CREATE PROCEDURE LISTAR_AMIGOS_POR_USUARIO(
-	IN _id_usuario INT
-)
-BEGIN
-	SELECT fid_usuarioa AS "ID Usuario A",
-		   fid_usuariob AS "ID Usuario B",
-           amistad      AS "Amistad",
-           bloqueo      AS "Bloqueo"
-    FROM Relacion
-    WHERE (fid_usuarioa = _id_usuario OR
-		  fid_usuariob = _id_usuario) AND
-          amistad = TRUE AND
-          activo = TRUE;
 END $DROP PROCEDURE IF EXISTS INSERTAR_TIPOMONEDA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_TIPOMONEDA(
@@ -2139,6 +2247,16 @@ BEGIN
 END$	
 
 DROP PROCEDURE IF EXISTS CREAR_USUARIO;
+DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
+DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
+DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIO_X_NOMBRE_CUENTA;
+DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_X_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_BLOQUEADOS_X_USUARIO;
+
 DELIMITER $
 CREATE PROCEDURE CREAR_USUARIO(
 	OUT _ID_USUARIO INT,
@@ -2164,8 +2282,9 @@ BEGIN
 			_EXPERIENCIA_NIVEL, _NIVEL, _EXPERIENCIA, _FID_PAIS, true);
     SET _ID_USUARIO = @@last_insert_id;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+
+
+
 DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_USUARIO(
 	IN _ID_USUARIO INT,
@@ -2190,8 +2309,8 @@ BEGIN
                        FID_PAIS = _FID_PAIS
 	WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
+
+
 DELIMITER $
 CREATE PROCEDURE SUSPENDER_USUARIO(
 	IN _ID_USUARIO INT
@@ -2208,15 +2327,17 @@ CREATE PROCEDURE ELIMINAR_USUARIO(
 BEGIN
 	DELETE FROM Usuario WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
+
+
+
 DELIMITER $
 CREATE PROCEDURE LISTAR_USUARIO()
 BEGIN
 	SELECT * FROM Usuario;
 END $
 DELIMITER ;
-DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
+
+
 DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_X_NOMBRE_CUENTA(
 	IN _nombre_cuenta VARCHAR(100)
@@ -2232,8 +2353,6 @@ BEGIN
     WHERE _nombre_cuenta LIKE nombre_cuenta;
 END$
 
--- Procedimiento para obtener el registro del usuario dado un ID
-DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
 
 DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_POR_ID (
@@ -2249,7 +2368,8 @@ BEGIN
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.UID = _uid AND u.activo = TRUE;
 END$
-DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
+
+
 DELIMITER $
 CREATE PROCEDURE VERIFICAR_USUARIO (
 	IN _nombre_cuenta VARCHAR(100),
@@ -2266,18 +2386,73 @@ BEGIN
     WHERE u.nombre_cuenta = _nombre_cuenta AND u.contrasenia = md5(_contrasenia);
 END$
 
+
+-- Enlista todos los usuarios que coincidan con el nombre ingresado
+DELIMITER $
+CREATE PROCEDURE LISTAR_USUARIO_X_NOMBRE_CUENTA (
+	IN _nombre_cuenta VARCHAR(100)
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+		   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+    	   u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+    	   p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    WHERE nombre_cuenta LIKE CONCAT('%', _nombre_cuenta, '%') AND
+		  u.activo = true;
+END$
+
+CREATE PROCEDURE LISTAR_AMIGOS_X_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
+                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
+    WHERE r.amistad = true AND u.activo = true;
+END$
+
+CREATE PROCEDURE LISTAR_BLOQUEADOS_X_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
+                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
+    WHERE r.bloqueo = true AND u.activo = true;
+END$
 CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Sol', 'PEN', 'S/.', 3.73);
 CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Euro', 'EUR', '€', 0.91);
+CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda, 'Dólar', 'USD', '$', 1);
 
 CALL CREAR_PAIS(@id_pais, 'Peru', 'PER', 1);
-CALL CREAR_PAIS(@id_pais, 'Francia', 'FR', 1);
+CALL CREAR_PAIS(@id_pais, 'Francia', 'FR', 2);
+CALL CREAR_PAIS(@id_pais, 'Estados Unidos', 'US', 3);
+CALL CREAR_PAIS(@id_pais, 'España', 'ES', 2);
 
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 1');
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 2');
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 3');
+CALL INSERTAR_PROVEEDOR(@id_proveedor, 'MMOs para todos');
 CALL INSERTAR_JUEGO(@id_juego, 1, 'Geometry Dash', '2013-08-13', 20.00, 'Juego de ritmo y figuras', 10.00, 'https://1000logos.net/wp-content/uploads/2022/05/Logo-Geometry-Dash.png', 'https://resources.crowdcontrol.live/images/GeometryDash/banner.jpg', 1, 'Core i5 10th Generation', 'Core i7 12th Generation', 1);
 CALL INSERTAR_BANDASONORA(@id_banda_sonora, 1, 'Hollow Knight - Official Soundtrack', '2024-04-20', 0.00, 'Soundtrack Oficial del juego Hollow Knight, captura una vasta parte del mundo subterráneo del juego', 15.00, 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d0/02/e3/d002e325-299d-f87f-a737-7d7ad3c628ae/840095520225.jpg/1200x1200bf-60.jpg', 'https://cdn.cloudflare.steamstatic.com/steam/apps/598190/header.jpg?t=1581550241', 1, 'Christopher Larkin', 'Christopher Larkin', '01:04:20');
 CALL INSERTAR_SOFTWARE(@id_software, 2, 'Wallpaper Engine', '2016-10-10', 20.00, 'Aplicacion para fondos de pantalla en alta calidad y animados', 20.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoRHLNX2m9GQ-ziMfqlaSkfZH8m5YnhovOAWASmw8Dg&s', 'https://cdn.akamai.steamstatic.com/steam/apps/431960/header.jpg?t=1665921297', 1, 'Core i5 7th Generation', 'GPL');
+CALL INSERTAR_JUEGO(@id_juego, @id_proveedor, 'Maplestory', '2012-08-09', 0, 'Únete a la aventura del MMORPG en 2D más grande del mundo.', 1536, 'https://cdn2.steamgriddb.com/grid/5ca15b56b207cea5903395718b794fec.png', 'https://mmos.com/wp-content/uploads/2015/10/pocket-maplestory-banner.jpg', 1, 'Intel Core 2 Duo de 3,0 GHz', 'Intel Core i3 de 4,0 GHz', 1);
+CALL INSERTAR_JUEGO(@id_juego, @id_proveedor, 'Guild Wars 2', '2022-08-23', 0, 'Juego de rol online con combates de acción trepidante y con una profunda personalización de personajes', 7168, 'https://www.pngitem.com/pimgs/m/195-1956338_guild-wars-2-logo-png-transparent-png.png', 'https://i.imgur.com/BFkJ9BI.jpeg', 1, 'Intel Core i3 3.4 GHz', 'Intel Core i5', 1);
 CALL INSERTAR_LOGRO(@id_logro, "Pasar nivel 1", "Lograste pasar el nivel 1", 1, 1);
 CALL INSERTAR_LOGRO(@id_logro, "Pasar nivel 2", "Lograste pasar el nivel 2", 1, 1);
 CALL INSERTAR_LOGRO(@id_logro, "Pasar nivel 3", "Lograste pasar el nivel 3", 1, 1);
@@ -2290,19 +2465,78 @@ call INSERTAR_PRODUCTOETIQUETA(1, 2);
 call INSERTAR_PRODUCTOETIQUETA(1, 5);
 call INSERTAR_PRODUCTOETIQUETA(3, 2);
 call INSERTAR_PRODUCTOETIQUETA(3, 5);
+call INSERTAR_PRODUCTOETIQUETA(4, 3);
+call INSERTAR_PRODUCTOETIQUETA(4, 4);
+call INSERTAR_PRODUCTOETIQUETA(5, 3);
+call INSERTAR_PRODUCTOETIQUETA(5, 5);
 
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_sofia', 'Sofia', 'a20210750@pucp.edu.pe', '123456789', 'password_sofia', 19, '2004-07-01', 1, 4, 2, 5, 1);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
+call INSERTAR_CARTERA(@id_cartera, @id_usuario, 0, 0);
+call INSERTAR_PERFIL(@id_perfil, @id_usuario, "Images/foto_perfil.png");
+CALL INSERTAR_GESTOR(@id_gestor, @id_usuario, 0, 0, 0, 3, 3, 0, 0);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,1);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,2);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,3);
 call INSERTAR_COLECCION(@_id_coleccion, 'Favoritos', @id_biblioteca);
 call INSERTAR_COLECCION(@_id_coleccion, 'Frecuentes', @id_biblioteca);
+CALL CREAR_NOTIFICACION(@id_notificacion, "BIBLIOTECA", "Se ha agregado un nuevo producto: Hollow Knight a tu Biblioteca", @id_usuario);
+CALL CREAR_NOTIFICACION(@id_notificacion, "AMIGOS", "Ahora eres amigo de Juan", @id_usuario);
+CALL CREAR_NOTIFICACION(@id_notificacion, "FOROS", "Hay un nuevo mensaje en el foro A", @id_usuario);
+CALL CREAR_NOTIFICACION(@id_notificacion, "JUEGOS", "Has conseguido un nuevo logro en Geometry Dash", @id_usuario);
+
 
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_fabricio', 'Fabricio', 'a20214115@pucp.edu.pe', '987654321', 'password_fabricio', 20, '2003-12-06', 1, 1, 3, 4, 2);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
+call INSERTAR_CARTERA(@id_cartera, @id_usuario, 0, 0);
+call INSERTAR_PERFIL(@id_perfil, @id_usuario, "Images/foto_perfil.png");
+CALL INSERTAR_GESTOR(@id_gestor, @id_usuario, 0, 0, 0, 3, 3, 0, 0);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,1);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,2);
 
 UPDATE ProductoAdquirido SET fecha_ejecucion='2024-05-29', tiempo_uso='01:20:23' where id_producto_adquirido=1;
 UPDATE ProductoAdquirido SET fecha_ejecucion='2024-05-29', tiempo_uso='00:18:38' where id_producto_adquirido=3;
+-- Usuarios de Prueba para Amigos
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_lucia', 'Lucia', 'lucia@gmail.com', '987654322', 'password_lucia', 25, '1998-05-10', 1, 2, 4, 10, 2);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_jose', 'Jose', 'jose@hotmail.com', '987654323', 'password_jose', 30, '1993-08-15', 0, 3, 2, 5, 1);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_maria', 'Maria', 'maria@yahoo.com', '987654324', 'password_maria', 22, '2001-03-20', 1, 4, 5, 8, 2);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_juan', 'Juan', 'juan@gmail.com', '987654325', 'password_juan', 28, '1995-11-11', 0, 1, 3, 6, 1);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_ana', 'Ana', 'ana@hotmail.com', '987654326', 'password_ana', 26, '1997-02-25', 1, 2, 4, 7, 2);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_pedro', 'Pedro', 'pedro@yahoo.com', '987654327', 'password_pedro', 29, '1994-07-30', 0, 3, 2, 9, 1);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_carla', 'Carla', 'carla@gmail.com', '987654328', 'password_carla', 24, '1999-01-14', 1, 4, 5, 12, 2);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_andres', 'Andres', 'andres@hotmail.com', '987654329', 'password_andres', 27, '1996-06-18', 0, 1, 3, 11, 1);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_sara', 'Sara', 'sara@yahoo.com', '987654330', 'password_sara', 23, '2000-09-23', 1, 2, 4, 13, 2);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_david', 'David', 'david@gmail.com', '987654331', 'password_david', 31, '1992-12-12', 0, 3, 2, 14, 1);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_alejandra', 'Alejandra', 'alejandra@hotmail.com', '987654332', 'password_alejandra', 19, '2004-04-04', 1, 4, 5, 15, 2);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_javier', 'Javier', 'javier@yahoo.com', '987654333', 'password_javier', 32, '1991-10-28', 0, 1, 3, 16, 1);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_elena', 'Elena', 'elena@gmail.com', '987654334', 'password_elena', 21, '2002-05-05', 1, 2, 4, 17, 2);
+CALL CREAR_USUARIO(@id_usuario, 'cuenta_martin', 'Martin', 'martin@hotmail.com', '987654335', 'password_martin', 33, '1990-07-07', 0, 3, 2, 18, 1);
+
+-- Crear la relación de amigos entre ellos
+CALL AGREGAR_AMIGO(2, 3);
+CALL AGREGAR_AMIGO(2, 4);
+CALL AGREGAR_AMIGO(2, 5);
+CALL AGREGAR_AMIGO(3, 4);
+CALL AGREGAR_AMIGO(3, 6);
+CALL AGREGAR_AMIGO(4, 5);
+CALL AGREGAR_AMIGO(4, 7);
+CALL AGREGAR_AMIGO(5, 6);
+CALL AGREGAR_AMIGO(5, 8);
+CALL AGREGAR_AMIGO(6, 9);
+CALL AGREGAR_AMIGO(7, 8);
+CALL AGREGAR_AMIGO(7, 10);
+CALL AGREGAR_AMIGO(8, 9);
+CALL AGREGAR_AMIGO(8, 11);
+CALL AGREGAR_AMIGO(9, 12);
+CALL AGREGAR_AMIGO(10, 11);
+CALL AGREGAR_AMIGO(10, 13);
+CALL AGREGAR_AMIGO(11, 12);
+CALL AGREGAR_AMIGO(11, 14);
+CALL AGREGAR_AMIGO(12, 13);
+CALL AGREGAR_AMIGO(13, 14);
+CALL AGREGAR_AMIGO(13, 15);
+CALL AGREGAR_AMIGO(14, 15);
+CALL AGREGAR_AMIGO(14, 16);
+CALL AGREGAR_AMIGO(15, 16);
+CALL AGREGAR_AMIGO(15, 17);
+CALL AGREGAR_AMIGO(16, 17);

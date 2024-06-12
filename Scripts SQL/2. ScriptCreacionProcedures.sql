@@ -452,6 +452,39 @@ BEGIN
 	UPDATE LogroDesbloqueado SET activo = 0 WHERE id_logro_desbloqueado = _id_logro_desbloqueado;
 END$
 
+
+
+-- ----------------------------------------------------------------------------------------
+-- Autor: Fabricio
+-- ----------------------------------------------------------------------------------------
+-- Procedimiento que enlista todos los logros que tiene un usuario
+-- Recopila la información de la Fecha de Desbloqueo, Nombre del
+-- Logro, Descripción del Logro, Título del Juego y la URL del Logo.
+-- ----------------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS LISTAR_LOGROS_POR_USUARIO;
+-- ----------------------------------------------------------------------------------------
+DELIMITER $ 
+CREATE PROCEDURE LISTAR_LOGROS_POR_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
+		   lo.nombre AS "Nombre del Logro",
+           lo.descripcion AS "Descripción del Logro",
+           pr.titulo AS "Título del Juego",
+           pr.logo_url AS "URL del Logo"
+    FROM LogroDesbloqueado ld
+    INNER JOIN Logro             lo ON ld.fid_logro = lo.id_logro
+    INNER JOIN Juego             ju ON lo.fid_juego = ju.id_juego
+    INNER JOIN Producto          pr ON ju.id_juego  = pr.id_producto
+    INNER JOIN ProductoAdquirido pa ON ld.fid_producto_adquirido = pa.id_producto_adquirido
+    INNER JOIN Biblioteca 		 bl	ON pa.fid_biblioteca = bl.id_biblioteca
+    WHERE ld.activo = true AND
+		  lo.activo = true AND
+          pr.activo = true AND
+          bl.fid_usuario= _id_usuario;
+END $
+-- ----------------------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS
 DELIMITER $
 CREATE PROCEDURE LISTAR_PRODUCTOS()
@@ -529,14 +562,15 @@ DELIMITER $
 CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO(
 	OUT _id_producto_adquirido INT,
 	IN _fid_biblioteca INT,
-	IN _fid_producto INT
+	IN _fid_producto INT,
+    IN _fid_movimiento INT
 )
 BEGIN
 	INSERT INTO ProductoAdquirido
     (fecha_adquisicion,tiempo_uso,actualizado, oculto,
-    fid_biblioteca, fid_producto, activo)
+    fid_biblioteca, fid_producto, fid_movimiento, activo)
     VALUES(CURDATE(), CAST('00:00:00' AS TIME),false, false,
-    _fid_biblioteca,_fid_producto, 1);
+    _fid_biblioteca,_fid_producto, _fid_movimiento, 1);
     SET _id_producto_adquirido = @@last_insert_id;
 END$
 
@@ -981,7 +1015,7 @@ CREATE PROCEDURE LISTAR_SUSCRITOS_FOROUSER(
 	IN _fid_usuario INT
 )
 BEGIN
-	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE fid_usuario = _fid_usuario AND f.es_suscriptor = 1 AND activo = 1;
+	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE fid_usuario = _fid_usuario AND f.es_suscriptor = 1 AND f.activo = 1;
 END$DROP PROCEDURE IF EXISTS CREAR_GESTOR;
 DELIMITER $ 
 CREATE PROCEDURE CREAR_GESTOR(
@@ -1727,7 +1761,6 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
 DROP PROCEDURE IF EXISTS ELIMINAR_AMIGO;
 DROP PROCEDURE IF EXISTS BLOQUEAR_USUARIO;
-DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_POR_USUARIO;
 
 DELIMITER $ 
 CREATE PROCEDURE AGREGAR_AMIGO(
@@ -1772,21 +1805,6 @@ BEGIN
         INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
         VALUES (_fid_usuario_a, _fid_usuario_b, 0, 1, 1);
     END IF;
-END $
-
-CREATE PROCEDURE LISTAR_AMIGOS_POR_USUARIO(
-	IN _id_usuario INT
-)
-BEGIN
-	SELECT fid_usuarioa AS "ID Usuario A",
-		   fid_usuariob AS "ID Usuario B",
-           amistad      AS "Amistad",
-           bloqueo      AS "Bloqueo"
-    FROM Relacion
-    WHERE (fid_usuarioa = _id_usuario OR
-		  fid_usuariob = _id_usuario) AND
-          amistad = TRUE AND
-          activo = TRUE;
 END $DROP PROCEDURE IF EXISTS INSERTAR_TIPOMONEDA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_TIPOMONEDA(
@@ -1840,6 +1858,16 @@ BEGIN
 END$	
 
 DROP PROCEDURE IF EXISTS CREAR_USUARIO;
+DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
+DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
+DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
+DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIO_X_NOMBRE_CUENTA;
+DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_X_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_BLOQUEADOS_X_USUARIO;
+
 DELIMITER $
 CREATE PROCEDURE CREAR_USUARIO(
 	OUT _ID_USUARIO INT,
@@ -1865,8 +1893,9 @@ BEGIN
 			_EXPERIENCIA_NIVEL, _NIVEL, _EXPERIENCIA, _FID_PAIS, true);
     SET _ID_USUARIO = @@last_insert_id;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+
+
+
 DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_USUARIO(
 	IN _ID_USUARIO INT,
@@ -1891,8 +1920,8 @@ BEGIN
                        FID_PAIS = _FID_PAIS
 	WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
+
+
 DELIMITER $
 CREATE PROCEDURE SUSPENDER_USUARIO(
 	IN _ID_USUARIO INT
@@ -1909,15 +1938,17 @@ CREATE PROCEDURE ELIMINAR_USUARIO(
 BEGIN
 	DELETE FROM Usuario WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
+
+
+
 DELIMITER $
 CREATE PROCEDURE LISTAR_USUARIO()
 BEGIN
 	SELECT * FROM Usuario;
 END $
 DELIMITER ;
-DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
+
+
 DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_X_NOMBRE_CUENTA(
 	IN _nombre_cuenta VARCHAR(100)
@@ -1933,8 +1964,6 @@ BEGIN
     WHERE _nombre_cuenta LIKE nombre_cuenta;
 END$
 
--- Procedimiento para obtener el registro del usuario dado un ID
-DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
 
 DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_POR_ID (
@@ -1950,7 +1979,8 @@ BEGIN
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.UID = _uid AND u.activo = TRUE;
 END$
-DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
+
+
 DELIMITER $
 CREATE PROCEDURE VERIFICAR_USUARIO (
 	IN _nombre_cuenta VARCHAR(100),
@@ -1967,33 +1997,52 @@ BEGIN
     WHERE u.nombre_cuenta = _nombre_cuenta AND u.contrasenia = md5(_contrasenia);
 END$
 
--- ----------------------------------------------------------------------------------------
--- Autor: Fabricio
--- ----------------------------------------------------------------------------------------
--- Procedimiento que enlista todos los logros que tiene un usuario
--- Recopila la información de la Fecha de Desbloqueo, Nombre del
--- Logro, Descripción del Logro, Título del Juego y la URL del Logo.
--- ----------------------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS LISTAR_LOGROS_POR_USUARIO;
--- ----------------------------------------------------------------------------------------
-DELIMITER $ 
-CREATE PROCEDURE LISTAR_LOGROS_POR_USUARIO (
+
+-- Enlista todos los usuarios que coincidan con el nombre ingresado
+DELIMITER $
+CREATE PROCEDURE LISTAR_USUARIO_X_NOMBRE_CUENTA (
+	IN _nombre_cuenta VARCHAR(100)
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+		   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+    	   u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+    	   p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    WHERE nombre_cuenta LIKE CONCAT('%', _nombre_cuenta, '%') AND
+		  u.activo = true;
+END$
+
+CREATE PROCEDURE LISTAR_AMIGOS_X_USUARIO (
     IN _id_usuario INT
 )
 BEGIN
-    SELECT ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
-		   lo.nombre AS "Nombre del Logro",
-           lo.descripcion AS "Descripción del Logro",
-           pr.titulo AS "Título del Juego",
-           pr.logo_url AS "URL del Logo"
-    FROM LogroDesbloqueado ld
-    INNER JOIN Logro             lo ON ld.fid_logro = lo.id_logro
-    INNER JOIN Juego             ju ON lo.fid_juego = ju.id_juego
-    INNER JOIN Producto          pr ON ju.id_juego  = pr.id_producto
-    INNER JOIN ProductoAdquirido pa ON ld.fid_producto_adquirido = pa.id_producto_adquirido
-    WHERE ld.activo = true AND
-		  lo.activo = true AND
-          pr.activo = true AND
-          pa.fid_biblioteca = _id_usuario;
-END $
--- ----------------------------------------------------------------------------------------
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
+                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
+    WHERE r.amistad = true AND u.activo = true;
+END$
+
+CREATE PROCEDURE LISTAR_BLOQUEADOS_X_USUARIO (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
+                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
+    WHERE r.bloqueo = true AND u.activo = true;
+END$
