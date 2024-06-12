@@ -230,4 +230,36 @@
             </div>
         </div>
     </div>
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-sin-creados">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger bg-opacity-50 rounded-5">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title border-white">Sin Creaciones</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content rounded bg-danger">
+                    <div class="container bg-danger mt-3">
+                        <asp:Label runat="server" Text="Presione 'Crear Foro' para crear en nuestra comunidad!."></asp:Label>
+                    </div>
+                    <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-faltan-datos">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger bg-opacity-50 rounded-5">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title border-white">Campos Incompletos</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content rounded bg-danger">
+                    <div class="container bg-danger mt-3">
+                        <asp:Label runat="server" Text="Tiene que llenar todos los campos!"></asp:Label>
+                    </div>
+                    <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

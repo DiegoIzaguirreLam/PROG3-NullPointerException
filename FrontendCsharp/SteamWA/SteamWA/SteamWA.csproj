@@ -767,6 +767,7 @@
     <Content Include="Steam.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Estado.cs" />
     <Compile Include="SeleccionarMetodoPago.aspx.cs">
       <DependentUpon>SeleccionarMetodoPago.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -828,8 +829,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Estado.cs" />
-    <Compile Include="Foro.cs" />
     <Compile Include="GestionarCartera.aspx.cs">
       <DependentUpon>GestionarCartera.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -908,7 +907,6 @@
     <Compile Include="Steam.Master.designer.cs">
       <DependentUpon>Steam.Master</DependentUpon>
     </Compile>
-    <Compile Include="Subforo.cs" />
     <Compile Include="Tienda.aspx.cs">
       <DependentUpon>Tienda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

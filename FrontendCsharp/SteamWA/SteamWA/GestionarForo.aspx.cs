@@ -58,10 +58,7 @@ namespace SteamWA
 
         protected void btnActualizarForo_Click(object sender, EventArgs e)
         {
-            string nombreForo = "pruebita";
-            //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
-            //Session["objeto"]=foro
+            string nombreForo = ((foro)Session["foroPadre"]).nombre;
             Response.Redirect("GestionarForo.aspx?foro=" + nombreForo);
         }
 
@@ -69,16 +66,6 @@ namespace SteamWA
         {
             string script = "window.onload = function() { showModalForm('form-modal-subforo') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
-        }
-
-        protected void lbAbrirSubforo_Click(object sender, EventArgs e)
-        {                        
-            string nombreForo = "pruebitaSubforo"; //Al crear foro analizará que permita máximo 15 caracteres para el nombre
-            //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
-            //Session["objeto"]=foro
-            Session["foro_nombre"] = foro.Text; //Por ahora manda un String
-            Response.Redirect("GestionarSubforo.aspx?subforo=" + nombreForo);
         }
 
         protected void lbActualizarSubforo_Click(object sender, EventArgs e)
@@ -121,7 +108,12 @@ namespace SteamWA
             hilo neohilo = new hilo();
             mensaje neomensaje = new mensaje();
             usuario user = (usuario)Session["usuario"];
-            if (txtSubforo.Text.CompareTo("") == 0 || txtMensajeInicial.Text.CompareTo("") == 0) return;
+            if (txtSubforo.Text.CompareTo("") == 0 || txtMensajeInicial.Text.CompareTo("") == 0)
+            {
+                string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
             neosubforo.nombre = txtSubforo.Text;
             neosubforo.foro = (foro)Session["foroPadre"];
             id = daoSubforo.insertarSubforo(neosubforo);
@@ -150,7 +142,12 @@ namespace SteamWA
 
         protected void btnActualizaSubforo_Click(object sender, EventArgs e)
         {
-            if (txtNSubforo.Text.CompareTo("") == 0) return;
+            if (txtNSubforo.Text.CompareTo("") == 0)
+            {
+                string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
             subforo neo = (subforo)Session["subforoActualizar"];
             string nAntiguo = neo.nombre;
             neo.nombre = txtNSubforo.Text;

@@ -57,7 +57,7 @@ namespace SteamWA
                 gvCreados.DataSource = creados;
                 gvCreados.DataBind();
                 pageIndex = (int[])Session["IndexPages"];
-                if (pageIndex[1] >= (int)(creados.Count / 5))
+                if (pageIndex[1] > (int)(creados.Count / 5))
                 {
                     pageIndex[1] = (int)(creados.Count / 5) - 1;
                     Session["IndexPages"] = pageIndex;
@@ -136,7 +136,7 @@ namespace SteamWA
                 gvSuscritos.DataBind();
                 Session["ForosSuscritos"] = foros;
                 pageIndex = (int[])Session["IndexPages"];
-                if (pageIndex[2] >= (int)(foros.Count / 5))
+                if (pageIndex[2] > (int)(foros.Count / 5))
                 {
                     pageIndex[2] = (int)(foros.Count / 5) - 1;
                     Session["IndexPages"] = pageIndex;
@@ -180,7 +180,12 @@ namespace SteamWA
             string nAntiguo = actforo.nombre;
             actforo.nombre = txtNTema.Text;
             actforo.descripcion = txtNDescripcion.Text;
-            if (txtNTema.Text.CompareTo("") == 0 || txtNDescripcion.Text.CompareTo("") == 0) return;
+            if (txtNTema.Text.CompareTo("") == 0 || txtNDescripcion.Text.CompareTo("") == 0)
+            {
+                string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
             daoForo.editarForo(actforo);
             notificacion notificacionForo = new notificacion();
             notificacionForo.tipoSpecified = true;
@@ -199,7 +204,12 @@ namespace SteamWA
             usuario user = (usuario)Session["usuario"];
             hilo neohilo = new hilo();
             mensaje neomensaje = new mensaje();
-            if (user == null || txtTema.Text.CompareTo("")==0 || txtDescripcion.Text.CompareTo("") == 0 || txtInicial.Text.CompareTo("") == 0 || txtMensajeInicial.Text.CompareTo("") == 0) return;
+            if (user == null || txtTema.Text.CompareTo("") == 0 || txtDescripcion.Text.CompareTo("") == 0 || txtInicial.Text.CompareTo("") == 0 || txtMensajeInicial.Text.CompareTo("") == 0)
+            {
+                string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
             neoforo.nombre = txtTema.Text;
             neoforo.descripcion = txtDescripcion.Text;
             neoforo.origen = origenForo.USUARIO;
@@ -246,31 +256,31 @@ namespace SteamWA
         {
             usuario user = (usuario)Session["usuario"];
             foro[] aux = daoForo.listarForosSuscritos(user.UID);
+            string script;
             if (aux != null)
             {
                 suscritos = new BindingList<foro>(aux);
                 gvSuscritos.DataSource = suscritos;
                 gvSuscritos.DataBind();
                 Session["ForosSuscritos"] = suscritos;
-                string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
-                ClientScript.RegisterStartupScript(GetType(), "", script, true);
-            }
-            else
-            {
-                string script = "window.onload = function() { showModalForm('form-modal-sin-suscritos') };";
-                ClientScript.RegisterStartupScript(GetType(), "", script, true);
-            }
+                script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
+            } else script = "window.onload = function() { showModalForm('form-modal-sin-suscritos') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
         protected void btnCreados_Click(object sender, EventArgs e)
         {
             usuario user = (usuario)Session["usuario"];
             foro[] aux = daoForo.listarCreados(user.UID);
-            if (aux != null) creados = new BindingList<foro>(aux);
-            gvCreados.DataSource = creados;
-            gvCreados.DataBind();
-            Session["ForosCreados"] = creados;
-            string script = "window.onload = function() { showModalForm('form-modal-creados') };";
+            string script;
+            if (aux != null) 
+            {
+                creados = new BindingList<foro>(aux);
+                gvCreados.DataSource = creados;
+                gvCreados.DataBind();
+                Session["ForosCreados"] = creados;
+                script = "window.onload = function() { showModalForm('form-modal-creados') };";
+            } else script = "window.onload = function() { showModalForm('form-modal-sin-creados') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 

@@ -4,9 +4,9 @@
     alert("jdksadjkasldas");
     print("asdadas");
     // Llamada AJAX al método del servidor
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "Comunidad.aspx/txtBusquedaForo_TextChanged", true);
-    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-    var data = JSON.stringify({ texto: texto });
-    xhr.send(data);
+    //var xhr = new XMLHttpRequest();
+    //xhr.open("POST", "Comunidad.aspx/txtBusquedaForo_TextChanged", true);
+    //xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    //var data = JSON.stringify({ texto: texto });
+    //xhr.send(data);
 }
