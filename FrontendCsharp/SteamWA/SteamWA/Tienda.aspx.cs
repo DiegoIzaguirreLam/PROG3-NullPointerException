@@ -70,6 +70,30 @@ namespace SteamWA
                 }
 
 
+            //Carousel Destacados:
+            BindingList<int> listaIdProductoProdAdq = new BindingList<int>(daoProductoAdquirido.listarIdProductoProductoAdquirido());
+            BindingList<producto> listaProductosDestacados = new BindingList<producto>(listaProductos);
+            foreach (producto prod in listaProductosDestacados)
+            {
+                prod.precio = 0;
+            }
+            foreach (int id in listaIdProductoProdAdq)
+            {
+                foreach (producto prod in listaProductosDestacados)
+                {
+                    if (prod.idProducto == id)
+                    {
+                        prod.precio += 1;
+                    }
+                }
+            }
+            listaProductosDestacados = new BindingList<producto>(listaProductosDestacados.OrderByDescending(producto => producto.precio).ToList());
+
+            imgDest1.ImageUrl = listaProductosDestacados[0].portadaUrl;
+            imgDest2.ImageUrl = listaProductosDestacados[1].portadaUrl;
+            imgDest3.ImageUrl = listaProductosDestacados[2].portadaUrl;
+
+
             BindingList<producto> listaTemp =
             new BindingList<SteamWA.SteamServiceWS.producto>();
             if (Request.Form[barRangoPrecio.UniqueID] != null)
@@ -100,28 +124,7 @@ namespace SteamWA
                 labelito.InnerText = "Todos";
             }
 
-            //Carousel Destacados:
-            BindingList<int> listaIdProductoProdAdq = new BindingList<int>(daoProductoAdquirido.listarIdProductoProductoAdquirido());
-            BindingList<producto> listaProductosDestacados = new BindingList<producto>(listaProductos);
-            foreach (producto prod in listaProductosDestacados)
-            {
-                prod.precio = 0;
-            }
-            foreach (int id in listaIdProductoProdAdq)
-            {
-                foreach (producto prod in listaProductosDestacados)
-                {
-                    if (prod.idProducto == id)
-                    {
-                        prod.precio += 1;
-                    }
-                }
-            }
-            listaProductosDestacados = new BindingList<producto>(listaProductosDestacados.OrderByDescending(producto => producto.precio).ToList());
-
-            imgDest1.ImageUrl = listaProductosDestacados[0].portadaUrl;
-            imgDest2.ImageUrl = listaProductosDestacados[1].portadaUrl;
-            imgDest3.ImageUrl = listaProductosDestacados[2].portadaUrl;
+          
             
             
             

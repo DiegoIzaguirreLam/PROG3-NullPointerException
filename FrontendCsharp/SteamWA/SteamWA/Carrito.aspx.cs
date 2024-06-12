@@ -122,6 +122,20 @@ namespace SteamWA
                 listaCarrito.Remove(prodEncontrado);
                 
             }
+            double montoTotal = 0;
+            foreach (producto p in listaCarrito)
+            {
+                montoTotal += Double.Parse(p.precio.ToString());
+
+            }
+            if (listaCarrito.Count <= 0)
+            {
+                labelTotalCarrito.InnerText = "Aún no tiene productos en su carrito, agregue productos de la tienda y regrese a comprarlos!";
+                btmComprar.Visible = false;
+            }
+           
+            labelTotalCarrito.InnerText = "Total Estimado: " + moneda.simbolo + (montoTotal * moneda.cambioDeDolares).ToString("N2");
+
             Session["ElementosCarrito"] = listaCarrito;
             mostrarListaProductos(listaCarrito);
         }
