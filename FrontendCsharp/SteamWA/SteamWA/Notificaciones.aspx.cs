@@ -13,10 +13,9 @@ namespace SteamWA
 {
     public partial class Notificaciones : System.Web.UI.Page
     {
-        private DataTable dtNotificaciones = new DataTable();
+        
         private NotificacionWSClient daoNotificacion;
         BindingList<notificacion> notificaciones;
-        int idNotificacion;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -65,47 +64,50 @@ namespace SteamWA
         }
 
 
-        protected void ExpandirNotificacion_Click(object sender, EventArgs e)
-        {
-            idNotificacion = Int32.Parse(((LinkButton)sender).CommandArgument);
-            string tipoNotificacion = string.Empty;
-            string mensaje = string.Empty;
-            notificaciones = (BindingList<notificacion>)Session["notificaciones"];
-            // Busca en las notificaciones del usuario
-            notificacion notificacion = notificaciones.SingleOrDefault(x => x.idNotificacion == idNotificacion);
-            // Verifica si se encontró la información de la notificación
-            if (notificacion != null)
-            {
-                tipoNotificacion = notificacion.tipo.ToString();
-                mensaje = notificacion.mensaje;
-                //notificacion.revisada = true;
-                //int resultado = daoNotificacion.actualizarNotificacion(notificacion);
-                Session["notificacionSeleccionada"] = notificacion;
-            }
-            btnMarcarNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
-            string script = $"window.onload = function() {{mostrarNotificacion('{tipoNotificacion}', '{mensaje}')}};";
-            ClientScript.RegisterStartupScript(GetType(), "", script, true);
-        }
+        //protected void ExpandirNotificacion_Click(object sender, EventArgs e)
+        //{
+        //    idNotificacion = Int32.Parse(((LinkButton)sender).CommandArgument);
+        //    string tipoNotificacion = string.Empty;
+        //    string mensaje = string.Empty;
+        //    notificaciones = (BindingList<notificacion>)Session["notificaciones"];
+        //    // Busca en las notificaciones del usuario
+        //    notificacion notificacion = notificaciones.SingleOrDefault(x => x.idNotificacion == idNotificacion);
+        //    // Verifica si se encontró la información de la notificación
+        //    if (notificacion != null)
+        //    {
+        //        tipoNotificacion = notificacion.tipo.ToString();
+        //        mensaje = notificacion.mensaje;
+        //        //notificacion.revisada = true;
+        //        //int resultado = daoNotificacion.actualizarNotificacion(notificacion);
+        //        Session["notificacionSeleccionada"] = notificacion;
+        //    }
+        //    btnMarcarNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
+        //    string script = $"window.onload = function() {{mostrarNotificacion('{tipoNotificacion}', '{mensaje}')}};";
+        //    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        //}
 
         private void Chk_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
+        protected void btnEliminarModal_Click(object sender, EventArgs e)
         {
-            notificacion notificacion = (notificacion)Session["notificacionSeleccionada"];
-            int resultado = daoNotificacion.eliminarNotificacion(notificacion.idNotificacion);
-            Session["notificacionSeleccionada"] = null;
+            int idNotificacion = (int)Session["idNotificacionEliminar"];
+            int resultado = daoNotificacion.eliminarNotificacion(idNotificacion);
+            Session["idNotificacionEliminar"] = null;
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
-        protected void btnMarcarNoLeido_Click(object sender, EventArgs e)
+        protected void btnMarcarNoLeidoModal_Click(object sender, EventArgs e)
         {
-            notificacion notificacion = (notificacion)Session["notificacionSeleccionada"];
-            notificacion.revisada = !notificacion.revisada;
-            int resultado = daoNotificacion.actualizarNotificacion(notificacion);
-            Session["notificacionSeleccionada"] = null;
+            notificacion notificacion = (notificacion)Session["notificacionModificar"];
+            if (notificacion != null)
+            {
+                notificacion.revisada = !notificacion.revisada;
+                int resultado = daoNotificacion.actualizarNotificacion(notificacion);
+            }
+            Session["notificacionModificar"] = null;
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
@@ -124,6 +126,38 @@ namespace SteamWA
                 resultado = daoNotificacion.eliminarNotificacion(not.idNotificacion);
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
+        }
+
+        protected void btnMarcarLeidoNoLeido_Click(object sender, EventArgs e)
+        {
+            int idNotificacion = Int32.Parse(((LinkButton)sender).CommandArgument);
+            notificaciones = (BindingList<notificacion>)Session["notificaciones"];
+            notificacion notificacion = notificaciones.SingleOrDefault(x => x.idNotificacion == idNotificacion);
+            Session["notificacionModificar"] = notificacion;
+            btnMarcarNoLeidoModal.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
+            string script = "window.onload = function() { showModalForm('form-modal-ModificarNotificacion') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Session["idNotificacionEliminar"] = Int32.Parse(((LinkButton)sender).CommandArgument);
+            string script = "window.onload = function() { showModalForm('form-modal-EliminarNotificacion') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        protected void lvNotificaciones_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem)
+            {
+                var notificacion = (notificacion)((ListViewDataItem)e.Item).DataItem;
+                var btnMarcarLeidoNoLeido = (LinkButton)e.Item.FindControl("btnMarcarLeidoNoLeido");
+
+                if (btnMarcarLeidoNoLeido != null)
+                {
+                    btnMarcarLeidoNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
+                }
+            }
         }
     }
 }

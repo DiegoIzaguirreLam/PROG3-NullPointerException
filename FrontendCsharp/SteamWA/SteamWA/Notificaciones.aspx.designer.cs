@@ -24,15 +24,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.LinkButton lbEliminarNotificaciones;
 
         /// <summary>
-        /// Control UpdatePanelNotificaciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelNotificaciones;
-
-        /// <summary>
         /// Control lvNotificaciones.
         /// </summary>
         /// <remarks>
@@ -42,24 +33,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.ListView lvNotificaciones;
 
         /// <summary>
-        /// Control btnEliminar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
-
-        /// <summary>
-        /// Control btnMarcarNoLeido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMarcarNoLeido;
-
-        /// <summary>
         /// Control btnEliminarConfirmacion.
         /// </summary>
         /// <remarks>
@@ -67,5 +40,23 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEliminarConfirmacion;
+
+        /// <summary>
+        /// Control btnMarcarNoLeidoModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMarcarNoLeidoModal;
+
+        /// <summary>
+        /// Control btnEliminarModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarModal;
     }
 }
