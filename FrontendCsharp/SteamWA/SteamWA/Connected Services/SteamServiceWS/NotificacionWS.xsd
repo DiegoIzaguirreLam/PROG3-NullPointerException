@@ -153,7 +153,7 @@
       <xs:element minOccurs="0" name="idTransaccion" type="xs:string" />
       <xs:element minOccurs="0" name="metodoPago" type="tns:metodoPago" />
       <xs:element name="monto" type="xs:double" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="producto" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="producto" nillable="true" type="tns:productoAdquirido" />
       <xs:element minOccurs="0" name="tipo" type="tns:tipoMovimiento" />
     </xs:sequence>
   </xs:complexType>
@@ -299,16 +299,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminarNotificacion">
-    <xs:sequence>
-      <xs:element name="notificacion" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarNotificacionResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarNotificaciones">
     <xs:sequence>
       <xs:element name="usuario" type="xs:int" />
@@ -317,6 +307,16 @@
   <xs:complexType name="listarNotificacionesResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:notificacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarNotificacion">
+    <xs:sequence>
+      <xs:element name="notificacion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarNotificacionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoNotificacion">

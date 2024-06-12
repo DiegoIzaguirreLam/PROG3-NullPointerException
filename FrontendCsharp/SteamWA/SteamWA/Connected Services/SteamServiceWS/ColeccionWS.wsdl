@@ -11,11 +11,11 @@
   <message name="actualizarColeccionResponse">
     <part name="parameters" element="tns:actualizarColeccionResponse" />
   </message>
-  <message name="listarColeccionesPorBiblioteca">
-    <part name="parameters" element="tns:listarColeccionesPorBiblioteca" />
+  <message name="eliminarColeccion">
+    <part name="parameters" element="tns:eliminarColeccion" />
   </message>
-  <message name="listarColeccionesPorBibliotecaResponse">
-    <part name="parameters" element="tns:listarColeccionesPorBibliotecaResponse" />
+  <message name="eliminarColeccionResponse">
+    <part name="parameters" element="tns:eliminarColeccionResponse" />
   </message>
   <message name="insertarColeccion">
     <part name="parameters" element="tns:insertarColeccion" />
@@ -23,28 +23,28 @@
   <message name="insertarColeccionResponse">
     <part name="parameters" element="tns:insertarColeccionResponse" />
   </message>
-  <message name="eliminarColeccion">
-    <part name="parameters" element="tns:eliminarColeccion" />
+  <message name="listarColeccionesPorBiblioteca">
+    <part name="parameters" element="tns:listarColeccionesPorBiblioteca" />
   </message>
-  <message name="eliminarColeccionResponse">
-    <part name="parameters" element="tns:eliminarColeccionResponse" />
+  <message name="listarColeccionesPorBibliotecaResponse">
+    <part name="parameters" element="tns:listarColeccionesPorBibliotecaResponse" />
   </message>
   <portType name="ColeccionWS">
     <operation name="actualizarColeccion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/actualizarColeccionRequest" message="tns:actualizarColeccion" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/actualizarColeccionResponse" message="tns:actualizarColeccionResponse" />
     </operation>
-    <operation name="listarColeccionesPorBiblioteca">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRequest" message="tns:listarColeccionesPorBiblioteca" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaResponse" message="tns:listarColeccionesPorBibliotecaResponse" />
+    <operation name="eliminarColeccion">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionRequest" message="tns:eliminarColeccion" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionResponse" message="tns:eliminarColeccionResponse" />
     </operation>
     <operation name="insertarColeccion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionRequest" message="tns:insertarColeccion" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionResponse" message="tns:insertarColeccionResponse" />
     </operation>
-    <operation name="eliminarColeccion">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionRequest" message="tns:eliminarColeccion" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionResponse" message="tns:eliminarColeccionResponse" />
+    <operation name="listarColeccionesPorBiblioteca">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRequest" message="tns:listarColeccionesPorBiblioteca" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaResponse" message="tns:listarColeccionesPorBibliotecaResponse" />
     </operation>
   </portType>
   <binding name="ColeccionWSPortBinding" type="tns:ColeccionWS">
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarColeccionesPorBiblioteca">
+    <operation name="eliminarColeccion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarColeccion">
+    <operation name="listarColeccionesPorBiblioteca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

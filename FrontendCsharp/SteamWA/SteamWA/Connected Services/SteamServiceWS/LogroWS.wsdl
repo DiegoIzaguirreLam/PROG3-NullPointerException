@@ -17,6 +17,12 @@
   <message name="insertarLogroResponse">
     <part name="parameters" element="tns:insertarLogroResponse" />
   </message>
+  <message name="actualizarLogro">
+    <part name="parameters" element="tns:actualizarLogro" />
+  </message>
+  <message name="actualizarLogroResponse">
+    <part name="parameters" element="tns:actualizarLogroResponse" />
+  </message>
   <message name="eliminarLogro">
     <part name="parameters" element="tns:eliminarLogro" />
   </message>
@@ -28,12 +34,6 @@
   </message>
   <message name="buscarLogroResponse">
     <part name="parameters" element="tns:buscarLogroResponse" />
-  </message>
-  <message name="actualizarLogro">
-    <part name="parameters" element="tns:actualizarLogro" />
-  </message>
-  <message name="actualizarLogroResponse">
-    <part name="parameters" element="tns:actualizarLogroResponse" />
   </message>
   <message name="listarLogros">
     <part name="parameters" element="tns:listarLogros" />
@@ -50,6 +50,10 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroRequest" message="tns:insertarLogro" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroResponse" message="tns:insertarLogroResponse" />
     </operation>
+    <operation name="actualizarLogro">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroRequest" message="tns:actualizarLogro" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroResponse" message="tns:actualizarLogroResponse" />
+    </operation>
     <operation name="eliminarLogro">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroRequest" message="tns:eliminarLogro" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroResponse" message="tns:eliminarLogroResponse" />
@@ -57,10 +61,6 @@
     <operation name="buscarLogro">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/buscarLogroRequest" message="tns:buscarLogro" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/buscarLogroResponse" message="tns:buscarLogroResponse" />
-    </operation>
-    <operation name="actualizarLogro">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroRequest" message="tns:actualizarLogro" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroResponse" message="tns:actualizarLogroResponse" />
     </operation>
     <operation name="listarLogros">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosRequest" message="tns:listarLogros" />
@@ -87,6 +87,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="actualizarLogro">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="eliminarLogro">
       <soap:operation soapAction="" />
       <input>
@@ -97,15 +106,6 @@
       </output>
     </operation>
     <operation name="buscarLogro">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="actualizarLogro">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

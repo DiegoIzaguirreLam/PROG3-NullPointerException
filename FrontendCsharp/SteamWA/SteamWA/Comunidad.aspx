@@ -187,7 +187,7 @@
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
-                    <h5 class="modal-title border-white">Mis Foros</h5>
+                    <h5 class="modal-title border-white">Mis Suscripciones</h5>
                     <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-content">
@@ -214,4 +214,20 @@
         </div>
     </div>
     <%--Modal para mostrar que no hay que mostrar--%>
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-sin-suscritos">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger bg-opacity-50 rounded-5">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title border-white">Sin Suscripciones</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content rounded bg-danger">
+                    <div class="container bg-danger mt-3">
+                        <asp:Label runat="server" Text="Presione + en la lista para agregar más foros."></asp:Label>
+                    </div>
+                    <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

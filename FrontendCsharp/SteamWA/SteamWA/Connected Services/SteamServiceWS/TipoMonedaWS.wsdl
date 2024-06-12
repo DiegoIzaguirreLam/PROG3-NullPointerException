@@ -11,17 +11,17 @@
   <message name="actualizarTiposMonedaResponse">
     <part name="parameters" element="tns:actualizarTiposMonedaResponse" />
   </message>
-  <message name="insertarTipoMoneda">
-    <part name="parameters" element="tns:insertarTipoMoneda" />
-  </message>
-  <message name="insertarTipoMonedaResponse">
-    <part name="parameters" element="tns:insertarTipoMonedaResponse" />
-  </message>
   <message name="eliminarTipoMoneda">
     <part name="parameters" element="tns:eliminarTipoMoneda" />
   </message>
   <message name="eliminarTipoMonedaResponse">
     <part name="parameters" element="tns:eliminarTipoMonedaResponse" />
+  </message>
+  <message name="insertarTipoMoneda">
+    <part name="parameters" element="tns:insertarTipoMoneda" />
+  </message>
+  <message name="insertarTipoMonedaResponse">
+    <part name="parameters" element="tns:insertarTipoMonedaResponse" />
   </message>
   <message name="listarTiposMoneda">
     <part name="parameters" element="tns:listarTiposMoneda" />
@@ -34,13 +34,13 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/actualizarTiposMonedaRequest" message="tns:actualizarTiposMoneda" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/actualizarTiposMonedaResponse" message="tns:actualizarTiposMonedaResponse" />
     </operation>
-    <operation name="insertarTipoMoneda">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaRequest" message="tns:insertarTipoMoneda" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaResponse" message="tns:insertarTipoMonedaResponse" />
-    </operation>
     <operation name="eliminarTipoMoneda">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaRequest" message="tns:eliminarTipoMoneda" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaResponse" message="tns:eliminarTipoMonedaResponse" />
+    </operation>
+    <operation name="insertarTipoMoneda">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaRequest" message="tns:insertarTipoMoneda" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaResponse" message="tns:insertarTipoMonedaResponse" />
     </operation>
     <operation name="listarTiposMoneda">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/listarTiposMonedaRequest" message="tns:listarTiposMoneda" />
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarTipoMoneda">
+    <operation name="eliminarTipoMoneda">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarTipoMoneda">
+    <operation name="insertarTipoMoneda">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

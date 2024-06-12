@@ -19,7 +19,7 @@
       <xs:element minOccurs="0" name="idTransaccion" type="xs:string" />
       <xs:element minOccurs="0" name="metodoPago" type="tns:metodoPago" />
       <xs:element name="monto" type="xs:double" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="producto" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="producto" nillable="true" type="tns:productoAdquirido" />
       <xs:element minOccurs="0" name="tipo" type="tns:tipoMovimiento" />
     </xs:sequence>
   </xs:complexType>

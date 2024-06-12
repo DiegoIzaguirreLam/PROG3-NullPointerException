@@ -62,8 +62,11 @@ namespace SteamWA
                     pageIndex[1] = (int)(creados.Count / 5) - 1;
                     Session["IndexPages"] = pageIndex;
                 }
-                string script = "window.onload = function() { showModalForm('form-modal-creados') };";
-                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                if ((creados.ToList()).Count > 0)
+                {
+                    string script = "window.onload = function() { showModalForm('form-modal-creados') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
             }
             Steam master = (Steam)this.Master;
             master.ItemComunidad.Attributes["class"] = "active";
@@ -138,8 +141,11 @@ namespace SteamWA
                     pageIndex[2] = (int)(foros.Count / 5) - 1;
                     Session["IndexPages"] = pageIndex;
                 }
-                string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
-                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                if (aux.Count > 0)
+                {
+                    string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
             }
         }
 
@@ -240,12 +246,20 @@ namespace SteamWA
         {
             usuario user = (usuario)Session["usuario"];
             foro[] aux = daoForo.listarForosSuscritos(user.UID);
-            if (aux != null) suscritos = new BindingList<foro>(aux);
-            gvSuscritos.DataSource = suscritos;
-            gvSuscritos.DataBind();
-            Session["ForosSuscritos"] = suscritos;
-            string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
-            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            if (aux != null)
+            {
+                suscritos = new BindingList<foro>(aux);
+                gvSuscritos.DataSource = suscritos;
+                gvSuscritos.DataBind();
+                Session["ForosSuscritos"] = suscritos;
+                string script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            }
+            else
+            {
+                string script = "window.onload = function() { showModalForm('form-modal-sin-suscritos') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            }
         }
 
         protected void btnCreados_Click(object sender, EventArgs e)
