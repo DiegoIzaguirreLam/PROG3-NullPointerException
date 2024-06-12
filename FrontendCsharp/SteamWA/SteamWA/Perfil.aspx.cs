@@ -55,9 +55,6 @@ namespace SteamWA
 
         protected void cargarLogrosBaseDeDatos(int idUsuario)
         {
-            // Se asume que la variable de sesión tiene los logros actualizados
-            if (Session["logrosDesbloqueados"] != null) return;
-
             LogroDesbloqueadoWSClient daoLogro = new LogroDesbloqueadoWSClient();
             logroDesbloqueado[] listaLogros = daoLogro.listarLogrosPorUsuario(idUsuario);
 
