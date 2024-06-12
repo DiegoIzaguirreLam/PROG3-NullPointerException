@@ -47,11 +47,11 @@ public class NotificacionWS {
     }
     
     @WebMethod(operationName="eliminarNotificacion")
-    public int eliminarNotificacion(@WebParam(name="notificacion") Notificacion notificacion) {
+    public int eliminarNotificacion(@WebParam(name="notificacion") int idNotificacion) {
         int resultado=0;
         try{
             NotificacionDAO notifiacionDao = new NotificacionMySQL();
-            resultado = notifiacionDao.eliminarNotificacion(notificacion);
+            resultado = notifiacionDao.eliminarNotificacion(idNotificacion);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -59,11 +59,11 @@ public class NotificacionWS {
     }
     
     @WebMethod(operationName="listarNotificaciones")
-    public ArrayList<Notificacion> listarNotificaciones(@WebParam(name="usuario") Usuario usuario) {
+    public ArrayList<Notificacion> listarNotificaciones(@WebParam(name="usuario") int fid_usuario) {
         ArrayList<Notificacion> notificaciones = new ArrayList<>();
         try{
             NotificacionDAO notifiacionDao = new NotificacionMySQL();
-            notificaciones = notifiacionDao.listarNotificaciones(usuario);
+            notificaciones = notifiacionDao.listarNotificaciones(fid_usuario);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

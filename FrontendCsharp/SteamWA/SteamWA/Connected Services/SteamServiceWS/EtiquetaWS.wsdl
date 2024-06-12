@@ -5,18 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/EtiquetaWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarEtiqueta">
-    <part name="parameters" element="tns:actualizarEtiqueta" />
-  </message>
-  <message name="actualizarEtiquetaResponse">
-    <part name="parameters" element="tns:actualizarEtiquetaResponse" />
-  </message>
-  <message name="eliminarEtiqueta">
-    <part name="parameters" element="tns:eliminarEtiqueta" />
-  </message>
-  <message name="eliminarEtiquetaResponse">
-    <part name="parameters" element="tns:eliminarEtiquetaResponse" />
-  </message>
   <message name="insertarEtiqueta">
     <part name="parameters" element="tns:insertarEtiqueta" />
   </message>
@@ -29,15 +17,19 @@
   <message name="listarEtiquetasResponse">
     <part name="parameters" element="tns:listarEtiquetasResponse" />
   </message>
+  <message name="eliminarEtiqueta">
+    <part name="parameters" element="tns:eliminarEtiqueta" />
+  </message>
+  <message name="eliminarEtiquetaResponse">
+    <part name="parameters" element="tns:eliminarEtiquetaResponse" />
+  </message>
+  <message name="actualizarEtiqueta">
+    <part name="parameters" element="tns:actualizarEtiqueta" />
+  </message>
+  <message name="actualizarEtiquetaResponse">
+    <part name="parameters" element="tns:actualizarEtiquetaResponse" />
+  </message>
   <portType name="EtiquetaWS">
-    <operation name="actualizarEtiqueta">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/actualizarEtiquetaRequest" message="tns:actualizarEtiqueta" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/actualizarEtiquetaResponse" message="tns:actualizarEtiquetaResponse" />
-    </operation>
-    <operation name="eliminarEtiqueta">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaRequest" message="tns:eliminarEtiqueta" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaResponse" message="tns:eliminarEtiquetaResponse" />
-    </operation>
     <operation name="insertarEtiqueta">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaRequest" message="tns:insertarEtiqueta" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaResponse" message="tns:insertarEtiquetaResponse" />
@@ -46,10 +38,27 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasRequest" message="tns:listarEtiquetas" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasResponse" message="tns:listarEtiquetasResponse" />
     </operation>
+    <operation name="eliminarEtiqueta">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaRequest" message="tns:eliminarEtiqueta" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaResponse" message="tns:eliminarEtiquetaResponse" />
+    </operation>
+    <operation name="actualizarEtiqueta">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/actualizarEtiquetaRequest" message="tns:actualizarEtiqueta" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/actualizarEtiquetaResponse" message="tns:actualizarEtiquetaResponse" />
+    </operation>
   </portType>
   <binding name="EtiquetaWSPortBinding" type="tns:EtiquetaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarEtiqueta">
+    <operation name="insertarEtiqueta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEtiquetas">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,16 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarEtiqueta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarEtiquetas">
+    <operation name="actualizarEtiqueta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

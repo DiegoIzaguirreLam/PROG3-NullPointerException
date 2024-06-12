@@ -47,13 +47,13 @@ public class NotificacionMySQL implements NotificacionDAO{
     }
 
     @Override
-    public int eliminarNotificacion(Notificacion notificacion) {
+    public int eliminarNotificacion(int idNotificacion) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_NOTIFICACION"
                     + "(?)}");
-            cs.setInt("_ID_NOTIFICACION", notificacion.getIdNotificacion());
+            cs.setInt("_ID_NOTIFICACION", idNotificacion);
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -85,12 +85,12 @@ public class NotificacionMySQL implements NotificacionDAO{
     }
 
     @Override
-    public ArrayList<Notificacion> listarNotificaciones(Usuario usuario) {
+    public ArrayList<Notificacion> listarNotificaciones(int fid_usuario) {
         ArrayList<Notificacion> notificaciones = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call LISTAR_NOTIFICACIONES(?)}");
-            cs.setInt("_FID_USUARIO", usuario.getUID());
+            cs.setInt("_FID_USUARIO", fid_usuario);
             rs = cs.executeQuery();
             while(rs.next()){
                 Notificacion notificacion = new Notificacion();

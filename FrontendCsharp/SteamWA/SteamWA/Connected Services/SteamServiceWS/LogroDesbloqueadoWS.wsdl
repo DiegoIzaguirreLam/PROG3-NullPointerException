@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/LogroDesbloqueadoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarLogrosDesbloqueadosProductoAdquirido">
-    <part name="parameters" element="tns:listarLogrosDesbloqueadosProductoAdquirido" />
+  <message name="insertarLogroDesbloqueado">
+    <part name="parameters" element="tns:insertarLogroDesbloqueado" />
   </message>
-  <message name="listarLogrosDesbloqueadosProductoAdquiridoResponse">
-    <part name="parameters" element="tns:listarLogrosDesbloqueadosProductoAdquiridoResponse" />
+  <message name="insertarLogroDesbloqueadoResponse">
+    <part name="parameters" element="tns:insertarLogroDesbloqueadoResponse" />
   </message>
   <message name="eliminarLogroDesbloqueado">
     <part name="parameters" element="tns:eliminarLogroDesbloqueado" />
   </message>
   <message name="eliminarLogroDesbloqueadoResponse">
     <part name="parameters" element="tns:eliminarLogroDesbloqueadoResponse" />
-  </message>
-  <message name="insertarLogroDesbloqueado">
-    <part name="parameters" element="tns:insertarLogroDesbloqueado" />
-  </message>
-  <message name="insertarLogroDesbloqueadoResponse">
-    <part name="parameters" element="tns:insertarLogroDesbloqueadoResponse" />
   </message>
   <message name="listarLogrosPorUsuario">
     <part name="parameters" element="tns:listarLogrosPorUsuario" />
@@ -35,18 +29,20 @@
   <message name="actualizarLogroDesbloqueadoResponse">
     <part name="parameters" element="tns:actualizarLogroDesbloqueadoResponse" />
   </message>
+  <message name="listarLogrosDesbloqueadosProductoAdquirido">
+    <part name="parameters" element="tns:listarLogrosDesbloqueadosProductoAdquirido" />
+  </message>
+  <message name="listarLogrosDesbloqueadosProductoAdquiridoResponse">
+    <part name="parameters" element="tns:listarLogrosDesbloqueadosProductoAdquiridoResponse" />
+  </message>
   <portType name="LogroDesbloqueadoWS">
-    <operation name="listarLogrosDesbloqueadosProductoAdquirido">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosDesbloqueadosProductoAdquiridoRequest" message="tns:listarLogrosDesbloqueadosProductoAdquirido" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosDesbloqueadosProductoAdquiridoResponse" message="tns:listarLogrosDesbloqueadosProductoAdquiridoResponse" />
+    <operation name="insertarLogroDesbloqueado">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloqueadoRequest" message="tns:insertarLogroDesbloqueado" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloqueadoResponse" message="tns:insertarLogroDesbloqueadoResponse" />
     </operation>
     <operation name="eliminarLogroDesbloqueado">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/eliminarLogroDesbloqueadoRequest" message="tns:eliminarLogroDesbloqueado" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/eliminarLogroDesbloqueadoResponse" message="tns:eliminarLogroDesbloqueadoResponse" />
-    </operation>
-    <operation name="insertarLogroDesbloqueado">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloqueadoRequest" message="tns:insertarLogroDesbloqueado" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloqueadoResponse" message="tns:insertarLogroDesbloqueadoResponse" />
     </operation>
     <operation name="listarLogrosPorUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRequest" message="tns:listarLogrosPorUsuario" />
@@ -56,10 +52,14 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloqueadoRequest" message="tns:actualizarLogroDesbloqueado" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloqueadoResponse" message="tns:actualizarLogroDesbloqueadoResponse" />
     </operation>
+    <operation name="listarLogrosDesbloqueadosProductoAdquirido">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosDesbloqueadosProductoAdquiridoRequest" message="tns:listarLogrosDesbloqueadosProductoAdquirido" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosDesbloqueadosProductoAdquiridoResponse" message="tns:listarLogrosDesbloqueadosProductoAdquiridoResponse" />
+    </operation>
   </portType>
   <binding name="LogroDesbloqueadoWSPortBinding" type="tns:LogroDesbloqueadoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarLogrosDesbloqueadosProductoAdquirido">
+    <operation name="insertarLogroDesbloqueado">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -69,15 +69,6 @@
       </output>
     </operation>
     <operation name="eliminarLogroDesbloqueado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarLogroDesbloqueado">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,6 +87,15 @@
       </output>
     </operation>
     <operation name="actualizarLogroDesbloqueado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarLogrosDesbloqueadosProductoAdquirido">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

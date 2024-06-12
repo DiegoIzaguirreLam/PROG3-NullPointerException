@@ -5,41 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ProductoAdquiridoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarIdProductoProductoAdquirido">
-    <part name="parameters" element="tns:listarIdProductoProductoAdquirido" />
-  </message>
-  <message name="listarIdProductoProductoAdquiridoResponse">
-    <part name="parameters" element="tns:listarIdProductoProductoAdquiridoResponse" />
-  </message>
-  <message name="listarProductosAdquiridosPorIdBiblioteca">
-    <part name="parameters" element="tns:listarProductosAdquiridosPorIdBiblioteca" />
-  </message>
-  <message name="listarProductosAdquiridosPorIdBibliotecaResponse">
-    <part name="parameters" element="tns:listarProductosAdquiridosPorIdBibliotecaResponse" />
-  </message>
-  <message name="listarProductosAdquiridosPorIdColeccion">
-    <part name="parameters" element="tns:listarProductosAdquiridosPorIdColeccion" />
-  </message>
-  <message name="listarProductosAdquiridosPorIdColeccionResponse">
-    <part name="parameters" element="tns:listarProductosAdquiridosPorIdColeccionResponse" />
-  </message>
   <message name="buscarProductoAdquirido">
     <part name="parameters" element="tns:buscarProductoAdquirido" />
   </message>
   <message name="buscarProductoAdquiridoResponse">
     <part name="parameters" element="tns:buscarProductoAdquiridoResponse" />
-  </message>
-  <message name="actualizarProductoAdquirido">
-    <part name="parameters" element="tns:actualizarProductoAdquirido" />
-  </message>
-  <message name="actualizarProductoAdquiridoResponse">
-    <part name="parameters" element="tns:actualizarProductoAdquiridoResponse" />
-  </message>
-  <message name="insertarProductoAdquirido">
-    <part name="parameters" element="tns:insertarProductoAdquirido" />
-  </message>
-  <message name="insertarProductoAdquiridoResponse">
-    <part name="parameters" element="tns:insertarProductoAdquiridoResponse" />
   </message>
   <message name="eliminarProductoAdquirido">
     <part name="parameters" element="tns:eliminarProductoAdquirido" />
@@ -47,65 +17,68 @@
   <message name="eliminarProductoAdquiridoResponse">
     <part name="parameters" element="tns:eliminarProductoAdquiridoResponse" />
   </message>
+  <message name="insertarProductoAdquirido">
+    <part name="parameters" element="tns:insertarProductoAdquirido" />
+  </message>
+  <message name="insertarProductoAdquiridoResponse">
+    <part name="parameters" element="tns:insertarProductoAdquiridoResponse" />
+  </message>
+  <message name="actualizarProductoAdquirido">
+    <part name="parameters" element="tns:actualizarProductoAdquirido" />
+  </message>
+  <message name="actualizarProductoAdquiridoResponse">
+    <part name="parameters" element="tns:actualizarProductoAdquiridoResponse" />
+  </message>
+  <message name="listarIdProductoProductoAdquirido">
+    <part name="parameters" element="tns:listarIdProductoProductoAdquirido" />
+  </message>
+  <message name="listarIdProductoProductoAdquiridoResponse">
+    <part name="parameters" element="tns:listarIdProductoProductoAdquiridoResponse" />
+  </message>
+  <message name="listarProductosAdquiridosPorIdColeccion">
+    <part name="parameters" element="tns:listarProductosAdquiridosPorIdColeccion" />
+  </message>
+  <message name="listarProductosAdquiridosPorIdColeccionResponse">
+    <part name="parameters" element="tns:listarProductosAdquiridosPorIdColeccionResponse" />
+  </message>
+  <message name="listarProductosAdquiridosPorIdBiblioteca">
+    <part name="parameters" element="tns:listarProductosAdquiridosPorIdBiblioteca" />
+  </message>
+  <message name="listarProductosAdquiridosPorIdBibliotecaResponse">
+    <part name="parameters" element="tns:listarProductosAdquiridosPorIdBibliotecaResponse" />
+  </message>
   <portType name="ProductoAdquiridoWS">
-    <operation name="listarIdProductoProductoAdquirido">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProductoAdquiridoRequest" message="tns:listarIdProductoProductoAdquirido" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProductoAdquiridoResponse" message="tns:listarIdProductoProductoAdquiridoResponse" />
-    </operation>
-    <operation name="listarProductosAdquiridosPorIdBiblioteca">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdBibliotecaRequest" message="tns:listarProductosAdquiridosPorIdBiblioteca" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdBibliotecaResponse" message="tns:listarProductosAdquiridosPorIdBibliotecaResponse" />
-    </operation>
-    <operation name="listarProductosAdquiridosPorIdColeccion">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdColeccionRequest" message="tns:listarProductosAdquiridosPorIdColeccion" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdColeccionResponse" message="tns:listarProductosAdquiridosPorIdColeccionResponse" />
-    </operation>
     <operation name="buscarProductoAdquirido">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/buscarProductoAdquiridoRequest" message="tns:buscarProductoAdquirido" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/buscarProductoAdquiridoResponse" message="tns:buscarProductoAdquiridoResponse" />
-    </operation>
-    <operation name="actualizarProductoAdquirido">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquiridoRequest" message="tns:actualizarProductoAdquirido" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquiridoResponse" message="tns:actualizarProductoAdquiridoResponse" />
-    </operation>
-    <operation name="insertarProductoAdquirido">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/insertarProductoAdquiridoRequest" message="tns:insertarProductoAdquirido" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/insertarProductoAdquiridoResponse" message="tns:insertarProductoAdquiridoResponse" />
     </operation>
     <operation name="eliminarProductoAdquirido">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/eliminarProductoAdquiridoRequest" message="tns:eliminarProductoAdquirido" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/eliminarProductoAdquiridoResponse" message="tns:eliminarProductoAdquiridoResponse" />
     </operation>
+    <operation name="insertarProductoAdquirido">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/insertarProductoAdquiridoRequest" message="tns:insertarProductoAdquirido" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/insertarProductoAdquiridoResponse" message="tns:insertarProductoAdquiridoResponse" />
+    </operation>
+    <operation name="actualizarProductoAdquirido">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquiridoRequest" message="tns:actualizarProductoAdquirido" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquiridoResponse" message="tns:actualizarProductoAdquiridoResponse" />
+    </operation>
+    <operation name="listarIdProductoProductoAdquirido">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProductoAdquiridoRequest" message="tns:listarIdProductoProductoAdquirido" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProductoAdquiridoResponse" message="tns:listarIdProductoProductoAdquiridoResponse" />
+    </operation>
+    <operation name="listarProductosAdquiridosPorIdColeccion">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdColeccionRequest" message="tns:listarProductosAdquiridosPorIdColeccion" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdColeccionResponse" message="tns:listarProductosAdquiridosPorIdColeccionResponse" />
+    </operation>
+    <operation name="listarProductosAdquiridosPorIdBiblioteca">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdBibliotecaRequest" message="tns:listarProductosAdquiridosPorIdBiblioteca" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquiridosPorIdBibliotecaResponse" message="tns:listarProductosAdquiridosPorIdBibliotecaResponse" />
+    </operation>
   </portType>
   <binding name="ProductoAdquiridoWSPortBinding" type="tns:ProductoAdquiridoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarIdProductoProductoAdquirido">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarProductosAdquiridosPorIdBiblioteca">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarProductosAdquiridosPorIdColeccion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="buscarProductoAdquirido">
       <soap:operation soapAction="" />
       <input>
@@ -115,7 +88,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarProductoAdquirido">
+    <operation name="eliminarProductoAdquirido">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -133,7 +106,34 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarProductoAdquirido">
+    <operation name="actualizarProductoAdquirido">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarIdProductoProductoAdquirido">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductosAdquiridosPorIdColeccion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductosAdquiridosPorIdBiblioteca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
