@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SteamWA.SteamServiceWS;
@@ -67,6 +68,15 @@ namespace SteamWA
                     string script = "window.onload = function() { showModalForm('form-modal-creados') };";
                     ClientScript.RegisterStartupScript(GetType(), "", script, true);
                 }
+            }
+            if (IsPostBack && txtBusquedaForo.Text != "")
+            {
+                foro[] aux1 = daoForo.buscarForos(txtBusquedaForo.Text);
+                if (aux1 != null) foros = new BindingList<foro>(aux1);
+                gvForos.DataSource = foros;
+                gvForos.DataBind();
+                Session["forosAux"] = foros;
+                txtBusquedaForo.Focus();
             }
             Steam master = (Steam)this.Master;
             master.ItemComunidad.Attributes["class"] = "active";
@@ -244,12 +254,10 @@ namespace SteamWA
             Response.Redirect("Comunidad.aspx");
         }
 
+        //[WebMethod]
         protected void txtBusquedaForo_TextChanged(object sender, EventArgs e)
         {
-            foro[] aux = daoForo.buscarForos(txtBusquedaForo.Text);
-            if (aux != null) foros = new BindingList<foro>(aux);
-            gvForos.DataSource = foros;
-            gvForos.DataBind();
+
         }
 
         protected void btnSuscritos_Click(object sender, EventArgs e)

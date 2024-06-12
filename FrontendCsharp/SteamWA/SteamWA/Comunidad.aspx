@@ -7,27 +7,29 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <link href="Content/Steam/FontAdder.css" rel="stylesheet" />
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+
     <div class="container">
         <h1 class="mt-4">Comunidad</h1>
         <div class="row align-items-center">
             <div class="col-md-7 row align-items-start">
                 <div class="col-md-auto align-items-lg-start">
-                    <asp:Button ID="return" CssClass="h5 bg-transparent border-0 fontSetterExo2" runat="server" Text="Comunidad" OnClick="btnActualizarComunidad_Click"/>
+                    <asp:Button ID="return" CssClass="h5 bg-transparent border-0 fontSetterExo2" runat="server" Text="Comunidad" OnClick="btnActualizarComunidad_Click" />
                 </div>
             </div>
             <div class="col text-end">
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light fontSetterExo2" runat="server" Text="Crear Foro" OnClick="btnCrearForo_Click" />
             </div>
         </div>
+
         <div class="search-bar">
-            <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged" oninput="buscarForo_js()"></asp:TextBox>
-            <%--<asp:Label runat="server" ID="pruebaLabel" CssClass="bg-white" Text="djsakdhasjkd"></asp:Label>--%>
+            <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged" AutoPostBack="true" oninput="buscarForo_js()"></asp:TextBox>
         </div>
     </div>
     <div class="container mt-3 fontSetterExo2">
         <div class="row align-items-center">
             <div class="col-sm-4 text-start">
-                <asp:Button ID="btnSuscritos" runat="server" CssClass="btn btn-dark border-light" Text="Suscritos" OnClick="btnSuscritos_Click"/>
+                <asp:Button ID="btnSuscritos" runat="server" CssClass="btn btn-dark border-light" Text="Suscritos" OnClick="btnSuscritos_Click" />
             </div>
             <div class="col text-center">
                 <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary align-middle btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" />
@@ -38,25 +40,32 @@
         </div>
     </div>
     <hr "/>
-    <div class="container fontSetterExo2 mb-5">
-        <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvForos_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
-            <Columns>
-                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForo" />
-                <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
-                <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
-                <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
-                <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" 
-                                 HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                <asp:TemplateField ItemStyle-CssClass="text-end">
-                    <ItemTemplate>
-                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-plus' style='color: #ffffff;'></i>"
-                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbSuscribirForo_Click" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-        <asp:Label runat="server" CssClass="bg-transparent text-dark" Text="."></asp:Label>
-    </div>
+    <asp:UpdatePanel runat="server" UpdateMode="Always">
+        <contenttemplate>
+            <div class="container fontSetterExo2 mb-5">
+                <asp:GridView ID="gvForos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvForos_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
+                    <columns>
+                        <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForo" />
+                        <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                        <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
+                        <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
+                        <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
+                            HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                        <asp:TemplateField ItemStyle-CssClass="text-end">
+                            <itemtemplate>
+                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-plus' style='color: #ffffff;'></i>"
+                                    CommandArgument='<%# Eval("idForo") %>' OnClick="lbSuscribirForo_Click" />
+                            </itemtemplate>
+                        </asp:TemplateField>
+                    </columns>
+                </asp:GridView>
+            </div>
+        </contenttemplate>
+        <triggers>
+            <asp:AsyncPostBackTrigger ControlID="txtBusquedaForo" EventName="TextChanged" />
+        </triggers>
+    </asp:UpdatePanel>
+    <asp:Label runat="server" CssClass="bg-transparent text-dark" Text="."></asp:Label>
     <!--Clase modal para la creación de un foro-->
     <div class="modal border-white fade fontSetterExo2" id="form-modal-foro">
         <div class="modal-dialog">
