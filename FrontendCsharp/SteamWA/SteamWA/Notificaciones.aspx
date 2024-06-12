@@ -3,13 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/mostrarNotificacion.js"></script>
-    <script type="text/javascript">
+    <script src="Scripts/Steam/mostrarModal.js"></script>
+    <%--<script type="text/javascript">
         $(document).ready(function () {
             $('#form-modal-notificacion').on('hidden.bs.modal', function () {
                 __doPostBack('<%= UpdatePanelNotificaciones.ClientID %>', '');
             });
         });
-    </script>
+    </script>--%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <style>
@@ -19,19 +20,9 @@
     </style>
     <div class="container">
         <h1 class="mt-4">Notificaciones</h1>
-        <%--<div class="container-fluid">
-            <div class="col d-flex justify-content-end align-items-center">
-                <h5 class="me-4">Filtrar por:</h5>
-                <div class="dropdown">
-                    <button class="btn bg-navy btn-outline-light dropdown-toggle" type="button" id="ddMostrar"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="float: left;">
-                        Tipo
-                    </button>
-                    <ul id="ddlTipoNotif" runat="server" class="dropdown-menu bgDesplegables text-" aria-labelledby="ddMostrar">
-                    </ul>
-                </div>
-            </div>
-        </div>--%>
+        <div class="container-fluid d-flex justify-content-end">
+            <asp:LinkButton runat="server" ID="lbEliminarNotificaciones" CssClass="btn btn-light ms-auto" Text="Eliminar todas <i class='fa-solid fa-trash'></i>" OnClick="btnEliminarTodasNotificaciones_Click" />
+        </div>
         <hr />
         <asp:ScriptManager runat="server"></asp:ScriptManager>
 
@@ -90,6 +81,25 @@
                 <div class="modal-footer d-flex justify-content-between">
                     <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClientClick='<%# "confirmarEliminar(" + Eval("IdNotificacion") + ")" %>' OnClick="btnEliminar_Click" />
                     <asp:Button ID="btnMarcarNoLeido" CssClass="btn btn-light" runat="server" Text="Marcar como no leído" OnClick="btnMarcarNoLeido_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="form-modal-EliminarTodasNotificaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="container bg-dark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="lblEliminarNotificaciones">Eliminar Notificaciones</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Está seguro que desea eliminar todas las notificaciones? Esta acción no se puede revertir.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <asp:Button ID="btnEliminarConfirmacion" CssClass="btn btn-primary btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminarTodasNotificacionesModal_Click" />
+                    </div>
                 </div>
             </div>
         </div>

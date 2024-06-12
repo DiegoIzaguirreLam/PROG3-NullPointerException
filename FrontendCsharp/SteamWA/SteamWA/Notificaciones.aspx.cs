@@ -48,8 +48,8 @@ namespace SteamWA
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario usuario = ((usuario)Session["usuario"]);
-            notificacion[] notificacionesArr = daoNotificacion.listarNotificaciones(usuario);
-
+            notificacion[] notificacionesArr = daoNotificacion.listarNotificaciones(usuario.UID);
+            lbEliminarNotificaciones.Visible = true;
             if (notificacionesArr != null)
             {
                 notificaciones = new BindingList<notificacion>(notificacionesArr);
@@ -58,6 +58,7 @@ namespace SteamWA
             else
             {
                 notificaciones = new BindingList<notificacion>();
+                lbEliminarNotificaciones.Visible = false;
             }
             lvNotificaciones.DataSource = notificaciones;
             lvNotificaciones.DataBind();
@@ -77,10 +78,11 @@ namespace SteamWA
             {
                 tipoNotificacion = notificacion.tipo.ToString();
                 mensaje = notificacion.mensaje;
-                notificacion.revisada = true;
-                int resultado = daoNotificacion.actualizarNotificacion(notificacion);
+                //notificacion.revisada = true;
+                //int resultado = daoNotificacion.actualizarNotificacion(notificacion);
                 Session["notificacionSeleccionada"] = notificacion;
             }
+            btnMarcarNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
             string script = $"window.onload = function() {{mostrarNotificacion('{tipoNotificacion}', '{mensaje}')}};";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -93,7 +95,7 @@ namespace SteamWA
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             notificacion notificacion = (notificacion)Session["notificacionSeleccionada"];
-            int resultado = daoNotificacion.eliminarNotificacion(notificacion);
+            int resultado = daoNotificacion.eliminarNotificacion(notificacion.idNotificacion);
             Session["notificacionSeleccionada"] = null;
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
@@ -101,9 +103,26 @@ namespace SteamWA
         protected void btnMarcarNoLeido_Click(object sender, EventArgs e)
         {
             notificacion notificacion = (notificacion)Session["notificacionSeleccionada"];
-            notificacion.revisada = false;
+            notificacion.revisada = !notificacion.revisada;
             int resultado = daoNotificacion.actualizarNotificacion(notificacion);
             Session["notificacionSeleccionada"] = null;
+            ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
+        }
+
+        protected void btnEliminarTodasNotificaciones_Click(object sender, EventArgs e)
+        {
+            string script = "window.onload = function() { showModalForm('form-modal-EliminarTodasNotificaciones') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        protected void btnEliminarTodasNotificacionesModal_Click(object sender, EventArgs e)
+        {
+            notificaciones = (BindingList<notificacion>)Session["notificaciones"];
+            int resultado;
+            foreach (notificacion not in notificaciones)
+            {
+                resultado = daoNotificacion.eliminarNotificacion(not.idNotificacion);
+            }
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
     }

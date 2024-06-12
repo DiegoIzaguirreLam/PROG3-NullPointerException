@@ -15,6 +15,15 @@ namespace SteamWA
     {
 
         /// <summary>
+        /// Control lbEliminarNotificaciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbEliminarNotificaciones;
+
+        /// <summary>
         /// Control UpdatePanelNotificaciones.
         /// </summary>
         /// <remarks>
@@ -49,5 +58,14 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnMarcarNoLeido;
+
+        /// <summary>
+        /// Control btnEliminarConfirmacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarConfirmacion;
     }
 }
