@@ -28,9 +28,7 @@
         .column-space {
             padding-right: 50px;
         }
-    </style>
 
-    <style>
         .pagination a, .pagination span {
             margin: 0 3px;
             padding: 4px 8px;
@@ -102,7 +100,6 @@
                     <!-- Contenido de cada Pestaña -->
                     <asp:MultiView ID="MultiView1" runat="server">
 
-
                         <!-- Vista para Logros Obtenidos -->
                         <asp:View ID="ViewLogrosObtenidos" runat="server">
                             <asp:Label ID="lblNoLogros" runat="server" Text="Aún no has conseguido ningún logro. ¡Comienza a jugar para ganar logros y mejorar tu perfil!" Visible="False" CssClass="text-center" />
@@ -137,9 +134,6 @@
 
                         </asp:View>
 
-
-
-
                         <!-- Vista para Actividad Reciente -->
                         <asp:View ID="ViewActividadReciente" runat="server">
                             <!-- Contenido de Actividad Reciente -->
@@ -173,9 +167,6 @@
                             </div>
                         </asp:View>
 
-
-
-
                         <!-- Vista para Información Personal -->
                         <asp:View ID="ViewInfoPersonal" runat="server">
                             <!-- GridView de usuarios bloqueados -->
@@ -192,7 +183,8 @@
                                 OnPageIndexChanging="gvBloqueados_PageIndexChanging"
                                 AutoGenerateColumns="false"
                                 CssClass="table table-responsive table-striped table-dark"
-                                PagerStyle-CssClass="pagination">
+                                PagerStyle-CssClass="pagination"
+                                PagerStyle-Width="0">
                                 <Columns>
                                     <asp:TemplateField HeaderText="UID">
                                         <ItemTemplate>
@@ -204,14 +196,11 @@
                                 </Columns>
                             </asp:GridView>
                         </asp:View>
-
-
                     </asp:MultiView>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Modal de Confirmación de Bloqueo de Usuario -->
     <div id="modalBloquearUsuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -20,12 +20,12 @@ namespace SteamWA
             dtAmigos.Columns.Add("NombrePerfil", typeof(string));
 
             // Cargar los amigos y bloqueados del usuario
-            if (!IsPostBack)
-            {
-                cargarAmigosBaseDeDatos(dtAmigos);
-                cargarBloqueadosBaseDeDatos();
-            }
-            else cargarAmigosSesion(dtAmigos);
+            BindingList<usuario> amigos = (BindingList<usuario>)Session["amigos"];
+            BindingList<usuario> bloqueados = (BindingList<usuario>)Session["bloqueados"];
+
+            // Se agregan los amigos al DataTable
+            foreach (usuario amigo in amigos)
+                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil);
 
             // Se enlaza el DataTable con el ListView
             lvAmigos.DataSource = dtAmigos;
@@ -33,55 +33,6 @@ namespace SteamWA
 
             Steam master = (Steam)this.Master;
             master.ItemAmigos.Attributes["class"] = "active";
-        }
-
-        protected void cargarAmigosBaseDeDatos(DataTable dtAmigos)
-        {
-            int idUsuario = ((usuario)Session["usuario"]).UID;
-            UsuarioWSClient daoUsuario = new UsuarioWSClient();
-
-            // Se obtienen los amigos del usuario de la base de datos
-            usuario[] listaAmigos = daoUsuario.listarAmigosPorUsuario(idUsuario);
-
-            // Si no tiene amigos, no se hace nada
-            if (listaAmigos == null) return;
-
-            // Se agregan los amigos al DataTable
-            BindingList<usuario> amigos = new BindingList<usuario>(listaAmigos);
-
-            foreach (usuario amigo in amigos)
-                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil);
-
-            Session["amigos"] = amigos;
-        }
-
-        protected void cargarAmigosSesion(DataTable dtAmigos)
-        {
-            BindingList<usuario> amigos = (BindingList<usuario>)Session["amigos"];
-
-            if (amigos == null) return;
-
-            // Se agregan los amigos al DataTable
-            foreach (usuario amigo in amigos)
-                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil);
-        }
-
-        protected void cargarBloqueadosBaseDeDatos()
-        {
-            // Se asume que la variable sesión ya tiene los bloqueados actualizados
-            if (Session["bloqueados"] != null) return;
-
-            int idUsuario = ((usuario)Session["usuario"]).UID;
-            UsuarioWSClient daoUsuario = new UsuarioWSClient();
-
-            // Se obtienen los bloqueados del usuario de la base de datos
-            usuario[] listaBloqueados = daoUsuario.listarBloqueadosPorUsuario(idUsuario);
-
-            // Si no tiene bloqueados, no se hace nada
-            if (listaBloqueados == null) return;
-
-            // Se guardan los bloqueados en la sesión
-            Session["bloqueados"] = new BindingList<usuario>(listaBloqueados);
         }
 
         protected void btnAgregarAmigo_Click(object sender, EventArgs e)
