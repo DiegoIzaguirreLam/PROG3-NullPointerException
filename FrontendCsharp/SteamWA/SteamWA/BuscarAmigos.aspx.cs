@@ -200,5 +200,10 @@ namespace SteamWA
             lbAgregarAmigo.Visible = !estaBloqueado && lbAgregarAmigo.Visible;
             lblEstaBloqueado.Visible = estaBloqueado;
         }
+
+        protected void volverPaginaAmigos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Amigos.aspx");
+        }
     }
 }

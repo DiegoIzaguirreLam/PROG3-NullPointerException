@@ -14,6 +14,7 @@ namespace SteamWA
     {
         private UsuarioWSClient daoUsuario;
         private usuario usuarioIngresado;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             String accion = Request.QueryString["accion"];
@@ -63,9 +64,12 @@ namespace SteamWA
             }
 
             // Guardar el usuario, amigos y bloqueados en las variables de sesión
-            Session["usuario"] = usuarioIngresado;
-            Session["amigos"] = cargarAmigos(usuarioIngresado);
-            Session["bloqueados"] = cargarBloqueados(usuarioIngresado);
+            Session["usuario"]             = usuarioIngresado;
+            Session["amigos"]              = cargarAmigos(usuarioIngresado.UID);
+            Session["bloqueados"]          = cargarBloqueados(usuarioIngresado.UID);
+            Session["logrosDesbloqueados"] = cargarLogrosDesbloqueados(usuarioIngresado.UID);
+
+            // Redireccionar al usuario a la tienda
             Response.Redirect("Tienda.aspx");
         }
 
@@ -74,11 +78,11 @@ namespace SteamWA
          * del usuario pasado por parámetro. Si el usuario no tiene amigos,
          * entonces, se devuelve una BindingList<usuario> vacía (0 elementos).
          */
-        protected BindingList<usuario> cargarAmigos(usuario usuario)
+        protected BindingList<usuario> cargarAmigos(int idUsuario)
         {
             // Se obtienen los amigos del usuario de la base de datos
             UsuarioWSClient daoUsuario = new UsuarioWSClient();
-            usuario[] listaAmigos = daoUsuario.listarAmigosPorUsuario(usuario.UID);
+            usuario[] listaAmigos = daoUsuario.listarAmigosPorUsuario(idUsuario);
 
             return listaAmigos != null ?
                    new BindingList<usuario>(listaAmigos) :
@@ -90,15 +94,33 @@ namespace SteamWA
          * el usuario pasado por parámetro. Si el usuario no tiene bloqueados,
          * entonces, se devuelve una BindingList<usuario> vacía (0 elementos).
          */
-        protected BindingList<usuario> cargarBloqueados(usuario usuario)
+        protected BindingList<usuario> cargarBloqueados(int idUsuario)
         {
             // Se obtienen los bloqueados del usuario de la base de datos
             UsuarioWSClient daoUsuario = new UsuarioWSClient();
-            usuario[] listaBloqueados = daoUsuario.listarBloqueadosPorUsuario(usuario.UID);
+            usuario[] listaBloqueados = daoUsuario.listarBloqueadosPorUsuario(idUsuario);
 
             return listaBloqueados != null ?
                    new BindingList<usuario>(listaBloqueados) :
                    new BindingList<usuario>();
+        }
+
+        /* 
+         * Devuelve una BindingList<usuario> con los usuarios que fueron bloqueados por
+         * el usuario pasado por parámetro. Si el usuario no tiene bloqueados,
+         * entonces, se devuelve una BindingList<usuario> vacía (0 elementos).
+         */
+        protected BindingList<logroDesbloqueado> cargarLogrosDesbloqueados(int idUsuario)
+        {
+            // Se obtienen los logros desbloqueados del usuario de la base de datos
+            LogroDesbloqueadoWSClient daoLogros =
+                new LogroDesbloqueadoWSClient();
+            logroDesbloqueado[] listaLogrosDesbloqueados =
+                daoLogros.listarLogrosPorUsuario(idUsuario);
+
+            return listaLogrosDesbloqueados != null ?
+                   new BindingList<logroDesbloqueado>(listaLogrosDesbloqueados) :
+                   new BindingList<logroDesbloqueado>();
         }
     }
 }

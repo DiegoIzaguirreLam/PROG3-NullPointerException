@@ -42,8 +42,15 @@ namespace SteamWA
 
         protected void btnEliminarAmigo_Click(object sender, EventArgs e)
         {
+            string[] argumentos = ((LinkButton)sender).CommandArgument.Split(',');
+            string idPorEliminar = argumentos[0];
+            string nombrePerfilPorEliminar = argumentos[1];
+
             // Guardar el ID del amigo que se va a eliminar
-            Session["idPorEliminar"] = Int32.Parse(((LinkButton)sender).CommandArgument);
+            Session["idPorEliminar"] = Int32.Parse(idPorEliminar);
+            txtConfirmacionEliminar.InnerText = $"¿Estás seguro de que deseas eliminar a " +
+                                                $"{nombrePerfilPorEliminar} (ID = {idPorEliminar}) " +
+                                                $"de tu lista de amigos?";
 
             // Mostrar el modal de confirmación de eliminación
             string script = "window.onload = function() { showModalForm('form-modal-EliminarAmigo') };";
@@ -52,8 +59,15 @@ namespace SteamWA
 
         protected void btnBloquearAmigo_Click(object sender, EventArgs e)
         {
+            string[] argumentos = ((LinkButton)sender).CommandArgument.Split(',');
+            string idPorBloquear = argumentos[0];
+            string nombrePerfilPorBloquear = argumentos[1];
+
+
             // Guardar el ID del amigo que se va a bloquear
-            Session["idPorBloquear"] = Int32.Parse(((LinkButton)sender).CommandArgument);
+            Session["idPorBloquear"] = Int32.Parse(idPorBloquear);
+            txtConfirmacionBloquear.InnerText = $"¿Estás seguro de que deseas bloquear a " +
+                                                $"{nombrePerfilPorBloquear} (ID = {idPorBloquear})?";
 
             // Mostrar el modal de confirmación de bloqueo
             string script = "window.onload = function() { showModalForm('form-modal-BloquearUsuario') };";
@@ -69,14 +83,12 @@ namespace SteamWA
             RelacionWSClient daoRelacion = new RelacionWSClient();
             daoRelacion.eliminarAmigo(idUsuario, idPorEliminar);
 
-            // Se obtiene la variable ReadOnly
-            BindingList<usuario> amigosReadOnly = (BindingList<usuario>)Session["amigos"];
-            // Se crea una copia de la variable ReadOnly
-            BindingList<usuario> amigos = new BindingList<usuario>(amigosReadOnly.ToList());
+            // Se obtiene una copia de la variable de sesión
+            BindingList<usuario> amigos =
+                new BindingList<usuario>(((BindingList<usuario>)Session["amigos"]).ToList());
 
             // Eliminación del amigo
-            usuario amigoPorEliminar = amigos.FirstOrDefault(u => u.UID == idPorEliminar);
-            if (amigoPorEliminar != null) amigos.Remove(amigoPorEliminar);
+            amigos.Remove(amigos.FirstOrDefault(u => u.UID == idPorEliminar));
 
             // Actualización de la variable en la sesión
             Session["amigos"] = amigos;
@@ -92,20 +104,18 @@ namespace SteamWA
             RelacionWSClient daoRelacion = new RelacionWSClient();
             daoRelacion.bloquearUsuario(idUsuario, idPorBloquear);
 
-            // Se obtienen las variables ReadOnly
-            BindingList<usuario> amigosReadOnly = (BindingList<usuario>)Session["amigos"];
-            BindingList<usuario> bloqueadosReadOnly = (BindingList<usuario>)Session["bloqueados"];
-
-            // Se crean copias de las variables ReadOnly
-            BindingList<usuario> amigos = new BindingList<usuario>(amigosReadOnly.ToList());
-            BindingList<usuario> bloqueados = new BindingList<usuario>(bloqueadosReadOnly.ToList());
+            // Se crean copias de las variables de sesión
+            BindingList<usuario> amigos =
+                new BindingList<usuario>(((BindingList<usuario>)Session["amigos"]).ToList());
+            BindingList<usuario> bloqueados =
+                new BindingList<usuario>(((BindingList<usuario>)Session["bloqueados"]).ToList());
 
             // Obtener el amigo por bloquear
             usuario amigoPorBloquear = amigos.FirstOrDefault(u => u.UID == idPorBloquear);
 
             // Mover el amigo por bloquear desde los amigos a los bloqueados
-            if (amigoPorBloquear != null) amigos.Remove(amigoPorBloquear);
-            if (amigoPorBloquear != null) bloqueados.Add(amigoPorBloquear);
+            amigos.Remove(amigoPorBloquear);
+            bloqueados.Add(amigoPorBloquear);
 
             // Actualización de las variables en la sesión
             Session["amigos"] = amigos;

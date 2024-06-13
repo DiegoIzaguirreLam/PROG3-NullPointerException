@@ -33,6 +33,15 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.ListView lvAmigos;
 
         /// <summary>
+        /// txtConfirmacionEliminar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtConfirmacionEliminar;
+
+        /// <summary>
         /// btnEliminarAmigoModal control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace SteamWA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnEliminarAmigoModal;
+
+        /// <summary>
+        /// txtConfirmacionBloquear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtConfirmacionBloquear;
 
         /// <summary>
         /// btnBloquarAmigoModal control.

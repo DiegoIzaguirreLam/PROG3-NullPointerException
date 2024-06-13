@@ -132,15 +132,6 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.View ViewLogrosObtenidos;
 
         /// <summary>
-        /// lblNoLogros control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoLogros;
-
-        /// <summary>
         /// gvLogros control.
         /// </summary>
         /// <remarks>

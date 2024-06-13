@@ -102,8 +102,6 @@
 
                         <!-- Vista para Logros Obtenidos -->
                         <asp:View ID="ViewLogrosObtenidos" runat="server">
-                            <asp:Label ID="lblNoLogros" runat="server" Text="Aún no has conseguido ningún logro. ¡Comienza a jugar para ganar logros y mejorar tu perfil!" Visible="False" CssClass="text-center" />
-
                             <!-- GridView para listar los logros del usuario -->
                             <asp:GridView ID="gvLogros" runat="server" AutoGenerateColumns="False"
                                 AllowPaging="True" PageSize="5"
@@ -130,6 +128,11 @@
                                         <ItemStyle CssClass="column-space" />
                                     </asp:BoundField>
                                 </Columns>
+                                <EmptyDataTemplate>
+                                    <div class="d-flex justify-content-center align-items-center mt-3">
+                                        <asp:Label runat="server" Text="Aún no has conseguido ningún logro. ¡Comienza a jugar para ganar logros y mejorar tu perfil!" CssClass="display-7 text-center" />
+                                    </div>
+                                </EmptyDataTemplate>
                             </asp:GridView>
 
                         </asp:View>
@@ -194,6 +197,11 @@
                                     <asp:BoundField HeaderText="Nombre del Perfil" DataField="nombrePerfil" />
                                     <asp:BoundField HeaderText="Nombre de la Cuenta" DataField="nombreCuenta" />
                                 </Columns>
+                                <EmptyDataTemplate>
+                                    <div class="d-flex justify-content-center align-items-center mt-3">
+                                        <asp:Label runat="server" Text="No has bloqueado a ningún usuario." CssClass="display-7 text-center" />
+                                    </div>
+                                </EmptyDataTemplate>
                             </asp:GridView>
                         </asp:View>
                     </asp:MultiView>

@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Steam.Master" AutoEventWireup="true" CodeBehind="Amigos.aspx.cs" Inherits="SteamWA.Amigos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Steam.Master"
+    AutoEventWireup="true" CodeBehind="Amigos.aspx.cs"
+    Inherits="SteamWA.Amigos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/stylesBiblioteca.css" rel="stylesheet" />
@@ -15,15 +17,23 @@
         <div class="row">
             <div class="col-md col-sm">
                 <h1 class="mt-4">Amigos</h1>
+                <!-- Barra de profundidad -->
+                <div class="col-md-7 row align-items-center">
+                    <div class="col-md-auto align-items-lg-start">
+                        <asp:Label runat="server" CssClass="h5 bg-transparent border-0" Text="Amigos" />
+                        <i class="fa-solid fa-caret-right fa-1x" style="color: #ffffff;"></i>
+                    </div>
+                </div>
             </div>
             <div class="col-md-auto col-sm-auto d-flex align-items-center justify-content-md-start">
-                <asp:LinkButton runat="server" ID="btnAgregarAmigo" CssClass="btn btn-dark btn-outline-light" Text="Añadir amigo <i class='fa-solid fa-user-plus ms-2'></i>" OnClick="btnAgregarAmigo_Click" />
+                <asp:LinkButton runat="server" ID="btnAgregarAmigo" CssClass="btn btn-dark btn-outline-light mt-3" Text="Añadir amigo <i class='fa-solid fa-user-plus ms-2'></i>" OnClick="btnAgregarAmigo_Click" />
             </div>
         </div>
 
         <!-- Barra de búsqueda -->
+        <hr />
         <div class="search-bar">
-            <input type="text" class="form-control" placeholder="Buscar amigos..." id="buscarAmigosInput" onkeyup="filtrarAmigos()">
+            <input type="text" class="form-control" placeholder="Buscar amigos por nombre de perfil..." id="buscarAmigosInput" onkeyup="filtrarAmigos()">
         </div>
         <hr />
 
@@ -49,8 +59,8 @@
                                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton<%# Eval("UID") %>">
-                                                    <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Eliminar" CommandArgument='<%# Eval("UID") %>' OnClick="btnEliminarAmigo_Click" />
-                                                    <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Bloquear" CommandArgument='<%# Eval("UID") %>' OnClick="btnBloquearAmigo_Click" />
+                                                    <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Eliminar" CommandArgument='<%# Eval("UID") + "," + Eval("NombrePerfil") %>' OnClick="btnEliminarAmigo_Click" />
+                                                    <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Bloquear" CommandArgument='<%# Eval("UID") + "," + Eval("NombrePerfil") %>' OnClick="btnBloquearAmigo_Click" />
                                                 </div>
                                             </div>
                                         </div>
@@ -60,7 +70,7 @@
                         </ItemTemplate>
                         <EmptyDataTemplate>
                             <div class="d-flex justify-content-center align-items-center mt-3">
-                                <asp:Label runat="server" Text="No hay amigos" CssClass="display-7 text-center" />
+                                <asp:Label runat="server" Text="Aún no tienes ningún amigo." CssClass="display-7 text-center" />
                             </div>
                         </EmptyDataTemplate>
                     </asp:ListView>
@@ -78,7 +88,7 @@
                         <h5 class="modal-title" id="lblEliminarAmigo">Eliminar Amigo</h5>
                     </div>
                     <div class="modal-body">
-                        <p>¿Está seguro que desea eliminar este amigo?</p>
+                        <p id="txtConfirmacionEliminar" runat="server" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -98,10 +108,8 @@
                         <h5 class="modal-title" id="lblBloquearUsuario">Bloquear Usuario</h5>
                     </div>
                     <div class="modal-body">
-                        <p>
-                            ¿Estás seguro de que deseas bloquear este usuario?
-                            Recuerda que el bloqueo es permanente.
-                        </p>
+                        <p id="txtConfirmacionBloquear" runat="server" />
+                        <p runat="server" class="text-danger m-0">¡Recuerda que el bloqueo es permanente!</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

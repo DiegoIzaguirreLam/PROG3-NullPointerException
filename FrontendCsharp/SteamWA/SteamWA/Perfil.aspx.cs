@@ -14,26 +14,20 @@ namespace SteamWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // En la primera carga, se obtienen los datos de la base de datos
-            if (!IsPostBack)
-            {
-                // Obtener información de la base de datos
-                usuario usuario = cargarDatosUsuario();
-                cargarLogrosBaseDeDatos(usuario.UID);
-                cargarBloqueadosBaseDeDatos(usuario.UID);
+            // Para que la pantalla inicie en la vista de logros
+            if (!IsPostBack) lbLogros_Click(null, null);
 
-                // Para que la pantalla inicie en la vista de logros
-                lbLogros_Click(null, null);
-            }
+            // Mostrar los datos del usuario en los labels
+            cargarDatosUsuario();
 
-            // Enlazar los GridView con los datos
+            // Enlazar los GridView con los datos de las variables de sesión
             gvLogros.DataSource = (BindingList<logroDesbloqueado>)Session["logrosDesbloqueados"];
             gvLogros.DataBind();
             gvBloqueados.DataSource = (BindingList<usuario>)Session["bloqueados"];
             gvBloqueados.DataBind();
         }
 
-        protected usuario cargarDatosUsuario()
+        protected void cargarDatosUsuario()
         {
             usuario usuario = (usuario)Session["usuario"];
 
@@ -49,39 +43,6 @@ namespace SteamWA
                 lblVerificado.Style["color"] = "green";
                 iconVerificado.Style["color"] = "green";
             }
-
-            return usuario;
-        }
-
-        protected void cargarLogrosBaseDeDatos(int idUsuario)
-        {
-            LogroDesbloqueadoWSClient daoLogro = new LogroDesbloqueadoWSClient();
-            logroDesbloqueado[] listaLogros = daoLogro.listarLogrosPorUsuario(idUsuario);
-
-            if (listaLogros == null)
-            {
-                lblNoLogros.Visible = true;
-                return;
-            }
-
-            Session["logrosDesbloqueados"] = new BindingList<logroDesbloqueado>(listaLogros);
-        }
-
-        protected void cargarBloqueadosBaseDeDatos(int idUsuario)
-        {
-            // Se asume que la variable sesión ya tiene los bloqueados actualizados
-            if (Session["bloqueados"] != null) return;
-
-            UsuarioWSClient daoUsuario = new UsuarioWSClient();
-
-            // Se obtienen los bloqueados del usuario de la base de datos
-            usuario[] listaBloqueados = daoUsuario.listarBloqueadosPorUsuario(idUsuario);
-
-            // Si no tiene bloqueados, no se hace nada
-            if (listaBloqueados == null) return;
-
-            // Se guardan los bloqueados en la sesión
-            Session["bloqueados"] = new BindingList<usuario>(listaBloqueados);
         }
 
         protected void lbLogros_Click(object sender, EventArgs e)

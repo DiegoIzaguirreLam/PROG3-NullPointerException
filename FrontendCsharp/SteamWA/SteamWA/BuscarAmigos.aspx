@@ -3,6 +3,7 @@
     Inherits="SteamWA.BuscarAmigos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Content/stylesBiblioteca.css" rel="stylesheet" />
     <style>
         .pagination a, .pagination span {
             margin: 0 3px;
@@ -42,11 +43,21 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div class="container">
+    <div class="container rounded-3 border-Gradient">
         <!-- Título -->
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h1 class="mt-4">Buscar amigos</h1>
+                <h1 class="mt-4">Buscar un usuario para agregar</h1>
+            </div>
+            <!-- Barra de profundidad -->
+            <div class="col-md-7 row align-items-center">
+                <div class="col-md-auto align-items-lg-start">
+                    <asp:Button runat="server" CssClass="h5 bg-transparent border-0" Text="Amigos" OnClick="volverPaginaAmigos_Click" />
+                    <i class="fa-solid fa-caret-right fa-1x" style="color: #ffffff;"></i>
+                </div>
+                <div class="col-md-auto align-items-lg-start">
+                    <asp:Button runat="server" CssClass="h5 bg-transparent border-0" Text="Agregar un Amigo" Enabled="false"/>
+                </div>
             </div>
         </div>
         <hr />
@@ -91,7 +102,7 @@
                 OnPageIndexChanging="gvUsuarios_PageIndexChanging"
                 OnRowDataBound="gvUsuarios_RowDataBound"
                 AutoGenerateColumns="false"
-                CssClass="table table-hover table-responsive table-striped table-dark"
+                CssClass="table table-hover table-responsive table-striped table-dark mt-4"
                 PagerStyle-CssClass="pagination"
                 PagerStyle-Width="0">
                 <Columns>
