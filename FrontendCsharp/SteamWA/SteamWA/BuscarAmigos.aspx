@@ -92,15 +92,13 @@
                 OnRowDataBound="gvUsuarios_RowDataBound"
                 AutoGenerateColumns="false"
                 CssClass="table table-hover table-responsive table-striped table-dark"
-                PagerStyle-CssClass="pagination">
+                PagerStyle-CssClass="pagination"
+                PagerStyle-Width="0">
                 <Columns>
-                    <asp:TemplateField HeaderText="UID">
-                        <ItemTemplate>
-                            <asp:Label ID="lblUID" runat="server" Text='<%# Eval("uid") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField HeaderText="Nombre del Perfil" DataField="nombrePerfil" />
-                    <asp:TemplateField>
+                    <asp:BoundField HeaderText="UID" DataField="UID" HeaderStyle-Width="200" ItemStyle-Width="200" />
+                    <asp:BoundField HeaderText="Nombre de Perfil" DataField="nombrePerfil" HeaderStyle-Width="300" ItemStyle-Width="300" />
+                    <asp:BoundField HeaderText="Nombre de Cuenta" DataField="nombreCuenta" HeaderStyle-Width="300" ItemStyle-Width="300" />
+                    <asp:TemplateField HeaderStyle-Width="350" ItemStyle-Width="350" ItemStyle-HorizontalAlign="Right" >
                         <ItemTemplate>
                             <asp:LinkButton ID="lbAgregarAmigo" runat="server"
                                 Text="<i class='fa-solid fa-plus ps-2'></i>"
