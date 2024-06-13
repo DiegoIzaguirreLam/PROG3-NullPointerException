@@ -26,9 +26,9 @@
                     <asp:Label id="lblSinProductos" runat="server" Text="Aún no tiene productos adquiridos" visible="false"/>
                 </div>
                 <div id="divBotonesColeccion" runat="server" class="d-flex justify-content-between">
-                    <asp:Button ID="btnEliminar" CssClass="btn btn-primary btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminarColeccion_OnClick"/>
-                    <div id="divCancelarGuardar" runat="server">
-                        <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_OnClick"/>
+                    <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_OnClick"/>
+                    <div id="divEliminarGuardar" runat="server">
+                        <asp:Button ID="btnEliminar" CssClass="btn btn-primary btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminarColeccion_OnClick"/>
                         <asp:Button ID="btnGuardar" CssClass="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_OnClick"/>
                     </div>
                 </div>

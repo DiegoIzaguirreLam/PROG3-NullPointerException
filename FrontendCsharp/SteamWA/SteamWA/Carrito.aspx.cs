@@ -103,7 +103,7 @@ namespace SteamWA
                 daoCartera.actualizarCartera(cartera);
                 listaCarrito = null;
                 Session["ElementosCarrito"] = null;
-                Response.Redirect("Biblioteca.aspx");
+                Response.Redirect("Biblioteca.aspx?origen=carrito");
                 }
                 else
                 {

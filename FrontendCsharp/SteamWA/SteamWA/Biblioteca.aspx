@@ -6,7 +6,7 @@
     <script src="Scripts/Steam/Biblioteca.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div class="container rounded-3 border-Gradient">
+    <div class="container main-bg rounded-3 border-Gradient">
         <h1 class="mt-4 d-inline-block">Biblioteca de Productos</h1>
         <!-- dropdown checkbox con colecciones -->
         <div class="text-end">
@@ -47,7 +47,7 @@
     </div>
     <hr />
     <p id="pBibliotecaVacia" runat="server" visible="false">Usted no cuenta con productos en su biblioteca por el momento</p>
-    <div id="contenedorProgramas" runat="server" class="container d-flex rounded-top rounded-bottom">
+    <div id="contenedorProgramas" runat="server" class="container main-bg d-flex rounded-top rounded-bottom">
         <!-- parte izquierda: lista de programas -->
         <div class="col-md-4 me-4">
             <!-- <h2>Listado de Programas</h2> -->
@@ -83,7 +83,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-5 ml-5 d-flex justify-content-start">
+    <div class="mt-5 ml-5 container d-flex justify-content-start">
         <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Productos" />
     </div>
 

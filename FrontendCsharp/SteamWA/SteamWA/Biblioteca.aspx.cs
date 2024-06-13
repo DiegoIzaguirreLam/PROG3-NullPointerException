@@ -44,14 +44,26 @@ namespace SteamWA
                 if (Session["usuario"] != null)
                 {
                     int uid = ((usuario)Session["usuario"]).UID;
-                    idBiblioteca = daoBiblioteca.buscarBibliotecaPorUID(uid).idBiblioteca;
-                    Session["idBiblioteca"] = idBiblioteca;
+                    if (Session["idBiblioteca"] == null)
+                    {
+                        idBiblioteca = daoBiblioteca.buscarBibliotecaPorUID(uid).idBiblioteca;
+                        Session["idBiblioteca"] = idBiblioteca;
+                    }
+                    else
+                    {
+                        idBiblioteca = (int)Session["idBiblioteca"];
+                    }
                 }
                 else
                 {
                     Response.Redirect("Login.aspx");
                 }
-                productoAdquirido[] productoArr = daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca);
+                productoAdquirido[] productoArr = null;
+                string origen = Request.QueryString["origen"];
+                if (Session["productosAdquiridos"] == null || (origen!=null && origen=="carrito")) // si ya se cargo en tienda (si ya hay productos se vuelve a llamar)
+                    productoArr = daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca);
+                else
+                    productoArr = ((BindingList<productoAdquirido>)Session["productosAdquiridos"]).ToArray();
                 if (productoArr != null)
                 {
                     List<productoAdquirido> productosAdquiridosList = new List<productoAdquirido>(productoArr);

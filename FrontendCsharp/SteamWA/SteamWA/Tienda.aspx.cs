@@ -36,6 +36,7 @@ namespace SteamWA
                 daoBiblioteca = new SteamServiceWS.BibliotecaWSClient();
                 daoProductoAdquirido = new SteamServiceWS.ProductoAdquiridoWSClient();
                 idBiblioteca = daoBiblioteca.buscarBibliotecaPorUID(uid).idBiblioteca;
+                Session["idBiblioteca"] = idBiblioteca;
                 if (daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca) == null)
                 {
                     listaProductoAdq = null;
@@ -43,6 +44,7 @@ namespace SteamWA
                 else
                 {
                     listaProductoAdq = new BindingList<productoAdquirido>(daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca));
+                    Session["productosAdquiridos"] = listaProductoAdq;
                 }
                
                  }

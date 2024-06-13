@@ -53,8 +53,8 @@ namespace SteamWA
                 txtNombreColeccion.Value = "";
                 estado = Estado.NUEVO;
                 btnEliminar.Visible = false;
-                divBotonesColeccion.Attributes["class"] = "";
-                divCancelarGuardar.Attributes["class"] = "d-flex justify-content-between";
+                divBotonesColeccion.Attributes["class"] = "d-flex justify-content-between";
+                //divCancelarGuardar.Attributes["class"] = "d-flex justify-content-between";
                 hGestionarColeccion.InnerText = "Nueva Colección";
             }
             if (productosAdquiridos == null)
