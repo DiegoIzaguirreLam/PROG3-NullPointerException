@@ -69,7 +69,7 @@ namespace SteamWA
                     ClientScript.RegisterStartupScript(GetType(), "", script, true);
                 }
             }
-            if (IsPostBack && txtBusquedaForo.Text != "")
+            if (IsPostBack && txtBusquedaForo.Text != null)
             {
                 foro[] aux1 = daoForo.buscarForos(txtBusquedaForo.Text);
                 if (aux1 != null) foros = new BindingList<foro>(aux1);
