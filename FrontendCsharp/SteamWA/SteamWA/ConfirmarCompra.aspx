@@ -21,7 +21,6 @@
                     <div class="card-body">
                         <h5 class="card-title">Detalle de la compra</h5>
                         <!-- Detalle de la compra -->
-                        <!-- Puedes insertar aquí los detalles de la compra -->
                         <div class="d-flex justify-content-between">
                             <p>Monto a ser agregado a su cartera: </p>
                             <p id="pMonto" runat="server"></p>
@@ -49,7 +48,7 @@
                         <!-- Términos y condiciones -->
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="chkTerminosCondiciones" runat="server" />
-                            <label class="form-check-label" for="chkTerminosCondiciones">Acepto los términos y condiciones</label>
+                            <label class="form-check-label" for="chkTerminosCondiciones">Acepto los <a href="#" id="lnkTerminosCondiciones" runat="server" class="text-white">términos y condiciones</a></label>
                         </div>
                     </div>
                 </div>
@@ -85,5 +84,29 @@
             </div>
         </div>
     </div>
-
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-terminos">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-secondary bg-opacity-50">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title border-white align-content-center">Términos y Condiciones para Agregar Fondos a la Cartera en STREAM</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content">
+                    <div class="container bg-dark">
+                        <p>Bienvenido(a) a STREAM, la plataforma de compra de productos en línea. Antes de proceder a agregar fondos a tu cartera en STREAM, te solicitamos que leas y comprendas detenidamente los siguientes términos y condiciones:</p>
+                        <ol>
+                            <li><strong>Créditos de la Cartera:</strong> Al agregar fondos a tu cartera en STREAM, se te otorgarán créditos equivalentes al monto depositado. Estos créditos serán utilizados exclusivamente para realizar compras dentro de la plataforma STREAM.</li>
+                            <li><strong>No Retirables:</strong> Los fondos agregados a tu cartera en STREAM no son retirables. Una vez que se haya realizado la transacción y los fondos se hayan acreditado en tu cartera, no podrán ser reembolsados ni transferidos a otra cuenta o método de pago.</li>
+                            <li><strong>Uso Exclusivo en STREAM:</strong> Los créditos de la cartera en STREAM solo pueden ser utilizados para realizar compras dentro de la plataforma STREAM. No pueden ser canjeados por dinero en efectivo ni utilizados en otras plataformas de compra en línea.</li>
+                            <li><strong>Descontados en Compras:</strong> Cada vez que realices una compra en STREAM, se descontará automáticamente el monto correspondiente de tu saldo de crédito en la cartera. Es tu responsabilidad asegurarte de tener suficientes créditos disponibles para completar la transacción.</li>
+                            <li><strong>Métodos de Pago:</strong> En un futuro, STREAM podrá habilitar métodos de pago adicionales, como tarjetas de crédito, PayPal, entre otros. Sin embargo, el dinero depositado a través de estos métodos tampoco será retirable una vez que esté en tu cartera en STREAM.</li>
+                            <li><strong>Política de Reembolso:</strong> Todos los pagos realizados en STREAM son finales y no son reembolsables, a menos que se indique lo contrario según nuestras políticas de reembolso. Te recomendamos revisar nuestras políticas de reembolso antes de realizar cualquier compra.</li>
+                        </ol>
+                        <p>Al agregar fondos a tu cartera en STREAM, aceptas y te comprometes a cumplir con estos términos y condiciones.</p>
+                        <p>Gracias por ser parte de STREAM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

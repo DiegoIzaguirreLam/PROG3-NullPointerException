@@ -43,6 +43,7 @@ namespace SteamWA
             pTotal.InnerText = simbolo_moneda + monto.ToString("N2");
             pMetodoPago.InnerText = "Método de Pago: " + metodoPagoStr.ToUpper();
             pCuenta.InnerHtml = "Cuenta de STREAM: <strong>" + usuario.nombreCuenta + "</strong>";
+            lnkTerminosCondiciones.ServerClick += terminosCondiciones_OnClick;
         }
 
         protected void lbCambiar_Click(object sender, EventArgs e)
@@ -114,6 +115,12 @@ namespace SteamWA
         protected void lbContinuarATienda_OnClick(object sender, EventArgs e)
         {
             Response.Redirect("Tienda.aspx");
+        }
+
+        protected void terminosCondiciones_OnClick(object sender, EventArgs e)
+        {
+            string script = "window.onload = function() { showModalForm('form-modal-terminos') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
     }
