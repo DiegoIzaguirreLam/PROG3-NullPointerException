@@ -99,12 +99,9 @@ namespace SteamWA
             RelacionWSClient relacionDao = new RelacionWSClient();
             relacionDao.agregarAmigo(idUsuario, idNuevoAmigo);
 
-            // Se obtiene la variable ReadOnly
-            BindingList<usuario> amigosReadOnly = (BindingList<usuario>)Session["amigos"];
-            // Se crea una copia de la variable ReadOnly
-            BindingList<usuario> amigos = amigosReadOnly != null ?
-                                          new BindingList<usuario>(amigosReadOnly.ToList()) :
-                                          new BindingList<usuario>();
+            // Se obtiene una copia de la variable de sesión
+            BindingList<usuario> amigos = new BindingList<usuario>(((BindingList<usuario>)
+                                                                   Session["amigos"]).ToList());
 
             // Obtener el usuario del nuevo amigo
             BindingList<usuario> usuariosEncontrados = (BindingList<usuario>)Session["usuariosEncontrados"];

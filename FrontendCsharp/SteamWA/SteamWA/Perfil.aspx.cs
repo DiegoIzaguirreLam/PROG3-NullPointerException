@@ -148,6 +148,7 @@ namespace SteamWA
 
         protected void btnBloquearModal_Click(object sender, EventArgs e)
         {
+            // Se obtiene el usuario por bloquear
             int idUsuario = ((usuario)Session["usuario"]).UID;
             usuario usuarioPorBloquear = (usuario)Session["usuarioPorBloquear"];
 
@@ -155,11 +156,10 @@ namespace SteamWA
             RelacionWSClient daoRelacion = new RelacionWSClient();
             daoRelacion.bloquearUsuario(idUsuario, usuarioPorBloquear.UID);
 
-            // Se obtiene la variable ReadOnly
-            BindingList<usuario> bloqueadosReadOnly = (BindingList<usuario>)Session["bloqueados"];
-
-            // Se crea copia de la variable ReadOnly
-            BindingList<usuario> bloqueados = new BindingList<usuario>(bloqueadosReadOnly.ToList());
+            // Se obtiene una copia de la variable de sesión
+            BindingList<usuario> bloqueados =
+                new BindingList<usuario>(((BindingList<usuario>)
+                                         Session["bloqueados"]).ToList());
 
             // Añadir el usuario a los bloqueados
             bloqueados.Add(usuarioPorBloquear);

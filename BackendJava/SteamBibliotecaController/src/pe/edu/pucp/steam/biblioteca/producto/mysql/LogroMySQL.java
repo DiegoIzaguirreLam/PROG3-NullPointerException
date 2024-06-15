@@ -166,6 +166,7 @@ public class LogroMySQL implements LogroDAO{
                 logro.setIdLogro(rs.getInt("id_logro"));
                 logro.setNombre(rs.getString("nombre_logro"));
                 logro.setDescripcion(rs.getString("descripcion_logro"));
+                
                 juego.setIdProducto(rs.getInt("id_producto"));
                 juego.setTitulo(rs.getString("titulo"));
                 juego.setFechaPublicacion(rs.getDate("fecha_publicacion"));
@@ -176,6 +177,9 @@ public class LogroMySQL implements LogroDAO{
                 juego.setMultijugador(rs.getBoolean("multijugador"));
                 juego.setRequisitosMinimos(rs.getString("requisitos_minimos"));
                 juego.setRequisitosRecomendados(rs.getString("requisitos_recomendados"));
+                
+                logro.setJuego(juego);
+                
                 logro.setActivo(true);
                 logros.add(logro);
             }

@@ -63,9 +63,12 @@ CREATE PROCEDURE LISTAR_LOGROS_POR_USUARIO (
     IN _id_usuario INT
 )
 BEGIN
-    SELECT ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
+    SELECT ld.id_logro_desbloqueado AS "ID del Logro Desbloqueado",
+		   ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
+		   lo.id_logro AS "ID del Logro",
 		   lo.nombre AS "Nombre del Logro",
            lo.descripcion AS "Descripción del Logro",
+           pr.id_producto AS "ID del Juego",
            pr.titulo AS "Título del Juego",
            pr.logo_url AS "URL del Logo"
     FROM LogroDesbloqueado ld

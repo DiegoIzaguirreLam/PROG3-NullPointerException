@@ -106,7 +106,7 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
     public ArrayList<LogroDesbloqueado> listarLogrosPorUsuario(int idUsuario) {
         ArrayList<LogroDesbloqueado> logros = null;
         
-        try{
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call LISTAR_LOGROS_POR_USUARIO(?)}");
             cs.setInt(1, idUsuario);
@@ -118,13 +118,17 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
                 Juego juego = new Juego();
                 ProductoAdquirido productoAdquirido = new ProductoAdquirido();
                 
+                logroDesbloqueado.setIdLogroDesbloqueado(rs.getInt("ID del Logro Desbloqueado"));
                 logroDesbloqueado.setFechaDesbloqueo(rs.getDate("Fecha de Desbloqueo"));
+                logro.setIdLogro(rs.getInt("ID del Logro"));
                 logro.setNombre(rs.getString("Nombre del Logro"));
                 logro.setDescripcion(rs.getString("Descripción del Logro"));
+                juego.setIdProducto(rs.getInt("ID del Juego"));
                 juego.setTitulo(rs.getString("Título del Juego"));
                 juego.setLogoUrl(rs.getString("URL del Logo"));
                 
                 productoAdquirido.setProducto(juego);
+                logro.setJuego(juego);
                 
                 logroDesbloqueado.setLogro(logro);
                 logroDesbloqueado.setJuego(productoAdquirido);
@@ -132,9 +136,9 @@ public class LogroDesbloqueadoMySQL implements LogroDesbloqueadoDAO{
                 if (logros == null) logros = new ArrayList<LogroDesbloqueado>();
                 logros.add(logroDesbloqueado);
             }
-        }catch(Exception ex){
+        } catch(Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
+        } finally {
             try { if (rs != null) rs.close(); }
             catch (Exception ex)
             { System.out.println(ex.getMessage()); }
