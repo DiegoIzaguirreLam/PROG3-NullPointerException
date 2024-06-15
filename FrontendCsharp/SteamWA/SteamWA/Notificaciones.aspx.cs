@@ -13,35 +13,13 @@ namespace SteamWA
 {
     public partial class Notificaciones : System.Web.UI.Page
     {
-        
+
         private NotificacionWSClient daoNotificacion;
         BindingList<notificacion> notificaciones;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             daoNotificacion = new NotificacionWSClient();
-            //BindingList<string> tiposNotificaciones = new BindingList<string>();
-            //tiposNotificaciones.Add("Amigos");
-            //tiposNotificaciones.Add("Juegos");
-            //tiposNotificaciones.Add("Foros");
-            //tiposNotificaciones.Add("Biblioteca");
-
-            //foreach (string tipoN in tiposNotificaciones)
-            //{
-            //    CheckBox chk = new CheckBox();
-            //    chk.ID = "chk" + tipoN;
-            //    HtmlGenericControl liNot = new HtmlGenericControl("li");
-            //    HtmlGenericControl contr = new HtmlGenericControl("div");
-            //    contr.Attributes["class"] = "d-flex ps-2";
-            //    chk.CheckedChanged += Chk_CheckedChanged;
-            //    chk.AutoPostBack = true;
-            //    liNot.Attributes["class"] = "ps-2 text-light";
-            //    liNot.InnerText = tipoN;
-
-            //    contr.Controls.Add(chk);
-            //    contr.Controls.Add(liNot);
-            //    ddlTipoNotif.Controls.Add(contr);
-            //}
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -158,6 +136,13 @@ namespace SteamWA
                     btnMarcarLeidoNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
                 }
             }
+        }
+
+        protected void lvNotificaciones_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            (lvNotificaciones.FindControl("dpNotificaciones") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            lvNotificaciones.DataSource = (BindingList<notificacion>)Session["notificaciones"];
+            lvNotificaciones.DataBind();
         }
     }
 }

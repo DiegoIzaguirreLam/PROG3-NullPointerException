@@ -40,55 +40,64 @@ namespace SteamWA
         }
         protected void lbRegistrar_Click(object sender, EventArgs e)
         {
-            string nombreCuenta = txtNombreCuenta.Text.Trim();
-            string nombrePerfil = txtNombrePerfil.Text.Trim();
-            if (nombreCuenta != "" && nombrePerfil!="")
+            if (
+                !validarCampo(txtNombreCuenta, "un nombre de cuenta válido") ||
+                !validarCampo(txtNombrePerfil, "un nombre de perfil válido") ||
+                !validarCampo(txtContrasenia, "una contraseña válida") ||
+                !validarCampo(txtConfirmaContrasenia, "una contraseña válida") ||
+                !validarCampo(txtCorreo, "un correo electrónico válido")
+            ) return;
+
+            // Verificar si existe el nombre de cuenta (no se puede repetir)
+            usuario usuarioNuevo = daoUsuario.buscarUsuarioPorNombreCuenta(txtNombreCuenta.Text);
+            if (usuarioNuevo == null)
             {
-                usuario usuarioNuevo = daoUsuario.buscarUsuarioPorNombreCuenta(txtNombreCuenta.Text);
-                // Solo si no existe el nombre de cuenta
-                if (usuarioNuevo==null)
+                usuario = new usuario();
+                usuario.nombreCuenta = txtNombreCuenta.Text;
+                usuario.nombrePerfil = txtNombrePerfil.Text;
+                usuario.password = txtContrasenia.Text;
+                usuario.correo = txtCorreo.Text;
+                usuario.fechaNacimientoSpecified = true;
+                usuario.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+                usuario.telefono = txtTelefono.Text;
+                usuario.edad = DateTime.Today < usuario.fechaNacimiento ? (DateTime.Today.Year - usuario.fechaNacimiento.Year) : (DateTime.Today.Year - usuario.fechaNacimiento.Year - 1);
+                usuario.pais = new pais();
+                usuario.pais.idPais = Int32.Parse(ddlPaises.SelectedValue);
+                int UID = daoUsuario.insertarUsuario(usuario);
+                if (UID != 0)
                 {
-                    usuario = new usuario();
-                    usuario.nombreCuenta = txtNombreCuenta.Text;
-                    usuario.nombrePerfil = txtNombrePerfil.Text;
-                    usuario.password = txtContrasenia.Text;
-                    usuario.correo = txtCorreo.Text;
-                    usuario.fechaNacimientoSpecified = true;
-                    usuario.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
-                    usuario.telefono = txtTelefono.Text;
-                    usuario.edad = DateTime.Today < usuario.fechaNacimiento ? (DateTime.Today.Year - usuario.fechaNacimiento.Year) : (DateTime.Today.Year - usuario.fechaNacimiento.Year - 1);
-                    usuario.pais = new pais();
-                    usuario.pais.idPais = Int32.Parse(ddlPaises.SelectedValue);
-                    int UID = daoUsuario.insertarUsuario(usuario);
-                    if (UID != 0)
-                    {
-                        int r1 = daoBiblioteca.asignarBibliotecaUsuario(UID);
-                        int r2 = daoCartera.asignarCarteraUsuario(UID);
-                        int r3 = daoPerfil.asignarPerfilUsuario(UID);
-                        int r4 = daoGestorSanciones.asignarGestorUsuario(UID);
-                        Response.Redirect("Login.aspx?accion=registrado");
-                    }
-                    //else
-                    //{
-                    //    lblMensajeError.Visible = true;
-                    //    lblMensajeError.Text = "Ocurrió un error. Vuelva a intentarlo";
-                    //}
+                    int r1 = daoBiblioteca.asignarBibliotecaUsuario(UID);
+                    int r2 = daoCartera.asignarCarteraUsuario(UID);
+                    int r3 = daoPerfil.asignarPerfilUsuario(UID);
+                    int r4 = daoGestorSanciones.asignarGestorUsuario(UID);
+                    Response.Redirect("Login.aspx?accion=registrado");
                 }
                 else
                 {
-                    // Mostrar mensaje de error
                     lblMensajeError.Visible = true;
-                    lblMensajeError.Text = "Nombre de cuenta ya existente. Intente con otro nombre";
-                    txtNombreCuenta.Text = string.Empty;
+                    lblMensajeError.Text = "Ocurrió un error. Vuelva a intentarlo";
                 }
             }
             else
             {
+                // Mostrar mensaje de error
                 lblMensajeError.Visible = true;
-                lblMensajeError.Text = "Por favor, ingrese un nombre válido para el nombre de cuenta y/o perfil";
+                lblMensajeError.Text = "Nombre de cuenta ya existente. Intente con otro nombre";
                 txtNombreCuenta.Text = string.Empty;
-                txtNombrePerfil.Text = string.Empty;
             }
+        }
+
+        public bool validarCampo(TextBox campo, string mensaje)
+        {
+            string valorCampo = campo.Text.Trim();
+            if (valorCampo == "")
+            {
+                lblMensajeError.Visible = true;
+                lblMensajeError.Text = "Por favor, ingrese " + mensaje;
+                campo.Text = string.Empty;
+                return false;
+            }
+            return true;
         }
     }
 }

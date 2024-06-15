@@ -2,26 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
-    <script type="text/javascript">
-        function validarEdad(source, args) {
-            var fechaNacimiento = new Date(document.getElementById('<%= txtFechaNacimiento.ClientID %>').value);
-            var hoy = new Date();
-            var edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-            var mes = hoy.getMonth() - fechaNacimiento.getMonth();
-            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
-                edad--;
-            }
-            args.IsValid = edad >= 13;
-        }
-
-        function soloNumeros(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode != 43 && charCode > 31 && (charCode < 48 || charCode > 57) && (charCode != 45)) {
-                return false;
-            }
-            return true;
-        }
-    </script>
+    <script src="Scripts/Steam/Registro.js"></script>
+    <script src="Scripts/Steam/Contrasenia.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
@@ -35,17 +17,13 @@
                         <!-- Nombre de cuenta -->
                         <div class="form-group mb-3">
                             <label id="lblNombreCuenta" class="form-label" runat="server">Nombre de cuenta <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtNombreCuenta" CssClass="form-control" placeholder="Ingrese su nombre de cuenta" Required="true" MaxLength="25"/>
-                            <%--<asp:RegularExpressionValidator ID="regexNombreCuenta" runat="server" ControlToValidate="txtNombreCuenta"
-                                ErrorMessage="El nombre de cuenta debe tener entre 1 y 20 caracteres y no contener espacios"
-                                ValidationExpression="^\S{1,20}$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
-                            </asp:RegularExpressionValidator>--%>
+                            <asp:TextBox runat="server" ID="txtNombreCuenta" CssClass="form-control" placeholder="Ingrese su nombre de cuenta" Required="true" MaxLength="20"/>
                         </div>
 
                         <!-- Nombre de perfil -->
                         <div class="mb-3">
                             <label id="lblNombrePerfil" class="form-label" runat="server">Nombre de perfil <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtNombrePerfil" CssClass="form-control" placeholder="Ingrese su nombre de perfil" Required="true" MaxLength="50"/>
+                            <asp:TextBox runat="server" ID="txtNombrePerfil" CssClass="form-control" placeholder="Ingrese su nombre de perfil" Required="true" MaxLength="40"/>
                         </div>
 
                         <!-- Contraseña -->
@@ -54,14 +32,18 @@
                                 <label id="lblContrasenia" class="form-label" runat="server">Contraseña <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <asp:TextBox runat="server" ID="txtContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" Required="true" MaxLength="20"/>
-                                    <%--<asp:LinkButton ID="lbVisualizarContrasenia" runat="server" CssClass="btn btn-light" Text="<i class='fas fa-eye'></i>"/>--%>
+                                    <button type="button" id="togglePassword" class="btn toggle-password-btn" style="border: 1px solid #DEE2E6;">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-sm mb-3">
                                 <label id="lblConfirmarContrasenia" class="form-label" runat="server">Confirma contraseña <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <asp:TextBox runat="server" ID="txtConfirmaContrasenia" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" Required="true" MaxLength="20"/>
-                                    <%--<asp:LinkButton ID="lbVisualizarConfirmaContrasenia" runat="server" CssClass="btn btn-light" Text="<i class='fas fa-eye'></i>"/>--%>
+                                    <button type="button" id="toggleConfirmPassword" class="btn toggle-password-btn" style="border: 1px solid #DEE2E6;">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
                                 </div>
                             </div>
                             <asp:CompareValidator ID="cmpValContrasenia" runat="server" ErrorMessage="Contraseña y Confirma contraseña deben ser iguales."
@@ -84,15 +66,12 @@
                         <div class="mb-3">
                             <label id="lblTelefono" class="form-label" runat="server">Teléfono <span class="text-danger">*</span></label>
                             <asp:TextBox runat="server" ID="txtTelefono" Type="Phone" CssClass="form-control" placeholder="Ingrese su número de teléfono" Required="true" MaxLength="15" onkeypress="return soloNumeros(event)"/>
-                            <%--<asp:RegularExpressionValidator ID="regexTelefono" runat="server" ControlToValidate="txtTelefono"
-                                ErrorMessage="Por favor, ingrese un número de teléfono válido." ValidationExpression="^\d+$" Display="Dynamic" ForeColor="Red" SetFocusOnError="true">
-                            </asp:RegularExpressionValidator>--%>
                         </div>
 
                         <!-- Fecha de nacimiento -->
                         <div class="mb-3">
                             <label id="lblFechaNacimiento" class="form-label" runat="server">Fecha de nacimiento <span class="text-danger">*</span></label>
-                            <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Required="true" />
+                            <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Required="true" ClientIDMode="Static"/>
                             <asp:CustomValidator ID="cvFechaNacimiento" runat="server" ErrorMessage="Debe ser mayor de 13 años para continuar." 
                                 ControlToValidate="txtFechaNacimiento" ClientValidationFunction="validarEdad" Display="Dynamic" ForeColor="Red" SetFocusOnError="true"/>
                         </div>

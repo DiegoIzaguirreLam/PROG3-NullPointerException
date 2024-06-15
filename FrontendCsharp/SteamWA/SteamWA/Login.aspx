@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
+    <script src="Scripts/Steam/Contrasenia.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container mt-5">
@@ -17,15 +18,17 @@
                             <h3><strong>INICIO DE SESIÓN</strong></h3>
                         </div>
                         <div class="row gy-3 gy-md-4 overflow-hidden">
+                            <!-- Nombre de cuenta -->
                             <div class="form-group col-12">
                                 <label id="lblNombreCuenta" class="form-label">Nombre de cuenta <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <div class="input-group-text">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control btn-outline-dark" Required="true" MaxLength="25"></asp:TextBox>
+                                    <asp:TextBox ID="txtNombreCuenta" runat="server" CssClass="form-control btn-outline-dark" Required="true" MaxLength="20"></asp:TextBox>
                                 </div>
                             </div>
+                            <!-- Contraseña -->
                             <div class="form-group col-12">
                                 <label id="lblPassword" class="form-label">Contraseña <span class="text-danger">*</span></label>
                                 <div class="input-group">
@@ -33,6 +36,9 @@
                                         <i class="fas fa-key"></i>
                                     </div>
                                     <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control btn-outline-dark" TextMode="Password" Required="true" MaxLength="20"></asp:TextBox>
+                                    <button type="button" id="toggleConfirmPassword" class="btn toggle-password-btn" style="border: 1px solid #DEE2E6;">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-12">

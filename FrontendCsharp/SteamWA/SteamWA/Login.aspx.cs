@@ -48,6 +48,15 @@ namespace SteamWA
                 lblMensajeError.Text = "Nombre de cuenta inválido. Intente de nuevo";
                 return;
             }
+            if (txtPassword.Text.Trim() == "")
+            {
+                txtNombreCuenta.Text = string.Empty;
+                txtPassword.Text = string.Empty;
+                lblMensajeExito.Visible = false;
+                lblMensajeError.Visible = true;
+                lblMensajeError.Text = "Contraseña inválida. Intente de nuevo";
+                return;
+            }
 
             usuarioIngresado = daoUsuario.verificarUsuario(txtNombreCuenta.Text, txtPassword.Text);
 
@@ -64,9 +73,9 @@ namespace SteamWA
             }
 
             // Guardar el usuario, amigos y bloqueados en las variables de sesión
-            Session["usuario"]             = usuarioIngresado;
-            Session["amigos"]              = cargarAmigos(usuarioIngresado.UID);
-            Session["bloqueados"]          = cargarBloqueados(usuarioIngresado.UID);
+            Session["usuario"] = usuarioIngresado;
+            Session["amigos"] = cargarAmigos(usuarioIngresado.UID);
+            Session["bloqueados"] = cargarBloqueados(usuarioIngresado.UID);
             Session["logrosDesbloqueados"] = cargarLogrosDesbloqueados(usuarioIngresado.UID);
 
             // Redireccionar al usuario a la tienda

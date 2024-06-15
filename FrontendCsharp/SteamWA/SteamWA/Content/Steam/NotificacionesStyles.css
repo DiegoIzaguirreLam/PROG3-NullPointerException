@@ -1,0 +1,28 @@
+﻿.bgDesplegables {
+    background-color: #392e47;
+}
+
+.data-pager {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .data-pager a,
+    .data-pager span {
+        margin: 0 3px;
+        padding: 5px 10px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .data-pager a:hover {
+            background-color: #ffff;
+            color: #007bff;
+        }
+
+    .data-pager .selected {
+        background-color: #007bff;
+        color: #fff;
+    }
