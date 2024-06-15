@@ -76,22 +76,22 @@
       <xs:element minOccurs="0" name="return" type="tns:logro" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarLogro">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="logro" type="tns:logro" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarLogroResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="actualizarLogro">
     <xs:sequence>
       <xs:element minOccurs="0" name="logro" type="tns:logro" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarLogroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLogro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="logro" type="tns:logro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLogroResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

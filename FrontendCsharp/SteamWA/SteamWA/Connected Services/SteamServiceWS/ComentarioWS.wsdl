@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ComentarioWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarComentario">
-    <part name="parameters" element="tns:insertarComentario" />
-  </message>
-  <message name="insertarComentarioResponse">
-    <part name="parameters" element="tns:insertarComentarioResponse" />
-  </message>
   <message name="listarComentarios">
     <part name="parameters" element="tns:listarComentarios" />
   </message>
   <message name="listarComentariosResponse">
     <part name="parameters" element="tns:listarComentariosResponse" />
+  </message>
+  <message name="insertarComentario">
+    <part name="parameters" element="tns:insertarComentario" />
+  </message>
+  <message name="insertarComentarioResponse">
+    <part name="parameters" element="tns:insertarComentarioResponse" />
   </message>
   <message name="ocultarComentario">
     <part name="parameters" element="tns:ocultarComentario" />
@@ -36,13 +36,13 @@
     <part name="parameters" element="tns:listarComentariosPerfilResponse" />
   </message>
   <portType name="ComentarioWS">
-    <operation name="insertarComentario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioRequest" message="tns:insertarComentario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioResponse" message="tns:insertarComentarioResponse" />
-    </operation>
     <operation name="listarComentarios">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosRequest" message="tns:listarComentarios" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosResponse" message="tns:listarComentariosResponse" />
+    </operation>
+    <operation name="insertarComentario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioRequest" message="tns:insertarComentario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioResponse" message="tns:insertarComentarioResponse" />
     </operation>
     <operation name="ocultarComentario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioRequest" message="tns:ocultarComentario" />
@@ -59,7 +59,7 @@
   </portType>
   <binding name="ComentarioWSPortBinding" type="tns:ComentarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarComentario">
+    <operation name="listarComentarios">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarComentarios">
+    <operation name="insertarComentario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

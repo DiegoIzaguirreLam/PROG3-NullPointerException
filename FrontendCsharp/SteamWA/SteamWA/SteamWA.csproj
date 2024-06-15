@@ -739,6 +739,9 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\SubforoWS.xsd">
       <SubType>Designer</SubType>

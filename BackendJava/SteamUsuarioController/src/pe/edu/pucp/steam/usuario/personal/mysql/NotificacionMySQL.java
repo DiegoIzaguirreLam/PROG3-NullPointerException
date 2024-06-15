@@ -109,5 +109,22 @@ public class NotificacionMySQL implements NotificacionDAO{
         }
         return notificaciones;
     }
+
+    @Override
+    public int eliminarNotificacionesPorUsuario(int fid_usuario) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ELIMINAR_NOTIFICACIONES_USUARIO"
+                    + "(?)}");
+            cs.setInt("_FID_USUARIO", fid_usuario);
+            resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
+    }
     
 }

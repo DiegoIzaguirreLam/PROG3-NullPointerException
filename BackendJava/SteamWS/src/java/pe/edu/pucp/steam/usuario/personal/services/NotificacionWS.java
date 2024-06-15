@@ -47,7 +47,7 @@ public class NotificacionWS {
     }
     
     @WebMethod(operationName="eliminarNotificacion")
-    public int eliminarNotificacion(@WebParam(name="notificacion") int idNotificacion) {
+    public int eliminarNotificacion(@WebParam(name="idNotificacion") int idNotificacion) {
         int resultado=0;
         try{
             NotificacionDAO notifiacionDao = new NotificacionMySQL();
@@ -59,7 +59,7 @@ public class NotificacionWS {
     }
     
     @WebMethod(operationName="listarNotificaciones")
-    public ArrayList<Notificacion> listarNotificaciones(@WebParam(name="usuario") int fid_usuario) {
+    public ArrayList<Notificacion> listarNotificaciones(@WebParam(name="fid_usuario") int fid_usuario) {
         ArrayList<Notificacion> notificaciones = new ArrayList<>();
         try{
             NotificacionDAO notifiacionDao = new NotificacionMySQL();
@@ -68,5 +68,17 @@ public class NotificacionWS {
             System.out.println(ex.getMessage());
         }
         return notificaciones;
+    }
+    
+    @WebMethod(operationName="eliminarNotificacionesUsuario")
+    public int eliminarNotificacionesUsuario(@WebParam(name="fid_usuario") int fid_usuario) {
+        int resultado=0;
+        try{
+            NotificacionDAO notifiacionDao = new NotificacionMySQL();
+            resultado = notifiacionDao.eliminarNotificacionesPorUsuario(fid_usuario);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
     }
 }

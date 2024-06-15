@@ -8,14 +8,9 @@
   <xs:element name="insertarPaisResponse" type="tns:insertarPaisResponse" />
   <xs:element name="listarPaises" type="tns:listarPaises" />
   <xs:element name="listarPaisesResponse" type="tns:listarPaisesResponse" />
-  <xs:complexType name="buscarPais">
+  <xs:complexType name="actualizarPais">
     <xs:sequence>
-      <xs:element name="idPais" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarPaisResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:pais" />
+      <xs:element minOccurs="0" name="pais" type="tns:pais" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="pais">
@@ -38,14 +33,19 @@
       <xs:element minOccurs="0" name="simbolo" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="actualizarPais">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="pais" type="tns:pais" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="actualizarPaisResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPais">
+    <xs:sequence>
+      <xs:element name="idPais" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPaisResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:pais" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarPaises">

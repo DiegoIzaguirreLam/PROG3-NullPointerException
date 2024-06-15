@@ -4,6 +4,8 @@
   <xs:element name="actualizarNotificacionResponse" type="tns:actualizarNotificacionResponse" />
   <xs:element name="eliminarNotificacion" type="tns:eliminarNotificacion" />
   <xs:element name="eliminarNotificacionResponse" type="tns:eliminarNotificacionResponse" />
+  <xs:element name="eliminarNotificacionesUsuario" type="tns:eliminarNotificacionesUsuario" />
+  <xs:element name="eliminarNotificacionesUsuarioResponse" type="tns:eliminarNotificacionesUsuarioResponse" />
   <xs:element name="insertarNotificacion" type="tns:insertarNotificacion" />
   <xs:element name="insertarNotificacionResponse" type="tns:insertarNotificacionResponse" />
   <xs:element name="listarNotificaciones" type="tns:listarNotificaciones" />
@@ -299,9 +301,19 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="eliminarNotificacionesUsuario">
+    <xs:sequence>
+      <xs:element name="fid_usuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarNotificacionesUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="eliminarNotificacion">
     <xs:sequence>
-      <xs:element name="notificacion" type="xs:int" />
+      <xs:element name="idNotificacion" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarNotificacionResponse">
@@ -311,7 +323,7 @@
   </xs:complexType>
   <xs:complexType name="listarNotificaciones">
     <xs:sequence>
-      <xs:element name="usuario" type="xs:int" />
+      <xs:element name="fid_usuario" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarNotificacionesResponse">

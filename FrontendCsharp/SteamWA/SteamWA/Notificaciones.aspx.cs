@@ -97,12 +97,8 @@ namespace SteamWA
 
         protected void btnEliminarTodasNotificacionesModal_Click(object sender, EventArgs e)
         {
-            notificaciones = (BindingList<notificacion>)Session["notificaciones"];
-            int resultado;
-            foreach (notificacion not in notificaciones)
-            {
-                resultado = daoNotificacion.eliminarNotificacion(not.idNotificacion);
-            }
+            usuario usuario = (usuario)Session["usuario"];
+            int resultado = daoNotificacion.eliminarNotificacionesUsuario(usuario.UID);
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
