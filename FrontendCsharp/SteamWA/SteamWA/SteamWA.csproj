@@ -65,10 +65,10 @@
   <ItemGroup>
     <Content Include="Content\Steam\NotificacionesStyles.css" />
     <Content Include="Scripts\Steam\Amigos.js" />
+    <Content Include="Scripts\Steam\BuscarAmigos.js" />
     <Content Include="Scripts\Steam\Comunidad.js" />
     <Content Include="Scripts\Steam\Contrasenia.js" />
     <Content Include="Scripts\Steam\GestionarCartera.js" />
-    <Content Include="Scripts\Steam\Perfil.js" />
     <Content Include="Scripts\Steam\Registro.js" />
     <Content Include="SeleccionarMetodoPago.aspx" />
     <Content Include="Amigos.aspx" />
@@ -741,6 +741,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />

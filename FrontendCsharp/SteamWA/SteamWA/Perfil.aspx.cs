@@ -106,10 +106,10 @@ namespace SteamWA
             int idUsuarioPorBloquear = Int32.Parse(inputIdBloquear.Value);
             usuario usuarioPorBloquear = usuarioDao.buscarUsuarioPorId(idUsuarioPorBloquear);
             BindingList<usuario> bloqueados = (BindingList<usuario>)Session["bloqueados"];
+            BindingList<usuario> usuariosQueBloquearon = (BindingList<usuario>)Session["usuariosQueBloquearon"];
 
-            btnBloquearModal.Visible = false;
-
-            if (usuarioPorBloquear == null)
+            if (usuarioPorBloquear == null ||
+                usuariosQueBloquearon.Any(u => u.UID == idUsuarioPorBloquear))
             {
                 lblConfirmacionUsuario.Text = $"Error: no existe el usuario con " +
                                               $"ID = {idUsuarioPorBloquear}.";

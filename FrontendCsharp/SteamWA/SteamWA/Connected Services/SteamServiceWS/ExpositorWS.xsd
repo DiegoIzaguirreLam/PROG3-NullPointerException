@@ -166,6 +166,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarExpositores">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarExpositoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:expositor" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="eliminarExpositor">
     <xs:sequence>
       <xs:element minOccurs="0" name="expositor" type="tns:expositor" />
@@ -174,14 +182,6 @@
   <xs:complexType name="eliminarExpositorResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarExpositores">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarExpositoresResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:expositor" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

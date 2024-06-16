@@ -96,16 +96,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:foro" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminarForo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="foro" type="tns:foro" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarForoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarCreados">
     <xs:sequence>
       <xs:element name="nombre" type="xs:int" />
@@ -114,6 +104,16 @@
   <xs:complexType name="listarCreadosResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:foro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarForo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="foro" type="tns:foro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarForoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="editarForo">

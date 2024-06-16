@@ -21,7 +21,6 @@ namespace SteamWA
 
             // Cargar los amigos y bloqueados del usuario
             BindingList<usuario> amigos = (BindingList<usuario>)Session["amigos"];
-            BindingList<usuario> bloqueados = (BindingList<usuario>)Session["bloqueados"];
 
             // Se agregan los amigos al DataTable
             foreach (usuario amigo in amigos)

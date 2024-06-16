@@ -68,7 +68,7 @@
                         <div class="form-group mb-4">
                             <span class="input-group">
                                 <input id="txtUID" runat="server" type="number" class="form-control" placeholder="ID del Usuario">
-                                <asp:LinkButton ID="lbBuscarPorID" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>" OnClick="lbBuscarPorID_Click" />
+                                <asp:LinkButton ID="lbBuscarPorID" runat="server" CssClass="btn bg-navy btn-outline-light disabled" Text="<i class='fas fa-search'></i>" OnClick="lbBuscarPorID_Click" />
                             </span>
                         </div>
                         <asp:Label ID="lblMensajeID" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
@@ -84,7 +84,7 @@
                         <div class="form-group mb-4">
                             <span class="input-group">
                                 <input id="txtNombre" runat="server" type="text" class="form-control" placeholder="Nombre de Cuenta">
-                                <asp:LinkButton ID="lbBuscarPorNombre" runat="server" class="btn bg-navy btn-outline-light" Text="<i class='fas fa-search'></i>" OnClick="lbBuscarPorNombre_Click" />
+                                <asp:LinkButton ID="lbBuscarPorNombre" runat="server" CssClass="btn bg-navy btn-outline-light disabled" Text="<i class='fas fa-search'></i>" OnClick="lbBuscarPorNombre_Click" />
                             </span>
                         </div>
                         <asp:Label ID="lblMensajeNombre" runat="server" CssClass="text-danger" Visible="false"></asp:Label>

@@ -157,4 +157,20 @@ public class UsuarioWS {
         
         return bloqueados;
     }
+        
+    @WebMethod(operationName="listarUsuariosQueBloquearon")
+    public ArrayList<Usuario>
+        listarUsuariosQueBloquearon(@WebParam(name="idUsuario") int idUsuario) {
+        ArrayList<Usuario> usuariosQueBloquearon = null;
+        
+        try{
+            UsuarioDAO usuarioDao = new UsuarioMySQL();
+            usuariosQueBloquearon =
+                usuarioDao.listarUsuariosQueBloquearon(idUsuario);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return usuariosQueBloquearon;
+    }
 }

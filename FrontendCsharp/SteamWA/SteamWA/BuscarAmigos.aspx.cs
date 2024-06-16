@@ -27,6 +27,18 @@ namespace SteamWA
                 // Mostrar mensaje de error
                 lblMensajeID.Text = $"Error: el ID {idBuscado} es tu ID.";
                 lblMensajeID.Visible = true;
+                txtUID.Value = "";
+                return;
+            }
+
+            // El usuario buscado ha bloqueado al usuario de la sesión
+            BindingList<usuario> usuariosQueBloquearon = (BindingList<usuario>)Session["usuariosQueBloquearon"];
+            if (usuariosQueBloquearon.Any(u => u.UID == idBuscado))
+            {
+                // Mensaje de error
+                lblMensajeID.Text = $"No hay usuarios con ID {idBuscado}";
+                lblMensajeID.Visible = true;
+                txtUID.Value = "";
                 return;
             }
 
@@ -40,6 +52,7 @@ namespace SteamWA
                 // Mensaje de error
                 lblMensajeID.Text = $"No hay usuarios con ID {idBuscado}";
                 lblMensajeID.Visible = true;
+                txtUID.Value = "";
                 return;
             }
 
@@ -47,8 +60,7 @@ namespace SteamWA
             Session["usuariosEncontrados"] = gvUsuarios.DataSource = new BindingList<usuario> { usuarioEncontrado };
             gvUsuarios.DataBind();
 
-            txtUID.Value = "";
-            txtNombre.Value = "";
+            // No mostrar mensajes de error
             lblMensajeNombre.Visible = false;
             lblMensajeID.Visible = false;
         }
@@ -57,11 +69,10 @@ namespace SteamWA
         {
             // Obtener el nombre del usuario y el nombre buscado
             usuario usuarioActual = (usuario)Session["usuario"];
-            string nombreUsuario = usuarioActual.nombreCuenta;
             string nombreBuscado = txtNombre.Value;
 
             // El usuario no puede buscarse a sí mismo
-            if (nombreBuscado == nombreUsuario)
+            if (nombreBuscado == usuarioActual.nombreCuenta)
             {
                 lblMensajeNombre.Text = $"Error: no puedes agregarte a ti mismo como amigo.";
                 lblMensajeNombre.Visible = true;
@@ -78,6 +89,7 @@ namespace SteamWA
                 // Mensaje de error
                 lblMensajeNombre.Text = $"No hay usuarios con nombre {nombreBuscado}";
                 lblMensajeNombre.Visible = true;
+                txtNombre.Value = "";
                 return;
             }
 
@@ -87,13 +99,33 @@ namespace SteamWA
             // Se elimina al usuario actual si es que aparece 
             usuario usuarioActualPorEliminar = usuariosEncontrados.SingleOrDefault(u => u.UID == usuarioActual.UID);
             if (usuarioActualPorEliminar != null) usuariosEncontrados.Remove(usuarioActualPorEliminar);
+
+            // Se eliminan los usuarios que han bloqueado al usuario de la sesión de los resultados
+            BindingList<usuario> usuariosQueBloquearon = (BindingList<usuario>)Session["usuariosQueBloquearon"];
+            foreach (usuario usuarioQueBloqueo in usuariosQueBloquearon)
+            {
+                usuario resultadoPorEliminar = usuariosEncontrados.SingleOrDefault(u => u.UID == usuarioQueBloqueo.UID);
+                if (resultadoPorEliminar != null) usuariosEncontrados.Remove(resultadoPorEliminar);
+            }
+
+            // Si después de las eliminaciones la lista quedó vacía
+            if (usuariosEncontrados.Count == 0)
+            {
+                // Mensaje de error
+                lblMensajeNombre.Text = $"No hay usuarios con nombre {nombreBuscado}";
+                lblMensajeNombre.Visible = true;
+                txtNombre.Value = "";
+                return;
+            }
+
+            // Guardar los usuarios encontrados en una variable de sesión
             Session["usuariosEncontrados"] = usuariosEncontrados;
 
+            // Enlazar el GridView con los resultados
             gvUsuarios.DataSource = usuariosEncontrados;
             gvUsuarios.DataBind();
 
-            txtUID.Value = "";
-            txtNombre.Value = "";
+            // No mostrar los mensajes de error
             lblMensajeNombre.Visible = false;
             lblMensajeID.Visible = false;
         }
@@ -162,6 +194,11 @@ namespace SteamWA
             verificarUsuarioEsBloqueado_RowDataBound(e);
         }
 
+        /*
+         * Esta función verifica si el usuario que se va a enlistar ya ha sido agregado
+         * como amigo. En ese caso, se muestra un mensaje y se esconde el
+         * botón de agregar amigo.
+         */
         protected void verificarUsuarioEsAmigo_RowDataBound(GridViewRowEventArgs e)
         {
             // Si no tiene amigos, no se hace nada
@@ -185,6 +222,11 @@ namespace SteamWA
             lblYaEsAmigo.Visible = yaEsAmigo;
         }
 
+        /*
+         * Esta función verifica si el usuarios que se va a enlistar ya han sido bloqueado
+         * por el usuario de la sesión. En ese caso, se muestra un mensaje y se esconde el
+         * botón de agregar amigo.
+         */
         protected void verificarUsuarioEsBloqueado_RowDataBound(GridViewRowEventArgs e)
         {
             // Si no tiene bloqueados, no se hace nada

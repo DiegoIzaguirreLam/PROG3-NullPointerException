@@ -1,5 +1,6 @@
 DROP PROCEDURE IF EXISTS CREAR_USUARIO;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+DROP PROCEDURE IF EXISTS ELIMINAR_USUARIO;
 DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
 DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
@@ -8,8 +9,10 @@ DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_USUARIO_X_NOMBRE_CUENTA;
 DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_X_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_BLOQUEADOS_X_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIOS_QUE_BLOQUEARON;
 
 DELIMITER $
+
 CREATE PROCEDURE CREAR_USUARIO(
 	OUT _ID_USUARIO INT,
     IN _NOMBRE_CUENTA VARCHAR(100),
@@ -36,8 +39,6 @@ BEGIN
 END $
 
 
-
-DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_USUARIO(
 	IN _ID_USUARIO INT,
     IN _NOMBRE_CUENTA VARCHAR(100),
@@ -63,16 +64,16 @@ BEGIN
 END $
 
 
-DELIMITER $
 CREATE PROCEDURE SUSPENDER_USUARIO(
 	IN _ID_USUARIO INT
 )
 BEGIN
 	UPDATE Usuario SET ACTIVO = NOT ACTIVO WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS ELIMINAR_USUARIO;
-DELIMITER $
+
+
+
+
 CREATE PROCEDURE ELIMINAR_USUARIO(
 	IN _ID_USUARIO INT
 )
@@ -82,15 +83,13 @@ END $
 
 
 
-DELIMITER $
 CREATE PROCEDURE LISTAR_USUARIO()
 BEGIN
 	SELECT * FROM Usuario;
 END $
-DELIMITER ;
 
 
-DELIMITER $
+
 CREATE PROCEDURE BUSCAR_USUARIO_X_NOMBRE_CUENTA(
 	IN _nombre_cuenta VARCHAR(100)
 )
@@ -106,7 +105,7 @@ BEGIN
 END$
 
 
-DELIMITER $
+
 CREATE PROCEDURE BUSCAR_USUARIO_POR_ID (
 	IN _uid INT
 )
@@ -122,7 +121,7 @@ BEGIN
 END$
 
 
-DELIMITER $
+
 CREATE PROCEDURE VERIFICAR_USUARIO (
 	IN _nombre_cuenta VARCHAR(100),
     IN _contrasenia VARCHAR(100)
@@ -140,7 +139,6 @@ END$
 
 
 -- Enlista todos los usuarios que coincidan con el nombre ingresado
-DELIMITER $
 CREATE PROCEDURE LISTAR_USUARIO_X_NOMBRE_CUENTA (
 	IN _nombre_cuenta VARCHAR(100)
 )
@@ -183,7 +181,24 @@ BEGIN
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
-    INNER JOIN Relacion r ON ((r.fid_usuario_actuador = _id_usuario AND r.fid_usuario_destino = u.UID) OR 
-                              (r.fid_usuario_actuador = u.UID       AND r.fid_usuario_destino = _id_usuario))
+    INNER JOIN Relacion r ON (r.fid_usuario_actuador = _id_usuario AND r.fid_usuario_destino = u.UID)
     WHERE r.tipo_relacion = 'bloqueo' AND r.activo = true AND u.activo = true;
 END$
+
+CREATE PROCEDURE LISTAR_USUARIOS_QUE_BLOQUEARON (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
+           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
+           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuario_actuador = u.UID AND r.fid_usuario_destino = _id_usuario)
+    WHERE r.tipo_relacion = 'bloqueo' AND r.activo = true AND u.activo = true;
+END$
+
+
+DELIMITER ;

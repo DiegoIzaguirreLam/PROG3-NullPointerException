@@ -76,6 +76,7 @@ namespace SteamWA
             Session["usuario"] = usuarioIngresado;
             Session["amigos"] = cargarAmigos(usuarioIngresado.UID);
             Session["bloqueados"] = cargarBloqueados(usuarioIngresado.UID);
+            Session["usuariosQueBloquearon"] = cargarUsuariosQueBloquearon(usuarioIngresado.UID);
             Session["logrosDesbloqueados"] = cargarLogrosDesbloqueados(usuarioIngresado.UID);
 
             // Redireccionar al usuario a la tienda
@@ -111,6 +112,23 @@ namespace SteamWA
 
             return listaBloqueados != null ?
                    new BindingList<usuario>(listaBloqueados) :
+                   new BindingList<usuario>();
+        }
+
+        /* 
+         * Devuelve una BindingList<usuario> con los usuarios que bloquearon
+         * al usuario pasado por parámetro. Si el usuario no ha sido bloqueado,
+         * por nadie, entonces, se devuelve una BindingList<usuario>
+         * vacía (0 elementos).
+         */
+        protected BindingList<usuario> cargarUsuariosQueBloquearon(int idUsuario)
+        {
+            // Se obtiene de la base de datos a los usuarios que bloquearon al usuario
+            UsuarioWSClient daoUsuario = new UsuarioWSClient();
+            usuario[] listaQueBloquearon = daoUsuario.listarUsuariosQueBloquearon(idUsuario);
+
+            return listaQueBloquearon != null ?
+                   new BindingList<usuario>(listaQueBloquearon) :
                    new BindingList<usuario>();
         }
 

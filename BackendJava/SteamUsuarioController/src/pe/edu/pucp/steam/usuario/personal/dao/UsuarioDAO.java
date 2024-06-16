@@ -15,4 +15,5 @@ public interface UsuarioDAO {
     ArrayList<Usuario> listarUsuariosPorNombreCuenta(String nombreCuenta);
     ArrayList<Usuario> listarAmigosPorUsuario(int idUsuario);
     ArrayList<Usuario> listarBloqueadosPorUsuario(int idUsuario);
+    ArrayList<Usuario> listarUsuariosQueBloquearon(int idUsuario);
 }

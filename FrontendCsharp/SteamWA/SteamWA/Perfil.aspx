@@ -238,7 +238,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <asp:LinkButton runat="server" ID="btnBloquearModal" type="button" CssClass="btn btn-primary btn-danger" OnClick="btnBloquearModal_Click">Bloquear</asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="btnBloquearModal" type="button" CssClass="btn btn-primary btn-danger" OnClick="btnBloquearModal_Click" Visible="false" Text="Bloquear" />
                     </div>
                 </div>
             </div>

@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/SoftwareWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="buscarSoftware">
-    <part name="parameters" element="tns:buscarSoftware" />
-  </message>
-  <message name="buscarSoftwareResponse">
-    <part name="parameters" element="tns:buscarSoftwareResponse" />
-  </message>
   <message name="listarSoftwares">
     <part name="parameters" element="tns:listarSoftwares" />
   </message>
@@ -23,23 +17,25 @@
   <message name="insertarSoftwareResponse">
     <part name="parameters" element="tns:insertarSoftwareResponse" />
   </message>
-  <message name="actualizarSoftware">
-    <part name="parameters" element="tns:actualizarSoftware" />
-  </message>
-  <message name="actualizarSoftwareResponse">
-    <part name="parameters" element="tns:actualizarSoftwareResponse" />
-  </message>
   <message name="eliminarSoftware">
     <part name="parameters" element="tns:eliminarSoftware" />
   </message>
   <message name="eliminarSoftwareResponse">
     <part name="parameters" element="tns:eliminarSoftwareResponse" />
   </message>
+  <message name="buscarSoftware">
+    <part name="parameters" element="tns:buscarSoftware" />
+  </message>
+  <message name="buscarSoftwareResponse">
+    <part name="parameters" element="tns:buscarSoftwareResponse" />
+  </message>
+  <message name="actualizarSoftware">
+    <part name="parameters" element="tns:actualizarSoftware" />
+  </message>
+  <message name="actualizarSoftwareResponse">
+    <part name="parameters" element="tns:actualizarSoftwareResponse" />
+  </message>
   <portType name="SoftwareWS">
-    <operation name="buscarSoftware">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest" message="tns:buscarSoftware" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse" message="tns:buscarSoftwareResponse" />
-    </operation>
     <operation name="listarSoftwares">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest" message="tns:listarSoftwares" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse" message="tns:listarSoftwaresResponse" />
@@ -48,26 +44,21 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest" message="tns:insertarSoftware" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse" message="tns:insertarSoftwareResponse" />
     </operation>
-    <operation name="actualizarSoftware">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest" message="tns:actualizarSoftware" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse" message="tns:actualizarSoftwareResponse" />
-    </operation>
     <operation name="eliminarSoftware">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
     </operation>
+    <operation name="buscarSoftware">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest" message="tns:buscarSoftware" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse" message="tns:buscarSoftwareResponse" />
+    </operation>
+    <operation name="actualizarSoftware">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest" message="tns:actualizarSoftware" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse" message="tns:actualizarSoftwareResponse" />
+    </operation>
   </portType>
   <binding name="SoftwareWSPortBinding" type="tns:SoftwareWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="buscarSoftware">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarSoftwares">
       <soap:operation soapAction="" />
       <input>
@@ -86,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarSoftware">
+    <operation name="eliminarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +86,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarSoftware">
+    <operation name="buscarSoftware">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
