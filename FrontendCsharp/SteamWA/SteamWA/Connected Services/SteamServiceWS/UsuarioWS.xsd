@@ -226,6 +226,7 @@
       <xs:element name="idHilo" type="xs:int" />
       <xs:element minOccurs="0" name="imagenUrl" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="mensajes" nillable="true" type="tns:mensaje" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element name="nroMensajes" type="xs:int" />
       <xs:element name="oculto" type="xs:boolean" />
       <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
@@ -303,16 +304,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarUsuarioPorNombreCuenta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarUsuarioPorNombreCuentaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:usuario" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarUsuariosPorNombreCuenta">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
@@ -321,6 +312,16 @@
   <xs:complexType name="listarUsuariosPorNombreCuentaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioPorNombreCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioPorNombreCuentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarAmigosPorUsuario">
@@ -374,14 +375,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarUsuarios">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarUsuariosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="buscarUsuarioPorId">
     <xs:sequence>
       <xs:element name="uid" type="xs:int" />
@@ -390,6 +383,14 @@
   <xs:complexType name="buscarUsuarioPorIdResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarUsuarios">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarUsuariosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarUsuario">

@@ -210,6 +210,7 @@
       <xs:element name="idHilo" type="xs:int" />
       <xs:element minOccurs="0" name="imagenUrl" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="mensajes" nillable="true" type="tns:mensaje" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element name="nroMensajes" type="xs:int" />
       <xs:element name="oculto" type="xs:boolean" />
       <xs:element minOccurs="0" name="subforo" type="tns:subforo" />

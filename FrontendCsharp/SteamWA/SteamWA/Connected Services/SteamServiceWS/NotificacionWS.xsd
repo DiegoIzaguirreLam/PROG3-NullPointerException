@@ -224,6 +224,7 @@
       <xs:element name="idHilo" type="xs:int" />
       <xs:element minOccurs="0" name="imagenUrl" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="mensajes" nillable="true" type="tns:mensaje" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element name="nroMensajes" type="xs:int" />
       <xs:element name="oculto" type="xs:boolean" />
       <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
@@ -311,16 +312,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminarNotificacion">
-    <xs:sequence>
-      <xs:element name="idNotificacion" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarNotificacionResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarNotificaciones">
     <xs:sequence>
       <xs:element name="fid_usuario" type="xs:int" />
@@ -329,6 +320,16 @@
   <xs:complexType name="listarNotificacionesResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:notificacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarNotificacion">
+    <xs:sequence>
+      <xs:element name="idNotificacion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarNotificacionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoNotificacion">

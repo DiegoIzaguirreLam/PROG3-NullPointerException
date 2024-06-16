@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/LogroWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="listarLogrosPorIdJuego">
+    <part name="parameters" element="tns:listarLogrosPorIdJuego" />
+  </message>
+  <message name="listarLogrosPorIdJuegoResponse">
+    <part name="parameters" element="tns:listarLogrosPorIdJuegoResponse" />
+  </message>
   <message name="insertarLogro">
     <part name="parameters" element="tns:insertarLogro" />
   </message>
@@ -16,6 +22,12 @@
   </message>
   <message name="buscarLogroResponse">
     <part name="parameters" element="tns:buscarLogroResponse" />
+  </message>
+  <message name="listarLogros">
+    <part name="parameters" element="tns:listarLogros" />
+  </message>
+  <message name="listarLogrosResponse">
+    <part name="parameters" element="tns:listarLogrosResponse" />
   </message>
   <message name="actualizarLogro">
     <part name="parameters" element="tns:actualizarLogro" />
@@ -29,19 +41,11 @@
   <message name="eliminarLogroResponse">
     <part name="parameters" element="tns:eliminarLogroResponse" />
   </message>
-  <message name="listarLogros">
-    <part name="parameters" element="tns:listarLogros" />
-  </message>
-  <message name="listarLogrosResponse">
-    <part name="parameters" element="tns:listarLogrosResponse" />
-  </message>
-  <message name="listarLogrosPorIdJuego">
-    <part name="parameters" element="tns:listarLogrosPorIdJuego" />
-  </message>
-  <message name="listarLogrosPorIdJuegoResponse">
-    <part name="parameters" element="tns:listarLogrosPorIdJuegoResponse" />
-  </message>
   <portType name="LogroWS">
+    <operation name="listarLogrosPorIdJuego">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoRequest" message="tns:listarLogrosPorIdJuego" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoResponse" message="tns:listarLogrosPorIdJuegoResponse" />
+    </operation>
     <operation name="insertarLogro">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroRequest" message="tns:insertarLogro" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroResponse" message="tns:insertarLogroResponse" />
@@ -49,6 +53,10 @@
     <operation name="buscarLogro">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/buscarLogroRequest" message="tns:buscarLogro" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/buscarLogroResponse" message="tns:buscarLogroResponse" />
+    </operation>
+    <operation name="listarLogros">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosRequest" message="tns:listarLogros" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosResponse" message="tns:listarLogrosResponse" />
     </operation>
     <operation name="actualizarLogro">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroRequest" message="tns:actualizarLogro" />
@@ -58,17 +66,18 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroRequest" message="tns:eliminarLogro" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroResponse" message="tns:eliminarLogroResponse" />
     </operation>
-    <operation name="listarLogros">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosRequest" message="tns:listarLogros" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosResponse" message="tns:listarLogrosResponse" />
-    </operation>
-    <operation name="listarLogrosPorIdJuego">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoRequest" message="tns:listarLogrosPorIdJuego" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoResponse" message="tns:listarLogrosPorIdJuegoResponse" />
-    </operation>
   </portType>
   <binding name="LogroWSPortBinding" type="tns:LogroWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarLogrosPorIdJuego">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertarLogro">
       <soap:operation soapAction="" />
       <input>
@@ -87,6 +96,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="listarLogros">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="actualizarLogro">
       <soap:operation soapAction="" />
       <input>
@@ -97,24 +115,6 @@
       </output>
     </operation>
     <operation name="eliminarLogro">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarLogros">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarLogrosPorIdJuego">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ProductoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="listarProductosPorEtiqueta">
+    <part name="parameters" element="tns:listarProductosPorEtiqueta" />
+  </message>
+  <message name="listarProductosPorEtiquetaResponse">
+    <part name="parameters" element="tns:listarProductosPorEtiquetaResponse" />
+  </message>
   <message name="listarProductosPorTituloDesarrollador">
     <part name="parameters" element="tns:listarProductosPorTituloDesarrollador" />
   </message>
@@ -23,13 +29,11 @@
   <message name="listarProductosResponse">
     <part name="parameters" element="tns:listarProductosResponse" />
   </message>
-  <message name="listarProductosPorEtiqueta">
-    <part name="parameters" element="tns:listarProductosPorEtiqueta" />
-  </message>
-  <message name="listarProductosPorEtiquetaResponse">
-    <part name="parameters" element="tns:listarProductosPorEtiquetaResponse" />
-  </message>
   <portType name="ProductoWS">
+    <operation name="listarProductosPorEtiqueta">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorEtiquetaRequest" message="tns:listarProductosPorEtiqueta" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorEtiquetaResponse" message="tns:listarProductosPorEtiquetaResponse" />
+    </operation>
     <operation name="listarProductosPorTituloDesarrollador">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorTituloDesarrolladorRequest" message="tns:listarProductosPorTituloDesarrollador" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorTituloDesarrolladorResponse" message="tns:listarProductosPorTituloDesarrolladorResponse" />
@@ -42,13 +46,18 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosRequest" message="tns:listarProductos" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosResponse" message="tns:listarProductosResponse" />
     </operation>
-    <operation name="listarProductosPorEtiqueta">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorEtiquetaRequest" message="tns:listarProductosPorEtiqueta" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorEtiquetaResponse" message="tns:listarProductosPorEtiquetaResponse" />
-    </operation>
   </portType>
   <binding name="ProductoWSPortBinding" type="tns:ProductoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarProductosPorEtiqueta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarProductosPorTituloDesarrollador">
       <soap:operation soapAction="" />
       <input>
@@ -68,15 +77,6 @@
       </output>
     </operation>
     <operation name="listarProductos">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarProductosPorEtiqueta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
