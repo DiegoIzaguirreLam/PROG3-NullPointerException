@@ -44,6 +44,15 @@ namespace SteamWA
                 gvSubforos.DataBind();
                 Session["subforosAux"] = subforos;
             }
+            /*if (IsPostBack && txtBusquedaSubforo.Text != null)
+            {
+                subforo[] aux1 = daoSubforo.sub(txtBusquedaSubforo.Text);
+                if (aux1 != null) subforos = new BindingList<subforo>(aux1);
+                gvForos.DataSource = subforos;
+                gvForos.DataBind();
+                Session["forosAux"] = subforos;
+                txtBusquedaSubforo.Focus();
+            }*/
             String nombre = Request.QueryString["foro"];
             if(nombre != null)
             {
@@ -159,6 +168,11 @@ namespace SteamWA
             if (nAntiguo.CompareTo(neo.nombre) != 0) notificacionForo.mensaje = "Has actualiazado el subforo " + nAntiguo + " ahora llamado " + neo.nombre;
             int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
             Response.Redirect("GestionarForo.aspx?foro=" + ((foro)Session["foroPadre"]).nombre);
+        }
+
+        protected void txtBusquedaSubforo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

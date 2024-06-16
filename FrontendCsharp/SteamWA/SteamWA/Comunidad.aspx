@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/crearForo.js"></script>
-    <script src="Scripts/Steam/Comunidad.js?v4"></script>
+    <script src="Scripts/Steam/Comunidad.js?v5"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <link href="Content/Steam/FontAdder.css" rel="stylesheet" />
