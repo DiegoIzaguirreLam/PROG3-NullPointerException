@@ -43,58 +43,30 @@
         </asp:GridView>
     </div>
     <div class="row mt-4 fontSetterExo2">
-        <!-- tarjeta 1 -->
-        <div class="col-md-4">
-            <div class="card bg-dark-subtle border-black">
-                <img src="https://assetsio.gnwcdn.com/2x1_NSwitchDS_BatmanArkhamTrilogy.jpg?width=690&quality=75&format=jpg&dpr=2&auto=webp" height="200" class="card-img-top" alt="Juego 1">
-                <div class="card-body bg-dark">
-                    <h6 class="card-title" style="color: white">¿Es un buen juego? - GianLukaGG
-                        <img src="https://avatars.akamai.steamstatic.com/f698ccb1d89632d7f174c142b789b84d4ec2dab6_full.jpg" width="20" height="20" />
-                    </h6>
-                    <p class="card-text" style="color: white">
-                        El mejor juego!
-                        - Sr. Tomasto
-                        <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
-                    </p>
-                    <asp:Button ID="btn3" CssClass="btn btn-light col-sm-4 border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" />
+        <div class="rounded-3">
+            <div class="px-3">
+                <div class="row mt-3 pb-4">
+                    <asp:ListView ID="lvHilos" runat="server" ItemPlaceholderID="itemPlaceholder">
+                        <ItemTemplate>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card bg-dark-subtle border-black">
+                                <img src="<%# Eval("URLImagen") %>" height="200" class="card-img-top" alt="Juego 1">
+                                <div class="card-body bg-dark">
+                                    <h6 class="card-title" style="color: white"><%# Eval("NombreUsuario") %> </h6>
+                                    <asp:LinkButton ID="btn2" CssClass="btn btn-light border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" CommandArgument='<%# Eval("idHilo")%>'/>
+                                </div>
+                            </div>
+                                </div>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            <div class="d-flex justify-content-center align-items-center mt-3">
+                                <asp:Label runat="server" Text="Este subforo aún no tiene hilos." CssClass="display-7 text-center" />
+                            </div>
+                        </EmptyDataTemplate>
+                    </asp:ListView>
                 </div>
             </div>
         </div>
-        <!-- tarjeta 2 -->
-        <div class="col-md-4">
-            <div class="card bg-dark-subtle border-black">
-                <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2013/10/256944-analisis-batman-arkham-origins.jpg?tf=1920x" height="200" class="card-img-top" alt="Juego 1">
-                <div class="card-body bg-dark">
-                    <h6 class="card-title" style="color: white">¿Es un buen juego? - GianLukaGG
-                <img src="https://avatars.akamai.steamstatic.com/f698ccb1d89632d7f174c142b789b84d4ec2dab6_full.jpg" width="20" height="20" />
-                    </h6>
-                    <p class="card-text" style="color: white">
-                        El mejor juego!
-                - Sr. Tomasto
-                <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
-                    </p>
-                    <asp:Button ID="btn2" CssClass="btn btn-light col-sm-4 border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" />
-                </div>
-            </div>
-        </div>
-        <!-- tarjeta 3 -->
-        <div class="col-md-4">
-            <div class="card bg-dark-subtle border-black">
-                <img src="https://articles-img.sftcdn.net/t_article_cover_xl/auto-mapping-folder/sites/2/2023/12/batman-arkham-knight.jpg" height="200" class="card-img-top" alt="Juego 1">
-                <div class="card-body bg-dark">
-                    <h6 class="card-title" style="color: white">¿Es un buen juego? - GianLukaGG
-                <img src="https://avatars.akamai.steamstatic.com/f698ccb1d89632d7f174c142b789b84d4ec2dab6_full.jpg" width="20" height="20" />
-                    </h6>
-                    <p class="card-text" style="color: white">
-                        El mejor juego!
-                - Sr. Tomasto
-                <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
-                    </p>
-                    <asp:Button ID="btn1" CssClass="btn btn-light col-sm-4 border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" />
-                </div>
-            </div>
-        </div>
-        <!-- mas tarjetas -->
     </div>
     <%--Clase modal para la creación de un Hilo--%>
     <div class="modal border-white fade fontSetterExo2" id="form-modal-hilo">

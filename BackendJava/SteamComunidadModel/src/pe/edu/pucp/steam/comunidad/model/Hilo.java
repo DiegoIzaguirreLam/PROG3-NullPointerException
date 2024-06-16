@@ -21,6 +21,7 @@ public class Hilo {
     private Subforo subforo;
     private ArrayList<Mensaje> mensajes;
     private String imagenUrl;
+    private String nombre;
     private boolean oculto;
     private boolean activo;
 
@@ -76,6 +77,14 @@ public class Hilo {
         return fechaCreacion;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }

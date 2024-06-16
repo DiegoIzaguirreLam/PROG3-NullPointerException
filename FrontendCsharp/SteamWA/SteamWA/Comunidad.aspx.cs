@@ -76,6 +76,8 @@ namespace SteamWA
                 gvForos.DataSource = foros;
                 gvForos.DataBind();
                 Session["forosAux"] = foros;
+                pageIndex[0] = 0; //Se encuentra en 0 inicialmente
+                Session["IndexPages"] = pageIndex;
                 txtBusquedaForo.Focus();
             }
             Steam master = (Steam)this.Master;
@@ -269,6 +271,9 @@ namespace SteamWA
             {
                 suscritos = new BindingList<foro>(aux);
                 gvSuscritos.DataSource = suscritos;
+                pageIndex = (int[])Session["IndexPages"];
+                pageIndex[2] = 0;
+                Session["IndexPages"] = pageIndex;
                 gvSuscritos.DataBind();
                 Session["ForosSuscritos"] = suscritos;
                 script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
@@ -285,6 +290,9 @@ namespace SteamWA
             {
                 creados = new BindingList<foro>(aux);
                 gvCreados.DataSource = creados;
+                pageIndex = (int[])Session["IndexPages"];
+                pageIndex[1] = 0;
+                Session["IndexPages"] = pageIndex;
                 gvCreados.DataBind();
                 Session["ForosCreados"] = creados;
                 script = "window.onload = function() { showModalForm('form-modal-creados') };";

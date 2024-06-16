@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/crearForo.js"></script>
+    <script src="Scripts/Steam/Comunidad.js?v5"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
@@ -22,7 +23,7 @@
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" class="form-control mt-3" placeholder="Buscar Subforos...">
+            <asp:TextBox runat="server" ID="txtBusquedaSubforo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaSubforo_TextChanged" AutoPostBack="true" oninput="buscarSubforo_js()"></asp:TextBox>
         </div>
     </div>
     <hr />

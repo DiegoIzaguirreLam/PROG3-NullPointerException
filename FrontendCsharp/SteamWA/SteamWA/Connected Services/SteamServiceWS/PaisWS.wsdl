@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/PaisWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="buscarPais">
-    <part name="parameters" element="tns:buscarPais" />
+  <message name="actualizarPais">
+    <part name="parameters" element="tns:actualizarPais" />
   </message>
-  <message name="buscarPaisResponse">
-    <part name="parameters" element="tns:buscarPaisResponse" />
+  <message name="actualizarPaisResponse">
+    <part name="parameters" element="tns:actualizarPaisResponse" />
   </message>
   <message name="listarPaises">
     <part name="parameters" element="tns:listarPaises" />
@@ -23,16 +23,16 @@
   <message name="insertarPaisResponse">
     <part name="parameters" element="tns:insertarPaisResponse" />
   </message>
-  <message name="actualizarPais">
-    <part name="parameters" element="tns:actualizarPais" />
+  <message name="buscarPais">
+    <part name="parameters" element="tns:buscarPais" />
   </message>
-  <message name="actualizarPaisResponse">
-    <part name="parameters" element="tns:actualizarPaisResponse" />
+  <message name="buscarPaisResponse">
+    <part name="parameters" element="tns:buscarPaisResponse" />
   </message>
   <portType name="PaisWS">
-    <operation name="buscarPais">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/buscarPaisRequest" message="tns:buscarPais" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/buscarPaisResponse" message="tns:buscarPaisResponse" />
+    <operation name="actualizarPais">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/actualizarPaisRequest" message="tns:actualizarPais" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/actualizarPaisResponse" message="tns:actualizarPaisResponse" />
     </operation>
     <operation name="listarPaises">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/listarPaisesRequest" message="tns:listarPaises" />
@@ -42,14 +42,14 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/insertarPaisRequest" message="tns:insertarPais" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/insertarPaisResponse" message="tns:insertarPaisResponse" />
     </operation>
-    <operation name="actualizarPais">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/actualizarPaisRequest" message="tns:actualizarPais" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/actualizarPaisResponse" message="tns:actualizarPaisResponse" />
+    <operation name="buscarPais">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/buscarPaisRequest" message="tns:buscarPais" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/PaisWS/buscarPaisResponse" message="tns:buscarPaisResponse" />
     </operation>
   </portType>
   <binding name="PaisWSPortBinding" type="tns:PaisWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="buscarPais">
+    <operation name="actualizarPais">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarPais">
+    <operation name="buscarPais">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
