@@ -51,6 +51,21 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/mostrarModal.js"></script>
+
+    <script type="text/javascript">
+        function validateInput() {
+            var input = document.getElementById('<%= inputIdBloquear.ClientID %>');
+        var button = document.getElementById('<%= lbBloquearID.ClientID %>');
+            if (input.value && input.value > 0) {
+                button.classList.remove('disabled');
+                button.classList.remove('aspNetDisabled');
+            } else {
+                button.classList.add('disabled');
+                button.classList.add('aspNetDisabled');
+            }
+        }
+    </script>
+
 </asp:Content>
 
 
@@ -177,8 +192,8 @@
                                 <h4>Bloquear un usuario</h4>
                                 <asp:Label runat="server" Text="Bloquear a un usuario es una acción permanente. Puedes bloquear a un usuario que sea tu amigo o ingresando su ID de usuario:" CssClass="text-light" Style="margin-top: 100px;"></asp:Label>
                                 <div class="col my-3">
-                                    <input id="inputIdBloquear" runat="server" type="number" placeholder="Ingresa un ID para bloquear" class="col-5" style="margin-right: 20px; height: 38px;" />
-                                    <asp:LinkButton ID="lbBloquearID" runat="server" Text="Bloquear" CssClass="btn btn-danger" OnClick="lbBloquearID_Click" />
+                                    <input id="inputIdBloquear" runat="server" type="number" placeholder="Ingresa un ID para bloquear" class="col-5" style="margin-right: 20px; height: 38px;" oninput="validateInput()" />
+                                    <asp:LinkButton ID="lbBloquearID" runat="server" Text="Bloquear" CssClass="btn btn-danger disabled" OnClick="lbBloquearID_Click" />
                                 </div>
                             </div>
                             <asp:GridView ID="gvBloqueados" runat="server"

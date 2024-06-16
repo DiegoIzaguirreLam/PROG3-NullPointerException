@@ -73,15 +73,16 @@ CREATE TABLE Usuario(
     FOREIGN KEY(fid_pais) REFERENCES Pais(id_pais)
 )ENGINE=InnoDB;
 
-CREATE TABLE Relacion(
-	fid_usuarioa INT NOT NULL,
-	fid_usuariob INT NOT NULL,
-	amistad TINYINT NOT NULL,
-	bloqueo TINYINT NOT NULL,
-	activo TINYINT NOT NULL,
-	PRIMARY KEY(fid_usuarioa, fid_usuariob),
-	FOREIGN KEY(fid_usuarioa) REFERENCES Usuario(UID),
-	FOREIGN KEY(fid_usuariob) REFERENCES Usuario(UID)
+CREATE TABLE Relacion (
+    id_relacion INT AUTO_INCREMENT PRIMARY KEY,
+    fid_usuario_actuador INT NOT NULL,
+    fid_usuario_destino INT NOT NULL,
+    tipo_relacion ENUM('amistad', 'bloqueo') NOT NULL,
+    fecha_inicio DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    fecha_fin DATETIME DEFAULT NULL,
+    activo TINYINT DEFAULT 1,
+    FOREIGN KEY (fid_usuario_actuador) REFERENCES Usuario(UID),
+    FOREIGN KEY (fid_usuario_destino) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE Notificacion(

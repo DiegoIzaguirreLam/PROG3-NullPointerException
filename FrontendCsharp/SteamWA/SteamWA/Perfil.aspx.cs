@@ -156,7 +156,7 @@ namespace SteamWA
             RelacionWSClient daoRelacion = new RelacionWSClient();
             daoRelacion.bloquearUsuario(idUsuario, usuarioPorBloquear.UID);
 
-            // Se obtiene una copia de la variable de sesión
+            // Se obtiene una copia de la variable de sesión de bloqueados
             BindingList<usuario> bloqueados =
                 new BindingList<usuario>(((BindingList<usuario>)
                                          Session["bloqueados"]).ToList());
@@ -164,8 +164,24 @@ namespace SteamWA
             // Añadir el usuario a los bloqueados
             bloqueados.Add(usuarioPorBloquear);
 
-            // Actualización de las variables en la sesión
+            // Actualización de la variable de bloqueados en la sesión
             Session["bloqueados"] = bloqueados;
+
+            // Se obtiene una copia de la variable de sesión de amigos
+            BindingList<usuario> amigos =
+                new BindingList<usuario>(((BindingList<usuario>)
+                                         Session["amigos"]).ToList());
+
+            // Si el bloqueado era amigo, eliminarlo de la lista de amigos
+            usuario bloqueadoPorQuitarDeAmigos = amigos.FirstOrDefault(u => u.UID == usuarioPorBloquear.UID);
+            if (bloqueadoPorQuitarDeAmigos != null)
+            {
+                amigos.Remove(bloqueadoPorQuitarDeAmigos);
+
+                // Actualización de la variable de amigos en la sesión
+                Session["amigos"] = amigos;
+            }
+
 
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }

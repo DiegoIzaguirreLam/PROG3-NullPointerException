@@ -13,41 +13,53 @@ import pe.edu.pucp.steam.usuario.personal.mysql.RelacionMySQL;
 public class RelacionWS {
 
     @WebMethod(operationName="agregarAmigo")
-    public int agregarAmigo(@WebParam(name="idUsuarioA") int idUsuarioA,
-                            @WebParam(name="idUsuarioB") int idUsuarioB) {
-        int resultado=0;
-        try{
+    public int agregarAmigo(
+            @WebParam(name="idUsuarioActuador") int idUsuarioActuador,
+            @WebParam(name="idUsuarioDestino") int idUsuarioDestino) {
+        int resultado = 0;
+        
+        try {
             RelacionDAO relacionDao = new RelacionMySQL();
-            resultado = relacionDao.agregarAmigo(idUsuarioA, idUsuarioB);
-        }catch(Exception ex){
+            resultado = relacionDao.agregarAmigo(idUsuarioActuador,
+                                                 idUsuarioDestino);
+        } catch(Exception ex) {
             System.out.println(ex.getMessage());
         }
+        
         return resultado;
     }
     
     @WebMethod(operationName="eliminarAmigo")
-    public int eliminarAmigo(@WebParam(name="idUsuarioA") int idUsuarioA,
-                             @WebParam(name="idUsuarioB") int idUsuarioB) {
+    public int eliminarAmigo(
+            @WebParam(name="idUsuarioActuador") int idUsuarioActuador,
+            @WebParam(name="idUsuarioDestino") int idUsuarioDestino) {
         int resultado=0;
-        try{
+        
+        try {
             RelacionDAO relacionDao = new RelacionMySQL();
-            resultado = relacionDao.eliminarAmigo(idUsuarioA, idUsuarioB);
-        }catch(Exception ex){
+            resultado = relacionDao.eliminarAmigo(idUsuarioActuador,
+                                                  idUsuarioDestino);
+        } catch(Exception ex) {
             System.out.println(ex.getMessage());
         }
+        
         return resultado;
     }
     
     @WebMethod(operationName="bloquearUsuario")
-    public int bloquearUsuario(@WebParam(name="idUsuarioA") int idUsuarioA,
-                               @WebParam(name="idUsuarioB") int idUsuarioB) {
+    public int bloquearUsuario(
+            @WebParam(name="idUsuarioActuador") int idUsuarioActuador,
+            @WebParam(name="idUsuarioDestino") int idUsuarioDestino) {
         int resultado=0;
-        try{
+        
+        try {
             RelacionDAO relacionDao = new RelacionMySQL();
-            resultado = relacionDao.bloquearUsuario(idUsuarioA, idUsuarioB);
-        }catch(Exception ex){
+            resultado = relacionDao.bloquearUsuario(idUsuarioActuador,
+                                                    idUsuarioDestino);
+        } catch(Exception ex) {
             System.out.println(ex.getMessage());
         }
+        
         return resultado;
     }
 }

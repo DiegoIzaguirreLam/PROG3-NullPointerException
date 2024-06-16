@@ -11,39 +11,40 @@ namespace SteamWA
 {
     public partial class BuscarAmigos : System.Web.UI.Page
     {
-        private NotificacionWSClient daoNotificacion;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            daoNotificacion = new NotificacionWSClient();
         }
 
         protected void lbBuscarPorID_Click(object sender, EventArgs e)
         {
+            // Obtener el ID del usuario y el ID que se está buscando
             int idUsuario = ((usuario)Session["usuario"]).UID;
             int idBuscado = Int32.Parse(txtUID.Value);
 
+            // El usuario no se puede buscar a sí mismo
             if (idBuscado == idUsuario)
             {
+                // Mostrar mensaje de error
                 lblMensajeID.Text = $"Error: el ID {idBuscado} es tu ID.";
                 lblMensajeID.Visible = true;
                 return;
             }
 
+            // Buscar el usuario en la base de datos
             UsuarioWSClient usuarioDao = new UsuarioWSClient();
             usuario usuarioEncontrado = usuarioDao.buscarUsuarioPorId(idBuscado);
 
+            // No se encontró el usuario con el ID deseado en la base de datos
             if (usuarioEncontrado == null)
             {
+                // Mensaje de error
                 lblMensajeID.Text = $"No hay usuarios con ID {idBuscado}";
                 lblMensajeID.Visible = true;
                 return;
             }
 
-            BindingList<usuario> usuariosEncontrados = new BindingList<usuario> { usuarioEncontrado };
-            Session["usuariosEncontrados"] = usuariosEncontrados;
-
-            gvUsuarios.DataSource = usuariosEncontrados;
+            // Guardar la lista de un solo usuario en el GridView y en la variable de sesión
+            Session["usuariosEncontrados"] = gvUsuarios.DataSource = new BindingList<usuario> { usuarioEncontrado };
             gvUsuarios.DataBind();
 
             txtUID.Value = "";
@@ -54,10 +55,12 @@ namespace SteamWA
 
         protected void lbBuscarPorNombre_Click(object sender, EventArgs e)
         {
+            // Obtener el nombre del usuario y el nombre buscado
             usuario usuarioActual = (usuario)Session["usuario"];
             string nombreUsuario = usuarioActual.nombreCuenta;
             string nombreBuscado = txtNombre.Value;
 
+            // El usuario no puede buscarse a sí mismo
             if (nombreBuscado == nombreUsuario)
             {
                 lblMensajeNombre.Text = $"Error: no puedes agregarte a ti mismo como amigo.";
@@ -65,20 +68,25 @@ namespace SteamWA
                 return;
             }
 
+            // Obtener las cuentas de la base de datos
             UsuarioWSClient usuarioDao = new UsuarioWSClient();
             usuario[] listaUsuarios = usuarioDao.listarUsuariosPorNombreCuenta(nombreBuscado);
 
+            // Si, en la base de datos, no existe ningún registro de usuario
             if (listaUsuarios == null)
             {
+                // Mensaje de error
                 lblMensajeNombre.Text = $"No hay usuarios con nombre {nombreBuscado}";
                 lblMensajeNombre.Visible = true;
                 return;
             }
 
+            // Se crea una BindingList a partir de los usuarios de la base de datos
             BindingList<usuario> usuariosEncontrados = new BindingList<usuario>(listaUsuarios.ToList());
 
+            // Se elimina al usuario actual si es que aparece 
             usuario usuarioActualPorEliminar = usuariosEncontrados.SingleOrDefault(u => u.UID == usuarioActual.UID);
-            usuariosEncontrados.Remove(usuarioActualPorEliminar);
+            if (usuarioActualPorEliminar != null) usuariosEncontrados.Remove(usuarioActualPorEliminar);
             Session["usuariosEncontrados"] = usuariosEncontrados;
 
             gvUsuarios.DataSource = usuariosEncontrados;
@@ -119,6 +127,8 @@ namespace SteamWA
 
         public void agregarNotificacionNuevoAmigo(usuario nuevoAmigo)
         {
+            NotificacionWSClient daoNotificacion = new NotificacionWSClient();
+
             usuario usuarioActual = (usuario)Session["usuario"];
             notificacion notificacion = new notificacion();
 
@@ -148,11 +158,11 @@ namespace SteamWA
         {
             if (e.Row.RowType != DataControlRowType.DataRow) return;
 
-            verificarUsuarioEsAmigo(e);
-            verificarUsuarioEsBloqueado(e);
+            verificarUsuarioEsAmigo_RowDataBound(e);
+            verificarUsuarioEsBloqueado_RowDataBound(e);
         }
 
-        protected void verificarUsuarioEsAmigo(GridViewRowEventArgs e)
+        protected void verificarUsuarioEsAmigo_RowDataBound(GridViewRowEventArgs e)
         {
             // Si no tiene amigos, no se hace nada
             BindingList<usuario> amigos = (BindingList<usuario>)Session["amigos"];
@@ -175,7 +185,7 @@ namespace SteamWA
             lblYaEsAmigo.Visible = yaEsAmigo;
         }
 
-        protected void verificarUsuarioEsBloqueado(GridViewRowEventArgs e)
+        protected void verificarUsuarioEsBloqueado_RowDataBound(GridViewRowEventArgs e)
         {
             // Si no tiene bloqueados, no se hace nada
             BindingList<usuario> bloqueados = (BindingList<usuario>)Session["bloqueados"];

@@ -167,10 +167,10 @@ BEGIN
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
-    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
-                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
-    WHERE r.amistad = true AND u.activo = true;
-END$
+    INNER JOIN Relacion r ON (r.fid_usuario_actuador = _id_usuario AND r.fid_usuario_destino = u.UID OR 
+                              r.fid_usuario_actuador = u.UID       AND r.fid_usuario_destino = _id_usuario)
+    WHERE r.tipo_relacion = 'amistad' AND r.activo = true AND u.activo = true;
+END $
 
 CREATE PROCEDURE LISTAR_BLOQUEADOS_X_USUARIO (
     IN _id_usuario INT
@@ -183,7 +183,7 @@ BEGIN
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
-    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
-                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
-    WHERE r.bloqueo = true AND u.activo = true;
+    INNER JOIN Relacion r ON ((r.fid_usuario_actuador = _id_usuario AND r.fid_usuario_destino = u.UID) OR 
+                              (r.fid_usuario_actuador = u.UID       AND r.fid_usuario_destino = _id_usuario))
+    WHERE r.tipo_relacion = 'bloqueo' AND r.activo = true AND u.activo = true;
 END$

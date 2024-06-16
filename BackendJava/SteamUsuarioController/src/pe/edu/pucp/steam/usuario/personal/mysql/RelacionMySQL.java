@@ -15,62 +15,65 @@ public class RelacionMySQL implements RelacionDAO{
     private ResultSet rs;
 
     @Override
-    public int agregarAmigo(int idUsuarioA, int idUsuarioB) {
+    public int agregarAmigo(int idUsuarioActuador, int idUsuarioDestino) {
         int resultado = 0;
-        try{
+        
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call AGREGAR_AMIGO(?, ?)}");
-            cs.setInt("_fid_usuario_a", idUsuarioA);
-            cs.setInt("_fid_usuario_b", idUsuarioB);
+            cs.setInt("_fid_usuario_actuador", idUsuarioActuador);
+            cs.setInt("_fid_usuario_destino", idUsuarioDestino);
             resultado = cs.executeUpdate();
-        }catch(Exception ex){
+        } catch(Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            
-            try{con.close();}catch(Exception ex){
-                System.out.println(ex.getMessage());
-            }
+        } finally {
+            try { con.close(); }
+            catch(Exception ex)
+            { System.out.println(ex.getMessage()); }
         }
+        
         return resultado; 
     }
 
     @Override
-    public int eliminarAmigo(int idUsuarioA, int idUsuarioB) {
+    public int eliminarAmigo(int idUsuarioActuador, int idUsuarioDestino) {
         int resultado = 0;
-        try{
+        
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_AMIGO(?, ?)}");
-            cs.setInt("_fid_usuario_a", idUsuarioA);
-            cs.setInt("_fid_usuario_b", idUsuarioB);
+            cs.setInt("_fid_usuario_actuador", idUsuarioActuador);
+            cs.setInt("_fid_usuario_destino", idUsuarioDestino);
             resultado = cs.executeUpdate();
-        }catch(Exception ex){
+        } catch(Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            
-            try{con.close();}catch(Exception ex){
-                System.out.println(ex.getMessage());
-            }
+        } finally {
+            try { con.close(); }
+            catch(Exception ex)
+            { System.out.println(ex.getMessage()); }
         }
+        
         return resultado; 
     }
 
     @Override
-    public int bloquearUsuario(int idUsuarioA, int idUsuarioB) {
+    public int bloquearUsuario(int idUsuarioActuador, int idUsuarioDestino) {
         int resultado = 0;
-        try{
+        
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call BLOQUEAR_USUARIO(?, ?)}");
-            cs.setInt("_fid_usuario_a", idUsuarioA);
-            cs.setInt("_fid_usuario_b", idUsuarioB);
+            cs.setInt("_fid_usuario_actuador", idUsuarioActuador);
+            cs.setInt("_fid_usuario_destino", idUsuarioDestino);
             resultado = cs.executeUpdate();
-        }catch(Exception ex){
+        } catch(Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            
-            try{con.close();}catch(Exception ex){
-                System.out.println(ex.getMessage());
-            }
+        } finally {
+            try { con.close(); }
+            catch(Exception ex)
+            { System.out.println(ex.getMessage()); }
         }
+        
         return resultado; 
     }
 }

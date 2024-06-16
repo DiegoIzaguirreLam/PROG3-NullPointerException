@@ -32,14 +32,10 @@
     <script>
         var txtUIDClientId = '<%= txtUID.ClientID %>';
         var lbBuscarPorIDClientId = '<%= lbBuscarPorID.ClientID %>';
-        console.log(lbBuscarPorIDClientId);
 
         var txtNombreClientId = '<%= txtNombre.ClientID %>';
         var lbBuscarPorNombreClientId = '<%= lbBuscarPorNombre.ClientID %>';
-        console.log(lbBuscarPorNombreClientId);
     </script>
-
-
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
