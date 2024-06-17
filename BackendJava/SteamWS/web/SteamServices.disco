@@ -28,4 +28,5 @@
     <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/" ref="http://localhost:8080/SteamWS/ProductoWS?WSDL"/>
     <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/" ref="http://localhost:8080/SteamWS/ProveedorWS?WSDL"/>
     <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/" ref="http://localhost:8080/SteamWS/SoftwareWS?WSDL"/>
+    <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/" ref="http://localhost:8080/SteamWS/ReportesWS?WSDL"/>
 </discovery>

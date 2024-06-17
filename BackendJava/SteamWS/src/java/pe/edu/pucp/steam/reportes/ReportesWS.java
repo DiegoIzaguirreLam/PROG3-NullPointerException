@@ -10,6 +10,7 @@ import jakarta.jws.WebParam;
 import java.awt.Image;
 import java.sql.Connection;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -20,7 +21,7 @@ import pe.edu.pucp.steam.dbmanager.config.DBManager;
 import pe.edu.pucp.steam.servlet.ReporteProductosAdquiridos;
 
 
-@WebService(serviceName = "ReportesWS")
+@WebService(serviceName = "ReportesWS", targetNamespace="http://services.softprog.pucp.edu.pe/")
 public class ReportesWS {
 
     /**
@@ -37,12 +38,21 @@ public class ReportesWS {
             JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(rutaReporte);
             String rutaSubreporteGrafico = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/reportes/SubReporteGraficoTiempoUso.jasper").getPath();
             rutaSubreporteGrafico = rutaSubreporteGrafico.replace("%20", " ");
+            String rutaLogo = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/img/logo_web.jpg").getPath();
+            rutaLogo = rutaLogo.replace("%20", " ");
+            Image logo = (new ImageIcon(rutaLogo)).getImage();
+            String rutaFooter = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/img/volba_footer.jpg").getPath();
+            rutaFooter = rutaFooter.replace("%20", " ");
+            Image footer = (new ImageIcon(rutaFooter)).getImage();
+            
             HashMap hm = new HashMap();
             hm.put("idBiblioteca", idBiblioteca);
             hm.put("usuario", nombreCuenta);
             hm.put("moneda_simbolo", monedaSimbolo);
             hm.put("moneda_cambio_dolares", monedaCambioDolares);
             hm.put("SubReporteGrafico", rutaSubreporteGrafico);
+            hm.put("imagenLogo", logo);
+            hm.put("imagenFooter", footer);
             JasperPrint jp = JasperFillManager.fillReport(jr, hm, con);
             reporte = JasperExportManager.exportReportToPdf(jp);
         }catch(JRException ex){

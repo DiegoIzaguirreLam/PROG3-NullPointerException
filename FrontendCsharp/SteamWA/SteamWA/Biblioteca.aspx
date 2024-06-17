@@ -84,7 +84,7 @@
         </div>
     </div>
     <div class="mt-5 ml-5 container d-flex justify-content-start">
-        <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Productos" />
+        <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Productos" OnClick="lbReporte_Click"/>
     </div>
 
     <div class="modal fade" id="form-modal-agregarTiempoUso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

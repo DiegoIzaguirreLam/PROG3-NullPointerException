@@ -178,6 +178,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 moneda.setNombre(rs.getString("nombre_moneda"));
                 moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 moneda.setCodigo(rs.getString("codigo_moneda"));
+                moneda.setSimbolo(rs.getString("simbolo_moneda"));
                 pais.setMoneda(moneda);
                 usuario.setPais(pais);
             }
@@ -223,6 +224,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 moneda.setNombre(rs.getString("nombre_moneda"));
                 moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 moneda.setCodigo(rs.getString("codigo_moneda"));
+                moneda.setSimbolo(rs.getString("simbolo_moneda"));
                 pais.setMoneda(moneda);
                 usuario.setPais(pais);
             }
@@ -266,6 +268,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 moneda.setNombre(rs.getString("nombre_moneda"));
                 moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 moneda.setCodigo(rs.getString("codigo_moneda"));
+                moneda.setSimbolo(rs.getString("simbolo_moneda"));
                 pais.setMoneda(moneda);
                 usuario.setPais(pais);
             }
@@ -311,6 +314,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 moneda.setNombre(rs.getString("nombre_moneda"));
                 moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 moneda.setCodigo(rs.getString("codigo_moneda"));
+                moneda.setSimbolo(rs.getString("simbolo_moneda"));
                 pais.setMoneda(moneda);
                 usuario.setPais(pais);
                 
@@ -360,6 +364,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 moneda.setNombre(rs.getString("nombre_moneda"));
                 moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 moneda.setCodigo(rs.getString("codigo_moneda"));
+                moneda.setSimbolo(rs.getString("simbolo_moneda"));
                 pais.setMoneda(moneda);
                 usuario.setPais(pais);
                 
@@ -409,6 +414,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 moneda.setNombre(rs.getString("nombre_moneda"));
                 moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 moneda.setCodigo(rs.getString("codigo_moneda"));
+                moneda.setSimbolo(rs.getString("simbolo_moneda"));
                 pais.setMoneda(moneda);
                 usuario.setPais(pais);
                 
@@ -459,6 +465,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 moneda.setNombre(rs.getString("nombre_moneda"));
                 moneda.setCambioDeDolares(rs.getDouble("cambio_de_dolares"));
                 moneda.setCodigo(rs.getString("codigo_moneda"));
+                moneda.setSimbolo(rs.getString("simbolo_moneda"));
                 pais.setMoneda(moneda);
                 usuario.setPais(pais);
                 

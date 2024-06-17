@@ -21,6 +21,7 @@ namespace SteamWA
         private BindingList<coleccion> colecciones;
         private BibliotecaWSClient daoBiblioteca;
         private NotificacionWSClient daoNotificacion;
+        private ReportesWSClient daoReportes;
         private int nColeccionesActivas;
         private int idBiblioteca;
 
@@ -461,6 +462,26 @@ namespace SteamWA
                 }
                 
             }
+        }
+
+        protected void lbReporte_Click(object sender, EventArgs e)
+        {
+            daoReportes = new ReportesWSClient();
+            usuario usuario = (usuario)Session["usuario"];
+            tipoMoneda moneda;
+            
+            moneda = usuario.pais.moneda;
+            byte[] reporte = daoReportes.generarReporteProductosAdquiridos(idBiblioteca, usuario.nombreCuenta, moneda.simbolo, moneda.cambioDeDolares);
+
+            Response.Clear();
+
+            Response.ContentType = "application/pdf";
+
+            Response.AddHeader("Content-Disposition", "inline; filename=ReporteProductosAdquiridos.pdf");
+
+            Response.BinaryWrite(reporte);
+
+            Response.End();
         }
     }
 }

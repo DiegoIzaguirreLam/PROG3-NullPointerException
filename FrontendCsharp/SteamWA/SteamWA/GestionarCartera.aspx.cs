@@ -16,7 +16,6 @@ namespace SteamWA
         private pais pais;
         private CarteraWSClient daoCartera;
         private MovimientoWSClient daoMovimiento;
-        private PaisWSClient daoPais;
         protected void Page_Load(object sender, EventArgs e)
         {
             double montoUsado=0;
@@ -27,10 +26,9 @@ namespace SteamWA
             }
             daoCartera = new CarteraWSClient();
             daoMovimiento = new MovimientoWSClient();
-            daoPais = new PaisWSClient();
             cartera = daoCartera.buscarCartera(usuario.UID);
-            pais = daoPais.buscarPais(usuario.pais.idPais);
-            if(cartera == null)
+            pais = usuario.pais;
+            if (cartera == null)
             {
                 Response.Redirect("Login.aspx");
             }

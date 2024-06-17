@@ -69,6 +69,7 @@
     <MetadataFile FileName="ProductoWS.xsd" MetadataType="Schema" ID="43eb5593-b80b-4f95-9fd7-365e3c6e2d7e" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/ProductoWS?xsd=1" />
     <MetadataFile FileName="BibliotecaWS.xsd" MetadataType="Schema" ID="9291fe39-1340-4794-9cd6-72bcc48d7833" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/BibliotecaWS?xsd=1" />
     <MetadataFile FileName="LogroDesbloqueadoWS.xsd" MetadataType="Schema" ID="efa3848b-75cd-4cb4-a2dd-8235a593e7ec" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/LogroDesbloqueadoWS?xsd=1" />
+    <MetadataFile FileName="ReportesWS.xsd" MetadataType="Schema" ID="6b655857-15ad-4ef4-9c0d-ab0a8fe5fe41" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/ReportesWS?xsd=1" />
     <MetadataFile FileName="MovimientoWS.wsdl" MetadataType="Wsdl" ID="88366dc3-512d-4f60-b068-86b540103360" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/MovimientoWS?WSDL" />
     <MetadataFile FileName="SubforoWS.xsd" MetadataType="Schema" ID="8a6b950a-cf97-4270-baa1-fc8b6d60b246" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/SubforoWS?xsd=1" />
     <MetadataFile FileName="MovimientoWS.xsd" MetadataType="Schema" ID="4931888a-bf19-4734-bee6-644830337ff9" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/MovimientoWS?xsd=1" />
@@ -78,6 +79,7 @@
     <MetadataFile FileName="MensajeWS.xsd" MetadataType="Schema" ID="5dbbc24d-47ff-4db4-9d09-6e52a9e5e048" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/MensajeWS?xsd=1" />
     <MetadataFile FileName="EtiquetaWS.wsdl" MetadataType="Wsdl" ID="a3be5998-6c2b-4290-882a-356d2f3b65a5" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/EtiquetaWS?WSDL" />
     <MetadataFile FileName="SoftwareWS.wsdl" MetadataType="Wsdl" ID="0c9e0a44-8784-4388-bde9-13f2ac9f2610" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/SoftwareWS?WSDL" />
+    <MetadataFile FileName="ReportesWS.wsdl" MetadataType="Wsdl" ID="60e11545-56f5-4e8e-a705-f1c901bd1dbc" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/ReportesWS?WSDL" />
     <MetadataFile FileName="GestorSancionesWS.xsd" MetadataType="Schema" ID="9d1942f5-b18b-427e-919c-decc6f9fb889" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/GestorSancionesWS?xsd=1" />
     <MetadataFile FileName="ForoUsuarioWS.wsdl" MetadataType="Wsdl" ID="add84dcd-db68-40d0-9f8b-a8c3840e76e5" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/ForoUsuarioWS?WSDL" />
     <MetadataFile FileName="ProductoAdquiridoColeccionWS.xsd" MetadataType="Schema" ID="67ab9159-ec12-46cd-a27c-d0b50ab3dfad" SourceId="1" SourceUrl="http://localhost:8080/SteamWS/ProductoAdquiridoColeccionWS?xsd=1" />
