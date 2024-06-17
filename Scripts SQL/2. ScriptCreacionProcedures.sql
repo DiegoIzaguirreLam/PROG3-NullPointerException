@@ -27,7 +27,7 @@ BEGIN
     VALUES(_id_banda_sonora, _artista,_compositor,_duracion);
 END$
 
-DELIMITER ;
+
 DROP PROCEDURE IF EXISTS LISTAR_BANDASSONORAS;
 DELIMITER $
 CREATE PROCEDURE LISTAR_BANDASSONORAS()
@@ -39,7 +39,7 @@ BEGIN
     INNER JOIN Proveedor pr ON p.fid_proveedor = pr.id_proveedor
     WHERE p.activo = 1;
 END$
-DELIMITER ;
+
 DROP PROCEDURE IF EXISTS ACTUALIZAR_BANDASONORA;
 DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_BANDASONORA(
@@ -76,7 +76,7 @@ BEGIN
         duracion = _duracion
     WHERE id_banda_sonora = _id_banda_sonora;
 END$
-DELIMITER ;
+
 DROP PROCEDURE IF EXISTS ELIMINAR_BANDASONORA;
 DELIMITER $
 CREATE PROCEDURE ELIMINAR_BANDASONORA(
@@ -85,7 +85,7 @@ CREATE PROCEDURE ELIMINAR_BANDASONORA(
 BEGIN
     UPDATE Producto SET activo = 0 WHERE id_producto = _id_producto;
 END$
-DELIMITER ;
+
 DROP PROCEDURE IF EXISTS BUSCAR_BANDASONORA;
 DELIMITER $
 CREATE PROCEDURE BUSCAR_BANDASONORA(
@@ -101,7 +101,7 @@ BEGIN
     WHERE p.id_producto = _id_producto;
 END$
 
-DELIMITER ;
+
 DROP PROCEDURE IF EXISTS INSERTAR_BIBLIOTECA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_BIBLIOTECA(
@@ -468,9 +468,12 @@ CREATE PROCEDURE LISTAR_LOGROS_POR_USUARIO (
     IN _id_usuario INT
 )
 BEGIN
-    SELECT ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
+    SELECT ld.id_logro_desbloqueado AS "ID del Logro Desbloqueado",
+		   ld.fecha_desbloqueo AS "Fecha de Desbloqueo",
+		   lo.id_logro AS "ID del Logro",
 		   lo.nombre AS "Nombre del Logro",
            lo.descripcion AS "Descripción del Logro",
+           pr.id_producto AS "ID del Juego",
            pr.titulo AS "Título del Juego",
            pr.logo_url AS "URL del Logo"
     FROM LogroDesbloqueado ld
@@ -977,6 +980,7 @@ DROP PROCEDURE IF EXISTS ELIMINAR_RELACION_FORO;
 DROP PROCEDURE IF EXISTS SUSCRIBIR_RELACION;
 DROP PROCEDURE IF EXISTS LISTAR_SUSCRITOS_FOROUSER;
 DROP PROCEDURE IF EXISTS DESUSCRIBIR_RELACION_FORO;
+DROP PROCEDURE IF EXISTS LISTAR_SUSCRIPTORES;
 
 DELIMITER $
 CREATE PROCEDURE CREAR_RELACION_FORO(
@@ -1016,6 +1020,13 @@ CREATE PROCEDURE LISTAR_SUSCRITOS_FOROUSER(
 )
 BEGIN
 	SELECT id_foro, nombre, descripcion, origen_foro, f.fid_usuario as id_user FROM Foro INNER JOIN ForoUsuario f ON f.fid_foro = id_foro WHERE fid_usuario = _fid_usuario AND f.es_suscriptor = 1 AND f.activo = 1;
+END$
+
+CREATE PROCEDURE LISTAR_SUSCRIPTORES(
+	IN _fid_foro INT
+)
+BEGIN
+	SELECT fid_usuario FROM ForoUsuario WHERE fid_foro = _fid_foro AND es_suscriptor = 1 AND es_creador = 0 AND activo = 1;
 END$DROP PROCEDURE IF EXISTS CREAR_GESTOR;
 DELIMITER $ 
 CREATE PROCEDURE CREAR_GESTOR(
@@ -1344,158 +1355,7 @@ BEGIN
     WHERE id_mensaje = _id_mensaje; 
 
 END $
-DROP PROCEDURE IF EXISTS INSERTAR_COMENTARIO;
-DELIMITER $
-CREATE PROCEDURE INSERTAR_COMENTARIO(
-	OUT _id_comentario INT,
-	IN _fid_perfil_comentado INT,
-    IN _fid_usuario_comentarista INT,
-	IN _texto VARCHAR(300),
-	IN _nro_likes INT,
-    IN _fecha_maxedicion DATE
-)
-BEGIN
-	INSERT INTO Comentario(fid_perfil_comentado,fid_usuario_comentarista,texto,nro_likes,fecha_publicacion,fecha_maxedicion,oculto, activo)
-    VALUES(_fid_perfil_comentado, _fid_usuario_comentarista, _texto,_nro_likes,CURDATE(),_fecha_maxedicion,false, 1);
-    SET _id_comentario = @@last_insert_id;
-END$
-
-DROP PROCEDURE IF EXISTS LISTAR_COMENTARIOS;
-DELIMITER $
-CREATE PROCEDURE LISTAR_COMENTARIOS()
-BEGIN
-    SELECT c.id_comentario, c.nro_likes, c.oculto, c.fecha_publicacion, c.fecha_maxedicion, p.id_perfil, p.oculto as 'perfil_oculto'
-    FROM Comentario c
-    INNER JOIN Perfil p on p.id_perfil = c.fid_perfil_comentado
-    WHERE c.oculto = false;
-END$
-
-DROP PROCEDURE IF EXISTS LISTAR_COMENTARIOS_PERFIL;
-DELIMITER $
-CREATE PROCEDURE LISTAR_COMENTARIOS_PERFIL(
-	IN _id_perfil INT
-)
-BEGIN
-    SELECT c.id_comentario, c.nro_likes, c.oculto, c.fecha_publicacion, c.fecha_maxedicion, p.id_perfil, p.oculto as 'perfil_oculto'
-    FROM Comentario c
-    INNER JOIN Perfil p on p.id_perfil = c.fid_perfil_comentado
-    WHERE c.oculto = false
-    AND _id_perfil = fid_perfil_comentado;
-END$
-
-DROP PROCEDURE IF EXISTS ACTUALIZAR_COMENTARIO;
-DELIMITER $
-CREATE PROCEDURE ACTUALIZAR_COMENTARIO(
-    IN _id_comentario INT,
-	IN _fid_perfil INT,
-    IN _fid_usuario INT,
-	IN _texto VARCHAR(300),
-	IN _nro_likes INT,
-    IN _oculto TINYINT,
-    IN _fecha_maxedicion DATE,
-    IN _fecha_publicacion DATE
-)
-BEGIN
-    UPDATE Comentario
-    SET fid_perfil = _fid_perfil,
-		fid_usuario = _fid_usuario,
-        texto = _texto,
-        nro_likes = _nro_likes,
-        oculto = _oculto,
-        fecha_publicacion = _fecha_publicacion,
-        fecha_maxedicion = _fecha_maxedicion
-    WHERE id_comentario = _id_comentario;
-END$
-
-DROP PROCEDURE IF EXISTS OCULTAR_COMENTARIO;
-DELIMITER $
-CREATE PROCEDURE OCULTAR_COMENTARIO(
-	IN _id_comentario INT
-)
-BEGIN
-    UPDATE Comentario
-    SET oculto = true
-    WHERE id_comentario = _id_comentario; 
-END$
-
-DROP PROCEDURE IF EXISTS ELIMINAR_COMENTARIO;
-DELIMITER $
-CREATE PROCEDURE OCULTAR_COMENTARIO(
-	IN _id_comentario INT
-)
-BEGIN
-    UPDATE Comentario
-    SET activo = false
-    WHERE id_comentario = _id_comentario; 
-END$DROP PROCEDURE IF EXISTS INSERTAR_EXPOSITOR;
-DELIMITER $
-CREATE PROCEDURE INSERTAR_EXPOSITOR(
-	OUT _id_expositor INT,
-	IN _fid_perfil INT
-)
-BEGIN
-	INSERT INTO Expositor(fid_perfil,oculto,activo) VALUES(_fid_perfil,false,true);
-    SET _id_expositor = @@last_insert_id;
-END$
-
-DROP PROCEDURE IF EXISTS LISTAR_EXPOSITORES;
-DELIMITER $
-CREATE PROCEDURE LISTAR_EXPOSITORES()
-BEGIN
-    SELECT *
-    FROM Expositor
-    WHERE activo = 1;
-END$
-
-DROP PROCEDURE IF EXISTS LISTAR_EXPOSITORES_PERFIL;
-DELIMITER $
-CREATE PROCEDURE LISTAR_EXPOSITORES_PERFIL(
-	IN id_perfil INT
-)
-BEGIN
-    SELECT *
-    FROM Expositor
-    WHERE fid_perfil = id_perfil
-    AND activo = 1;
-END$
-
-DROP PROCEDURE IF EXISTS ACTUALIZAR_EXPOSITOR;
-DELIMITER $
-CREATE PROCEDURE ACTUALIZAR_EXPOSITOR(
-    IN _id_expositor INT,
-    IN _oculto TINYINT,
-    IN _activo TINYINT,
-    IN _fid_perfil INT
-)
-BEGIN
-    UPDATE Expositor
-    SET oculto=_oculto,
-		fid_perfil = _fid_perfil,
-        activo = _activo
-    WHERE id_expositor = _id_expositor;
-END$
-
-DROP PROCEDURE IF EXISTS OCULTAR_EXPOSITOR;
-DELIMITER $
-CREATE PROCEDURE OCULTAR_EXPOSITOR(
-	IN _id_expositor INT
-)
-BEGIN
-    UPDATE Expositor
-    SET oculto = true
-    WHERE id_expositor = _id_expositor; 
-END$
-
-DROP PROCEDURE IF EXISTS ELIMINAR_EXPOSITOR;
-DELIMITER $
-CREATE PROCEDURE ELIMINAR_EXPOSITOR(
-	IN _id_expositor INT
-)
-BEGIN
-    UPDATE Expositor
-    SET activo = false
-    WHERE id_expositor = _id_expositor; 
-END$DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
+DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PERFIL(
 	OUT _id_perfil INT,
@@ -1587,38 +1447,7 @@ BEGIN
 END$
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS CREAR_MEDALLA;
-DELIMITER $
-CREATE PROCEDURE CREAR_MEDALLA(
-	OUT _ID_MEDALLA INT,
-    IN _NOMBRE VARCHAR(100),
-    IN _EXPERIENCIA INT
-)
-BEGIN
-	INSERT INTO Medalla(NOMBRE, EXPERIENCIA, ACTIVO)
-	VALUES (_NOMBRE, _EXPERIENCIA, 1);
-    SET _ID_MEDALLA = @@last_insert_id;
-END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS ACTUALIZAR_MEDALLA;
-DELIMITER $
-CREATE PROCEDURE ACTUALIZAR_MEDALLA(
-	IN _ID_MEDALLA INT,
-    IN _NOMBRE VARCHAR(100),
-    IN _EXPERIENCIA INT
-)
-BEGIN
-	UPDATE Medalla SET NOMBRE = _NOMBRE, EXPERIENCIA = _EXPERIENCIA WHERE ID_MEDALLA = _ID_MEDALLA;
-END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS LISTAR_MEDALLAS;
-DELIMITER $
-CREATE PROCEDURE LISTAR_MEDALLAS(
-)
-BEGIN
-	SELECT * FROM Medalla;
-END $
-DELIMITER ;DROP PROCEDURE IF EXISTS CREAR_MOVIMIENTO;
+DROP PROCEDURE IF EXISTS CREAR_MOVIMIENTO;
 DELIMITER $
 CREATE PROCEDURE CREAR_MOVIMIENTO(
 	OUT _ID_MOVIMIENTO INT,
@@ -1699,7 +1528,18 @@ CREATE PROCEDURE LISTAR_NOTIFICACIONES(
 BEGIN
 	SELECT * FROM Notificacion WHERE FID_USUARIO = _FID_USUARIO AND ACTIVO = TRUE;
 END $
-DELIMITER ;DROP PROCEDURE IF EXISTS CREAR_PAIS;
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS ELIMINAR_NOTIFICACIONES_USUARIO;
+DELIMITER $
+CREATE PROCEDURE ELIMINAR_NOTIFICACIONES_USUARIO(
+	IN _FID_USUARIO INT
+)
+BEGIN
+	UPDATE Notificacion SET ACTIVO = FALSE WHERE FID_USUARIO = _FID_USUARIO;
+END $
+DELIMITER ;
+DROP PROCEDURE IF EXISTS CREAR_PAIS;
 DELIMITER $
 CREATE PROCEDURE CREAR_PAIS(
 	OUT _ID_PAIS INT,
@@ -1762,50 +1602,73 @@ DROP PROCEDURE IF EXISTS AGREGAR_AMIGO;
 DROP PROCEDURE IF EXISTS ELIMINAR_AMIGO;
 DROP PROCEDURE IF EXISTS BLOQUEAR_USUARIO;
 
-DELIMITER $ 
-CREATE PROCEDURE AGREGAR_AMIGO(
-    IN _fid_usuario_a INT,
-    IN _fid_usuario_b INT 
+DELIMITER $
+
+-- Este procedimiento agrega un nuevo registro de amigo.
+-- No se debe llamar a este procedimiento si ya existe un registro
+-- activo de amigo entre esos usuarios. No se debe llamar a este
+-- procedimiento si existe una relación de bloqueo entre los usuarios.
+CREATE PROCEDURE AGREGAR_AMIGO (
+    IN _fid_usuario_actuador INT,
+    IN _fid_usuario_destino INT
 )
 BEGIN
-    -- En caso ya exista la relación
-    IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
-        UPDATE Relacion 
-        SET amistad = 1, activo = 1
-        WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
-    ELSE
-        INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
-        VALUES (_fid_usuario_a, _fid_usuario_b, 1, 0, 1);
-    END IF;
+    -- Insertar una nueva relación de amistad
+    INSERT INTO Relacion (fid_usuario_actuador, fid_usuario_destino, tipo_relacion, fecha_inicio, activo)
+    VALUES (_fid_usuario_actuador, _fid_usuario_destino, 'amistad', CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'), TRUE);
+END$
 
+-- Este procedimiento desactiva el único registro activo de amistad
+-- que debería existir entre los dos usuarios. No se debe llamar a
+-- este procedimiento si no existe esa relación de amistad activa.
+-- Los parámetros pueden intercambiarse porque la relación de amistar
+-- la puede terminar cualquiera de los dos amigos.
+CREATE PROCEDURE ELIMINAR_AMIGO (
+    IN _fid_usuario_actuador INT,
+    IN _fid_usuario_destino INT
+)
+BEGIN
+    -- Desactivar la relación de amistad actual y establecer fecha_fin
+    UPDATE Relacion
+    SET activo = FALSE,
+        fecha_fin = CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')
+    WHERE tipo_relacion = 'amistad'
+      AND activo = TRUE
+      AND (
+           (fid_usuario_actuador = _fid_usuario_actuador AND fid_usuario_destino = _fid_usuario_destino)
+		   OR
+           (fid_usuario_actuador = _fid_usuario_destino AND fid_usuario_destino = _fid_usuario_actuador)
+      );
+END$
+
+-- Este procedimiento desactiva cualquier relación de amistad activa
+-- y agrega un registro de tipo bloqueo entre ambos usuarios. Este
+-- método debe llamarse una sola vez para el par de usuarios
+-- porque el bloqueo es permanente. Cualquiera de los dos usuarios
+-- puede bloquear al otro.
+CREATE PROCEDURE BLOQUEAR_USUARIO (
+    IN _fid_usuario_actuador INT,
+    IN _fid_usuario_destino INT
+)
+BEGIN
+    -- Desactivar cualquier relación de amistad activa actual y establecer fecha_fin
+    UPDATE Relacion
+    SET activo = FALSE,
+        fecha_fin = CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')
+    WHERE tipo_relacion = 'amistad'
+      AND activo = TRUE
+      AND (
+           (fid_usuario_actuador = _fid_usuario_actuador AND fid_usuario_destino = _fid_usuario_destino)
+		   OR
+           (fid_usuario_actuador = _fid_usuario_destino AND fid_usuario_destino = _fid_usuario_actuador)
+      );
+    
+    -- Insertar una nueva relación de bloqueo
+    INSERT INTO Relacion (fid_usuario_actuador, fid_usuario_destino, tipo_relacion, fecha_inicio, activo)
+    VALUES (_fid_usuario_actuador, _fid_usuario_destino, 'bloqueo', CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'), TRUE);
 END $
 
-CREATE PROCEDURE ELIMINAR_AMIGO(
-    IN _fid_usuario_a INT,
-    IN _fid_usuario_b INT 
-)
-BEGIN
-    UPDATE Relacion 
-    SET amistad = 0
-    WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) 
-       OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
-END $
-
-CREATE PROCEDURE BLOQUEAR_USUARIO(
-    IN _fid_usuario_a INT,
-    IN _fid_usuario_b INT 
-)
-BEGIN
-    -- En caso ya exista la relación
-    IF EXISTS (SELECT * FROM Relacion WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a)) THEN
-        UPDATE Relacion 
-        SET amistad = 0, bloqueo = 1, activo = 1
-        WHERE (fid_usuarioa = _fid_usuario_a AND fid_usuariob = _fid_usuario_b) OR (fid_usuarioa = _fid_usuario_b AND fid_usuariob = _fid_usuario_a);
-    ELSE
-        INSERT INTO Relacion (fid_usuarioa, fid_usuariob, amistad, bloqueo, activo) 
-        VALUES (_fid_usuario_a, _fid_usuario_b, 0, 1, 1);
-    END IF;
-END $DROP PROCEDURE IF EXISTS INSERTAR_TIPOMONEDA;
+DELIMITER ;DROP PROCEDURE IF EXISTS INSERTAR_TIPOMONEDA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_TIPOMONEDA(
 	OUT _id_tipo_moneda INT,
@@ -1859,18 +1722,21 @@ END$
 
 DROP PROCEDURE IF EXISTS CREAR_USUARIO;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIO;
+DROP PROCEDURE IF EXISTS ELIMINAR_USUARIO;
 DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_POR_ID;
 DROP PROCEDURE IF EXISTS SUSPENDER_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_USUARIO;
 DROP PROCEDURE IF EXISTS BUSCAR_USUARIO_X_NOMBRE_CUENTA;
 DROP PROCEDURE IF EXISTS VERIFICAR_USUARIO;
-DROP PROCEDURE IF EXISTS LISTAR_USUARIO_X_NOMBRE_CUENTA;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIOS_X_NOMBRE_CUENTA;
 DROP PROCEDURE IF EXISTS LISTAR_AMIGOS_X_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_BLOQUEADOS_X_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIOS_QUE_BLOQUEARON;
 
 DELIMITER $
+
 CREATE PROCEDURE CREAR_USUARIO(
-	OUT _ID_USUARIO INT,
+    OUT _ID_USUARIO INT,
     IN _NOMBRE_CUENTA VARCHAR(100),
     IN _NOMBRE_PERFIL VARCHAR(100),
     IN _CORREO VARCHAR(100),
@@ -1879,26 +1745,22 @@ CREATE PROCEDURE CREAR_USUARIO(
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
-    IN _EXPERIENCIA_NIVEL INT,
-    IN _NIVEL INT,
-    IN _EXPERIENCIA INT,
-    IN _FID_PAIS INT
+    IN _FID_PAIS INT,
+    IN _FOTO_URL VARCHAR(200)
 )
 BEGIN
-	INSERT INTO Usuario(NOMBRE_CUENTA, NOMBRE_PERFIL, CORREO, TELEFONO,
-						CONTRASENIA, EDAD, FECHA_NACIMIENTO, VERIFICADO,
-                        EXPERIENCIA_NIVEL, NIVEL, EXPERIENCIA, FID_PAIS, ACTIVO)
-	VALUES (_NOMBRE_CUENTA, _NOMBRE_PERFIL, _CORREO, _TELEFONO,
-			MD5(_CONTRASENIA), _EDAD, _FECHA_NACIMIENTO, _VERIFICADO,
-			_EXPERIENCIA_NIVEL, _NIVEL, _EXPERIENCIA, _FID_PAIS, true);
-    SET _ID_USUARIO = @@last_insert_id;
+    INSERT INTO Usuario(nombre_cuenta, nombre_perfil, correo, telefono,
+                        contrasenia, edad, fecha_nacimiento, verificado,
+                        fid_pais, activo, foto_url)
+    VALUES (_NOMBRE_CUENTA, _NOMBRE_PERFIL, _CORREO, _TELEFONO,
+            MD5(_CONTRASENIA), _EDAD, _FECHA_NACIMIENTO, _VERIFICADO,
+            _FID_PAIS, true, _FOTO_URL);
+    SET _ID_USUARIO = LAST_INSERT_ID();
 END $
 
 
-
-DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_USUARIO(
-	IN _ID_USUARIO INT,
+    IN _ID_USUARIO INT,
     IN _NOMBRE_CUENTA VARCHAR(100),
     IN _NOMBRE_PERFIL VARCHAR(100),
     IN _CORREO VARCHAR(100),
@@ -1907,31 +1769,35 @@ CREATE PROCEDURE ACTUALIZAR_USUARIO(
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
-    IN _EXPERIENCIA_NIVEL INT,
-    IN _NIVEL INT,
-    IN _EXPERIENCIA INT,
-    IN _FID_PAIS INT
+    IN _FID_PAIS INT,
+    IN _FOTO_URL VARCHAR(200)
 )
 BEGIN
-	UPDATE Usuario SET NOMBRE_CUENTA = _NOMBRE_CUENTA, NOMBRE_PERFIL = _NOMBRE_PERFIL,
-					   CORREO = _CORREO, TELEFONO = _TELEFONO, CONTRASENIA = MD5(_CONTRASENIA),
-                       EDAD = _EDAD, FECHA_NACIMIENTO = _FECHA_NACIMIENTO, VERIFICADO = _VERIFICADO,
-                       EXPERIENCIA_NIVEL = _EXPERIENCIA_NIVEL, NIVEL = _NIVEL, EXPERIENCIA = _EXPERIENCIA,
-                       FID_PAIS = _FID_PAIS
-	WHERE UID = _ID_USUARIO;
+    UPDATE Usuario SET 
+        nombre_cuenta = _NOMBRE_CUENTA,
+        nombre_perfil = _NOMBRE_PERFIL,
+        correo = _CORREO,
+        telefono = _TELEFONO,
+        contrasenia = MD5(_CONTRASENIA),
+        edad = _EDAD,
+        fecha_nacimiento = _FECHA_NACIMIENTO,
+        verificado = _VERIFICADO,
+        fid_pais = _FID_PAIS,
+        foto_url = _FOTO_URL
+    WHERE UID = _ID_USUARIO;
 END $
 
 
-DELIMITER $
 CREATE PROCEDURE SUSPENDER_USUARIO(
 	IN _ID_USUARIO INT
 )
 BEGIN
 	UPDATE Usuario SET ACTIVO = NOT ACTIVO WHERE UID = _ID_USUARIO;
 END $
-DELIMITER ;
-DROP PROCEDURE IF EXISTS ELIMINAR_USUARIO;
-DELIMITER $
+
+
+
+
 CREATE PROCEDURE ELIMINAR_USUARIO(
 	IN _ID_USUARIO INT
 )
@@ -1941,23 +1807,20 @@ END $
 
 
 
-DELIMITER $
 CREATE PROCEDURE LISTAR_USUARIO()
 BEGIN
 	SELECT * FROM Usuario;
 END $
-DELIMITER ;
 
 
-DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_X_NOMBRE_CUENTA(
 	IN _nombre_cuenta VARCHAR(100)
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
-    u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
-    p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
+    m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -1965,15 +1828,14 @@ BEGIN
 END$
 
 
-DELIMITER $
 CREATE PROCEDURE BUSCAR_USUARIO_POR_ID (
 	IN _uid INT
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
-    u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
-    p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
+    m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -1981,16 +1843,16 @@ BEGIN
 END$
 
 
-DELIMITER $
+
 CREATE PROCEDURE VERIFICAR_USUARIO (
 	IN _nombre_cuenta VARCHAR(100),
     IN _contrasenia VARCHAR(100)
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
-    u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
-    p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
+    m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -1999,20 +1861,18 @@ END$
 
 
 -- Enlista todos los usuarios que coincidan con el nombre ingresado
-DELIMITER $
-CREATE PROCEDURE LISTAR_USUARIO_X_NOMBRE_CUENTA (
+CREATE PROCEDURE LISTAR_USUARIOS_X_NOMBRE_CUENTA(
 	IN _nombre_cuenta VARCHAR(100)
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-		   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
-    	   u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
-    	   p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+		   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+           u.fid_pais, p.nombre as 'nombre_pais',  p.fid_moneda,
+           m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
-    WHERE nombre_cuenta LIKE CONCAT('%', _nombre_cuenta, '%') AND
-		  u.activo = true;
+    WHERE nombre_cuenta LIKE CONCAT('%', _nombre_cuenta, '%');
 END$
 
 CREATE PROCEDURE LISTAR_AMIGOS_X_USUARIO (
@@ -2020,29 +1880,46 @@ CREATE PROCEDURE LISTAR_AMIGOS_X_USUARIO (
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
-           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
-           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
-    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
-                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
-    WHERE r.amistad = true AND u.activo = true;
-END$
+    INNER JOIN Relacion r ON (r.fid_usuario_actuador = _id_usuario AND r.fid_usuario_destino = u.UID OR 
+                              r.fid_usuario_actuador = u.UID       AND r.fid_usuario_destino = _id_usuario)
+    WHERE r.tipo_relacion = 'amistad' AND r.activo = true AND u.activo = true;
+END $
 
 CREATE PROCEDURE LISTAR_BLOQUEADOS_X_USUARIO (
     IN _id_usuario INT
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-           u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.experiencia_nivel,
-           u.experiencia, u.nivel, u.activo, u.fid_pais, p.nombre as 'nombre_pais', 
-           p.fid_moneda, m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda'
+    	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
-    INNER JOIN Relacion r ON (r.fid_usuarioa = _id_usuario AND r.fid_usuariob = u.UID OR 
-                              r.fid_usuarioa = u.UID AND r.fid_usuariob = _id_usuario)
-    WHERE r.bloqueo = true AND u.activo = true;
+    INNER JOIN Relacion r ON (r.fid_usuario_actuador = _id_usuario AND r.fid_usuario_destino = u.UID)
+    WHERE r.tipo_relacion = 'bloqueo' AND r.activo = true AND u.activo = true;
 END$
+
+CREATE PROCEDURE LISTAR_USUARIOS_QUE_BLOQUEARON (
+    IN _id_usuario INT
+)
+BEGIN
+    SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
+    	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+    FROM Usuario u
+    INNER JOIN Pais p ON p.id_pais = u.fid_pais
+    INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
+    INNER JOIN Relacion r ON (r.fid_usuario_actuador = u.UID AND r.fid_usuario_destino = _id_usuario)
+    WHERE r.tipo_relacion = 'bloqueo' AND r.activo = true AND u.activo = true;
+END$
+
+
+DELIMITER ;
