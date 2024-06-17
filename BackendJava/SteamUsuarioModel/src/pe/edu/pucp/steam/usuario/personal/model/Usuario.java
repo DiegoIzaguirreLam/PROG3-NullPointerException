@@ -19,6 +19,7 @@ public class Usuario {
     private Date fechaNacimiento;
     private boolean verificado;
     private boolean activo;
+    private String fotoURL;
     private Pais pais;
     private Biblioteca biblioteca;
     private ArrayList<Notificacion> notificaciones;
@@ -210,5 +211,13 @@ public class Usuario {
 
     public void setCartera(Cartera cartera) {
         this.cartera = cartera;
+    }
+
+    public String getFotoURL() {
+        return fotoURL;
+    }
+
+    public void setFotoURL(String fotoURL) {
+        this.fotoURL = fotoURL;
     }
 }

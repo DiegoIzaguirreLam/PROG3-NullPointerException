@@ -195,6 +195,24 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.DropDownList ddlPaises;
 
         /// <summary>
+        /// Control lblURL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblURL;
+
+        /// <summary>
+        /// Control txtURL.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtURL;
+
+        /// <summary>
         /// Control btnRegistro.
         /// </summary>
         /// <remarks>

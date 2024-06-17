@@ -24,7 +24,7 @@ public class UsuarioMySQL implements UsuarioDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call CREAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            cs = con.prepareCall("{call CREAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
             cs.registerOutParameter("_ID_USUARIO", java.sql.Types.INTEGER);
             cs.setString("_NOMBRE_CUENTA", jugador.getNombreCuenta());
             cs.setString("_NOMBRE_PERFIL", jugador.getNombrePerfil());
@@ -35,6 +35,7 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setBoolean("_VERIFICADO", true);
             cs.setInt("_FID_PAIS", jugador.getPais().getIdPais());
+            cs.setString("_FOTO_URL", jugador.getFotoURL());
             cs.executeUpdate();
             jugador.setUID(cs.getInt("_ID_USUARIO"));
             resultado = jugador.getUID();
@@ -53,7 +54,7 @@ public class UsuarioMySQL implements UsuarioDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call ACTUALIZAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            cs = con.prepareCall("{call ACTUALIZAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
             cs.setInt("_ID_USUARIO", jugador.getUID());
             cs.setString("_NOMBRE_CUENTA", jugador.getNombreCuenta());
             cs.setString("_NOMBRE_PERFIL", jugador.getNombrePerfil());
@@ -64,6 +65,7 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setBoolean("_VERIFICADO", jugador.isVerificado());
             cs.setInt("_FID_PAIS", jugador.getPais().getIdPais());
+            cs.setString("_FOTO_URL", jugador.getFotoURL());
             resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

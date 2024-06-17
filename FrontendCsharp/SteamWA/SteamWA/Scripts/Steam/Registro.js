@@ -21,3 +21,17 @@ function soloNumeros(evt) {
     }
     return true;
 }
+
+function validarImagenURL(source, args) {
+    var url = args.Value;
+    var img = new Image();
+
+    img.onload = function () {
+        args.IsValid = true;
+    };
+
+    img.onerror = function () {
+        args.IsValid = false;
+    };
+    img.src = url + '?timestamp=' + new Date().getTime();
+}
