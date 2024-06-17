@@ -80,4 +80,16 @@ public class ForoUsuarioWS {
         }
         return foros;
     }
+    
+    @WebMethod(operationName="listarSuscriptores")
+    public ArrayList<Integer> listarSuscriptores(@WebParam(name="idForo") int idForo) {
+        ArrayList<Integer> users = new ArrayList<>();
+        try{
+            ForoUsuarioDAO foroUsuarioDao = new ForoUsuarioMySQL();
+            users = foroUsuarioDao.listarSuscriptores(idForo);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return users;
+    }
 }

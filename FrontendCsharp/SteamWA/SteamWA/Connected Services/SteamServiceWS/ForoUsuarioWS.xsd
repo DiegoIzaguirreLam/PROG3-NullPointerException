@@ -6,6 +6,8 @@
   <xs:element name="desuscribirRelacionResponse" type="tns:desuscribirRelacionResponse" />
   <xs:element name="eliminarRelacion" type="tns:eliminarRelacion" />
   <xs:element name="eliminarRelacionResponse" type="tns:eliminarRelacionResponse" />
+  <xs:element name="listarSuscriptores" type="tns:listarSuscriptores" />
+  <xs:element name="listarSuscriptoresResponse" type="tns:listarSuscriptoresResponse" />
   <xs:element name="listarSuscritos" type="tns:listarSuscritos" />
   <xs:element name="listarSuscritosResponse" type="tns:listarSuscritosResponse" />
   <xs:element name="suscribirRelacion" type="tns:suscribirRelacion" />
@@ -94,6 +96,16 @@
   <xs:complexType name="eliminarRelacionResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarSuscriptores">
+    <xs:sequence>
+      <xs:element name="idForo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarSuscriptoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="desuscribirRelacion">

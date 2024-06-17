@@ -84,7 +84,7 @@ namespace SteamWA
                     monto /= moneda.cambioDeDolares; //monto en dolares
                     cartera.fondos += monto;
                     cartera.cantMovimientos++;
-
+                    
                     metodoPago = metodoPago.GIFTCARD;
                     btnAceptarModal.Visible = false;
                     lbContinuarATienda.Visible = true;
@@ -100,6 +100,7 @@ namespace SteamWA
                     if (daoMovimiento.insertarMovimiento(movimiento)!=0 && daoCartera.actualizarCartera(cartera) != 0)
                     {
                         txtFondosModal.InnerText = "Se han agregado los fondos de manera exitosa";
+                        Session["cartera"] = cartera;
                     }
                     else
                     {

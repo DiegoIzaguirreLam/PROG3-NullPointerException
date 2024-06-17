@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="generarReporteProductosAdquiridos" type="tns:generarReporteProductosAdquiridos" />
+  <xs:element name="generarReporteProductosAdquiridosResponse" type="tns:generarReporteProductosAdquiridosResponse" />
+  <xs:complexType name="generarReporteProductosAdquiridos">
+    <xs:sequence>
+      <xs:element name="idBiblioteca" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
+      <xs:element minOccurs="0" name="monedaSimbolo" type="xs:string" />
+      <xs:element name="monedaCambioDolares" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generarReporteProductosAdquiridosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
