@@ -20,8 +20,6 @@ DROP TABLE IF EXISTS Mensaje;
 DROP TABLE IF EXISTS Hilo;
 DROP TABLE IF EXISTS Subforo;
 DROP TABLE IF EXISTS Foro;
-DROP TABLE IF EXISTS Expositor;
-DROP TABLE IF EXISTS Comentario;
 DROP TABLE IF EXISTS Perfil;
 DROP TABLE IF EXISTS Medalla;
 DROP TABLE IF EXISTS Movimiento;
@@ -55,7 +53,7 @@ CREATE TABLE Pais(
 )ENGINE=InnoDB;
 
 CREATE TABLE Usuario(
-	UID INT AUTO_INCREMENT NOT NULL,
+    UID INT AUTO_INCREMENT NOT NULL,
     nombre_cuenta VARCHAR(100) NOT NULL,
     nombre_perfil VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
@@ -65,10 +63,11 @@ CREATE TABLE Usuario(
     fecha_nacimiento DATE NOT NULL,
     verificado TINYINT NOT NULL,
     fid_pais INT NOT NULL,
-	activo TINYINT NOT NULL,
+    activo TINYINT NOT NULL,
+    foto_url VARCHAR(200) DEFAULT 'https://i.imgur.com/c7tUWcg.png',
     PRIMARY KEY(UID),
     FOREIGN KEY(fid_pais) REFERENCES Pais(id_pais)
-)ENGINE=InnoDB;
+) ENGINE=InnoDB;
 
 CREATE TABLE Relacion (
     id_relacion INT AUTO_INCREMENT PRIMARY KEY,
@@ -125,30 +124,6 @@ CREATE TABLE Perfil(
     oculto TINYINT NOT NULL,
     PRIMARY KEY(id_perfil),
     FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
-)ENGINE=InnoDB;
-
-CREATE TABLE Expositor(
-	id_expositor INT AUTO_INCREMENT,
-    fid_perfil INT NOT NULL,
-    oculto TINYINT NOT NULL,
-    activo TINYINT NOT NULL,
-    PRIMARY KEY(id_expositor),
-    FOREIGN KEY(fid_perfil) REFERENCES Perfil(id_perfil)
-)ENGINE=InnoDB;
-
-CREATE TABLE Comentario(
-	id_comentario INT AUTO_INCREMENT,
-    texto VARCHAR(100) NOT NULL,
-    nro_likes INT NOT NULL,
-    oculto TINYINT NOT NULL,
-    fecha_publicacion DATE NOT NULL,
-    fecha_maxedicion DATE,
-    fid_perfil_comentado INT NOT NULL,
-    fid_usuario_comentarista INT NOT NULL,
-	activo TINYINT NOT NULL,
-    PRIMARY KEY(id_comentario),
-    FOREIGN KEY(fid_perfil_comentado) REFERENCES Perfil(id_perfil),
-    FOREIGN KEY(fid_usuario_comentarista) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 /*PAQUETE COMUNIDAD*/
@@ -300,13 +275,11 @@ CREATE TABLE ProductoAdquirido(
     oculto TINYINT NOT NULL,
     fid_biblioteca INT NOT NULL,
     fid_producto INT NOT NULL,
-    fid_expositor INT,
     fid_movimiento INT,
 	activo TINYINT NOT NULL,
     PRIMARY KEY(id_producto_adquirido),
     FOREIGN KEY(fid_producto) REFERENCES Producto(id_producto),
     FOREIGN KEY(fid_biblioteca) REFERENCES Biblioteca(id_biblioteca),
-    FOREIGN KEY(fid_expositor) REFERENCES Expositor(id_expositor),
     FOREIGN KEY(fid_movimiento) REFERENCES Movimiento(id_movimiento)
 )ENGINE=InnoDB;
 

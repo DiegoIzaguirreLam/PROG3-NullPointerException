@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ForoUsuarioWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="desuscribirRelacion">
-    <part name="parameters" element="tns:desuscribirRelacion" />
-  </message>
-  <message name="desuscribirRelacionResponse">
-    <part name="parameters" element="tns:desuscribirRelacionResponse" />
-  </message>
   <message name="crearRelacion">
     <part name="parameters" element="tns:crearRelacion" />
   </message>
@@ -29,6 +23,12 @@
   <message name="eliminarRelacionResponse">
     <part name="parameters" element="tns:eliminarRelacionResponse" />
   </message>
+  <message name="desuscribirRelacion">
+    <part name="parameters" element="tns:desuscribirRelacion" />
+  </message>
+  <message name="desuscribirRelacionResponse">
+    <part name="parameters" element="tns:desuscribirRelacionResponse" />
+  </message>
   <message name="listarSuscritos">
     <part name="parameters" element="tns:listarSuscritos" />
   </message>
@@ -36,10 +36,6 @@
     <part name="parameters" element="tns:listarSuscritosResponse" />
   </message>
   <portType name="ForoUsuarioWS">
-    <operation name="desuscribirRelacion">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionRequest" message="tns:desuscribirRelacion" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionResponse" message="tns:desuscribirRelacionResponse" />
-    </operation>
     <operation name="crearRelacion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/crearRelacionRequest" message="tns:crearRelacion" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/crearRelacionResponse" message="tns:crearRelacionResponse" />
@@ -52,6 +48,10 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionRequest" message="tns:eliminarRelacion" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionResponse" message="tns:eliminarRelacionResponse" />
     </operation>
+    <operation name="desuscribirRelacion">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionRequest" message="tns:desuscribirRelacion" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionResponse" message="tns:desuscribirRelacionResponse" />
+    </operation>
     <operation name="listarSuscritos">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/listarSuscritosRequest" message="tns:listarSuscritos" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/listarSuscritosResponse" message="tns:listarSuscritosResponse" />
@@ -59,15 +59,6 @@
   </portType>
   <binding name="ForoUsuarioWSPortBinding" type="tns:ForoUsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="desuscribirRelacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="crearRelacion">
       <soap:operation soapAction="" />
       <input>
@@ -87,6 +78,15 @@
       </output>
     </operation>
     <operation name="eliminarRelacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="desuscribirRelacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

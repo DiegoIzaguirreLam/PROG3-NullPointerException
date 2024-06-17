@@ -6,8 +6,6 @@ import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
 import pe.edu.pucp.steam.comunidad.model.GestorSanciones;
 import pe.edu.pucp.steam.comunidad.model.Foro;
 import pe.edu.pucp.steam.comunidad.model.Mensaje;
-import pe.edu.pucp.steam.perfil.model.Comentario;
-import pe.edu.pucp.steam.perfil.model.Perfil;
 import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
 
 public class Usuario {
@@ -24,10 +22,8 @@ public class Usuario {
     private Pais pais;
     private Biblioteca biblioteca;
     private ArrayList<Notificacion> notificaciones;
-    private ArrayList<Comentario> comentarios;
     private GestorSanciones gestorSanciones;
     private ArrayList<Mensaje> mensajes;
-    private Perfil perfil;
     private ArrayList<Foro> foros;
     private ArrayList<Usuario> amigos;
     private ArrayList<Usuario> bloqueados;
@@ -35,7 +31,7 @@ public class Usuario {
 
     public Usuario(){};
 
-    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, boolean activo, Pais pais, Biblioteca biblioteca, GestorSanciones gestorSanciones, Perfil perfil, Cartera cartera) {
+    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, boolean activo, Pais pais, Biblioteca biblioteca, GestorSanciones gestorSanciones, Cartera cartera) {
         this.UID = UID;
         this.nombreCuenta = nombreCuenta;
         this.nombrePerfil = nombrePerfil;
@@ -49,7 +45,6 @@ public class Usuario {
         this.pais = pais;
         this.biblioteca = biblioteca;
         this.gestorSanciones = gestorSanciones;
-        this.perfil = perfil;
         this.cartera = cartera;
     }
 
@@ -169,14 +164,6 @@ public class Usuario {
         this.notificaciones = notificaciones;
     }
 
-    public ArrayList<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(ArrayList<Comentario> comentarios) {
-        this.comentarios = comentarios;
-    }
-
     public GestorSanciones getGestorSanciones() {
         return gestorSanciones;
     }
@@ -191,14 +178,6 @@ public class Usuario {
 
     public void setMensajes(ArrayList<Mensaje> mensajes) {
         this.mensajes = mensajes;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
     }
 
     public ArrayList<Foro> getForos() {
@@ -232,6 +211,4 @@ public class Usuario {
     public void setCartera(Cartera cartera) {
         this.cartera = cartera;
     }
-    
-    
 }

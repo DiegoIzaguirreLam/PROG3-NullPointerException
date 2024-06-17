@@ -133,7 +133,6 @@
       <xs:element minOccurs="0" name="biblioteca" type="tns:biblioteca" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="bloqueados" nillable="true" type="tns:usuario" />
       <xs:element minOccurs="0" name="cartera" type="tns:cartera" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="comentarios" nillable="true" type="tns:comentario" />
       <xs:element minOccurs="0" name="correo" type="xs:string" />
       <xs:element name="edad" type="xs:int" />
       <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
@@ -145,40 +144,9 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="notificaciones" nillable="true" type="tns:notificacion" />
       <xs:element minOccurs="0" name="pais" type="tns:pais" />
       <xs:element minOccurs="0" name="password" type="xs:string" />
-      <xs:element minOccurs="0" name="perfil" type="tns:perfil" />
       <xs:element minOccurs="0" name="telefono" type="xs:string" />
       <xs:element name="UID" type="xs:int" />
       <xs:element name="verificado" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="comentario">
-    <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element minOccurs="0" name="fechaMaxEdicion" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
-      <xs:element name="idComentario" type="xs:int" />
-      <xs:element name="idComentarista" type="xs:int" />
-      <xs:element name="nlikes" type="xs:int" />
-      <xs:element name="oculto" type="xs:boolean" />
-      <xs:element minOccurs="0" name="perfilComentado" type="tns:perfil" />
-      <xs:element minOccurs="0" name="texto" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="perfil">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="comentarios" nillable="true" type="tns:comentario" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="expositores" nillable="true" type="tns:expositor" />
-      <xs:element minOccurs="0" name="fotoUrl" type="xs:string" />
-      <xs:element name="idPerfil" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="expositor">
-    <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="idExpositor" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="mostrados" nillable="true" type="tns:productoAdquirido" />
-      <xs:element name="oculto" type="xs:boolean" />
-      <xs:element minOccurs="0" name="owner" type="tns:perfil" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="foro">

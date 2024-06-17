@@ -13,9 +13,6 @@
   <contractRef ref="http://localhost:8080/SteamWS/HiloWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/MensajeWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/SubforoWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SteamWS/ComentarioWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SteamWS/ExpositorWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SteamWS/PerfilWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/BibliotecaWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/ColeccionWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/ProductoAdquiridoColeccionWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />

@@ -15,7 +15,6 @@ namespace SteamWA
         private PaisWSClient daoPais;
         private BibliotecaWSClient daoBiblioteca;
         private CarteraWSClient daoCartera;
-        private PerfilWSClient daoPerfil;
         private GestorSancionesWSClient daoGestorSanciones;
         private usuario usuario;
         private BindingList<pais> paises;
@@ -30,7 +29,6 @@ namespace SteamWA
             daoPais = new PaisWSClient();
             daoBiblioteca = new BibliotecaWSClient();
             daoCartera = new CarteraWSClient();
-            daoPerfil = new PerfilWSClient();
             daoGestorSanciones = new GestorSancionesWSClient();
             paises = new BindingList<pais>(daoPais.listarPaises().ToList());
             ddlPaises.DataTextField = "nombre";
@@ -68,8 +66,7 @@ namespace SteamWA
                 {
                     int r1 = daoBiblioteca.asignarBibliotecaUsuario(UID);
                     int r2 = daoCartera.asignarCarteraUsuario(UID);
-                    int r3 = daoPerfil.asignarPerfilUsuario(UID);
-                    int r4 = daoGestorSanciones.asignarGestorUsuario(UID);
+                    int r3 = daoGestorSanciones.asignarGestorUsuario(UID);
                     Response.Redirect("Login.aspx?accion=registrado");
                 }
                 else

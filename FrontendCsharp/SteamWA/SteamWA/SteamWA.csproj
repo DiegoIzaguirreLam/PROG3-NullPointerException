@@ -93,15 +93,8 @@
     <None Include="Connected Services\SteamServiceWS\ColeccionWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SteamServiceWS\ComentarioWS.wsdl" />
-    <None Include="Connected Services\SteamServiceWS\ComentarioWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\SteamServiceWS\EtiquetaWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\EtiquetaWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SteamServiceWS\ExpositorWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SteamServiceWS\ForoUsuarioWS.wsdl" />
@@ -143,10 +136,6 @@
     </None>
     <None Include="Connected Services\SteamServiceWS\PaisWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\PaisWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SteamServiceWS\PerfilWS.wsdl" />
-    <None Include="Connected Services\SteamServiceWS\PerfilWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SteamServiceWS\ProductoAdquiridoColeccionWS.wsdl" />
@@ -249,16 +238,12 @@
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.woff2" />
     <Content Include="Inicio.Master" />
-    <None Include="Connected Services\SteamServiceWS\ExpositorWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\JuegoWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SteamServiceWS\SoftwareWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizaPerfilResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarBandaSonoraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -268,13 +253,7 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarColeccionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarComentarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarEtiquetaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarExpositorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarGestorResponse.datasource">
@@ -349,9 +328,6 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarPaisResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarPerfilResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarProductoAdquiridoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -362,9 +338,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.coleccion.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.comentario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.crearRelacionResponse.datasource">
@@ -392,9 +365,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.eliminarEtiquetaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.eliminarExpositorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.eliminarForoResponse.datasource">
@@ -448,9 +418,6 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.etiqueta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.expositor.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.foro.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -466,13 +433,7 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarColeccionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarComentarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarEtiquetaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarExpositorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarForoResponse.datasource">
@@ -535,19 +496,7 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarComentariosPerfilResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarComentariosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarEtiquetasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarExpositoresPerfilResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarExpositoresResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarForosResponse.datasource">
@@ -569,9 +518,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarNotificacionesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarPerfilesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarProductosAdquiridosPorIdBibliotecaResponse.datasource">
@@ -625,19 +571,7 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.notificacion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.ocultarComentarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.ocultarExpositorResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.ocultarPerfilResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.pais.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.perfil.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.producto.datasource">
@@ -692,9 +626,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarUsuarioPorIdResponse.datasource">

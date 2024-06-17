@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
-
 package pe.edu.pucp.steam.usuario.jugador.services;
 
 import jakarta.jws.WebService;
@@ -12,10 +7,6 @@ import pe.edu.pucp.steam.usuario.jugador.dao.CarteraDAO;
 import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
 import pe.edu.pucp.steam.usuario.jugador.mysql.CarteraMySQL;
 
-/**
- *
- * @author GAMER
- */
 @WebService(serviceName="CarteraWS", targetNamespace="http://services.softprog.pucp.edu.pe/")
 public class CarteraWS {
 
