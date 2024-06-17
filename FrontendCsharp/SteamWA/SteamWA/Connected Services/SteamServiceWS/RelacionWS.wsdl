@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/RelacionWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="bloquearUsuario">
-    <part name="parameters" element="tns:bloquearUsuario" />
-  </message>
-  <message name="bloquearUsuarioResponse">
-    <part name="parameters" element="tns:bloquearUsuarioResponse" />
-  </message>
   <message name="eliminarAmigo">
     <part name="parameters" element="tns:eliminarAmigo" />
   </message>
   <message name="eliminarAmigoResponse">
     <part name="parameters" element="tns:eliminarAmigoResponse" />
+  </message>
+  <message name="bloquearUsuario">
+    <part name="parameters" element="tns:bloquearUsuario" />
+  </message>
+  <message name="bloquearUsuarioResponse">
+    <part name="parameters" element="tns:bloquearUsuarioResponse" />
   </message>
   <message name="agregarAmigo">
     <part name="parameters" element="tns:agregarAmigo" />
@@ -24,13 +24,13 @@
     <part name="parameters" element="tns:agregarAmigoResponse" />
   </message>
   <portType name="RelacionWS">
-    <operation name="bloquearUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest" message="tns:bloquearUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse" message="tns:bloquearUsuarioResponse" />
-    </operation>
     <operation name="eliminarAmigo">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/eliminarAmigoRequest" message="tns:eliminarAmigo" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/eliminarAmigoResponse" message="tns:eliminarAmigoResponse" />
+    </operation>
+    <operation name="bloquearUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest" message="tns:bloquearUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse" message="tns:bloquearUsuarioResponse" />
     </operation>
     <operation name="agregarAmigo">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/RelacionWS/agregarAmigoRequest" message="tns:agregarAmigo" />
@@ -39,7 +39,7 @@
   </portType>
   <binding name="RelacionWSPortBinding" type="tns:RelacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="bloquearUsuario">
+    <operation name="eliminarAmigo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -48,7 +48,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarAmigo">
+    <operation name="bloquearUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -129,7 +129,6 @@
     <None Include="Connected Services\SteamServiceWS\LogroWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SteamServiceWS\MedallaWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\MensajeWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\MensajeWS.xsd">
       <SubType>Designer</SubType>
@@ -252,9 +251,6 @@
     <Content Include="Inicio.Master" />
     <None Include="Connected Services\SteamServiceWS\ExpositorWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\JuegoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SteamServiceWS\MedallaWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SteamServiceWS\SoftwareWS.xsd">
@@ -497,9 +493,6 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarLogroResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarMedallaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.insertarMensajeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -689,22 +682,13 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarMedallaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarForosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarMedallaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarCreadosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarForosSuscritosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.medalla1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse.datasource">

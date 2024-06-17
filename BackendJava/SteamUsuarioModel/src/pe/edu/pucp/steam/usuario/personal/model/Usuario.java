@@ -9,7 +9,6 @@ import pe.edu.pucp.steam.comunidad.model.Mensaje;
 import pe.edu.pucp.steam.perfil.model.Comentario;
 import pe.edu.pucp.steam.perfil.model.Perfil;
 import pe.edu.pucp.steam.usuario.jugador.model.Cartera;
-import pe.edu.pucp.steam.usuario.jugador.model.Medalla;
 
 public class Usuario {
     private int UID;
@@ -21,10 +20,7 @@ public class Usuario {
     private int edad;
     private Date fechaNacimiento;
     private boolean verificado;
-    private int expNivel;
-    private int nivel;
     private boolean activo;
-    private int experiencia;
     private Pais pais;
     private Biblioteca biblioteca;
     private ArrayList<Notificacion> notificaciones;
@@ -35,12 +31,11 @@ public class Usuario {
     private ArrayList<Foro> foros;
     private ArrayList<Usuario> amigos;
     private ArrayList<Usuario> bloqueados;
-    private ArrayList<Medalla> medallas;
     private Cartera cartera;
 
     public Usuario(){};
 
-    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, boolean activo, int experiencia, Pais pais, Biblioteca biblioteca, GestorSanciones gestorSanciones, Perfil perfil, Cartera cartera) {
+    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, boolean activo, Pais pais, Biblioteca biblioteca, GestorSanciones gestorSanciones, Perfil perfil, Cartera cartera) {
         this.UID = UID;
         this.nombreCuenta = nombreCuenta;
         this.nombrePerfil = nombrePerfil;
@@ -50,10 +45,7 @@ public class Usuario {
         this.edad = edad;
         this.fechaNacimiento = fechaNacimiento;
         this.verificado = verificado;
-        this.expNivel = expNivel;
-        this.nivel = nivel;
         this.activo = activo;
-        this.experiencia = experiencia;
         this.pais = pais;
         this.biblioteca = biblioteca;
         this.gestorSanciones = gestorSanciones;
@@ -61,7 +53,7 @@ public class Usuario {
         this.cartera = cartera;
     }
 
-    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, int expNivel, int nivel, int experiencia) {
+    public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado) {
         this.UID = UID;
         this.nombreCuenta = nombreCuenta;
         this.nombrePerfil = nombrePerfil;
@@ -71,9 +63,6 @@ public class Usuario {
         this.edad = edad;
         this.fechaNacimiento = fechaNacimiento;
         this.verificado = verificado;
-        this.expNivel = expNivel;
-        this.nivel = nivel;
-        this.experiencia = experiencia;
     }
 
     public int getUID() {
@@ -148,36 +137,12 @@ public class Usuario {
         this.verificado = verificado;
     }
 
-    public int getExpNivel() {
-        return expNivel;
-    }
-
-    public void setExpNivel(int expNivel) {
-        this.expNivel = expNivel;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
     public boolean isActivo() {
         return activo;
     }
 
     public void setActivo(boolean activo) {
         this.activo = activo;
-    }
-
-    public int getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(int experiencia) {
-        this.experiencia = experiencia;
     }
 
     public Pais getPais() {
@@ -258,14 +223,6 @@ public class Usuario {
 
     public void setBloqueados(ArrayList<Usuario> bloqueados) {
         this.bloqueados = bloqueados;
-    }
-
-    public ArrayList<Medalla> getMedallas() {
-        return medallas;
-    }
-
-    public void setMedallas(ArrayList<Medalla> medallas) {
-        this.medallas = medallas;
     }
 
     public Cartera getCartera() {

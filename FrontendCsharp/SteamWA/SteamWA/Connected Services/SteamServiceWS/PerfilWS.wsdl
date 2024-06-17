@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/PerfilWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="asignarPerfilUsuario">
+    <part name="parameters" element="tns:asignarPerfilUsuario" />
+  </message>
+  <message name="asignarPerfilUsuarioResponse">
+    <part name="parameters" element="tns:asignarPerfilUsuarioResponse" />
+  </message>
   <message name="listarPerfiles">
     <part name="parameters" element="tns:listarPerfiles" />
   </message>
@@ -29,13 +35,11 @@
   <message name="buscarPerfilResponse">
     <part name="parameters" element="tns:buscarPerfilResponse" />
   </message>
-  <message name="asignarPerfilUsuario">
-    <part name="parameters" element="tns:asignarPerfilUsuario" />
-  </message>
-  <message name="asignarPerfilUsuarioResponse">
-    <part name="parameters" element="tns:asignarPerfilUsuarioResponse" />
-  </message>
   <portType name="PerfilWS">
+    <operation name="asignarPerfilUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioRequest" message="tns:asignarPerfilUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioResponse" message="tns:asignarPerfilUsuarioResponse" />
+    </operation>
     <operation name="listarPerfiles">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesRequest" message="tns:listarPerfiles" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesResponse" message="tns:listarPerfilesResponse" />
@@ -52,13 +56,18 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/buscarPerfilRequest" message="tns:buscarPerfil" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/buscarPerfilResponse" message="tns:buscarPerfilResponse" />
     </operation>
-    <operation name="asignarPerfilUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioRequest" message="tns:asignarPerfilUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioResponse" message="tns:asignarPerfilUsuarioResponse" />
-    </operation>
   </portType>
   <binding name="PerfilWSPortBinding" type="tns:PerfilWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="asignarPerfilUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarPerfiles">
       <soap:operation soapAction="" />
       <input>
@@ -87,15 +96,6 @@
       </output>
     </operation>
     <operation name="buscarPerfil">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="asignarPerfilUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -64,9 +64,6 @@ CREATE TABLE Usuario(
     edad INT NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     verificado TINYINT NOT NULL,
-    experiencia_nivel INT NOT NULL,
-    nivel INT NOT NULL,
-    experiencia INT NOT NULL,
     fid_pais INT NOT NULL,
 	activo TINYINT NOT NULL,
     PRIMARY KEY(UID),
@@ -119,25 +116,6 @@ CREATE TABLE Movimiento(
     PRIMARY KEY(id_movimiento),
     FOREIGN KEY(fid_cartera) REFERENCES Cartera(id_cartera)
 )ENGINE=InnoDB;
-
-CREATE TABLE Medalla(
-	id_medalla INT AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    experiencia INT NOT NULL,
-	activo TINYINT NOT NULL,
-    PRIMARY KEY(id_medalla)
-)ENGINE=InnoDB;
-
-/* Crear tabla Medalla_Jugador */
-CREATE TABLE MedallaUsuario(
-	fid_usuario INT,
-	fid_medalla INT,
-	activo TINYINT NOT NULL,
-	PRIMARY KEY(fid_usuario, fid_medalla),
-	FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID),
-	FOREIGN KEY(fid_medalla) REFERENCES Medalla(id_medalla)
-)ENGINE=InnoDB;
-
 
 /* PAQUETE PERFIL */
 CREATE TABLE Perfil(

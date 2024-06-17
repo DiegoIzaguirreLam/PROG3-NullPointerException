@@ -34,9 +34,6 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setInt("_EDAD", jugador.getEdad());
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setBoolean("_VERIFICADO", true);
-            cs.setInt("_EXPERIENCIA_NIVEL", jugador.getExpNivel());
-            cs.setInt("_NIVEL", jugador.getNivel());
-            cs.setInt("_EXPERIENCIA", jugador.getExperiencia());
             cs.setInt("_FID_PAIS", jugador.getPais().getIdPais());
             cs.executeUpdate();
             jugador.setUID(cs.getInt("_ID_USUARIO"));
@@ -66,9 +63,6 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setInt("_EDAD", jugador.getEdad());
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setBoolean("_VERIFICADO", jugador.isVerificado());
-            cs.setInt("_EXPERIENCIA_NIVEL", jugador.getExpNivel());
-            cs.setInt("_NIVEL", jugador.getNivel());
-            cs.setInt("_EXPERIENCIA", jugador.getExperiencia());
             cs.setInt("_FID_PAIS", jugador.getPais().getIdPais());
             resultado = cs.executeUpdate();
         }catch(Exception ex){
@@ -137,10 +131,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                                            rs.getString("CONTRASENIA"),
                                            rs.getInt("EDAD"),
                                            date,
-                                           rs.getBoolean("VERIFICADO"),
-                                           rs.getInt("EXPERIENCIA_NIVEL"),
-                                           rs.getInt("NIVEL"),
-                                           rs.getInt("EXPERIENCIA"));
+                                           rs.getBoolean("VERIFICADO"));
                 user.setActivo(true);
                 users.add(user);
             }
@@ -180,9 +171,6 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setEdad(rs.getInt("edad"));
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
-                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
-                usuario.setExperiencia(rs.getInt("experiencia"));
-                usuario.setNivel(rs.getInt("nivel"));
                 usuario.setActivo(rs.getBoolean("activo"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
@@ -228,9 +216,6 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setEdad(rs.getInt("edad"));
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
-                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
-                usuario.setExperiencia(rs.getInt("experiencia"));
-                usuario.setNivel(rs.getInt("nivel"));
                 usuario.setActivo(rs.getBoolean("activo"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
@@ -274,9 +259,6 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setEdad(rs.getInt("edad"));
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
-                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
-                usuario.setExperiencia(rs.getInt("experiencia"));
-                usuario.setNivel(rs.getInt("nivel"));
                 usuario.setActivo(rs.getBoolean("activo"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
@@ -322,9 +304,6 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setEdad(rs.getInt("edad"));
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
-                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
-                usuario.setExperiencia(rs.getInt("experiencia"));
-                usuario.setNivel(rs.getInt("nivel"));
                 usuario.setActivo(rs.getBoolean("activo"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
@@ -374,9 +353,6 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setEdad(rs.getInt("edad"));
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
-                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
-                usuario.setExperiencia(rs.getInt("experiencia"));
-                usuario.setNivel(rs.getInt("nivel"));
                 usuario.setActivo(rs.getBoolean("activo"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
@@ -426,9 +402,6 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setEdad(rs.getInt("edad"));
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
-                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
-                usuario.setExperiencia(rs.getInt("experiencia"));
-                usuario.setNivel(rs.getInt("nivel"));
                 usuario.setActivo(rs.getBoolean("activo"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
@@ -479,9 +452,6 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setEdad(rs.getInt("edad"));
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
-                usuario.setExpNivel(rs.getInt("experiencia_nivel"));
-                usuario.setExperiencia(rs.getInt("experiencia"));
-                usuario.setNivel(rs.getInt("nivel"));
                 usuario.setActivo(rs.getBoolean("activo"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));

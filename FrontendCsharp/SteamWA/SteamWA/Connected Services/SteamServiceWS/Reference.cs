@@ -16,42 +16,6 @@ namespace SteamWA.SteamServiceWS {
     public interface ExpositorWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarExpositorResponse insertarExpositor(SteamWA.SteamServiceWS.insertarExpositorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarExpositorResponse> insertarExpositorAsync(SteamWA.SteamServiceWS.insertarExpositorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.ocultarExpositorResponse ocultarExpositor(SteamWA.SteamServiceWS.ocultarExpositorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarExpositorResponse> ocultarExpositorAsync(SteamWA.SteamServiceWS.ocultarExpositorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarExpositoresResponse listarExpositores(SteamWA.SteamServiceWS.listarExpositoresRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarExpositoresResponse> listarExpositoresAsync(SteamWA.SteamServiceWS.listarExpositoresRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarExpositorResponse eliminarExpositor(SteamWA.SteamServiceWS.eliminarExpositorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarExpositorResponse> eliminarExpositorAsync(SteamWA.SteamServiceWS.eliminarExpositorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/actualizarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/actualizarExpositorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -68,6 +32,42 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresPerfilRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresPerfilResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarExpositoresPerfilResponse> listarExpositoresPerfilAsync(SteamWA.SteamServiceWS.listarExpositoresPerfilRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.ocultarExpositorResponse ocultarExpositor(SteamWA.SteamServiceWS.ocultarExpositorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/ocultarExpositorResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarExpositorResponse> ocultarExpositorAsync(SteamWA.SteamServiceWS.ocultarExpositorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.insertarExpositorResponse insertarExpositor(SteamWA.SteamServiceWS.insertarExpositorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/insertarExpositorResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarExpositorResponse> insertarExpositorAsync(SteamWA.SteamServiceWS.insertarExpositorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.eliminarExpositorResponse eliminarExpositor(SteamWA.SteamServiceWS.eliminarExpositorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/eliminarExpositorResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarExpositorResponse> eliminarExpositorAsync(SteamWA.SteamServiceWS.eliminarExpositorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarExpositoresResponse listarExpositores(SteamWA.SteamServiceWS.listarExpositoresRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ExpositorWS/listarExpositoresResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarExpositoresResponse> listarExpositoresAsync(SteamWA.SteamServiceWS.listarExpositoresRequest request);
     }
     
     /// <remarks/>
@@ -957,10 +957,6 @@ namespace SteamWA.SteamServiceWS {
         
         private int edadField;
         
-        private int expNivelField;
-        
-        private int experienciaField;
-        
         private System.DateTime fechaNacimientoField;
         
         private bool fechaNacimientoFieldSpecified;
@@ -969,11 +965,7 @@ namespace SteamWA.SteamServiceWS {
         
         private gestorSanciones gestorSancionesField;
         
-        private medalla[] medallasField;
-        
         private mensaje[] mensajesField;
-        
-        private int nivelField;
         
         private string nombreCuentaField;
         
@@ -1091,30 +1083,6 @@ namespace SteamWA.SteamServiceWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public int expNivel {
-            get {
-                return this.expNivelField;
-            }
-            set {
-                this.expNivelField = value;
-                this.RaisePropertyChanged("expNivel");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public int experiencia {
-            get {
-                return this.experienciaField;
-            }
-            set {
-                this.experienciaField = value;
-                this.RaisePropertyChanged("experiencia");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public System.DateTime fechaNacimiento {
             get {
                 return this.fechaNacimientoField;
@@ -1138,7 +1106,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("foros", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute("foros", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=9)]
         public foro[] foros {
             get {
                 return this.forosField;
@@ -1150,7 +1118,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public gestorSanciones gestorSanciones {
             get {
                 return this.gestorSancionesField;
@@ -1162,19 +1130,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("medallas", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=13)]
-        public medalla[] medallas {
-            get {
-                return this.medallasField;
-            }
-            set {
-                this.medallasField = value;
-                this.RaisePropertyChanged("medallas");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("mensajes", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=14)]
+        [System.Xml.Serialization.XmlElementAttribute("mensajes", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=11)]
         public mensaje[] mensajes {
             get {
                 return this.mensajesField;
@@ -1186,19 +1142,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
-        public int nivel {
-            get {
-                return this.nivelField;
-            }
-            set {
-                this.nivelField = value;
-                this.RaisePropertyChanged("nivel");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string nombreCuenta {
             get {
                 return this.nombreCuentaField;
@@ -1210,7 +1154,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
         public string nombrePerfil {
             get {
                 return this.nombrePerfilField;
@@ -1222,7 +1166,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("notificaciones", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=18)]
+        [System.Xml.Serialization.XmlElementAttribute("notificaciones", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=14)]
         public notificacion[] notificaciones {
             get {
                 return this.notificacionesField;
@@ -1234,7 +1178,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
         public pais pais {
             get {
                 return this.paisField;
@@ -1246,7 +1190,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
         public string password {
             get {
                 return this.passwordField;
@@ -1258,7 +1202,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
         public perfil perfil {
             get {
                 return this.perfilField;
@@ -1270,7 +1214,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
         public string telefono {
             get {
                 return this.telefonoField;
@@ -1282,7 +1226,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
         public int UID {
             get {
                 return this.uIDField;
@@ -1294,7 +1238,7 @@ namespace SteamWA.SteamServiceWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
         public bool verificado {
             get {
                 return this.verificadoField;
@@ -2743,80 +2687,6 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public partial class medalla : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int experienciaField;
-        
-        private int idMedallaField;
-        
-        private usuario[] jugadoresField;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int experiencia {
-            get {
-                return this.experienciaField;
-            }
-            set {
-                this.experienciaField = value;
-                this.RaisePropertyChanged("experiencia");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int idMedalla {
-            get {
-                return this.idMedallaField;
-            }
-            set {
-                this.idMedallaField = value;
-                this.RaisePropertyChanged("idMedalla");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("jugadores", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
-        public usuario[] jugadores {
-            get {
-                return this.jugadoresField;
-            }
-            set {
-                this.jugadoresField = value;
-                this.RaisePropertyChanged("jugadores");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
     public partial class proveedor : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool activoField;
@@ -3434,142 +3304,6 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarExpositor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarExpositorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.expositor expositor;
-        
-        public insertarExpositorRequest() {
-        }
-        
-        public insertarExpositorRequest(SteamWA.SteamServiceWS.expositor expositor) {
-            this.expositor = expositor;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarExpositorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarExpositorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarExpositorResponse() {
-        }
-        
-        public insertarExpositorResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarExpositor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class ocultarExpositorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.expositor expositor;
-        
-        public ocultarExpositorRequest() {
-        }
-        
-        public ocultarExpositorRequest(SteamWA.SteamServiceWS.expositor expositor) {
-            this.expositor = expositor;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarExpositorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class ocultarExpositorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public ocultarExpositorResponse() {
-        }
-        
-        public ocultarExpositorResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarExpositores", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarExpositoresRequest {
-        
-        public listarExpositoresRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarExpositoresResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarExpositoresResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.expositor[] @return;
-        
-        public listarExpositoresResponse() {
-        }
-        
-        public listarExpositoresResponse(SteamWA.SteamServiceWS.expositor[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarExpositor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarExpositorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.expositor expositor;
-        
-        public eliminarExpositorRequest() {
-        }
-        
-        public eliminarExpositorRequest(SteamWA.SteamServiceWS.expositor expositor) {
-            this.expositor = expositor;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarExpositorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarExpositorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarExpositorResponse() {
-        }
-        
-        public eliminarExpositorResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarExpositor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class actualizarExpositorRequest {
         
@@ -3639,6 +3373,142 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarExpositor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class ocultarExpositorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.expositor expositor;
+        
+        public ocultarExpositorRequest() {
+        }
+        
+        public ocultarExpositorRequest(SteamWA.SteamServiceWS.expositor expositor) {
+            this.expositor = expositor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarExpositorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class ocultarExpositorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public ocultarExpositorResponse() {
+        }
+        
+        public ocultarExpositorResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarExpositor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarExpositorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.expositor expositor;
+        
+        public insertarExpositorRequest() {
+        }
+        
+        public insertarExpositorRequest(SteamWA.SteamServiceWS.expositor expositor) {
+            this.expositor = expositor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarExpositorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarExpositorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarExpositorResponse() {
+        }
+        
+        public insertarExpositorResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarExpositor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarExpositorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.expositor expositor;
+        
+        public eliminarExpositorRequest() {
+        }
+        
+        public eliminarExpositorRequest(SteamWA.SteamServiceWS.expositor expositor) {
+            this.expositor = expositor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarExpositorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarExpositorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarExpositorResponse() {
+        }
+        
+        public eliminarExpositorResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarExpositores", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarExpositoresRequest {
+        
+        public listarExpositoresRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarExpositoresResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarExpositoresResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.expositor[] @return;
+        
+        public listarExpositoresResponse() {
+        }
+        
+        public listarExpositoresResponse(SteamWA.SteamServiceWS.expositor[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ExpositorWSChannel : SteamWA.SteamServiceWS.ExpositorWS, System.ServiceModel.IClientChannel {
     }
@@ -3664,96 +3534,6 @@ namespace SteamWA.SteamServiceWS {
         
         public ExpositorWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarExpositorResponse SteamWA.SteamServiceWS.ExpositorWS.insertarExpositor(SteamWA.SteamServiceWS.insertarExpositorRequest request) {
-            return base.Channel.insertarExpositor(request);
-        }
-        
-        public int insertarExpositor(SteamWA.SteamServiceWS.expositor expositor) {
-            SteamWA.SteamServiceWS.insertarExpositorRequest inValue = new SteamWA.SteamServiceWS.insertarExpositorRequest();
-            inValue.expositor = expositor;
-            SteamWA.SteamServiceWS.insertarExpositorResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).insertarExpositor(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarExpositorResponse> SteamWA.SteamServiceWS.ExpositorWS.insertarExpositorAsync(SteamWA.SteamServiceWS.insertarExpositorRequest request) {
-            return base.Channel.insertarExpositorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarExpositorResponse> insertarExpositorAsync(SteamWA.SteamServiceWS.expositor expositor) {
-            SteamWA.SteamServiceWS.insertarExpositorRequest inValue = new SteamWA.SteamServiceWS.insertarExpositorRequest();
-            inValue.expositor = expositor;
-            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).insertarExpositorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.ocultarExpositorResponse SteamWA.SteamServiceWS.ExpositorWS.ocultarExpositor(SteamWA.SteamServiceWS.ocultarExpositorRequest request) {
-            return base.Channel.ocultarExpositor(request);
-        }
-        
-        public int ocultarExpositor(SteamWA.SteamServiceWS.expositor expositor) {
-            SteamWA.SteamServiceWS.ocultarExpositorRequest inValue = new SteamWA.SteamServiceWS.ocultarExpositorRequest();
-            inValue.expositor = expositor;
-            SteamWA.SteamServiceWS.ocultarExpositorResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).ocultarExpositor(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarExpositorResponse> SteamWA.SteamServiceWS.ExpositorWS.ocultarExpositorAsync(SteamWA.SteamServiceWS.ocultarExpositorRequest request) {
-            return base.Channel.ocultarExpositorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarExpositorResponse> ocultarExpositorAsync(SteamWA.SteamServiceWS.expositor expositor) {
-            SteamWA.SteamServiceWS.ocultarExpositorRequest inValue = new SteamWA.SteamServiceWS.ocultarExpositorRequest();
-            inValue.expositor = expositor;
-            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).ocultarExpositorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarExpositoresResponse SteamWA.SteamServiceWS.ExpositorWS.listarExpositores(SteamWA.SteamServiceWS.listarExpositoresRequest request) {
-            return base.Channel.listarExpositores(request);
-        }
-        
-        public SteamWA.SteamServiceWS.expositor[] listarExpositores() {
-            SteamWA.SteamServiceWS.listarExpositoresRequest inValue = new SteamWA.SteamServiceWS.listarExpositoresRequest();
-            SteamWA.SteamServiceWS.listarExpositoresResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).listarExpositores(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarExpositoresResponse> SteamWA.SteamServiceWS.ExpositorWS.listarExpositoresAsync(SteamWA.SteamServiceWS.listarExpositoresRequest request) {
-            return base.Channel.listarExpositoresAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarExpositoresResponse> listarExpositoresAsync() {
-            SteamWA.SteamServiceWS.listarExpositoresRequest inValue = new SteamWA.SteamServiceWS.listarExpositoresRequest();
-            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).listarExpositoresAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarExpositorResponse SteamWA.SteamServiceWS.ExpositorWS.eliminarExpositor(SteamWA.SteamServiceWS.eliminarExpositorRequest request) {
-            return base.Channel.eliminarExpositor(request);
-        }
-        
-        public int eliminarExpositor(SteamWA.SteamServiceWS.expositor expositor) {
-            SteamWA.SteamServiceWS.eliminarExpositorRequest inValue = new SteamWA.SteamServiceWS.eliminarExpositorRequest();
-            inValue.expositor = expositor;
-            SteamWA.SteamServiceWS.eliminarExpositorResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).eliminarExpositor(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarExpositorResponse> SteamWA.SteamServiceWS.ExpositorWS.eliminarExpositorAsync(SteamWA.SteamServiceWS.eliminarExpositorRequest request) {
-            return base.Channel.eliminarExpositorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarExpositorResponse> eliminarExpositorAsync(SteamWA.SteamServiceWS.expositor expositor) {
-            SteamWA.SteamServiceWS.eliminarExpositorRequest inValue = new SteamWA.SteamServiceWS.eliminarExpositorRequest();
-            inValue.expositor = expositor;
-            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).eliminarExpositorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3801,20 +3581,101 @@ namespace SteamWA.SteamServiceWS {
             inValue.idPerfil = idPerfil;
             return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).listarExpositoresPerfilAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.ocultarExpositorResponse SteamWA.SteamServiceWS.ExpositorWS.ocultarExpositor(SteamWA.SteamServiceWS.ocultarExpositorRequest request) {
+            return base.Channel.ocultarExpositor(request);
+        }
+        
+        public int ocultarExpositor(SteamWA.SteamServiceWS.expositor expositor) {
+            SteamWA.SteamServiceWS.ocultarExpositorRequest inValue = new SteamWA.SteamServiceWS.ocultarExpositorRequest();
+            inValue.expositor = expositor;
+            SteamWA.SteamServiceWS.ocultarExpositorResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).ocultarExpositor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarExpositorResponse> SteamWA.SteamServiceWS.ExpositorWS.ocultarExpositorAsync(SteamWA.SteamServiceWS.ocultarExpositorRequest request) {
+            return base.Channel.ocultarExpositorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarExpositorResponse> ocultarExpositorAsync(SteamWA.SteamServiceWS.expositor expositor) {
+            SteamWA.SteamServiceWS.ocultarExpositorRequest inValue = new SteamWA.SteamServiceWS.ocultarExpositorRequest();
+            inValue.expositor = expositor;
+            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).ocultarExpositorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.insertarExpositorResponse SteamWA.SteamServiceWS.ExpositorWS.insertarExpositor(SteamWA.SteamServiceWS.insertarExpositorRequest request) {
+            return base.Channel.insertarExpositor(request);
+        }
+        
+        public int insertarExpositor(SteamWA.SteamServiceWS.expositor expositor) {
+            SteamWA.SteamServiceWS.insertarExpositorRequest inValue = new SteamWA.SteamServiceWS.insertarExpositorRequest();
+            inValue.expositor = expositor;
+            SteamWA.SteamServiceWS.insertarExpositorResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).insertarExpositor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarExpositorResponse> SteamWA.SteamServiceWS.ExpositorWS.insertarExpositorAsync(SteamWA.SteamServiceWS.insertarExpositorRequest request) {
+            return base.Channel.insertarExpositorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarExpositorResponse> insertarExpositorAsync(SteamWA.SteamServiceWS.expositor expositor) {
+            SteamWA.SteamServiceWS.insertarExpositorRequest inValue = new SteamWA.SteamServiceWS.insertarExpositorRequest();
+            inValue.expositor = expositor;
+            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).insertarExpositorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.eliminarExpositorResponse SteamWA.SteamServiceWS.ExpositorWS.eliminarExpositor(SteamWA.SteamServiceWS.eliminarExpositorRequest request) {
+            return base.Channel.eliminarExpositor(request);
+        }
+        
+        public int eliminarExpositor(SteamWA.SteamServiceWS.expositor expositor) {
+            SteamWA.SteamServiceWS.eliminarExpositorRequest inValue = new SteamWA.SteamServiceWS.eliminarExpositorRequest();
+            inValue.expositor = expositor;
+            SteamWA.SteamServiceWS.eliminarExpositorResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).eliminarExpositor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarExpositorResponse> SteamWA.SteamServiceWS.ExpositorWS.eliminarExpositorAsync(SteamWA.SteamServiceWS.eliminarExpositorRequest request) {
+            return base.Channel.eliminarExpositorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarExpositorResponse> eliminarExpositorAsync(SteamWA.SteamServiceWS.expositor expositor) {
+            SteamWA.SteamServiceWS.eliminarExpositorRequest inValue = new SteamWA.SteamServiceWS.eliminarExpositorRequest();
+            inValue.expositor = expositor;
+            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).eliminarExpositorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarExpositoresResponse SteamWA.SteamServiceWS.ExpositorWS.listarExpositores(SteamWA.SteamServiceWS.listarExpositoresRequest request) {
+            return base.Channel.listarExpositores(request);
+        }
+        
+        public SteamWA.SteamServiceWS.expositor[] listarExpositores() {
+            SteamWA.SteamServiceWS.listarExpositoresRequest inValue = new SteamWA.SteamServiceWS.listarExpositoresRequest();
+            SteamWA.SteamServiceWS.listarExpositoresResponse retVal = ((SteamWA.SteamServiceWS.ExpositorWS)(this)).listarExpositores(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarExpositoresResponse> SteamWA.SteamServiceWS.ExpositorWS.listarExpositoresAsync(SteamWA.SteamServiceWS.listarExpositoresRequest request) {
+            return base.Channel.listarExpositoresAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarExpositoresResponse> listarExpositoresAsync() {
+            SteamWA.SteamServiceWS.listarExpositoresRequest inValue = new SteamWA.SteamServiceWS.listarExpositoresRequest();
+            return ((SteamWA.SteamServiceWS.ExpositorWS)(this)).listarExpositoresAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.JuegoWS")]
     public interface JuegoWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.actualizarJuegoResponse actualizarJuego(SteamWA.SteamServiceWS.actualizarJuegoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarJuegoResponse> actualizarJuegoAsync(SteamWA.SteamServiceWS.actualizarJuegoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/JuegoWS/eliminarJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/JuegoWS/eliminarJuegoResponse")]
@@ -3844,6 +3705,15 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarJuegosResponse> listarJuegosAsync(SteamWA.SteamServiceWS.listarJuegosRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.actualizarJuegoResponse actualizarJuego(SteamWA.SteamServiceWS.actualizarJuegoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarJuegoResponse> actualizarJuegoAsync(SteamWA.SteamServiceWS.actualizarJuegoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -3851,42 +3721,6 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarJuegoResponse> buscarJuegoAsync(SteamWA.SteamServiceWS.buscarJuegoRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarJuego", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarJuegoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.juego juego;
-        
-        public actualizarJuegoRequest() {
-        }
-        
-        public actualizarJuegoRequest(SteamWA.SteamServiceWS.juego juego) {
-            this.juego = juego;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarJuegoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarJuegoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public actualizarJuegoResponse() {
-        }
-        
-        public actualizarJuegoResponse(int @return) {
-            this.@return = @return;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3992,6 +3826,42 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarJuego", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarJuegoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.juego juego;
+        
+        public actualizarJuegoRequest() {
+        }
+        
+        public actualizarJuegoRequest(SteamWA.SteamServiceWS.juego juego) {
+            this.juego = juego;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarJuegoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarJuegoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarJuegoResponse() {
+        }
+        
+        public actualizarJuegoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="buscarJuego", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class buscarJuegoRequest {
         
@@ -4050,29 +3920,6 @@ namespace SteamWA.SteamServiceWS {
         
         public JuegoWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.actualizarJuegoResponse SteamWA.SteamServiceWS.JuegoWS.actualizarJuego(SteamWA.SteamServiceWS.actualizarJuegoRequest request) {
-            return base.Channel.actualizarJuego(request);
-        }
-        
-        public int actualizarJuego(SteamWA.SteamServiceWS.juego juego) {
-            SteamWA.SteamServiceWS.actualizarJuegoRequest inValue = new SteamWA.SteamServiceWS.actualizarJuegoRequest();
-            inValue.juego = juego;
-            SteamWA.SteamServiceWS.actualizarJuegoResponse retVal = ((SteamWA.SteamServiceWS.JuegoWS)(this)).actualizarJuego(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarJuegoResponse> SteamWA.SteamServiceWS.JuegoWS.actualizarJuegoAsync(SteamWA.SteamServiceWS.actualizarJuegoRequest request) {
-            return base.Channel.actualizarJuegoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarJuegoResponse> actualizarJuegoAsync(SteamWA.SteamServiceWS.juego juego) {
-            SteamWA.SteamServiceWS.actualizarJuegoRequest inValue = new SteamWA.SteamServiceWS.actualizarJuegoRequest();
-            inValue.juego = juego;
-            return ((SteamWA.SteamServiceWS.JuegoWS)(this)).actualizarJuegoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4143,6 +3990,29 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.actualizarJuegoResponse SteamWA.SteamServiceWS.JuegoWS.actualizarJuego(SteamWA.SteamServiceWS.actualizarJuegoRequest request) {
+            return base.Channel.actualizarJuego(request);
+        }
+        
+        public int actualizarJuego(SteamWA.SteamServiceWS.juego juego) {
+            SteamWA.SteamServiceWS.actualizarJuegoRequest inValue = new SteamWA.SteamServiceWS.actualizarJuegoRequest();
+            inValue.juego = juego;
+            SteamWA.SteamServiceWS.actualizarJuegoResponse retVal = ((SteamWA.SteamServiceWS.JuegoWS)(this)).actualizarJuego(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarJuegoResponse> SteamWA.SteamServiceWS.JuegoWS.actualizarJuegoAsync(SteamWA.SteamServiceWS.actualizarJuegoRequest request) {
+            return base.Channel.actualizarJuegoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarJuegoResponse> actualizarJuegoAsync(SteamWA.SteamServiceWS.juego juego) {
+            SteamWA.SteamServiceWS.actualizarJuegoRequest inValue = new SteamWA.SteamServiceWS.actualizarJuegoRequest();
+            inValue.juego = juego;
+            return ((SteamWA.SteamServiceWS.JuegoWS)(this)).actualizarJuegoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.buscarJuegoResponse SteamWA.SteamServiceWS.JuegoWS.buscarJuego(SteamWA.SteamServiceWS.buscarJuegoRequest request) {
             return base.Channel.buscarJuego(request);
         }
@@ -4171,13 +4041,13 @@ namespace SteamWA.SteamServiceWS {
     public interface SubforoWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.editarSubforoResponse editarSubforo(SteamWA.SteamServiceWS.editarSubforoRequest request);
+        SteamWA.SteamServiceWS.mostrarSubforosForoResponse mostrarSubforosForo(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarSubforoResponse> editarSubforoAsync(SteamWA.SteamServiceWS.editarSubforoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarSubforosForoResponse> mostrarSubforosForoAsync(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/eliminarSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/eliminarSubforoResponse")]
@@ -4198,47 +4068,47 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarSubforoResponse> insertarSubforoAsync(SteamWA.SteamServiceWS.insertarSubforoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.mostrarSubforosForoResponse mostrarSubforosForo(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request);
+        SteamWA.SteamServiceWS.editarSubforoResponse editarSubforo(SteamWA.SteamServiceWS.editarSubforoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarSubforosForoResponse> mostrarSubforosForoAsync(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarSubforoResponse> editarSubforoAsync(SteamWA.SteamServiceWS.editarSubforoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editarSubforo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class editarSubforoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarSubforosForo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class mostrarSubforosForoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.subforo subforo;
+        public SteamWA.SteamServiceWS.foro foro;
         
-        public editarSubforoRequest() {
+        public mostrarSubforosForoRequest() {
         }
         
-        public editarSubforoRequest(SteamWA.SteamServiceWS.subforo subforo) {
-            this.subforo = subforo;
+        public mostrarSubforosForoRequest(SteamWA.SteamServiceWS.foro foro) {
+            this.foro = foro;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editarSubforoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class editarSubforoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarSubforosForoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class mostrarSubforosForoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.subforo[] @return;
         
-        public editarSubforoResponse() {
+        public mostrarSubforosForoResponse() {
         }
         
-        public editarSubforoResponse(int @return) {
+        public mostrarSubforosForoResponse(SteamWA.SteamServiceWS.subforo[] @return) {
             this.@return = @return;
         }
     }
@@ -4318,35 +4188,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarSubforosForo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class mostrarSubforosForoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editarSubforo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class editarSubforoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.foro foro;
+        public SteamWA.SteamServiceWS.subforo subforo;
         
-        public mostrarSubforosForoRequest() {
+        public editarSubforoRequest() {
         }
         
-        public mostrarSubforosForoRequest(SteamWA.SteamServiceWS.foro foro) {
-            this.foro = foro;
+        public editarSubforoRequest(SteamWA.SteamServiceWS.subforo subforo) {
+            this.subforo = subforo;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarSubforosForoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class mostrarSubforosForoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editarSubforoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class editarSubforoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.subforo[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public mostrarSubforosForoResponse() {
+        public editarSubforoResponse() {
         }
         
-        public mostrarSubforosForoResponse(SteamWA.SteamServiceWS.subforo[] @return) {
+        public editarSubforoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -4379,26 +4249,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.editarSubforoResponse SteamWA.SteamServiceWS.SubforoWS.editarSubforo(SteamWA.SteamServiceWS.editarSubforoRequest request) {
-            return base.Channel.editarSubforo(request);
+        SteamWA.SteamServiceWS.mostrarSubforosForoResponse SteamWA.SteamServiceWS.SubforoWS.mostrarSubforosForo(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request) {
+            return base.Channel.mostrarSubforosForo(request);
         }
         
-        public int editarSubforo(SteamWA.SteamServiceWS.subforo subforo) {
-            SteamWA.SteamServiceWS.editarSubforoRequest inValue = new SteamWA.SteamServiceWS.editarSubforoRequest();
-            inValue.subforo = subforo;
-            SteamWA.SteamServiceWS.editarSubforoResponse retVal = ((SteamWA.SteamServiceWS.SubforoWS)(this)).editarSubforo(inValue);
+        public SteamWA.SteamServiceWS.subforo[] mostrarSubforosForo(SteamWA.SteamServiceWS.foro foro) {
+            SteamWA.SteamServiceWS.mostrarSubforosForoRequest inValue = new SteamWA.SteamServiceWS.mostrarSubforosForoRequest();
+            inValue.foro = foro;
+            SteamWA.SteamServiceWS.mostrarSubforosForoResponse retVal = ((SteamWA.SteamServiceWS.SubforoWS)(this)).mostrarSubforosForo(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarSubforoResponse> SteamWA.SteamServiceWS.SubforoWS.editarSubforoAsync(SteamWA.SteamServiceWS.editarSubforoRequest request) {
-            return base.Channel.editarSubforoAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarSubforosForoResponse> SteamWA.SteamServiceWS.SubforoWS.mostrarSubforosForoAsync(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request) {
+            return base.Channel.mostrarSubforosForoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarSubforoResponse> editarSubforoAsync(SteamWA.SteamServiceWS.subforo subforo) {
-            SteamWA.SteamServiceWS.editarSubforoRequest inValue = new SteamWA.SteamServiceWS.editarSubforoRequest();
-            inValue.subforo = subforo;
-            return ((SteamWA.SteamServiceWS.SubforoWS)(this)).editarSubforoAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarSubforosForoResponse> mostrarSubforosForoAsync(SteamWA.SteamServiceWS.foro foro) {
+            SteamWA.SteamServiceWS.mostrarSubforosForoRequest inValue = new SteamWA.SteamServiceWS.mostrarSubforosForoRequest();
+            inValue.foro = foro;
+            return ((SteamWA.SteamServiceWS.SubforoWS)(this)).mostrarSubforosForoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4448,58 +4318,32 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.mostrarSubforosForoResponse SteamWA.SteamServiceWS.SubforoWS.mostrarSubforosForo(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request) {
-            return base.Channel.mostrarSubforosForo(request);
+        SteamWA.SteamServiceWS.editarSubforoResponse SteamWA.SteamServiceWS.SubforoWS.editarSubforo(SteamWA.SteamServiceWS.editarSubforoRequest request) {
+            return base.Channel.editarSubforo(request);
         }
         
-        public SteamWA.SteamServiceWS.subforo[] mostrarSubforosForo(SteamWA.SteamServiceWS.foro foro) {
-            SteamWA.SteamServiceWS.mostrarSubforosForoRequest inValue = new SteamWA.SteamServiceWS.mostrarSubforosForoRequest();
-            inValue.foro = foro;
-            SteamWA.SteamServiceWS.mostrarSubforosForoResponse retVal = ((SteamWA.SteamServiceWS.SubforoWS)(this)).mostrarSubforosForo(inValue);
+        public int editarSubforo(SteamWA.SteamServiceWS.subforo subforo) {
+            SteamWA.SteamServiceWS.editarSubforoRequest inValue = new SteamWA.SteamServiceWS.editarSubforoRequest();
+            inValue.subforo = subforo;
+            SteamWA.SteamServiceWS.editarSubforoResponse retVal = ((SteamWA.SteamServiceWS.SubforoWS)(this)).editarSubforo(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarSubforosForoResponse> SteamWA.SteamServiceWS.SubforoWS.mostrarSubforosForoAsync(SteamWA.SteamServiceWS.mostrarSubforosForoRequest request) {
-            return base.Channel.mostrarSubforosForoAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarSubforoResponse> SteamWA.SteamServiceWS.SubforoWS.editarSubforoAsync(SteamWA.SteamServiceWS.editarSubforoRequest request) {
+            return base.Channel.editarSubforoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarSubforosForoResponse> mostrarSubforosForoAsync(SteamWA.SteamServiceWS.foro foro) {
-            SteamWA.SteamServiceWS.mostrarSubforosForoRequest inValue = new SteamWA.SteamServiceWS.mostrarSubforosForoRequest();
-            inValue.foro = foro;
-            return ((SteamWA.SteamServiceWS.SubforoWS)(this)).mostrarSubforosForoAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarSubforoResponse> editarSubforoAsync(SteamWA.SteamServiceWS.subforo subforo) {
+            SteamWA.SteamServiceWS.editarSubforoRequest inValue = new SteamWA.SteamServiceWS.editarSubforoRequest();
+            inValue.subforo = subforo;
+            return ((SteamWA.SteamServiceWS.SubforoWS)(this)).editarSubforoAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.ProductoAdquiridoWS")]
     public interface ProductoAdquiridoWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
-            "AdquiridoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
-            "AdquiridoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse listarIdProductoProductoAdquirido(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
-            "AdquiridoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
-            "AdquiridoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse> listarIdProductoProductoAdquiridoAsync(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
-            "idoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
-            "idoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse actualizarProductoAdquirido(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
-            "idoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
-            "idoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse> actualizarProductoAdquiridoAsync(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/insertarProductoAdquirid" +
@@ -4565,70 +4409,32 @@ namespace SteamWA.SteamServiceWS {
             "sPorIdColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarProductosAdquirido" +
             "sPorIdColeccionResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProductosAdquiridosPorIdColeccionResponse> listarProductosAdquiridosPorIdColeccionAsync(SteamWA.SteamServiceWS.listarProductosAdquiridosPorIdColeccionRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarIdProductoProductoAdquirido", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarIdProductoProductoAdquiridoRequest {
         
-        public listarIdProductoProductoAdquiridoRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarIdProductoProductoAdquiridoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarIdProductoProductoAdquiridoResponse {
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
+            "AdquiridoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
+            "AdquiridoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse listarIdProductoProductoAdquirido(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int[] @return;
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
+            "AdquiridoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/listarIdProductoProducto" +
+            "AdquiridoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse> listarIdProductoProductoAdquiridoAsync(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request);
         
-        public listarIdProductoProductoAdquiridoResponse() {
-        }
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
+            "idoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
+            "idoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse actualizarProductoAdquirido(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request);
         
-        public listarIdProductoProductoAdquiridoResponse(int[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarProductoAdquirido", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarProductoAdquiridoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.productoAdquirido productoAdquirido;
-        
-        public actualizarProductoAdquiridoRequest() {
-        }
-        
-        public actualizarProductoAdquiridoRequest(SteamWA.SteamServiceWS.productoAdquirido productoAdquirido) {
-            this.productoAdquirido = productoAdquirido;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarProductoAdquiridoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarProductoAdquiridoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public actualizarProductoAdquiridoResponse() {
-        }
-        
-        public actualizarProductoAdquiridoResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
+            "idoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoWS/actualizarProductoAdquir" +
+            "idoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse> actualizarProductoAdquiridoAsync(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4811,6 +4617,70 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarIdProductoProductoAdquirido", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarIdProductoProductoAdquiridoRequest {
+        
+        public listarIdProductoProductoAdquiridoRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarIdProductoProductoAdquiridoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarIdProductoProductoAdquiridoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int[] @return;
+        
+        public listarIdProductoProductoAdquiridoResponse() {
+        }
+        
+        public listarIdProductoProductoAdquiridoResponse(int[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarProductoAdquirido", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarProductoAdquiridoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.productoAdquirido productoAdquirido;
+        
+        public actualizarProductoAdquiridoRequest() {
+        }
+        
+        public actualizarProductoAdquiridoRequest(SteamWA.SteamServiceWS.productoAdquirido productoAdquirido) {
+            this.productoAdquirido = productoAdquirido;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarProductoAdquiridoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarProductoAdquiridoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarProductoAdquiridoResponse() {
+        }
+        
+        public actualizarProductoAdquiridoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductoAdquiridoWSChannel : SteamWA.SteamServiceWS.ProductoAdquiridoWS, System.ServiceModel.IClientChannel {
     }
@@ -4836,50 +4706,6 @@ namespace SteamWA.SteamServiceWS {
         
         public ProductoAdquiridoWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse SteamWA.SteamServiceWS.ProductoAdquiridoWS.listarIdProductoProductoAdquirido(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request) {
-            return base.Channel.listarIdProductoProductoAdquirido(request);
-        }
-        
-        public int[] listarIdProductoProductoAdquirido() {
-            SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest();
-            SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse retVal = ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).listarIdProductoProductoAdquirido(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse> SteamWA.SteamServiceWS.ProductoAdquiridoWS.listarIdProductoProductoAdquiridoAsync(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request) {
-            return base.Channel.listarIdProductoProductoAdquiridoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse> listarIdProductoProductoAdquiridoAsync() {
-            SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest();
-            return ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).listarIdProductoProductoAdquiridoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse SteamWA.SteamServiceWS.ProductoAdquiridoWS.actualizarProductoAdquirido(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request) {
-            return base.Channel.actualizarProductoAdquirido(request);
-        }
-        
-        public int actualizarProductoAdquirido(SteamWA.SteamServiceWS.productoAdquirido productoAdquirido) {
-            SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest();
-            inValue.productoAdquirido = productoAdquirido;
-            SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse retVal = ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).actualizarProductoAdquirido(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse> SteamWA.SteamServiceWS.ProductoAdquiridoWS.actualizarProductoAdquiridoAsync(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request) {
-            return base.Channel.actualizarProductoAdquiridoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse> actualizarProductoAdquiridoAsync(SteamWA.SteamServiceWS.productoAdquirido productoAdquirido) {
-            SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest();
-            inValue.productoAdquirido = productoAdquirido;
-            return ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).actualizarProductoAdquiridoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4996,50 +4822,55 @@ namespace SteamWA.SteamServiceWS {
             inValue.idColeccion = idColeccion;
             return ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).listarProductosAdquiridosPorIdColeccionAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse SteamWA.SteamServiceWS.ProductoAdquiridoWS.listarIdProductoProductoAdquirido(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request) {
+            return base.Channel.listarIdProductoProductoAdquirido(request);
+        }
+        
+        public int[] listarIdProductoProductoAdquirido() {
+            SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest();
+            SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse retVal = ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).listarIdProductoProductoAdquirido(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse> SteamWA.SteamServiceWS.ProductoAdquiridoWS.listarIdProductoProductoAdquiridoAsync(SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest request) {
+            return base.Channel.listarIdProductoProductoAdquiridoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoResponse> listarIdProductoProductoAdquiridoAsync() {
+            SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.listarIdProductoProductoAdquiridoRequest();
+            return ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).listarIdProductoProductoAdquiridoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse SteamWA.SteamServiceWS.ProductoAdquiridoWS.actualizarProductoAdquirido(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request) {
+            return base.Channel.actualizarProductoAdquirido(request);
+        }
+        
+        public int actualizarProductoAdquirido(SteamWA.SteamServiceWS.productoAdquirido productoAdquirido) {
+            SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest();
+            inValue.productoAdquirido = productoAdquirido;
+            SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse retVal = ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).actualizarProductoAdquirido(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse> SteamWA.SteamServiceWS.ProductoAdquiridoWS.actualizarProductoAdquiridoAsync(SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest request) {
+            return base.Channel.actualizarProductoAdquiridoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarProductoAdquiridoResponse> actualizarProductoAdquiridoAsync(SteamWA.SteamServiceWS.productoAdquirido productoAdquirido) {
+            SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest inValue = new SteamWA.SteamServiceWS.actualizarProductoAdquiridoRequest();
+            inValue.productoAdquirido = productoAdquirido;
+            return ((SteamWA.SteamServiceWS.ProductoAdquiridoWS)(this)).actualizarProductoAdquiridoAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.LogroDesbloqueadoWS")]
     public interface LogroDesbloqueadoWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
-            "adoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
-            "adoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse actualizarLogroDesbloqueado(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
-            "adoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
-            "adoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse> actualizarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
-            "sponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse listarLogrosPorUsuario(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse> listarLogrosPorUsuarioAsync(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
-            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
-            "oResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarLogroDesbloqueadoResponse insertarLogroDesbloqueado(SteamWA.SteamServiceWS.insertarLogroDesbloqueadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
-            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
-            "oResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroDesbloqueadoResponse> insertarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.insertarLogroDesbloqueadoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/eliminarLogroDesbloquead" +
@@ -5055,6 +4886,32 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse> eliminarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
+            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
+            "oResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.insertarLogroDesbloqueadoResponse insertarLogroDesbloqueado(SteamWA.SteamServiceWS.insertarLogroDesbloqueadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
+            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/insertarLogroDesbloquead" +
+            "oResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroDesbloqueadoResponse> insertarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.insertarLogroDesbloqueadoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
+            "sponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse listarLogrosPorUsuario(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosPorUsuarioRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse> listarLogrosPorUsuarioAsync(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosDesbloqueado" +
             "sProductoAdquiridoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosDesbloqueado" +
             "sProductoAdquiridoResponse")]
@@ -5066,76 +4923,53 @@ namespace SteamWA.SteamServiceWS {
             "sProductoAdquiridoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/listarLogrosDesbloqueado" +
             "sProductoAdquiridoResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosDesbloqueadosProductoAdquiridoResponse> listarLogrosDesbloqueadosProductoAdquiridoAsync(SteamWA.SteamServiceWS.listarLogrosDesbloqueadosProductoAdquiridoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
+            "adoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
+            "adoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse actualizarLogroDesbloqueado(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
+            "adoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroDesbloqueadoWS/actualizarLogroDesbloque" +
+            "adoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse> actualizarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogroDesbloqueado", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarLogroDesbloqueadoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogroDesbloqueado", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarLogroDesbloqueadoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado;
+        public int idLogroDesbloqueado;
         
-        public actualizarLogroDesbloqueadoRequest() {
+        public eliminarLogroDesbloqueadoRequest() {
         }
         
-        public actualizarLogroDesbloqueadoRequest(SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado) {
-            this.logroDesbloqueado = logroDesbloqueado;
+        public eliminarLogroDesbloqueadoRequest(int idLogroDesbloqueado) {
+            this.idLogroDesbloqueado = idLogroDesbloqueado;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogroDesbloqueadoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarLogroDesbloqueadoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogroDesbloqueadoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarLogroDesbloqueadoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public actualizarLogroDesbloqueadoResponse() {
+        public eliminarLogroDesbloqueadoResponse() {
         }
         
-        public actualizarLogroDesbloqueadoResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLogrosPorUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idUsuario;
-        
-        public listarLogrosPorUsuarioRequest() {
-        }
-        
-        public listarLogrosPorUsuarioRequest(int idUsuario) {
-            this.idUsuario = idUsuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLogrosPorUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.logroDesbloqueado[] @return;
-        
-        public listarLogrosPorUsuarioResponse() {
-        }
-        
-        public listarLogrosPorUsuarioResponse(SteamWA.SteamServiceWS.logroDesbloqueado[] @return) {
+        public eliminarLogroDesbloqueadoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -5179,35 +5013,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogroDesbloqueado", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarLogroDesbloqueadoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLogrosPorUsuarioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idLogroDesbloqueado;
+        public int idUsuario;
         
-        public eliminarLogroDesbloqueadoRequest() {
+        public listarLogrosPorUsuarioRequest() {
         }
         
-        public eliminarLogroDesbloqueadoRequest(int idLogroDesbloqueado) {
-            this.idLogroDesbloqueado = idLogroDesbloqueado;
+        public listarLogrosPorUsuarioRequest(int idUsuario) {
+            this.idUsuario = idUsuario;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogroDesbloqueadoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarLogroDesbloqueadoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLogrosPorUsuarioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.logroDesbloqueado[] @return;
         
-        public eliminarLogroDesbloqueadoResponse() {
+        public listarLogrosPorUsuarioResponse() {
         }
         
-        public eliminarLogroDesbloqueadoResponse(int @return) {
+        public listarLogrosPorUsuarioResponse(SteamWA.SteamServiceWS.logroDesbloqueado[] @return) {
             this.@return = @return;
         }
     }
@@ -5248,6 +5082,42 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogroDesbloqueado", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarLogroDesbloqueadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado;
+        
+        public actualizarLogroDesbloqueadoRequest() {
+        }
+        
+        public actualizarLogroDesbloqueadoRequest(SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado) {
+            this.logroDesbloqueado = logroDesbloqueado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogroDesbloqueadoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarLogroDesbloqueadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarLogroDesbloqueadoResponse() {
+        }
+        
+        public actualizarLogroDesbloqueadoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface LogroDesbloqueadoWSChannel : SteamWA.SteamServiceWS.LogroDesbloqueadoWS, System.ServiceModel.IClientChannel {
     }
@@ -5276,49 +5146,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse SteamWA.SteamServiceWS.LogroDesbloqueadoWS.actualizarLogroDesbloqueado(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request) {
-            return base.Channel.actualizarLogroDesbloqueado(request);
+        SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse SteamWA.SteamServiceWS.LogroDesbloqueadoWS.eliminarLogroDesbloqueado(SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest request) {
+            return base.Channel.eliminarLogroDesbloqueado(request);
         }
         
-        public int actualizarLogroDesbloqueado(SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado) {
-            SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest();
-            inValue.logroDesbloqueado = logroDesbloqueado;
-            SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse retVal = ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).actualizarLogroDesbloqueado(inValue);
+        public int eliminarLogroDesbloqueado(int idLogroDesbloqueado) {
+            SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest();
+            inValue.idLogroDesbloqueado = idLogroDesbloqueado;
+            SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse retVal = ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).eliminarLogroDesbloqueado(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse> SteamWA.SteamServiceWS.LogroDesbloqueadoWS.actualizarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request) {
-            return base.Channel.actualizarLogroDesbloqueadoAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse> SteamWA.SteamServiceWS.LogroDesbloqueadoWS.eliminarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest request) {
+            return base.Channel.eliminarLogroDesbloqueadoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse> actualizarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado) {
-            SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest();
-            inValue.logroDesbloqueado = logroDesbloqueado;
-            return ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).actualizarLogroDesbloqueadoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse SteamWA.SteamServiceWS.LogroDesbloqueadoWS.listarLogrosPorUsuario(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request) {
-            return base.Channel.listarLogrosPorUsuario(request);
-        }
-        
-        public SteamWA.SteamServiceWS.logroDesbloqueado[] listarLogrosPorUsuario(int idUsuario) {
-            SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).listarLogrosPorUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse> SteamWA.SteamServiceWS.LogroDesbloqueadoWS.listarLogrosPorUsuarioAsync(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request) {
-            return base.Channel.listarLogrosPorUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse> listarLogrosPorUsuarioAsync(int idUsuario) {
-            SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            return ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).listarLogrosPorUsuarioAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse> eliminarLogroDesbloqueadoAsync(int idLogroDesbloqueado) {
+            SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest();
+            inValue.idLogroDesbloqueado = idLogroDesbloqueado;
+            return ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).eliminarLogroDesbloqueadoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -5345,26 +5192,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse SteamWA.SteamServiceWS.LogroDesbloqueadoWS.eliminarLogroDesbloqueado(SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest request) {
-            return base.Channel.eliminarLogroDesbloqueado(request);
+        SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse SteamWA.SteamServiceWS.LogroDesbloqueadoWS.listarLogrosPorUsuario(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request) {
+            return base.Channel.listarLogrosPorUsuario(request);
         }
         
-        public int eliminarLogroDesbloqueado(int idLogroDesbloqueado) {
-            SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest();
-            inValue.idLogroDesbloqueado = idLogroDesbloqueado;
-            SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse retVal = ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).eliminarLogroDesbloqueado(inValue);
+        public SteamWA.SteamServiceWS.logroDesbloqueado[] listarLogrosPorUsuario(int idUsuario) {
+            SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest();
+            inValue.idUsuario = idUsuario;
+            SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).listarLogrosPorUsuario(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse> SteamWA.SteamServiceWS.LogroDesbloqueadoWS.eliminarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest request) {
-            return base.Channel.eliminarLogroDesbloqueadoAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse> SteamWA.SteamServiceWS.LogroDesbloqueadoWS.listarLogrosPorUsuarioAsync(SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest request) {
+            return base.Channel.listarLogrosPorUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoResponse> eliminarLogroDesbloqueadoAsync(int idLogroDesbloqueado) {
-            SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroDesbloqueadoRequest();
-            inValue.idLogroDesbloqueado = idLogroDesbloqueado;
-            return ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).eliminarLogroDesbloqueadoAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorUsuarioResponse> listarLogrosPorUsuarioAsync(int idUsuario) {
+            SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorUsuarioRequest();
+            inValue.idUsuario = idUsuario;
+            return ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).listarLogrosPorUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -5389,6 +5236,29 @@ namespace SteamWA.SteamServiceWS {
             inValue.idProductoAdquirido = idProductoAdquirido;
             return ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).listarLogrosDesbloqueadosProductoAdquiridoAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse SteamWA.SteamServiceWS.LogroDesbloqueadoWS.actualizarLogroDesbloqueado(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request) {
+            return base.Channel.actualizarLogroDesbloqueado(request);
+        }
+        
+        public int actualizarLogroDesbloqueado(SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado) {
+            SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest();
+            inValue.logroDesbloqueado = logroDesbloqueado;
+            SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse retVal = ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).actualizarLogroDesbloqueado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse> SteamWA.SteamServiceWS.LogroDesbloqueadoWS.actualizarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest request) {
+            return base.Channel.actualizarLogroDesbloqueadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoResponse> actualizarLogroDesbloqueadoAsync(SteamWA.SteamServiceWS.logroDesbloqueado logroDesbloqueado) {
+            SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroDesbloqueadoRequest();
+            inValue.logroDesbloqueado = logroDesbloqueado;
+            return ((SteamWA.SteamServiceWS.LogroDesbloqueadoWS)(this)).actualizarLogroDesbloqueadoAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -5403,6 +5273,15 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProveedorWS/actualizarProveedorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProveedorWS/actualizarProveedorResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarProveedorResponse> actualizarProveedorAsync(SteamWA.SteamServiceWS.actualizarProveedorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarProveedoresResponse listarProveedores(SteamWA.SteamServiceWS.listarProveedoresRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProveedoresResponse> listarProveedoresAsync(SteamWA.SteamServiceWS.listarProveedoresRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProveedorWS/insertarProveedorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProveedorWS/insertarProveedorResponse")]
@@ -5421,15 +5300,6 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProveedorWS/eliminarProveedorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProveedorWS/eliminarProveedorResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProveedorResponse> eliminarProveedorAsync(SteamWA.SteamServiceWS.eliminarProveedorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarProveedoresResponse listarProveedores(SteamWA.SteamServiceWS.listarProveedoresRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProveedoresResponse> listarProveedoresAsync(SteamWA.SteamServiceWS.listarProveedoresRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5464,6 +5334,34 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public actualizarProveedorResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedores", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProveedoresRequest {
+        
+        public listarProveedoresRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProveedoresResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.proveedor[] @return;
+        
+        public listarProveedoresResponse() {
+        }
+        
+        public listarProveedoresResponse(SteamWA.SteamServiceWS.proveedor[] @return) {
             this.@return = @return;
         }
     }
@@ -5540,34 +5438,6 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedores", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProveedoresRequest {
-        
-        public listarProveedoresRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProveedoresResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.proveedor[] @return;
-        
-        public listarProveedoresResponse() {
-        }
-        
-        public listarProveedoresResponse(SteamWA.SteamServiceWS.proveedor[] @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProveedorWSChannel : SteamWA.SteamServiceWS.ProveedorWS, System.ServiceModel.IClientChannel {
     }
@@ -5619,6 +5489,27 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarProveedoresResponse SteamWA.SteamServiceWS.ProveedorWS.listarProveedores(SteamWA.SteamServiceWS.listarProveedoresRequest request) {
+            return base.Channel.listarProveedores(request);
+        }
+        
+        public SteamWA.SteamServiceWS.proveedor[] listarProveedores() {
+            SteamWA.SteamServiceWS.listarProveedoresRequest inValue = new SteamWA.SteamServiceWS.listarProveedoresRequest();
+            SteamWA.SteamServiceWS.listarProveedoresResponse retVal = ((SteamWA.SteamServiceWS.ProveedorWS)(this)).listarProveedores(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProveedoresResponse> SteamWA.SteamServiceWS.ProveedorWS.listarProveedoresAsync(SteamWA.SteamServiceWS.listarProveedoresRequest request) {
+            return base.Channel.listarProveedoresAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProveedoresResponse> listarProveedoresAsync() {
+            SteamWA.SteamServiceWS.listarProveedoresRequest inValue = new SteamWA.SteamServiceWS.listarProveedoresRequest();
+            return ((SteamWA.SteamServiceWS.ProveedorWS)(this)).listarProveedoresAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.insertarProveedorResponse SteamWA.SteamServiceWS.ProveedorWS.insertarProveedor(SteamWA.SteamServiceWS.insertarProveedorRequest request) {
             return base.Channel.insertarProveedor(request);
         }
@@ -5663,27 +5554,6 @@ namespace SteamWA.SteamServiceWS {
             inValue.idProveedor = idProveedor;
             return ((SteamWA.SteamServiceWS.ProveedorWS)(this)).eliminarProveedorAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarProveedoresResponse SteamWA.SteamServiceWS.ProveedorWS.listarProveedores(SteamWA.SteamServiceWS.listarProveedoresRequest request) {
-            return base.Channel.listarProveedores(request);
-        }
-        
-        public SteamWA.SteamServiceWS.proveedor[] listarProveedores() {
-            SteamWA.SteamServiceWS.listarProveedoresRequest inValue = new SteamWA.SteamServiceWS.listarProveedoresRequest();
-            SteamWA.SteamServiceWS.listarProveedoresResponse retVal = ((SteamWA.SteamServiceWS.ProveedorWS)(this)).listarProveedores(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProveedoresResponse> SteamWA.SteamServiceWS.ProveedorWS.listarProveedoresAsync(SteamWA.SteamServiceWS.listarProveedoresRequest request) {
-            return base.Channel.listarProveedoresAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProveedoresResponse> listarProveedoresAsync() {
-            SteamWA.SteamServiceWS.listarProveedoresRequest inValue = new SteamWA.SteamServiceWS.listarProveedoresRequest();
-            return ((SteamWA.SteamServiceWS.ProveedorWS)(this)).listarProveedoresAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -5709,15 +5579,6 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarTiposMonedaResponse> listarTiposMonedaAsync(SteamWA.SteamServiceWS.listarTiposMonedaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarTipoMonedaResponse insertarTipoMoneda(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarTipoMonedaResponse> insertarTipoMonedaAsync(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -5725,6 +5586,15 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/TipoMonedaWS/eliminarTipoMonedaResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarTipoMonedaResponse> eliminarTipoMonedaAsync(SteamWA.SteamServiceWS.eliminarTipoMonedaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.insertarTipoMonedaResponse insertarTipoMoneda(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/TipoMonedaWS/insertarTipoMonedaResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarTipoMonedaResponse> insertarTipoMonedaAsync(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5794,42 +5664,6 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarTipoMoneda", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarTipoMonedaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.tipoMoneda tipoMoneda;
-        
-        public insertarTipoMonedaRequest() {
-        }
-        
-        public insertarTipoMonedaRequest(SteamWA.SteamServiceWS.tipoMoneda tipoMoneda) {
-            this.tipoMoneda = tipoMoneda;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarTipoMonedaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarTipoMonedaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarTipoMonedaResponse() {
-        }
-        
-        public insertarTipoMonedaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarTipoMoneda", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class eliminarTipoMonedaRequest {
         
@@ -5859,6 +5693,42 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public eliminarTipoMonedaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarTipoMoneda", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarTipoMonedaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.tipoMoneda tipoMoneda;
+        
+        public insertarTipoMonedaRequest() {
+        }
+        
+        public insertarTipoMonedaRequest(SteamWA.SteamServiceWS.tipoMoneda tipoMoneda) {
+            this.tipoMoneda = tipoMoneda;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarTipoMonedaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarTipoMonedaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarTipoMonedaResponse() {
+        }
+        
+        public insertarTipoMonedaResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -5935,29 +5805,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarTipoMonedaResponse SteamWA.SteamServiceWS.TipoMonedaWS.insertarTipoMoneda(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request) {
-            return base.Channel.insertarTipoMoneda(request);
-        }
-        
-        public int insertarTipoMoneda(SteamWA.SteamServiceWS.tipoMoneda tipoMoneda) {
-            SteamWA.SteamServiceWS.insertarTipoMonedaRequest inValue = new SteamWA.SteamServiceWS.insertarTipoMonedaRequest();
-            inValue.tipoMoneda = tipoMoneda;
-            SteamWA.SteamServiceWS.insertarTipoMonedaResponse retVal = ((SteamWA.SteamServiceWS.TipoMonedaWS)(this)).insertarTipoMoneda(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarTipoMonedaResponse> SteamWA.SteamServiceWS.TipoMonedaWS.insertarTipoMonedaAsync(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request) {
-            return base.Channel.insertarTipoMonedaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarTipoMonedaResponse> insertarTipoMonedaAsync(SteamWA.SteamServiceWS.tipoMoneda tipoMoneda) {
-            SteamWA.SteamServiceWS.insertarTipoMonedaRequest inValue = new SteamWA.SteamServiceWS.insertarTipoMonedaRequest();
-            inValue.tipoMoneda = tipoMoneda;
-            return ((SteamWA.SteamServiceWS.TipoMonedaWS)(this)).insertarTipoMonedaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.eliminarTipoMonedaResponse SteamWA.SteamServiceWS.TipoMonedaWS.eliminarTipoMoneda(SteamWA.SteamServiceWS.eliminarTipoMonedaRequest request) {
             return base.Channel.eliminarTipoMoneda(request);
         }
@@ -5979,257 +5826,34 @@ namespace SteamWA.SteamServiceWS {
             inValue.idTipoMoneda = idTipoMoneda;
             return ((SteamWA.SteamServiceWS.TipoMonedaWS)(this)).eliminarTipoMonedaAsync(inValue);
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.MedallaWS")]
-    public interface MedallaWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MedallaWS/buscarMedallaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MedallaWS/buscarMedallaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.buscarMedallaResponse buscarMedalla(SteamWA.SteamServiceWS.buscarMedallaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MedallaWS/buscarMedallaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MedallaWS/buscarMedallaResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarMedallaResponse> buscarMedallaAsync(SteamWA.SteamServiceWS.buscarMedallaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MedallaWS/actualizarMedallaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MedallaWS/actualizarMedallaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.actualizarMedallaResponse actualizarMedalla(SteamWA.SteamServiceWS.actualizarMedallaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MedallaWS/actualizarMedallaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MedallaWS/actualizarMedallaResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarMedallaResponse> actualizarMedallaAsync(SteamWA.SteamServiceWS.actualizarMedallaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MedallaWS/insertarMedallaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MedallaWS/insertarMedallaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarMedallaResponse insertarMedalla(SteamWA.SteamServiceWS.insertarMedallaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MedallaWS/insertarMedallaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MedallaWS/insertarMedallaResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMedallaResponse> insertarMedallaAsync(SteamWA.SteamServiceWS.insertarMedallaRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarMedalla", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarMedallaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.usuario usuario;
-        
-        public buscarMedallaRequest() {
-        }
-        
-        public buscarMedallaRequest(SteamWA.SteamServiceWS.usuario usuario) {
-            this.usuario = usuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarMedallaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarMedallaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.medalla[] @return;
-        
-        public buscarMedallaResponse() {
-        }
-        
-        public buscarMedallaResponse(SteamWA.SteamServiceWS.medalla[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarMedalla", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarMedallaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.medalla medalla;
-        
-        public actualizarMedallaRequest() {
-        }
-        
-        public actualizarMedallaRequest(SteamWA.SteamServiceWS.medalla medalla) {
-            this.medalla = medalla;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarMedallaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarMedallaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public actualizarMedallaResponse() {
-        }
-        
-        public actualizarMedallaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMedalla", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarMedallaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.medalla medalla;
-        
-        public insertarMedallaRequest() {
-        }
-        
-        public insertarMedallaRequest(SteamWA.SteamServiceWS.medalla medalla) {
-            this.medalla = medalla;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMedallaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarMedallaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarMedallaResponse() {
-        }
-        
-        public insertarMedallaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface MedallaWSChannel : SteamWA.SteamServiceWS.MedallaWS, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MedallaWSClient : System.ServiceModel.ClientBase<SteamWA.SteamServiceWS.MedallaWS>, SteamWA.SteamServiceWS.MedallaWS {
-        
-        public MedallaWSClient() {
-        }
-        
-        public MedallaWSClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
-        }
-        
-        public MedallaWSClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public MedallaWSClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public MedallaWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
-        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.buscarMedallaResponse SteamWA.SteamServiceWS.MedallaWS.buscarMedalla(SteamWA.SteamServiceWS.buscarMedallaRequest request) {
-            return base.Channel.buscarMedalla(request);
+        SteamWA.SteamServiceWS.insertarTipoMonedaResponse SteamWA.SteamServiceWS.TipoMonedaWS.insertarTipoMoneda(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request) {
+            return base.Channel.insertarTipoMoneda(request);
         }
         
-        public SteamWA.SteamServiceWS.medalla[] buscarMedalla(SteamWA.SteamServiceWS.usuario usuario) {
-            SteamWA.SteamServiceWS.buscarMedallaRequest inValue = new SteamWA.SteamServiceWS.buscarMedallaRequest();
-            inValue.usuario = usuario;
-            SteamWA.SteamServiceWS.buscarMedallaResponse retVal = ((SteamWA.SteamServiceWS.MedallaWS)(this)).buscarMedalla(inValue);
+        public int insertarTipoMoneda(SteamWA.SteamServiceWS.tipoMoneda tipoMoneda) {
+            SteamWA.SteamServiceWS.insertarTipoMonedaRequest inValue = new SteamWA.SteamServiceWS.insertarTipoMonedaRequest();
+            inValue.tipoMoneda = tipoMoneda;
+            SteamWA.SteamServiceWS.insertarTipoMonedaResponse retVal = ((SteamWA.SteamServiceWS.TipoMonedaWS)(this)).insertarTipoMoneda(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarMedallaResponse> SteamWA.SteamServiceWS.MedallaWS.buscarMedallaAsync(SteamWA.SteamServiceWS.buscarMedallaRequest request) {
-            return base.Channel.buscarMedallaAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarTipoMonedaResponse> SteamWA.SteamServiceWS.TipoMonedaWS.insertarTipoMonedaAsync(SteamWA.SteamServiceWS.insertarTipoMonedaRequest request) {
+            return base.Channel.insertarTipoMonedaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarMedallaResponse> buscarMedallaAsync(SteamWA.SteamServiceWS.usuario usuario) {
-            SteamWA.SteamServiceWS.buscarMedallaRequest inValue = new SteamWA.SteamServiceWS.buscarMedallaRequest();
-            inValue.usuario = usuario;
-            return ((SteamWA.SteamServiceWS.MedallaWS)(this)).buscarMedallaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.actualizarMedallaResponse SteamWA.SteamServiceWS.MedallaWS.actualizarMedalla(SteamWA.SteamServiceWS.actualizarMedallaRequest request) {
-            return base.Channel.actualizarMedalla(request);
-        }
-        
-        public int actualizarMedalla(SteamWA.SteamServiceWS.medalla medalla) {
-            SteamWA.SteamServiceWS.actualizarMedallaRequest inValue = new SteamWA.SteamServiceWS.actualizarMedallaRequest();
-            inValue.medalla = medalla;
-            SteamWA.SteamServiceWS.actualizarMedallaResponse retVal = ((SteamWA.SteamServiceWS.MedallaWS)(this)).actualizarMedalla(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarMedallaResponse> SteamWA.SteamServiceWS.MedallaWS.actualizarMedallaAsync(SteamWA.SteamServiceWS.actualizarMedallaRequest request) {
-            return base.Channel.actualizarMedallaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarMedallaResponse> actualizarMedallaAsync(SteamWA.SteamServiceWS.medalla medalla) {
-            SteamWA.SteamServiceWS.actualizarMedallaRequest inValue = new SteamWA.SteamServiceWS.actualizarMedallaRequest();
-            inValue.medalla = medalla;
-            return ((SteamWA.SteamServiceWS.MedallaWS)(this)).actualizarMedallaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarMedallaResponse SteamWA.SteamServiceWS.MedallaWS.insertarMedalla(SteamWA.SteamServiceWS.insertarMedallaRequest request) {
-            return base.Channel.insertarMedalla(request);
-        }
-        
-        public int insertarMedalla(SteamWA.SteamServiceWS.medalla medalla) {
-            SteamWA.SteamServiceWS.insertarMedallaRequest inValue = new SteamWA.SteamServiceWS.insertarMedallaRequest();
-            inValue.medalla = medalla;
-            SteamWA.SteamServiceWS.insertarMedallaResponse retVal = ((SteamWA.SteamServiceWS.MedallaWS)(this)).insertarMedalla(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMedallaResponse> SteamWA.SteamServiceWS.MedallaWS.insertarMedallaAsync(SteamWA.SteamServiceWS.insertarMedallaRequest request) {
-            return base.Channel.insertarMedallaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMedallaResponse> insertarMedallaAsync(SteamWA.SteamServiceWS.medalla medalla) {
-            SteamWA.SteamServiceWS.insertarMedallaRequest inValue = new SteamWA.SteamServiceWS.insertarMedallaRequest();
-            inValue.medalla = medalla;
-            return ((SteamWA.SteamServiceWS.MedallaWS)(this)).insertarMedallaAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarTipoMonedaResponse> insertarTipoMonedaAsync(SteamWA.SteamServiceWS.tipoMoneda tipoMoneda) {
+            SteamWA.SteamServiceWS.insertarTipoMonedaRequest inValue = new SteamWA.SteamServiceWS.insertarTipoMonedaRequest();
+            inValue.tipoMoneda = tipoMoneda;
+            return ((SteamWA.SteamServiceWS.TipoMonedaWS)(this)).insertarTipoMonedaAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.ForoWS")]
     public interface ForoWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/editarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/editarForoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.editarForoResponse editarForo(SteamWA.SteamServiceWS.editarForoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/editarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/editarForoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarForoResponse> editarForoAsync(SteamWA.SteamServiceWS.editarForoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosSuscritosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/listarForosSuscritosResponse")]
@@ -6241,6 +5865,15 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarForosSuscritosResponse> listarForosSuscritosAsync(SteamWA.SteamServiceWS.listarForosSuscritosRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/editarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/editarForoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.editarForoResponse editarForo(SteamWA.SteamServiceWS.editarForoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/editarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/editarForoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarForoResponse> editarForoAsync(SteamWA.SteamServiceWS.editarForoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/listarCreadosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/listarCreadosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -6248,15 +5881,6 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/listarCreadosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/listarCreadosResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarCreadosResponse> listarCreadosAsync(SteamWA.SteamServiceWS.listarCreadosRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarForoResponse eliminarForo(SteamWA.SteamServiceWS.eliminarForoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarForoResponse> eliminarForoAsync(SteamWA.SteamServiceWS.eliminarForoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/insertarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/insertarForoResponse")]
@@ -6268,6 +5892,15 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarForoResponse> insertarForoAsync(SteamWA.SteamServiceWS.insertarForoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/listarForosResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarForosResponse listarForos(SteamWA.SteamServiceWS.listarForosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/listarForosResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarForosResponse> listarForosAsync(SteamWA.SteamServiceWS.listarForosRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/buscarForosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/buscarForosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -6277,49 +5910,13 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarForosResponse> buscarForosAsync(SteamWA.SteamServiceWS.buscarForosRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/listarForosResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarForosResponse listarForos(SteamWA.SteamServiceWS.listarForosRequest request);
+        SteamWA.SteamServiceWS.eliminarForoResponse eliminarForo(SteamWA.SteamServiceWS.eliminarForoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/listarForosResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarForosResponse> listarForosAsync(SteamWA.SteamServiceWS.listarForosRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editarForo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class editarForoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.foro foro;
-        
-        public editarForoRequest() {
-        }
-        
-        public editarForoRequest(SteamWA.SteamServiceWS.foro foro) {
-            this.foro = foro;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editarForoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class editarForoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public editarForoResponse() {
-        }
-        
-        public editarForoResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarForoResponse> eliminarForoAsync(SteamWA.SteamServiceWS.eliminarForoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6354,6 +5951,42 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public listarForosSuscritosResponse(SteamWA.SteamServiceWS.foro[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editarForo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class editarForoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.foro foro;
+        
+        public editarForoRequest() {
+        }
+        
+        public editarForoRequest(SteamWA.SteamServiceWS.foro foro) {
+            this.foro = foro;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editarForoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class editarForoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public editarForoResponse() {
+        }
+        
+        public editarForoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -6397,42 +6030,6 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarForo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarForoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.foro foro;
-        
-        public eliminarForoRequest() {
-        }
-        
-        public eliminarForoRequest(SteamWA.SteamServiceWS.foro foro) {
-            this.foro = foro;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarForoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarForoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarForoResponse() {
-        }
-        
-        public eliminarForoResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="insertarForo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class insertarForoRequest {
         
@@ -6462,6 +6059,34 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public insertarForoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarForos", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarForosRequest {
+        
+        public listarForosRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarForosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarForosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.foro[] @return;
+        
+        public listarForosResponse() {
+        }
+        
+        public listarForosResponse(SteamWA.SteamServiceWS.foro[] @return) {
             this.@return = @return;
         }
     }
@@ -6505,27 +6130,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarForos", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarForosRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarForo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarForoRequest {
         
-        public listarForosRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.foro foro;
+        
+        public eliminarForoRequest() {
+        }
+        
+        public eliminarForoRequest(SteamWA.SteamServiceWS.foro foro) {
+            this.foro = foro;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarForosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarForosResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarForoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarForoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.foro[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public listarForosResponse() {
+        public eliminarForoResponse() {
         }
         
-        public listarForosResponse(SteamWA.SteamServiceWS.foro[] @return) {
+        public eliminarForoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -6558,29 +6191,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.editarForoResponse SteamWA.SteamServiceWS.ForoWS.editarForo(SteamWA.SteamServiceWS.editarForoRequest request) {
-            return base.Channel.editarForo(request);
-        }
-        
-        public int editarForo(SteamWA.SteamServiceWS.foro foro) {
-            SteamWA.SteamServiceWS.editarForoRequest inValue = new SteamWA.SteamServiceWS.editarForoRequest();
-            inValue.foro = foro;
-            SteamWA.SteamServiceWS.editarForoResponse retVal = ((SteamWA.SteamServiceWS.ForoWS)(this)).editarForo(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarForoResponse> SteamWA.SteamServiceWS.ForoWS.editarForoAsync(SteamWA.SteamServiceWS.editarForoRequest request) {
-            return base.Channel.editarForoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarForoResponse> editarForoAsync(SteamWA.SteamServiceWS.foro foro) {
-            SteamWA.SteamServiceWS.editarForoRequest inValue = new SteamWA.SteamServiceWS.editarForoRequest();
-            inValue.foro = foro;
-            return ((SteamWA.SteamServiceWS.ForoWS)(this)).editarForoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.listarForosSuscritosResponse SteamWA.SteamServiceWS.ForoWS.listarForosSuscritos(SteamWA.SteamServiceWS.listarForosSuscritosRequest request) {
             return base.Channel.listarForosSuscritos(request);
         }
@@ -6601,6 +6211,29 @@ namespace SteamWA.SteamServiceWS {
             SteamWA.SteamServiceWS.listarForosSuscritosRequest inValue = new SteamWA.SteamServiceWS.listarForosSuscritosRequest();
             inValue.nombre = nombre;
             return ((SteamWA.SteamServiceWS.ForoWS)(this)).listarForosSuscritosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.editarForoResponse SteamWA.SteamServiceWS.ForoWS.editarForo(SteamWA.SteamServiceWS.editarForoRequest request) {
+            return base.Channel.editarForo(request);
+        }
+        
+        public int editarForo(SteamWA.SteamServiceWS.foro foro) {
+            SteamWA.SteamServiceWS.editarForoRequest inValue = new SteamWA.SteamServiceWS.editarForoRequest();
+            inValue.foro = foro;
+            SteamWA.SteamServiceWS.editarForoResponse retVal = ((SteamWA.SteamServiceWS.ForoWS)(this)).editarForo(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarForoResponse> SteamWA.SteamServiceWS.ForoWS.editarForoAsync(SteamWA.SteamServiceWS.editarForoRequest request) {
+            return base.Channel.editarForoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarForoResponse> editarForoAsync(SteamWA.SteamServiceWS.foro foro) {
+            SteamWA.SteamServiceWS.editarForoRequest inValue = new SteamWA.SteamServiceWS.editarForoRequest();
+            inValue.foro = foro;
+            return ((SteamWA.SteamServiceWS.ForoWS)(this)).editarForoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6627,29 +6260,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarForoResponse SteamWA.SteamServiceWS.ForoWS.eliminarForo(SteamWA.SteamServiceWS.eliminarForoRequest request) {
-            return base.Channel.eliminarForo(request);
-        }
-        
-        public int eliminarForo(SteamWA.SteamServiceWS.foro foro) {
-            SteamWA.SteamServiceWS.eliminarForoRequest inValue = new SteamWA.SteamServiceWS.eliminarForoRequest();
-            inValue.foro = foro;
-            SteamWA.SteamServiceWS.eliminarForoResponse retVal = ((SteamWA.SteamServiceWS.ForoWS)(this)).eliminarForo(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarForoResponse> SteamWA.SteamServiceWS.ForoWS.eliminarForoAsync(SteamWA.SteamServiceWS.eliminarForoRequest request) {
-            return base.Channel.eliminarForoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarForoResponse> eliminarForoAsync(SteamWA.SteamServiceWS.foro foro) {
-            SteamWA.SteamServiceWS.eliminarForoRequest inValue = new SteamWA.SteamServiceWS.eliminarForoRequest();
-            inValue.foro = foro;
-            return ((SteamWA.SteamServiceWS.ForoWS)(this)).eliminarForoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.insertarForoResponse SteamWA.SteamServiceWS.ForoWS.insertarForo(SteamWA.SteamServiceWS.insertarForoRequest request) {
             return base.Channel.insertarForo(request);
         }
@@ -6670,6 +6280,27 @@ namespace SteamWA.SteamServiceWS {
             SteamWA.SteamServiceWS.insertarForoRequest inValue = new SteamWA.SteamServiceWS.insertarForoRequest();
             inValue.foro = foro;
             return ((SteamWA.SteamServiceWS.ForoWS)(this)).insertarForoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarForosResponse SteamWA.SteamServiceWS.ForoWS.listarForos(SteamWA.SteamServiceWS.listarForosRequest request) {
+            return base.Channel.listarForos(request);
+        }
+        
+        public SteamWA.SteamServiceWS.foro[] listarForos() {
+            SteamWA.SteamServiceWS.listarForosRequest inValue = new SteamWA.SteamServiceWS.listarForosRequest();
+            SteamWA.SteamServiceWS.listarForosResponse retVal = ((SteamWA.SteamServiceWS.ForoWS)(this)).listarForos(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarForosResponse> SteamWA.SteamServiceWS.ForoWS.listarForosAsync(SteamWA.SteamServiceWS.listarForosRequest request) {
+            return base.Channel.listarForosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarForosResponse> listarForosAsync() {
+            SteamWA.SteamServiceWS.listarForosRequest inValue = new SteamWA.SteamServiceWS.listarForosRequest();
+            return ((SteamWA.SteamServiceWS.ForoWS)(this)).listarForosAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6696,48 +6327,32 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarForosResponse SteamWA.SteamServiceWS.ForoWS.listarForos(SteamWA.SteamServiceWS.listarForosRequest request) {
-            return base.Channel.listarForos(request);
+        SteamWA.SteamServiceWS.eliminarForoResponse SteamWA.SteamServiceWS.ForoWS.eliminarForo(SteamWA.SteamServiceWS.eliminarForoRequest request) {
+            return base.Channel.eliminarForo(request);
         }
         
-        public SteamWA.SteamServiceWS.foro[] listarForos() {
-            SteamWA.SteamServiceWS.listarForosRequest inValue = new SteamWA.SteamServiceWS.listarForosRequest();
-            SteamWA.SteamServiceWS.listarForosResponse retVal = ((SteamWA.SteamServiceWS.ForoWS)(this)).listarForos(inValue);
+        public int eliminarForo(SteamWA.SteamServiceWS.foro foro) {
+            SteamWA.SteamServiceWS.eliminarForoRequest inValue = new SteamWA.SteamServiceWS.eliminarForoRequest();
+            inValue.foro = foro;
+            SteamWA.SteamServiceWS.eliminarForoResponse retVal = ((SteamWA.SteamServiceWS.ForoWS)(this)).eliminarForo(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarForosResponse> SteamWA.SteamServiceWS.ForoWS.listarForosAsync(SteamWA.SteamServiceWS.listarForosRequest request) {
-            return base.Channel.listarForosAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarForoResponse> SteamWA.SteamServiceWS.ForoWS.eliminarForoAsync(SteamWA.SteamServiceWS.eliminarForoRequest request) {
+            return base.Channel.eliminarForoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarForosResponse> listarForosAsync() {
-            SteamWA.SteamServiceWS.listarForosRequest inValue = new SteamWA.SteamServiceWS.listarForosRequest();
-            return ((SteamWA.SteamServiceWS.ForoWS)(this)).listarForosAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarForoResponse> eliminarForoAsync(SteamWA.SteamServiceWS.foro foro) {
+            SteamWA.SteamServiceWS.eliminarForoRequest inValue = new SteamWA.SteamServiceWS.eliminarForoRequest();
+            inValue.foro = foro;
+            return ((SteamWA.SteamServiceWS.ForoWS)(this)).eliminarForoAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.GestorSancionesWS")]
     public interface GestorSancionesWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.buscarGestorResponse buscarGestor(SteamWA.SteamServiceWS.buscarGestorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarGestorResponse> buscarGestorAsync(SteamWA.SteamServiceWS.buscarGestorRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.actualizarGestorResponse actualizarGestor(SteamWA.SteamServiceWS.actualizarGestorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarGestorResponse> actualizarGestorAsync(SteamWA.SteamServiceWS.actualizarGestorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/asignarGestorUsuarioReques" +
@@ -6751,40 +6366,58 @@ namespace SteamWA.SteamServiceWS {
             "t", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/asignarGestorUsuarioRespon" +
             "se")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarGestorUsuarioResponse> asignarGestorUsuarioAsync(SteamWA.SteamServiceWS.asignarGestorUsuarioRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.actualizarGestorResponse actualizarGestor(SteamWA.SteamServiceWS.actualizarGestorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/actualizarGestorResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarGestorResponse> actualizarGestorAsync(SteamWA.SteamServiceWS.actualizarGestorRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.buscarGestorResponse buscarGestor(SteamWA.SteamServiceWS.buscarGestorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/GestorSancionesWS/buscarGestorResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarGestorResponse> buscarGestorAsync(SteamWA.SteamServiceWS.buscarGestorRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarGestor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarGestorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarGestorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class asignarGestorUsuarioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idUsuario;
+        public int uid_usuario;
         
-        public buscarGestorRequest() {
+        public asignarGestorUsuarioRequest() {
         }
         
-        public buscarGestorRequest(int idUsuario) {
-            this.idUsuario = idUsuario;
+        public asignarGestorUsuarioRequest(int uid_usuario) {
+            this.uid_usuario = uid_usuario;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarGestorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarGestorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarGestorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class asignarGestorUsuarioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.gestorSanciones @return;
+        public int @return;
         
-        public buscarGestorResponse() {
+        public asignarGestorUsuarioResponse() {
         }
         
-        public buscarGestorResponse(SteamWA.SteamServiceWS.gestorSanciones @return) {
+        public asignarGestorUsuarioResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -6828,35 +6461,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarGestorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class asignarGestorUsuarioRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarGestor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarGestorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int uid_usuario;
+        public int idUsuario;
         
-        public asignarGestorUsuarioRequest() {
+        public buscarGestorRequest() {
         }
         
-        public asignarGestorUsuarioRequest(int uid_usuario) {
-            this.uid_usuario = uid_usuario;
+        public buscarGestorRequest(int idUsuario) {
+            this.idUsuario = idUsuario;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarGestorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class asignarGestorUsuarioResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarGestorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarGestorResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        public SteamWA.SteamServiceWS.gestorSanciones @return;
         
-        public asignarGestorUsuarioResponse() {
+        public buscarGestorResponse() {
         }
         
-        public asignarGestorUsuarioResponse(int @return) {
+        public buscarGestorResponse(SteamWA.SteamServiceWS.gestorSanciones @return) {
             this.@return = @return;
         }
     }
@@ -6889,26 +6522,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.buscarGestorResponse SteamWA.SteamServiceWS.GestorSancionesWS.buscarGestor(SteamWA.SteamServiceWS.buscarGestorRequest request) {
-            return base.Channel.buscarGestor(request);
+        SteamWA.SteamServiceWS.asignarGestorUsuarioResponse SteamWA.SteamServiceWS.GestorSancionesWS.asignarGestorUsuario(SteamWA.SteamServiceWS.asignarGestorUsuarioRequest request) {
+            return base.Channel.asignarGestorUsuario(request);
         }
         
-        public SteamWA.SteamServiceWS.gestorSanciones buscarGestor(int idUsuario) {
-            SteamWA.SteamServiceWS.buscarGestorRequest inValue = new SteamWA.SteamServiceWS.buscarGestorRequest();
-            inValue.idUsuario = idUsuario;
-            SteamWA.SteamServiceWS.buscarGestorResponse retVal = ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).buscarGestor(inValue);
+        public int asignarGestorUsuario(int uid_usuario) {
+            SteamWA.SteamServiceWS.asignarGestorUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarGestorUsuarioRequest();
+            inValue.uid_usuario = uid_usuario;
+            SteamWA.SteamServiceWS.asignarGestorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).asignarGestorUsuario(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarGestorResponse> SteamWA.SteamServiceWS.GestorSancionesWS.buscarGestorAsync(SteamWA.SteamServiceWS.buscarGestorRequest request) {
-            return base.Channel.buscarGestorAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarGestorUsuarioResponse> SteamWA.SteamServiceWS.GestorSancionesWS.asignarGestorUsuarioAsync(SteamWA.SteamServiceWS.asignarGestorUsuarioRequest request) {
+            return base.Channel.asignarGestorUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarGestorResponse> buscarGestorAsync(int idUsuario) {
-            SteamWA.SteamServiceWS.buscarGestorRequest inValue = new SteamWA.SteamServiceWS.buscarGestorRequest();
-            inValue.idUsuario = idUsuario;
-            return ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).buscarGestorAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarGestorUsuarioResponse> asignarGestorUsuarioAsync(int uid_usuario) {
+            SteamWA.SteamServiceWS.asignarGestorUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarGestorUsuarioRequest();
+            inValue.uid_usuario = uid_usuario;
+            return ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).asignarGestorUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6935,40 +6568,32 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.asignarGestorUsuarioResponse SteamWA.SteamServiceWS.GestorSancionesWS.asignarGestorUsuario(SteamWA.SteamServiceWS.asignarGestorUsuarioRequest request) {
-            return base.Channel.asignarGestorUsuario(request);
+        SteamWA.SteamServiceWS.buscarGestorResponse SteamWA.SteamServiceWS.GestorSancionesWS.buscarGestor(SteamWA.SteamServiceWS.buscarGestorRequest request) {
+            return base.Channel.buscarGestor(request);
         }
         
-        public int asignarGestorUsuario(int uid_usuario) {
-            SteamWA.SteamServiceWS.asignarGestorUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarGestorUsuarioRequest();
-            inValue.uid_usuario = uid_usuario;
-            SteamWA.SteamServiceWS.asignarGestorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).asignarGestorUsuario(inValue);
+        public SteamWA.SteamServiceWS.gestorSanciones buscarGestor(int idUsuario) {
+            SteamWA.SteamServiceWS.buscarGestorRequest inValue = new SteamWA.SteamServiceWS.buscarGestorRequest();
+            inValue.idUsuario = idUsuario;
+            SteamWA.SteamServiceWS.buscarGestorResponse retVal = ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).buscarGestor(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarGestorUsuarioResponse> SteamWA.SteamServiceWS.GestorSancionesWS.asignarGestorUsuarioAsync(SteamWA.SteamServiceWS.asignarGestorUsuarioRequest request) {
-            return base.Channel.asignarGestorUsuarioAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarGestorResponse> SteamWA.SteamServiceWS.GestorSancionesWS.buscarGestorAsync(SteamWA.SteamServiceWS.buscarGestorRequest request) {
+            return base.Channel.buscarGestorAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarGestorUsuarioResponse> asignarGestorUsuarioAsync(int uid_usuario) {
-            SteamWA.SteamServiceWS.asignarGestorUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarGestorUsuarioRequest();
-            inValue.uid_usuario = uid_usuario;
-            return ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).asignarGestorUsuarioAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarGestorResponse> buscarGestorAsync(int idUsuario) {
+            SteamWA.SteamServiceWS.buscarGestorRequest inValue = new SteamWA.SteamServiceWS.buscarGestorRequest();
+            inValue.idUsuario = idUsuario;
+            return ((SteamWA.SteamServiceWS.GestorSancionesWS)(this)).buscarGestorAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.RelacionWS")]
     public interface RelacionWS {
-        
-        // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.bloquearUsuarioResponse bloquearUsuario(SteamWA.SteamServiceWS.bloquearUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.bloquearUsuarioResponse> bloquearUsuarioAsync(SteamWA.SteamServiceWS.bloquearUsuarioRequest request);
         
         // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/RelacionWS/eliminarAmigoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/RelacionWS/eliminarAmigoResponse")]
@@ -6979,50 +6604,20 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarAmigoResponse> eliminarAmigoAsync(SteamWA.SteamServiceWS.eliminarAmigoRequest request);
         
         // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.bloquearUsuarioResponse bloquearUsuario(SteamWA.SteamServiceWS.bloquearUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/RelacionWS/bloquearUsuarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.bloquearUsuarioResponse> bloquearUsuarioAsync(SteamWA.SteamServiceWS.bloquearUsuarioRequest request);
+        
+        // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/RelacionWS/agregarAmigoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/RelacionWS/agregarAmigoResponse")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         SteamWA.SteamServiceWS.agregarAmigoResponse agregarAmigo(SteamWA.SteamServiceWS.agregarAmigoRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/RelacionWS/agregarAmigoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/RelacionWS/agregarAmigoResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.agregarAmigoResponse> agregarAmigoAsync(SteamWA.SteamServiceWS.agregarAmigoRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="bloquearUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class bloquearUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int idUsuarioActuador;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int idUsuarioDestino;
-        
-        public bloquearUsuarioRequest() {
-        }
-        
-        public bloquearUsuarioRequest(int idUsuarioActuador, int idUsuarioDestino) {
-            this.idUsuarioActuador = idUsuarioActuador;
-            this.idUsuarioDestino = idUsuarioDestino;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="bloquearUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class bloquearUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int @return;
-        
-        public bloquearUsuarioResponse() {
-        }
-        
-        public bloquearUsuarioResponse(int @return) {
-            this.@return = @return;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7059,6 +6654,44 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public eliminarAmigoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="bloquearUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class bloquearUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int idUsuarioActuador;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public int idUsuarioDestino;
+        
+        public bloquearUsuarioRequest() {
+        }
+        
+        public bloquearUsuarioRequest(int idUsuarioActuador, int idUsuarioDestino) {
+            this.idUsuarioActuador = idUsuarioActuador;
+            this.idUsuarioDestino = idUsuarioDestino;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="bloquearUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class bloquearUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int @return;
+        
+        public bloquearUsuarioResponse() {
+        }
+        
+        public bloquearUsuarioResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -7129,31 +6762,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.bloquearUsuarioResponse SteamWA.SteamServiceWS.RelacionWS.bloquearUsuario(SteamWA.SteamServiceWS.bloquearUsuarioRequest request) {
-            return base.Channel.bloquearUsuario(request);
-        }
-        
-        public int bloquearUsuario(int idUsuarioActuador, int idUsuarioDestino) {
-            SteamWA.SteamServiceWS.bloquearUsuarioRequest inValue = new SteamWA.SteamServiceWS.bloquearUsuarioRequest();
-            inValue.idUsuarioActuador = idUsuarioActuador;
-            inValue.idUsuarioDestino = idUsuarioDestino;
-            SteamWA.SteamServiceWS.bloquearUsuarioResponse retVal = ((SteamWA.SteamServiceWS.RelacionWS)(this)).bloquearUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.bloquearUsuarioResponse> SteamWA.SteamServiceWS.RelacionWS.bloquearUsuarioAsync(SteamWA.SteamServiceWS.bloquearUsuarioRequest request) {
-            return base.Channel.bloquearUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.bloquearUsuarioResponse> bloquearUsuarioAsync(int idUsuarioActuador, int idUsuarioDestino) {
-            SteamWA.SteamServiceWS.bloquearUsuarioRequest inValue = new SteamWA.SteamServiceWS.bloquearUsuarioRequest();
-            inValue.idUsuarioActuador = idUsuarioActuador;
-            inValue.idUsuarioDestino = idUsuarioDestino;
-            return ((SteamWA.SteamServiceWS.RelacionWS)(this)).bloquearUsuarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.eliminarAmigoResponse SteamWA.SteamServiceWS.RelacionWS.eliminarAmigo(SteamWA.SteamServiceWS.eliminarAmigoRequest request) {
             return base.Channel.eliminarAmigo(request);
         }
@@ -7176,6 +6784,31 @@ namespace SteamWA.SteamServiceWS {
             inValue.idUsuarioActuador = idUsuarioActuador;
             inValue.idUsuarioDestino = idUsuarioDestino;
             return ((SteamWA.SteamServiceWS.RelacionWS)(this)).eliminarAmigoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.bloquearUsuarioResponse SteamWA.SteamServiceWS.RelacionWS.bloquearUsuario(SteamWA.SteamServiceWS.bloquearUsuarioRequest request) {
+            return base.Channel.bloquearUsuario(request);
+        }
+        
+        public int bloquearUsuario(int idUsuarioActuador, int idUsuarioDestino) {
+            SteamWA.SteamServiceWS.bloquearUsuarioRequest inValue = new SteamWA.SteamServiceWS.bloquearUsuarioRequest();
+            inValue.idUsuarioActuador = idUsuarioActuador;
+            inValue.idUsuarioDestino = idUsuarioDestino;
+            SteamWA.SteamServiceWS.bloquearUsuarioResponse retVal = ((SteamWA.SteamServiceWS.RelacionWS)(this)).bloquearUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.bloquearUsuarioResponse> SteamWA.SteamServiceWS.RelacionWS.bloquearUsuarioAsync(SteamWA.SteamServiceWS.bloquearUsuarioRequest request) {
+            return base.Channel.bloquearUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.bloquearUsuarioResponse> bloquearUsuarioAsync(int idUsuarioActuador, int idUsuarioDestino) {
+            SteamWA.SteamServiceWS.bloquearUsuarioRequest inValue = new SteamWA.SteamServiceWS.bloquearUsuarioRequest();
+            inValue.idUsuarioActuador = idUsuarioActuador;
+            inValue.idUsuarioDestino = idUsuarioDestino;
+            return ((SteamWA.SteamServiceWS.RelacionWS)(this)).bloquearUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7209,15 +6842,6 @@ namespace SteamWA.SteamServiceWS {
     public interface BibliotecaWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse buscarBibliotecaPorUID(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse> buscarBibliotecaPorUIDAsync(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BibliotecaWS/asignarBibliotecaUsuarioRequest" +
             "", ReplyAction="http://services.softprog.pucp.edu.pe/BibliotecaWS/asignarBibliotecaUsuarioRespons" +
             "e")]
@@ -7229,42 +6853,15 @@ namespace SteamWA.SteamServiceWS {
             "", ReplyAction="http://services.softprog.pucp.edu.pe/BibliotecaWS/asignarBibliotecaUsuarioRespons" +
             "e")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarBibliotecaUsuarioResponse> asignarBibliotecaUsuarioAsync(SteamWA.SteamServiceWS.asignarBibliotecaUsuarioRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBibliotecaPorUID", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarBibliotecaPorUIDRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int buscarBibliotecaPorUID;
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse buscarBibliotecaPorUID(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request);
         
-        public buscarBibliotecaPorUIDRequest() {
-        }
-        
-        public buscarBibliotecaPorUIDRequest(int buscarBibliotecaPorUID) {
-            this.buscarBibliotecaPorUID = buscarBibliotecaPorUID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBibliotecaPorUIDResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarBibliotecaPorUIDResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.biblioteca @return;
-        
-        public buscarBibliotecaPorUIDResponse() {
-        }
-        
-        public buscarBibliotecaPorUIDResponse(SteamWA.SteamServiceWS.biblioteca @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BibliotecaWS/buscarBibliotecaPorUIDResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse> buscarBibliotecaPorUIDAsync(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7303,6 +6900,42 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBibliotecaPorUID", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarBibliotecaPorUIDRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int buscarBibliotecaPorUID;
+        
+        public buscarBibliotecaPorUIDRequest() {
+        }
+        
+        public buscarBibliotecaPorUIDRequest(int buscarBibliotecaPorUID) {
+            this.buscarBibliotecaPorUID = buscarBibliotecaPorUID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBibliotecaPorUIDResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarBibliotecaPorUIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.biblioteca @return;
+        
+        public buscarBibliotecaPorUIDResponse() {
+        }
+        
+        public buscarBibliotecaPorUIDResponse(SteamWA.SteamServiceWS.biblioteca @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface BibliotecaWSChannel : SteamWA.SteamServiceWS.BibliotecaWS, System.ServiceModel.IClientChannel {
     }
@@ -7331,29 +6964,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse SteamWA.SteamServiceWS.BibliotecaWS.buscarBibliotecaPorUID(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request) {
-            return base.Channel.buscarBibliotecaPorUID(request);
-        }
-        
-        public SteamWA.SteamServiceWS.biblioteca buscarBibliotecaPorUID(int buscarBibliotecaPorUID1) {
-            SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest inValue = new SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest();
-            inValue.buscarBibliotecaPorUID = buscarBibliotecaPorUID1;
-            SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse retVal = ((SteamWA.SteamServiceWS.BibliotecaWS)(this)).buscarBibliotecaPorUID(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse> SteamWA.SteamServiceWS.BibliotecaWS.buscarBibliotecaPorUIDAsync(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request) {
-            return base.Channel.buscarBibliotecaPorUIDAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse> buscarBibliotecaPorUIDAsync(int buscarBibliotecaPorUID) {
-            SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest inValue = new SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest();
-            inValue.buscarBibliotecaPorUID = buscarBibliotecaPorUID;
-            return ((SteamWA.SteamServiceWS.BibliotecaWS)(this)).buscarBibliotecaPorUIDAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.asignarBibliotecaUsuarioResponse SteamWA.SteamServiceWS.BibliotecaWS.asignarBibliotecaUsuario(SteamWA.SteamServiceWS.asignarBibliotecaUsuarioRequest request) {
             return base.Channel.asignarBibliotecaUsuario(request);
         }
@@ -7375,6 +6985,29 @@ namespace SteamWA.SteamServiceWS {
             inValue.uid_usuario = uid_usuario;
             return ((SteamWA.SteamServiceWS.BibliotecaWS)(this)).asignarBibliotecaUsuarioAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse SteamWA.SteamServiceWS.BibliotecaWS.buscarBibliotecaPorUID(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request) {
+            return base.Channel.buscarBibliotecaPorUID(request);
+        }
+        
+        public SteamWA.SteamServiceWS.biblioteca buscarBibliotecaPorUID(int buscarBibliotecaPorUID1) {
+            SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest inValue = new SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest();
+            inValue.buscarBibliotecaPorUID = buscarBibliotecaPorUID1;
+            SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse retVal = ((SteamWA.SteamServiceWS.BibliotecaWS)(this)).buscarBibliotecaPorUID(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse> SteamWA.SteamServiceWS.BibliotecaWS.buscarBibliotecaPorUIDAsync(SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest request) {
+            return base.Channel.buscarBibliotecaPorUIDAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBibliotecaPorUIDResponse> buscarBibliotecaPorUIDAsync(int buscarBibliotecaPorUID) {
+            SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest inValue = new SteamWA.SteamServiceWS.buscarBibliotecaPorUIDRequest();
+            inValue.buscarBibliotecaPorUID = buscarBibliotecaPorUID;
+            return ((SteamWA.SteamServiceWS.BibliotecaWS)(this)).buscarBibliotecaPorUIDAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -7382,22 +7015,13 @@ namespace SteamWA.SteamServiceWS {
     public interface BandaSonoraWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.buscarBandaSonoraResponse buscarBandaSonora(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request);
+        SteamWA.SteamServiceWS.eliminarBandaSonoraResponse eliminarBandaSonora(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBandaSonoraResponse> buscarBandaSonoraAsync(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarBandaSonorasResponse listarBandaSonoras(SteamWA.SteamServiceWS.listarBandaSonorasRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBandaSonorasResponse> listarBandaSonorasAsync(SteamWA.SteamServiceWS.listarBandaSonorasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarBandaSonoraResponse> eliminarBandaSonoraAsync(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/insertarBandaSonoraResponse")]
@@ -7418,29 +7042,38 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarBandaSonoraResponse> actualizarBandaSonoraAsync(SteamWA.SteamServiceWS.actualizarBandaSonoraRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarBandaSonoraResponse eliminarBandaSonora(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request);
+        SteamWA.SteamServiceWS.buscarBandaSonoraResponse buscarBandaSonora(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/eliminarBandaSonoraResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarBandaSonoraResponse> eliminarBandaSonoraAsync(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/buscarBandaSonoraResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBandaSonoraResponse> buscarBandaSonoraAsync(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarBandaSonorasResponse listarBandaSonoras(SteamWA.SteamServiceWS.listarBandaSonorasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/BandaSonoraWS/listarBandaSonorasResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBandaSonorasResponse> listarBandaSonorasAsync(SteamWA.SteamServiceWS.listarBandaSonorasRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBandaSonora", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarBandaSonoraRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarBandaSonora", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarBandaSonoraRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idBandaSonora;
         
-        public buscarBandaSonoraRequest() {
+        public eliminarBandaSonoraRequest() {
         }
         
-        public buscarBandaSonoraRequest(int idBandaSonora) {
+        public eliminarBandaSonoraRequest(int idBandaSonora) {
             this.idBandaSonora = idBandaSonora;
         }
     }
@@ -7448,45 +7081,17 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBandaSonoraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarBandaSonoraResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarBandaSonoraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarBandaSonoraResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.bandaSonora @return;
+        public int @return;
         
-        public buscarBandaSonoraResponse() {
+        public eliminarBandaSonoraResponse() {
         }
         
-        public buscarBandaSonoraResponse(SteamWA.SteamServiceWS.bandaSonora @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBandaSonoras", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarBandaSonorasRequest {
-        
-        public listarBandaSonorasRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBandaSonorasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarBandaSonorasResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.bandaSonora[] @return;
-        
-        public listarBandaSonorasResponse() {
-        }
-        
-        public listarBandaSonorasResponse(SteamWA.SteamServiceWS.bandaSonora[] @return) {
+        public eliminarBandaSonoraResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -7566,17 +7171,17 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarBandaSonora", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarBandaSonoraRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBandaSonora", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarBandaSonoraRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idBandaSonora;
         
-        public eliminarBandaSonoraRequest() {
+        public buscarBandaSonoraRequest() {
         }
         
-        public eliminarBandaSonoraRequest(int idBandaSonora) {
+        public buscarBandaSonoraRequest(int idBandaSonora) {
             this.idBandaSonora = idBandaSonora;
         }
     }
@@ -7584,17 +7189,45 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarBandaSonoraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarBandaSonoraResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarBandaSonoraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarBandaSonoraResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        public SteamWA.SteamServiceWS.bandaSonora @return;
         
-        public eliminarBandaSonoraResponse() {
+        public buscarBandaSonoraResponse() {
         }
         
-        public eliminarBandaSonoraResponse(int @return) {
+        public buscarBandaSonoraResponse(SteamWA.SteamServiceWS.bandaSonora @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBandaSonoras", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarBandaSonorasRequest {
+        
+        public listarBandaSonorasRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBandaSonorasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarBandaSonorasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.bandaSonora[] @return;
+        
+        public listarBandaSonorasResponse() {
+        }
+        
+        public listarBandaSonorasResponse(SteamWA.SteamServiceWS.bandaSonora[] @return) {
             this.@return = @return;
         }
     }
@@ -7627,47 +7260,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.buscarBandaSonoraResponse SteamWA.SteamServiceWS.BandaSonoraWS.buscarBandaSonora(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request) {
-            return base.Channel.buscarBandaSonora(request);
+        SteamWA.SteamServiceWS.eliminarBandaSonoraResponse SteamWA.SteamServiceWS.BandaSonoraWS.eliminarBandaSonora(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request) {
+            return base.Channel.eliminarBandaSonora(request);
         }
         
-        public SteamWA.SteamServiceWS.bandaSonora buscarBandaSonora(int idBandaSonora) {
-            SteamWA.SteamServiceWS.buscarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.buscarBandaSonoraRequest();
+        public int eliminarBandaSonora(int idBandaSonora) {
+            SteamWA.SteamServiceWS.eliminarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.eliminarBandaSonoraRequest();
             inValue.idBandaSonora = idBandaSonora;
-            SteamWA.SteamServiceWS.buscarBandaSonoraResponse retVal = ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).buscarBandaSonora(inValue);
+            SteamWA.SteamServiceWS.eliminarBandaSonoraResponse retVal = ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).eliminarBandaSonora(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBandaSonoraResponse> SteamWA.SteamServiceWS.BandaSonoraWS.buscarBandaSonoraAsync(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request) {
-            return base.Channel.buscarBandaSonoraAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarBandaSonoraResponse> SteamWA.SteamServiceWS.BandaSonoraWS.eliminarBandaSonoraAsync(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request) {
+            return base.Channel.eliminarBandaSonoraAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBandaSonoraResponse> buscarBandaSonoraAsync(int idBandaSonora) {
-            SteamWA.SteamServiceWS.buscarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.buscarBandaSonoraRequest();
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarBandaSonoraResponse> eliminarBandaSonoraAsync(int idBandaSonora) {
+            SteamWA.SteamServiceWS.eliminarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.eliminarBandaSonoraRequest();
             inValue.idBandaSonora = idBandaSonora;
-            return ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).buscarBandaSonoraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarBandaSonorasResponse SteamWA.SteamServiceWS.BandaSonoraWS.listarBandaSonoras(SteamWA.SteamServiceWS.listarBandaSonorasRequest request) {
-            return base.Channel.listarBandaSonoras(request);
-        }
-        
-        public SteamWA.SteamServiceWS.bandaSonora[] listarBandaSonoras() {
-            SteamWA.SteamServiceWS.listarBandaSonorasRequest inValue = new SteamWA.SteamServiceWS.listarBandaSonorasRequest();
-            SteamWA.SteamServiceWS.listarBandaSonorasResponse retVal = ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).listarBandaSonoras(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBandaSonorasResponse> SteamWA.SteamServiceWS.BandaSonoraWS.listarBandaSonorasAsync(SteamWA.SteamServiceWS.listarBandaSonorasRequest request) {
-            return base.Channel.listarBandaSonorasAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBandaSonorasResponse> listarBandaSonorasAsync() {
-            SteamWA.SteamServiceWS.listarBandaSonorasRequest inValue = new SteamWA.SteamServiceWS.listarBandaSonorasRequest();
-            return ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).listarBandaSonorasAsync(inValue);
+            return ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).eliminarBandaSonoraAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7717,32 +7329,62 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarBandaSonoraResponse SteamWA.SteamServiceWS.BandaSonoraWS.eliminarBandaSonora(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request) {
-            return base.Channel.eliminarBandaSonora(request);
+        SteamWA.SteamServiceWS.buscarBandaSonoraResponse SteamWA.SteamServiceWS.BandaSonoraWS.buscarBandaSonora(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request) {
+            return base.Channel.buscarBandaSonora(request);
         }
         
-        public int eliminarBandaSonora(int idBandaSonora) {
-            SteamWA.SteamServiceWS.eliminarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.eliminarBandaSonoraRequest();
+        public SteamWA.SteamServiceWS.bandaSonora buscarBandaSonora(int idBandaSonora) {
+            SteamWA.SteamServiceWS.buscarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.buscarBandaSonoraRequest();
             inValue.idBandaSonora = idBandaSonora;
-            SteamWA.SteamServiceWS.eliminarBandaSonoraResponse retVal = ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).eliminarBandaSonora(inValue);
+            SteamWA.SteamServiceWS.buscarBandaSonoraResponse retVal = ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).buscarBandaSonora(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarBandaSonoraResponse> SteamWA.SteamServiceWS.BandaSonoraWS.eliminarBandaSonoraAsync(SteamWA.SteamServiceWS.eliminarBandaSonoraRequest request) {
-            return base.Channel.eliminarBandaSonoraAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBandaSonoraResponse> SteamWA.SteamServiceWS.BandaSonoraWS.buscarBandaSonoraAsync(SteamWA.SteamServiceWS.buscarBandaSonoraRequest request) {
+            return base.Channel.buscarBandaSonoraAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarBandaSonoraResponse> eliminarBandaSonoraAsync(int idBandaSonora) {
-            SteamWA.SteamServiceWS.eliminarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.eliminarBandaSonoraRequest();
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarBandaSonoraResponse> buscarBandaSonoraAsync(int idBandaSonora) {
+            SteamWA.SteamServiceWS.buscarBandaSonoraRequest inValue = new SteamWA.SteamServiceWS.buscarBandaSonoraRequest();
             inValue.idBandaSonora = idBandaSonora;
-            return ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).eliminarBandaSonoraAsync(inValue);
+            return ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).buscarBandaSonoraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarBandaSonorasResponse SteamWA.SteamServiceWS.BandaSonoraWS.listarBandaSonoras(SteamWA.SteamServiceWS.listarBandaSonorasRequest request) {
+            return base.Channel.listarBandaSonoras(request);
+        }
+        
+        public SteamWA.SteamServiceWS.bandaSonora[] listarBandaSonoras() {
+            SteamWA.SteamServiceWS.listarBandaSonorasRequest inValue = new SteamWA.SteamServiceWS.listarBandaSonorasRequest();
+            SteamWA.SteamServiceWS.listarBandaSonorasResponse retVal = ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).listarBandaSonoras(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBandaSonorasResponse> SteamWA.SteamServiceWS.BandaSonoraWS.listarBandaSonorasAsync(SteamWA.SteamServiceWS.listarBandaSonorasRequest request) {
+            return base.Channel.listarBandaSonorasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBandaSonorasResponse> listarBandaSonorasAsync() {
+            SteamWA.SteamServiceWS.listarBandaSonorasRequest inValue = new SteamWA.SteamServiceWS.listarBandaSonorasRequest();
+            return ((SteamWA.SteamServiceWS.BandaSonoraWS)(this)).listarBandaSonorasAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.PerfilWS")]
     public interface PerfilWS {
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse asignarPerfilUsuario(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse> asignarPerfilUsuarioAsync(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesRequest", ReplyAction="http://services.softprog.pucp.edu.pe/PerfilWS/listarPerfilesResponse")]
@@ -7779,15 +7421,42 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/PerfilWS/buscarPerfilRequest", ReplyAction="http://services.softprog.pucp.edu.pe/PerfilWS/buscarPerfilResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarPerfilResponse> buscarPerfilAsync(SteamWA.SteamServiceWS.buscarPerfilRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarPerfilUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class asignarPerfilUsuarioRequest {
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse asignarPerfilUsuario(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int uid_usuario;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/PerfilWS/asignarPerfilUsuarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse> asignarPerfilUsuarioAsync(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request);
+        public asignarPerfilUsuarioRequest() {
+        }
+        
+        public asignarPerfilUsuarioRequest(int uid_usuario) {
+            this.uid_usuario = uid_usuario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarPerfilUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class asignarPerfilUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public asignarPerfilUsuarioResponse() {
+        }
+        
+        public asignarPerfilUsuarioResponse(int @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7926,42 +7595,6 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarPerfilUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class asignarPerfilUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int uid_usuario;
-        
-        public asignarPerfilUsuarioRequest() {
-        }
-        
-        public asignarPerfilUsuarioRequest(int uid_usuario) {
-            this.uid_usuario = uid_usuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarPerfilUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class asignarPerfilUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public asignarPerfilUsuarioResponse() {
-        }
-        
-        public asignarPerfilUsuarioResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface PerfilWSChannel : SteamWA.SteamServiceWS.PerfilWS, System.ServiceModel.IClientChannel {
     }
@@ -7987,6 +7620,29 @@ namespace SteamWA.SteamServiceWS {
         
         public PerfilWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse SteamWA.SteamServiceWS.PerfilWS.asignarPerfilUsuario(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request) {
+            return base.Channel.asignarPerfilUsuario(request);
+        }
+        
+        public int asignarPerfilUsuario(int uid_usuario) {
+            SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest();
+            inValue.uid_usuario = uid_usuario;
+            SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse retVal = ((SteamWA.SteamServiceWS.PerfilWS)(this)).asignarPerfilUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse> SteamWA.SteamServiceWS.PerfilWS.asignarPerfilUsuarioAsync(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request) {
+            return base.Channel.asignarPerfilUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse> asignarPerfilUsuarioAsync(int uid_usuario) {
+            SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest();
+            inValue.uid_usuario = uid_usuario;
+            return ((SteamWA.SteamServiceWS.PerfilWS)(this)).asignarPerfilUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -8078,34 +7734,20 @@ namespace SteamWA.SteamServiceWS {
             inValue.idUser = idUser;
             return ((SteamWA.SteamServiceWS.PerfilWS)(this)).buscarPerfilAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse SteamWA.SteamServiceWS.PerfilWS.asignarPerfilUsuario(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request) {
-            return base.Channel.asignarPerfilUsuario(request);
-        }
-        
-        public int asignarPerfilUsuario(int uid_usuario) {
-            SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest();
-            inValue.uid_usuario = uid_usuario;
-            SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse retVal = ((SteamWA.SteamServiceWS.PerfilWS)(this)).asignarPerfilUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse> SteamWA.SteamServiceWS.PerfilWS.asignarPerfilUsuarioAsync(SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest request) {
-            return base.Channel.asignarPerfilUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarPerfilUsuarioResponse> asignarPerfilUsuarioAsync(int uid_usuario) {
-            SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarPerfilUsuarioRequest();
-            inValue.uid_usuario = uid_usuario;
-            return ((SteamWA.SteamServiceWS.PerfilWS)(this)).asignarPerfilUsuarioAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.CarteraWS")]
     public interface CarteraWS {
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse asignarCarteraUsuario(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse> asignarCarteraUsuarioAsync(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarteraWS/buscarCarteraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarteraWS/buscarCarteraResponse")]
@@ -8124,15 +7766,42 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarteraWS/actualizarCarteraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarteraWS/actualizarCarteraResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarCarteraResponse> actualizarCarteraAsync(SteamWA.SteamServiceWS.actualizarCarteraRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarCarteraUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class asignarCarteraUsuarioRequest {
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse asignarCarteraUsuario(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int uid_usuario;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarteraWS/asignarCarteraUsuarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse> asignarCarteraUsuarioAsync(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request);
+        public asignarCarteraUsuarioRequest() {
+        }
+        
+        public asignarCarteraUsuarioRequest(int uid_usuario) {
+            this.uid_usuario = uid_usuario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarCarteraUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class asignarCarteraUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public asignarCarteraUsuarioResponse() {
+        }
+        
+        public asignarCarteraUsuarioResponse(int @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8207,42 +7876,6 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarCarteraUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class asignarCarteraUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int uid_usuario;
-        
-        public asignarCarteraUsuarioRequest() {
-        }
-        
-        public asignarCarteraUsuarioRequest(int uid_usuario) {
-            this.uid_usuario = uid_usuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="asignarCarteraUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class asignarCarteraUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public asignarCarteraUsuarioResponse() {
-        }
-        
-        public asignarCarteraUsuarioResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CarteraWSChannel : SteamWA.SteamServiceWS.CarteraWS, System.ServiceModel.IClientChannel {
     }
@@ -8268,6 +7901,29 @@ namespace SteamWA.SteamServiceWS {
         
         public CarteraWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse SteamWA.SteamServiceWS.CarteraWS.asignarCarteraUsuario(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request) {
+            return base.Channel.asignarCarteraUsuario(request);
+        }
+        
+        public int asignarCarteraUsuario(int uid_usuario) {
+            SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest();
+            inValue.uid_usuario = uid_usuario;
+            SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse retVal = ((SteamWA.SteamServiceWS.CarteraWS)(this)).asignarCarteraUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse> SteamWA.SteamServiceWS.CarteraWS.asignarCarteraUsuarioAsync(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request) {
+            return base.Channel.asignarCarteraUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse> asignarCarteraUsuarioAsync(int uid_usuario) {
+            SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest();
+            inValue.uid_usuario = uid_usuario;
+            return ((SteamWA.SteamServiceWS.CarteraWS)(this)).asignarCarteraUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -8315,29 +7971,6 @@ namespace SteamWA.SteamServiceWS {
             inValue.cartera = cartera;
             return ((SteamWA.SteamServiceWS.CarteraWS)(this)).actualizarCarteraAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse SteamWA.SteamServiceWS.CarteraWS.asignarCarteraUsuario(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request) {
-            return base.Channel.asignarCarteraUsuario(request);
-        }
-        
-        public int asignarCarteraUsuario(int uid_usuario) {
-            SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest();
-            inValue.uid_usuario = uid_usuario;
-            SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse retVal = ((SteamWA.SteamServiceWS.CarteraWS)(this)).asignarCarteraUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse> SteamWA.SteamServiceWS.CarteraWS.asignarCarteraUsuarioAsync(SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest request) {
-            return base.Channel.asignarCarteraUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.asignarCarteraUsuarioResponse> asignarCarteraUsuarioAsync(int uid_usuario) {
-            SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest inValue = new SteamWA.SteamServiceWS.asignarCarteraUsuarioRequest();
-            inValue.uid_usuario = uid_usuario;
-            return ((SteamWA.SteamServiceWS.CarteraWS)(this)).asignarCarteraUsuarioAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -8345,40 +7978,13 @@ namespace SteamWA.SteamServiceWS {
     public interface LogroWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarLogroResponse eliminarLogro(SteamWA.SteamServiceWS.eliminarLogroRequest request);
+        SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse listarLogrosPorIdJuego(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroResponse> eliminarLogroAsync(SteamWA.SteamServiceWS.eliminarLogroRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarLogrosResponse listarLogros(SteamWA.SteamServiceWS.listarLogrosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosResponse> listarLogrosAsync(SteamWA.SteamServiceWS.listarLogrosRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.actualizarLogroResponse actualizarLogro(SteamWA.SteamServiceWS.actualizarLogroRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroResponse> actualizarLogroAsync(SteamWA.SteamServiceWS.actualizarLogroRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarLogroResponse insertarLogro(SteamWA.SteamServiceWS.insertarLogroRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroResponse> insertarLogroAsync(SteamWA.SteamServiceWS.insertarLogroRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse> listarLogrosPorIdJuegoAsync(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/buscarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/buscarLogroResponse")]
@@ -8390,147 +7996,74 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarLogroResponse> buscarLogroAsync(SteamWA.SteamServiceWS.buscarLogroRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse listarLogrosPorIdJuego(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request);
+        SteamWA.SteamServiceWS.listarLogrosResponse listarLogros(SteamWA.SteamServiceWS.listarLogrosRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosPorIdJuegoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse> listarLogrosPorIdJuegoAsync(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/listarLogrosResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosResponse> listarLogrosAsync(SteamWA.SteamServiceWS.listarLogrosRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.insertarLogroResponse insertarLogro(SteamWA.SteamServiceWS.insertarLogroRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/insertarLogroResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroResponse> insertarLogroAsync(SteamWA.SteamServiceWS.insertarLogroRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.actualizarLogroResponse actualizarLogro(SteamWA.SteamServiceWS.actualizarLogroRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/actualizarLogroResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroResponse> actualizarLogroAsync(SteamWA.SteamServiceWS.actualizarLogroRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.eliminarLogroResponse eliminarLogro(SteamWA.SteamServiceWS.eliminarLogroRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LogroWS/eliminarLogroResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroResponse> eliminarLogroAsync(SteamWA.SteamServiceWS.eliminarLogroRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogro", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarLogroRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorIdJuego", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLogrosPorIdJuegoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idLogro;
+        public int idJuego;
         
-        public eliminarLogroRequest() {
+        public listarLogrosPorIdJuegoRequest() {
         }
         
-        public eliminarLogroRequest(int idLogro) {
-            this.idLogro = idLogro;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogroResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarLogroResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarLogroResponse() {
-        }
-        
-        public eliminarLogroResponse(int @return) {
-            this.@return = @return;
+        public listarLogrosPorIdJuegoRequest(int idJuego) {
+            this.idJuego = idJuego;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogros", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLogrosRequest {
-        
-        public listarLogrosRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLogrosResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorIdJuegoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLogrosPorIdJuegoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SteamWA.SteamServiceWS.logro[] @return;
         
-        public listarLogrosResponse() {
+        public listarLogrosPorIdJuegoResponse() {
         }
         
-        public listarLogrosResponse(SteamWA.SteamServiceWS.logro[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogro", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarLogroRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.logro logro;
-        
-        public actualizarLogroRequest() {
-        }
-        
-        public actualizarLogroRequest(SteamWA.SteamServiceWS.logro logro) {
-            this.logro = logro;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogroResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarLogroResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public actualizarLogroResponse() {
-        }
-        
-        public actualizarLogroResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarLogro", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarLogroRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.logro logro;
-        
-        public insertarLogroRequest() {
-        }
-        
-        public insertarLogroRequest(SteamWA.SteamServiceWS.logro logro) {
-            this.logro = logro;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarLogroResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarLogroResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarLogroResponse() {
-        }
-        
-        public insertarLogroResponse(int @return) {
+        public listarLogrosPorIdJuegoResponse(SteamWA.SteamServiceWS.logro[] @return) {
             this.@return = @return;
         }
     }
@@ -8574,35 +8107,135 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorIdJuego", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLogrosPorIdJuegoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogros", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLogrosRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idJuego;
-        
-        public listarLogrosPorIdJuegoRequest() {
-        }
-        
-        public listarLogrosPorIdJuegoRequest(int idJuego) {
-            this.idJuego = idJuego;
+        public listarLogrosRequest() {
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosPorIdJuegoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLogrosPorIdJuegoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLogrosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLogrosResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SteamWA.SteamServiceWS.logro[] @return;
         
-        public listarLogrosPorIdJuegoResponse() {
+        public listarLogrosResponse() {
         }
         
-        public listarLogrosPorIdJuegoResponse(SteamWA.SteamServiceWS.logro[] @return) {
+        public listarLogrosResponse(SteamWA.SteamServiceWS.logro[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarLogro", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarLogroRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.logro logro;
+        
+        public insertarLogroRequest() {
+        }
+        
+        public insertarLogroRequest(SteamWA.SteamServiceWS.logro logro) {
+            this.logro = logro;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarLogroResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarLogroResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarLogroResponse() {
+        }
+        
+        public insertarLogroResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogro", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarLogroRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.logro logro;
+        
+        public actualizarLogroRequest() {
+        }
+        
+        public actualizarLogroRequest(SteamWA.SteamServiceWS.logro logro) {
+            this.logro = logro;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLogroResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarLogroResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarLogroResponse() {
+        }
+        
+        public actualizarLogroResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogro", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarLogroRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idLogro;
+        
+        public eliminarLogroRequest() {
+        }
+        
+        public eliminarLogroRequest(int idLogro) {
+            this.idLogro = idLogro;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarLogroResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarLogroResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarLogroResponse() {
+        }
+        
+        public eliminarLogroResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -8635,93 +8268,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarLogroResponse SteamWA.SteamServiceWS.LogroWS.eliminarLogro(SteamWA.SteamServiceWS.eliminarLogroRequest request) {
-            return base.Channel.eliminarLogro(request);
+        SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse SteamWA.SteamServiceWS.LogroWS.listarLogrosPorIdJuego(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request) {
+            return base.Channel.listarLogrosPorIdJuego(request);
         }
         
-        public int eliminarLogro(int idLogro) {
-            SteamWA.SteamServiceWS.eliminarLogroRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroRequest();
-            inValue.idLogro = idLogro;
-            SteamWA.SteamServiceWS.eliminarLogroResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).eliminarLogro(inValue);
+        public SteamWA.SteamServiceWS.logro[] listarLogrosPorIdJuego(int idJuego) {
+            SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest();
+            inValue.idJuego = idJuego;
+            SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogrosPorIdJuego(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroResponse> SteamWA.SteamServiceWS.LogroWS.eliminarLogroAsync(SteamWA.SteamServiceWS.eliminarLogroRequest request) {
-            return base.Channel.eliminarLogroAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse> SteamWA.SteamServiceWS.LogroWS.listarLogrosPorIdJuegoAsync(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request) {
+            return base.Channel.listarLogrosPorIdJuegoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroResponse> eliminarLogroAsync(int idLogro) {
-            SteamWA.SteamServiceWS.eliminarLogroRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroRequest();
-            inValue.idLogro = idLogro;
-            return ((SteamWA.SteamServiceWS.LogroWS)(this)).eliminarLogroAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarLogrosResponse SteamWA.SteamServiceWS.LogroWS.listarLogros(SteamWA.SteamServiceWS.listarLogrosRequest request) {
-            return base.Channel.listarLogros(request);
-        }
-        
-        public SteamWA.SteamServiceWS.logro[] listarLogros() {
-            SteamWA.SteamServiceWS.listarLogrosRequest inValue = new SteamWA.SteamServiceWS.listarLogrosRequest();
-            SteamWA.SteamServiceWS.listarLogrosResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogros(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosResponse> SteamWA.SteamServiceWS.LogroWS.listarLogrosAsync(SteamWA.SteamServiceWS.listarLogrosRequest request) {
-            return base.Channel.listarLogrosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosResponse> listarLogrosAsync() {
-            SteamWA.SteamServiceWS.listarLogrosRequest inValue = new SteamWA.SteamServiceWS.listarLogrosRequest();
-            return ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogrosAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.actualizarLogroResponse SteamWA.SteamServiceWS.LogroWS.actualizarLogro(SteamWA.SteamServiceWS.actualizarLogroRequest request) {
-            return base.Channel.actualizarLogro(request);
-        }
-        
-        public int actualizarLogro(SteamWA.SteamServiceWS.logro logro) {
-            SteamWA.SteamServiceWS.actualizarLogroRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroRequest();
-            inValue.logro = logro;
-            SteamWA.SteamServiceWS.actualizarLogroResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).actualizarLogro(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroResponse> SteamWA.SteamServiceWS.LogroWS.actualizarLogroAsync(SteamWA.SteamServiceWS.actualizarLogroRequest request) {
-            return base.Channel.actualizarLogroAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroResponse> actualizarLogroAsync(SteamWA.SteamServiceWS.logro logro) {
-            SteamWA.SteamServiceWS.actualizarLogroRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroRequest();
-            inValue.logro = logro;
-            return ((SteamWA.SteamServiceWS.LogroWS)(this)).actualizarLogroAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarLogroResponse SteamWA.SteamServiceWS.LogroWS.insertarLogro(SteamWA.SteamServiceWS.insertarLogroRequest request) {
-            return base.Channel.insertarLogro(request);
-        }
-        
-        public int insertarLogro(SteamWA.SteamServiceWS.logro logro) {
-            SteamWA.SteamServiceWS.insertarLogroRequest inValue = new SteamWA.SteamServiceWS.insertarLogroRequest();
-            inValue.logro = logro;
-            SteamWA.SteamServiceWS.insertarLogroResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).insertarLogro(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroResponse> SteamWA.SteamServiceWS.LogroWS.insertarLogroAsync(SteamWA.SteamServiceWS.insertarLogroRequest request) {
-            return base.Channel.insertarLogroAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroResponse> insertarLogroAsync(SteamWA.SteamServiceWS.logro logro) {
-            SteamWA.SteamServiceWS.insertarLogroRequest inValue = new SteamWA.SteamServiceWS.insertarLogroRequest();
-            inValue.logro = logro;
-            return ((SteamWA.SteamServiceWS.LogroWS)(this)).insertarLogroAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse> listarLogrosPorIdJuegoAsync(int idJuego) {
+            SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest();
+            inValue.idJuego = idJuego;
+            return ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogrosPorIdJuegoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -8748,26 +8314,93 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse SteamWA.SteamServiceWS.LogroWS.listarLogrosPorIdJuego(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request) {
-            return base.Channel.listarLogrosPorIdJuego(request);
+        SteamWA.SteamServiceWS.listarLogrosResponse SteamWA.SteamServiceWS.LogroWS.listarLogros(SteamWA.SteamServiceWS.listarLogrosRequest request) {
+            return base.Channel.listarLogros(request);
         }
         
-        public SteamWA.SteamServiceWS.logro[] listarLogrosPorIdJuego(int idJuego) {
-            SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest();
-            inValue.idJuego = idJuego;
-            SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogrosPorIdJuego(inValue);
+        public SteamWA.SteamServiceWS.logro[] listarLogros() {
+            SteamWA.SteamServiceWS.listarLogrosRequest inValue = new SteamWA.SteamServiceWS.listarLogrosRequest();
+            SteamWA.SteamServiceWS.listarLogrosResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogros(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse> SteamWA.SteamServiceWS.LogroWS.listarLogrosPorIdJuegoAsync(SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest request) {
-            return base.Channel.listarLogrosPorIdJuegoAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosResponse> SteamWA.SteamServiceWS.LogroWS.listarLogrosAsync(SteamWA.SteamServiceWS.listarLogrosRequest request) {
+            return base.Channel.listarLogrosAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosPorIdJuegoResponse> listarLogrosPorIdJuegoAsync(int idJuego) {
-            SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest inValue = new SteamWA.SteamServiceWS.listarLogrosPorIdJuegoRequest();
-            inValue.idJuego = idJuego;
-            return ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogrosPorIdJuegoAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarLogrosResponse> listarLogrosAsync() {
+            SteamWA.SteamServiceWS.listarLogrosRequest inValue = new SteamWA.SteamServiceWS.listarLogrosRequest();
+            return ((SteamWA.SteamServiceWS.LogroWS)(this)).listarLogrosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.insertarLogroResponse SteamWA.SteamServiceWS.LogroWS.insertarLogro(SteamWA.SteamServiceWS.insertarLogroRequest request) {
+            return base.Channel.insertarLogro(request);
+        }
+        
+        public int insertarLogro(SteamWA.SteamServiceWS.logro logro) {
+            SteamWA.SteamServiceWS.insertarLogroRequest inValue = new SteamWA.SteamServiceWS.insertarLogroRequest();
+            inValue.logro = logro;
+            SteamWA.SteamServiceWS.insertarLogroResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).insertarLogro(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroResponse> SteamWA.SteamServiceWS.LogroWS.insertarLogroAsync(SteamWA.SteamServiceWS.insertarLogroRequest request) {
+            return base.Channel.insertarLogroAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarLogroResponse> insertarLogroAsync(SteamWA.SteamServiceWS.logro logro) {
+            SteamWA.SteamServiceWS.insertarLogroRequest inValue = new SteamWA.SteamServiceWS.insertarLogroRequest();
+            inValue.logro = logro;
+            return ((SteamWA.SteamServiceWS.LogroWS)(this)).insertarLogroAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.actualizarLogroResponse SteamWA.SteamServiceWS.LogroWS.actualizarLogro(SteamWA.SteamServiceWS.actualizarLogroRequest request) {
+            return base.Channel.actualizarLogro(request);
+        }
+        
+        public int actualizarLogro(SteamWA.SteamServiceWS.logro logro) {
+            SteamWA.SteamServiceWS.actualizarLogroRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroRequest();
+            inValue.logro = logro;
+            SteamWA.SteamServiceWS.actualizarLogroResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).actualizarLogro(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroResponse> SteamWA.SteamServiceWS.LogroWS.actualizarLogroAsync(SteamWA.SteamServiceWS.actualizarLogroRequest request) {
+            return base.Channel.actualizarLogroAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarLogroResponse> actualizarLogroAsync(SteamWA.SteamServiceWS.logro logro) {
+            SteamWA.SteamServiceWS.actualizarLogroRequest inValue = new SteamWA.SteamServiceWS.actualizarLogroRequest();
+            inValue.logro = logro;
+            return ((SteamWA.SteamServiceWS.LogroWS)(this)).actualizarLogroAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.eliminarLogroResponse SteamWA.SteamServiceWS.LogroWS.eliminarLogro(SteamWA.SteamServiceWS.eliminarLogroRequest request) {
+            return base.Channel.eliminarLogro(request);
+        }
+        
+        public int eliminarLogro(int idLogro) {
+            SteamWA.SteamServiceWS.eliminarLogroRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroRequest();
+            inValue.idLogro = idLogro;
+            SteamWA.SteamServiceWS.eliminarLogroResponse retVal = ((SteamWA.SteamServiceWS.LogroWS)(this)).eliminarLogro(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroResponse> SteamWA.SteamServiceWS.LogroWS.eliminarLogroAsync(SteamWA.SteamServiceWS.eliminarLogroRequest request) {
+            return base.Channel.eliminarLogroAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarLogroResponse> eliminarLogroAsync(int idLogro) {
+            SteamWA.SteamServiceWS.eliminarLogroRequest inValue = new SteamWA.SteamServiceWS.eliminarLogroRequest();
+            inValue.idLogro = idLogro;
+            return ((SteamWA.SteamServiceWS.LogroWS)(this)).eliminarLogroAsync(inValue);
         }
     }
     
@@ -8802,15 +8435,6 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProductosPorTituloDesarrolladorResponse> listarProductosPorTituloDesarrolladorAsync(SteamWA.SteamServiceWS.listarProductosPorTituloDesarrolladorRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.buscarProductoResponse buscarProducto(SteamWA.SteamServiceWS.buscarProductoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarProductoResponse> buscarProductoAsync(SteamWA.SteamServiceWS.buscarProductoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -8818,6 +8442,15 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProductosResponse> listarProductosAsync(SteamWA.SteamServiceWS.listarProductosRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.buscarProductoResponse buscarProducto(SteamWA.SteamServiceWS.buscarProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarProductoResponse> buscarProductoAsync(SteamWA.SteamServiceWS.buscarProductoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8895,6 +8528,34 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductos", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosRequest {
+        
+        public listarProductosRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.producto[] @return;
+        
+        public listarProductosResponse() {
+        }
+        
+        public listarProductosResponse(SteamWA.SteamServiceWS.producto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="buscarProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class buscarProductoRequest {
         
@@ -8924,34 +8585,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public buscarProductoResponse(SteamWA.SteamServiceWS.producto @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductos", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosRequest {
-        
-        public listarProductosRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.producto[] @return;
-        
-        public listarProductosResponse() {
-        }
-        
-        public listarProductosResponse(SteamWA.SteamServiceWS.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -9030,6 +8663,27 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarProductosResponse SteamWA.SteamServiceWS.ProductoWS.listarProductos(SteamWA.SteamServiceWS.listarProductosRequest request) {
+            return base.Channel.listarProductos(request);
+        }
+        
+        public SteamWA.SteamServiceWS.producto[] listarProductos() {
+            SteamWA.SteamServiceWS.listarProductosRequest inValue = new SteamWA.SteamServiceWS.listarProductosRequest();
+            SteamWA.SteamServiceWS.listarProductosResponse retVal = ((SteamWA.SteamServiceWS.ProductoWS)(this)).listarProductos(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProductosResponse> SteamWA.SteamServiceWS.ProductoWS.listarProductosAsync(SteamWA.SteamServiceWS.listarProductosRequest request) {
+            return base.Channel.listarProductosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProductosResponse> listarProductosAsync() {
+            SteamWA.SteamServiceWS.listarProductosRequest inValue = new SteamWA.SteamServiceWS.listarProductosRequest();
+            return ((SteamWA.SteamServiceWS.ProductoWS)(this)).listarProductosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.buscarProductoResponse SteamWA.SteamServiceWS.ProductoWS.buscarProducto(SteamWA.SteamServiceWS.buscarProductoRequest request) {
             return base.Channel.buscarProducto(request);
         }
@@ -9051,45 +8705,11 @@ namespace SteamWA.SteamServiceWS {
             inValue.idProducto = idProducto;
             return ((SteamWA.SteamServiceWS.ProductoWS)(this)).buscarProductoAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarProductosResponse SteamWA.SteamServiceWS.ProductoWS.listarProductos(SteamWA.SteamServiceWS.listarProductosRequest request) {
-            return base.Channel.listarProductos(request);
-        }
-        
-        public SteamWA.SteamServiceWS.producto[] listarProductos() {
-            SteamWA.SteamServiceWS.listarProductosRequest inValue = new SteamWA.SteamServiceWS.listarProductosRequest();
-            SteamWA.SteamServiceWS.listarProductosResponse retVal = ((SteamWA.SteamServiceWS.ProductoWS)(this)).listarProductos(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProductosResponse> SteamWA.SteamServiceWS.ProductoWS.listarProductosAsync(SteamWA.SteamServiceWS.listarProductosRequest request) {
-            return base.Channel.listarProductosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarProductosResponse> listarProductosAsync() {
-            SteamWA.SteamServiceWS.listarProductosRequest inValue = new SteamWA.SteamServiceWS.listarProductosRequest();
-            return ((SteamWA.SteamServiceWS.ProductoWS)(this)).listarProductosAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.NotificacionWS")]
     public interface NotificacionWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
-            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
-            "Response")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse eliminarNotificacionesUsuario(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
-            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
-            "Response")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse> eliminarNotificacionesUsuarioAsync(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/NotificacionWS/insertarNotificacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/NotificacionWS/insertarNotificacionResponse")]
@@ -9130,42 +8750,19 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/NotificacionWS/listarNotificacionesRequest", ReplyAction="http://services.softprog.pucp.edu.pe/NotificacionWS/listarNotificacionesResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarNotificacionesResponse> listarNotificacionesAsync(SteamWA.SteamServiceWS.listarNotificacionesRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarNotificacionesUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarNotificacionesUsuarioRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int fid_usuario;
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
+            "Response")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse eliminarNotificacionesUsuario(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request);
         
-        public eliminarNotificacionesUsuarioRequest() {
-        }
-        
-        public eliminarNotificacionesUsuarioRequest(int fid_usuario) {
-            this.fid_usuario = fid_usuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarNotificacionesUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarNotificacionesUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarNotificacionesUsuarioResponse() {
-        }
-        
-        public eliminarNotificacionesUsuarioResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuario" +
+            "Response")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse> eliminarNotificacionesUsuarioAsync(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9312,6 +8909,42 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarNotificacionesUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarNotificacionesUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int fid_usuario;
+        
+        public eliminarNotificacionesUsuarioRequest() {
+        }
+        
+        public eliminarNotificacionesUsuarioRequest(int fid_usuario) {
+            this.fid_usuario = fid_usuario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarNotificacionesUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarNotificacionesUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarNotificacionesUsuarioResponse() {
+        }
+        
+        public eliminarNotificacionesUsuarioResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface NotificacionWSChannel : SteamWA.SteamServiceWS.NotificacionWS, System.ServiceModel.IClientChannel {
     }
@@ -9337,29 +8970,6 @@ namespace SteamWA.SteamServiceWS {
         
         public NotificacionWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse SteamWA.SteamServiceWS.NotificacionWS.eliminarNotificacionesUsuario(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request) {
-            return base.Channel.eliminarNotificacionesUsuario(request);
-        }
-        
-        public int eliminarNotificacionesUsuario(int fid_usuario) {
-            SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest inValue = new SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest();
-            inValue.fid_usuario = fid_usuario;
-            SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse retVal = ((SteamWA.SteamServiceWS.NotificacionWS)(this)).eliminarNotificacionesUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse> SteamWA.SteamServiceWS.NotificacionWS.eliminarNotificacionesUsuarioAsync(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request) {
-            return base.Channel.eliminarNotificacionesUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse> eliminarNotificacionesUsuarioAsync(int fid_usuario) {
-            SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest inValue = new SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest();
-            inValue.fid_usuario = fid_usuario;
-            return ((SteamWA.SteamServiceWS.NotificacionWS)(this)).eliminarNotificacionesUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -9453,24 +9063,34 @@ namespace SteamWA.SteamServiceWS {
             inValue.fid_usuario = fid_usuario;
             return ((SteamWA.SteamServiceWS.NotificacionWS)(this)).listarNotificacionesAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse SteamWA.SteamServiceWS.NotificacionWS.eliminarNotificacionesUsuario(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request) {
+            return base.Channel.eliminarNotificacionesUsuario(request);
+        }
+        
+        public int eliminarNotificacionesUsuario(int fid_usuario) {
+            SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest inValue = new SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest();
+            inValue.fid_usuario = fid_usuario;
+            SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse retVal = ((SteamWA.SteamServiceWS.NotificacionWS)(this)).eliminarNotificacionesUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse> SteamWA.SteamServiceWS.NotificacionWS.eliminarNotificacionesUsuarioAsync(SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest request) {
+            return base.Channel.eliminarNotificacionesUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioResponse> eliminarNotificacionesUsuarioAsync(int fid_usuario) {
+            SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest inValue = new SteamWA.SteamServiceWS.eliminarNotificacionesUsuarioRequest();
+            inValue.fid_usuario = fid_usuario;
+            return ((SteamWA.SteamServiceWS.NotificacionWS)(this)).eliminarNotificacionesUsuarioAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.ColeccionWS")]
     public interface ColeccionWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
-            "sponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse listarColeccionesPorBiblioteca(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse> listarColeccionesPorBibliotecaAsync(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ColeccionWS/actualizarColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ColeccionWS/actualizarColeccionResponse")]
@@ -9498,42 +9118,19 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarColeccionResponse> eliminarColeccionAsync(SteamWA.SteamServiceWS.eliminarColeccionRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarColeccionesPorBiblioteca", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarColeccionesPorBibliotecaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idBiblioteca;
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
+            "sponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse listarColeccionesPorBiblioteca(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request);
         
-        public listarColeccionesPorBibliotecaRequest() {
-        }
-        
-        public listarColeccionesPorBibliotecaRequest(int idBiblioteca) {
-            this.idBiblioteca = idBiblioteca;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarColeccionesPorBibliotecaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarColeccionesPorBibliotecaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.coleccion[] @return;
-        
-        public listarColeccionesPorBibliotecaResponse() {
-        }
-        
-        public listarColeccionesPorBibliotecaResponse(SteamWA.SteamServiceWS.coleccion[] @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse> listarColeccionesPorBibliotecaAsync(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9644,6 +9241,42 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarColeccionesPorBiblioteca", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarColeccionesPorBibliotecaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idBiblioteca;
+        
+        public listarColeccionesPorBibliotecaRequest() {
+        }
+        
+        public listarColeccionesPorBibliotecaRequest(int idBiblioteca) {
+            this.idBiblioteca = idBiblioteca;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarColeccionesPorBibliotecaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarColeccionesPorBibliotecaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.coleccion[] @return;
+        
+        public listarColeccionesPorBibliotecaResponse() {
+        }
+        
+        public listarColeccionesPorBibliotecaResponse(SteamWA.SteamServiceWS.coleccion[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ColeccionWSChannel : SteamWA.SteamServiceWS.ColeccionWS, System.ServiceModel.IClientChannel {
     }
@@ -9669,29 +9302,6 @@ namespace SteamWA.SteamServiceWS {
         
         public ColeccionWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse SteamWA.SteamServiceWS.ColeccionWS.listarColeccionesPorBiblioteca(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request) {
-            return base.Channel.listarColeccionesPorBiblioteca(request);
-        }
-        
-        public SteamWA.SteamServiceWS.coleccion[] listarColeccionesPorBiblioteca(int idBiblioteca) {
-            SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest inValue = new SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest();
-            inValue.idBiblioteca = idBiblioteca;
-            SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse retVal = ((SteamWA.SteamServiceWS.ColeccionWS)(this)).listarColeccionesPorBiblioteca(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse> SteamWA.SteamServiceWS.ColeccionWS.listarColeccionesPorBibliotecaAsync(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request) {
-            return base.Channel.listarColeccionesPorBibliotecaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse> listarColeccionesPorBibliotecaAsync(int idBiblioteca) {
-            SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest inValue = new SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest();
-            inValue.idBiblioteca = idBiblioteca;
-            return ((SteamWA.SteamServiceWS.ColeccionWS)(this)).listarColeccionesPorBibliotecaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -9762,11 +9372,43 @@ namespace SteamWA.SteamServiceWS {
             inValue.idColeccion = idColeccion;
             return ((SteamWA.SteamServiceWS.ColeccionWS)(this)).eliminarColeccionAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse SteamWA.SteamServiceWS.ColeccionWS.listarColeccionesPorBiblioteca(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request) {
+            return base.Channel.listarColeccionesPorBiblioteca(request);
+        }
+        
+        public SteamWA.SteamServiceWS.coleccion[] listarColeccionesPorBiblioteca(int idBiblioteca) {
+            SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest inValue = new SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest();
+            inValue.idBiblioteca = idBiblioteca;
+            SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse retVal = ((SteamWA.SteamServiceWS.ColeccionWS)(this)).listarColeccionesPorBiblioteca(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse> SteamWA.SteamServiceWS.ColeccionWS.listarColeccionesPorBibliotecaAsync(SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest request) {
+            return base.Channel.listarColeccionesPorBibliotecaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaResponse> listarColeccionesPorBibliotecaAsync(int idBiblioteca) {
+            SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest inValue = new SteamWA.SteamServiceWS.listarColeccionesPorBibliotecaRequest();
+            inValue.idBiblioteca = idBiblioteca;
+            return ((SteamWA.SteamServiceWS.ColeccionWS)(this)).listarColeccionesPorBibliotecaAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.MensajeWS")]
     public interface MensajeWS {
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.mostrarMensajesHiloResponse mostrarMensajesHilo(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarMensajesHiloResponse> mostrarMensajesHiloAsync(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/editarMensajeRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/editarMensajeResponse")]
@@ -9778,15 +9420,6 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.editarMensajeResponse> editarMensajeAsync(SteamWA.SteamServiceWS.editarMensajeRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarMensajeResponse eliminarMensaje(SteamWA.SteamServiceWS.eliminarMensajeRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarMensajeResponse> eliminarMensajeAsync(SteamWA.SteamServiceWS.eliminarMensajeRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/insertarMensajeRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/insertarMensajeResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -9796,13 +9429,49 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMensajeResponse> insertarMensajeAsync(SteamWA.SteamServiceWS.insertarMensajeRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.mostrarMensajesHiloResponse mostrarMensajesHilo(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request);
+        SteamWA.SteamServiceWS.eliminarMensajeResponse eliminarMensaje(SteamWA.SteamServiceWS.eliminarMensajeRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarMensajesHiloResponse> mostrarMensajesHiloAsync(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarMensajeResponse> eliminarMensajeAsync(SteamWA.SteamServiceWS.eliminarMensajeRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarMensajesHilo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class mostrarMensajesHiloRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.hilo hilo;
+        
+        public mostrarMensajesHiloRequest() {
+        }
+        
+        public mostrarMensajesHiloRequest(SteamWA.SteamServiceWS.hilo hilo) {
+            this.hilo = hilo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarMensajesHiloResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class mostrarMensajesHiloResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.mensaje[] @return;
+        
+        public mostrarMensajesHiloResponse() {
+        }
+        
+        public mostrarMensajesHiloResponse(SteamWA.SteamServiceWS.mensaje[] @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9837,42 +9506,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public editarMensajeResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarMensaje", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarMensajeRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.mensaje mensaje;
-        
-        public eliminarMensajeRequest() {
-        }
-        
-        public eliminarMensajeRequest(SteamWA.SteamServiceWS.mensaje mensaje) {
-            this.mensaje = mensaje;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarMensajeResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarMensajeResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarMensajeResponse() {
-        }
-        
-        public eliminarMensajeResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -9916,35 +9549,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarMensajesHilo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class mostrarMensajesHiloRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarMensaje", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarMensajeRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.hilo hilo;
+        public SteamWA.SteamServiceWS.mensaje mensaje;
         
-        public mostrarMensajesHiloRequest() {
+        public eliminarMensajeRequest() {
         }
         
-        public mostrarMensajesHiloRequest(SteamWA.SteamServiceWS.hilo hilo) {
-            this.hilo = hilo;
+        public eliminarMensajeRequest(SteamWA.SteamServiceWS.mensaje mensaje) {
+            this.mensaje = mensaje;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarMensajesHiloResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class mostrarMensajesHiloResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarMensajeResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarMensajeResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.mensaje[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public mostrarMensajesHiloResponse() {
+        public eliminarMensajeResponse() {
         }
         
-        public mostrarMensajesHiloResponse(SteamWA.SteamServiceWS.mensaje[] @return) {
+        public eliminarMensajeResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -9977,6 +9610,29 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.mostrarMensajesHiloResponse SteamWA.SteamServiceWS.MensajeWS.mostrarMensajesHilo(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request) {
+            return base.Channel.mostrarMensajesHilo(request);
+        }
+        
+        public SteamWA.SteamServiceWS.mensaje[] mostrarMensajesHilo(SteamWA.SteamServiceWS.hilo hilo) {
+            SteamWA.SteamServiceWS.mostrarMensajesHiloRequest inValue = new SteamWA.SteamServiceWS.mostrarMensajesHiloRequest();
+            inValue.hilo = hilo;
+            SteamWA.SteamServiceWS.mostrarMensajesHiloResponse retVal = ((SteamWA.SteamServiceWS.MensajeWS)(this)).mostrarMensajesHilo(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarMensajesHiloResponse> SteamWA.SteamServiceWS.MensajeWS.mostrarMensajesHiloAsync(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request) {
+            return base.Channel.mostrarMensajesHiloAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarMensajesHiloResponse> mostrarMensajesHiloAsync(SteamWA.SteamServiceWS.hilo hilo) {
+            SteamWA.SteamServiceWS.mostrarMensajesHiloRequest inValue = new SteamWA.SteamServiceWS.mostrarMensajesHiloRequest();
+            inValue.hilo = hilo;
+            return ((SteamWA.SteamServiceWS.MensajeWS)(this)).mostrarMensajesHiloAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.editarMensajeResponse SteamWA.SteamServiceWS.MensajeWS.editarMensaje(SteamWA.SteamServiceWS.editarMensajeRequest request) {
             return base.Channel.editarMensaje(request);
         }
@@ -9997,29 +9653,6 @@ namespace SteamWA.SteamServiceWS {
             SteamWA.SteamServiceWS.editarMensajeRequest inValue = new SteamWA.SteamServiceWS.editarMensajeRequest();
             inValue.mensaje = mensaje;
             return ((SteamWA.SteamServiceWS.MensajeWS)(this)).editarMensajeAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarMensajeResponse SteamWA.SteamServiceWS.MensajeWS.eliminarMensaje(SteamWA.SteamServiceWS.eliminarMensajeRequest request) {
-            return base.Channel.eliminarMensaje(request);
-        }
-        
-        public int eliminarMensaje(SteamWA.SteamServiceWS.mensaje mensaje) {
-            SteamWA.SteamServiceWS.eliminarMensajeRequest inValue = new SteamWA.SteamServiceWS.eliminarMensajeRequest();
-            inValue.mensaje = mensaje;
-            SteamWA.SteamServiceWS.eliminarMensajeResponse retVal = ((SteamWA.SteamServiceWS.MensajeWS)(this)).eliminarMensaje(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarMensajeResponse> SteamWA.SteamServiceWS.MensajeWS.eliminarMensajeAsync(SteamWA.SteamServiceWS.eliminarMensajeRequest request) {
-            return base.Channel.eliminarMensajeAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarMensajeResponse> eliminarMensajeAsync(SteamWA.SteamServiceWS.mensaje mensaje) {
-            SteamWA.SteamServiceWS.eliminarMensajeRequest inValue = new SteamWA.SteamServiceWS.eliminarMensajeRequest();
-            inValue.mensaje = mensaje;
-            return ((SteamWA.SteamServiceWS.MensajeWS)(this)).eliminarMensajeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -10046,44 +9679,32 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.mostrarMensajesHiloResponse SteamWA.SteamServiceWS.MensajeWS.mostrarMensajesHilo(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request) {
-            return base.Channel.mostrarMensajesHilo(request);
+        SteamWA.SteamServiceWS.eliminarMensajeResponse SteamWA.SteamServiceWS.MensajeWS.eliminarMensaje(SteamWA.SteamServiceWS.eliminarMensajeRequest request) {
+            return base.Channel.eliminarMensaje(request);
         }
         
-        public SteamWA.SteamServiceWS.mensaje[] mostrarMensajesHilo(SteamWA.SteamServiceWS.hilo hilo) {
-            SteamWA.SteamServiceWS.mostrarMensajesHiloRequest inValue = new SteamWA.SteamServiceWS.mostrarMensajesHiloRequest();
-            inValue.hilo = hilo;
-            SteamWA.SteamServiceWS.mostrarMensajesHiloResponse retVal = ((SteamWA.SteamServiceWS.MensajeWS)(this)).mostrarMensajesHilo(inValue);
+        public int eliminarMensaje(SteamWA.SteamServiceWS.mensaje mensaje) {
+            SteamWA.SteamServiceWS.eliminarMensajeRequest inValue = new SteamWA.SteamServiceWS.eliminarMensajeRequest();
+            inValue.mensaje = mensaje;
+            SteamWA.SteamServiceWS.eliminarMensajeResponse retVal = ((SteamWA.SteamServiceWS.MensajeWS)(this)).eliminarMensaje(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarMensajesHiloResponse> SteamWA.SteamServiceWS.MensajeWS.mostrarMensajesHiloAsync(SteamWA.SteamServiceWS.mostrarMensajesHiloRequest request) {
-            return base.Channel.mostrarMensajesHiloAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarMensajeResponse> SteamWA.SteamServiceWS.MensajeWS.eliminarMensajeAsync(SteamWA.SteamServiceWS.eliminarMensajeRequest request) {
+            return base.Channel.eliminarMensajeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarMensajesHiloResponse> mostrarMensajesHiloAsync(SteamWA.SteamServiceWS.hilo hilo) {
-            SteamWA.SteamServiceWS.mostrarMensajesHiloRequest inValue = new SteamWA.SteamServiceWS.mostrarMensajesHiloRequest();
-            inValue.hilo = hilo;
-            return ((SteamWA.SteamServiceWS.MensajeWS)(this)).mostrarMensajesHiloAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarMensajeResponse> eliminarMensajeAsync(SteamWA.SteamServiceWS.mensaje mensaje) {
+            SteamWA.SteamServiceWS.eliminarMensajeRequest inValue = new SteamWA.SteamServiceWS.eliminarMensajeRequest();
+            inValue.mensaje = mensaje;
+            return ((SteamWA.SteamServiceWS.MensajeWS)(this)).eliminarMensajeAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.ProductoEtiquetaWS")]
     public interface ProductoEtiquetaWS {
-        
-        // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
-            "sponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse agregarProductoEtiqueta(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse> agregarProductoEtiquetaAsync(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request);
         
         // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/eliminarProductoEtiquetaR" +
@@ -10096,44 +9717,18 @@ namespace SteamWA.SteamServiceWS {
             "equest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/eliminarProductoEtiquetaR" +
             "esponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProductoEtiquetaResponse> eliminarProductoEtiquetaAsync(SteamWA.SteamServiceWS.eliminarProductoEtiquetaRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="agregarProductoEtiqueta", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class agregarProductoEtiquetaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int idProducto;
+        // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
+            "sponse")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse agregarProductoEtiqueta(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int idEtiqueta;
-        
-        public agregarProductoEtiquetaRequest() {
-        }
-        
-        public agregarProductoEtiquetaRequest(int idProducto, int idEtiqueta) {
-            this.idProducto = idProducto;
-            this.idEtiqueta = idEtiqueta;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="agregarProductoEtiquetaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class agregarProductoEtiquetaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int @return;
-        
-        public agregarProductoEtiquetaResponse() {
-        }
-        
-        public agregarProductoEtiquetaResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoEtiquetaWS/agregarProductoEtiquetaRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse> agregarProductoEtiquetaAsync(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10174,6 +9769,44 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="agregarProductoEtiqueta", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class agregarProductoEtiquetaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int idProducto;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public int idEtiqueta;
+        
+        public agregarProductoEtiquetaRequest() {
+        }
+        
+        public agregarProductoEtiquetaRequest(int idProducto, int idEtiqueta) {
+            this.idProducto = idProducto;
+            this.idEtiqueta = idEtiqueta;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="agregarProductoEtiquetaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class agregarProductoEtiquetaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int @return;
+        
+        public agregarProductoEtiquetaResponse() {
+        }
+        
+        public agregarProductoEtiquetaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductoEtiquetaWSChannel : SteamWA.SteamServiceWS.ProductoEtiquetaWS, System.ServiceModel.IClientChannel {
     }
@@ -10202,31 +9835,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse SteamWA.SteamServiceWS.ProductoEtiquetaWS.agregarProductoEtiqueta(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request) {
-            return base.Channel.agregarProductoEtiqueta(request);
-        }
-        
-        public int agregarProductoEtiqueta(int idProducto, int idEtiqueta) {
-            SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest inValue = new SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest();
-            inValue.idProducto = idProducto;
-            inValue.idEtiqueta = idEtiqueta;
-            SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse retVal = ((SteamWA.SteamServiceWS.ProductoEtiquetaWS)(this)).agregarProductoEtiqueta(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse> SteamWA.SteamServiceWS.ProductoEtiquetaWS.agregarProductoEtiquetaAsync(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request) {
-            return base.Channel.agregarProductoEtiquetaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse> agregarProductoEtiquetaAsync(int idProducto, int idEtiqueta) {
-            SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest inValue = new SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest();
-            inValue.idProducto = idProducto;
-            inValue.idEtiqueta = idEtiqueta;
-            return ((SteamWA.SteamServiceWS.ProductoEtiquetaWS)(this)).agregarProductoEtiquetaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.eliminarProductoEtiquetaResponse SteamWA.SteamServiceWS.ProductoEtiquetaWS.eliminarProductoEtiqueta(SteamWA.SteamServiceWS.eliminarProductoEtiquetaRequest request) {
             return base.Channel.eliminarProductoEtiqueta(request);
         }
@@ -10250,6 +9858,31 @@ namespace SteamWA.SteamServiceWS {
             inValue.idEtiqueta = idEtiqueta;
             return ((SteamWA.SteamServiceWS.ProductoEtiquetaWS)(this)).eliminarProductoEtiquetaAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse SteamWA.SteamServiceWS.ProductoEtiquetaWS.agregarProductoEtiqueta(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request) {
+            return base.Channel.agregarProductoEtiqueta(request);
+        }
+        
+        public int agregarProductoEtiqueta(int idProducto, int idEtiqueta) {
+            SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest inValue = new SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest();
+            inValue.idProducto = idProducto;
+            inValue.idEtiqueta = idEtiqueta;
+            SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse retVal = ((SteamWA.SteamServiceWS.ProductoEtiquetaWS)(this)).agregarProductoEtiqueta(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse> SteamWA.SteamServiceWS.ProductoEtiquetaWS.agregarProductoEtiquetaAsync(SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest request) {
+            return base.Channel.agregarProductoEtiquetaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.agregarProductoEtiquetaResponse> agregarProductoEtiquetaAsync(int idProducto, int idEtiqueta) {
+            SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest inValue = new SteamWA.SteamServiceWS.agregarProductoEtiquetaRequest();
+            inValue.idProducto = idProducto;
+            inValue.idEtiqueta = idEtiqueta;
+            return ((SteamWA.SteamServiceWS.ProductoEtiquetaWS)(this)).agregarProductoEtiquetaAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -10257,26 +9890,24 @@ namespace SteamWA.SteamServiceWS {
     public interface UsuarioWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRespons" +
-            "e")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse listarUsuariosQueBloquearon(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request);
+        SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse listarAmigosPorUsuario(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRespons" +
-            "e")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse> listarUsuariosQueBloquearonAsync(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse> listarAmigosPorUsuarioAsync(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioResponse" +
+            "")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.suspenderUsuarioResponse suspenderUsuario(SteamWA.SteamServiceWS.suspenderUsuarioRequest request);
+        SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse listarBloqueadosPorUsuario(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suspenderUsuarioResponse> suspenderUsuarioAsync(SteamWA.SteamServiceWS.suspenderUsuarioRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioResponse" +
+            "")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse> listarBloqueadosPorUsuarioAsync(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/verificarUsuarioResponse")]
@@ -10288,6 +9919,15 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.verificarUsuarioResponse> verificarUsuarioAsync(SteamWA.SteamServiceWS.verificarUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.actualizarUsuarioResponse actualizarUsuario(SteamWA.SteamServiceWS.actualizarUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarUsuarioResponse> actualizarUsuarioAsync(SteamWA.SteamServiceWS.actualizarUsuarioRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorIdResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -10297,6 +9937,15 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarUsuarioPorIdResponse> buscarUsuarioPorIdAsync(SteamWA.SteamServiceWS.buscarUsuarioPorIdRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.suspenderUsuarioResponse suspenderUsuario(SteamWA.SteamServiceWS.suspenderUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/suspenderUsuarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suspenderUsuarioResponse> suspenderUsuarioAsync(SteamWA.SteamServiceWS.suspenderUsuarioRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -10304,15 +9953,6 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/insertarUsuarioResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarUsuarioResponse> insertarUsuarioAsync(SteamWA.SteamServiceWS.insertarUsuarioRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.actualizarUsuarioResponse actualizarUsuario(SteamWA.SteamServiceWS.actualizarUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/actualizarUsuarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarUsuarioResponse> actualizarUsuarioAsync(SteamWA.SteamServiceWS.actualizarUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/eliminarUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/eliminarUsuarioResponse")]
@@ -10331,6 +9971,19 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarUsuariosResponse> listarUsuariosAsync(SteamWA.SteamServiceWS.listarUsuariosRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRespons" +
+            "e")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse listarUsuariosQueBloquearon(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosQueBloquearonRespons" +
+            "e")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse> listarUsuariosQueBloquearonAsync(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarUsuariosPorNombreCuentaReque" +
@@ -10357,42 +10010,22 @@ namespace SteamWA.SteamServiceWS {
             "t", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/buscarUsuarioPorNombreCuentaRespon" +
             "se")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarUsuarioPorNombreCuentaResponse> buscarUsuarioPorNombreCuentaAsync(SteamWA.SteamServiceWS.buscarUsuarioPorNombreCuentaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse listarAmigosPorUsuario(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarAmigosPorUsuarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse> listarAmigosPorUsuarioAsync(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioResponse" +
-            "")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse listarBloqueadosPorUsuario(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/UsuarioWS/listarBloqueadosPorUsuarioResponse" +
-            "")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse> listarBloqueadosPorUsuarioAsync(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarUsuariosQueBloquearon", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarUsuariosQueBloquearonRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAmigosPorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarAmigosPorUsuarioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idUsuario;
         
-        public listarUsuariosQueBloquearonRequest() {
+        public listarAmigosPorUsuarioRequest() {
         }
         
-        public listarUsuariosQueBloquearonRequest(int idUsuario) {
+        public listarAmigosPorUsuarioRequest(int idUsuario) {
             this.idUsuario = idUsuario;
         }
     }
@@ -10400,17 +10033,17 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarUsuariosQueBloquearonResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarUsuariosQueBloquearonResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAmigosPorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarAmigosPorUsuarioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SteamWA.SteamServiceWS.usuario[] @return;
         
-        public listarUsuariosQueBloquearonResponse() {
+        public listarAmigosPorUsuarioResponse() {
         }
         
-        public listarUsuariosQueBloquearonResponse(SteamWA.SteamServiceWS.usuario[] @return) {
+        public listarAmigosPorUsuarioResponse(SteamWA.SteamServiceWS.usuario[] @return) {
             this.@return = @return;
         }
     }
@@ -10418,35 +10051,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="suspenderUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class suspenderUsuarioRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBloqueadosPorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarBloqueadosPorUsuarioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.usuario jugador;
+        public int idUsuario;
         
-        public suspenderUsuarioRequest() {
+        public listarBloqueadosPorUsuarioRequest() {
         }
         
-        public suspenderUsuarioRequest(SteamWA.SteamServiceWS.usuario jugador) {
-            this.jugador = jugador;
+        public listarBloqueadosPorUsuarioRequest(int idUsuario) {
+            this.idUsuario = idUsuario;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="suspenderUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class suspenderUsuarioResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBloqueadosPorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarBloqueadosPorUsuarioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.usuario[] @return;
         
-        public suspenderUsuarioResponse() {
+        public listarBloqueadosPorUsuarioResponse() {
         }
         
-        public suspenderUsuarioResponse(int @return) {
+        public listarBloqueadosPorUsuarioResponse(SteamWA.SteamServiceWS.usuario[] @return) {
             this.@return = @return;
         }
     }
@@ -10495,6 +10128,42 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.usuario jugador;
+        
+        public actualizarUsuarioRequest() {
+        }
+        
+        public actualizarUsuarioRequest(SteamWA.SteamServiceWS.usuario jugador) {
+            this.jugador = jugador;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarUsuarioResponse() {
+        }
+        
+        public actualizarUsuarioResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="buscarUsuarioPorId", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class buscarUsuarioPorIdRequest {
         
@@ -10531,6 +10200,42 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="suspenderUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class suspenderUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.usuario jugador;
+        
+        public suspenderUsuarioRequest() {
+        }
+        
+        public suspenderUsuarioRequest(SteamWA.SteamServiceWS.usuario jugador) {
+            this.jugador = jugador;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="suspenderUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class suspenderUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public suspenderUsuarioResponse() {
+        }
+        
+        public suspenderUsuarioResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="insertarUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class insertarUsuarioRequest {
         
@@ -10560,42 +10265,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public insertarUsuarioResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.usuario jugador;
-        
-        public actualizarUsuarioRequest() {
-        }
-        
-        public actualizarUsuarioRequest(SteamWA.SteamServiceWS.usuario jugador) {
-            this.jugador = jugador;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public actualizarUsuarioResponse() {
-        }
-        
-        public actualizarUsuarioResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -10660,6 +10329,42 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public listarUsuariosResponse(SteamWA.SteamServiceWS.usuario[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarUsuariosQueBloquearon", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarUsuariosQueBloquearonRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idUsuario;
+        
+        public listarUsuariosQueBloquearonRequest() {
+        }
+        
+        public listarUsuariosQueBloquearonRequest(int idUsuario) {
+            this.idUsuario = idUsuario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarUsuariosQueBloquearonResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarUsuariosQueBloquearonResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.usuario[] @return;
+        
+        public listarUsuariosQueBloquearonResponse() {
+        }
+        
+        public listarUsuariosQueBloquearonResponse(SteamWA.SteamServiceWS.usuario[] @return) {
             this.@return = @return;
         }
     }
@@ -10736,78 +10441,6 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAmigosPorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarAmigosPorUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idUsuario;
-        
-        public listarAmigosPorUsuarioRequest() {
-        }
-        
-        public listarAmigosPorUsuarioRequest(int idUsuario) {
-            this.idUsuario = idUsuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarAmigosPorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarAmigosPorUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.usuario[] @return;
-        
-        public listarAmigosPorUsuarioResponse() {
-        }
-        
-        public listarAmigosPorUsuarioResponse(SteamWA.SteamServiceWS.usuario[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBloqueadosPorUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarBloqueadosPorUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idUsuario;
-        
-        public listarBloqueadosPorUsuarioRequest() {
-        }
-        
-        public listarBloqueadosPorUsuarioRequest(int idUsuario) {
-            this.idUsuario = idUsuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBloqueadosPorUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarBloqueadosPorUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.usuario[] @return;
-        
-        public listarBloqueadosPorUsuarioResponse() {
-        }
-        
-        public listarBloqueadosPorUsuarioResponse(SteamWA.SteamServiceWS.usuario[] @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface UsuarioWSChannel : SteamWA.SteamServiceWS.UsuarioWS, System.ServiceModel.IClientChannel {
     }
@@ -10836,49 +10469,49 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse SteamWA.SteamServiceWS.UsuarioWS.listarUsuariosQueBloquearon(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request) {
-            return base.Channel.listarUsuariosQueBloquearon(request);
+        SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.listarAmigosPorUsuario(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request) {
+            return base.Channel.listarAmigosPorUsuario(request);
         }
         
-        public SteamWA.SteamServiceWS.usuario[] listarUsuariosQueBloquearon(int idUsuario) {
-            SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest inValue = new SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest();
+        public SteamWA.SteamServiceWS.usuario[] listarAmigosPorUsuario(int idUsuario) {
+            SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest();
             inValue.idUsuario = idUsuario;
-            SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarUsuariosQueBloquearon(inValue);
+            SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarAmigosPorUsuario(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse> SteamWA.SteamServiceWS.UsuarioWS.listarUsuariosQueBloquearonAsync(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request) {
-            return base.Channel.listarUsuariosQueBloquearonAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.listarAmigosPorUsuarioAsync(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request) {
+            return base.Channel.listarAmigosPorUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse> listarUsuariosQueBloquearonAsync(int idUsuario) {
-            SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest inValue = new SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest();
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse> listarAmigosPorUsuarioAsync(int idUsuario) {
+            SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest();
             inValue.idUsuario = idUsuario;
-            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarUsuariosQueBloquearonAsync(inValue);
+            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarAmigosPorUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.suspenderUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.suspenderUsuario(SteamWA.SteamServiceWS.suspenderUsuarioRequest request) {
-            return base.Channel.suspenderUsuario(request);
+        SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.listarBloqueadosPorUsuario(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request) {
+            return base.Channel.listarBloqueadosPorUsuario(request);
         }
         
-        public int suspenderUsuario(SteamWA.SteamServiceWS.usuario jugador) {
-            SteamWA.SteamServiceWS.suspenderUsuarioRequest inValue = new SteamWA.SteamServiceWS.suspenderUsuarioRequest();
-            inValue.jugador = jugador;
-            SteamWA.SteamServiceWS.suspenderUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).suspenderUsuario(inValue);
+        public SteamWA.SteamServiceWS.usuario[] listarBloqueadosPorUsuario(int idUsuario) {
+            SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest();
+            inValue.idUsuario = idUsuario;
+            SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarBloqueadosPorUsuario(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suspenderUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.suspenderUsuarioAsync(SteamWA.SteamServiceWS.suspenderUsuarioRequest request) {
-            return base.Channel.suspenderUsuarioAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.listarBloqueadosPorUsuarioAsync(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request) {
+            return base.Channel.listarBloqueadosPorUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suspenderUsuarioResponse> suspenderUsuarioAsync(SteamWA.SteamServiceWS.usuario jugador) {
-            SteamWA.SteamServiceWS.suspenderUsuarioRequest inValue = new SteamWA.SteamServiceWS.suspenderUsuarioRequest();
-            inValue.jugador = jugador;
-            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).suspenderUsuarioAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse> listarBloqueadosPorUsuarioAsync(int idUsuario) {
+            SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest();
+            inValue.idUsuario = idUsuario;
+            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarBloqueadosPorUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -10907,6 +10540,29 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.actualizarUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.actualizarUsuario(SteamWA.SteamServiceWS.actualizarUsuarioRequest request) {
+            return base.Channel.actualizarUsuario(request);
+        }
+        
+        public int actualizarUsuario(SteamWA.SteamServiceWS.usuario jugador) {
+            SteamWA.SteamServiceWS.actualizarUsuarioRequest inValue = new SteamWA.SteamServiceWS.actualizarUsuarioRequest();
+            inValue.jugador = jugador;
+            SteamWA.SteamServiceWS.actualizarUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).actualizarUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.actualizarUsuarioAsync(SteamWA.SteamServiceWS.actualizarUsuarioRequest request) {
+            return base.Channel.actualizarUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarUsuarioResponse> actualizarUsuarioAsync(SteamWA.SteamServiceWS.usuario jugador) {
+            SteamWA.SteamServiceWS.actualizarUsuarioRequest inValue = new SteamWA.SteamServiceWS.actualizarUsuarioRequest();
+            inValue.jugador = jugador;
+            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).actualizarUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.buscarUsuarioPorIdResponse SteamWA.SteamServiceWS.UsuarioWS.buscarUsuarioPorId(SteamWA.SteamServiceWS.buscarUsuarioPorIdRequest request) {
             return base.Channel.buscarUsuarioPorId(request);
         }
@@ -10930,6 +10586,29 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.suspenderUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.suspenderUsuario(SteamWA.SteamServiceWS.suspenderUsuarioRequest request) {
+            return base.Channel.suspenderUsuario(request);
+        }
+        
+        public int suspenderUsuario(SteamWA.SteamServiceWS.usuario jugador) {
+            SteamWA.SteamServiceWS.suspenderUsuarioRequest inValue = new SteamWA.SteamServiceWS.suspenderUsuarioRequest();
+            inValue.jugador = jugador;
+            SteamWA.SteamServiceWS.suspenderUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).suspenderUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suspenderUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.suspenderUsuarioAsync(SteamWA.SteamServiceWS.suspenderUsuarioRequest request) {
+            return base.Channel.suspenderUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suspenderUsuarioResponse> suspenderUsuarioAsync(SteamWA.SteamServiceWS.usuario jugador) {
+            SteamWA.SteamServiceWS.suspenderUsuarioRequest inValue = new SteamWA.SteamServiceWS.suspenderUsuarioRequest();
+            inValue.jugador = jugador;
+            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).suspenderUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.insertarUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.insertarUsuario(SteamWA.SteamServiceWS.insertarUsuarioRequest request) {
             return base.Channel.insertarUsuario(request);
         }
@@ -10950,29 +10629,6 @@ namespace SteamWA.SteamServiceWS {
             SteamWA.SteamServiceWS.insertarUsuarioRequest inValue = new SteamWA.SteamServiceWS.insertarUsuarioRequest();
             inValue.jugador = jugador;
             return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).insertarUsuarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.actualizarUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.actualizarUsuario(SteamWA.SteamServiceWS.actualizarUsuarioRequest request) {
-            return base.Channel.actualizarUsuario(request);
-        }
-        
-        public int actualizarUsuario(SteamWA.SteamServiceWS.usuario jugador) {
-            SteamWA.SteamServiceWS.actualizarUsuarioRequest inValue = new SteamWA.SteamServiceWS.actualizarUsuarioRequest();
-            inValue.jugador = jugador;
-            SteamWA.SteamServiceWS.actualizarUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).actualizarUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.actualizarUsuarioAsync(SteamWA.SteamServiceWS.actualizarUsuarioRequest request) {
-            return base.Channel.actualizarUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarUsuarioResponse> actualizarUsuarioAsync(SteamWA.SteamServiceWS.usuario jugador) {
-            SteamWA.SteamServiceWS.actualizarUsuarioRequest inValue = new SteamWA.SteamServiceWS.actualizarUsuarioRequest();
-            inValue.jugador = jugador;
-            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).actualizarUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -11020,6 +10676,29 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse SteamWA.SteamServiceWS.UsuarioWS.listarUsuariosQueBloquearon(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request) {
+            return base.Channel.listarUsuariosQueBloquearon(request);
+        }
+        
+        public SteamWA.SteamServiceWS.usuario[] listarUsuariosQueBloquearon(int idUsuario) {
+            SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest inValue = new SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest();
+            inValue.idUsuario = idUsuario;
+            SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarUsuariosQueBloquearon(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse> SteamWA.SteamServiceWS.UsuarioWS.listarUsuariosQueBloquearonAsync(SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest request) {
+            return base.Channel.listarUsuariosQueBloquearonAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarUsuariosQueBloquearonResponse> listarUsuariosQueBloquearonAsync(int idUsuario) {
+            SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest inValue = new SteamWA.SteamServiceWS.listarUsuariosQueBloquearonRequest();
+            inValue.idUsuario = idUsuario;
+            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarUsuariosQueBloquearonAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.listarUsuariosPorNombreCuentaResponse SteamWA.SteamServiceWS.UsuarioWS.listarUsuariosPorNombreCuenta(SteamWA.SteamServiceWS.listarUsuariosPorNombreCuentaRequest request) {
             return base.Channel.listarUsuariosPorNombreCuenta(request);
         }
@@ -11063,52 +10742,6 @@ namespace SteamWA.SteamServiceWS {
             SteamWA.SteamServiceWS.buscarUsuarioPorNombreCuentaRequest inValue = new SteamWA.SteamServiceWS.buscarUsuarioPorNombreCuentaRequest();
             inValue.nombreCuenta = nombreCuenta;
             return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).buscarUsuarioPorNombreCuentaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.listarAmigosPorUsuario(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request) {
-            return base.Channel.listarAmigosPorUsuario(request);
-        }
-        
-        public SteamWA.SteamServiceWS.usuario[] listarAmigosPorUsuario(int idUsuario) {
-            SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarAmigosPorUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.listarAmigosPorUsuarioAsync(SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest request) {
-            return base.Channel.listarAmigosPorUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarAmigosPorUsuarioResponse> listarAmigosPorUsuarioAsync(int idUsuario) {
-            SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarAmigosPorUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarAmigosPorUsuarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse SteamWA.SteamServiceWS.UsuarioWS.listarBloqueadosPorUsuario(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request) {
-            return base.Channel.listarBloqueadosPorUsuario(request);
-        }
-        
-        public SteamWA.SteamServiceWS.usuario[] listarBloqueadosPorUsuario(int idUsuario) {
-            SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse retVal = ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarBloqueadosPorUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse> SteamWA.SteamServiceWS.UsuarioWS.listarBloqueadosPorUsuarioAsync(SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest request) {
-            return base.Channel.listarBloqueadosPorUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioResponse> listarBloqueadosPorUsuarioAsync(int idUsuario) {
-            SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest inValue = new SteamWA.SteamServiceWS.listarBloqueadosPorUsuarioRequest();
-            inValue.idUsuario = idUsuario;
-            return ((SteamWA.SteamServiceWS.UsuarioWS)(this)).listarBloqueadosPorUsuarioAsync(inValue);
         }
     }
     
@@ -11412,15 +11045,6 @@ namespace SteamWA.SteamServiceWS {
     public interface MovimientoWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarMovimientoResponse insertarMovimiento(SteamWA.SteamServiceWS.insertarMovimientoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMovimientoResponse> insertarMovimientoAsync(SteamWA.SteamServiceWS.insertarMovimientoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MovimientoWS/listarMovimientosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MovimientoWS/listarMovimientosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -11437,42 +11061,15 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MovimientoWS/buscarMovimientoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MovimientoWS/buscarMovimientoResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarMovimientoResponse> buscarMovimientoAsync(SteamWA.SteamServiceWS.buscarMovimientoRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMovimiento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarMovimientoRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.movimiento movimiento;
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.insertarMovimientoResponse insertarMovimiento(SteamWA.SteamServiceWS.insertarMovimientoRequest request);
         
-        public insertarMovimientoRequest() {
-        }
-        
-        public insertarMovimientoRequest(SteamWA.SteamServiceWS.movimiento movimiento) {
-            this.movimiento = movimiento;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMovimientoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarMovimientoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarMovimientoResponse() {
-        }
-        
-        public insertarMovimientoResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/MovimientoWS/insertarMovimientoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMovimientoResponse> insertarMovimientoAsync(SteamWA.SteamServiceWS.insertarMovimientoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11547,6 +11144,42 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMovimiento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarMovimientoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.movimiento movimiento;
+        
+        public insertarMovimientoRequest() {
+        }
+        
+        public insertarMovimientoRequest(SteamWA.SteamServiceWS.movimiento movimiento) {
+            this.movimiento = movimiento;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMovimientoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarMovimientoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarMovimientoResponse() {
+        }
+        
+        public insertarMovimientoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface MovimientoWSChannel : SteamWA.SteamServiceWS.MovimientoWS, System.ServiceModel.IClientChannel {
     }
@@ -11572,29 +11205,6 @@ namespace SteamWA.SteamServiceWS {
         
         public MovimientoWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarMovimientoResponse SteamWA.SteamServiceWS.MovimientoWS.insertarMovimiento(SteamWA.SteamServiceWS.insertarMovimientoRequest request) {
-            return base.Channel.insertarMovimiento(request);
-        }
-        
-        public int insertarMovimiento(SteamWA.SteamServiceWS.movimiento movimiento) {
-            SteamWA.SteamServiceWS.insertarMovimientoRequest inValue = new SteamWA.SteamServiceWS.insertarMovimientoRequest();
-            inValue.movimiento = movimiento;
-            SteamWA.SteamServiceWS.insertarMovimientoResponse retVal = ((SteamWA.SteamServiceWS.MovimientoWS)(this)).insertarMovimiento(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMovimientoResponse> SteamWA.SteamServiceWS.MovimientoWS.insertarMovimientoAsync(SteamWA.SteamServiceWS.insertarMovimientoRequest request) {
-            return base.Channel.insertarMovimientoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMovimientoResponse> insertarMovimientoAsync(SteamWA.SteamServiceWS.movimiento movimiento) {
-            SteamWA.SteamServiceWS.insertarMovimientoRequest inValue = new SteamWA.SteamServiceWS.insertarMovimientoRequest();
-            inValue.movimiento = movimiento;
-            return ((SteamWA.SteamServiceWS.MovimientoWS)(this)).insertarMovimientoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -11642,38 +11252,34 @@ namespace SteamWA.SteamServiceWS {
             inValue.idMovimiento = idMovimiento;
             return ((SteamWA.SteamServiceWS.MovimientoWS)(this)).buscarMovimientoAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.insertarMovimientoResponse SteamWA.SteamServiceWS.MovimientoWS.insertarMovimiento(SteamWA.SteamServiceWS.insertarMovimientoRequest request) {
+            return base.Channel.insertarMovimiento(request);
+        }
+        
+        public int insertarMovimiento(SteamWA.SteamServiceWS.movimiento movimiento) {
+            SteamWA.SteamServiceWS.insertarMovimientoRequest inValue = new SteamWA.SteamServiceWS.insertarMovimientoRequest();
+            inValue.movimiento = movimiento;
+            SteamWA.SteamServiceWS.insertarMovimientoResponse retVal = ((SteamWA.SteamServiceWS.MovimientoWS)(this)).insertarMovimiento(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMovimientoResponse> SteamWA.SteamServiceWS.MovimientoWS.insertarMovimientoAsync(SteamWA.SteamServiceWS.insertarMovimientoRequest request) {
+            return base.Channel.insertarMovimientoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarMovimientoResponse> insertarMovimientoAsync(SteamWA.SteamServiceWS.movimiento movimiento) {
+            SteamWA.SteamServiceWS.insertarMovimientoRequest inValue = new SteamWA.SteamServiceWS.insertarMovimientoRequest();
+            inValue.movimiento = movimiento;
+            return ((SteamWA.SteamServiceWS.MovimientoWS)(this)).insertarMovimientoAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.ComentarioWS")]
     public interface ComentarioWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarComentarioResponse insertarComentario(SteamWA.SteamServiceWS.insertarComentarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarComentarioResponse> insertarComentarioAsync(SteamWA.SteamServiceWS.insertarComentarioRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarComentariosResponse listarComentarios(SteamWA.SteamServiceWS.listarComentariosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarComentariosResponse> listarComentariosAsync(SteamWA.SteamServiceWS.listarComentariosRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.ocultarComentarioResponse ocultarComentario(SteamWA.SteamServiceWS.ocultarComentarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarComentarioResponse> ocultarComentarioAsync(SteamWA.SteamServiceWS.ocultarComentarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosPerfilRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosPerfilResponse" +
@@ -11694,106 +11300,33 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/actualizarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/actualizarComentarioResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarComentarioResponse> actualizarComentarioAsync(SteamWA.SteamServiceWS.actualizarComentarioRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComentario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarComentarioRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.comentario comentario;
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.ocultarComentarioResponse ocultarComentario(SteamWA.SteamServiceWS.ocultarComentarioRequest request);
         
-        public insertarComentarioRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/ocultarComentarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarComentarioResponse> ocultarComentarioAsync(SteamWA.SteamServiceWS.ocultarComentarioRequest request);
         
-        public insertarComentarioRequest(SteamWA.SteamServiceWS.comentario comentario) {
-            this.comentario = comentario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComentarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarComentarioResponse {
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarComentariosResponse listarComentarios(SteamWA.SteamServiceWS.listarComentariosRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/listarComentariosResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarComentariosResponse> listarComentariosAsync(SteamWA.SteamServiceWS.listarComentariosRequest request);
         
-        public insertarComentarioResponse() {
-        }
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.insertarComentarioResponse insertarComentario(SteamWA.SteamServiceWS.insertarComentarioRequest request);
         
-        public insertarComentarioResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComentarios", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarComentariosRequest {
-        
-        public listarComentariosRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComentariosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarComentariosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.comentario[] @return;
-        
-        public listarComentariosResponse() {
-        }
-        
-        public listarComentariosResponse(SteamWA.SteamServiceWS.comentario[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarComentario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class ocultarComentarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.comentario comentario;
-        
-        public ocultarComentarioRequest() {
-        }
-        
-        public ocultarComentarioRequest(SteamWA.SteamServiceWS.comentario comentario) {
-            this.comentario = comentario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarComentarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class ocultarComentarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public ocultarComentarioResponse() {
-        }
-        
-        public ocultarComentarioResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ComentarioWS/insertarComentarioResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarComentarioResponse> insertarComentarioAsync(SteamWA.SteamServiceWS.insertarComentarioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11868,6 +11401,106 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarComentario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class ocultarComentarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.comentario comentario;
+        
+        public ocultarComentarioRequest() {
+        }
+        
+        public ocultarComentarioRequest(SteamWA.SteamServiceWS.comentario comentario) {
+            this.comentario = comentario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ocultarComentarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class ocultarComentarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public ocultarComentarioResponse() {
+        }
+        
+        public ocultarComentarioResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComentarios", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarComentariosRequest {
+        
+        public listarComentariosRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComentariosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarComentariosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.comentario[] @return;
+        
+        public listarComentariosResponse() {
+        }
+        
+        public listarComentariosResponse(SteamWA.SteamServiceWS.comentario[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComentario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarComentarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.comentario comentario;
+        
+        public insertarComentarioRequest() {
+        }
+        
+        public insertarComentarioRequest(SteamWA.SteamServiceWS.comentario comentario) {
+            this.comentario = comentario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComentarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarComentarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarComentarioResponse() {
+        }
+        
+        public insertarComentarioResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ComentarioWSChannel : SteamWA.SteamServiceWS.ComentarioWS, System.ServiceModel.IClientChannel {
     }
@@ -11893,73 +11526,6 @@ namespace SteamWA.SteamServiceWS {
         
         public ComentarioWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarComentarioResponse SteamWA.SteamServiceWS.ComentarioWS.insertarComentario(SteamWA.SteamServiceWS.insertarComentarioRequest request) {
-            return base.Channel.insertarComentario(request);
-        }
-        
-        public int insertarComentario(SteamWA.SteamServiceWS.comentario comentario) {
-            SteamWA.SteamServiceWS.insertarComentarioRequest inValue = new SteamWA.SteamServiceWS.insertarComentarioRequest();
-            inValue.comentario = comentario;
-            SteamWA.SteamServiceWS.insertarComentarioResponse retVal = ((SteamWA.SteamServiceWS.ComentarioWS)(this)).insertarComentario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarComentarioResponse> SteamWA.SteamServiceWS.ComentarioWS.insertarComentarioAsync(SteamWA.SteamServiceWS.insertarComentarioRequest request) {
-            return base.Channel.insertarComentarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarComentarioResponse> insertarComentarioAsync(SteamWA.SteamServiceWS.comentario comentario) {
-            SteamWA.SteamServiceWS.insertarComentarioRequest inValue = new SteamWA.SteamServiceWS.insertarComentarioRequest();
-            inValue.comentario = comentario;
-            return ((SteamWA.SteamServiceWS.ComentarioWS)(this)).insertarComentarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarComentariosResponse SteamWA.SteamServiceWS.ComentarioWS.listarComentarios(SteamWA.SteamServiceWS.listarComentariosRequest request) {
-            return base.Channel.listarComentarios(request);
-        }
-        
-        public SteamWA.SteamServiceWS.comentario[] listarComentarios() {
-            SteamWA.SteamServiceWS.listarComentariosRequest inValue = new SteamWA.SteamServiceWS.listarComentariosRequest();
-            SteamWA.SteamServiceWS.listarComentariosResponse retVal = ((SteamWA.SteamServiceWS.ComentarioWS)(this)).listarComentarios(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarComentariosResponse> SteamWA.SteamServiceWS.ComentarioWS.listarComentariosAsync(SteamWA.SteamServiceWS.listarComentariosRequest request) {
-            return base.Channel.listarComentariosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarComentariosResponse> listarComentariosAsync() {
-            SteamWA.SteamServiceWS.listarComentariosRequest inValue = new SteamWA.SteamServiceWS.listarComentariosRequest();
-            return ((SteamWA.SteamServiceWS.ComentarioWS)(this)).listarComentariosAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.ocultarComentarioResponse SteamWA.SteamServiceWS.ComentarioWS.ocultarComentario(SteamWA.SteamServiceWS.ocultarComentarioRequest request) {
-            return base.Channel.ocultarComentario(request);
-        }
-        
-        public int ocultarComentario(SteamWA.SteamServiceWS.comentario comentario) {
-            SteamWA.SteamServiceWS.ocultarComentarioRequest inValue = new SteamWA.SteamServiceWS.ocultarComentarioRequest();
-            inValue.comentario = comentario;
-            SteamWA.SteamServiceWS.ocultarComentarioResponse retVal = ((SteamWA.SteamServiceWS.ComentarioWS)(this)).ocultarComentario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarComentarioResponse> SteamWA.SteamServiceWS.ComentarioWS.ocultarComentarioAsync(SteamWA.SteamServiceWS.ocultarComentarioRequest request) {
-            return base.Channel.ocultarComentarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarComentarioResponse> ocultarComentarioAsync(SteamWA.SteamServiceWS.comentario comentario) {
-            SteamWA.SteamServiceWS.ocultarComentarioRequest inValue = new SteamWA.SteamServiceWS.ocultarComentarioRequest();
-            inValue.comentario = comentario;
-            return ((SteamWA.SteamServiceWS.ComentarioWS)(this)).ocultarComentarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -12007,6 +11573,73 @@ namespace SteamWA.SteamServiceWS {
             inValue.comentario = comentario;
             return ((SteamWA.SteamServiceWS.ComentarioWS)(this)).actualizarComentarioAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.ocultarComentarioResponse SteamWA.SteamServiceWS.ComentarioWS.ocultarComentario(SteamWA.SteamServiceWS.ocultarComentarioRequest request) {
+            return base.Channel.ocultarComentario(request);
+        }
+        
+        public int ocultarComentario(SteamWA.SteamServiceWS.comentario comentario) {
+            SteamWA.SteamServiceWS.ocultarComentarioRequest inValue = new SteamWA.SteamServiceWS.ocultarComentarioRequest();
+            inValue.comentario = comentario;
+            SteamWA.SteamServiceWS.ocultarComentarioResponse retVal = ((SteamWA.SteamServiceWS.ComentarioWS)(this)).ocultarComentario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarComentarioResponse> SteamWA.SteamServiceWS.ComentarioWS.ocultarComentarioAsync(SteamWA.SteamServiceWS.ocultarComentarioRequest request) {
+            return base.Channel.ocultarComentarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.ocultarComentarioResponse> ocultarComentarioAsync(SteamWA.SteamServiceWS.comentario comentario) {
+            SteamWA.SteamServiceWS.ocultarComentarioRequest inValue = new SteamWA.SteamServiceWS.ocultarComentarioRequest();
+            inValue.comentario = comentario;
+            return ((SteamWA.SteamServiceWS.ComentarioWS)(this)).ocultarComentarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarComentariosResponse SteamWA.SteamServiceWS.ComentarioWS.listarComentarios(SteamWA.SteamServiceWS.listarComentariosRequest request) {
+            return base.Channel.listarComentarios(request);
+        }
+        
+        public SteamWA.SteamServiceWS.comentario[] listarComentarios() {
+            SteamWA.SteamServiceWS.listarComentariosRequest inValue = new SteamWA.SteamServiceWS.listarComentariosRequest();
+            SteamWA.SteamServiceWS.listarComentariosResponse retVal = ((SteamWA.SteamServiceWS.ComentarioWS)(this)).listarComentarios(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarComentariosResponse> SteamWA.SteamServiceWS.ComentarioWS.listarComentariosAsync(SteamWA.SteamServiceWS.listarComentariosRequest request) {
+            return base.Channel.listarComentariosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarComentariosResponse> listarComentariosAsync() {
+            SteamWA.SteamServiceWS.listarComentariosRequest inValue = new SteamWA.SteamServiceWS.listarComentariosRequest();
+            return ((SteamWA.SteamServiceWS.ComentarioWS)(this)).listarComentariosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.insertarComentarioResponse SteamWA.SteamServiceWS.ComentarioWS.insertarComentario(SteamWA.SteamServiceWS.insertarComentarioRequest request) {
+            return base.Channel.insertarComentario(request);
+        }
+        
+        public int insertarComentario(SteamWA.SteamServiceWS.comentario comentario) {
+            SteamWA.SteamServiceWS.insertarComentarioRequest inValue = new SteamWA.SteamServiceWS.insertarComentarioRequest();
+            inValue.comentario = comentario;
+            SteamWA.SteamServiceWS.insertarComentarioResponse retVal = ((SteamWA.SteamServiceWS.ComentarioWS)(this)).insertarComentario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarComentarioResponse> SteamWA.SteamServiceWS.ComentarioWS.insertarComentarioAsync(SteamWA.SteamServiceWS.insertarComentarioRequest request) {
+            return base.Channel.insertarComentarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarComentarioResponse> insertarComentarioAsync(SteamWA.SteamServiceWS.comentario comentario) {
+            SteamWA.SteamServiceWS.insertarComentarioRequest inValue = new SteamWA.SteamServiceWS.insertarComentarioRequest();
+            inValue.comentario = comentario;
+            return ((SteamWA.SteamServiceWS.ComentarioWS)(this)).insertarComentarioAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -12014,13 +11647,13 @@ namespace SteamWA.SteamServiceWS {
     public interface HiloWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarHiloResponse insertarHilo(SteamWA.SteamServiceWS.insertarHiloRequest request);
+        SteamWA.SteamServiceWS.mostrarHilosSubforoResponse mostrarHilosSubforo(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarHiloResponse> insertarHiloAsync(SteamWA.SteamServiceWS.insertarHiloRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarHilosSubforoResponse> mostrarHilosSubforoAsync(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/eliminarHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/eliminarHiloResponse")]
@@ -12032,13 +11665,13 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarHiloResponse> eliminarHiloAsync(SteamWA.SteamServiceWS.eliminarHiloRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.mostrarHilosSubforoResponse mostrarHilosSubforo(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request);
+        SteamWA.SteamServiceWS.insertarHiloResponse insertarHilo(SteamWA.SteamServiceWS.insertarHiloRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarHilosSubforoResponse> mostrarHilosSubforoAsync(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarHiloResponse> insertarHiloAsync(SteamWA.SteamServiceWS.insertarHiloRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/HiloWS/editarHiloRequest", ReplyAction="http://services.softprog.pucp.edu.pe/HiloWS/editarHiloResponse")]
@@ -12053,35 +11686,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarHilo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarHiloRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarHilosSubforo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class mostrarHilosSubforoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.hilo hilo;
+        public SteamWA.SteamServiceWS.subforo subforo;
         
-        public insertarHiloRequest() {
+        public mostrarHilosSubforoRequest() {
         }
         
-        public insertarHiloRequest(SteamWA.SteamServiceWS.hilo hilo) {
-            this.hilo = hilo;
+        public mostrarHilosSubforoRequest(SteamWA.SteamServiceWS.subforo subforo) {
+            this.subforo = subforo;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarHiloResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarHiloResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarHilosSubforoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class mostrarHilosSubforoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.hilo[] @return;
         
-        public insertarHiloResponse() {
+        public mostrarHilosSubforoResponse() {
         }
         
-        public insertarHiloResponse(int @return) {
+        public mostrarHilosSubforoResponse(SteamWA.SteamServiceWS.hilo[] @return) {
             this.@return = @return;
         }
     }
@@ -12125,35 +11758,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarHilosSubforo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class mostrarHilosSubforoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarHilo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarHiloRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.subforo subforo;
+        public SteamWA.SteamServiceWS.hilo hilo;
         
-        public mostrarHilosSubforoRequest() {
+        public insertarHiloRequest() {
         }
         
-        public mostrarHilosSubforoRequest(SteamWA.SteamServiceWS.subforo subforo) {
-            this.subforo = subforo;
+        public insertarHiloRequest(SteamWA.SteamServiceWS.hilo hilo) {
+            this.hilo = hilo;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="mostrarHilosSubforoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class mostrarHilosSubforoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarHiloResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarHiloResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.hilo[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public mostrarHilosSubforoResponse() {
+        public insertarHiloResponse() {
         }
         
-        public mostrarHilosSubforoResponse(SteamWA.SteamServiceWS.hilo[] @return) {
+        public insertarHiloResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -12222,26 +11855,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarHiloResponse SteamWA.SteamServiceWS.HiloWS.insertarHilo(SteamWA.SteamServiceWS.insertarHiloRequest request) {
-            return base.Channel.insertarHilo(request);
+        SteamWA.SteamServiceWS.mostrarHilosSubforoResponse SteamWA.SteamServiceWS.HiloWS.mostrarHilosSubforo(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request) {
+            return base.Channel.mostrarHilosSubforo(request);
         }
         
-        public int insertarHilo(SteamWA.SteamServiceWS.hilo hilo) {
-            SteamWA.SteamServiceWS.insertarHiloRequest inValue = new SteamWA.SteamServiceWS.insertarHiloRequest();
-            inValue.hilo = hilo;
-            SteamWA.SteamServiceWS.insertarHiloResponse retVal = ((SteamWA.SteamServiceWS.HiloWS)(this)).insertarHilo(inValue);
+        public SteamWA.SteamServiceWS.hilo[] mostrarHilosSubforo(SteamWA.SteamServiceWS.subforo subforo) {
+            SteamWA.SteamServiceWS.mostrarHilosSubforoRequest inValue = new SteamWA.SteamServiceWS.mostrarHilosSubforoRequest();
+            inValue.subforo = subforo;
+            SteamWA.SteamServiceWS.mostrarHilosSubforoResponse retVal = ((SteamWA.SteamServiceWS.HiloWS)(this)).mostrarHilosSubforo(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarHiloResponse> SteamWA.SteamServiceWS.HiloWS.insertarHiloAsync(SteamWA.SteamServiceWS.insertarHiloRequest request) {
-            return base.Channel.insertarHiloAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarHilosSubforoResponse> SteamWA.SteamServiceWS.HiloWS.mostrarHilosSubforoAsync(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request) {
+            return base.Channel.mostrarHilosSubforoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarHiloResponse> insertarHiloAsync(SteamWA.SteamServiceWS.hilo hilo) {
-            SteamWA.SteamServiceWS.insertarHiloRequest inValue = new SteamWA.SteamServiceWS.insertarHiloRequest();
-            inValue.hilo = hilo;
-            return ((SteamWA.SteamServiceWS.HiloWS)(this)).insertarHiloAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarHilosSubforoResponse> mostrarHilosSubforoAsync(SteamWA.SteamServiceWS.subforo subforo) {
+            SteamWA.SteamServiceWS.mostrarHilosSubforoRequest inValue = new SteamWA.SteamServiceWS.mostrarHilosSubforoRequest();
+            inValue.subforo = subforo;
+            return ((SteamWA.SteamServiceWS.HiloWS)(this)).mostrarHilosSubforoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -12268,26 +11901,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.mostrarHilosSubforoResponse SteamWA.SteamServiceWS.HiloWS.mostrarHilosSubforo(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request) {
-            return base.Channel.mostrarHilosSubforo(request);
+        SteamWA.SteamServiceWS.insertarHiloResponse SteamWA.SteamServiceWS.HiloWS.insertarHilo(SteamWA.SteamServiceWS.insertarHiloRequest request) {
+            return base.Channel.insertarHilo(request);
         }
         
-        public SteamWA.SteamServiceWS.hilo[] mostrarHilosSubforo(SteamWA.SteamServiceWS.subforo subforo) {
-            SteamWA.SteamServiceWS.mostrarHilosSubforoRequest inValue = new SteamWA.SteamServiceWS.mostrarHilosSubforoRequest();
-            inValue.subforo = subforo;
-            SteamWA.SteamServiceWS.mostrarHilosSubforoResponse retVal = ((SteamWA.SteamServiceWS.HiloWS)(this)).mostrarHilosSubforo(inValue);
+        public int insertarHilo(SteamWA.SteamServiceWS.hilo hilo) {
+            SteamWA.SteamServiceWS.insertarHiloRequest inValue = new SteamWA.SteamServiceWS.insertarHiloRequest();
+            inValue.hilo = hilo;
+            SteamWA.SteamServiceWS.insertarHiloResponse retVal = ((SteamWA.SteamServiceWS.HiloWS)(this)).insertarHilo(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarHilosSubforoResponse> SteamWA.SteamServiceWS.HiloWS.mostrarHilosSubforoAsync(SteamWA.SteamServiceWS.mostrarHilosSubforoRequest request) {
-            return base.Channel.mostrarHilosSubforoAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarHiloResponse> SteamWA.SteamServiceWS.HiloWS.insertarHiloAsync(SteamWA.SteamServiceWS.insertarHiloRequest request) {
+            return base.Channel.insertarHiloAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.mostrarHilosSubforoResponse> mostrarHilosSubforoAsync(SteamWA.SteamServiceWS.subforo subforo) {
-            SteamWA.SteamServiceWS.mostrarHilosSubforoRequest inValue = new SteamWA.SteamServiceWS.mostrarHilosSubforoRequest();
-            inValue.subforo = subforo;
-            return ((SteamWA.SteamServiceWS.HiloWS)(this)).mostrarHilosSubforoAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarHiloResponse> insertarHiloAsync(SteamWA.SteamServiceWS.hilo hilo) {
+            SteamWA.SteamServiceWS.insertarHiloRequest inValue = new SteamWA.SteamServiceWS.insertarHiloRequest();
+            inValue.hilo = hilo;
+            return ((SteamWA.SteamServiceWS.HiloWS)(this)).insertarHiloAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -12319,18 +11952,6 @@ namespace SteamWA.SteamServiceWS {
     public interface ProductoAdquiridoColeccionWS {
         
         // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
-            "oAdquiridoDeColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
-            "oAdquiridoDeColeccionResponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse eliminarProductoAdquiridoDeColeccion(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
-            "oAdquiridoDeColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
-            "oAdquiridoDeColeccionResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse> eliminarProductoAdquiridoDeColeccionAsync(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request);
-        
-        // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/insertarProduct" +
             "oAdquiridoAColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/insertarProduct" +
             "oAdquiridoAColeccionResponse")]
@@ -12341,44 +11962,18 @@ namespace SteamWA.SteamServiceWS {
             "oAdquiridoAColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/insertarProduct" +
             "oAdquiridoAColeccionResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarProductoAdquiridoAColeccionResponse> insertarProductoAdquiridoAColeccionAsync(SteamWA.SteamServiceWS.insertarProductoAdquiridoAColeccionRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoAdquiridoDeColeccion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarProductoAdquiridoDeColeccionRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int idColeccion;
+        // CODEGEN: Generating message contract since message part namespace () does not match the default value (http://services.softprog.pucp.edu.pe/)
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
+            "oAdquiridoDeColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
+            "oAdquiridoDeColeccionResponse")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse eliminarProductoAdquiridoDeColeccion(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int idProductoAdquirido;
-        
-        public eliminarProductoAdquiridoDeColeccionRequest() {
-        }
-        
-        public eliminarProductoAdquiridoDeColeccionRequest(int idColeccion, int idProductoAdquirido) {
-            this.idColeccion = idColeccion;
-            this.idProductoAdquirido = idProductoAdquirido;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoAdquiridoDeColeccionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarProductoAdquiridoDeColeccionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int @return;
-        
-        public eliminarProductoAdquiridoDeColeccionResponse() {
-        }
-        
-        public eliminarProductoAdquiridoDeColeccionResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
+            "oAdquiridoDeColeccionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoAdquiridoColeccionWS/eliminarProduct" +
+            "oAdquiridoDeColeccionResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse> eliminarProductoAdquiridoDeColeccionAsync(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12419,6 +12014,44 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoAdquiridoDeColeccion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarProductoAdquiridoDeColeccionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int idColeccion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public int idProductoAdquirido;
+        
+        public eliminarProductoAdquiridoDeColeccionRequest() {
+        }
+        
+        public eliminarProductoAdquiridoDeColeccionRequest(int idColeccion, int idProductoAdquirido) {
+            this.idColeccion = idColeccion;
+            this.idProductoAdquirido = idProductoAdquirido;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoAdquiridoDeColeccionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarProductoAdquiridoDeColeccionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int @return;
+        
+        public eliminarProductoAdquiridoDeColeccionResponse() {
+        }
+        
+        public eliminarProductoAdquiridoDeColeccionResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductoAdquiridoColeccionWSChannel : SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS, System.ServiceModel.IClientChannel {
     }
@@ -12447,31 +12080,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS.eliminarProductoAdquiridoDeColeccion(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request) {
-            return base.Channel.eliminarProductoAdquiridoDeColeccion(request);
-        }
-        
-        public int eliminarProductoAdquiridoDeColeccion(int idColeccion, int idProductoAdquirido) {
-            SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest inValue = new SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest();
-            inValue.idColeccion = idColeccion;
-            inValue.idProductoAdquirido = idProductoAdquirido;
-            SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse retVal = ((SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS)(this)).eliminarProductoAdquiridoDeColeccion(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse> SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS.eliminarProductoAdquiridoDeColeccionAsync(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request) {
-            return base.Channel.eliminarProductoAdquiridoDeColeccionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse> eliminarProductoAdquiridoDeColeccionAsync(int idColeccion, int idProductoAdquirido) {
-            SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest inValue = new SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest();
-            inValue.idColeccion = idColeccion;
-            inValue.idProductoAdquirido = idProductoAdquirido;
-            return ((SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS)(this)).eliminarProductoAdquiridoDeColeccionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.insertarProductoAdquiridoAColeccionResponse SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS.insertarProductoAdquiridoAColeccion(SteamWA.SteamServiceWS.insertarProductoAdquiridoAColeccionRequest request) {
             return base.Channel.insertarProductoAdquiridoAColeccion(request);
         }
@@ -12495,20 +12103,36 @@ namespace SteamWA.SteamServiceWS {
             inValue.idProductoAdquirido = idProductoAdquirido;
             return ((SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS)(this)).insertarProductoAdquiridoAColeccionAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS.eliminarProductoAdquiridoDeColeccion(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request) {
+            return base.Channel.eliminarProductoAdquiridoDeColeccion(request);
+        }
+        
+        public int eliminarProductoAdquiridoDeColeccion(int idColeccion, int idProductoAdquirido) {
+            SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest inValue = new SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest();
+            inValue.idColeccion = idColeccion;
+            inValue.idProductoAdquirido = idProductoAdquirido;
+            SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse retVal = ((SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS)(this)).eliminarProductoAdquiridoDeColeccion(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse> SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS.eliminarProductoAdquiridoDeColeccionAsync(SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest request) {
+            return base.Channel.eliminarProductoAdquiridoDeColeccionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionResponse> eliminarProductoAdquiridoDeColeccionAsync(int idColeccion, int idProductoAdquirido) {
+            SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest inValue = new SteamWA.SteamServiceWS.eliminarProductoAdquiridoDeColeccionRequest();
+            inValue.idColeccion = idColeccion;
+            inValue.idProductoAdquirido = idProductoAdquirido;
+            return ((SteamWA.SteamServiceWS.ProductoAdquiridoColeccionWS)(this)).eliminarProductoAdquiridoDeColeccionAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.EtiquetaWS")]
     public interface EtiquetaWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarEtiquetaResponse insertarEtiqueta(SteamWA.SteamServiceWS.insertarEtiquetaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarEtiquetaResponse> insertarEtiquetaAsync(SteamWA.SteamServiceWS.insertarEtiquetaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/actualizarEtiquetaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/actualizarEtiquetaResponse")]
@@ -12520,13 +12144,13 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarEtiquetaResponse> actualizarEtiquetaAsync(SteamWA.SteamServiceWS.actualizarEtiquetaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarEtiquetasResponse listarEtiquetas(SteamWA.SteamServiceWS.listarEtiquetasRequest request);
+        SteamWA.SteamServiceWS.insertarEtiquetaResponse insertarEtiqueta(SteamWA.SteamServiceWS.insertarEtiquetaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarEtiquetasResponse> listarEtiquetasAsync(SteamWA.SteamServiceWS.listarEtiquetasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarEtiquetaResponse> insertarEtiquetaAsync(SteamWA.SteamServiceWS.insertarEtiquetaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaResponse")]
@@ -12536,42 +12160,15 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarEtiquetaResponse> eliminarEtiquetaAsync(SteamWA.SteamServiceWS.eliminarEtiquetaRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEtiqueta", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEtiquetaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.etiqueta etiqueta;
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarEtiquetasResponse listarEtiquetas(SteamWA.SteamServiceWS.listarEtiquetasRequest request);
         
-        public insertarEtiquetaRequest() {
-        }
-        
-        public insertarEtiquetaRequest(SteamWA.SteamServiceWS.etiqueta etiqueta) {
-            this.etiqueta = etiqueta;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEtiquetaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEtiquetaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarEtiquetaResponse() {
-        }
-        
-        public insertarEtiquetaResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarEtiquetasResponse> listarEtiquetasAsync(SteamWA.SteamServiceWS.listarEtiquetasRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12613,27 +12210,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEtiquetas", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEtiquetasRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEtiqueta", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEtiquetaRequest {
         
-        public listarEtiquetasRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.etiqueta etiqueta;
+        
+        public insertarEtiquetaRequest() {
+        }
+        
+        public insertarEtiquetaRequest(SteamWA.SteamServiceWS.etiqueta etiqueta) {
+            this.etiqueta = etiqueta;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEtiquetasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEtiquetasResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEtiquetaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEtiquetaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.etiqueta[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public listarEtiquetasResponse() {
+        public insertarEtiquetaResponse() {
         }
         
-        public listarEtiquetasResponse(SteamWA.SteamServiceWS.etiqueta[] @return) {
+        public insertarEtiquetaResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -12674,6 +12279,34 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEtiquetas", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEtiquetasRequest {
+        
+        public listarEtiquetasRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEtiquetasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEtiquetasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.etiqueta[] @return;
+        
+        public listarEtiquetasResponse() {
+        }
+        
+        public listarEtiquetasResponse(SteamWA.SteamServiceWS.etiqueta[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface EtiquetaWSChannel : SteamWA.SteamServiceWS.EtiquetaWS, System.ServiceModel.IClientChannel {
     }
@@ -12702,29 +12335,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarEtiquetaResponse SteamWA.SteamServiceWS.EtiquetaWS.insertarEtiqueta(SteamWA.SteamServiceWS.insertarEtiquetaRequest request) {
-            return base.Channel.insertarEtiqueta(request);
-        }
-        
-        public int insertarEtiqueta(SteamWA.SteamServiceWS.etiqueta etiqueta) {
-            SteamWA.SteamServiceWS.insertarEtiquetaRequest inValue = new SteamWA.SteamServiceWS.insertarEtiquetaRequest();
-            inValue.etiqueta = etiqueta;
-            SteamWA.SteamServiceWS.insertarEtiquetaResponse retVal = ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).insertarEtiqueta(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarEtiquetaResponse> SteamWA.SteamServiceWS.EtiquetaWS.insertarEtiquetaAsync(SteamWA.SteamServiceWS.insertarEtiquetaRequest request) {
-            return base.Channel.insertarEtiquetaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarEtiquetaResponse> insertarEtiquetaAsync(SteamWA.SteamServiceWS.etiqueta etiqueta) {
-            SteamWA.SteamServiceWS.insertarEtiquetaRequest inValue = new SteamWA.SteamServiceWS.insertarEtiquetaRequest();
-            inValue.etiqueta = etiqueta;
-            return ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).insertarEtiquetaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.actualizarEtiquetaResponse SteamWA.SteamServiceWS.EtiquetaWS.actualizarEtiqueta(SteamWA.SteamServiceWS.actualizarEtiquetaRequest request) {
             return base.Channel.actualizarEtiqueta(request);
         }
@@ -12748,24 +12358,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.listarEtiquetasResponse SteamWA.SteamServiceWS.EtiquetaWS.listarEtiquetas(SteamWA.SteamServiceWS.listarEtiquetasRequest request) {
-            return base.Channel.listarEtiquetas(request);
+        SteamWA.SteamServiceWS.insertarEtiquetaResponse SteamWA.SteamServiceWS.EtiquetaWS.insertarEtiqueta(SteamWA.SteamServiceWS.insertarEtiquetaRequest request) {
+            return base.Channel.insertarEtiqueta(request);
         }
         
-        public SteamWA.SteamServiceWS.etiqueta[] listarEtiquetas() {
-            SteamWA.SteamServiceWS.listarEtiquetasRequest inValue = new SteamWA.SteamServiceWS.listarEtiquetasRequest();
-            SteamWA.SteamServiceWS.listarEtiquetasResponse retVal = ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).listarEtiquetas(inValue);
+        public int insertarEtiqueta(SteamWA.SteamServiceWS.etiqueta etiqueta) {
+            SteamWA.SteamServiceWS.insertarEtiquetaRequest inValue = new SteamWA.SteamServiceWS.insertarEtiquetaRequest();
+            inValue.etiqueta = etiqueta;
+            SteamWA.SteamServiceWS.insertarEtiquetaResponse retVal = ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).insertarEtiqueta(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarEtiquetasResponse> SteamWA.SteamServiceWS.EtiquetaWS.listarEtiquetasAsync(SteamWA.SteamServiceWS.listarEtiquetasRequest request) {
-            return base.Channel.listarEtiquetasAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarEtiquetaResponse> SteamWA.SteamServiceWS.EtiquetaWS.insertarEtiquetaAsync(SteamWA.SteamServiceWS.insertarEtiquetaRequest request) {
+            return base.Channel.insertarEtiquetaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarEtiquetasResponse> listarEtiquetasAsync() {
-            SteamWA.SteamServiceWS.listarEtiquetasRequest inValue = new SteamWA.SteamServiceWS.listarEtiquetasRequest();
-            return ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).listarEtiquetasAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarEtiquetaResponse> insertarEtiquetaAsync(SteamWA.SteamServiceWS.etiqueta etiqueta) {
+            SteamWA.SteamServiceWS.insertarEtiquetaRequest inValue = new SteamWA.SteamServiceWS.insertarEtiquetaRequest();
+            inValue.etiqueta = etiqueta;
+            return ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).insertarEtiquetaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -12790,38 +12402,32 @@ namespace SteamWA.SteamServiceWS {
             inValue.idEtiqueta = idEtiqueta;
             return ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).eliminarEtiquetaAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.listarEtiquetasResponse SteamWA.SteamServiceWS.EtiquetaWS.listarEtiquetas(SteamWA.SteamServiceWS.listarEtiquetasRequest request) {
+            return base.Channel.listarEtiquetas(request);
+        }
+        
+        public SteamWA.SteamServiceWS.etiqueta[] listarEtiquetas() {
+            SteamWA.SteamServiceWS.listarEtiquetasRequest inValue = new SteamWA.SteamServiceWS.listarEtiquetasRequest();
+            SteamWA.SteamServiceWS.listarEtiquetasResponse retVal = ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).listarEtiquetas(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarEtiquetasResponse> SteamWA.SteamServiceWS.EtiquetaWS.listarEtiquetasAsync(SteamWA.SteamServiceWS.listarEtiquetasRequest request) {
+            return base.Channel.listarEtiquetasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarEtiquetasResponse> listarEtiquetasAsync() {
+            SteamWA.SteamServiceWS.listarEtiquetasRequest inValue = new SteamWA.SteamServiceWS.listarEtiquetasRequest();
+            return ((SteamWA.SteamServiceWS.EtiquetaWS)(this)).listarEtiquetasAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SteamServiceWS.SoftwareWS")]
     public interface SoftwareWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.listarSoftwaresResponse listarSoftwares(SteamWA.SteamServiceWS.listarSoftwaresRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarSoftwaresResponse> listarSoftwaresAsync(SteamWA.SteamServiceWS.listarSoftwaresRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.insertarSoftwareResponse insertarSoftware(SteamWA.SteamServiceWS.insertarSoftwareRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarSoftwareResponse> insertarSoftwareAsync(SteamWA.SteamServiceWS.insertarSoftwareRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.eliminarSoftwareResponse eliminarSoftware(SteamWA.SteamServiceWS.eliminarSoftwareRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarSoftwareResponse> eliminarSoftwareAsync(SteamWA.SteamServiceWS.eliminarSoftwareRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse")]
@@ -12833,6 +12439,33 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarSoftwareResponse> buscarSoftwareAsync(SteamWA.SteamServiceWS.buscarSoftwareRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.listarSoftwaresResponse listarSoftwares(SteamWA.SteamServiceWS.listarSoftwaresRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarSoftwaresResponse> listarSoftwaresAsync(SteamWA.SteamServiceWS.listarSoftwaresRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.eliminarSoftwareResponse eliminarSoftware(SteamWA.SteamServiceWS.eliminarSoftwareRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarSoftwareResponse> eliminarSoftwareAsync(SteamWA.SteamServiceWS.eliminarSoftwareRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.insertarSoftwareResponse insertarSoftware(SteamWA.SteamServiceWS.insertarSoftwareRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarSoftwareResponse> insertarSoftwareAsync(SteamWA.SteamServiceWS.insertarSoftwareRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -12840,6 +12473,42 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest", ReplyAction="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.actualizarSoftwareResponse> actualizarSoftwareAsync(SteamWA.SteamServiceWS.actualizarSoftwareRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarSoftware", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarSoftwareRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idSoftware;
+        
+        public buscarSoftwareRequest() {
+        }
+        
+        public buscarSoftwareRequest(int idSoftware) {
+            this.idSoftware = idSoftware;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarSoftwareResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarSoftwareResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SteamWA.SteamServiceWS.software @return;
+        
+        public buscarSoftwareResponse() {
+        }
+        
+        public buscarSoftwareResponse(SteamWA.SteamServiceWS.software @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12866,42 +12535,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public listarSoftwaresResponse(SteamWA.SteamServiceWS.software[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSoftware", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarSoftwareRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.software software;
-        
-        public insertarSoftwareRequest() {
-        }
-        
-        public insertarSoftwareRequest(SteamWA.SteamServiceWS.software software) {
-            this.software = software;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSoftwareResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarSoftwareResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarSoftwareResponse() {
-        }
-        
-        public insertarSoftwareResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -12945,35 +12578,35 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarSoftware", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarSoftwareRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSoftware", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarSoftwareRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idSoftware;
+        public SteamWA.SteamServiceWS.software software;
         
-        public buscarSoftwareRequest() {
+        public insertarSoftwareRequest() {
         }
         
-        public buscarSoftwareRequest(int idSoftware) {
-            this.idSoftware = idSoftware;
+        public insertarSoftwareRequest(SteamWA.SteamServiceWS.software software) {
+            this.software = software;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarSoftwareResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarSoftwareResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSoftwareResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarSoftwareResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SteamWA.SteamServiceWS.software @return;
+        public int @return;
         
-        public buscarSoftwareResponse() {
+        public insertarSoftwareResponse() {
         }
         
-        public buscarSoftwareResponse(SteamWA.SteamServiceWS.software @return) {
+        public insertarSoftwareResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -13042,6 +12675,29 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.buscarSoftwareResponse SteamWA.SteamServiceWS.SoftwareWS.buscarSoftware(SteamWA.SteamServiceWS.buscarSoftwareRequest request) {
+            return base.Channel.buscarSoftware(request);
+        }
+        
+        public SteamWA.SteamServiceWS.software buscarSoftware(int idSoftware) {
+            SteamWA.SteamServiceWS.buscarSoftwareRequest inValue = new SteamWA.SteamServiceWS.buscarSoftwareRequest();
+            inValue.idSoftware = idSoftware;
+            SteamWA.SteamServiceWS.buscarSoftwareResponse retVal = ((SteamWA.SteamServiceWS.SoftwareWS)(this)).buscarSoftware(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarSoftwareResponse> SteamWA.SteamServiceWS.SoftwareWS.buscarSoftwareAsync(SteamWA.SteamServiceWS.buscarSoftwareRequest request) {
+            return base.Channel.buscarSoftwareAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarSoftwareResponse> buscarSoftwareAsync(int idSoftware) {
+            SteamWA.SteamServiceWS.buscarSoftwareRequest inValue = new SteamWA.SteamServiceWS.buscarSoftwareRequest();
+            inValue.idSoftware = idSoftware;
+            return ((SteamWA.SteamServiceWS.SoftwareWS)(this)).buscarSoftwareAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.listarSoftwaresResponse SteamWA.SteamServiceWS.SoftwareWS.listarSoftwares(SteamWA.SteamServiceWS.listarSoftwaresRequest request) {
             return base.Channel.listarSoftwares(request);
         }
@@ -13060,29 +12716,6 @@ namespace SteamWA.SteamServiceWS {
         public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.listarSoftwaresResponse> listarSoftwaresAsync() {
             SteamWA.SteamServiceWS.listarSoftwaresRequest inValue = new SteamWA.SteamServiceWS.listarSoftwaresRequest();
             return ((SteamWA.SteamServiceWS.SoftwareWS)(this)).listarSoftwaresAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.insertarSoftwareResponse SteamWA.SteamServiceWS.SoftwareWS.insertarSoftware(SteamWA.SteamServiceWS.insertarSoftwareRequest request) {
-            return base.Channel.insertarSoftware(request);
-        }
-        
-        public int insertarSoftware(SteamWA.SteamServiceWS.software software) {
-            SteamWA.SteamServiceWS.insertarSoftwareRequest inValue = new SteamWA.SteamServiceWS.insertarSoftwareRequest();
-            inValue.software = software;
-            SteamWA.SteamServiceWS.insertarSoftwareResponse retVal = ((SteamWA.SteamServiceWS.SoftwareWS)(this)).insertarSoftware(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarSoftwareResponse> SteamWA.SteamServiceWS.SoftwareWS.insertarSoftwareAsync(SteamWA.SteamServiceWS.insertarSoftwareRequest request) {
-            return base.Channel.insertarSoftwareAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarSoftwareResponse> insertarSoftwareAsync(SteamWA.SteamServiceWS.software software) {
-            SteamWA.SteamServiceWS.insertarSoftwareRequest inValue = new SteamWA.SteamServiceWS.insertarSoftwareRequest();
-            inValue.software = software;
-            return ((SteamWA.SteamServiceWS.SoftwareWS)(this)).insertarSoftwareAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -13109,26 +12742,26 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.buscarSoftwareResponse SteamWA.SteamServiceWS.SoftwareWS.buscarSoftware(SteamWA.SteamServiceWS.buscarSoftwareRequest request) {
-            return base.Channel.buscarSoftware(request);
+        SteamWA.SteamServiceWS.insertarSoftwareResponse SteamWA.SteamServiceWS.SoftwareWS.insertarSoftware(SteamWA.SteamServiceWS.insertarSoftwareRequest request) {
+            return base.Channel.insertarSoftware(request);
         }
         
-        public SteamWA.SteamServiceWS.software buscarSoftware(int idSoftware) {
-            SteamWA.SteamServiceWS.buscarSoftwareRequest inValue = new SteamWA.SteamServiceWS.buscarSoftwareRequest();
-            inValue.idSoftware = idSoftware;
-            SteamWA.SteamServiceWS.buscarSoftwareResponse retVal = ((SteamWA.SteamServiceWS.SoftwareWS)(this)).buscarSoftware(inValue);
+        public int insertarSoftware(SteamWA.SteamServiceWS.software software) {
+            SteamWA.SteamServiceWS.insertarSoftwareRequest inValue = new SteamWA.SteamServiceWS.insertarSoftwareRequest();
+            inValue.software = software;
+            SteamWA.SteamServiceWS.insertarSoftwareResponse retVal = ((SteamWA.SteamServiceWS.SoftwareWS)(this)).insertarSoftware(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarSoftwareResponse> SteamWA.SteamServiceWS.SoftwareWS.buscarSoftwareAsync(SteamWA.SteamServiceWS.buscarSoftwareRequest request) {
-            return base.Channel.buscarSoftwareAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarSoftwareResponse> SteamWA.SteamServiceWS.SoftwareWS.insertarSoftwareAsync(SteamWA.SteamServiceWS.insertarSoftwareRequest request) {
+            return base.Channel.insertarSoftwareAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.buscarSoftwareResponse> buscarSoftwareAsync(int idSoftware) {
-            SteamWA.SteamServiceWS.buscarSoftwareRequest inValue = new SteamWA.SteamServiceWS.buscarSoftwareRequest();
-            inValue.idSoftware = idSoftware;
-            return ((SteamWA.SteamServiceWS.SoftwareWS)(this)).buscarSoftwareAsync(inValue);
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.insertarSoftwareResponse> insertarSoftwareAsync(SteamWA.SteamServiceWS.software software) {
+            SteamWA.SteamServiceWS.insertarSoftwareRequest inValue = new SteamWA.SteamServiceWS.insertarSoftwareRequest();
+            inValue.software = software;
+            return ((SteamWA.SteamServiceWS.SoftwareWS)(this)).insertarSoftwareAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -13160,13 +12793,13 @@ namespace SteamWA.SteamServiceWS {
     public interface ForoUsuarioWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.suscribirRelacionResponse suscribirRelacion(SteamWA.SteamServiceWS.suscribirRelacionRequest request);
+        SteamWA.SteamServiceWS.desuscribirRelacionResponse desuscribirRelacion(SteamWA.SteamServiceWS.desuscribirRelacionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suscribirRelacionResponse> suscribirRelacionAsync(SteamWA.SteamServiceWS.suscribirRelacionRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.desuscribirRelacionResponse> desuscribirRelacionAsync(SteamWA.SteamServiceWS.desuscribirRelacionRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/crearRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/crearRelacionResponse")]
@@ -13178,6 +12811,15 @@ namespace SteamWA.SteamServiceWS {
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.crearRelacionResponse> crearRelacionAsync(SteamWA.SteamServiceWS.crearRelacionRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SteamWA.SteamServiceWS.suscribirRelacionResponse suscribirRelacion(SteamWA.SteamServiceWS.suscribirRelacionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/suscribirRelacionResponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suscribirRelacionResponse> suscribirRelacionAsync(SteamWA.SteamServiceWS.suscribirRelacionRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -13185,15 +12827,6 @@ namespace SteamWA.SteamServiceWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/eliminarRelacionResponse")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.eliminarRelacionResponse> eliminarRelacionAsync(SteamWA.SteamServiceWS.eliminarRelacionRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SteamWA.SteamServiceWS.desuscribirRelacionResponse desuscribirRelacion(SteamWA.SteamServiceWS.desuscribirRelacionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/desuscribirRelacionResponse")]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.desuscribirRelacionResponse> desuscribirRelacionAsync(SteamWA.SteamServiceWS.desuscribirRelacionRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/listarSuscritosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ForoUsuarioWS/listarSuscritosResponse")]
@@ -13208,8 +12841,8 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="suscribirRelacion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class suscribirRelacionRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="desuscribirRelacion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class desuscribirRelacionRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -13219,10 +12852,10 @@ namespace SteamWA.SteamServiceWS {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idUsuario;
         
-        public suscribirRelacionRequest() {
+        public desuscribirRelacionRequest() {
         }
         
-        public suscribirRelacionRequest(int idForo, int idUsuario) {
+        public desuscribirRelacionRequest(int idForo, int idUsuario) {
             this.idForo = idForo;
             this.idUsuario = idUsuario;
         }
@@ -13231,17 +12864,17 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="suscribirRelacionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class suscribirRelacionResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="desuscribirRelacionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class desuscribirRelacionResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public suscribirRelacionResponse() {
+        public desuscribirRelacionResponse() {
         }
         
-        public suscribirRelacionResponse(int @return) {
+        public desuscribirRelacionResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -13290,6 +12923,47 @@ namespace SteamWA.SteamServiceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="suscribirRelacion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class suscribirRelacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idForo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idUsuario;
+        
+        public suscribirRelacionRequest() {
+        }
+        
+        public suscribirRelacionRequest(int idForo, int idUsuario) {
+            this.idForo = idForo;
+            this.idUsuario = idUsuario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="suscribirRelacionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class suscribirRelacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public suscribirRelacionResponse() {
+        }
+        
+        public suscribirRelacionResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarRelacion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class eliminarRelacionRequest {
         
@@ -13324,47 +12998,6 @@ namespace SteamWA.SteamServiceWS {
         }
         
         public eliminarRelacionResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="desuscribirRelacion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class desuscribirRelacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idForo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idUsuario;
-        
-        public desuscribirRelacionRequest() {
-        }
-        
-        public desuscribirRelacionRequest(int idForo, int idUsuario) {
-            this.idForo = idForo;
-            this.idUsuario = idUsuario;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="desuscribirRelacionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class desuscribirRelacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public desuscribirRelacionResponse() {
-        }
-        
-        public desuscribirRelacionResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -13433,28 +13066,28 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.suscribirRelacionResponse SteamWA.SteamServiceWS.ForoUsuarioWS.suscribirRelacion(SteamWA.SteamServiceWS.suscribirRelacionRequest request) {
-            return base.Channel.suscribirRelacion(request);
+        SteamWA.SteamServiceWS.desuscribirRelacionResponse SteamWA.SteamServiceWS.ForoUsuarioWS.desuscribirRelacion(SteamWA.SteamServiceWS.desuscribirRelacionRequest request) {
+            return base.Channel.desuscribirRelacion(request);
         }
         
-        public int suscribirRelacion(int idForo, int idUsuario) {
-            SteamWA.SteamServiceWS.suscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.suscribirRelacionRequest();
+        public int desuscribirRelacion(int idForo, int idUsuario) {
+            SteamWA.SteamServiceWS.desuscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.desuscribirRelacionRequest();
             inValue.idForo = idForo;
             inValue.idUsuario = idUsuario;
-            SteamWA.SteamServiceWS.suscribirRelacionResponse retVal = ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).suscribirRelacion(inValue);
+            SteamWA.SteamServiceWS.desuscribirRelacionResponse retVal = ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).desuscribirRelacion(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suscribirRelacionResponse> SteamWA.SteamServiceWS.ForoUsuarioWS.suscribirRelacionAsync(SteamWA.SteamServiceWS.suscribirRelacionRequest request) {
-            return base.Channel.suscribirRelacionAsync(request);
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.desuscribirRelacionResponse> SteamWA.SteamServiceWS.ForoUsuarioWS.desuscribirRelacionAsync(SteamWA.SteamServiceWS.desuscribirRelacionRequest request) {
+            return base.Channel.desuscribirRelacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suscribirRelacionResponse> suscribirRelacionAsync(int idForo, int idUsuario) {
-            SteamWA.SteamServiceWS.suscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.suscribirRelacionRequest();
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.desuscribirRelacionResponse> desuscribirRelacionAsync(int idForo, int idUsuario) {
+            SteamWA.SteamServiceWS.desuscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.desuscribirRelacionRequest();
             inValue.idForo = idForo;
             inValue.idUsuario = idUsuario;
-            return ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).suscribirRelacionAsync(inValue);
+            return ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).desuscribirRelacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -13483,6 +13116,31 @@ namespace SteamWA.SteamServiceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.suscribirRelacionResponse SteamWA.SteamServiceWS.ForoUsuarioWS.suscribirRelacion(SteamWA.SteamServiceWS.suscribirRelacionRequest request) {
+            return base.Channel.suscribirRelacion(request);
+        }
+        
+        public int suscribirRelacion(int idForo, int idUsuario) {
+            SteamWA.SteamServiceWS.suscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.suscribirRelacionRequest();
+            inValue.idForo = idForo;
+            inValue.idUsuario = idUsuario;
+            SteamWA.SteamServiceWS.suscribirRelacionResponse retVal = ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).suscribirRelacion(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suscribirRelacionResponse> SteamWA.SteamServiceWS.ForoUsuarioWS.suscribirRelacionAsync(SteamWA.SteamServiceWS.suscribirRelacionRequest request) {
+            return base.Channel.suscribirRelacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.suscribirRelacionResponse> suscribirRelacionAsync(int idForo, int idUsuario) {
+            SteamWA.SteamServiceWS.suscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.suscribirRelacionRequest();
+            inValue.idForo = idForo;
+            inValue.idUsuario = idUsuario;
+            return ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).suscribirRelacionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SteamWA.SteamServiceWS.eliminarRelacionResponse SteamWA.SteamServiceWS.ForoUsuarioWS.eliminarRelacion(SteamWA.SteamServiceWS.eliminarRelacionRequest request) {
             return base.Channel.eliminarRelacion(request);
         }
@@ -13505,31 +13163,6 @@ namespace SteamWA.SteamServiceWS {
             inValue.idForo = idForo;
             inValue.idUsuario = idUsuario;
             return ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).eliminarRelacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SteamWA.SteamServiceWS.desuscribirRelacionResponse SteamWA.SteamServiceWS.ForoUsuarioWS.desuscribirRelacion(SteamWA.SteamServiceWS.desuscribirRelacionRequest request) {
-            return base.Channel.desuscribirRelacion(request);
-        }
-        
-        public int desuscribirRelacion(int idForo, int idUsuario) {
-            SteamWA.SteamServiceWS.desuscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.desuscribirRelacionRequest();
-            inValue.idForo = idForo;
-            inValue.idUsuario = idUsuario;
-            SteamWA.SteamServiceWS.desuscribirRelacionResponse retVal = ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).desuscribirRelacion(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.desuscribirRelacionResponse> SteamWA.SteamServiceWS.ForoUsuarioWS.desuscribirRelacionAsync(SteamWA.SteamServiceWS.desuscribirRelacionRequest request) {
-            return base.Channel.desuscribirRelacionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.desuscribirRelacionResponse> desuscribirRelacionAsync(int idForo, int idUsuario) {
-            SteamWA.SteamServiceWS.desuscribirRelacionRequest inValue = new SteamWA.SteamServiceWS.desuscribirRelacionRequest();
-            inValue.idForo = idForo;
-            inValue.idUsuario = idUsuario;
-            return ((SteamWA.SteamServiceWS.ForoUsuarioWS)(this)).desuscribirRelacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

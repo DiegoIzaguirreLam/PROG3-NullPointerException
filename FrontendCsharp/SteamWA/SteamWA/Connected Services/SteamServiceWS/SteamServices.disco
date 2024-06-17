@@ -6,7 +6,6 @@
   <contractRef ref="http://localhost:8080/SteamWS/RelacionWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/TipoMonedaWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/CarteraWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SteamWS/MedallaWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/MovimientoWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/ForoWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/ForoUsuarioWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
