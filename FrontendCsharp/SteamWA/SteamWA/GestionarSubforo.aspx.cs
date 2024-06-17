@@ -76,19 +76,13 @@ namespace SteamWA
 
         protected void btnVolverForo_Click(object sender, EventArgs e)
         {
-            //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
-            //Session["objeto"]=foro
+            padre = (foro)Session["foroPadre"];
             Response.Redirect("GestionarForo.aspx?foro=" + padre.nombre);
         }
 
         protected void btnActualizarSubforo_Click(object sender, EventArgs e)
         {
-            string nombreForo = "pruebitaSubforo"; //Al crear foro analizará que permita máximo 15 caracteres para el nombre
-            //int idForo = Int32.Parse(((LinkButton)sender).CommandArgument);
-            //Foro foro = areas.SingleOrDefault(x => x.IdArea == idArea);
-            //Session["objeto"]=foro
-            Session["foro_nombre"] = padre; //Por ahora manda un String
+            string nombreForo = ((subforo)Session["subforoPadre"]).nombre; //Al crear foro analizará que permita máximo 15 caracteres para el nombre
             Response.Redirect("GestionarSubforo.aspx?subforo=" + nombreForo);
         }
 

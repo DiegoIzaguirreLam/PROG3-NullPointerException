@@ -30,19 +30,6 @@
         </div>
     </div>
     <hr />
-    <div class="container row fontSetterExo2">
-        <asp:GridView ID="foros" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped">
-            <Columns>
-                <asp:BoundField HeaderText="Nombre" DataField="nombre" />
-                <%--Se mostrará el primer mensaje del hilo fijado en el foro--%>
-                <asp:BoundField HeaderText="Mensaje" DataField="mensaje" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-    </div>
     <div class="row mt-4 fontSetterExo2">
         <div class="rounded-3">
             <div class="px-3">
@@ -79,7 +66,6 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
-                        <asp:ListView runat="server" ></asp:ListView>
                         <div class="container row">
                             <div class="mb-3">
                                 <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label mt-1" /><sup style="color:red">*</sup>
@@ -113,6 +99,28 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
+                        <asp:ListView ID="lvMensajes" runat="server">
+                            <LayoutTemplate>
+                                <div class="listview-container">
+                                    <asp:PlaceHolder runat="server" ID="itemMensajes" />
+                                </div>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <div class="listview-item">
+                                    <div class="container row">
+                                        <div class="col-md-7">
+                                            <p class="mt-3"><%# Eval("Contenido") %></p>
+                                        </div>
+                                        <div class="col-md-5 text-end">
+                                            <p class="mt-3">
+                                                - <%# Eval("Creador") %>
+                                                <img src="<%# Eval("URLImagen") %>" width="20" height="20" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:ListView>
                         <div class="container row">
                             <div class="col-md-7">
                                 <p class="mt-3">El mejor juego!</p>
