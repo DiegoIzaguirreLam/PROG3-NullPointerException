@@ -853,12 +853,6 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.SteamDBManager}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
-        <ant antfile="${project.SteamPerfilController}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
-        <ant antfile="${project.SteamPerfilModel}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
         <ant antfile="${project.SteamUsuarioController}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
@@ -880,12 +874,6 @@ exists or setup the property manually. For example like this:
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.SteamDBManager}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
-        <ant antfile="${project.SteamPerfilController}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
-        <ant antfile="${project.SteamPerfilModel}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.SteamUsuarioController}/build.xml" inheritall="false" target="jar">
@@ -1043,8 +1031,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.SteamBibliotecaModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.SteamComunidadModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.SteamDBManager.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${reference.SteamPerfilController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${reference.SteamPerfilModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.SteamUsuarioController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.SteamUsuarioModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.jakarta.xml.ws-api-4.0.1.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
@@ -1079,8 +1065,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.SteamBibliotecaModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.SteamComunidadModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.SteamDBManager.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${reference.SteamPerfilController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${reference.SteamPerfilModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.SteamUsuarioController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.SteamUsuarioModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.jakarta.xml.ws-api-4.0.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
@@ -1525,8 +1509,6 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.SteamComunidadController}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.SteamComunidadModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.SteamDBManager}/build.xml" inheritall="false" target="clean"/>
-        <ant antfile="${project.SteamPerfilController}/build.xml" inheritall="false" target="clean"/>
-        <ant antfile="${project.SteamPerfilModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.SteamUsuarioController}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.SteamUsuarioModel}/build.xml" inheritall="false" target="clean"/>
     </target>
