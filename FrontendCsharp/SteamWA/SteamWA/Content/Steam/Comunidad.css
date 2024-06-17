@@ -1,0 +1,10 @@
+﻿.listview-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.listview-item {
+    margin-bottom: 10px; /* Espacio entre elementos */
+    padding: 10px;
+    border: 1px solid #ddd; /* Borde alrededor de cada elemento */
+}

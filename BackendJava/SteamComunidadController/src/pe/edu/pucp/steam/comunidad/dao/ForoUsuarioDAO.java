@@ -17,4 +17,5 @@ public interface ForoUsuarioDAO {
     int eliminarRelacion(int idForo, int idUsuario);
     int desuscribirRelacion(int idForo, int idUsuario);
     ArrayList<Foro> listarSuscritos(int idUsuario);
+    ArrayList<Integer> listarSuscriptores(int idForo);
 }

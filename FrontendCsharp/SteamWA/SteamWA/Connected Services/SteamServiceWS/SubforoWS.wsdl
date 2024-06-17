@@ -5,18 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/SubforoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="mostrarSubforosForo">
-    <part name="parameters" element="tns:mostrarSubforosForo" />
-  </message>
-  <message name="mostrarSubforosForoResponse">
-    <part name="parameters" element="tns:mostrarSubforosForoResponse" />
-  </message>
-  <message name="eliminarSubforo">
-    <part name="parameters" element="tns:eliminarSubforo" />
-  </message>
-  <message name="eliminarSubforoResponse">
-    <part name="parameters" element="tns:eliminarSubforoResponse" />
-  </message>
   <message name="insertarSubforo">
     <part name="parameters" element="tns:insertarSubforo" />
   </message>
@@ -29,15 +17,19 @@
   <message name="editarSubforoResponse">
     <part name="parameters" element="tns:editarSubforoResponse" />
   </message>
+  <message name="eliminarSubforo">
+    <part name="parameters" element="tns:eliminarSubforo" />
+  </message>
+  <message name="eliminarSubforoResponse">
+    <part name="parameters" element="tns:eliminarSubforoResponse" />
+  </message>
+  <message name="mostrarSubforosForo">
+    <part name="parameters" element="tns:mostrarSubforosForo" />
+  </message>
+  <message name="mostrarSubforosForoResponse">
+    <part name="parameters" element="tns:mostrarSubforosForoResponse" />
+  </message>
   <portType name="SubforoWS">
-    <operation name="mostrarSubforosForo">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoRequest" message="tns:mostrarSubforosForo" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoResponse" message="tns:mostrarSubforosForoResponse" />
-    </operation>
-    <operation name="eliminarSubforo">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/eliminarSubforoRequest" message="tns:eliminarSubforo" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/eliminarSubforoResponse" message="tns:eliminarSubforoResponse" />
-    </operation>
     <operation name="insertarSubforo">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/insertarSubforoRequest" message="tns:insertarSubforo" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/insertarSubforoResponse" message="tns:insertarSubforoResponse" />
@@ -46,10 +38,27 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoRequest" message="tns:editarSubforo" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/editarSubforoResponse" message="tns:editarSubforoResponse" />
     </operation>
+    <operation name="eliminarSubforo">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/eliminarSubforoRequest" message="tns:eliminarSubforo" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/eliminarSubforoResponse" message="tns:eliminarSubforoResponse" />
+    </operation>
+    <operation name="mostrarSubforosForo">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoRequest" message="tns:mostrarSubforosForo" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SubforoWS/mostrarSubforosForoResponse" message="tns:mostrarSubforosForoResponse" />
+    </operation>
   </portType>
   <binding name="SubforoWSPortBinding" type="tns:SubforoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="mostrarSubforosForo">
+    <operation name="insertarSubforo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editarSubforo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,16 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarSubforo">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="editarSubforo">
+    <operation name="mostrarSubforosForo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

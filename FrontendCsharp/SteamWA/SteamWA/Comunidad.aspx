@@ -79,7 +79,7 @@
                     <div class="container bg-dark">
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label fontSetterExo2" />
+                                <asp:Label ID="lblTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label fontSetterExo2" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12 col-4">
                                     <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" MaxLength="14"></asp:TextBox>
                                 </div>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
                                     <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" Height="50" />
                                 </div>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblInicial" runat="server" Text="Subforo Inicial:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblInicial" runat="server" Text="Subforo Inicial:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
                                     <asp:TextBox ID="txtInicial" runat="server" CssClass="form-control" MaxLength="14" />
                                 </div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
                                     <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control" Height="150" />
                                 </div>
@@ -136,7 +136,7 @@
                     <div class="container bg-dark">
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblNTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblNTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12 col-4">
                                     <asp:TextBox ID="txtNTema" runat="server" CssClass="form-control" MaxLength="14" />
                                 </div>
@@ -144,7 +144,7 @@
                         </div>
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" />
+                                <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
                                     <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50" />
                                 </div>

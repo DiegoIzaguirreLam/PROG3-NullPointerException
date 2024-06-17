@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/crearForo.js"></script>
+    <link href="Content/Steam/Comunidad.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
@@ -78,9 +79,10 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
+                        <asp:ListView runat="server" ></asp:ListView>
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label mt-1" />
+                                <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label mt-1" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
                                     <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control mt-1" Height="150" />
                                 </div>
@@ -93,7 +95,7 @@
                             </div>
                             <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <asp:Button ID="btnGuardar" runat="server" Text="Crear"
-                                    CssClass="float-end btn btn-secondary bg-dark mb-2" />
+                                    CssClass="float-end btn btn-secondary bg-dark mb-2" OnClick="btnGuardar_Click"/>
                             </div>
                         </div>
                     </div>
@@ -159,6 +161,22 @@
                             <asp:TextBox runat="server" CssClass="col-12 mb-3 rounded"></asp:TextBox>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-faltan-datos">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger bg-opacity-50 rounded-5">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title border-white">Campos Incompletos</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content rounded bg-danger">
+                    <div class="container bg-danger mt-3">
+                        <asp:Label runat="server" Text="Tiene que llenar todos los campos!"></asp:Label>
+                    </div>
+                    <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
                 </div>
             </div>
         </div>

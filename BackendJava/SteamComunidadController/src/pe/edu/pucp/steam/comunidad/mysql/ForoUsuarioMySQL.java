@@ -135,5 +135,31 @@ public class ForoUsuarioMySQL implements ForoUsuarioDAO{
         }
         return resultado; 
     }
+
+    @Override
+    public ArrayList<Integer> listarSuscriptores(int idForo) {
+        ArrayList<Integer> users =  new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_SUSCRIPTORES(?)}");
+            cs.setInt("_fid_foro", idForo);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                users.add(rs.getInt("fid_usuario"));
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            
+            try{con.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+			try{rs.close();}catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+			
+        }
+        return users; 
+    }
     
 }

@@ -17,6 +17,7 @@ namespace SteamWA
         HiloWSClient daoHilo;
         MensajeWSClient daoMensaje;
         NotificacionWSClient daoNotificacion;
+        ForoUsuarioWSClient daoForoUsuario;
         int pageIndex;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,7 +26,8 @@ namespace SteamWA
             daoHilo = new HiloWSClient();
             daoMensaje = new MensajeWSClient();
             daoNotificacion = new NotificacionWSClient();
-            
+            daoForoUsuario = new ForoUsuarioWSClient();
+
             if (Session["IndexPagesSubforo"] == null)
             {
                 pageIndex = 0;
@@ -113,10 +115,13 @@ namespace SteamWA
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             int id;
+            foro pad = (foro)Session["foroPadre"];
             subforo neosubforo = new subforo();
             hilo neohilo = new hilo();
             mensaje neomensaje = new mensaje();
             usuario user = (usuario)Session["usuario"];
+            int[] auxSubs;
+            BindingList<int> subs = new BindingList<int>();
             if (txtSubforo.Text.CompareTo("") == 0 || txtMensajeInicial.Text.CompareTo("") == 0)
             {
                 string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
@@ -146,6 +151,16 @@ namespace SteamWA
             notificacionForo.tipo = tipoNotificacion.FOROS;
             notificacionForo.mensaje = "Has creado el subforo " + neosubforo.nombre;
             int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
+            notificacionForo.mensaje = user.nombrePerfil + " ha creado el subforo " + neosubforo.nombre + " en " + ((foro)Session["foroPadre"]).nombre;
+            auxSubs = daoForoUsuario.listarSuscriptores(pad.idForo);
+            if (auxSubs != null) subs = new BindingList<int>(auxSubs);
+            usuario auxUser = new usuario();
+            foreach (int suscriptor in subs)
+            {
+                auxUser.UID = suscriptor;
+                notificacionForo.usuario = auxUser;
+                resultado = daoNotificacion.insertarNotificacion(notificacionForo); //Envía la notificación a cada suscriptor
+            }
             Response.Redirect("GestionarForo.aspx?foro=" + ((foro)Session["foroPadre"]).nombre);
         }
 
