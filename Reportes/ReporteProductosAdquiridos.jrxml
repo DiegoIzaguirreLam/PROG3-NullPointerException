@@ -6,12 +6,12 @@
 	<parameter name="idBiblioteca" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new Integer(31)]]></defaultValueExpression>
 	</parameter>
-	<parameter name="fechaGeneracion" class="java.sql.Date">
-		<defaultValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yy").format(new Date())]]></defaultValueExpression>
-	</parameter>
 	<parameter name="usuario" class="java.lang.String"/>
 	<parameter name="moneda_simbolo" class="java.lang.String"/>
 	<parameter name="moneda_cambio_dolares" class="java.lang.Double"/>
+	<parameter name="SubReporteGrafico" class="java.lang.String"/>
+	<parameter name="imagenLogo" class="java.awt.Image"/>
+	<parameter name="imagenFooter" class="java.awt.Image"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT m.id_transaccion, m.fecha_transaccion, m.tipo, m.metodo_pago, pa.id_producto_adquirido, pa.fecha_adquisicion, pa.fecha_ejecucion, pa.tiempo_uso, pa.actualizado,
     pa.oculto, pa.fid_biblioteca, p.id_producto, p.titulo, p.fecha_publicacion, p.precio, p.descripcion, p.espacio_disco, p.logo_url, p.portada_url,
@@ -195,58 +195,66 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<staticText>
-				<reportElement x="72" y="30" width="410" height="30" uuid="ff604776-4ac2-48c2-a9c7-b5f38c5976df"/>
+				<reportElement x="72" y="20" width="410" height="30" uuid="ff604776-4ac2-48c2-a9c7-b5f38c5976df"/>
 				<textElement textAlignment="Center">
-					<font fontName="Courier New" size="20"/>
+					<font fontName="Courier New" size="20" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[REPORTE DE PRODUCTOS ADQUIRIDOS]]></text>
 			</staticText>
 			<image>
-				<reportElement x="510" y="0" width="50" height="50" uuid="e59197ee-c33e-41fe-830c-1c7d45638c40"/>
-				<imageExpression><![CDATA["https://i.imgur.com/f5zyeKj.png"]]></imageExpression>
+				<reportElement mode="Opaque" x="500" y="0" width="50" height="50" forecolor="#FFFFFF" uuid="1442fc67-cc26-4645-8118-b8dff618eb62"/>
+				<imageExpression><![CDATA[$P{imagenLogo}]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="-2" y="-6" width="50" height="50" uuid="fccf3768-a7d8-4816-9a59-4b5bd65a51e8"/>
-				<imageExpression><![CDATA["https://i.imgur.com/c2LueIm.png"]]></imageExpression>
+				<reportElement mode="Opaque" x="0" y="0" width="72" height="30" forecolor="#FFFFFF" uuid="ffa0a754-39e9-4116-83f1-631d466a9773"/>
+				<imageExpression><![CDATA[$P{imagenFooter}]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="55" splitType="Stretch">
+		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="20" y="25" width="150" height="20" uuid="09ff216d-58b0-4da9-bfd7-d666376f7ccb"/>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="40" width="198" height="20" uuid="09ff216d-58b0-4da9-bfd7-d666376f7ccb"/>
 				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generación del Reporte: ]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="176" y="25" width="100" height="20" uuid="f3953f0d-22bd-4d50-8b32-a44557c834bf"/>
+				<reportElement positionType="FixRelativeToBottom" x="180" y="40" width="154" height="20" uuid="f3953f0d-22bd-4d50-8b32-a44557c834bf"/>
 				<textElement>
-					<font fontName="Courier New"/>
+					<font fontName="Courier New" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{fechaGeneracion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="20" y="0" width="60" height="20" uuid="82490d5f-885b-45e9-bb10-9a2fa5361942"/>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="10" width="80" height="20" uuid="82490d5f-885b-45e9-bb10-9a2fa5361942"/>
 				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="63" y="0" width="100" height="20" uuid="262cd72b-8fc1-4bff-a2cf-0e7c33954f4c"/>
+				<reportElement positionType="FixRelativeToBottom" x="50" y="10" width="100" height="20" uuid="262cd72b-8fc1-4bff-a2cf-0e7c33954f4c"/>
 				<textElement>
-					<font fontName="Courier New"/>
+					<font fontName="Courier New" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
 			</textField>
+			<subreport>
+				<reportElement x="280" y="0" width="260" height="40" uuid="5fb5b392-8988-4471-a17c-b74e932fbafa"/>
+				<subreportParameter name="idBiblioteca">
+					<subreportParameterExpression><![CDATA[$P{idBiblioteca}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SubReporteGrafico}]]></subreportExpression>
+			</subreport>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="51" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<line>
 				<reportElement x="-20" y="0" width="595" height="1" uuid="c3e60bd0-e1ac-45cd-b08b-3544511f13f2">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -258,25 +266,25 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c8c5be8c-2fdd-4fb3-a575-54ad8c2b8b87"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Castellar" isBold="true" isUnderline="false"/>
+					<font fontName="Times New Roman" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[CÓDIGO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="212" y="10" width="130" height="30" uuid="7e823b96-0f5b-4a74-ae8f-05068158128c">
+				<reportElement x="212" y="9" width="130" height="30" uuid="7e823b96-0f5b-4a74-ae8f-05068158128c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d926ad2b-8190-4777-aa4e-43195375a883"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Castellar" isBold="true" isUnderline="false"/>
+					<font fontName="Times New Roman" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[NOMBRE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-15" y="10" width="130" height="30" uuid="8722464f-788c-4b7b-87ac-b32583636b4b">
+				<reportElement x="-15" y="9" width="130" height="30" uuid="8722464f-788c-4b7b-87ac-b32583636b4b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c45d8f68-f6be-41e0-af56-0898e2ae7eba"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Castellar" isBold="true" isUnderline="false"/>
+					<font fontName="Times New Roman" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[FECHA DE COMPRA ]]></text>
 			</staticText>
@@ -285,94 +293,94 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8a84f829-13ec-419c-8d57-baccaa2ebd71"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Castellar" isBold="true" isUnderline="false"/>
+					<font fontName="Times New Roman" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[PRECIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="9" width="111" height="30" uuid="3605fb13-dc3e-49ce-9662-c7507d344d91">
+				<reportElement x="360" y="9" width="111" height="30" uuid="3605fb13-dc3e-49ce-9662-c7507d344d91">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13c1e6f8-571e-4234-abca-76bb22208673"/>
 				</reportElement>
 				<textElement textAlignment="Left">
-					<font fontName="Castellar" isBold="true" isItalic="false"/>
+					<font fontName="Times New Roman" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[PROVEEDOR]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="531" y="8" width="100" height="30" uuid="dd7b675c-3721-4fd1-ad83-a1272f6d376e"/>
+				<reportElement x="530" y="9" width="100" height="30" uuid="dd7b675c-3721-4fd1-ad83-a1272f6d376e"/>
 				<textElement>
-					<font fontName="Castellar" isBold="true"/>
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{moneda_simbolo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="45" splitType="Stretch">
+		<band height="42" splitType="Stretch">
 			<textField>
-				<reportElement x="110" y="10" width="80" height="30" uuid="163bd6b8-3b06-40ff-b790-021044931ef4">
+				<reportElement x="110" y="0" width="80" height="30" uuid="163bd6b8-3b06-40ff-b790-021044931ef4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c8c5be8c-2fdd-4fb3-a575-54ad8c2b8b87"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Courier New"/>
+					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[String.format("%04d", $F{id_producto})]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="212" y="10" width="130" height="30" uuid="dc0e6d49-a203-4cc4-b5b3-79227dec14a2">
+				<reportElement x="212" y="0" width="130" height="30" uuid="dc0e6d49-a203-4cc4-b5b3-79227dec14a2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d926ad2b-8190-4777-aa4e-43195375a883"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Courier New"/>
+					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="-5" y="10" width="110" height="30" uuid="7e4844f1-186c-4ee8-9d11-c57a7ec2c14e">
+				<reportElement x="-5" y="-2" width="110" height="30" uuid="7e4844f1-186c-4ee8-9d11-c57a7ec2c14e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c45d8f68-f6be-41e0-af56-0898e2ae7eba"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Courier New"/>
+					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_adquisicion}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00#;(#,##0.00#-)">
-				<reportElement x="466" y="10" width="78" height="30" uuid="27d46a67-eff0-44a3-9225-3303bc0f3643">
+				<reportElement x="462" y="0" width="78" height="30" uuid="27d46a67-eff0-44a3-9225-3303bc0f3643">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8a84f829-13ec-419c-8d57-baccaa2ebd71"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="Courier New"/>
+					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{precio}.doubleValue()*$P{moneda_cambio_dolares}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="360" y="10" width="100" height="30" uuid="d328d43c-e5e9-4d0c-908c-6826029245d2">
+				<reportElement x="360" y="0" width="100" height="30" uuid="d328d43c-e5e9-4d0c-908c-6826029245d2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13c1e6f8-571e-4234-abca-76bb22208673"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Courier New"/>
+					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{razon_social}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="64" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<textField pattern="#,##0.00#;(#,##0.00#-)">
-				<reportElement x="444" y="20" width="100" height="30" uuid="abde63d2-3f85-4437-8167-f8b5b4a7da2d"/>
+				<reportElement x="440" y="0" width="100" height="30" uuid="abde63d2-3f85-4437-8167-f8b5b4a7da2d"/>
 				<textElement textAlignment="Right">
-					<font fontName="Courier New" size="12" isBold="true"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{moneda_simbolo} + String.format("%.2f", $V{montoTotal})]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="-20" y="9" width="595" height="1" uuid="b1dec948-7743-414c-886a-f831a7a2fb9b">
+				<reportElement x="-20" y="0" width="595" height="1" uuid="b1dec948-7743-414c-886a-f831a7a2fb9b">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="400" y="17" width="60" height="30" uuid="f0d8c677-143b-49ba-8bf4-a06910eb7b3f"/>
+				<reportElement x="400" y="0" width="60" height="30" uuid="f0d8c677-143b-49ba-8bf4-a06910eb7b3f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="13"/>
 				</textElement>
@@ -381,11 +389,11 @@
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="64" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<staticText>
-				<reportElement x="-2" y="34" width="267" height="30" uuid="1540c045-9041-444d-be8e-19e1e111a204"/>
+				<reportElement x="-2" y="0" width="267" height="30" uuid="1540c045-9041-444d-be8e-19e1e111a204"/>
 				<textElement verticalAlignment="Bottom">
-					<font size="9"/>
+					<font fontName="timesNew" size="9"/>
 				</textElement>
 				<text><![CDATA[© 2024 Volba Software Group, Inc. All rights reserved]]></text>
 			</staticText>
