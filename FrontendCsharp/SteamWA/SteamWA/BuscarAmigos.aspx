@@ -80,7 +80,7 @@
             <div class="col-md-6 col-sm-12">
                 <div class="card bg-dark text-gray">
                     <div class="card-body">
-                        <h5 class="card-title">Buscar por Nombre de Usuario</h5>
+                        <h5 class="card-title">Buscar por Nombre de Cuenta</h5>
                         <div class="form-group mb-4">
                             <span class="input-group">
                                 <input id="txtNombre" runat="server" type="text" class="form-control" placeholder="Nombre de Cuenta">
