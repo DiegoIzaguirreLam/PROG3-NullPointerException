@@ -49,5 +49,5 @@ CREATE PROCEDURE LISTAR_SUSCRIPTORES(
 	IN _fid_foro INT
 )
 BEGIN
-	SELECT fid_usuario FROM ForoUsuario WHERE fid_foro = _fid_foro AND activo = 1;
+	SELECT fid_usuario FROM ForoUsuario WHERE fid_foro = _fid_foro AND es_suscriptor = 1 AND es_creador = 0 AND activo = 1;
 END$
