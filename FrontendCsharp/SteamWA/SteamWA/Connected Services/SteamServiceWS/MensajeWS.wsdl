@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/MensajeWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarMensaje">
-    <part name="parameters" element="tns:insertarMensaje" />
+  <message name="mostrarMensajesHilo">
+    <part name="parameters" element="tns:mostrarMensajesHilo" />
   </message>
-  <message name="insertarMensajeResponse">
-    <part name="parameters" element="tns:insertarMensajeResponse" />
+  <message name="mostrarMensajesHiloResponse">
+    <part name="parameters" element="tns:mostrarMensajesHiloResponse" />
   </message>
   <message name="editarMensaje">
     <part name="parameters" element="tns:editarMensaje" />
@@ -17,39 +17,39 @@
   <message name="editarMensajeResponse">
     <part name="parameters" element="tns:editarMensajeResponse" />
   </message>
+  <message name="insertarMensaje">
+    <part name="parameters" element="tns:insertarMensaje" />
+  </message>
+  <message name="insertarMensajeResponse">
+    <part name="parameters" element="tns:insertarMensajeResponse" />
+  </message>
   <message name="eliminarMensaje">
     <part name="parameters" element="tns:eliminarMensaje" />
   </message>
   <message name="eliminarMensajeResponse">
     <part name="parameters" element="tns:eliminarMensajeResponse" />
   </message>
-  <message name="mostrarMensajesHilo">
-    <part name="parameters" element="tns:mostrarMensajesHilo" />
-  </message>
-  <message name="mostrarMensajesHiloResponse">
-    <part name="parameters" element="tns:mostrarMensajesHiloResponse" />
-  </message>
   <portType name="MensajeWS">
-    <operation name="insertarMensaje">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/insertarMensajeRequest" message="tns:insertarMensaje" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/insertarMensajeResponse" message="tns:insertarMensajeResponse" />
+    <operation name="mostrarMensajesHilo">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloRequest" message="tns:mostrarMensajesHilo" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloResponse" message="tns:mostrarMensajesHiloResponse" />
     </operation>
     <operation name="editarMensaje">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/editarMensajeRequest" message="tns:editarMensaje" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/editarMensajeResponse" message="tns:editarMensajeResponse" />
     </operation>
+    <operation name="insertarMensaje">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/insertarMensajeRequest" message="tns:insertarMensaje" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/insertarMensajeResponse" message="tns:insertarMensajeResponse" />
+    </operation>
     <operation name="eliminarMensaje">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeRequest" message="tns:eliminarMensaje" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/eliminarMensajeResponse" message="tns:eliminarMensajeResponse" />
     </operation>
-    <operation name="mostrarMensajesHilo">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloRequest" message="tns:mostrarMensajesHilo" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/MensajeWS/mostrarMensajesHiloResponse" message="tns:mostrarMensajesHiloResponse" />
-    </operation>
   </portType>
   <binding name="MensajeWSPortBinding" type="tns:MensajeWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarMensaje">
+    <operation name="mostrarMensajesHilo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarMensaje">
+    <operation name="insertarMensaje">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="mostrarMensajesHilo">
+    <operation name="eliminarMensaje">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

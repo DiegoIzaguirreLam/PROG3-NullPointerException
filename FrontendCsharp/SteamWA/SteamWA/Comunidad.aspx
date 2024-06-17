@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/crearForo.js"></script>
-    <script src="Scripts/Steam/Comunidad.js?v5"></script>
+    <script src="Scripts/Steam/Comunidad.js?v4"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <link href="Content/Steam/FontAdder.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
         </div>
 
         <div class="search-bar">
-            <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged" AutoPostBack="true" oninput="buscarForo_js()"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtBusquedaForo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaForo_TextChanged" AutoPostBack="true" oninput="buscarForo_js()" onkeydown="return evitarEnter_js(event, 'cphContenido_txtBusquedaForo')"></asp:TextBox>
         </div>
     </div>
     <div class="container mt-3 fontSetterExo2">
@@ -136,7 +136,7 @@
                     <div class="container bg-dark">
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblNTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
+                                <asp:Label ID="lblNTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label" /><sup style="color: red">*</sup>
                                 <div class="col-sm-12 col-4">
                                     <asp:TextBox ID="txtNTema" runat="server" CssClass="form-control" MaxLength="14" />
                                 </div>
@@ -144,7 +144,7 @@
                         </div>
                         <div class="container row">
                             <div class="mb-3">
-                                <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
+                                <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" /><sup style="color: red">*</sup>
                                 <div class="col-sm-12">
                                     <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50" />
                                 </div>
@@ -169,24 +169,31 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
-                        <asp:GridView ID="gvCreados" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvCreados_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
-                            <Columns>
-                                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoCreado" />
-                                <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                                <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
-                                <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
-                                <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
-                                    HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                                <asp:TemplateField ItemStyle-CssClass="text-end">
-                                    <ItemTemplate>
-                                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbActualizarInfoForo_Click" />
-                                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbEliminarForo_Click" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
+                        <asp:UpdatePanel runat="server" UpdateMode="Always">
+                            <ContentTemplate>
+                                <asp:GridView ID="gvCreados" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark mt-2" PageSize="5" OnPageIndexChanging="gvCreados_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
+                                    <Columns>
+                                        <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoCreado" />
+                                        <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                        <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
+                                        <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
+                                        <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
+                                            HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                        <asp:TemplateField ItemStyle-CssClass="text-end">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
+                                                    CommandArgument='<%# Eval("idForo") %>' OnClick="lbActualizarInfoForo_Click" />
+                                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
+                                                    CommandArgument='<%# Eval("idForo") %>' OnClick="lbEliminarForo_Click" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="gvSuscritos" EventName="PageIndexChanging" />
+                            </Triggers>
+                        </asp:UpdatePanel>
                     </div>
                 </div>
             </div>
@@ -202,22 +209,29 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
-                        <asp:GridView ID="gvSuscritos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark" PageSize="5" OnPageIndexChanging="gvSuscritos_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
-                            <Columns>
-                                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoSuscrito" />
-                                <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                                <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
-                                <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
-                                <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
-                                    HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                                <asp:TemplateField ItemStyle-CssClass="text-end">
-                                    <ItemTemplate>
-                                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbDesuscribir_Click" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
+                        <asp:UpdatePanel runat="server" UpdateMode="Always">
+                            <ContentTemplate>
+                                <asp:GridView ID="gvSuscritos" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark mt-2" PageSize="5" OnPageIndexChanging="gvSuscritos_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
+                                    <Columns>
+                                        <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoSuscrito" />
+                                        <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                        <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
+                                        <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
+                                        <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
+                                            HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                        <asp:TemplateField ItemStyle-CssClass="text-end">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
+                                                    CommandArgument='<%# Eval("idForo") %>' OnClick="lbDesuscribir_Click" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="gvSuscritos" EventName="PageIndexChanging" />
+                            </Triggers>
+                        </asp:UpdatePanel>
                     </div>
                 </div>
             </div>

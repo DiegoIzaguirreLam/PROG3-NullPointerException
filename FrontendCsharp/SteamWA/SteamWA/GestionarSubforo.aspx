@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col text-end">
-                <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Hilo" OnClick="btnCrearHilo_Click" />
+                <asp:Button ID="btnCrearHilo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Hilo" OnClick="btnCrearHilo_Click" />
             </div>
         </div>
     </div>
@@ -94,21 +94,16 @@
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
-                    <h6 class="modal-title border-white col-8">¿Es un buen juego? - GianLukaGG</h6>
+                    <h6><asp:Label runat="server" ID="lblTitulo"></asp:Label></h6>
                     <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
                         <asp:ListView ID="lvMensajes" runat="server">
-                            <LayoutTemplate>
-                                <div class="listview-container">
-                                    <asp:PlaceHolder runat="server" ID="itemMensajes" />
-                                </div>
-                            </LayoutTemplate>
                             <ItemTemplate>
-                                <div class="listview-item">
+                                <div class="listview-item border-dark">
                                     <div class="container row">
-                                        <div class="col-md-7">
+                                        <div class="col-md-7 text-start">
                                             <p class="mt-3"><%# Eval("Contenido") %></p>
                                         </div>
                                         <div class="col-md-5 text-end">
@@ -122,51 +117,10 @@
                             </ItemTemplate>
                         </asp:ListView>
                         <div class="container row">
-                            <div class="col-md-7">
-                                <p class="mt-3">El mejor juego!</p>
+                            <asp:TextBox runat="server" ID="txtCrearMensaje" CssClass="col-11 mb-3 rounded mt-2"></asp:TextBox>
+                            <div class="container text-end col-1 mt-2 mb-3">
+                                <asp:LinkButton runat="server" ID="txtEnviarMensaje" CssClass="btn btn-light" Text="<i class='fa-regular fa-paper-plane' style='color: #000000;'></i>" />
                             </div>
-                            <div class="col-md-5 text-end">
-                                <p class="mt-3">
-                                    - Sr. Tomasto
-                                     <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/408410/0538306fa1cafff1035d125ebbe745f1f9ce2236.gif" width="20" height="20" />
-                                </p>
-                            </div>
-                        </div>
-                        <div class="container row">
-                            <div class="col-md-7">
-                                <p class="mt-3">Es muy god!</p>
-                            </div>
-                            <div class="col-md-5 text-end">
-                                <p class="mt-3">
-                                    - Princesa Loopy
-                                    <img src="Images/loopy.jpg" width="20" height="20" />
-                                </p>
-                            </div>
-                        </div>
-                        <div class="container row">
-                            <div class="col-md-7">
-                                <p class="mt-3">El peor juego!</p>
-                            </div>
-                            <div class="col-md-5 text-end">
-                                <p class="mt-3">
-                                    - Sr. Tomasto Nojao
-                                    <img src="Images/Captura%20de%20pantalla%202024-05-07%20185034.png" width="20" height="20" />
-                                </p>
-                            </div>
-                        </div>
-                        <div class="container row">
-                            <div class="col-md-7">
-                                <p class="mt-3">El mejor mejor juego!</p>
-                            </div>
-                            <div class="col-md-5 text-end">
-                                <p class="mt-3">
-                                    - Sr. Tomasto Feli
-                                    <img src="Images/Captura%20de%20pantalla%202024-05-07%20185011.png" width="20" height="20" />
-                                </p>
-                            </div>
-                        </div>
-                        <div class="container row">
-                            <asp:TextBox runat="server" CssClass="col-12 mb-3 rounded"></asp:TextBox>
                         </div>
                     </div>
                 </div>

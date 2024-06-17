@@ -163,6 +163,10 @@
     <None Include="Connected Services\SteamServiceWS\RelacionWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SteamServiceWS\ReportesWS.wsdl" />
+    <None Include="Connected Services\SteamServiceWS\ReportesWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SteamServiceWS\SoftwareWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\SteamServices.disco" />
     <None Include="Connected Services\SteamServiceWS\configuration91.svcinfo" />
@@ -663,6 +667,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarSuscriptoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.generarReporteProductosAdquiridosResponse2.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />

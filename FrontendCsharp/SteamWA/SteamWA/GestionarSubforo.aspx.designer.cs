@@ -42,13 +42,13 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.Button subforo;
 
         /// <summary>
-        /// Control btnCrearForo.
+        /// Control btnCrearHilo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearForo;
+        protected global::System.Web.UI.WebControls.Button btnCrearHilo;
 
         /// <summary>
         /// Control lvHilos.
@@ -96,6 +96,15 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.Button btnGuardar;
 
         /// <summary>
+        /// Control lblTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
+
+        /// <summary>
         /// Control lvMensajes.
         /// </summary>
         /// <remarks>
@@ -103,5 +112,23 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvMensajes;
+
+        /// <summary>
+        /// Control txtCrearMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCrearMensaje;
+
+        /// <summary>
+        /// Control txtEnviarMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton txtEnviarMensaje;
     }
 }

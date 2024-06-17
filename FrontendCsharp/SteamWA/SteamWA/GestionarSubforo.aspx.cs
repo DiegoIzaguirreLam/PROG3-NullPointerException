@@ -43,6 +43,7 @@ namespace SteamWA
 
                 hilo[] aux = daoHilo.mostrarHilosSubforo(subPadre);
                 if (aux != null) hilos = new BindingList<hilo>(aux);
+                Session["auxHilos"] = hilos;
                 BindingList<usuario> usuarios = new BindingList<usuario>();
                 usuario[] aux1 = daoUsuario.listarUsuarios();
                 if (aux1 != null) usuarios = new BindingList<usuario>(aux1);
@@ -94,6 +95,33 @@ namespace SteamWA
 
         protected void btnAbrirHilo_Click(object sender, EventArgs e)
         {
+            hilos = (BindingList<hilo>)Session["auxHilos"];
+            DataTable dtHilos = new DataTable();
+            dtHilos.Columns.Add("Contenido", typeof(string));
+            dtHilos.Columns.Add("Creador", typeof(string));
+            dtHilos.Columns.Add("URLImagen", typeof(string));
+            int idHilo = Int32.Parse(((LinkButton)sender).CommandArgument);
+            hilo hiloAux = hilos.SingleOrDefault(x => x.idHilo == idHilo);
+            mensaje[] aux = daoMensaje.mostrarMensajesHilo(hiloAux);
+            BindingList<mensaje> mensajesHilo = new BindingList<mensaje>();
+            if (aux != null) mensajesHilo = new BindingList<mensaje>(aux);
+            usuario[] aux1 = daoUsuario.listarUsuarios();
+            BindingList<usuario> usuarios = new BindingList<usuario>();
+            if (aux1 != null) usuarios = new BindingList<usuario>(aux1);
+            bool flag = false;
+            usuario creator = usuarios.SingleOrDefault(x => x.UID == mensajesHilo[0].idAutor);
+            lblTitulo.Text = mensajesHilo[0].contenido + " - " + creator.nombreCuenta;
+            foreach (mensaje m in mensajesHilo)
+            {
+                if (flag)
+                {
+                    usuario u = usuarios.SingleOrDefault(x => x.UID == m.idAutor);
+                    if (u != null) dtHilos.Rows.Add(m.contenido, u.nombrePerfil, u.fotoURL);
+                }
+                flag = true;
+            }
+            lvMensajes.DataSource = dtHilos;
+            lvMensajes.DataBind();
             string script = "window.onload = function() { showModalForm('form-modal-hilo-lector') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }

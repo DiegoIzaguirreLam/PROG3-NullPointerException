@@ -36,11 +36,12 @@ namespace SteamWA
             daoNotificacion = new NotificacionWSClient();
 
             pageIndex = (int[])Session["IndexPages"];
-            if (pageIndex == null)
+            if (pageIndex == null && !IsPostBack)
             {
                 pageIndex = new int[3];
                 Session["IndexPages"] = pageIndex;
             }
+            else if (IsPostBack) pageIndex = (int[])Session["IndexPages"];
             if (!IsPostBack)
             {
                 pageIndex = new int[3];
@@ -58,7 +59,7 @@ namespace SteamWA
                 gvCreados.DataSource = creados;
                 gvCreados.DataBind();
                 pageIndex = (int[])Session["IndexPages"];
-                if (pageIndex[1] > (int)(creados.Count / 5))
+                if (pageIndex[1] >= (int)(creados.Count / 5) && pageIndex[1] > 0)
                 {
                     pageIndex[1] = (int)(creados.Count / 5) - 1;
                     Session["IndexPages"] = pageIndex;
@@ -69,7 +70,7 @@ namespace SteamWA
                     ClientScript.RegisterStartupScript(GetType(), "", script, true);
                 }
             }
-            if (IsPostBack && txtBusquedaForo.Text != null)
+            if (IsPostBack && txtBusquedaForo.Text != null && txtBusquedaForo.Text.CompareTo("") != 0)
             {
                 foro[] aux1 = daoForo.buscarForos(txtBusquedaForo.Text);
                 if (aux1 != null) foros = new BindingList<foro>(aux1);
@@ -80,6 +81,7 @@ namespace SteamWA
                 Session["IndexPages"] = pageIndex;
                 txtBusquedaForo.Focus();
             }
+            if (txtBusquedaForo.Text.CompareTo("") == 0) txtBusquedaForo.Focus();
             Steam master = (Steam)this.Master;
             master.ItemComunidad.Attributes["class"] = "active";
             //ComunidadWS.ComunidadWSClient a = new ComunidadWS.ComunidadWSClient();
@@ -88,7 +90,7 @@ namespace SteamWA
 
         protected void btnActualizarComunidad_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("Comunidad.aspx");
+            Response.Redirect("Comunidad.aspx");
         }
 
         protected void btnCrearForo_Click(object sender, EventArgs e)
@@ -148,7 +150,7 @@ namespace SteamWA
                 gvSuscritos.DataBind();
                 Session["ForosSuscritos"] = foros;
                 pageIndex = (int[])Session["IndexPages"];
-                if (pageIndex[2] > (int)(foros.Count / 5))
+                if (pageIndex[2] >= (int)(foros.Count / 5) && pageIndex[2] > 0)
                 {
                     pageIndex[2] = (int)(foros.Count / 5) - 1;
                     Session["IndexPages"] = pageIndex;
@@ -275,6 +277,7 @@ namespace SteamWA
                 pageIndex[2] = 0;
                 Session["IndexPages"] = pageIndex;
                 gvSuscritos.DataBind();
+                gvSuscritos.PageIndex = 0;
                 Session["ForosSuscritos"] = suscritos;
                 script = "window.onload = function() { showModalForm('form-modal-suscritos') };";
             } else script = "window.onload = function() { showModalForm('form-modal-sin-suscritos') };";
@@ -294,6 +297,7 @@ namespace SteamWA
                 pageIndex[1] = 0;
                 Session["IndexPages"] = pageIndex;
                 gvCreados.DataBind();
+                gvCreados.PageIndex = 0;
                 Session["ForosCreados"] = creados;
                 script = "window.onload = function() { showModalForm('form-modal-creados') };";
             } else script = "window.onload = function() { showModalForm('form-modal-sin-creados') };";
