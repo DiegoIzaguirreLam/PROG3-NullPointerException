@@ -156,4 +156,4 @@ replay_pid*
 !/BackendJava/SteamWS/src/java/pe/edu/pucp/steam/lib/jackson-dataformat-xml-2.15.3.jar
 !/BackendJava/SteamWS/src/java/pe/edu/pucp/steam/lib/commons-digester-2.1.jar
 !/BackendJava/SteamWS/src/java/pe/edu/pucp/steam/lib/commons-logging-1.1.1.jar
-!/BackendJava/SteamWS/src/java/pe/edu/pucp/steam/lib/letrasReporteProductosAdquiridos.jar
+!/BackendJava/SteamWS/src/java/pe/edu/pucp/steam/lib/fuentesReporteProductosAdquiridos.jar
