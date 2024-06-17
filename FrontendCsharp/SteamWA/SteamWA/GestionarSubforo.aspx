@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/crearForo.js"></script>
     <link href="Content/Steam/Comunidad.css" rel="stylesheet" />
+    <script src="Scripts/Steam/Comunidad.js?v4"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
@@ -117,9 +118,9 @@
                             </ItemTemplate>
                         </asp:ListView>
                         <div class="container row">
-                            <asp:TextBox runat="server" ID="txtCrearMensaje" CssClass="col-11 mb-3 rounded mt-2"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtCrearMensaje" CssClass="col-11 mb-3 rounded mt-2" MaxLength="40" onkeydown="enviarMensaje_js(event, 'cphContenido_btnEnviarMensaje')"></asp:TextBox>
                             <div class="container text-end col-1 mt-2 mb-3">
-                                <asp:LinkButton runat="server" ID="txtEnviarMensaje" CssClass="btn btn-light" Text="<i class='fa-regular fa-paper-plane' style='color: #000000;'></i>" />
+                                <asp:LinkButton runat="server" ID="btnEnviarMensaje" CssClass="btn btn-light" Text="<i class='fa-regular fa-paper-plane' style='color: #000000;'></i>" OnClick="btnEnviarMensaje_Click"/>
                             </div>
                         </div>
                     </div>

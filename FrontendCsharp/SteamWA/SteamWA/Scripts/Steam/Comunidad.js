@@ -14,3 +14,11 @@ function evitarEnter_js(event, buscador) {
     }
     return document.getElementById(buscador).value;
 }
+
+function enviarMensaje_js(event, buttonId){
+    if (event.keyCode === 13) {
+        event.preventDefault(); //Hace que no envie el formulario
+        var button = document.getElementById(buttonId);
+        if (button) button.click(); //Presiona el boton
+    }
+}

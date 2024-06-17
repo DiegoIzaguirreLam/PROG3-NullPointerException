@@ -95,6 +95,7 @@ namespace SteamWA
 
         protected void btnAbrirHilo_Click(object sender, EventArgs e)
         {
+            txtCrearMensaje.Text = "";
             hilos = (BindingList<hilo>)Session["auxHilos"];
             DataTable dtHilos = new DataTable();
             dtHilos.Columns.Add("Contenido", typeof(string));
@@ -102,6 +103,7 @@ namespace SteamWA
             dtHilos.Columns.Add("URLImagen", typeof(string));
             int idHilo = Int32.Parse(((LinkButton)sender).CommandArgument);
             hilo hiloAux = hilos.SingleOrDefault(x => x.idHilo == idHilo);
+            Session["hiloAux"] = hiloAux;
             mensaje[] aux = daoMensaje.mostrarMensajesHilo(hiloAux);
             BindingList<mensaje> mensajesHilo = new BindingList<mensaje>();
             if (aux != null) mensajesHilo = new BindingList<mensaje>(aux);
@@ -111,6 +113,7 @@ namespace SteamWA
             bool flag = false;
             usuario creator = usuarios.SingleOrDefault(x => x.UID == mensajesHilo[0].idAutor);
             lblTitulo.Text = mensajesHilo[0].contenido + " - " + creator.nombreCuenta;
+            Session["primerMensaje"] = mensajesHilo[0].contenido;
             foreach (mensaje m in mensajesHilo)
             {
                 if (flag)
@@ -170,6 +173,38 @@ namespace SteamWA
                 resultado = daoNotificacion.insertarNotificacion(notificacionForo); //Envía la notificación a cada suscriptor
             }
             Response.Redirect("GestionarSubforo.aspx?subforo=" + ((subforo)Session["subforoPadre"]).nombre);
+        }
+
+        protected void btnEnviarMensaje_Click(object sender, EventArgs e)
+        {
+            if (txtCrearMensaje.Text.CompareTo("") == 0) return;
+            mensaje neomensaje = new mensaje();
+            hilo pert = (hilo)Session["hiloAux"];
+            usuario user = (usuario)Session["usuario"];
+            foro pad = (foro)Session["foroPadre"];
+            int[] auxSubs;
+            BindingList<int> subs = new BindingList<int>();
+            neomensaje.hilo = pert;
+            neomensaje.fechaPublicacion = DateTime.Now;
+            neomensaje.idAutor = user.UID;
+            neomensaje.contenido = txtCrearMensaje.Text;
+            int id = daoMensaje.insertarMensaje(neomensaje);
+            notificacion notificacionForo = new notificacion();
+            notificacionForo.tipoSpecified = true;
+            notificacionForo.usuario = (usuario)Session["usuario"];
+            notificacionForo.tipo = tipoNotificacion.FOROS;
+            notificacionForo.mensaje = "Has comentado el hilo " + (string)Session["primerMensaje"] + " con el mensaje " + neomensaje.contenido;
+            int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
+            notificacionForo.mensaje = user.nombrePerfil + "ha comentado el hilo " + (string)Session["primerMensaje"] + " con el mensaje " + neomensaje.contenido + " en el subforo " + ((subforo)Session["subforoPadre"]).nombre + " del foro " + ((foro)Session["foroPadre"]).nombre;
+            auxSubs = daoForoUsuario.listarSuscriptores(pad.idForo);
+            if (auxSubs != null) subs = new BindingList<int>(auxSubs);
+            usuario auxUser = new usuario();
+            foreach (int suscriptor in subs)
+            {
+                auxUser.UID = suscriptor;
+                notificacionForo.usuario = auxUser;
+                resultado = daoNotificacion.insertarNotificacion(notificacionForo); //Envía la notificación a cada suscriptor
+            }
         }
     }
 }
