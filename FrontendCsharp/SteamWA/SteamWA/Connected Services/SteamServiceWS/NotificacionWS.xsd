@@ -10,6 +10,8 @@
   <xs:element name="insertarNotificacionResponse" type="tns:insertarNotificacionResponse" />
   <xs:element name="listarNotificaciones" type="tns:listarNotificaciones" />
   <xs:element name="listarNotificacionesResponse" type="tns:listarNotificacionesResponse" />
+  <xs:element name="marcarNotificacionLeida" type="tns:marcarNotificacionLeida" />
+  <xs:element name="marcarNotificacionLeidaResponse" type="tns:marcarNotificacionLeidaResponse" />
   <xs:complexType name="insertarNotificacion">
     <xs:sequence>
       <xs:element minOccurs="0" name="notificacion" type="tns:notificacion" />
@@ -18,6 +20,7 @@
   <xs:complexType name="notificacion">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
       <xs:element name="idNotificacion" type="xs:int" />
       <xs:element minOccurs="0" name="mensaje" type="xs:string" />
       <xs:element name="revisada" type="xs:boolean" />
@@ -287,6 +290,16 @@
   <xs:complexType name="listarNotificacionesResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:notificacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="marcarNotificacionLeida">
+    <xs:sequence>
+      <xs:element name="idNotificacion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="marcarNotificacionLeidaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoNotificacion">

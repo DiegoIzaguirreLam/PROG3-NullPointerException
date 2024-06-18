@@ -213,6 +213,7 @@
   <xs:complexType name="notificacion">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
       <xs:element name="idNotificacion" type="xs:int" />
       <xs:element minOccurs="0" name="mensaje" type="xs:string" />
       <xs:element name="revisada" type="xs:boolean" />

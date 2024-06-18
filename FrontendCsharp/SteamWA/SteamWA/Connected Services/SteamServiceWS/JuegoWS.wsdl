@@ -17,11 +17,11 @@
   <message name="buscarJuegoResponse">
     <part name="parameters" element="tns:buscarJuegoResponse" />
   </message>
-  <message name="eliminarJuego">
-    <part name="parameters" element="tns:eliminarJuego" />
+  <message name="insertarJuego">
+    <part name="parameters" element="tns:insertarJuego" />
   </message>
-  <message name="eliminarJuegoResponse">
-    <part name="parameters" element="tns:eliminarJuegoResponse" />
+  <message name="insertarJuegoResponse">
+    <part name="parameters" element="tns:insertarJuegoResponse" />
   </message>
   <message name="actualizarJuego">
     <part name="parameters" element="tns:actualizarJuego" />
@@ -29,11 +29,11 @@
   <message name="actualizarJuegoResponse">
     <part name="parameters" element="tns:actualizarJuegoResponse" />
   </message>
-  <message name="insertarJuego">
-    <part name="parameters" element="tns:insertarJuego" />
+  <message name="eliminarJuego">
+    <part name="parameters" element="tns:eliminarJuego" />
   </message>
-  <message name="insertarJuegoResponse">
-    <part name="parameters" element="tns:insertarJuegoResponse" />
+  <message name="eliminarJuegoResponse">
+    <part name="parameters" element="tns:eliminarJuegoResponse" />
   </message>
   <portType name="JuegoWS">
     <operation name="listarJuegos">
@@ -44,17 +44,17 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoRequest" message="tns:buscarJuego" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/buscarJuegoResponse" message="tns:buscarJuegoResponse" />
     </operation>
-    <operation name="eliminarJuego">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/eliminarJuegoRequest" message="tns:eliminarJuego" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/eliminarJuegoResponse" message="tns:eliminarJuegoResponse" />
+    <operation name="insertarJuego">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/insertarJuegoRequest" message="tns:insertarJuego" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/insertarJuegoResponse" message="tns:insertarJuegoResponse" />
     </operation>
     <operation name="actualizarJuego">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoRequest" message="tns:actualizarJuego" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/actualizarJuegoResponse" message="tns:actualizarJuegoResponse" />
     </operation>
-    <operation name="insertarJuego">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/insertarJuegoRequest" message="tns:insertarJuego" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/insertarJuegoResponse" message="tns:insertarJuegoResponse" />
+    <operation name="eliminarJuego">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/eliminarJuegoRequest" message="tns:eliminarJuego" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/JuegoWS/eliminarJuegoResponse" message="tns:eliminarJuegoResponse" />
     </operation>
   </portType>
   <binding name="JuegoWSPortBinding" type="tns:JuegoWS">
@@ -77,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarJuego">
+    <operation name="insertarJuego">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarJuego">
+    <operation name="eliminarJuego">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
