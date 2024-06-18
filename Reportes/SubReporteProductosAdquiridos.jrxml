@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteProductosAdquiridos" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8b783c40-ac4d-4745-926a-07dd94cd503a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TA PROG3"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="idMovimiento" class="java.lang.Integer"/>
+	<parameter name="moneda_simbolo" class="java.lang.String"/>
+	<parameter name="moneda_cambio_dolares" class="java.lang.Double"/>
+	<queryString language="SQL">
+		<![CDATA[select p.id_producto, p.titulo, pr.razon_social, p.precio from ProductoAdquirido pa
+INNER JOIN Producto p ON p.id_producto = pa.fid_producto
+INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
+INNER JOIN Movimiento m ON pa.fid_movimiento = m.id_movimiento
+WHERE p.activo = 1 and pa.activo = 1 and m.id_movimiento = $P{idMovimiento}]]>
+	</queryString>
+	<field name="id_producto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Producto"/>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Producto"/>
+	</field>
+	<field name="razon_social" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="razon_social"/>
+		<property name="com.jaspersoft.studio.field.label" value="razon_social"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Proveedor"/>
+	</field>
+	<field name="precio" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Producto"/>
+	</field>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="150" y="0" width="100" height="30" uuid="cb5fb834-97a0-4957-bdfe-a3230dc851cd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4055119c-37c5-4dc9-a63d-4c03a86dfcef"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="100" height="30" uuid="a724a332-8229-4b0c-8b86-5caf6be7fd00">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1b782d31-02d7-48e1-99c7-495ce4666a57"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="100" height="30" uuid="06dff296-8061-478c-89bc-a45c058fbbee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4364a3fe-ca89-473c-b0c0-f4a29986c7df"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="0" width="100" height="30" uuid="211e5352-7522-42be-a07d-45fc6d431607">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf197af3-96f7-4eab-be80-e2810255e9e5"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="510" y="0" width="100" height="30" uuid="8fa99e69-af9e-440d-baa9-2deb9b6f4441"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{moneda_simbolo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="150" y="0" width="100" height="30" uuid="c001bc1a-a744-4014-8218-e1658a431051">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4055119c-37c5-4dc9-a63d-4c03a86dfcef"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="100" height="30" uuid="633252d3-c8ca-4ef4-a644-81358ba7d598">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1b782d31-02d7-48e1-99c7-495ce4666a57"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razon_social}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;(#,##0.00#-)">
+				<reportElement x="410" y="0" width="100" height="30" uuid="01ea5bc7-316a-4167-bea6-a013b6e99954">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4364a3fe-ca89-473c-b0c0-f4a29986c7df"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio}.doubleValue()*$P{moneda_cambio_dolares}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="-1" width="100" height="30" uuid="da59b810-ffc8-49d5-b6e9-a884907d24e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf197af3-96f7-4eab-be80-e2810255e9e5"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%04d", $F{id_producto})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -18,6 +18,7 @@ namespace SteamWA
         MensajeWSClient daoMensaje;
         NotificacionWSClient daoNotificacion;
         ForoUsuarioWSClient daoForoUsuario;
+        GestorSancionesWSClient daoGestor;
         int pageIndex;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,6 +28,7 @@ namespace SteamWA
             daoMensaje = new MensajeWSClient();
             daoNotificacion = new NotificacionWSClient();
             daoForoUsuario = new ForoUsuarioWSClient();
+            daoGestor = new GestorSancionesWSClient();
 
             if (Session["IndexPagesSubforo"] == null)
             {
@@ -122,10 +124,43 @@ namespace SteamWA
             usuario user = (usuario)Session["usuario"];
             int[] auxSubs;
             BindingList<int> subs = new BindingList<int>();
+            gestorSanciones gestor = daoGestor.buscarGestor(user.UID);
+            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan < DateTime.Now)
+            {
+                txtMensajeFalta.Text = "Usted se encuentra baneado hasta " + gestor.fechaFinBan;
+                string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
+            else if (gestor.contadorBaneos == 1)
+            {
+                gestor.contadorBaneos = 0; //Se le desbanea
+                gestor.contadorFaltas = 0;
+            }
             if (txtSubforo.Text.CompareTo("") == 0 || txtMensajeInicial.Text.CompareTo("") == 0)
             {
                 string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
                 ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
+            if (txtSubforo.Text.CompareTo("GianLuca") == 0)
+            {
+                gestor.contadorFaltas++;
+                if (gestor.maxFaltas > gestor.contadorFaltas)
+                {
+                    txtMensajeFalta.Text = "Usted ha cometido una falta, le quedan " + (gestor.maxFaltas - gestor.cantFaltas) + " oportunidades.";
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                else
+                {
+                    gestor.fechaFinBan = DateTime.Now.AddDays(3); //Se le banea por 3 días
+                    gestor.contadorBaneos = 1;
+                    txtMensajeFalta.Text = "Usted ha sido baneado hasta " + gestor.fechaFinBan;
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                daoGestor.actualizarGestor(gestor);
                 return;
             }
             neosubforo.nombre = txtSubforo.Text;
@@ -166,10 +201,45 @@ namespace SteamWA
 
         protected void btnActualizaSubforo_Click(object sender, EventArgs e)
         {
+            usuario user = (usuario)Session["usuario"];
+            gestorSanciones gestor = daoGestor.buscarGestor(user.UID);
+            
+            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan < DateTime.Now)
+            {
+                txtMensajeFalta.Text = "Usted se encuentra baneado hasta " + gestor.fechaFinBan;
+                string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
+            else if (gestor.contadorBaneos == 1)
+            {
+                gestor.contadorBaneos = 0; //Se le desbanea
+                gestor.contadorFaltas = 0;
+            }
             if (txtNSubforo.Text.CompareTo("") == 0)
             {
                 string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
                 ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
+            if (txtSubforo.Text.CompareTo("GianLuca") == 0)
+            {
+                gestor.contadorFaltas++;
+                if (gestor.maxFaltas > gestor.contadorFaltas)
+                {
+                    txtMensajeFalta.Text = "Usted ha cometido una falta, le quedan " + (gestor.maxFaltas - gestor.cantFaltas) + " oportunidades.";
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                else
+                {
+                    gestor.fechaFinBan = DateTime.Now.AddDays(3); //Se le banea por 3 días
+                    gestor.contadorBaneos = 1;
+                    txtMensajeFalta.Text = "Usted ha sido baneado hasta " + gestor.fechaFinBan;
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                daoGestor.actualizarGestor(gestor);
                 return;
             }
             subforo neo = (subforo)Session["subforoActualizar"];
