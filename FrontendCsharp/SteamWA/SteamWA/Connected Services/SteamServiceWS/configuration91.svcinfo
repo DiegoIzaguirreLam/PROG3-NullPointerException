@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="hjJP3h0pOFof1lmSckZHobCoGOrdLSzbPF0bYzSZg7I=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="3fZbR5Iu1KaYnKYHsdzK/EU/4B69c++TA2NxpAyG7fs=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="JuegoWSPortBinding">
       <properties>
@@ -2835,10 +2835,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="ReportesWSPortBinding1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="ReportesWSPortBinding">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ReportesWSPortBinding1</serializedValue>
+          <serializedValue>ReportesWSPortBinding</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -5071,7 +5071,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="ReportesWSPort1" contract="SteamServiceWS.ReportesWS" bindingType="basicHttpBinding" address="http://localhost:8080/SteamWS/ReportesWS" bindingConfiguration="ReportesWSPortBinding1">
+    <endpoint name="ReportesWSPort" contract="SteamServiceWS.ReportesWS" bindingType="basicHttpBinding" address="http://localhost:8080/SteamWS/ReportesWS" bindingConfiguration="ReportesWSPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8080/SteamWS/ReportesWS</serializedValue>
@@ -5083,7 +5083,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ReportesWSPortBinding1</serializedValue>
+          <serializedValue>ReportesWSPortBinding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>SteamServiceWS.ReportesWS</serializedValue>
@@ -5146,7 +5146,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ReportesWSPort1</serializedValue>
+          <serializedValue>ReportesWSPort</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
