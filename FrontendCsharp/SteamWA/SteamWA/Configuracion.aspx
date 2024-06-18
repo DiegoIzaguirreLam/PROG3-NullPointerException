@@ -99,13 +99,11 @@
                                 <asp:TextBox runat="server" ID="txtURL" CssClass="form-control" Enabled="false" MaxLength="200"/>
                                 <asp:Button runat="server" ID="btnValidarImagen" CssClass="btn btn-outline-light" OnClick="lbValidarImagen_Click" Enabled="false" Text="Previsualizar"/>
                             </div>
-                            <%--<asp:CustomValidator ID="cvURL" runat="server" ErrorMessage="La URL no apunta a una imagen válida." ControlToValidate="txtURL"
-                                    ClientValidationFunction="validarImagenURL" Display="Dynamic" ForeColor="Red" SetFocusOnError="true" ClientIDMode="Static"/>--%>
                         </div>
                     </div>
                 </div>
-                <div id="divBotonesConfiguracion" runat="server" class="d-flex justify-content-between">
-                    <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                <div id="divBotonesConfiguracion" runat="server" class="d-flex justify-content-between mb-4">
+                    <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"  UseSubmitBehavior="false"/>
                     <div id="divEliminarGuardar" runat="server">
                         <asp:Button ID="btnEditar" CssClass="btn btn-outline-light" runat="server" Text="Editar" OnClick="btnEditar_Click" />
                         <asp:Button ID="btnGuardar" CssClass="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" Visible="false"/>
