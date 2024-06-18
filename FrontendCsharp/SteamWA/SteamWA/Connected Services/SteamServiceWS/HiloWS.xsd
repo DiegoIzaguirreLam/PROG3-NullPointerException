@@ -75,16 +75,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="mostrarHilosSubforo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="mostrarHilosSubforoResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:hilo" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarHilo">
     <xs:sequence>
       <xs:element minOccurs="0" name="hilo" type="tns:hilo" />
@@ -93,6 +83,16 @@
   <xs:complexType name="insertarHiloResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mostrarHilosSubforo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="subforo" type="tns:subforo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mostrarHilosSubforoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:hilo" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarHilo">
