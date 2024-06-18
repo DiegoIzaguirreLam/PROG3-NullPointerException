@@ -12,7 +12,7 @@ import pe.edu.pucp.steam.comunidad.mysql.PalabrasProhibidasMySQL;
 
 @WebService(serviceName="PalabrasProhibidasWS", targetNamespace="http://services.softprog.pucp.edu.pe/")
 public class PalabrasProhibidasWS {
-    @WebMethod(operationName="hello")
+    @WebMethod(operationName="buscarPalabraProhibida")
     public boolean buscarPalabraProhibida(@WebParam(name="palabra") String palabra) {
         boolean resultado=false;
         try{

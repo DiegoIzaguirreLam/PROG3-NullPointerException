@@ -6,6 +6,7 @@ import java.sql.CallableStatement;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.Calendar;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 public class GestorSancionesMySQL implements GestorSancionesDAO{
@@ -17,11 +18,14 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
     public int actualizarGestor(GestorSanciones gestorSanciones) {
         int resultado = 0;
         try{
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(new java.util.Date());
+            cal.add(Calendar.DAY_OF_MONTH, 3);
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call EDITAR_GESTOR"
                     + "(?,?,?,?,?,?,?,?,?)}");
             
-            cs.setInt("_fid_usuario", gestorSanciones.getIdGestor());
+            cs.setInt("_id_gestor", gestorSanciones.getIdGestor());
             cs.setInt("_contador_baneos",gestorSanciones.getContadorBaneos());
             cs.setInt("_contador_palabras",gestorSanciones.getContadorPalabras());
             cs.setInt("_contador_faltas",gestorSanciones.getContadorFaltas());
@@ -29,8 +33,7 @@ public class GestorSancionesMySQL implements GestorSancionesDAO{
             cs.setInt("_max_baneos",gestorSanciones.getMaxBaneos());
             cs.setInt("_cant_baneos",gestorSanciones.getCantBaneos());
             cs.setInt("_cant_faltas",gestorSanciones.getCantFaltas());
-            cs.setDate("_fin_ban", new java.sql.Date(
-                    gestorSanciones.getFechaFinBan().getTime()));
+            cs.setDate("_fin_ban", new java.sql.Date(cal.getTime().getTime())); //Consigue el dia mas 3
            resultado = cs.executeUpdate();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

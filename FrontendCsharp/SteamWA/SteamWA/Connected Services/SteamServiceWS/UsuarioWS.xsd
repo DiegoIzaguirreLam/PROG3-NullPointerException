@@ -189,6 +189,7 @@
       <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
       <xs:element name="fijado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fotoPerfil" type="xs:string" />
       <xs:element name="idCreador" type="xs:int" />
       <xs:element name="idHilo" type="xs:int" />
       <xs:element minOccurs="0" name="imagenUrl" type="xs:string" />
@@ -205,9 +206,11 @@
       <xs:element minOccurs="0" name="contenido" type="xs:string" />
       <xs:element minOccurs="0" name="fechaMaxEdicion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="fechaPublicacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fotoPerfil" type="xs:string" />
       <xs:element minOccurs="0" name="hilo" type="tns:hilo" />
       <xs:element name="idAutor" type="xs:int" />
       <xs:element name="idMensaje" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
       <xs:element name="oculto" type="xs:boolean" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="respuestas" nillable="true" type="tns:mensaje" />
     </xs:sequence>
@@ -264,16 +267,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarUsuarioPorNombreCuenta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarUsuarioPorNombreCuentaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:usuario" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarUsuariosPorNombreCuenta">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
@@ -282,6 +275,16 @@
   <xs:complexType name="listarUsuariosPorNombreCuentaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioPorNombreCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioPorNombreCuentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarUsuariosQueBloquearon">
@@ -345,14 +348,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarUsuarios">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarUsuariosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="buscarUsuarioPorId">
     <xs:sequence>
       <xs:element name="uid" type="xs:int" />
@@ -361,6 +356,14 @@
   <xs:complexType name="buscarUsuarioPorIdResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarUsuarios">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarUsuariosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarUsuario">

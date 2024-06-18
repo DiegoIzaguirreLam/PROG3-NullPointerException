@@ -42,7 +42,8 @@
                             <div class="card bg-dark-subtle border-black">
                                 <img src="<%# Eval("URLImagen") %>" height="200" class="card-img-top" alt="Juego 1">
                                 <div class="card-body bg-dark">
-                                    <h6 class="card-title" style="color: white"><%# Eval("NombreUsuario") %> </h6>
+                                    <h6 class="card-title" style="color: white"><%# Eval("NombreUsuario") %> -  
+                                    <img src="<%# Eval("FotoPerfil") %>" width="20" height="20" /></h6>
                                     <asp:LinkButton ID="btn2" CssClass="btn btn-light border-light fontSetterExo2" runat="server" Text="Abrir Hilo" OnClick="btnAbrirHilo_Click" CommandArgument='<%# Eval("idHilo")%>'/>
                                 </div>
                             </div>
@@ -83,7 +84,7 @@
                             </div>
                             <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <asp:Button ID="btnGuardar" runat="server" Text="Crear"
-                                    CssClass="float-end btn btn-secondary bg-dark mb-2" OnClick="btnGuardar_Click"/>
+                                    CssClass="float-end btn btn-secondary bg-dark mb-2" OnClick="btnGuardar_Click" />
                             </div>
                         </div>
                     </div>
@@ -96,7 +97,8 @@
         <div class="modal-dialog">
             <div class="modal-content bg-secondary bg-opacity-50">
                 <div class="modal-header bg-dark">
-                    <h6><asp:Label runat="server" ID="lblTitulo"></asp:Label></h6>
+                    <h6>
+                        <asp:Label runat="server" ID="lblTitulo"></asp:Label></h6>
                     <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-content">
@@ -120,17 +122,18 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:ListView>
+
+                                <div class="container row">
+                                    <asp:TextBox runat="server" ID="txtCrearMensaje" CssClass="col-11 mb-3 rounded mt-2" MaxLength="40" onkeydown="enviarMensaje_js(event, 'cphContenido_btnEnviarMensaje')"></asp:TextBox>
+                                    <div class="container text-end col-1 mt-2 mb-3">
+                                        <asp:LinkButton runat="server" ID="btnEnviarMensaje" CssClass="btn btn-light" Text="<i class='fa-regular fa-paper-plane' style='color: #000000;'></i>" OnClick="btnEnviarMensaje_Click" />
+                                    </div>
                             </ContentTemplate>
-                            <%-- %><Triggers>
+                            <Triggers>
                                 <asp:AsyncPostBackTrigger ControlID="btnEnviarMensaje" EventName="Click" />
-                            </Triggers>--%>
+                            </Triggers>
                         </asp:UpdatePanel>
-                        <div class="container row">
-                            <asp:TextBox runat="server" ID="txtCrearMensaje" CssClass="col-11 mb-3 rounded mt-2" MaxLength="40" onkeydown="enviarMensaje_js(event, 'cphContenido_btnEnviarMensaje')"></asp:TextBox>
-                                <div class="container text-end col-1 mt-2 mb-3">
-                                    <asp:LinkButton runat="server" ID="btnEnviarMensaje" CssClass="btn btn-light" Text="<i class='fa-regular fa-paper-plane' style='color: #000000;'></i>" OnClick="btnEnviarMensaje_Click" />
-                                </div>
-                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,8 @@ public class Mensaje {
     private int idMensaje;
     private int idAutor; //ID del usuario
     private String contenido;
+    private String nombreUsuario;
+    private String fotoPerfil;
     private Date fechaPublicacion;
     private ArrayList<Mensaje> respuestas;
     private Hilo hilo;
@@ -58,6 +60,22 @@ public class Mensaje {
 
     public void setContenido(String contenido) {
         this.contenido = contenido;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
     public Date getFechaPublicacion() {

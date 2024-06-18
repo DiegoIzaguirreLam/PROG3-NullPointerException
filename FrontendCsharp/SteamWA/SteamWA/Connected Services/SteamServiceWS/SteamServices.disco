@@ -10,6 +10,7 @@
   <contractRef ref="http://localhost:8080/SteamWS/ForoWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/ForoUsuarioWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/GestorSancionesWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <contractRef ref="http://localhost:8080/SteamWS/PalabrasProhibidasWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/HiloWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/MensajeWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SteamWS/SubforoWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />

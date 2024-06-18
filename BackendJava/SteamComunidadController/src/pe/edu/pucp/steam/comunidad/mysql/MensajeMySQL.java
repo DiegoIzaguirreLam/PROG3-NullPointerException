@@ -65,7 +65,8 @@ public class MensajeMySQL implements MensajeDAO{
                                 mensaje.setFechaPublicacion(rs.getDate("fecha_publicacion"));
                                 mensaje.setFechaMaxEdicion(rs.getDate("fecha_max_edicion"));
                                 mensaje.setIdAutor(rs.getInt("fid_usuario"));
-                               
+                                mensaje.setNombreUsuario(rs.getString("nombre_perfil"));
+                                mensaje.setFotoPerfil(rs.getString("foto_url"));
 				mensajes.add(mensaje);
                 
             }

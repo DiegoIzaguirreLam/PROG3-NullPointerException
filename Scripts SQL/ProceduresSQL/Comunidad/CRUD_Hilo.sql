@@ -30,7 +30,8 @@ CREATE PROCEDURE MOSTRAR_MENSAJES_POR_HILO(
 	in _id_hilo INT 
 )
 BEGIN
-	SELECT * FROM Mensaje WHERE fid_hilo = _id_hilo 
+	SELECT id_mensaje, contenido, fecha_publicacion, fecha_max_edicion, fid_usuario, nombre_perfil , foto_url FROM Mensaje, Usuario 
+	WHERE fid_hilo = _id_hilo AND UID = fid_usuario
     AND oculto = 0;
 
 END $

@@ -140,6 +140,10 @@
     <None Include="Connected Services\SteamServiceWS\PaisWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SteamServiceWS\PalabrasProhibidasWS.wsdl" />
+    <None Include="Connected Services\SteamServiceWS\PalabrasProhibidasWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SteamServiceWS\ProductoAdquiridoColeccionWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\ProductoAdquiridoColeccionWS.xsd">
       <SubType>Designer</SubType>
@@ -674,6 +678,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.marcarNotificacionLeidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarPalabraProhibidaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />

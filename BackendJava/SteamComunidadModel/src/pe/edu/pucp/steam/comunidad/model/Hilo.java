@@ -22,6 +22,7 @@ public class Hilo {
     private ArrayList<Mensaje> mensajes;
     private String imagenUrl;
     private String nombre;
+    private String fotoPerfil;
     private boolean oculto;
     private boolean activo;
 
@@ -71,6 +72,14 @@ public class Hilo {
 
     public void setNroMensajes(int nroMensajes) {
         this.nroMensajes = nroMensajes;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
     public Date getFechaCreacion() {

@@ -40,22 +40,16 @@ namespace SteamWA
             {
                 DataTable dtHilos = new DataTable();
                 dtHilos.Columns.Add("NombreUsuario", typeof(string));
+                dtHilos.Columns.Add("FotoPerfil", typeof(string));
                 dtHilos.Columns.Add("URLImagen", typeof(string));
                 dtHilos.Columns.Add("idHilo", typeof(int));
 
                 hilo[] aux = daoHilo.mostrarHilosSubforo(subPadre);
                 if (aux != null) hilos = new BindingList<hilo>(aux);
                 Session["auxHilos"] = hilos;
-                BindingList<usuario> usuarios = new BindingList<usuario>();
-                usuario[] aux1 = daoUsuario.listarUsuarios();
-                if (aux1 != null) usuarios = new BindingList<usuario>(aux1);
 
-                foreach (hilo h in hilos)
-                {
-                    usuario u = usuarios.SingleOrDefault(x => x.UID == h.idCreador);
-                    if (u != null) dtHilos.Rows.Add(u.nombrePerfil, h.imagenUrl, h.idHilo);
-                }
-
+                foreach (hilo h in hilos) dtHilos.Rows.Add(h.nombre, h.fotoPerfil, h.imagenUrl, h.idHilo);
+                
                 lvHilos.DataSource = dtHilos;
                 lvHilos.DataBind();
             }
@@ -109,20 +103,12 @@ namespace SteamWA
             mensaje[] aux = daoMensaje.mostrarMensajesHilo(hiloAux);
             BindingList<mensaje> mensajesHilo = new BindingList<mensaje>();
             if (aux != null) mensajesHilo = new BindingList<mensaje>(aux);
-            usuario[] aux1 = daoUsuario.listarUsuarios();
-            BindingList<usuario> usuarios = new BindingList<usuario>();
-            if (aux1 != null) usuarios = new BindingList<usuario>(aux1);
             bool flag = false;
-            usuario creator = usuarios.SingleOrDefault(x => x.UID == mensajesHilo[0].idAutor);
-            lblTitulo.Text = mensajesHilo[0].contenido + " - " + creator.nombreCuenta;
+            lblTitulo.Text = mensajesHilo[0].contenido + " - " + mensajesHilo[0].nombreUsuario;
             Session["primerMensaje"] = mensajesHilo[0].contenido;
             foreach (mensaje m in mensajesHilo)
             {
-                if (flag)
-                {
-                    usuario u = usuarios.SingleOrDefault(x => x.UID == m.idAutor);
-                    if (u != null) dtHilos.Rows.Add(m.contenido, u.nombrePerfil, u.fotoURL);
-                }
+                if (flag) dtHilos.Rows.Add(m.contenido, m.nombreUsuario, m.fotoPerfil);
                 flag = true;
             }
             lvMensajes.DataSource = dtHilos;
