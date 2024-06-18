@@ -13,7 +13,7 @@ function autoCompletarBarraBusqueda(item) {
 
 $(document).ready(function () {
     $('#cphContenido_barRangoPrecio').change(function () {
-        console.log("wia");
+       
         var precio;
         var val = $('#cphContenido_barRangoPrecio').val();
         if (val == "0") {
@@ -21,7 +21,14 @@ $(document).ready(function () {
         } else if (val == "5") {
             precio = "Todos";
         } else {
-            precio = "S/."+(((Number(val)) * 20)).toString();
+           
+
+            var datosMoneda = $('#cphContenido_monedaSimboloTipoCambio').val();
+            var partes = datosMoneda.split('?');
+            
+            console.log(datosMoneda);
+            precio = partes[0] + " " + ((((Number(val) * Number(partes[1])) * 7)).toFixed(1)).toString();
+
         }
         $('#cphContenido_labelito').text(precio);
         __doPostBack('<%= barRangoPrecio.ClientID %>', '');

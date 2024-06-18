@@ -16,8 +16,9 @@ namespace SteamWA
 {
     public partial class Tienda : System.Web.UI.Page
     {
+        private tipoMoneda moneda;
         private SteamWA.SteamServiceWS.ProductoWSClient daoProducto;
-      
+        private SteamServiceWS.PaisWSClient daoPais;
         private BindingList<SteamWA.SteamServiceWS.producto> listaProductos;
         private SteamWA.SteamServiceWS.EtiquetaWSClient daoEtiqueta;
         private SteamWA.SteamServiceWS.BibliotecaWSClient daoBiblioteca;
@@ -52,13 +53,19 @@ namespace SteamWA
                 {
                     Response.Redirect("Login.aspx");
                 }
-           
 
+            //Moneda y tipo de cambio
+            if (Session["moneda"] != null) moneda = (tipoMoneda)Session["moneda"];
+            else
+            {
+                daoPais = new PaisWSClient();
+                pais pais = daoPais.buscarPais(((usuario)Session["usuario"]).pais.idPais);
+                moneda = pais.moneda;
+            }
+            monedaSimboloTipoCambio.Value = (moneda.simbolo).ToString() + "?" + (moneda.cambioDeDolares).ToString();
             daoProducto = new SteamServiceWS.ProductoWSClient();
 
-           
-            //Session["listaProdEt"] = null;
-               // Session["DicProdEtDic"] = null;
+     
                 listaProductos =
             new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "Tienda", "<script src='Scripts/Steam/Tienda.js'></script>", false);
@@ -95,7 +102,7 @@ namespace SteamWA
             imgDest2.ImageUrl = listaProductosDestacados[1].portadaUrl;
             imgDest3.ImageUrl = listaProductosDestacados[2].portadaUrl;
 
-
+            //Filtro de barrra de precios
             BindingList<producto> listaTemp =
             new BindingList<SteamWA.SteamServiceWS.producto>();
             if (Request.Form[barRangoPrecio.UniqueID] != null)
@@ -104,12 +111,12 @@ namespace SteamWA
                 string valor = Request.Form[barRangoPrecio.UniqueID];
                foreach ( producto p in listaProductos)
                 {
-                    if(p.precio <= (double.Parse(valor)*20))
+                    if((p.precio * moneda.cambioDeDolares) <= (double.Parse(valor)*7 * moneda.cambioDeDolares))
                     {
                         listaTemp.Add(p);
                     }
                 }
-                labelito.InnerText = "S/."+(double.Parse(valor) * 20).ToString();
+                labelito.InnerText = moneda.simbolo +" "+ ((double.Parse(valor) * 7)*moneda.cambioDeDolares).ToString();
                 if(double.Parse(valor) == 5)
                 {
                     labelito.InnerText = "Todos";
@@ -482,7 +489,7 @@ namespace SteamWA
 
                     HtmlGenericControl divHtmlCardPrice = new HtmlGenericControl("p");
                     divHtmlCardPrice.Attributes["class"] = "card-text";
-                    divHtmlCardPrice.InnerText = "Precio: " + (prod.precio).ToString();
+                    divHtmlCardPrice.InnerText = "Precio: "+moneda.simbolo +" "+ (prod.precio * moneda.cambioDeDolares).ToString();
 
                     LinkButton buttonCarrito = new LinkButton();
                     buttonCarrito.CssClass = "btn btn-primary";
