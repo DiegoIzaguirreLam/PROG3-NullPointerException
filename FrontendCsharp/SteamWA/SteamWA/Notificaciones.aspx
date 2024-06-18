@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="mt-4">Notificaciones</h1>
         <div class="container-fluid d-flex justify-content-end">
-            <asp:LinkButton runat="server" ID="lbEliminarNotificaciones" CssClass="btn btn-outline-light ms-auto" Text="Eliminar todas" OnClick="btnEliminarTodasNotificaciones_Click"/>
+            <asp:LinkButton runat="server" ID="lbEliminarNotificaciones" CssClass="btn btn-outline-light ms-auto" Text="<i class='fas fa-trash'></i> Eliminar todas" OnClick="btnEliminarTodasNotificaciones_Click"/>
         </div>
         <hr />
         <asp:ScriptManager runat="server"></asp:ScriptManager>

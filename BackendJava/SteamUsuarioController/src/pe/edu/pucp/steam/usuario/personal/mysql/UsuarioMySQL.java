@@ -52,13 +52,12 @@ public class UsuarioMySQL implements UsuarioDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call ACTUALIZAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            cs = con.prepareCall("{call ACTUALIZAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
             cs.setInt("_ID_USUARIO", jugador.getUID());
             cs.setString("_NOMBRE_CUENTA", jugador.getNombreCuenta());
             cs.setString("_NOMBRE_PERFIL", jugador.getNombrePerfil());
             cs.setString("_CORREO", jugador.getCorreo());
             cs.setString("_TELEFONO", jugador.getTelefono());
-            cs.setString("_CONTRASENIA", jugador.getPassword());
             cs.setInt("_EDAD", jugador.getEdad());
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setBoolean("_VERIFICADO", jugador.isVerificado());
