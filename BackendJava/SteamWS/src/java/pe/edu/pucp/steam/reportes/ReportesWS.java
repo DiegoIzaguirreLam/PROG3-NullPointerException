@@ -28,7 +28,7 @@ public class ReportesWS {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "generarReporteProductosAdquiridos")
-    public byte[] generarReporteProductosAdquiridos(@WebParam(name = "idBiblioteca") int idBiblioteca, @WebParam(name = "nombreCuenta") String nombreCuenta,
+    public byte[] generarReporteProductosAdquiridos(@WebParam(name = "uid") int uid, @WebParam(name = "nombreCuenta") String nombreCuenta,
             @WebParam(name = "monedaSimbolo") String monedaSimbolo, @WebParam(name = "monedaCambioDolares") double monedaCambioDolares) {
         byte[] reporte = null;
         try {
@@ -38,6 +38,8 @@ public class ReportesWS {
             JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(rutaReporte);
             String rutaSubreporteGrafico = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/reportes/SubReporteGraficoTiempoUso.jasper").getPath();
             rutaSubreporteGrafico = rutaSubreporteGrafico.replace("%20", " ");
+            String rutaSubreporteProductosAdquiridos = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/reportes/SubReporteProductosAdquiridos.jasper").getPath();
+            rutaSubreporteProductosAdquiridos = rutaSubreporteProductosAdquiridos.replace("%20", " ");
             String rutaLogo = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/img/logo_web.jpg").getPath();
             rutaLogo = rutaLogo.replace("%20", " ");
             Image logo = (new ImageIcon(rutaLogo)).getImage();
@@ -46,11 +48,12 @@ public class ReportesWS {
             Image footer = (new ImageIcon(rutaFooter)).getImage();
             
             HashMap hm = new HashMap();
-            hm.put("idBiblioteca", idBiblioteca);
+            hm.put("uid_usuario", uid);
             hm.put("usuario", nombreCuenta);
             hm.put("moneda_simbolo", monedaSimbolo);
             hm.put("moneda_cambio_dolares", monedaCambioDolares);
             hm.put("SubReporteGrafico", rutaSubreporteGrafico);
+            hm.put("SubReporteProductos", rutaSubreporteProductosAdquiridos);
             hm.put("imagenLogo", logo);
             hm.put("imagenFooter", footer);
             JasperPrint jp = JasperFillManager.fillReport(jr, hm, con);

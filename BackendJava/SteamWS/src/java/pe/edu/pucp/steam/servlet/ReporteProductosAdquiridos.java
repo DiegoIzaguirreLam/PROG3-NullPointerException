@@ -33,6 +33,8 @@ public class ReporteProductosAdquiridos extends HttpServlet {
             JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(rutaReporte);
             String rutaSubreporteGrafico = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/reportes/SubReporteGraficoTiempoUso.jasper").getPath();
             rutaSubreporteGrafico = rutaSubreporteGrafico.replace("%20", " ");
+            String rutaSubreporteProductosAdquiridos = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/reportes/SubReporteProductosAdquiridos.jasper").getPath();
+            rutaSubreporteProductosAdquiridos = rutaSubreporteProductosAdquiridos.replace("%20", " ");
             String rutaLogo = ReporteProductosAdquiridos.class.getResource("/pe/edu/pucp/steam/img/logo_web.jpg").getPath();
             rutaLogo = rutaLogo.replace("%20", " ");
             Image logo = (new ImageIcon(rutaLogo)).getImage();
@@ -41,11 +43,12 @@ public class ReporteProductosAdquiridos extends HttpServlet {
             Image footer = (new ImageIcon(rutaFooter)).getImage();
             
             HashMap hm = new HashMap();
-            hm.put("idBiblioteca", 31);
+            hm.put("uid_usuario", 45);
             hm.put("usuario", "Diego");
             hm.put("moneda_simbolo", "S/.");
             hm.put("moneda_cambio_dolares", 3.72);
             hm.put("SubReporteGrafico", rutaSubreporteGrafico);
+            hm.put("SubReporteProductos", rutaSubreporteProductosAdquiridos);
             hm.put("imagenLogo", logo);
             hm.put("imagenFooter", footer);
             JasperPrint jp = JasperFillManager.fillReport(jr, hm, con);
