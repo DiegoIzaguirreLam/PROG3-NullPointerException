@@ -471,7 +471,7 @@ namespace SteamWA
             tipoMoneda moneda;
             
             moneda = usuario.pais.moneda;
-            byte[] reporte = daoReportes.generarReporteProductosAdquiridos(idBiblioteca, usuario.nombreCuenta, moneda.simbolo, moneda.cambioDeDolares);
+            byte[] reporte = daoReportes.generarReporteProductosAdquiridos(usuario.UID, usuario.nombreCuenta, moneda.simbolo, moneda.cambioDeDolares);
 
             Response.Clear();
 

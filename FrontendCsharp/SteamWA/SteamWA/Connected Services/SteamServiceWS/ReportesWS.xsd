@@ -4,7 +4,7 @@
   <xs:element name="generarReporteProductosAdquiridosResponse" type="tns:generarReporteProductosAdquiridosResponse" />
   <xs:complexType name="generarReporteProductosAdquiridos">
     <xs:sequence>
-      <xs:element name="idBiblioteca" type="xs:int" />
+      <xs:element name="uid" type="xs:int" />
       <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
       <xs:element minOccurs="0" name="monedaSimbolo" type="xs:string" />
       <xs:element name="monedaCambioDolares" type="xs:double" />

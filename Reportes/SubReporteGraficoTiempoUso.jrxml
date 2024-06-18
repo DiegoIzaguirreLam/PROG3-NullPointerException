@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteGraficoTiempoUso" pageWidth="297" pageHeight="842" columnWidth="297" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryWithPageHeaderAndFooter="true" uuid="2dd72ffc-ca3b-4c41-8c28-86d5b2cda229">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TA PROG3"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="uid_usuario" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT pa.id_producto_adquirido, pa.tiempo_uso, p.titulo
+    FROM ProductoAdquirido pa
+    INNER JOIN Producto p ON p.id_producto = pa.fid_producto
+    LEFT JOIN Juego j ON p.id_producto = j.id_juego
+    LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
+    LEFT JOIN Software s ON p.id_producto = s.id_software
+    INNER JOIN Biblioteca b ON b.id_biblioteca = pa.fid_biblioteca
+    WHERE p.activo = 1 and b.fid_usuario = $P{uid_usuario} and pa.tiempo_uso > 0]]>
+	</queryString>
+	<field name="id_producto_adquirido" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_producto_adquirido"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_producto_adquirido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ProductoAdquirido"/>
+	</field>
+	<field name="tiempo_uso" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.name" value="tiempo_uso"/>
+		<property name="com.jaspersoft.studio.field.label" value="tiempo_uso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ProductoAdquirido"/>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Producto"/>
+	</field>
+	<variable name="tiempo_usoMinutos" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{tiempo_uso}.toLocalTime().getHour()*24 + $F{tiempo_uso}.toLocalTime().getMinute() + $F{tiempo_uso}.toLocalTime().getSecond()/60]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="192" splitType="Stretch">
+			<pieChart>
+				<chart isShowLegend="false" evaluationTime="Report">
+					<reportElement key="" x="0" y="0" width="297" height="190" uuid="a33b5de1-2d6c-4d86-b229-35781c5e9f2a"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="5" minPercentage="5.0">
+					<keyExpression><![CDATA[String.valueOf($F{titulo})]]></keyExpression>
+					<valueExpression><![CDATA[$F{tiempo_uso}.toLocalTime().getHour()*60 + $F{tiempo_uso}.toLocalTime().getMinute() + $F{tiempo_uso}.toLocalTime().getSecond()/60]]></valueExpression>
+					<labelExpression><![CDATA[$F{titulo} + ": " +$F{tiempo_uso}.toLocalTime().getHour() + "h " + $F{tiempo_uso}.toLocalTime().getMinute() + "m"]]></labelExpression>
+					<otherKeyExpression><![CDATA["Otros"]]></otherKeyExpression>
+					<otherLabelExpression><![CDATA["Otros: " + $F{tiempo_uso}.toLocalTime().getHour() + "h " + $F{tiempo_uso}.toLocalTime().getMinute() + "m"]]></otherLabelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</pageHeader>
+</jasperReport>

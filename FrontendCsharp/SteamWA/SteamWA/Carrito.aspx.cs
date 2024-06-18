@@ -74,7 +74,7 @@ namespace SteamWA
 
               
                 movimiento mov = new movimiento();
-                mov.idTransaccion = "COMPRAPRODUCTOS_"+ ((usuario)Session["usuario"]).nombreCuenta+ (double.Parse(valorTotal.Value.ToString()) / listaCarrito.Count).ToString();
+                mov.idTransaccion = "COMPRAPRODUCTOS-"+ ((usuario)Session["usuario"]).nombreCuenta.ToUpper() + "-" + cartera.cantMovimientos.ToString("D5");
                 mov.cartera = cartera;
                 mov.monto = double.Parse(valorTotal.Value.ToString());
                 mov.fechaSpecified = true;
