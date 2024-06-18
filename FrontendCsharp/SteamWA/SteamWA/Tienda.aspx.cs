@@ -31,13 +31,24 @@ namespace SteamWA
             Steam master = (Steam)this.Master;
             master.ItemTienda.Attributes["class"] = "active";
             int uid;
-                if (Session["usuario"] != null)
-                {
-                uid = ((usuario)Session["usuario"]).UID;
-                daoBiblioteca = new SteamServiceWS.BibliotecaWSClient();
-                daoProductoAdquirido = new SteamServiceWS.ProductoAdquiridoWSClient();
+            if (Session["usuario"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            uid = ((usuario)Session["usuario"]).UID;
+            daoBiblioteca = new SteamServiceWS.BibliotecaWSClient();
+            daoProductoAdquirido = new SteamServiceWS.ProductoAdquiridoWSClient();
+            if (Session["idBiblioteca"] == null)
+            {
                 idBiblioteca = daoBiblioteca.buscarBibliotecaPorUID(uid).idBiblioteca;
                 Session["idBiblioteca"] = idBiblioteca;
+            }
+            else
+            {
+                idBiblioteca = (int)Session["idBiblioteca"];
+            }
+            if (!IsPostBack)
+            {
                 if (daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca) == null)
                 {
                     listaProductoAdq = null;
@@ -45,14 +56,14 @@ namespace SteamWA
                 else
                 {
                     listaProductoAdq = new BindingList<productoAdquirido>(daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca));
-                    Session["productosAdquiridos"] = listaProductoAdq;
+
                 }
-               
-                 }
-                else
-                {
-                    Response.Redirect("Login.aspx");
-                }
+                Session["productosAdquiridos"] = listaProductoAdq;
+            }
+            else
+            {
+                listaProductoAdq = (BindingList<productoAdquirido>)Session["productosAdquiridos"];
+            }
 
             //Moneda y tipo de cambio
             if (Session["moneda"] != null) moneda = (tipoMoneda)Session["moneda"];
@@ -61,72 +72,68 @@ namespace SteamWA
                 daoPais = new PaisWSClient();
                 pais pais = daoPais.buscarPais(((usuario)Session["usuario"]).pais.idPais);
                 moneda = pais.moneda;
+                Session["moneda"] = moneda;
             }
             monedaSimboloTipoCambio.Value = (moneda.simbolo).ToString() + "?" + (moneda.cambioDeDolares).ToString();
             daoProducto = new SteamServiceWS.ProductoWSClient();
 
-     
-                listaProductos =
-            new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Tienda", "<script src='Scripts/Steam/Tienda.js'></script>", false);
-                //JavaScriptSerializer serializer = new JavaScriptSerializer();
-                //string json = serializer.Serialize(listaProductos);
+            if (!IsPostBack)
+            {
+                listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
                 Session["ListaProductos"] = listaProductos;
-                if(Session["ElementosCarrito"] == null)
-                {
-                    BindingList<producto> listaCarrito = new BindingList<producto>();
-                    Session["ElementosCarrito"] = listaCarrito;
-                }
+            }
+            else
+            {
+                listaProductos = (BindingList<producto>)Session["ListaProductos"];
+            }
+            
+            if (Session["ElementosCarrito"] == null)
+            {
+                BindingList<producto> listaCarrito = new BindingList<producto>();
+                Session["ElementosCarrito"] = listaCarrito;
+            }
 
-
+            
             //Carousel Destacados:
             int[] idDestacados = daoProducto.listarIdProductosDestacados();
-            
-            imgDest1.ImageUrl = listaProductos[idDestacados[0]-1].portadaUrl;
-            imgDest2.ImageUrl = listaProductos[idDestacados[1]-1].portadaUrl;
-            imgDest3.ImageUrl = listaProductos[idDestacados[2]-1].portadaUrl;
+
+            if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[0])!=null) imgDest1.ImageUrl = listaProductos[idDestacados[0] - 1].portadaUrl;
+            if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[1]) != null) imgDest2.ImageUrl = listaProductos[idDestacados[1] - 1].portadaUrl;
+            if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[2]) != null)  imgDest3.ImageUrl = listaProductos[idDestacados[2] - 1].portadaUrl;
 
             //Filtro de barrra de precios
             BindingList<producto> listaTemp =
             new BindingList<SteamWA.SteamServiceWS.producto>();
             if (Request.Form[barRangoPrecio.UniqueID] != null)
             {
-               
+
                 string valor = Request.Form[barRangoPrecio.UniqueID];
-               foreach ( producto p in listaProductos)
+                foreach (producto p in listaProductos)
                 {
-                    if((p.precio * moneda.cambioDeDolares) <= (double.Parse(valor)*7 * moneda.cambioDeDolares))
+                    if ((p.precio * moneda.cambioDeDolares) <= (double.Parse(valor) * 7 * moneda.cambioDeDolares))
                     {
                         listaTemp.Add(p);
                     }
                 }
-                labelito.InnerText = moneda.simbolo +" "+ ((double.Parse(valor) * 7)*moneda.cambioDeDolares).ToString();
-                if(double.Parse(valor) == 5)
+                labelito.InnerText = moneda.simbolo + " " + ((double.Parse(valor) * 7) * moneda.cambioDeDolares).ToString();
+                if (double.Parse(valor) == 5)
                 {
                     labelito.InnerText = "Todos";
-                }else if(double.Parse(valor) == 0)
+                }
+                else if (double.Parse(valor) == 0)
                 {
                     labelito.InnerText = "Gratis";
                 }
                 listaProductos = listaTemp;
-                
             }
             else
             {
                 barRangoPrecio.Value = "5";
                 labelito.InnerText = "Todos";
             }
-
-          
-            
-            
-            
             //Mostrar productos incial;
             mostrarListaProductos(listaProductos);
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true);
-
-
-
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true
         }
 
         protected void Page_Init(object sender, EventArgs e)

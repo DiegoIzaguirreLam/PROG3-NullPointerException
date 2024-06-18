@@ -19,7 +19,6 @@ namespace SteamWA
         private cartera cartera;
         private tipoMoneda moneda;
         private SteamServiceWS.MovimientoWSClient daoMovimiento;
-        private SteamServiceWS.ProductoAdquiridoWSClient daoProductoAdquirido;
         private SteamWA.SteamServiceWS.BibliotecaWSClient daoBiblioteca;
         private SteamServiceWS.CarteraWSClient daoCartera;
         private SteamServiceWS.NotificacionWSClient daoNotificacion;
@@ -30,7 +29,6 @@ namespace SteamWA
             LabelFaltaFondos.Style["display"] = "none";
 
             daoMovimiento = new SteamServiceWS.MovimientoWSClient();
-            daoProductoAdquirido = new SteamServiceWS.ProductoAdquiridoWSClient();
             daoCartera = new SteamServiceWS.CarteraWSClient();
             daoNotificacion = new SteamServiceWS.NotificacionWSClient();
             cartera = daoCartera.buscarCartera(((usuario)Session["usuario"]).UID);
