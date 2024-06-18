@@ -7,6 +7,7 @@
     <script src="Scripts/Steam/Comunidad.js?v4"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div class="container">
         <h1 class="mt-4">Comunidad</h1>
     </div>
@@ -71,7 +72,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label mt-1" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control mt-1" Height="150" />
+                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control mt-1" MaxLength="40" />
                                 </div>
                             </div>
                         </div>
@@ -100,28 +101,35 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
-                        <asp:ListView ID="lvMensajes" runat="server">
-                            <ItemTemplate>
-                                <div class="listview-item border-dark">
-                                    <div class="container row">
-                                        <div class="col-md-7 text-start">
-                                            <p class="mt-3"><%# Eval("Contenido") %></p>
+                        <asp:UpdatePanel runat="server" UpdateMode="Always">
+                            <ContentTemplate>
+                                <asp:ListView ID="lvMensajes" runat="server">
+                                    <ItemTemplate>
+                                        <div class="listview-item border-dark">
+                                            <div class="container row">
+                                                <div class="col-md-7 text-start">
+                                                    <p class="mt-3"><%# Eval("Contenido") %></p>
+                                                </div>
+                                                <div class="col-md-5 text-end">
+                                                    <p class="mt-3">
+                                                        - <%# Eval("Creador") %>
+                                                        <img src="<%# Eval("URLImagen") %>" width="20" height="20" />
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-5 text-end">
-                                            <p class="mt-3">
-                                                - <%# Eval("Creador") %>
-                                                <img src="<%# Eval("URLImagen") %>" width="20" height="20" />
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ItemTemplate>
-                        </asp:ListView>
+                                    </ItemTemplate>
+                                </asp:ListView>
+                            </ContentTemplate>
+                            <%-- %><Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="btnEnviarMensaje" EventName="Click" />
+                            </Triggers>--%>
+                        </asp:UpdatePanel>
                         <div class="container row">
                             <asp:TextBox runat="server" ID="txtCrearMensaje" CssClass="col-11 mb-3 rounded mt-2" MaxLength="40" onkeydown="enviarMensaje_js(event, 'cphContenido_btnEnviarMensaje')"></asp:TextBox>
-                            <div class="container text-end col-1 mt-2 mb-3">
-                                <asp:LinkButton runat="server" ID="btnEnviarMensaje" CssClass="btn btn-light" Text="<i class='fa-regular fa-paper-plane' style='color: #000000;'></i>" OnClick="btnEnviarMensaje_Click"/>
-                            </div>
+                                <div class="container text-end col-1 mt-2 mb-3">
+                                    <asp:LinkButton runat="server" ID="btnEnviarMensaje" CssClass="btn btn-light" Text="<i class='fa-regular fa-paper-plane' style='color: #000000;'></i>" OnClick="btnEnviarMensaje_Click" />
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -138,6 +146,23 @@
                 <div class="modal-content rounded bg-danger">
                     <div class="container bg-danger mt-3">
                         <asp:Label runat="server" Text="Tiene que llenar todos los campos!"></asp:Label>
+                    </div>
+                    <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-falta">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger bg-opacity-50 rounded-5">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title border-white">Sancionado</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content rounded bg-danger">
+                    <div class="container bg-danger mt-3">
+                        <asp:Label runat="server" ID="txtMensajeFalta" Text="Presione + en la lista para agregar más foros."></asp:Label>
                     </div>
                     <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
                 </div>

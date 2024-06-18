@@ -20,6 +20,7 @@ namespace SteamWA
         UsuarioWSClient daoUsuario;
         NotificacionWSClient daoNotificacion;
         ForoUsuarioWSClient daoForoUsuario;
+        GestorSancionesWSClient daoGestor;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,7 @@ namespace SteamWA
             daoUsuario = new UsuarioWSClient();
             daoNotificacion = new NotificacionWSClient();
             daoForoUsuario = new ForoUsuarioWSClient();
+            daoGestor = new GestorSancionesWSClient();
 
             subPadre = (subforo)Session["subforoPadre"];
 
@@ -205,6 +207,8 @@ namespace SteamWA
                 notificacionForo.usuario = auxUser;
                 resultado = daoNotificacion.insertarNotificacion(notificacionForo); //Envía la notificación a cada suscriptor
             }
+            ((LinkButton)sender).CommandArgument = pert.idHilo.ToString();
+            btnAbrirHilo_Click(sender, e);
         }
     }
 }

@@ -63,7 +63,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblMensajeInicial" runat="server" Text="Mensaje:" CssClass="col-sm-3 col-form-label mt-1" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control mt-1" Height="150" />
+                                    <asp:TextBox ID="txtMensajeInicial" runat="server" CssClass="form-control mt-1" MaxLength="40" />
                                 </div>
                             </div>
                         </div>
@@ -119,6 +119,22 @@
                 <div class="modal-content rounded bg-danger">
                     <div class="container bg-danger mt-3">
                         <asp:Label runat="server" Text="Tiene que llenar todos los campos!"></asp:Label>
+                    </div>
+                    <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal border-white fade fontSetterExo2" id="form-modal-falta">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger bg-opacity-50 rounded-5">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title border-white">Sancionado</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content rounded bg-danger">
+                    <div class="container bg-danger mt-3">
+                        <asp:Label runat="server" ID="txtMensajeFalta" Text="Presione + en la lista para agregar más foros."></asp:Label>
                     </div>
                     <asp:Label runat="server" Text="." CssClass="text-danger bg-danger"></asp:Label>
                 </div>
