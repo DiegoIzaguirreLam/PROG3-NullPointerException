@@ -70,6 +70,7 @@
     <Content Include="Scripts\Steam\Comunidad.js" />
     <Content Include="Scripts\Steam\Contrasenia.js" />
     <Content Include="Scripts\Steam\GestionarCartera.js" />
+    <Content Include="Scripts\Steam\Notificaciones.js" />
     <Content Include="Scripts\Steam\Registro.js" />
     <Content Include="SeleccionarMetodoPago.aspx" />
     <Content Include="Amigos.aspx" />
@@ -670,6 +671,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.generarReporteProductosAdquiridosResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.marcarNotificacionLeidaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />

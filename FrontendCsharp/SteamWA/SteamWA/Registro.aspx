@@ -84,14 +84,6 @@
                                 <asp:ListItem Text="Perú" Value="" />
                             </asp:DropDownList>
                         </div>
-
-                        <!-- URL de imagen -->
-                        <div class="mb-3">
-                            <label id="lblURL" class="form-label" runat="server">URL de imagen de perfil:</label>
-                            <asp:TextBox runat="server" ID="txtURL" CssClass="form-control"/>
-                            <%--<asp:CustomValidator ID="cvURL" runat="server" ErrorMessage="La URL no apunta a una imagen válida." ControlToValidate="txtURL"
-                                ClientValidationFunction="validarImagenURL" Display="Dynamic" ForeColor="Red" SetFocusOnError="true" ClientIDMode="Static"/>--%>
-                        </div>
                     </div>
                     <div class="mt-4 d-grid">
                         <asp:Button ID="btnRegistro" runat="server" CssClass="btn btn-success" Text="Registrarse" OnClick="lbRegistrar_Click" />

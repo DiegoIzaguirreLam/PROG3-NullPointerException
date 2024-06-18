@@ -2,7 +2,6 @@ package pe.edu.pucp.steam.usuario.personal.mysql;
 
 import java.util.ArrayList;
 import pe.edu.pucp.steam.usuario.personal.dao.UsuarioDAO;
-import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import java.sql.Connection;
 import pe.edu.pucp.steam.usuario.personal.model.Usuario;
 import java.sql.PreparedStatement;
@@ -24,7 +23,7 @@ public class UsuarioMySQL implements UsuarioDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call CREAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            cs = con.prepareCall("{call CREAR_USUARIO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
             cs.registerOutParameter("_ID_USUARIO", java.sql.Types.INTEGER);
             cs.setString("_NOMBRE_CUENTA", jugador.getNombreCuenta());
             cs.setString("_NOMBRE_PERFIL", jugador.getNombrePerfil());
@@ -35,7 +34,6 @@ public class UsuarioMySQL implements UsuarioDAO{
             cs.setDate("_FECHA_NACIMIENTO", new java.sql.Date(jugador.getFechaNacimiento().getTime()));
             cs.setBoolean("_VERIFICADO", true);
             cs.setInt("_FID_PAIS", jugador.getPais().getIdPais());
-            cs.setString("_FOTO_URL", jugador.getFotoURL());
             cs.executeUpdate();
             jugador.setUID(cs.getInt("_ID_USUARIO"));
             resultado = jugador.getUID();
@@ -135,6 +133,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                                            date,
                                            rs.getBoolean("VERIFICADO"));
                 user.setActivo(true);
+                user.setFotoURL(rs.getString("FOTO_URL"));
                 users.add(user);
             }
         }catch(Exception ex){
@@ -264,6 +263,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                usuario.setFotoURL(rs.getString("foto_url"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
                 moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
