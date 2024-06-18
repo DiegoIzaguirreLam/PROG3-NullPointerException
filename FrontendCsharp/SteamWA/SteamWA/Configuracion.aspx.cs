@@ -82,8 +82,8 @@ namespace SteamWA
             if (string.IsNullOrEmpty(txtTelefono.Text.Trim()))
             {
                 lblMensajeError.Visible = true;
-                lblMensajeError.Text = "Telefono inválido. Por favor ingrese otro correo.";
-                txtCorreo.Text = usuario.telefono.ToString();
+                lblMensajeError.Text = "Telefono inválido. Por favor ingrese otro número de teléfono.";
+                txtTelefono.Text = usuario.telefono.ToString();
                 return;
             }
             if (!urlValida(txtURL.Text))

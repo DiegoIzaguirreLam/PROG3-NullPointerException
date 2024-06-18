@@ -26,7 +26,7 @@
                         <label id="lblNombreCuenta" class="col-sm-3 col-form-label text-white">Nombre de cuenta <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <asp:TextBox runat="server" ID="txtNombreCuenta" CssClass="form-control" Enabled="false" Required="true" MaxLength="20" />
+                                <asp:TextBox runat="server" ID="txtNombreCuenta" CssClass="form-control" Enabled="false" MaxLength="20" />
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <label id="lblNombrePerfil" class="col-sm-3 col-form-label text-white" runat="server">Nombre de perfil <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <asp:TextBox ID="txtNombrePerfil" runat="server" CssClass="form-control" Enabled="false" Required="true" MaxLength="40" />
+                                <asp:TextBox ID="txtNombrePerfil" runat="server" CssClass="form-control" Enabled="false" MaxLength="40" />
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <label id="lblCorreo" class="col-sm-3 col-form-label text-white" runat="server">Correo electrónico <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" Enabled="false" Required="true" MaxLength="50" />
+                                <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" Enabled="false" MaxLength="50" />
                             </div>
                             <asp:RegularExpressionValidator ID="regexCorreo" runat="server" ControlToValidate="txtCorreo"
                                 ErrorMessage="Por favor, ingrese un correo electrónico válido."
@@ -61,7 +61,7 @@
                         <label id="lblTelefono" class="col-sm-3 col-form-label text-white" runat="server">Telefono <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" Enabled="false" Required="true" MaxLength="15" onkeypress="return soloNumeros(event)" />
+                                <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" Enabled="false" MaxLength="15" onkeypress="return soloNumeros(event)" />
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         <label id="lblFechaNacimiento" class="col-sm-3 col-form-label text-white" runat="server">Fecha de nacimiento <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Enabled="false" Required="true" ClientIDMode="Static" />
+                                <asp:TextBox runat="server" ID="txtFechaNacimiento" Type="Date" CssClass="form-control" Enabled="false" ClientIDMode="Static" />
                             </div>
                             <asp:CustomValidator ID="cvFechaNacimiento" runat="server" ErrorMessage="Debe ser mayor de 13 años para continuar."
                                 ControlToValidate="txtFechaNacimiento" ClientValidationFunction="validarEdad" Display="Dynamic" ForeColor="White" SetFocusOnError="true" />
@@ -83,7 +83,7 @@
                         <label id="lblPais" class="col-sm-3 col-form-label text-white" runat="server">Pais <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <asp:DropDownList CssClass="form-control" runat="server" ID="ddlPaises" data-style="btn-primary" Enabled="false" Placeholder="Seleccionar país..." Required="true">
+                                <asp:DropDownList CssClass="form-control" runat="server" ID="ddlPaises" data-style="btn-primary" Enabled="false" Placeholder="Seleccionar país...">
                                 </asp:DropDownList>
                             </div>
                         </div>
