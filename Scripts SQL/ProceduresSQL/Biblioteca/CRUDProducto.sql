@@ -68,3 +68,13 @@ BEGIN
     WHERE p.activo = 1 and p.id_producto = _id_producto;
 END$
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DESTACADOS;
+DELIMITER $
+CREATE PROCEDURE LISTAR_PRODUCTOS_DESTACADOS(
+)
+BEGIN
+	select pa.fid_producto, COUNT(*) as num_adquiridos FROM ProductoAdquirido pa GROUP BY pa.fid_producto ORDER BY COUNT(*) DESC LIMIT 3; 
+END$
+
+DELIMITER ;

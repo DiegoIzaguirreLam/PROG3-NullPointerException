@@ -17,4 +17,5 @@ public interface ProductoDAO {
     ArrayList<Producto> listarProductosPorTituloDesarrollador(String nombre);
     ArrayList<Producto> listarProductosPorEtiqueta(Etiqueta etiqueta);
     Producto buscarProducto(int idProducto);
+    ArrayList<Integer> listarIdProductosDestacados();
 }

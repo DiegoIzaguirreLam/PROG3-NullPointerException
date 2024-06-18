@@ -231,5 +231,24 @@ public class ProductoMySQL implements ProductoDAO {
         }
         return productos;
     }
+
+    @Override
+    public ArrayList<Integer> listarIdProductosDestacados() {
+        ArrayList<Integer> idDestacados = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_PRODUCTOS_DESTACADOS}");
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Integer id = rs.getInt("fid_producto");
+                idDestacados.add(id);
+            }
+        } catch(Exception ex){
+            System.out.println(ex.getMessage());
+        } finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return idDestacados;
+    }
     
 }

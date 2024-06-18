@@ -68,4 +68,17 @@ public class ProductoWS {
         }
         return productos;
     }
+    
+    
+    @WebMethod(operationName = "listarIdProductosDestacados")
+    public ArrayList<Integer> listarIdProductosDestacados() {
+         ArrayList<Integer> idDestacados = null;
+        try{
+            ProductoDAO daoProducto = new ProductoMySQL();
+            idDestacados = daoProducto.listarIdProductosDestacados();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return idDestacados;
+    }
 }

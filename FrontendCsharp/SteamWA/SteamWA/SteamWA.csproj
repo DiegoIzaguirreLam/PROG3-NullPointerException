@@ -683,6 +683,9 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.buscarPalabraProhibidaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarIdProductosDestacadosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\SubforoWS.xsd">
       <SubType>Designer</SubType>

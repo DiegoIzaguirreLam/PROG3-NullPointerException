@@ -47,10 +47,10 @@ namespace SteamWA
                 double montoTotal=0;
                 foreach(producto p in listaCarrito)
                 {
-                    montoTotal += Double.Parse(p.precio.ToString());
+                    montoTotal += Double.Parse((p.precio*moneda.cambioDeDolares).ToString());
                    
                 }
-                labelTotalCarrito.InnerText = "Total Estimado: " + moneda.simbolo + (montoTotal * moneda.cambioDeDolares).ToString("N2");
+                labelTotalCarrito.InnerText = "Total Estimado: " + moneda.simbolo + (montoTotal).ToString("N2");
                 valorTotal.Value = montoTotal.ToString();
                 if (listaCarrito.Count>0)
                 {
@@ -99,7 +99,7 @@ namespace SteamWA
                 }
                 mov.producto = productosAdquiridos.ToArray();
                 daoMovimiento.insertarMovimiento(mov);
-                cartera.fondos = cartera.fondos - double.Parse(valorTotal.Value.ToString());
+                cartera.fondos = cartera.fondos - double.Parse(valorTotal.Value.ToString())/moneda.cambioDeDolares;
                 daoCartera.actualizarCartera(cartera);
                 listaCarrito = null;
                 Session["ElementosCarrito"] = null;
@@ -184,7 +184,7 @@ namespace SteamWA
 
                     HtmlGenericControl divHtmlCardPrice = new HtmlGenericControl("p");
                     divHtmlCardPrice.Attributes["class"] = "card-text";
-                    divHtmlCardPrice.InnerText = "Precio: " + (prod.precio).ToString();
+                    divHtmlCardPrice.InnerText = "Precio: " + moneda.simbolo + (prod.precio*moneda.cambioDeDolares).ToString("N2");
 
                     LinkButton buttonCarrito = new LinkButton();
                     buttonCarrito.CssClass = "btn btn-danger";

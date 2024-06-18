@@ -69,8 +69,8 @@ namespace SteamWA
                 listaProductos =
             new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "Tienda", "<script src='Scripts/Steam/Tienda.js'></script>", false);
-                JavaScriptSerializer serializer = new JavaScriptSerializer();
-                string json = serializer.Serialize(listaProductos);
+                //JavaScriptSerializer serializer = new JavaScriptSerializer();
+                //string json = serializer.Serialize(listaProductos);
                 Session["ListaProductos"] = listaProductos;
                 if(Session["ElementosCarrito"] == null)
                 {
@@ -80,27 +80,11 @@ namespace SteamWA
 
 
             //Carousel Destacados:
-            BindingList<int> listaIdProductoProdAdq = new BindingList<int>(daoProductoAdquirido.listarIdProductoProductoAdquirido());
-            BindingList<producto> listaProductosDestacados = new BindingList<producto>(listaProductos);
-            foreach (producto prod in listaProductosDestacados)
-            {
-                prod.precio = 0;
-            }
-            foreach (int id in listaIdProductoProdAdq)
-            {
-                foreach (producto prod in listaProductosDestacados)
-                {
-                    if (prod.idProducto == id)
-                    {
-                        prod.precio += 1;
-                    }
-                }
-            }
-            listaProductosDestacados = new BindingList<producto>(listaProductosDestacados.OrderByDescending(producto => producto.precio).ToList());
-
-            imgDest1.ImageUrl = listaProductosDestacados[0].portadaUrl;
-            imgDest2.ImageUrl = listaProductosDestacados[1].portadaUrl;
-            imgDest3.ImageUrl = listaProductosDestacados[2].portadaUrl;
+            int[] idDestacados = daoProducto.listarIdProductosDestacados();
+            
+            imgDest1.ImageUrl = listaProductos[idDestacados[0]-1].portadaUrl;
+            imgDest2.ImageUrl = listaProductos[idDestacados[1]-1].portadaUrl;
+            imgDest3.ImageUrl = listaProductos[idDestacados[2]-1].portadaUrl;
 
             //Filtro de barrra de precios
             BindingList<producto> listaTemp =

@@ -2,6 +2,8 @@
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="buscarProducto" type="tns:buscarProducto" />
   <xs:element name="buscarProductoResponse" type="tns:buscarProductoResponse" />
+  <xs:element name="listarIdProductosDestacados" type="tns:listarIdProductosDestacados" />
+  <xs:element name="listarIdProductosDestacadosResponse" type="tns:listarIdProductosDestacadosResponse" />
   <xs:element name="listarProductos" type="tns:listarProductos" />
   <xs:element name="listarProductosPorEtiqueta" type="tns:listarProductosPorEtiqueta" />
   <xs:element name="listarProductosPorEtiquetaResponse" type="tns:listarProductosPorEtiquetaResponse" />
@@ -48,6 +50,16 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="buscarProducto">
+    <xs:sequence>
+      <xs:element name="idProducto" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarProductosPorEtiqueta">
     <xs:sequence>
       <xs:element minOccurs="0" name="etiqueta" type="tns:etiqueta" />
@@ -65,14 +77,12 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarProducto">
-    <xs:sequence>
-      <xs:element name="idProducto" type="xs:int" />
-    </xs:sequence>
+  <xs:complexType name="listarIdProductosDestacados">
+    <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="buscarProductoResponse">
+  <xs:complexType name="listarIdProductosDestacadosResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:producto" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
