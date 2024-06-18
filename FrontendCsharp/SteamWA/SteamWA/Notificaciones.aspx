@@ -4,12 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/mostrarModal.js"></script>
+    <script src="Scripts/Steam/Notificaciones.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <h1 class="mt-4">Notificaciones</h1>
         <div class="container-fluid d-flex justify-content-end">
-            <asp:LinkButton runat="server" ID="lbEliminarNotificaciones" CssClass="btn btn-light ms-auto" Text="Eliminar todas <i class='fa-solid fa-trash'></i>" OnClick="btnEliminarTodasNotificaciones_Click"/>
+            <asp:LinkButton runat="server" ID="lbEliminarNotificaciones" CssClass="btn btn-outline-light ms-auto" Text="Eliminar todas" OnClick="btnEliminarTodasNotificaciones_Click"/>
         </div>
         <hr />
         <asp:ScriptManager runat="server"></asp:ScriptManager>
@@ -34,11 +35,11 @@
                                 <div class="card bg-<%# (bool)Eval("revisada") ? "dark" : "navy-50" %> text-light full-width">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-9">
+                                            <div class="col-md-11 card-info" style="cursor:pointer;" data-id-notificacion='<%# Eval("idNotificacion") %>' data-mensaje-completo='<%# Eval("mensaje") %>' data-revisada='<%# Eval("revisada") %>' data-fecha='<%# Eval("fecha", "{0:dd/MM/yyyy}") %>'>
                                                 <h5 class="card-title"><%# Eval("tipo") %></h5>
-                                                <p class="card-text"><%# Eval("mensaje") %></p>
+                                                <asp:Literal ID="litMensaje" runat="server"></asp:Literal>
                                             </div>
-                                            <div class="dropdown col-md-3 d-flex justify-content-end">
+                                            <div class="dropdown col-md-1 d-flex justify-content-end">
                                                 <button class="btn btn-link text-light p-0" type="button" id="ddMenuButton<%# Eval("idNotificacion") %>" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                                 </button>
@@ -123,4 +124,22 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal para mostrar detalles de la notificación -->
+    <div class="modal fade" id="form-modal-notificacion" tabindex="-1" role="dialog" aria-labelledby="modalNotificacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-navy">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title border-white" id="lblModalNotificacion">Detalles de Notificación</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Tipo:</strong> <span id="tipoNotificacion"></span></p>
+                    <p><strong>Mensaje:</strong> <span id="mensajeNotificacion"></span></p>
+                    <p><strong>Fecha:</strong> <span id="fechaNotificacion"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </asp:Content>

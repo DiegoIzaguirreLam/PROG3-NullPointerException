@@ -37,38 +37,32 @@ namespace SteamWA
                 notificaciones = new BindingList<notificacion>();
                 lbEliminarNotificaciones.Visible = false;
             }
+            // Verificar si la página actual del DataPager debe ser ajustada
+            verificarDataPager();
+            
             lvNotificaciones.DataSource = notificaciones;
             lvNotificaciones.DataBind();
         }
 
-
-        //protected void ExpandirNotificacion_Click(object sender, EventArgs e)
-        //{
-        //    idNotificacion = Int32.Parse(((LinkButton)sender).CommandArgument);
-        //    string tipoNotificacion = string.Empty;
-        //    string mensaje = string.Empty;
-        //    notificaciones = (BindingList<notificacion>)Session["notificaciones"];
-        //    // Busca en las notificaciones del usuario
-        //    notificacion notificacion = notificaciones.SingleOrDefault(x => x.idNotificacion == idNotificacion);
-        //    // Verifica si se encontró la información de la notificación
-        //    if (notificacion != null)
-        //    {
-        //        tipoNotificacion = notificacion.tipo.ToString();
-        //        mensaje = notificacion.mensaje;
-        //        //notificacion.revisada = true;
-        //        //int resultado = daoNotificacion.actualizarNotificacion(notificacion);
-        //        Session["notificacionSeleccionada"] = notificacion;
-        //    }
-        //    btnMarcarNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
-        //    string script = $"window.onload = function() {{mostrarNotificacion('{tipoNotificacion}', '{mensaje}')}};";
-        //    ClientScript.RegisterStartupScript(GetType(), "", script, true);
-        //}
-
-        private void Chk_CheckedChanged(object sender, EventArgs e)
+        public void verificarDataPager()
         {
+            DataPager dp = lvNotificaciones.FindControl("dpNotificaciones") as DataPager;
+            if (dp != null && notificaciones.Count > 0)
+            {
+                int startRowIndex = dp.StartRowIndex;
+                int maximumRows = dp.MaximumRows;
 
+                // Se verifica si el índice de inicio está fuera del rango de elementos
+                if (startRowIndex >= notificaciones.Count)
+                {
+                    // Se calcula el índice de inicio para mostrar la última página con elementos
+                    int totalPages = (int)Math.Ceiling((double)notificaciones.Count / maximumRows) - 1;
+                    startRowIndex = totalPages * maximumRows;
+                }
+
+                dp.SetPageProperties(startRowIndex, maximumRows, true);
+            }
         }
-
         protected void btnEliminarModal_Click(object sender, EventArgs e)
         {
             int idNotificacion = (int)Session["idNotificacionEliminar"];
@@ -126,12 +120,27 @@ namespace SteamWA
             {
                 var notificacion = (notificacion)((ListViewDataItem)e.Item).DataItem;
                 var btnMarcarLeidoNoLeido = (LinkButton)e.Item.FindControl("btnMarcarLeidoNoLeido");
+                var mensaje = (Literal)e.Item.FindControl("litMensaje");
 
                 if (btnMarcarLeidoNoLeido != null)
                 {
-                    btnMarcarLeidoNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
+                    if (notificacion.revisada)
+                    {
+                        btnMarcarLeidoNoLeido.Text = "Marcar como no leído";
+                        btnMarcarLeidoNoLeido.Visible = true;
+                    }
+                    else btnMarcarLeidoNoLeido.Visible=false;
                 }
+                // btnMarcarLeidoNoLeido.Text = notificacion.revisada ? "Marcar como no leído" : "Marcar como leído";
+                //if (mensaje != null) mensaje.Text = truncarMensaje(notificacion.mensaje, 80);
+                if (mensaje != null) mensaje.Text = notificacion.mensaje;
             }
+        }
+
+        public string truncarMensaje (string mensaje, int maximo)
+        {
+            if (mensaje.Length <= maximo) return mensaje;
+            return mensaje.Substring(0, maximo) + "...";
         }
 
         protected void lvNotificaciones_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -139,6 +148,20 @@ namespace SteamWA
             (lvNotificaciones.FindControl("dpNotificaciones") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             lvNotificaciones.DataSource = (BindingList<notificacion>)Session["notificaciones"];
             lvNotificaciones.DataBind();
+        }
+
+        [System.Web.Services.WebMethod]
+        public static void MarcarComoRevisada(int idNotificacion)
+        {
+            try
+            {
+                NotificacionWSClient daoNotificacion = new NotificacionWSClient();
+                int resultado = daoNotificacion.marcarNotificacionLeida(idNotificacion);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al marcar la notificación como revisada.", ex);
+            }
         }
     }
 }

@@ -100,6 +100,7 @@ public class NotificacionMySQL implements NotificacionDAO{
                 notificacion.setUsuario(new Usuario());
                 notificacion.getUsuario().setUID(rs.getInt("fid_usuario"));
                 notificacion.setRevisada(rs.getBoolean("revisada"));
+                notificacion.setFecha(rs.getDate("fecha"));
                 notificaciones.add(notificacion);
             }
         }catch(Exception ex){
@@ -119,6 +120,23 @@ public class NotificacionMySQL implements NotificacionDAO{
                     + "(?)}");
             cs.setInt("_FID_USUARIO", fid_usuario);
             resultado = cs.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
+    }
+
+    @Override
+    public int marcarNotificacionLeida(int idNotificacion) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call MARCAR_NOTIFICACION_LEIDA(?)}");
+            cs.setInt("_id_notificacion", idNotificacion);
+            resultado = cs.executeUpdate();
+            
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{

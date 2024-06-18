@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pe.edu.pucp.steam.usuario.personal.model;
-
+import java.util.Date;
 /**
  *
  * @author GAMER
@@ -15,6 +15,7 @@ public class Notificacion {
     private Usuario usuario;
     private boolean revisada;
     private boolean activo;
+    private Date fecha;
     
     public Notificacion(){};
 
@@ -73,6 +74,12 @@ public class Notificacion {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
-    
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 }

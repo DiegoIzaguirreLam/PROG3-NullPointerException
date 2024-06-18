@@ -18,4 +18,5 @@ public interface NotificacionDAO {
     int actualizarNotificacion(Notificacion notificacion);
     ArrayList<Notificacion> listarNotificaciones(int fid_usuario);
     int eliminarNotificacionesPorUsuario (int fid_usuario);
+    int marcarNotificacionLeida (int idNotificacion);
 }

@@ -88,6 +88,7 @@ CREATE TABLE Notificacion(
     fid_usuario INT NOT NULL,
 	revisada BOOLEAN NOT NULL,
 	activo TINYINT NOT NULL,
+    fecha DATE NOT NULL,
     PRIMARY KEY(id_notificacion),
     FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;

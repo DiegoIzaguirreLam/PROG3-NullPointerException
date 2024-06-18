@@ -81,4 +81,16 @@ public class NotificacionWS {
         }
         return resultado;
     }
+    
+    @WebMethod(operationName="marcarNotificacionLeida")
+    public int marcarNotificacionLeida(@WebParam(name="idNotificacion") int idNotificacion) {
+        int resultado = 0;
+        try{
+            NotificacionDAO daoNotificacion = new NotificacionMySQL();
+            resultado = daoNotificacion.marcarNotificacionLeida(idNotificacion);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
 }
