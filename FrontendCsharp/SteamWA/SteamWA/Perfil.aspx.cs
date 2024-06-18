@@ -36,6 +36,7 @@ namespace SteamWA
             lblCorreo.Text = usuario.correo;
             lblTelefono.Text = usuario.telefono;
             lblFechaNacimiento.Text = usuario.fechaNacimiento.ToString("dd/MM/yyyy");
+            imgPerfil.ImageUrl = usuario.fotoURL;
 
             if (usuario.verificado)
             {

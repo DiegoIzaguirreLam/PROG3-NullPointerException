@@ -43,7 +43,8 @@ namespace SteamWA
                 !validarCampo(txtNombrePerfil, "un nombre de perfil válido") ||
                 !validarCampo(txtContrasenia, "una contraseña válida") ||
                 !validarCampo(txtConfirmaContrasenia, "una contraseña válida") ||
-                !validarCampo(txtCorreo, "un correo electrónico válido")
+                !validarCampo(txtCorreo, "un correo electrónico válido") ||
+                !validarCampo(txtFechaNacimiento, "una fecha válida")
             ) return;
 
             // Verificar si existe el nombre de cuenta (no se puede repetir)

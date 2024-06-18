@@ -75,7 +75,7 @@
             <!-- Información General del Usuario -->
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img src="Images/user_profile_picture.jpg" class="card-img-top" alt="Avatar del Usuario">
+                    <asp:Image ID="imgPerfil" AlternateText="Avatar del Usuario" CssClass="card-img-top" style="border-radius:0.4rem" runat="server" />
                     <div class="card-body bg-info-subtle">
                         <h5 class="card-title" id="lblNombreCuenta" runat="server">UserName</h5>
                         <p class="card-text text-muted">
