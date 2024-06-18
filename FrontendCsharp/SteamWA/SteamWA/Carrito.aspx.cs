@@ -14,6 +14,7 @@ namespace SteamWA
 {
     public partial class Carrito : System.Web.UI.Page
     {
+        private double montoDolares;
         private BindingList<producto> listaCarrito;
         private cartera cartera;
         private tipoMoneda moneda;
@@ -44,12 +45,13 @@ namespace SteamWA
             if (Session["ElementosCarrito"] != null)
             {
                 listaCarrito = (BindingList<producto>)Session["ElementosCarrito"];
-                double montoTotal=0;
+                double montoTotal;
+                montoDolares = 0;
                 foreach(producto p in listaCarrito)
                 {
-                    montoTotal += Double.Parse((p.precio*moneda.cambioDeDolares).ToString());
-                   
+                    montoDolares += Double.Parse((p.precio).ToString());
                 }
+                montoTotal = montoDolares*moneda.cambioDeDolares;
                 labelTotalCarrito.InnerText = "Total Estimado: " + moneda.simbolo + (montoTotal).ToString("N2");
                 valorTotal.Value = montoTotal.ToString();
                 if (listaCarrito.Count>0)
@@ -76,7 +78,7 @@ namespace SteamWA
                 movimiento mov = new movimiento();
                 mov.idTransaccion = "COMPRAPRODUCTOS-"+ ((usuario)Session["usuario"]).nombreCuenta.ToUpper() + "-" + cartera.cantMovimientos.ToString("D5");
                 mov.cartera = cartera;
-                mov.monto = double.Parse(valorTotal.Value.ToString());
+                mov.monto = montoDolares;
                 mov.fechaSpecified = true;
                 mov.tipoSpecified = true;
                 mov.fecha = DateTime.Now;
@@ -99,7 +101,7 @@ namespace SteamWA
                 }
                 mov.producto = productosAdquiridos.ToArray();
                 daoMovimiento.insertarMovimiento(mov);
-                cartera.fondos = cartera.fondos - double.Parse(valorTotal.Value.ToString())/moneda.cambioDeDolares;
+                cartera.fondos = cartera.fondos - mov.monto;
                 daoCartera.actualizarCartera(cartera);
                 listaCarrito = null;
                 Session["ElementosCarrito"] = null;
