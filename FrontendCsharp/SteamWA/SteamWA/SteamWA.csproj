@@ -65,6 +65,7 @@
   <ItemGroup>
     <Content Include="Content\Steam\Comunidad.css" />
     <Content Include="Content\Steam\NotificacionesStyles.css" />
+    <Content Include="PerfilAjeno.aspx" />
     <Content Include="Scripts\Steam\Amigos.js" />
     <Content Include="Scripts\Steam\BuscarAmigos.js" />
     <Content Include="Scripts\Steam\Comunidad.js" />
@@ -686,6 +687,9 @@
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.listarIdProductosDestacadosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\SteamServiceWS\SubforoWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\SubforoWS.xsd">
       <SubType>Designer</SubType>
@@ -713,11 +717,19 @@
     <Content Include="Scripts\Steam\mostrarNotificacion.js" />
     <Content Include="Scripts\Steam\Tienda.js" />
     <Content Include="Tienda.aspx" />
+    <Content Include="Uploads\26df6a95-2d66-4ca0-947d-fb344dd793dd.jpg" />
     <Content Include="Web.config" />
     <Content Include="Steam.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Estado.cs" />
+    <Compile Include="PerfilAjeno.aspx.cs">
+      <DependentUpon>PerfilAjeno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilAjeno.aspx.designer.cs">
+      <DependentUpon>PerfilAjeno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionarMetodoPago.aspx.cs">
       <DependentUpon>SeleccionarMetodoPago.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -904,6 +916,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\SteamServiceWS\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

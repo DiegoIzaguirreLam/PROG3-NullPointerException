@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
@@ -15,19 +16,21 @@ namespace SteamWA
 {
     public partial class Comunidad : System.Web.UI.Page
     {
-        BindingList<foro> foros;
-        BindingList<foro> creados;
-        BindingList<foro> suscritos;
-        ForoWSClient daoForo;
-        SubforoWSClient daoSubforo;
-        HiloWSClient daoHilo;
-        MensajeWSClient daoMensaje;
-        ForoUsuarioWSClient daoForoUsuario;
-        NotificacionWSClient daoNotificacion;
-        GestorSancionesWSClient daoGestor;
-        PalabrasProhibidasWSClient daoPalabras;
+        private BindingList<foro> foros;
+        private BindingList<foro> creados;
+        private BindingList<foro> suscritos;
+        private ForoWSClient daoForo;
+        private SubforoWSClient daoSubforo;
+        private HiloWSClient daoHilo;
+        private MensajeWSClient daoMensaje;
+        private ForoUsuarioWSClient daoForoUsuario;
+        private NotificacionWSClient daoNotificacion;
+        private GestorSancionesWSClient daoGestor;
+        private PalabrasProhibidasWSClient daoPalabras;
+        private ReportesWSClient daoReportes;
+        private byte[] foto;
 
-        int[] pageIndex;
+        private int[] pageIndex;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -314,7 +317,37 @@ namespace SteamWA
             neohilo.subforo = neosubforo;
             neohilo.fechaModificacion = DateTime.Parse(DateTime.Now.ToString());
             neohilo.fijado = true;
-            neohilo.imagenUrl = "asdds";
+
+            string filename = "";
+            if (fileUpdloadFotoHilo.HasFile)
+            {
+                // Obtener la extensión del archivo
+                string extension = System.IO.Path.GetExtension(fileUpdloadFotoHilo.FileName);
+                // Verificar si el archivo es una imagen
+                if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif")
+                {
+                    // Guardar la imagen en el servidor
+                    filename = Guid.NewGuid().ToString() + extension;
+                    string filepath = Server.MapPath("~/Uploads/") + filename;
+                    fileUpdloadFotoHilo.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                    // Mostrar la imagen en la página
+                    //imgFotoGrupo.ImageUrl = "~/Uploads/" + filename;
+                    //imgFotoGrupo.Visible = true;
+                    // Guardamos la referencia en una variable de sesión llamada foto
+                    FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    Session["foto"] = br.ReadBytes((int)fs.Length);
+                    fs.Close();
+                }
+                else
+                {
+                    // Mostrar un mensaje de error si el archivo no es una imagen
+                    Response.Write("Por favor, selecciona un archivo de imagen válido.");
+                }
+            }
+            
+            neohilo.imagenUrl = "Uploads/" + filename;
+
             id = daoHilo.insertarHilo(neohilo);
             neohilo.idHilo = id;
             neomensaje.hilo = neohilo;
@@ -444,6 +477,22 @@ namespace SteamWA
             }
         }
 
-        
+        protected void lbReporte_Click(object sender, EventArgs e)
+        {
+            daoReportes = new ReportesWSClient();
+            usuario usuario = (usuario)Session["usuario"];
+
+            byte[] reporte = daoReportes.generarReporteMensajesEnviados(usuario.UID, usuario.nombreCuenta);
+
+            Response.Clear();
+
+            Response.ContentType = "application/pdf";
+
+            Response.AddHeader("Content-Disposition", "inline; filename=ReporteMensajesEnviados.pdf");
+
+            Response.BinaryWrite(reporte);
+
+            Response.End();
+        }
     }
 }

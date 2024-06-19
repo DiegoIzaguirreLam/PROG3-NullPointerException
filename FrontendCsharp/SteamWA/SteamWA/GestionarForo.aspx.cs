@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Caching;
@@ -12,14 +13,16 @@ namespace SteamWA
 {
     public partial class GestionarForo : System.Web.UI.Page
     {
-        BindingList<subforo> subforos;
-        SubforoWSClient daoSubforo;
-        HiloWSClient daoHilo;
-        MensajeWSClient daoMensaje;
-        NotificacionWSClient daoNotificacion;
-        ForoUsuarioWSClient daoForoUsuario;
-        GestorSancionesWSClient daoGestor;
-        int pageIndex;
+        private BindingList<subforo> subforos;
+        private SubforoWSClient daoSubforo;
+        private HiloWSClient daoHilo;
+        private MensajeWSClient daoMensaje;
+        private NotificacionWSClient daoNotificacion;
+        private ForoUsuarioWSClient daoForoUsuario;
+        private GestorSancionesWSClient daoGestor;
+        private PalabrasProhibidasWSClient daoPalabras;
+
+        private int pageIndex;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,6 +32,7 @@ namespace SteamWA
             daoNotificacion = new NotificacionWSClient();
             daoForoUsuario = new ForoUsuarioWSClient();
             daoGestor = new GestorSancionesWSClient();
+            daoPalabras = new PalabrasProhibidasWSClient();
 
             if (Session["IndexPagesSubforo"] == null)
             {
@@ -125,7 +129,7 @@ namespace SteamWA
             int[] auxSubs;
             BindingList<int> subs = new BindingList<int>();
             gestorSanciones gestor = daoGestor.buscarGestor(user.UID);
-            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan < DateTime.Now)
+            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan > DateTime.Now)
             {
                 txtMensajeFalta.Text = "Usted se encuentra baneado hasta " + gestor.fechaFinBan;
                 string script = "window.onload = function() { showModalForm('form-modal-falta') };";
@@ -143,7 +147,7 @@ namespace SteamWA
                 ClientScript.RegisterStartupScript(GetType(), "", script, true);
                 return;
             }
-            if (txtSubforo.Text.CompareTo("GianLuca") == 0)
+            if (daoPalabras.buscarPalabraProhibida(txtSubforo.Text) || daoPalabras.buscarPalabraProhibida(txtMensajeInicial.Text))
             {
                 gestor.contadorFaltas++;
                 if (gestor.maxFaltas > gestor.contadorFaltas)
@@ -172,7 +176,37 @@ namespace SteamWA
             neohilo.subforo = neosubforo;
             neohilo.fechaModificacion = DateTime.Parse(DateTime.Now.ToString());
             neohilo.fijado = true;
-            neohilo.imagenUrl = "asdds";
+
+            string filename = "";
+            if (fileUpdloadFotoHilo.HasFile)
+            {
+                // Obtener la extensión del archivo
+                string extension = System.IO.Path.GetExtension(fileUpdloadFotoHilo.FileName);
+                // Verificar si el archivo es una imagen
+                if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif")
+                {
+                    // Guardar la imagen en el servidor
+                    filename = Guid.NewGuid().ToString() + extension;
+                    string filepath = Server.MapPath("~/Uploads/") + filename;
+                    fileUpdloadFotoHilo.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                    // Mostrar la imagen en la página
+                    //imgFotoGrupo.ImageUrl = "~/Uploads/" + filename;
+                    //imgFotoGrupo.Visible = true;
+                    // Guardamos la referencia en una variable de sesión llamada foto
+                    FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    Session["foto"] = br.ReadBytes((int)fs.Length);
+                    fs.Close();
+                }
+                else
+                {
+                    // Mostrar un mensaje de error si el archivo no es una imagen
+                    Response.Write("Por favor, selecciona un archivo de imagen válido.");
+                }
+            }
+
+            neohilo.imagenUrl = "Uploads/" + filename;
+
             id = daoHilo.insertarHilo(neohilo);
             neohilo.idHilo = id;
             neomensaje.hilo = neohilo;
@@ -204,7 +238,7 @@ namespace SteamWA
             usuario user = (usuario)Session["usuario"];
             gestorSanciones gestor = daoGestor.buscarGestor(user.UID);
             
-            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan < DateTime.Now)
+            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan > DateTime.Now)
             {
                 txtMensajeFalta.Text = "Usted se encuentra baneado hasta " + gestor.fechaFinBan;
                 string script = "window.onload = function() { showModalForm('form-modal-falta') };";
@@ -222,7 +256,7 @@ namespace SteamWA
                 ClientScript.RegisterStartupScript(GetType(), "", script, true);
                 return;
             }
-            if (txtSubforo.Text.CompareTo("GianLuca") == 0)
+            if (daoPalabras.buscarPalabraProhibida(txtNSubforo.Text))
             {
                 gestor.contadorFaltas++;
                 if (gestor.maxFaltas > gestor.contadorFaltas)

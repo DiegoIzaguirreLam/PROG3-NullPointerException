@@ -1,11 +1,4 @@
-﻿<%@ Page Title=""
-    Language="C#"
-    MasterPageFile="~/Steam.Master"
-    AutoEventWireup="true"
-    CodeBehind="Perfil.aspx.cs"
-    Inherits="SteamWA.Perfil" %>
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Steam.Master" AutoEventWireup="true" CodeBehind="PerfilAjeno.aspx.cs" Inherits="SteamWA.PerfilAjeno" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <style>
@@ -51,27 +44,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Steam/mostrarModal.js"></script>
-
-    <script type="text/javascript">
-        function validateInput() {
-            var input = document.getElementById('<%= inputIdBloquear.ClientID %>');
-            var button = document.getElementById('<%= lbBloquearID.ClientID %>');
-
-            input.value = input.value.replace(/\D/g, '');
-            if (input.value.charAt(0) == "0") {
-                input.value = input.value.substring(1);
-            }
-
-            if (input.value && input.value > 0) {
-                button.classList.remove('disabled');
-                button.classList.remove('aspNetDisabled');
-            } else {
-                button.classList.add('disabled');
-                button.classList.add('aspNetDisabled');
-            }
-        }
-    </script>
-
 </asp:Content>
 
 
@@ -112,15 +84,11 @@
                     <li class="nav-item">
                         <asp:LinkButton ID="lbLogros" CssClass="nav-link bg-navy text-light bg-gradient" runat="server" OnClick="lbLogros_Click">Logros Obtenidos</asp:LinkButton>
                     </li>
-                    <li class="nav-item">
-                        <asp:LinkButton ID="lbUsuariosBloqueados" CssClass="nav-link bg-navy text-light" runat="server" OnClick="lbUsuariosBloqueados_Click">Usuarios Bloqueados</asp:LinkButton>
-                    </li>
                 </ul>
 
                 <div class="m-3">
                     <!-- Contenido de cada Pestaña -->
                     <asp:MultiView ID="MultiView1" runat="server">
-
                         <!-- Vista para Logros Obtenidos -->
                         <asp:View ID="ViewLogrosObtenidos" runat="server">
                             <!-- GridView para listar los logros del usuario -->
@@ -151,68 +119,12 @@
                                 </Columns>
                                 <EmptyDataTemplate>
                                     <div class="d-flex justify-content-center align-items-center mt-3">
-                                        <asp:Label runat="server" Text="Aún no has conseguido ningún logro. ¡Comienza a jugar para ganar logros y mejorar tu perfil!" CssClass="display-7 text-center" />
-                                    </div>
-                                </EmptyDataTemplate>
-                            </asp:GridView>
-
-                        </asp:View>
-
-                        <!-- Vista para Usuarios Bloqueados -->
-                        <asp:View ID="ViewUsuariosBloqueados" runat="server">
-                            <!-- GridView de usuarios bloqueados -->
-                            <div style="margin-bottom: 12px;">
-                                <h4>Bloquear un usuario</h4>
-                                <asp:Label runat="server" Text="Bloquear a un usuario es una acción permanente. Puedes bloquear a un usuario que sea tu amigo o ingresando su ID de usuario:" CssClass="text-light" Style="margin-top: 100px;"></asp:Label>
-                                <div class="col my-3">
-                                    <input id="inputIdBloquear" runat="server" type="number" placeholder="Ingresa un ID para bloquear" class="col-5" style="margin-right: 20px; height: 38px;" oninput="validateInput()" />
-                                    <asp:LinkButton ID="lbBloquearID" runat="server" Text="Bloquear" CssClass="btn btn-danger disabled" OnClick="lbBloquearID_Click" />
-                                </div>
-                            </div>
-                            <asp:GridView ID="gvBloqueados" runat="server"
-                                AllowPaging="true" PageSize="2"
-                                OnPageIndexChanging="gvBloqueados_PageIndexChanging"
-                                AutoGenerateColumns="false"
-                                CssClass="table table-responsive table-striped table-dark"
-                                PagerStyle-CssClass="pagination"
-                                PagerStyle-Width="0">
-                                <Columns>
-                                    <asp:TemplateField HeaderText="UID">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblUID" runat="server" Text='<%# Eval("uid") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:BoundField HeaderText="Nombre del Perfil" DataField="nombrePerfil" />
-                                    <asp:BoundField HeaderText="Nombre de la Cuenta" DataField="nombreCuenta" />
-                                </Columns>
-                                <EmptyDataTemplate>
-                                    <div class="d-flex justify-content-center align-items-center mt-3">
-                                        <asp:Label runat="server" Text="No has bloqueado a ningún usuario." CssClass="display-7 text-center" />
+                                        <asp:Label runat="server" Text="Este usuario aún no ha conseguido ningún logro..." CssClass="display-7 text-center" />
                                     </div>
                                 </EmptyDataTemplate>
                             </asp:GridView>
                         </asp:View>
                     </asp:MultiView>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Confirmación de Bloqueo de Usuario -->
-    <div id="modalBloquearUsuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="container bg-dark">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="lblEliminarAmigo">Bloquear un Usuario</h5>
-                    </div>
-                    <div class="modal-body">
-                        <asp:Label ID="lblConfirmacionUsuario" CssClass="text-light" Text="TODO: Cambiar texto" runat="server"/>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <asp:LinkButton runat="server" ID="btnBloquearModal" type="button" CssClass="btn btn-primary btn-danger" OnClick="btnBloquearModal_Click" Visible="false" Text="Bloquear" />
-                    </div>
                 </div>
             </div>
         </div>

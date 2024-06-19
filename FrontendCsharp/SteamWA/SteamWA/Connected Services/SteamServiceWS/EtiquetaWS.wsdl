@@ -17,17 +17,17 @@
   <message name="insertarEtiquetaResponse">
     <part name="parameters" element="tns:insertarEtiquetaResponse" />
   </message>
-  <message name="eliminarEtiqueta">
-    <part name="parameters" element="tns:eliminarEtiqueta" />
-  </message>
-  <message name="eliminarEtiquetaResponse">
-    <part name="parameters" element="tns:eliminarEtiquetaResponse" />
-  </message>
   <message name="listarEtiquetas">
     <part name="parameters" element="tns:listarEtiquetas" />
   </message>
   <message name="listarEtiquetasResponse">
     <part name="parameters" element="tns:listarEtiquetasResponse" />
+  </message>
+  <message name="eliminarEtiqueta">
+    <part name="parameters" element="tns:eliminarEtiqueta" />
+  </message>
+  <message name="eliminarEtiquetaResponse">
+    <part name="parameters" element="tns:eliminarEtiquetaResponse" />
   </message>
   <portType name="EtiquetaWS">
     <operation name="actualizarEtiqueta">
@@ -38,13 +38,13 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaRequest" message="tns:insertarEtiqueta" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/insertarEtiquetaResponse" message="tns:insertarEtiquetaResponse" />
     </operation>
-    <operation name="eliminarEtiqueta">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaRequest" message="tns:eliminarEtiqueta" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaResponse" message="tns:eliminarEtiquetaResponse" />
-    </operation>
     <operation name="listarEtiquetas">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasRequest" message="tns:listarEtiquetas" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/listarEtiquetasResponse" message="tns:listarEtiquetasResponse" />
+    </operation>
+    <operation name="eliminarEtiqueta">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaRequest" message="tns:eliminarEtiqueta" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EtiquetaWS/eliminarEtiquetaResponse" message="tns:eliminarEtiquetaResponse" />
     </operation>
   </portType>
   <binding name="EtiquetaWSPortBinding" type="tns:EtiquetaWS">
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarEtiqueta">
+    <operation name="listarEtiquetas">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarEtiquetas">
+    <operation name="eliminarEtiqueta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

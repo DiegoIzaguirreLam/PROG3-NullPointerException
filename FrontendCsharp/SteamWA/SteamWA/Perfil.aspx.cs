@@ -49,25 +49,15 @@ namespace SteamWA
         protected void lbLogros_Click(object sender, EventArgs e)
         {
             lbLogros.CssClass = "nav-link bg-navy text-light bg-gradient";
-            lbActividad.CssClass = "nav-link bg-navy text-light";
             lbUsuariosBloqueados.CssClass = "nav-link bg-navy text-light";
             MultiView1.SetActiveView(ViewLogrosObtenidos);
-        }
-
-        protected void lbActividad_Click(object sender, EventArgs e)
-        {
-            lbLogros.CssClass = "nav-link bg-navy text-light";
-            lbActividad.CssClass = "nav-link bg-navy text-light bg-gradient";
-            lbUsuariosBloqueados.CssClass = "nav-link bg-navy text-light";
-            MultiView1.SetActiveView(ViewActividadReciente);
         }
 
         protected void lbUsuariosBloqueados_Click(object sender, EventArgs e)
         {
             lbLogros.CssClass = "nav-link bg-navy text-light";
-            lbActividad.CssClass = "nav-link bg-navy text-light";
             lbUsuariosBloqueados.CssClass = "nav-link bg-navy text-light bg-gradient";
-            MultiView1.SetActiveView(ViewInfoPersonal);
+            MultiView1.SetActiveView(ViewUsuariosBloqueados);
         }
 
         protected void gvLogros_PageIndexChanging(object sender, GridViewPageEventArgs e)

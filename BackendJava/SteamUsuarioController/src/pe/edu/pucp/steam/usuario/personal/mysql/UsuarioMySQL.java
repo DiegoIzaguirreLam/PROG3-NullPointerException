@@ -172,6 +172,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                usuario.setFotoURL(rs.getString("foto_url"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
                 moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
@@ -218,6 +219,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                usuario.setFotoURL(rs.getString("foto_url"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
                 moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
@@ -309,6 +311,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                usuario.setFotoURL(rs.getString("foto_url"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
                 moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
@@ -359,6 +362,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                usuario.setFotoURL(rs.getString("foto_url"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
                 moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
@@ -409,6 +413,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                usuario.setFotoURL(rs.getString("foto_url"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
                 moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));
@@ -460,6 +465,7 @@ public class UsuarioMySQL implements UsuarioDAO{
                 usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
                 usuario.setVerificado(rs.getBoolean("verificado"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                usuario.setFotoURL(rs.getString("foto_url"));
                 pais.setIdPais(rs.getInt("fid_pais"));
                 pais.setNombre(rs.getString("nombre_pais"));
                 moneda.setIdTipoMoneda(rs.getInt("fid_moneda"));

@@ -18,13 +18,14 @@ namespace SteamWA
             DataTable dtAmigos = new DataTable();
             dtAmigos.Columns.Add("UID", typeof(int));
             dtAmigos.Columns.Add("NombrePerfil", typeof(string));
+            dtAmigos.Columns.Add("fotoURL", typeof(string));
 
             // Cargar los amigos y bloqueados del usuario
             BindingList<usuario> amigos = (BindingList<usuario>)Session["amigos"];
 
             // Se agregan los amigos al DataTable
             foreach (usuario amigo in amigos)
-                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil);
+                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil, amigo.fotoURL);
 
             // Se enlaza el DataTable con el ListView
             lvAmigos.DataSource = dtAmigos;
@@ -121,6 +122,13 @@ namespace SteamWA
             Session["bloqueados"] = bloqueados;
 
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
+        }
+
+        protected void btnVerPerfil_Click(object sender, EventArgs e)
+        {
+            int uid = Int32.Parse(((LinkButton)sender).CommandArgument);
+            string strRedirect = "PerfilAjeno.aspx?uid=" + uid;
+            Response.Redirect(strRedirect);
         }
     }
 }

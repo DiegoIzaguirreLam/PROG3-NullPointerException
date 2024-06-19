@@ -33,7 +33,7 @@
                 <asp:Button ID="btnSuscritos" runat="server" CssClass="btn btn-dark border-light" Text="Suscritos" OnClick="btnSuscritos_Click" />
             </div>
             <div class="col text-center">
-                <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary align-middle btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" />
+                <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary align-middle btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" OnClick="lbReporte_Click"/>
             </div>
             <div class="col text-end">
                 <asp:Button ID="btnCreados" runat="server" CssClass="btn btn-dark border-light" Text="Creados" OnClick="btnCreados_Click" />
@@ -111,8 +111,8 @@
                         </div>
                         <div class="container row">
                             <div class="col-md-5">
-                                <asp:Button ID="btnImagen" runat="server" Text="Imagen"
-                                    CssClass="justify-content-md-start btn btn-secondary bg-dark mb-2" />
+                                <asp:FileUpload ID="fileUpdloadFotoHilo" runat="server" 
+                                    CssClass="form-control mb-2"/>
                             </div>
                             <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <asp:Button ID="btnGuardarForoModal" runat="server" Text="Crear"

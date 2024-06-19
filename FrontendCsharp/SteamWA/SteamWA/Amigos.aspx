@@ -48,7 +48,7 @@
                                     <div class="card-body d-flex flex-column">
                                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                                             <div class="d-flex align-items-center my-2">
-                                                <img src="Images/foto_perfil.png" alt="Imagen de amigo" class="me-3 mb-3 mb-sm-0" style="max-width: 70px;" />
+                                                <img id="imgPerfilAmigo" runat="server" src='<%# Eval("fotoURL") %>' alt="Imagen de amigo" class="me-3 mb-3 mb-sm-0" style="width: 70px; height: 70px;" />
                                                 <div>
                                                     <h5 class="card-title mb-0 text-truncate" style="max-width: 140px;"><%# Eval("NombrePerfil") %></h5>
                                                     <p class="card-text">ID: <%# Eval("UID") %></p>
@@ -59,6 +59,7 @@
                                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton<%# Eval("UID") %>">
+                                                    <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Ver Perfil" CommandArgument='<%#Eval("UID")%>' OnClick="btnVerPerfil_Click" />
                                                     <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Eliminar" CommandArgument='<%# Eval("UID") + "," + Eval("NombrePerfil") %>' OnClick="btnEliminarAmigo_Click" />
                                                     <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Bloquear" CommandArgument='<%# Eval("UID") + "," + Eval("NombrePerfil") %>' OnClick="btnBloquearAmigo_Click" />
                                                 </div>

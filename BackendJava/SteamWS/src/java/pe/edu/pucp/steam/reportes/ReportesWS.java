@@ -18,6 +18,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
+import pe.edu.pucp.steam.servlet.ReporteMensajesEnviados;
 import pe.edu.pucp.steam.servlet.ReporteProductosAdquiridos;
 
 
@@ -56,6 +57,25 @@ public class ReportesWS {
             hm.put("SubReporteProductos", rutaSubreporteProductosAdquiridos);
             hm.put("imagenLogo", logo);
             hm.put("imagenFooter", footer);
+            JasperPrint jp = JasperFillManager.fillReport(jr, hm, con);
+            reporte = JasperExportManager.exportReportToPdf(jp);
+        }catch(JRException ex){
+            System.out.println(ex.getMessage());
+        }
+        return reporte;
+    }
+    
+    @WebMethod(operationName = "generarReporteMensajesEnviados")
+    public byte[] generarReporteMensajesEnviados(@WebParam(name = "uid") int uid, @WebParam(name = "nombreCuenta") String nombreCuenta) {
+        byte[] reporte = null;
+        try {
+            Connection con = DBManager.getInstance().getConnection();
+            String rutaReporte = ReporteMensajesEnviados.class.getResource("/pe/edu/pucp/steam/reportes/ReporteMensajes.jasper").getPath();
+            rutaReporte = rutaReporte.replace("%20", " ");
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(rutaReporte);
+            HashMap hm = new HashMap();
+            hm.put("uid_usuario", Integer.toString(uid));
+            hm.put("usuario", nombreCuenta);
             JasperPrint jp = JasperFillManager.fillReport(jr, hm, con);
             reporte = JasperExportManager.exportReportToPdf(jp);
         }catch(JRException ex){

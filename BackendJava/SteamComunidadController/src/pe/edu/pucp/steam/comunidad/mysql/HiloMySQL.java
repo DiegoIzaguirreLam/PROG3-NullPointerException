@@ -76,6 +76,7 @@ public class HiloMySQL implements HiloDAO {
 				hilo.setIdHilo(rs.getInt("id_hilo"));
 				//hilo.setFijado(b);
                                 hilo.setNroMensajes(rs.getInt("nro_mensajes"));
+                                hilo.setImagenUrl(rs.getString("imagen_url"));
                                 hilo.setFechaCreacion(rs.getDate("fecha_creacion"));
                                 hilo.setFechaModificacion(rs.getDate("fecha_modificacion"));
                                 hilo.setIdCreador(rs.getInt("fid_creador"));
