@@ -111,8 +111,8 @@
                         </div>
                         <div class="container row">
                             <div class="col-md-5">
-                                <asp:Button ID="btnImagen" runat="server" Text="Imagen"
-                                    CssClass="justify-content-md-start btn btn-secondary bg-dark mb-2" />
+                                <asp:FileUpload ID="fileUpdloadFotoHilo" runat="server" 
+                                    CssClass="form-control mb-2"/>
                             </div>
                             <div class="col-md-7 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <asp:Button ID="btnGuardarForoModal" runat="server" Text="Crear"

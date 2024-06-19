@@ -11,17 +11,17 @@
   <message name="listarColeccionesPorBibliotecaResponse">
     <part name="parameters" element="tns:listarColeccionesPorBibliotecaResponse" />
   </message>
-  <message name="insertarColeccion">
-    <part name="parameters" element="tns:insertarColeccion" />
-  </message>
-  <message name="insertarColeccionResponse">
-    <part name="parameters" element="tns:insertarColeccionResponse" />
-  </message>
   <message name="eliminarColeccion">
     <part name="parameters" element="tns:eliminarColeccion" />
   </message>
   <message name="eliminarColeccionResponse">
     <part name="parameters" element="tns:eliminarColeccionResponse" />
+  </message>
+  <message name="insertarColeccion">
+    <part name="parameters" element="tns:insertarColeccion" />
+  </message>
+  <message name="insertarColeccionResponse">
+    <part name="parameters" element="tns:insertarColeccionResponse" />
   </message>
   <message name="actualizarColeccion">
     <part name="parameters" element="tns:actualizarColeccion" />
@@ -34,13 +34,13 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRequest" message="tns:listarColeccionesPorBiblioteca" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaResponse" message="tns:listarColeccionesPorBibliotecaResponse" />
     </operation>
-    <operation name="insertarColeccion">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionRequest" message="tns:insertarColeccion" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionResponse" message="tns:insertarColeccionResponse" />
-    </operation>
     <operation name="eliminarColeccion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionRequest" message="tns:eliminarColeccion" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionResponse" message="tns:eliminarColeccionResponse" />
+    </operation>
+    <operation name="insertarColeccion">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionRequest" message="tns:insertarColeccion" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionResponse" message="tns:insertarColeccionResponse" />
     </operation>
     <operation name="actualizarColeccion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/actualizarColeccionRequest" message="tns:actualizarColeccion" />
@@ -58,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarColeccion">
+    <operation name="eliminarColeccion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarColeccion">
+    <operation name="insertarColeccion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

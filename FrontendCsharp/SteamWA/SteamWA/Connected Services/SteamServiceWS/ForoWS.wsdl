@@ -11,6 +11,18 @@
   <message name="editarForoResponse">
     <part name="parameters" element="tns:editarForoResponse" />
   </message>
+  <message name="insertarForo">
+    <part name="parameters" element="tns:insertarForo" />
+  </message>
+  <message name="insertarForoResponse">
+    <part name="parameters" element="tns:insertarForoResponse" />
+  </message>
+  <message name="eliminarForo">
+    <part name="parameters" element="tns:eliminarForo" />
+  </message>
+  <message name="eliminarForoResponse">
+    <part name="parameters" element="tns:eliminarForoResponse" />
+  </message>
   <message name="listarForos">
     <part name="parameters" element="tns:listarForos" />
   </message>
@@ -23,23 +35,11 @@
   <message name="buscarForosResponse">
     <part name="parameters" element="tns:buscarForosResponse" />
   </message>
-  <message name="eliminarForo">
-    <part name="parameters" element="tns:eliminarForo" />
-  </message>
-  <message name="eliminarForoResponse">
-    <part name="parameters" element="tns:eliminarForoResponse" />
-  </message>
   <message name="listarCreados">
     <part name="parameters" element="tns:listarCreados" />
   </message>
   <message name="listarCreadosResponse">
     <part name="parameters" element="tns:listarCreadosResponse" />
-  </message>
-  <message name="insertarForo">
-    <part name="parameters" element="tns:insertarForo" />
-  </message>
-  <message name="insertarForoResponse">
-    <part name="parameters" element="tns:insertarForoResponse" />
   </message>
   <message name="listarForosSuscritos">
     <part name="parameters" element="tns:listarForosSuscritos" />
@@ -52,6 +52,14 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/editarForoRequest" message="tns:editarForo" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/editarForoResponse" message="tns:editarForoResponse" />
     </operation>
+    <operation name="insertarForo">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/insertarForoRequest" message="tns:insertarForo" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/insertarForoResponse" message="tns:insertarForoResponse" />
+    </operation>
+    <operation name="eliminarForo">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoRequest" message="tns:eliminarForo" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoResponse" message="tns:eliminarForoResponse" />
+    </operation>
     <operation name="listarForos">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosRequest" message="tns:listarForos" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosResponse" message="tns:listarForosResponse" />
@@ -60,17 +68,9 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/buscarForosRequest" message="tns:buscarForos" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/buscarForosResponse" message="tns:buscarForosResponse" />
     </operation>
-    <operation name="eliminarForo">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoRequest" message="tns:eliminarForo" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/eliminarForoResponse" message="tns:eliminarForoResponse" />
-    </operation>
     <operation name="listarCreados">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/listarCreadosRequest" message="tns:listarCreados" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/listarCreadosResponse" message="tns:listarCreadosResponse" />
-    </operation>
-    <operation name="insertarForo">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/insertarForoRequest" message="tns:insertarForo" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/insertarForoResponse" message="tns:insertarForoResponse" />
     </operation>
     <operation name="listarForosSuscritos">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ForoWS/listarForosSuscritosRequest" message="tns:listarForosSuscritos" />
@@ -88,6 +88,24 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="insertarForo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarForo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarForos">
       <soap:operation soapAction="" />
       <input>
@@ -106,25 +124,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarForo">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarCreados">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarForo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,15 +13,16 @@ namespace SteamWA
 {
     public partial class GestionarSubforo : System.Web.UI.Page
     {
-        foro padre;
-        subforo subPadre;
-        BindingList<hilo> hilos;
-        HiloWSClient daoHilo;
-        MensajeWSClient daoMensaje;
-        UsuarioWSClient daoUsuario;
-        NotificacionWSClient daoNotificacion;
-        ForoUsuarioWSClient daoForoUsuario;
-        GestorSancionesWSClient daoGestor;
+        private foro padre;
+        private subforo subPadre;
+        private BindingList<hilo> hilos;
+        private HiloWSClient daoHilo;
+        private MensajeWSClient daoMensaje;
+        private UsuarioWSClient daoUsuario;
+        private NotificacionWSClient daoNotificacion;
+        private ForoUsuarioWSClient daoForoUsuario;
+        private GestorSancionesWSClient daoGestor;
+        private PalabrasProhibidasWSClient daoPalabras;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,13 +32,20 @@ namespace SteamWA
             daoNotificacion = new NotificacionWSClient();
             daoForoUsuario = new ForoUsuarioWSClient();
             daoGestor = new GestorSancionesWSClient();
+            daoPalabras = new PalabrasProhibidasWSClient();
 
             subPadre = (subforo)Session["subforoPadre"];
 
             string nombre = Request.QueryString["subforo"];
             padre = (foro)Session["foroPadre"];
-
-            if (!IsPostBack)
+            gestorSanciones gestor = daoGestor.buscarGestor(((usuario)Session["usuario"]).UID);
+            txtCrearMensaje.Enabled = true;
+            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan > DateTime.Now)
+            {
+                txtCrearMensaje.Text = "Estas baneado hasta " + gestor.fechaFinBan;
+                txtCrearMensaje.Enabled = false;
+            }
+                if (!IsPostBack)
             {
                 DataTable dtHilos = new DataTable();
                 dtHilos.Columns.Add("NombreUsuario", typeof(string));
@@ -119,16 +128,49 @@ namespace SteamWA
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            usuario user = (usuario)Session["usuario"];
+            gestorSanciones gestor = daoGestor.buscarGestor(user.UID);
+            if (txtCrearMensaje.Enabled == false || (gestor.contadorBaneos == 1 && gestor.fechaFinBan > DateTime.Now))
+            {
+                txtMensajeFalta.Text = "Usted se encuentra baneado hasta " + gestor.fechaFinBan;
+                string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
+            else if (gestor.contadorBaneos == 1)
+            {
+                gestor.contadorBaneos = 0; //Se le desbanea
+                gestor.contadorFaltas = 0;
+            }
             if (txtMensajeInicial.Text.CompareTo("") == 0){
                 string script = "window.onload = function() { showModalForm('form-modal-faltan-datos') };";
                 ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
+            if (daoPalabras.buscarPalabraProhibida(txtMensajeInicial.Text))
+            {
+                gestor.contadorFaltas++;
+                if (gestor.maxFaltas > gestor.contadorFaltas)
+                {
+                    txtMensajeFalta.Text = "Usted ha cometido una falta, le quedan " + (gestor.maxFaltas - gestor.cantFaltas) + " oportunidades.";
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                else
+                {
+                    gestor.fechaFinBan = DateTime.Now.AddDays(3); //Se le banea por 3 días
+                    gestor.contadorBaneos = 1;
+                    txtMensajeFalta.Text = "Usted ha sido baneado hasta " + gestor.fechaFinBan;
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                daoGestor.actualizarGestor(gestor);
                 return;
             }
             int id;
             hilo neoHilo = new hilo();
             mensaje neomensaje = new mensaje();
             foro pad = (foro)Session["foroPadre"]; 
-            usuario user = (usuario)Session["usuario"];
             int[] auxSubs;
             BindingList<int> subs = new BindingList<int>();
             neoHilo.subforo = (subforo)Session["subforoPadre"];
@@ -136,7 +178,37 @@ namespace SteamWA
             neoHilo.idCreador = user.UID;
             neoHilo.fechaModificacion = DateTime.Parse(DateTime.Now.ToString());
             neoHilo.fijado = true;
-            neoHilo.imagenUrl = "asdds";
+
+            string filename = "";
+            if (fileUpdloadFotoHilo.HasFile)
+            {
+                // Obtener la extensión del archivo
+                string extension = System.IO.Path.GetExtension(fileUpdloadFotoHilo.FileName);
+                // Verificar si el archivo es una imagen
+                if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif")
+                {
+                    // Guardar la imagen en el servidor
+                    filename = Guid.NewGuid().ToString() + extension;
+                    string filepath = Server.MapPath("~/Uploads/") + filename;
+                    fileUpdloadFotoHilo.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                    // Mostrar la imagen en la página
+                    //imgFotoGrupo.ImageUrl = "~/Uploads/" + filename;
+                    //imgFotoGrupo.Visible = true;
+                    // Guardamos la referencia en una variable de sesión llamada foto
+                    FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    Session["foto"] = br.ReadBytes((int)fs.Length);
+                    fs.Close();
+                }
+                else
+                {
+                    // Mostrar un mensaje de error si el archivo no es una imagen
+                    Response.Write("Por favor, selecciona un archivo de imagen válido.");
+                }
+            }
+
+            neoHilo.imagenUrl = "Uploads/" + filename;
+
             id = daoHilo.insertarHilo(neoHilo);
             neoHilo.idHilo = id;
             neomensaje.hilo = neoHilo;
@@ -165,10 +237,43 @@ namespace SteamWA
 
         protected void btnEnviarMensaje_Click(object sender, EventArgs e)
         {
+            usuario user = (usuario)Session["usuario"];
+            gestorSanciones gestor = daoGestor.buscarGestor(user.UID);
+            if (gestor.contadorBaneos == 1 && gestor.fechaFinBan > DateTime.Now)
+            {
+                txtMensajeFalta.Text = "Usted se encuentra baneado hasta " + gestor.fechaFinBan;
+                string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                return;
+            }
+            else if (gestor.contadorBaneos == 1)
+            {
+                gestor.contadorBaneos = 0; //Se le desbanea
+                gestor.contadorFaltas = 0;
+            }
             if (txtCrearMensaje.Text.CompareTo("") == 0) return;
+            if (daoPalabras.buscarPalabraProhibida(txtCrearMensaje.Text))
+            {
+                gestor.contadorFaltas++;
+                if (gestor.maxFaltas > gestor.contadorFaltas)
+                {
+                    txtMensajeFalta.Text = "Usted ha cometido una falta, le quedan " + (gestor.maxFaltas - gestor.cantFaltas) + " oportunidades.";
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                else
+                {
+                    gestor.fechaFinBan = DateTime.Now.AddDays(3); //Se le banea por 3 días
+                    gestor.contadorBaneos = 1;
+                    txtMensajeFalta.Text = "Usted ha sido baneado hasta " + gestor.fechaFinBan;
+                    string script = "window.onload = function() { showModalForm('form-modal-falta') };";
+                    ClientScript.RegisterStartupScript(GetType(), "", script, true);
+                }
+                daoGestor.actualizarGestor(gestor);
+                return;
+            }
             mensaje neomensaje = new mensaje();
             hilo pert = (hilo)Session["hiloAux"];
-            usuario user = (usuario)Session["usuario"];
             foro pad = (foro)Session["foroPadre"];
             int[] auxSubs;
             BindingList<int> subs = new BindingList<int>();

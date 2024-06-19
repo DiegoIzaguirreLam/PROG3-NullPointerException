@@ -713,6 +713,7 @@
     <Content Include="Scripts\Steam\mostrarNotificacion.js" />
     <Content Include="Scripts\Steam\Tienda.js" />
     <Content Include="Tienda.aspx" />
+    <Content Include="Uploads\26df6a95-2d66-4ca0-947d-fb344dd793dd.jpg" />
     <Content Include="Web.config" />
     <Content Include="Steam.Master" />
   </ItemGroup>
@@ -904,6 +905,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\SteamServiceWS\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

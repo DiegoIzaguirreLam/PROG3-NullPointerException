@@ -11,11 +11,11 @@
   <message name="listarIdProductosDestacadosResponse">
     <part name="parameters" element="tns:listarIdProductosDestacadosResponse" />
   </message>
-  <message name="listarProductos">
-    <part name="parameters" element="tns:listarProductos" />
+  <message name="listarProductosPorTituloDesarrollador">
+    <part name="parameters" element="tns:listarProductosPorTituloDesarrollador" />
   </message>
-  <message name="listarProductosResponse">
-    <part name="parameters" element="tns:listarProductosResponse" />
+  <message name="listarProductosPorTituloDesarrolladorResponse">
+    <part name="parameters" element="tns:listarProductosPorTituloDesarrolladorResponse" />
   </message>
   <message name="buscarProducto">
     <part name="parameters" element="tns:buscarProducto" />
@@ -23,11 +23,11 @@
   <message name="buscarProductoResponse">
     <part name="parameters" element="tns:buscarProductoResponse" />
   </message>
-  <message name="listarProductosPorTituloDesarrollador">
-    <part name="parameters" element="tns:listarProductosPorTituloDesarrollador" />
+  <message name="listarProductos">
+    <part name="parameters" element="tns:listarProductos" />
   </message>
-  <message name="listarProductosPorTituloDesarrolladorResponse">
-    <part name="parameters" element="tns:listarProductosPorTituloDesarrolladorResponse" />
+  <message name="listarProductosResponse">
+    <part name="parameters" element="tns:listarProductosResponse" />
   </message>
   <message name="listarProductosPorEtiqueta">
     <part name="parameters" element="tns:listarProductosPorEtiqueta" />
@@ -40,17 +40,17 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarIdProductosDestacadosRequest" message="tns:listarIdProductosDestacados" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarIdProductosDestacadosResponse" message="tns:listarIdProductosDestacadosResponse" />
     </operation>
-    <operation name="listarProductos">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosRequest" message="tns:listarProductos" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosResponse" message="tns:listarProductosResponse" />
+    <operation name="listarProductosPorTituloDesarrollador">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorTituloDesarrolladorRequest" message="tns:listarProductosPorTituloDesarrollador" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorTituloDesarrolladorResponse" message="tns:listarProductosPorTituloDesarrolladorResponse" />
     </operation>
     <operation name="buscarProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoRequest" message="tns:buscarProducto" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/buscarProductoResponse" message="tns:buscarProductoResponse" />
     </operation>
-    <operation name="listarProductosPorTituloDesarrollador">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorTituloDesarrolladorRequest" message="tns:listarProductosPorTituloDesarrollador" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorTituloDesarrolladorResponse" message="tns:listarProductosPorTituloDesarrolladorResponse" />
+    <operation name="listarProductos">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosRequest" message="tns:listarProductos" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosResponse" message="tns:listarProductosResponse" />
     </operation>
     <operation name="listarProductosPorEtiqueta">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductosPorEtiquetaRequest" message="tns:listarProductosPorEtiqueta" />
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarProductos">
+    <operation name="listarProductosPorTituloDesarrollador">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarProductosPorTituloDesarrollador">
+    <operation name="listarProductos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
