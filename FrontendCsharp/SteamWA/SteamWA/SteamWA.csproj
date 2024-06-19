@@ -65,6 +65,7 @@
   <ItemGroup>
     <Content Include="Content\Steam\Comunidad.css" />
     <Content Include="Content\Steam\NotificacionesStyles.css" />
+    <Content Include="PerfilAjeno.aspx" />
     <Content Include="Scripts\Steam\Amigos.js" />
     <Content Include="Scripts\Steam\BuscarAmigos.js" />
     <Content Include="Scripts\Steam\Comunidad.js" />
@@ -722,6 +723,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Estado.cs" />
+    <Compile Include="PerfilAjeno.aspx.cs">
+      <DependentUpon>PerfilAjeno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilAjeno.aspx.designer.cs">
+      <DependentUpon>PerfilAjeno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionarMetodoPago.aspx.cs">
       <DependentUpon>SeleccionarMetodoPago.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

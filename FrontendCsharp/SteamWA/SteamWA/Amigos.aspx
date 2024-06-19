@@ -59,6 +59,7 @@
                                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton<%# Eval("UID") %>">
+                                                    <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Ver Perfil" CommandArgument='<%#Eval("UID")%>' OnClick="btnVerPerfil_Click" />
                                                     <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Eliminar" CommandArgument='<%# Eval("UID") + "," + Eval("NombrePerfil") %>' OnClick="btnEliminarAmigo_Click" />
                                                     <asp:LinkButton runat="server" CssClass="dropdown-item" Text="Bloquear" CommandArgument='<%# Eval("UID") + "," + Eval("NombrePerfil") %>' OnClick="btnBloquearAmigo_Click" />
                                                 </div>

@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ColeccionWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarColeccionesPorBiblioteca">
-    <part name="parameters" element="tns:listarColeccionesPorBiblioteca" />
+  <message name="insertarColeccion">
+    <part name="parameters" element="tns:insertarColeccion" />
   </message>
-  <message name="listarColeccionesPorBibliotecaResponse">
-    <part name="parameters" element="tns:listarColeccionesPorBibliotecaResponse" />
+  <message name="insertarColeccionResponse">
+    <part name="parameters" element="tns:insertarColeccionResponse" />
   </message>
   <message name="eliminarColeccion">
     <part name="parameters" element="tns:eliminarColeccion" />
@@ -17,11 +17,11 @@
   <message name="eliminarColeccionResponse">
     <part name="parameters" element="tns:eliminarColeccionResponse" />
   </message>
-  <message name="insertarColeccion">
-    <part name="parameters" element="tns:insertarColeccion" />
+  <message name="listarColeccionesPorBiblioteca">
+    <part name="parameters" element="tns:listarColeccionesPorBiblioteca" />
   </message>
-  <message name="insertarColeccionResponse">
-    <part name="parameters" element="tns:insertarColeccionResponse" />
+  <message name="listarColeccionesPorBibliotecaResponse">
+    <part name="parameters" element="tns:listarColeccionesPorBibliotecaResponse" />
   </message>
   <message name="actualizarColeccion">
     <part name="parameters" element="tns:actualizarColeccion" />
@@ -30,17 +30,17 @@
     <part name="parameters" element="tns:actualizarColeccionResponse" />
   </message>
   <portType name="ColeccionWS">
-    <operation name="listarColeccionesPorBiblioteca">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRequest" message="tns:listarColeccionesPorBiblioteca" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaResponse" message="tns:listarColeccionesPorBibliotecaResponse" />
+    <operation name="insertarColeccion">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionRequest" message="tns:insertarColeccion" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionResponse" message="tns:insertarColeccionResponse" />
     </operation>
     <operation name="eliminarColeccion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionRequest" message="tns:eliminarColeccion" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/eliminarColeccionResponse" message="tns:eliminarColeccionResponse" />
     </operation>
-    <operation name="insertarColeccion">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionRequest" message="tns:insertarColeccion" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/insertarColeccionResponse" message="tns:insertarColeccionResponse" />
+    <operation name="listarColeccionesPorBiblioteca">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaRequest" message="tns:listarColeccionesPorBiblioteca" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/listarColeccionesPorBibliotecaResponse" message="tns:listarColeccionesPorBibliotecaResponse" />
     </operation>
     <operation name="actualizarColeccion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ColeccionWS/actualizarColeccionRequest" message="tns:actualizarColeccion" />
@@ -49,7 +49,7 @@
   </portType>
   <binding name="ColeccionWSPortBinding" type="tns:ColeccionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarColeccionesPorBiblioteca">
+    <operation name="insertarColeccion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarColeccion">
+    <operation name="listarColeccionesPorBiblioteca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

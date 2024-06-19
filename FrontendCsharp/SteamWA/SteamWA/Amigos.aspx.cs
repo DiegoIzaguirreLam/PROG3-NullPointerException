@@ -123,5 +123,12 @@ namespace SteamWA
 
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
+
+        protected void btnVerPerfil_Click(object sender, EventArgs e)
+        {
+            int uid = Int32.Parse(((LinkButton)sender).CommandArgument);
+            string strRedirect = "PerfilAjeno.aspx?uid=" + uid;
+            Response.Redirect(strRedirect);
+        }
     }
 }
