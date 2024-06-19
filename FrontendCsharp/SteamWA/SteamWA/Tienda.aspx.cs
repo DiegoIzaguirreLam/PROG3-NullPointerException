@@ -96,7 +96,7 @@ namespace SteamWA
             
             //Carousel Destacados:
             int[] idDestacados = daoProducto.listarIdProductosDestacados();
-
+            listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
             if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[0])!=null) imgDest1.ImageUrl = listaProductos[idDestacados[0] - 1].portadaUrl;
             if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[1]) != null) imgDest2.ImageUrl = listaProductos[idDestacados[1] - 1].portadaUrl;
             if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[2]) != null)  imgDest3.ImageUrl = listaProductos[idDestacados[2] - 1].portadaUrl;
@@ -106,7 +106,7 @@ namespace SteamWA
             new BindingList<SteamWA.SteamServiceWS.producto>();
             if (Request.Form[barRangoPrecio.UniqueID] != null)
             {
-
+                //limpiarCamposFiltros(4);
                 string valor = Request.Form[barRangoPrecio.UniqueID];
                 foreach (producto p in listaProductos)
                 {
@@ -139,7 +139,17 @@ namespace SteamWA
         protected void Page_Init(object sender, EventArgs e)
         {
             daoEtiqueta = new SteamWA.SteamServiceWS.EtiquetaWSClient();
-            BindingList<etiqueta> etiquetas = new BindingList<etiqueta>(daoEtiqueta.listarEtiquetas());
+            BindingList<etiqueta> etiquetas = new BindingList<etiqueta>();
+            try
+            {
+            etiquetas = new BindingList<etiqueta>(daoEtiqueta.listarEtiquetas());
+
+            }
+            catch
+            {
+                etiquetas = new BindingList<etiqueta>();
+                etiquetas = new BindingList<etiqueta>((daoEtiqueta.listarEtiquetas()).ToList());
+            }
             BindingList<CheckBox> CheckBoxFiltroEtiqueta = new BindingList<CheckBox>();
 
             foreach (etiqueta et in etiquetas)
@@ -195,8 +205,10 @@ namespace SteamWA
 
         }
 
+        //Filtro Tipo
         private void Chk2_CheckedChanged(object sender, EventArgs e)
         {
+            limpiarCamposFiltros(1);
             BindingList<RadioButton> CheckBoxFiltroTipo = (BindingList<RadioButton>)Session["CheckBoxFiltroTipo"];
             CheckBox checkBox = (CheckBox)sender;
             string idString = (checkBox.ID);
@@ -259,8 +271,10 @@ namespace SteamWA
 
         }
 
+        //Filtro Etiqueta
         private void Chk_CheckedChanged(object sender, EventArgs e)
         {
+            limpiarCamposFiltros(2);
             CheckBox checkBox = (CheckBox)sender;
             etiqueta et = new etiqueta();
             string idString = (checkBox.ID);
@@ -393,7 +407,7 @@ namespace SteamWA
 
 
 
-            limpiarCamposFiltros();
+            limpiarCamposFiltros(0);
             string script = "window.onload = function() { showModalForm('form-modal-añadido-carrito') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
             mostrarListaProductos(listaProd);
@@ -427,7 +441,7 @@ namespace SteamWA
                 listaProductos = null;
             }
 
-            limpiarCamposFiltros();
+            limpiarCamposFiltros(0);
 
             Session["ListaProductos"] = listaProductos;
             mostrarListaProductos(listaProductos);
@@ -533,46 +547,62 @@ namespace SteamWA
 
         protected void btnLimpFiltro_Click(object sender, EventArgs e)
         {
-            limpiarCamposFiltros();
+            limpiarCamposFiltros(0);
             mostrarListaProductos( new BindingList<producto>(daoProducto.listarProductos()));
         }
-        protected void limpiarCamposFiltros()
+        protected void limpiarCamposFiltros(int opc)
         {
             BindingList<RadioButton> CheckBoxFiltroTipo = (BindingList<RadioButton>)Session["CheckBoxFiltroTipo"];
             BindingList<CheckBox> CheckBoxFiltroEtiqueta = (BindingList<CheckBox>)Session["CheckBoxFiltroEtiqueta"];
-
-            foreach (RadioButton r in CheckBoxFiltroTipo)
+            if (opc != 1)
             {
-                string idString = (r.ID);
-                char idChar = idString[idString.Length - 1];
-                int id = Int32.Parse(idChar.ToString());
-                r.Checked = false;
-                if (id == 0)
+                foreach (RadioButton r in CheckBoxFiltroTipo)
                 {
-                    r.Checked = true;
+                    string idString = (r.ID);
+                    char idChar = idString[idString.Length - 1];
+                    int id = Int32.Parse(idChar.ToString());
+                    r.Checked = false;
+                    if (id == 0)
+                    {
+                        r.Checked = true;
+                    }
+
+
+
                 }
-
-
-
             }
-            foreach (CheckBox c in CheckBoxFiltroEtiqueta)
+            if (opc != 2)
             {
-                c.Checked = false;
+                foreach (CheckBox c in CheckBoxFiltroEtiqueta)
+                {
+                    c.Checked = false;
+                }
+                Session["listaProdEt"] = null;
+                Session["DicProdEtDic"] = null;
             }
-            rdbNombre.Checked = false;
-            rdbPrecio.Checked = false;
-
-            barRangoPrecio.Value = "5";
-            labelito.InnerText = "Todos";
+            if (opc != 3)
+            {
+                rdbNombre.Checked = false;
+                rdbPrecio.Checked = false;
+            }
+            if (opc != 4)
+            {
+                barRangoPrecio.Value = "5";
+                labelito.InnerText = "Todos";
+            }
         }
 
         protected void rdbPrecio_CheckedChanged(object sender, EventArgs e)
         {
+            limpiarCamposFiltros(3);
+            listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
             mostrarListaProductos(new BindingList<producto>( listaProductos.OrderBy(producto => producto.precio).ToList()));
         }
 
         protected void rdbNombre_CheckedChanged(object sender, EventArgs e)
         {
+            limpiarCamposFiltros(3);
+            listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
             mostrarListaProductos(new BindingList<producto>(listaProductos.OrderBy(producto => producto.titulo).ToList()));
         }
     }
