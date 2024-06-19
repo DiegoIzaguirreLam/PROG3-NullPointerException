@@ -142,7 +142,7 @@ namespace SteamWA
             // Se cambia el valor si es que se escribió algo, de lo contrario se asigna url por defecto
             if (!string.IsNullOrEmpty(txtURL.Text))
                 usuario.fotoURL = txtURL.Text;
-            else usuario.fotoURL = "https://i.imgur.com/c7tUWcg.png";
+            else usuario.fotoURL = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
             int resultado = daoUsuario.actualizarUsuario(usuario);
             Response.Redirect("Configuracion.aspx");
         }

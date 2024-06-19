@@ -142,12 +142,11 @@
                         <h5 class="modal-title">Imagen de perfil</h5>
                         <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <asp:Image ID="modalImagen" AlternateText="No existe la imagen" CssClass="card-img-top" style="border-radius:0.4rem" runat="server" />
+                    <div class="modal-body" style="text-align: center;">
+                        <asp:Image ID="modalImagen" AlternateText="No existe la imagen" CssClass="card-img-top" style="border-radius:0.4rem; max-width:250px; max-height:250px; display:block; margin:auto;" runat="server" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </asp:Content>
