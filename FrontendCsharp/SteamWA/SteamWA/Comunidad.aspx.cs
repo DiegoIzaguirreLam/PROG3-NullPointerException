@@ -27,6 +27,7 @@ namespace SteamWA
         private NotificacionWSClient daoNotificacion;
         private GestorSancionesWSClient daoGestor;
         private PalabrasProhibidasWSClient daoPalabras;
+        private ReportesWSClient daoReportes;
         private byte[] foto;
 
         private int[] pageIndex;
@@ -474,6 +475,24 @@ namespace SteamWA
                 Session["foroPadre"] = foro;
                 Response.Redirect("GestionarForo.aspx?foro=" + foro.nombre);
             }
+        }
+
+        protected void lbReporte_Click(object sender, EventArgs e)
+        {
+            daoReportes = new ReportesWSClient();
+            usuario usuario = (usuario)Session["usuario"];
+
+            byte[] reporte = daoReportes.generarReporteMensajesEnviados(usuario.UID, usuario.nombreCuenta);
+
+            Response.Clear();
+
+            Response.ContentType = "application/pdf";
+
+            Response.AddHeader("Content-Disposition", "inline; filename=ReporteMensajesEnviados.pdf");
+
+            Response.BinaryWrite(reporte);
+
+            Response.End();
         }
     }
 }

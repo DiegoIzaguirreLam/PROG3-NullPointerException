@@ -103,26 +103,28 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
-                        <asp:UpdatePanel runat="server" UpdateMode="Always">
+                        <asp:UpdatePanel runat="server" UpdateMode="Always" >
                             <ContentTemplate>
-                                <asp:ListView ID="lvMensajes" runat="server">
-                                    <ItemTemplate>
-                                        <div class="listview-item border-dark">
-                                            <div class="container row">
-                                                <div class="col-md-7 text-start">
-                                                    <p class="mt-3"><%# Eval("Contenido") %></p>
-                                                </div>
-                                                <div class="col-md-5 text-end">
-                                                    <p class="mt-3">
-                                                        - <%# Eval("Creador") %>
-                                                        <img src="<%# Eval("URLImagen") %>" width="20" height="20" />
-                                                    </p>
+                                <div class="liste" style="height:500px; overflow:auto;">
+                                    <asp:ListView ID="lvMensajes" runat="server">
+                                        <ItemTemplate>
+                                            <div class="listview-item border-dark">
+                                                <div class="container row">
+                                                    <div class="col-md-7 text-start">
+                                                        <p class="mt-3"><%# Eval("Contenido") %></p>
+                                                    </div>
+                                                    <div class="col-md-5 text-end">
+                                                        <p class="mt-3">
+                                                            - <%# Eval("Creador") %>
+                                                            <img src="<%# Eval("URLImagen") %>" width="20" height="20" />
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:ListView>
-
+                                        </ItemTemplate>
+                                        <EmptyDataTemplate><p class="align-middle">Aún no hay respuestas:(</p></EmptyDataTemplate>
+                                    </asp:ListView>
+                                  </div>
                                 <div class="container row">
                                     <asp:TextBox runat="server" ID="txtCrearMensaje" CssClass="col-11 mb-3 rounded mt-2" MaxLength="40" onkeydown="enviarMensaje_js(event, 'cphContenido_btnEnviarMensaje')"></asp:TextBox>
                                     <div class="container text-end col-1 mt-2 mb-3">

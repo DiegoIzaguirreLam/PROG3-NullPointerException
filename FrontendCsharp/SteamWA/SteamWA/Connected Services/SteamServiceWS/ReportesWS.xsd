@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="generarReporteMensajesEnviados" type="tns:generarReporteMensajesEnviados" />
+  <xs:element name="generarReporteMensajesEnviadosResponse" type="tns:generarReporteMensajesEnviadosResponse" />
   <xs:element name="generarReporteProductosAdquiridos" type="tns:generarReporteProductosAdquiridos" />
   <xs:element name="generarReporteProductosAdquiridosResponse" type="tns:generarReporteProductosAdquiridosResponse" />
+  <xs:complexType name="generarReporteMensajesEnviados">
+    <xs:sequence>
+      <xs:element name="uid" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreCuenta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generarReporteMensajesEnviadosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="generarReporteProductosAdquiridos">
     <xs:sequence>
       <xs:element name="uid" type="xs:int" />

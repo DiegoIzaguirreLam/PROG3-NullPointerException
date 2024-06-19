@@ -46,7 +46,7 @@ WHERE m.fid_usuario = $P{uid_usuario}]]>
 			<staticText>
 				<reportElement x="71" y="0" width="410" height="30" uuid="58755560-9a38-4e2f-92b9-0206220edf2c"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="20" isBold="true" isUnderline="true"/>
+					<font size="20" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[REPORTE DE MENSAJES]]></text>
 			</staticText>
@@ -57,21 +57,21 @@ WHERE m.fid_usuario = $P{uid_usuario}]]>
 			<staticText>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="119" height="20" uuid="32cb91eb-b9e7-430a-8297-a5363132e689"/>
 				<textElement>
-					<font fontName="&#xD;&#xA;SansSerif" size="12" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre de Cuenta:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="80" height="20" uuid="77952fe1-1fe0-4ef7-a098-c59c735d2453"/>
 				<textElement>
-					<font fontName="&#xD;&#xA;SansSerif" size="12" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[UID:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="40" width="198" height="20" uuid="2437539a-95a2-4fca-ba50-bffa3d4e6602"/>
 				<textElement>
-					<font fontName="&#xD;&#xA;SansSerif" size="12" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generación del Reporte: ]]></text>
 			</staticText>
@@ -86,7 +86,7 @@ WHERE m.fid_usuario = $P{uid_usuario}]]>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement positionType="FixRelativeToBottom" x="200" y="40" width="154" height="20" uuid="63ed71cf-bf9a-4dee-b045-38ef22887222"/>
 				<textElement>
-					<font fontName="&#xD;&#xA;SansSerif" size="12"/>
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
@@ -168,7 +168,7 @@ WHERE m.fid_usuario = $P{uid_usuario}]]>
 			<staticText>
 				<reportElement x="0" y="0" width="267" height="30" uuid="911757b6-b5dc-40a6-9383-5dab9a24206d"/>
 				<textElement verticalAlignment="Bottom">
-					<font fontName="timesNew" size="9"/>
+					<font size="9"/>
 				</textElement>
 				<text><![CDATA[© 2024 Volba Software Group, Inc. All rights reserved]]></text>
 			</staticText>
