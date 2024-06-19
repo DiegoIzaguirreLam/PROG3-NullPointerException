@@ -49,6 +49,18 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
+        <div class="row mb-3">
+            <!-- Barra de profundidad -->
+            <div class="col-md-7 row align-items-center">
+                <div class="col-md-auto align-items-lg-start">
+                    <asp:Button runat="server" CssClass="h5 bg-transparent border-0" Text="Amigos" OnClick="volverPaginaAmigos_Click" />
+                    <i class="fa-solid fa-caret-right fa-1x" style="color: #ffffff;"></i>
+                </div>
+                <div class="col-md-auto align-items-lg-start">
+                    <asp:Button runat="server" CssClass="h5 bg-transparent border-0" ID="btnPerfilAmigo" Enabled="false" />
+                </div>
+            </div>
+        </div>
         <div class="row">
             <!-- Información General del Usuario -->
             <div class="col-md-4">

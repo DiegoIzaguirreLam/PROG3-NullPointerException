@@ -52,7 +52,7 @@ namespace SteamWA
             lblTelefono.Text = usuario.telefono;
             lblFechaNacimiento.Text = usuario.fechaNacimiento.ToString("dd/MM/yyyy");
             imgPerfil.ImageUrl = usuario.fotoURL;
-
+            btnPerfilAmigo.Text = "Perfil de " + usuario.nombrePerfil;
             if (usuario.verificado)
             {
                 lblVerificado.InnerText = "Verificado por Steam";
@@ -88,6 +88,11 @@ namespace SteamWA
                 e.Row.Cells[3].Text = logro.logro.descripcion;
                 e.Row.Cells[4].Text = logro.fechaDesbloqueo.ToString("dd/MM/yyyy");
             }
+        }
+
+        protected void volverPaginaAmigos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Amigos.aspx");
         }
 
     }
