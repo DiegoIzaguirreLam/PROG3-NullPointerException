@@ -21,7 +21,7 @@ CREATE PROCEDURE MOSTRAR_HILOS_POR_SUBFORO(
 	in _id_subforo INT 
 )
 BEGIN
-	SELECT id_hilo, nro_mensajes, fecha_creacion, fecha_modificacion, fid_creador, nombre_perfil , foto_url FROM Hilo, Usuario WHERE 
+	SELECT id_hilo, nro_mensajes, imagen_url, fecha_creacion, fecha_modificacion, fid_creador, nombre_perfil, foto_url FROM Hilo, Usuario WHERE 
     fid_subforo = _id_subforo AND UID = fid_creador
     AND oculto = 0;
 END $
