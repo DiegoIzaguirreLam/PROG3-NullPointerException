@@ -18,13 +18,14 @@ namespace SteamWA
             DataTable dtAmigos = new DataTable();
             dtAmigos.Columns.Add("UID", typeof(int));
             dtAmigos.Columns.Add("NombrePerfil", typeof(string));
+            dtAmigos.Columns.Add("fotoURL", typeof(string));
 
             // Cargar los amigos y bloqueados del usuario
             BindingList<usuario> amigos = (BindingList<usuario>)Session["amigos"];
 
             // Se agregan los amigos al DataTable
             foreach (usuario amigo in amigos)
-                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil);
+                dtAmigos.Rows.Add(amigo.UID, amigo.nombrePerfil, amigo.fotoURL);
 
             // Se enlaza el DataTable con el ListView
             lvAmigos.DataSource = dtAmigos;
