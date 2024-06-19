@@ -12,7 +12,7 @@ import pe.edu.pucp.steam.usuario.personal.model.Usuario;
  * @author GAMER
  */
 public class Cartera {
-    private int idCartera; //Mismo id que el del usuario
+    private int idCartera;
     private double fondos;
     private int cantMovimientos;
     private ArrayList<Movimiento> movimientos;

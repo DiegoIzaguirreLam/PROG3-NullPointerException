@@ -6,7 +6,6 @@ package pe.edu.pucp.steam.usuario.jugador.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import pe.edu.pucp.steam.biblioteca.producto.model.Producto;
 import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
 
 /**

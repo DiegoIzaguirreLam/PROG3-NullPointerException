@@ -294,17 +294,12 @@ public class ProductoAdquiridoMySQL implements ProductoAdquiridoDAO{
     public ArrayList<Integer> listarIdProductoProductoAdquirido() {
         ArrayList<Integer> ListaIdProductos = new ArrayList<>();
         try{
-            
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call LISTAR_PRODUCTOADQUIRIDO()}");
             
             rs = cs.executeQuery();
             while(rs.next()){
-                
-                
-               
                 int id = (rs.getInt("fid_producto"));
-               
                 ListaIdProductos.add(id);
             }
         }catch(Exception ex){

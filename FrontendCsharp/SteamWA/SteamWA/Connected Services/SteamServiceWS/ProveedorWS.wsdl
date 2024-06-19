@@ -5,17 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/ProveedorWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarProveedores">
-    <part name="parameters" element="tns:listarProveedores" />
+  <message name="actualizarProveedor">
+    <part name="parameters" element="tns:actualizarProveedor" />
   </message>
-  <message name="listarProveedoresResponse">
-    <part name="parameters" element="tns:listarProveedoresResponse" />
-  </message>
-  <message name="eliminarProveedor">
-    <part name="parameters" element="tns:eliminarProveedor" />
-  </message>
-  <message name="eliminarProveedorResponse">
-    <part name="parameters" element="tns:eliminarProveedorResponse" />
+  <message name="actualizarProveedorResponse">
+    <part name="parameters" element="tns:actualizarProveedorResponse" />
   </message>
   <message name="insertarProveedor">
     <part name="parameters" element="tns:insertarProveedor" />
@@ -23,42 +17,39 @@
   <message name="insertarProveedorResponse">
     <part name="parameters" element="tns:insertarProveedorResponse" />
   </message>
-  <message name="actualizarProveedor">
-    <part name="parameters" element="tns:actualizarProveedor" />
+  <message name="eliminarProveedor">
+    <part name="parameters" element="tns:eliminarProveedor" />
   </message>
-  <message name="actualizarProveedorResponse">
-    <part name="parameters" element="tns:actualizarProveedorResponse" />
+  <message name="eliminarProveedorResponse">
+    <part name="parameters" element="tns:eliminarProveedorResponse" />
+  </message>
+  <message name="listarProveedores">
+    <part name="parameters" element="tns:listarProveedores" />
+  </message>
+  <message name="listarProveedoresResponse">
+    <part name="parameters" element="tns:listarProveedoresResponse" />
   </message>
   <portType name="ProveedorWS">
-    <operation name="listarProveedores">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresRequest" message="tns:listarProveedores" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresResponse" message="tns:listarProveedoresResponse" />
-    </operation>
-    <operation name="eliminarProveedor">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/eliminarProveedorRequest" message="tns:eliminarProveedor" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/eliminarProveedorResponse" message="tns:eliminarProveedorResponse" />
+    <operation name="actualizarProveedor">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/actualizarProveedorRequest" message="tns:actualizarProveedor" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/actualizarProveedorResponse" message="tns:actualizarProveedorResponse" />
     </operation>
     <operation name="insertarProveedor">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/insertarProveedorRequest" message="tns:insertarProveedor" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/insertarProveedorResponse" message="tns:insertarProveedorResponse" />
     </operation>
-    <operation name="actualizarProveedor">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/actualizarProveedorRequest" message="tns:actualizarProveedor" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/actualizarProveedorResponse" message="tns:actualizarProveedorResponse" />
+    <operation name="eliminarProveedor">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/eliminarProveedorRequest" message="tns:eliminarProveedor" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/eliminarProveedorResponse" message="tns:eliminarProveedorResponse" />
+    </operation>
+    <operation name="listarProveedores">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresRequest" message="tns:listarProveedores" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProveedorWS/listarProveedoresResponse" message="tns:listarProveedoresResponse" />
     </operation>
   </portType>
   <binding name="ProveedorWSPortBinding" type="tns:ProveedorWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarProveedores">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarProveedor">
+    <operation name="actualizarProveedor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +67,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarProveedor">
+    <operation name="eliminarProveedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProveedores">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -87,7 +87,6 @@
       <xs:element name="idMensaje" type="xs:int" />
       <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
       <xs:element name="oculto" type="xs:boolean" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="respuestas" nillable="true" type="tns:mensaje" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarRelacion">

@@ -22,7 +22,6 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:producto">
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="idObjetos" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" maxOccurs="unbounded" name="logros" nillable="true" type="tns:logro" />
           <xs:element name="multijugador" type="xs:boolean" />
           <xs:element minOccurs="0" name="requisitosMinimos" type="xs:string" />

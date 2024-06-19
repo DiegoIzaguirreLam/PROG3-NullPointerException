@@ -4,11 +4,8 @@
  */
 package pe.edu.pucp.steam.biblioteca.producto.model;
 
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
-import pe.edu.pucp.steam.biblioteca.coleccion.model.Coleccion;
 
 /**
  *

@@ -18,21 +18,17 @@ public class Mensaje {
     private String nombreUsuario;
     private String fotoPerfil;
     private Date fechaPublicacion;
-    private ArrayList<Mensaje> respuestas;
     private Hilo hilo;
     private boolean oculto; //Si está en 1, es porque no se debe mostrar, si está en 0 si se debe listar
     private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
     private boolean activo;
     
-    public Mensaje(){
-        
-        
-    }
-    public Mensaje(int idAutor, String contenido, Date fechaPublicacion, ArrayList<Mensaje> respuestas, Hilo hilo, boolean oculto, Date fechaMaxEdicion) {
+    public Mensaje(){}
+    
+    public Mensaje(int idAutor, String contenido, Date fechaPublicacion, Hilo hilo, boolean oculto, Date fechaMaxEdicion) {
         this.idAutor = idAutor;
         this.contenido = contenido;
         this.fechaPublicacion = fechaPublicacion;
-        this.respuestas = respuestas;
         this.hilo = hilo;
         this.oculto = oculto;
         this.fechaMaxEdicion = fechaMaxEdicion;
@@ -84,14 +80,6 @@ public class Mensaje {
 
     public void setFechaPublicacion(Date fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
-    }
-
-    public ArrayList<Mensaje> getRespuestas() {
-        return respuestas;
-    }
-
-    public void setRespuestas(ArrayList<Mensaje> respuestas) {
-        this.respuestas = respuestas;
     }
 
     public Hilo getHilo() {

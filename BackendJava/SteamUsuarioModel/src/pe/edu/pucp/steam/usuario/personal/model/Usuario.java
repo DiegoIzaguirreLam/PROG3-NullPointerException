@@ -22,9 +22,7 @@ public class Usuario {
     private String fotoURL;
     private Pais pais;
     private Biblioteca biblioteca;
-    private ArrayList<Notificacion> notificaciones;
     private GestorSanciones gestorSanciones;
-    private ArrayList<Mensaje> mensajes;
     private ArrayList<Foro> foros;
     private ArrayList<Usuario> amigos;
     private ArrayList<Usuario> bloqueados;
@@ -157,28 +155,12 @@ public class Usuario {
         this.biblioteca = biblioteca;
     }
 
-    public ArrayList<Notificacion> getNotificaciones() {
-        return notificaciones;
-    }
-
-    public void setNotificaciones(ArrayList<Notificacion> notificaciones) {
-        this.notificaciones = notificaciones;
-    }
-
     public GestorSanciones getGestorSanciones() {
         return gestorSanciones;
     }
 
     public void setGestorSanciones(GestorSanciones gestorSanciones) {
         this.gestorSanciones = gestorSanciones;
-    }
-
-    public ArrayList<Mensaje> getMensajes() {
-        return mensajes;
-    }
-
-    public void setMensajes(ArrayList<Mensaje> mensajes) {
-        this.mensajes = mensajes;
     }
 
     public ArrayList<Foro> getForos() {
