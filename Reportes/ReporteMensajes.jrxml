@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteMensajes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc788e9f-5f6d-4a19-afd3-f9489bcc0b5b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Conexion - TA"/>
+	<parameter name="uid_usuario" class="java.lang.String"/>
+	<parameter name="usuario" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT m.contenido, f.nombre as nombre_foro, m.fecha_publicacion, m.activo,
+ROW_NUMBER() OVER (ORDER BY m.fecha_publicacion) as nro
+FROM Mensaje m
+INNER JOIN Hilo h ON h.id_hilo = m.fid_hilo
+INNER JOIN Subforo s ON s.id_subforo = h.fid_subforo
+INNER JOIN Foro f ON f.id_foro = s.fid_foro
+WHERE m.fid_usuario = $P{uid_usuario}]]>
+	</queryString>
+	<field name="contenido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contenido"/>
+		<property name="com.jaspersoft.studio.field.label" value="contenido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Mensaje"/>
+	</field>
+	<field name="nombre_foro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre_foro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Foro"/>
+	</field>
+	<field name="fecha_publicacion" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="fecha_publicacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha_publicacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Mensaje"/>
+	</field>
+	<field name="activo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="activo"/>
+		<property name="com.jaspersoft.studio.field.label" value="activo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Mensaje"/>
+	</field>
+	<field name="nro" class="java.math.BigInteger">
+		<property name="com.jaspersoft.studio.field.name" value="nro"/>
+		<property name="com.jaspersoft.studio.field.label" value="nro"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="71" y="0" width="410" height="30" uuid="58755560-9a38-4e2f-92b9-0206220edf2c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE MENSAJES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="119" height="20" uuid="32cb91eb-b9e7-430a-8297-a5363132e689"/>
+				<textElement>
+					<font fontName="&#xD;&#xA;SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de Cuenta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="80" height="20" uuid="77952fe1-1fe0-4ef7-a098-c59c735d2453"/>
+				<textElement>
+					<font fontName="&#xD;&#xA;SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="40" width="198" height="20" uuid="2437539a-95a2-4fca-ba50-bffa3d4e6602"/>
+				<textElement>
+					<font fontName="&#xD;&#xA;SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Generación del Reporte: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="0" width="100" height="20" uuid="0b154f01-91fa-4d39-b6e3-2044557c6901"/>
+				<textFieldExpression><![CDATA[$P{uid_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="20" width="100" height="20" uuid="5796fba7-4c79-4e09-84b5-edb2fb5685a1"/>
+				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement positionType="FixRelativeToBottom" x="200" y="40" width="154" height="20" uuid="63ed71cf-bf9a-4dee-b045-38ef22887222"/>
+				<textElement>
+					<font fontName="&#xD;&#xA;SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="100" height="20" uuid="52fb9664-651b-426e-b341-0ccc81d5ee87">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1c4e4f4-fa38-4490-94e2-b6b19bbf6384"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Mensaje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="0" width="52" height="20" uuid="4d6163cd-e62f-45b8-953d-ba5a71ec1848">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ec5f872-d7c9-49ae-95a4-a65e7c241150"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Nro.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="20" uuid="983b04de-fb9d-4fbc-8ee6-21b353fba4a4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d040313-701c-484e-8c32-c54c41c1de56"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Foro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="0" width="114" height="20" uuid="1e96c09b-1e9b-4c0c-b48d-ae9355092dee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c52e440b-3923-4a6f-8fcd-566d43f57ef7"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de publicación]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="20" width="534" height="1" uuid="501895c7-0291-4e9e-9907-47a137e66f0f"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="170" height="20" uuid="e22d0a16-434f-4fc9-8099-8b7a88d87b00">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1c4e4f4-fa38-4490-94e2-b6b19bbf6384"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{contenido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="0" width="51" height="20" uuid="6ef548d6-c718-4d05-84cb-d22da4b6efe2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ec5f872-d7c9-49ae-95a4-a65e7c241150"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="20" uuid="f09c0573-b105-47dd-86b6-40ac99887053">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d040313-701c-484e-8c32-c54c41c1de56"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre_foro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="100" height="20" uuid="508e73bb-a7cd-44fc-8cf0-235249a02b64">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c52e440b-3923-4a6f-8fcd-566d43f57ef7"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{fecha_publicacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="267" height="30" uuid="911757b6-b5dc-40a6-9383-5dab9a24206d"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="timesNew" size="9"/>
+				</textElement>
+				<text><![CDATA[© 2024 Volba Software Group, Inc. All rights reserved]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
