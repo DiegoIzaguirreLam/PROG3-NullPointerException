@@ -26,6 +26,7 @@ namespace SteamWA
             }
             daoCartera = new CarteraWSClient();
             daoMovimiento = new MovimientoWSClient();
+            
             cartera = daoCartera.buscarCartera(usuario.UID);
             pais = usuario.pais;
             if (cartera == null)

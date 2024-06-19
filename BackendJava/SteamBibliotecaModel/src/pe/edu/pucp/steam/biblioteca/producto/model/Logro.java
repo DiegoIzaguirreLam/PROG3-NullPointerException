@@ -4,7 +4,6 @@
  */
 package pe.edu.pucp.steam.biblioteca.producto.model;
 
-import java.util.ArrayList;
 
 /**
  *

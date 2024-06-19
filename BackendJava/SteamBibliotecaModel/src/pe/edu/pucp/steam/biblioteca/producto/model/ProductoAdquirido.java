@@ -9,36 +9,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
 import pe.edu.pucp.steam.biblioteca.coleccion.model.Coleccion;
-import pe.edu.pucp.steam.biblioteca.coleccion.model.IConsultable;
 
 /**
  *
  * @author GAMER
  */
-public class ProductoAdquirido implements IConsultable{
+public class ProductoAdquirido{
     private int idProductoAdquirido;
     private Date fechaAdquisicion;
     private Date fechaEjecutado;
     private Date tiempoUso;
     private boolean actualizado;
     private Producto producto;
-    private ArrayList<LogroDesbloqueado> desbloqueados;
-    private ArrayList<Coleccion> colecciones;
     private Biblioteca biblioteca;
     private boolean oculto; //Si es 0 se muestra al listo, sino se oculta
     private boolean activo;
 
     public ProductoAdquirido(){};
 
-    public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, Date tiempoUso, boolean actualizado, boolean oculto, Producto producto, ArrayList<LogroDesbloqueado> desbloqueados, ArrayList<Coleccion> colecciones, Biblioteca biblioteca) {
+    public ProductoAdquirido(Date fechaAdquisicion, Date fechaEjecutado, Date tiempoUso, boolean actualizado, boolean oculto, Producto producto, Biblioteca biblioteca) {
         this.fechaAdquisicion = fechaAdquisicion;
         this.fechaEjecutado = fechaEjecutado;
         this.tiempoUso = tiempoUso;
         this.actualizado = actualizado;
         this.oculto = oculto;
         this.producto = producto;
-        this.desbloqueados = desbloqueados;
-        this.colecciones = colecciones;
         this.biblioteca = biblioteca;
     }
 
@@ -98,22 +93,6 @@ public class ProductoAdquirido implements IConsultable{
         this.producto = producto;
     }
 
-    public ArrayList<LogroDesbloqueado> getDesbloqueados() {
-        return desbloqueados;
-    }
-
-    public void setDesbloqueados(ArrayList<LogroDesbloqueado> desbloqueados) {
-        this.desbloqueados = desbloqueados;
-    }
-
-    public ArrayList<Coleccion> getColecciones() {
-        return colecciones;
-    }
-
-    public void setColecciones(ArrayList<Coleccion> colecciones) {
-        this.colecciones = colecciones;
-    }
-
     public Biblioteca getBiblioteca() {
         return biblioteca;
     }
@@ -128,10 +107,5 @@ public class ProductoAdquirido implements IConsultable{
 
     public void setActivo(boolean activo) {
         this.activo = activo;
-    }
-    
-    @Override
-    public void consultarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

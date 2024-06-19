@@ -11,7 +11,7 @@ import pe.edu.pucp.steam.biblioteca.producto.model.ProductoAdquirido;
  *
  * @author GAMER
  */
-public class Coleccion implements IConsultable{
+public class Coleccion{
     private int idColeccion;
     private String nombre;
     private Biblioteca biblioteca;
@@ -64,10 +64,5 @@ public class Coleccion implements IConsultable{
 
     public void setActivo(boolean activo) {
         this.activo = activo;
-    }
-    
-    @Override
-    public void consultarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

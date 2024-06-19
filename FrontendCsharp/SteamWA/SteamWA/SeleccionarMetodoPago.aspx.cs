@@ -81,7 +81,6 @@ namespace SteamWA
                     }
                 }
             }
-            montoDolares = montoDolares/moneda.cambioDeDolares;
             if(montoDolares + monto/moneda.cambioDeDolares < 100)
             {
                 btnPagar.Text = "Usar mi regalo de STREAM";

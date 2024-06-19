@@ -16,20 +16,17 @@ public class Juego extends Producto{
     private String requisitosRecomendados;
     private boolean multijugador;
     private ArrayList<Logro> logros;
-    private ArrayList<Integer> idObjetos;
 
     public Juego(){}
     
     public Juego(String requisitosMinimos, String requisitosRecomendados, boolean multijugador,
-            ArrayList<Logro> logros, ArrayList<Integer> idObjetos, String titulo, Date fechaPublicacion,
+            String titulo, Date fechaPublicacion,
             double precio, String descripcion, double espacioDisco, String logoUrl, String portadaUrl,
             Proveedor proveedor) {
         super(titulo, fechaPublicacion, precio, descripcion, espacioDisco, logoUrl, portadaUrl, proveedor);
         this.requisitosMinimos = requisitosMinimos;
         this.requisitosRecomendados = requisitosRecomendados;
         this.multijugador = multijugador;
-        this.logros = logros;
-        this.idObjetos = idObjetos;
     }
     
     public String getRequisitosMinimos() {
@@ -62,13 +59,5 @@ public class Juego extends Producto{
 
     public void setLogros(ArrayList<Logro> logros) {
         this.logros = logros;
-    }
-
-    public ArrayList<Integer> getIdObjetos() {
-        return idObjetos;
-    }
-
-    public void setIdObjetos(ArrayList<Integer> idObjetos) {
-        this.idObjetos = idObjetos;
     }
 }
