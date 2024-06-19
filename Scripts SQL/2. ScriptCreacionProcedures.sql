@@ -559,6 +559,15 @@ BEGIN
 END$
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DESTACADOS;
+DELIMITER $
+CREATE PROCEDURE LISTAR_PRODUCTOS_DESTACADOS(
+)
+BEGIN
+	select pa.fid_producto, COUNT(*) as num_adquiridos FROM ProductoAdquirido pa GROUP BY pa.fid_producto ORDER BY COUNT(*) DESC LIMIT 3; 
+END$
+
+DELIMITER ;
 
 DROP PROCEDURE IF EXISTS INSERTAR_PRODUCTOADQUIRIDO;
 DELIMITER $
@@ -1193,7 +1202,8 @@ CREATE PROCEDURE MOSTRAR_MENSAJES_POR_HILO(
 	in _id_hilo INT 
 )
 BEGIN
-	SELECT * FROM Mensaje WHERE fid_hilo = _id_hilo 
+	SELECT id_mensaje, contenido, fecha_publicacion, fecha_max_edicion, fid_usuario, nombre_perfil , foto_url FROM Mensaje, Usuario 
+	WHERE fid_hilo = _id_hilo AND UID = fid_usuario
     AND oculto = 0;
 
 END $
@@ -1256,10 +1266,9 @@ CREATE PROCEDURE MOSTRAR_HILOS_POR_SUBFORO(
 	in _id_subforo INT 
 )
 BEGIN
-	SELECT * FROM Hilo WHERE 
-    fid_subforo = _id_subforo
+	SELECT id_hilo, nro_mensajes, imagen_url, fecha_creacion, fecha_modificacion, fid_creador, nombre_perfil, foto_url FROM Hilo, Usuario WHERE 
+    fid_subforo = _id_subforo AND UID = fid_creador
     AND oculto = 0;
-
 END $
 
 
@@ -1355,64 +1364,17 @@ BEGIN
     WHERE id_mensaje = _id_mensaje; 
 
 END $
-DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
+DROP PROCEDURE IF EXISTS BUSCAR_PALABRA;
 DELIMITER $
-CREATE PROCEDURE INSERTAR_PERFIL(
-	OUT _id_perfil INT,
-    IN _fid_usuario INT,
-    IN _foto_url VARCHAR(200)
+CREATE PROCEDURE BUSCAR_PALABRA(
+    IN _palabra VARCHAR(100)
 )
-BEGIN
-	INSERT INTO Perfil(fid_usuario, foto_url, oculto) 
-    VALUES(_fid_usuario, _foto_url, false);
-    SET _id_perfil = @@last_insert_id;
-END$
-
-
-DROP PROCEDURE IF EXISTS LISTAR_PERFILES;
-DELIMITER $
-CREATE PROCEDURE LISTAR_PERFILES()
 BEGIN
     SELECT *
-    FROM Perfil
-    WHERE oculto=false;
-END$
-
-DROP PROCEDURE IF EXISTS ACTUALIZAR_PERFIL;
-DELIMITER $
-CREATE PROCEDURE ACTUALIZAR_PERFIL(
-    IN _id_perfil INT,
-    IN _foto_url VARCHAR(200),
-    IN _oculto TINYINT
-)
-BEGIN
-    UPDATE Perfil
-    SET foto_url = _foto_url,
-		oculto = _oculto
-    WHERE id_perfil = _id_perfil;
-END$
-
-DROP PROCEDURE IF EXISTS BUSCAR_PERFIL;
-DELIMITER $
-CREATE PROCEDURE BUSCAR_PERFIL(
-	IN _id_usuario INT
-)
-BEGIN
-	SELECT *
-    FROM Perfil
-    WHERE id_perfil = _id_usuario; 
-END$
-
-DROP PROCEDURE IF EXISTS OCULTAR_PERFIL;
-DELIMITER $
-CREATE PROCEDURE OCULTAR_PERFIL(
-	IN _id_perfil INT
-)
-BEGIN
-    UPDATE Perfil
-    SET oculto = true
-    WHERE id_perfil = _id_perfil; 
-END$DROP PROCEDURE IF EXISTS INSERTAR_CARTERA;
+    FROM PalabrasProhibidas
+    WHERE palabra = md5(_palabra);
+END $
+DELIMITER ;DROP PROCEDURE IF EXISTS INSERTAR_CARTERA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_CARTERA(
 	OUT _ID_CARTERA INT,
@@ -1491,8 +1453,8 @@ CREATE PROCEDURE CREAR_NOTIFICACION(
     IN _FID_USUARIO INT
 )
 BEGIN
-	INSERT INTO Notificacion(TIPO, MENSAJE, FID_USUARIO, REVISADA, ACTIVO)
-    VALUES (_TIPO, _MENSAJE, _FID_USUARIO, FALSE, TRUE);
+	INSERT INTO Notificacion(TIPO, MENSAJE, FID_USUARIO, REVISADA, ACTIVO, FECHA)
+    VALUES (_TIPO, _MENSAJE, _FID_USUARIO, FALSE, TRUE, CURDATE());
     SET _ID_NOTIFICACION = @@last_insert_id;
 END $
 DELIMITER ;
@@ -1538,6 +1500,16 @@ CREATE PROCEDURE ELIMINAR_NOTIFICACIONES_USUARIO(
 BEGIN
 	UPDATE Notificacion SET ACTIVO = FALSE WHERE FID_USUARIO = _FID_USUARIO;
 END $
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS MARCAR_NOTIFICACION_LEIDA;
+DELIMITER $
+CREATE PROCEDURE MARCAR_NOTIFICACION_LEIDA(
+	IN _id_notificacion INT
+)
+BEGIN
+	UPDATE Notificacion SET revisada = true WHERE id_notificacion = _id_notificacion;
+END$
 DELIMITER ;
 DROP PROCEDURE IF EXISTS CREAR_PAIS;
 DELIMITER $
@@ -1745,16 +1717,15 @@ CREATE PROCEDURE CREAR_USUARIO(
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
-    IN _FID_PAIS INT,
-    IN _FOTO_URL VARCHAR(200)
+    IN _FID_PAIS INT
 )
 BEGIN
     INSERT INTO Usuario(nombre_cuenta, nombre_perfil, correo, telefono,
                         contrasenia, edad, fecha_nacimiento, verificado,
-                        fid_pais, activo, foto_url)
+                        fid_pais, activo)
     VALUES (_NOMBRE_CUENTA, _NOMBRE_PERFIL, _CORREO, _TELEFONO,
             MD5(_CONTRASENIA), _EDAD, _FECHA_NACIMIENTO, _VERIFICADO,
-            _FID_PAIS, true, _FOTO_URL);
+            _FID_PAIS, true);
     SET _ID_USUARIO = LAST_INSERT_ID();
 END $
 
@@ -1765,7 +1736,6 @@ CREATE PROCEDURE ACTUALIZAR_USUARIO(
     IN _NOMBRE_PERFIL VARCHAR(100),
     IN _CORREO VARCHAR(100),
     IN _TELEFONO VARCHAR(100),
-    IN _CONTRASENIA VARCHAR(100),
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
@@ -1778,7 +1748,6 @@ BEGIN
         nombre_perfil = _NOMBRE_PERFIL,
         correo = _CORREO,
         telefono = _TELEFONO,
-        contrasenia = MD5(_CONTRASENIA),
         edad = _EDAD,
         fecha_nacimiento = _FECHA_NACIMIENTO,
         verificado = _VERIFICADO,
@@ -1820,7 +1789,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-    m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+    m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+    m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+    u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -1835,13 +1806,14 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-    m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+    m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+    m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+    u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.UID = _uid AND u.activo = TRUE;
 END$
-
 
 
 CREATE PROCEDURE VERIFICAR_USUARIO (
@@ -1850,7 +1822,7 @@ CREATE PROCEDURE VERIFICAR_USUARIO (
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo, u.foto_url,
     u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
     m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
@@ -1868,7 +1840,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
 		   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
            u.fid_pais, p.nombre as 'nombre_pais',  p.fid_moneda,
-           m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+           m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -1882,7 +1856,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -1898,7 +1874,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -1913,7 +1891,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda

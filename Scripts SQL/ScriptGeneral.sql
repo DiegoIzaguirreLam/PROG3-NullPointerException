@@ -28,6 +28,7 @@ DROP TABLE IF EXISTS Notificacion;
 DROP TABLE IF EXISTS Usuario;
 DROP TABLE IF EXISTS Pais;
 DROP TABLE IF EXISTS TipoMoneda;
+DROP TABLE IF EXISTS PalabrasProhibidas;
 
 /* CREACION DE TABLAS */
 /* PAQUETE USUARIO */
@@ -54,7 +55,7 @@ CREATE TABLE Pais(
 
 CREATE TABLE Usuario(
     UID INT AUTO_INCREMENT NOT NULL,
-    nombre_cuenta VARCHAR(100) NOT NULL,
+    nombre_cuenta VARCHAR(100) UNIQUE NOT NULL,
     nombre_perfil VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
     telefono VARCHAR(15),
@@ -64,7 +65,7 @@ CREATE TABLE Usuario(
     verificado TINYINT NOT NULL,
     fid_pais INT NOT NULL,
     activo TINYINT NOT NULL,
-    foto_url VARCHAR(200) DEFAULT 'https://i.imgur.com/c7tUWcg.png',
+    foto_url VARCHAR(200) DEFAULT 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
     PRIMARY KEY(UID),
     FOREIGN KEY(fid_pais) REFERENCES Pais(id_pais)
 ) ENGINE=InnoDB;
@@ -88,6 +89,7 @@ CREATE TABLE Notificacion(
     fid_usuario INT NOT NULL,
 	revisada BOOLEAN NOT NULL,
 	activo TINYINT NOT NULL,
+    fecha DATE NOT NULL,
     PRIMARY KEY(id_notificacion),
     FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
@@ -114,16 +116,6 @@ CREATE TABLE Movimiento(
     fid_cartera INT NOT NULL,
     PRIMARY KEY(id_movimiento),
     FOREIGN KEY(fid_cartera) REFERENCES Cartera(id_cartera)
-)ENGINE=InnoDB;
-
-/* PAQUETE PERFIL */
-CREATE TABLE Perfil(
-	id_perfil INT AUTO_INCREMENT,
-	fid_usuario INT UNIQUE,
-    foto_url VARCHAR(200),
-    oculto TINYINT NOT NULL,
-    PRIMARY KEY(id_perfil),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 /*PAQUETE COMUNIDAD*/
@@ -339,6 +331,11 @@ CREATE TABLE LogroDesbloqueado(
 	FOREIGN KEY(fid_producto_adquirido) REFERENCES ProductoAdquirido(id_producto_adquirido)
 )ENGINE=InnoDB;
 
+CREATE TABLE PalabrasProhibidas(
+	id_palabra INT AUTO_INCREMENT,
+	palabra VARCHAR(100) NOT NULL,
+	PRIMARY KEY(id_palabra)
+)ENGINE=InnoDB;
 
 DROP PROCEDURE IF EXISTS INSERTAR_BANDASONORA;
 DELIMITER $
@@ -900,6 +897,15 @@ BEGIN
 END$
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DESTACADOS;
+DELIMITER $
+CREATE PROCEDURE LISTAR_PRODUCTOS_DESTACADOS(
+)
+BEGIN
+	select pa.fid_producto, COUNT(*) as num_adquiridos FROM ProductoAdquirido pa GROUP BY pa.fid_producto ORDER BY COUNT(*) DESC LIMIT 3; 
+END$
+
+DELIMITER ;
 
 DROP PROCEDURE IF EXISTS INSERTAR_PRODUCTOADQUIRIDO;
 DELIMITER $
@@ -1534,7 +1540,8 @@ CREATE PROCEDURE MOSTRAR_MENSAJES_POR_HILO(
 	in _id_hilo INT 
 )
 BEGIN
-	SELECT * FROM Mensaje WHERE fid_hilo = _id_hilo 
+	SELECT id_mensaje, contenido, fecha_publicacion, fecha_max_edicion, fid_usuario, nombre_perfil , foto_url FROM Mensaje, Usuario 
+	WHERE fid_hilo = _id_hilo AND UID = fid_usuario
     AND oculto = 0;
 
 END $
@@ -1597,10 +1604,9 @@ CREATE PROCEDURE MOSTRAR_HILOS_POR_SUBFORO(
 	in _id_subforo INT 
 )
 BEGIN
-	SELECT * FROM Hilo WHERE 
-    fid_subforo = _id_subforo
+	SELECT id_hilo, nro_mensajes, imagen_url, fecha_creacion, fecha_modificacion, fid_creador, nombre_perfil, foto_url FROM Hilo, Usuario WHERE 
+    fid_subforo = _id_subforo AND UID = fid_creador
     AND oculto = 0;
-
 END $
 
 
@@ -1696,64 +1702,17 @@ BEGIN
     WHERE id_mensaje = _id_mensaje; 
 
 END $
-DROP PROCEDURE IF EXISTS INSERTAR_PERFIL;
+DROP PROCEDURE IF EXISTS BUSCAR_PALABRA;
 DELIMITER $
-CREATE PROCEDURE INSERTAR_PERFIL(
-	OUT _id_perfil INT,
-    IN _fid_usuario INT,
-    IN _foto_url VARCHAR(200)
+CREATE PROCEDURE BUSCAR_PALABRA(
+    IN _palabra VARCHAR(100)
 )
-BEGIN
-	INSERT INTO Perfil(fid_usuario, foto_url, oculto) 
-    VALUES(_fid_usuario, _foto_url, false);
-    SET _id_perfil = @@last_insert_id;
-END$
-
-
-DROP PROCEDURE IF EXISTS LISTAR_PERFILES;
-DELIMITER $
-CREATE PROCEDURE LISTAR_PERFILES()
 BEGIN
     SELECT *
-    FROM Perfil
-    WHERE oculto=false;
-END$
-
-DROP PROCEDURE IF EXISTS ACTUALIZAR_PERFIL;
-DELIMITER $
-CREATE PROCEDURE ACTUALIZAR_PERFIL(
-    IN _id_perfil INT,
-    IN _foto_url VARCHAR(200),
-    IN _oculto TINYINT
-)
-BEGIN
-    UPDATE Perfil
-    SET foto_url = _foto_url,
-		oculto = _oculto
-    WHERE id_perfil = _id_perfil;
-END$
-
-DROP PROCEDURE IF EXISTS BUSCAR_PERFIL;
-DELIMITER $
-CREATE PROCEDURE BUSCAR_PERFIL(
-	IN _id_usuario INT
-)
-BEGIN
-	SELECT *
-    FROM Perfil
-    WHERE id_perfil = _id_usuario; 
-END$
-
-DROP PROCEDURE IF EXISTS OCULTAR_PERFIL;
-DELIMITER $
-CREATE PROCEDURE OCULTAR_PERFIL(
-	IN _id_perfil INT
-)
-BEGIN
-    UPDATE Perfil
-    SET oculto = true
-    WHERE id_perfil = _id_perfil; 
-END$DROP PROCEDURE IF EXISTS INSERTAR_CARTERA;
+    FROM PalabrasProhibidas
+    WHERE palabra = md5(_palabra);
+END $
+DELIMITER ;DROP PROCEDURE IF EXISTS INSERTAR_CARTERA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_CARTERA(
 	OUT _ID_CARTERA INT,
@@ -1832,8 +1791,8 @@ CREATE PROCEDURE CREAR_NOTIFICACION(
     IN _FID_USUARIO INT
 )
 BEGIN
-	INSERT INTO Notificacion(TIPO, MENSAJE, FID_USUARIO, REVISADA, ACTIVO)
-    VALUES (_TIPO, _MENSAJE, _FID_USUARIO, FALSE, TRUE);
+	INSERT INTO Notificacion(TIPO, MENSAJE, FID_USUARIO, REVISADA, ACTIVO, FECHA)
+    VALUES (_TIPO, _MENSAJE, _FID_USUARIO, FALSE, TRUE, CURDATE());
     SET _ID_NOTIFICACION = @@last_insert_id;
 END $
 DELIMITER ;
@@ -1879,6 +1838,16 @@ CREATE PROCEDURE ELIMINAR_NOTIFICACIONES_USUARIO(
 BEGIN
 	UPDATE Notificacion SET ACTIVO = FALSE WHERE FID_USUARIO = _FID_USUARIO;
 END $
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS MARCAR_NOTIFICACION_LEIDA;
+DELIMITER $
+CREATE PROCEDURE MARCAR_NOTIFICACION_LEIDA(
+	IN _id_notificacion INT
+)
+BEGIN
+	UPDATE Notificacion SET revisada = true WHERE id_notificacion = _id_notificacion;
+END$
 DELIMITER ;
 DROP PROCEDURE IF EXISTS CREAR_PAIS;
 DELIMITER $
@@ -2086,16 +2055,15 @@ CREATE PROCEDURE CREAR_USUARIO(
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
-    IN _FID_PAIS INT,
-    IN _FOTO_URL VARCHAR(200)
+    IN _FID_PAIS INT
 )
 BEGIN
     INSERT INTO Usuario(nombre_cuenta, nombre_perfil, correo, telefono,
                         contrasenia, edad, fecha_nacimiento, verificado,
-                        fid_pais, activo, foto_url)
+                        fid_pais, activo)
     VALUES (_NOMBRE_CUENTA, _NOMBRE_PERFIL, _CORREO, _TELEFONO,
             MD5(_CONTRASENIA), _EDAD, _FECHA_NACIMIENTO, _VERIFICADO,
-            _FID_PAIS, true, _FOTO_URL);
+            _FID_PAIS, true);
     SET _ID_USUARIO = LAST_INSERT_ID();
 END $
 
@@ -2106,7 +2074,6 @@ CREATE PROCEDURE ACTUALIZAR_USUARIO(
     IN _NOMBRE_PERFIL VARCHAR(100),
     IN _CORREO VARCHAR(100),
     IN _TELEFONO VARCHAR(100),
-    IN _CONTRASENIA VARCHAR(100),
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
@@ -2119,7 +2086,6 @@ BEGIN
         nombre_perfil = _NOMBRE_PERFIL,
         correo = _CORREO,
         telefono = _TELEFONO,
-        contrasenia = MD5(_CONTRASENIA),
         edad = _EDAD,
         fecha_nacimiento = _FECHA_NACIMIENTO,
         verificado = _VERIFICADO,
@@ -2161,7 +2127,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-    m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+    m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+    m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+    u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -2176,13 +2144,14 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-    m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+    m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+    m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+    u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
     WHERE u.UID = _uid AND u.activo = TRUE;
 END$
-
 
 
 CREATE PROCEDURE VERIFICAR_USUARIO (
@@ -2191,7 +2160,7 @@ CREATE PROCEDURE VERIFICAR_USUARIO (
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo, u.foto_url,
     u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
     m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
@@ -2209,7 +2178,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
 		   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
            u.fid_pais, p.nombre as 'nombre_pais',  p.fid_moneda,
-           m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+           m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -2223,7 +2194,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -2239,7 +2212,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -2254,7 +2229,9 @@ BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
     	   u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     	   u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
-		   m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
+		   m.nombre as 'nombre_moneda', m.cambio_de_dolares,
+           m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda',
+           u.foto_url as 'foto_url'
     FROM Usuario u
     INNER JOIN Pais p ON p.id_pais = u.fid_pais
     INNER JOIN TipoMoneda m ON p.fid_moneda = m.id_tipo_moneda
@@ -2273,36 +2250,65 @@ CALL CREAR_PAIS(@id_pais, 'Francia', 'FR', 2);
 CALL CREAR_PAIS(@id_pais, 'Estados Unidos', 'US', 3);
 CALL CREAR_PAIS(@id_pais, 'España', 'ES', 2);
 
-CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 1');
-CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 2');
-CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Razon Social 3');
+CALL INSERTAR_PROVEEDOR(@id_proveedor, 'RoboTopo Games');
+CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Team Blueberry');
+CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Kristjan Skutta');
 CALL INSERTAR_PROVEEDOR(@id_proveedor, 'MMOs para todos');
-CALL INSERTAR_JUEGO(@id_juego, 1, 'Geometry Dash', '2013-08-13', 20.00, 'Juego de ritmo y figuras', 10.00, 'https://1000logos.net/wp-content/uploads/2022/05/Logo-Geometry-Dash.png', 'https://resources.crowdcontrol.live/images/GeometryDash/banner.jpg', 1, 'Core i5 10th Generation', 'Core i7 12th Generation', 1);
-CALL INSERTAR_BANDASONORA(@id_banda_sonora, 1, 'Hollow Knight - Official Soundtrack', '2024-04-20', 0.00, 'Soundtrack Oficial del juego Hollow Knight, captura una vasta parte del mundo subterráneo del juego', 15.00, 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d0/02/e3/d002e325-299d-f87f-a737-7d7ad3c628ae/840095520225.jpg/1200x1200bf-60.jpg', 'https://cdn.cloudflare.steamstatic.com/steam/apps/598190/header.jpg?t=1581550241', 1, 'Christopher Larkin', 'Christopher Larkin', '01:04:20');
-CALL INSERTAR_SOFTWARE(@id_software, 2, 'Wallpaper Engine', '2016-10-10', 20.00, 'Aplicacion para fondos de pantalla en alta calidad y animados', 20.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoRHLNX2m9GQ-ziMfqlaSkfZH8m5YnhovOAWASmw8Dg&s', 'https://cdn.akamai.steamstatic.com/steam/apps/431960/header.jpg?t=1665921297', 1, 'Core i5 7th Generation', 'GPL');
-CALL INSERTAR_JUEGO(@id_juego, @id_proveedor, 'Maplestory', '2012-08-09', 0, 'Únete a la aventura del MMORPG en 2D más grande del mundo.', 1536, 'https://cdn2.steamgriddb.com/grid/5ca15b56b207cea5903395718b794fec.png', 'https://mmos.com/wp-content/uploads/2015/10/pocket-maplestory-banner.jpg', 1, 'Intel Core 2 Duo de 3,0 GHz', 'Intel Core i3 de 4,0 GHz', 1);
-CALL INSERTAR_JUEGO(@id_juego, @id_proveedor, 'Guild Wars 2', '2022-08-23', 0, 'Juego de rol online con combates de acción trepidante y con una profunda personalización de personajes', 7168, 'https://www.pngitem.com/pimgs/m/195-1956338_guild-wars-2-logo-png-transparent-png.png', 'https://i.imgur.com/BFkJ9BI.jpeg', 1, 'Intel Core i3 3.4 GHz', 'Intel Core i5', 1);
+CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Beths Game Studios');
+CALL INSERTAR_PROVEEDOR(@id_proveedor, 'THS');
+CALL INSERTAR_PROVEEDOR(@id_proveedor, 'Igora Studios');
+CALL INSERTAR_PROVEEDOR(@id_proveedor, '2D Guy');
+
+CALL INSERTAR_JUEGO(@id_juego, 1, 'Geometry Dash', '2013-08-13', 5, 'Juego de ritmo y figuras', 10.00, 'https://1000logos.net/wp-content/uploads/2022/05/Logo-Geometry-Dash.png', 'https://resources.crowdcontrol.live/images/GeometryDash/banner.jpg', 1, 'Core i5 10th Generation', 'Core i7 12th Generation', 1);
+CALL INSERTAR_BANDASONORA(@id_banda_sonora, 2, 'Hollow Knight - Official Soundtrack', '2024-04-20', 0.00, 'Soundtrack Oficial del juego Hollow Knight, captura una vasta parte del mundo subterráneo del juego', 15.00, 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d0/02/e3/d002e325-299d-f87f-a737-7d7ad3c628ae/840095520225.jpg/1200x1200bf-60.jpg', 'https://cdn.cloudflare.steamstatic.com/steam/apps/598190/header.jpg?t=1581550241', 1, 'Christopher Larkin', 'Christopher Larkin', '01:04:20');
+CALL INSERTAR_SOFTWARE(@id_software, 3, 'Wallpaper Engine', '2016-10-10', 4, 'Aplicacion para fondos de pantalla en alta calidad y animados', 20.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoRHLNX2m9GQ-ziMfqlaSkfZH8m5YnhovOAWASmw8Dg&s', 'https://cdn.akamai.steamstatic.com/steam/apps/431960/header.jpg?t=1665921297', 1, 'Core i5 7th Generation', 'GPL');
+CALL INSERTAR_JUEGO(@id_juego, 4, 'Maplestory', '2012-08-09', 0, 'Únete a la aventura del MMORPG en 2D más grande del mundo.', 1536, 'https://cdn2.steamgriddb.com/grid/5ca15b56b207cea5903395718b794fec.png', 'https://mmos.com/wp-content/uploads/2015/10/pocket-maplestory-banner.jpg', 1, 'Intel Core 2 Duo de 3,0 GHz', 'Intel Core i3 de 4,0 GHz', 1);
+CALL INSERTAR_JUEGO(@id_juego, 4, 'Guild Wars 2', '2022-08-23', 0, 'Juego de rol online con combates de acción trepidante y con una profunda personalización de personajes', 7168, 'https://www.pngitem.com/pimgs/m/195-1956338_guild-wars-2-logo-png-transparent-png.png', 'https://i.imgur.com/BFkJ9BI.jpeg', 1, 'Intel Core i3 3.4 GHz', 'Intel Core i5', 1);
+CALL INSERTAR_JUEGO(@id_juego, 5, 'Fallout 4', '2015-11-10', 5, 'Juego de rol de acción ambientado en un mundo post-apocalíptico', 8.00, 'https://imgur.com/Wlj77jZ', 'https://cdn.cloudflare.steamstatic.com/steam/apps/377160/header.jpg?t=1629138088', 1, 'Intel Core i5-2300 2.8 GHz', 'Intel Core i7-4790 3.6 GHz', 1);
+CALL INSERTAR_SOFTWARE(@id_software, 6, 'Lossless Scaling', '2018-12-28', 7, 'La utilidad de juegos todo en uno para escalado y generación de frames', 150.00, 'https://styles.redditmedia.com/t5_aonbpu/styles/communityIcon_h19ct7wozz4d1.png', 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/header.jpg', 1, 'Intel HD Graphics', 'LS1');
+CALL INSERTAR_BANDASONORA(@id_banda_sonora, 2, 'Nine Sols Soundtrack', '2024-05-29', 6, 'Contenido adicional para los niveles más profundos del videojuego Nine Sols', 600, 'https://imgur.com/a/L8dyI4P', 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1913930/header.jpg?t=1717416666', 1, 'Hunter Wang', 'Hsiaotzu Lee', '03:15:10');
+CALL INSERTAR_SOFTWARE(@id_software, 7, 'Aseprite', '2016-02-22', 20, 'Herramienta de arte pixelado para crear animaciones 2D, sprites y cualquier tipo de gráficos para juegos', 80, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Logo_Aseprite.svg/1200px-Logo_Aseprite.svg.png', 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/431730/header.jpg?t=1712679350', 1, 'Windows 8, 10, 11', 'MIT');
+CALL INSERTAR_JUEGO(@id_juego, 5, 'DOOM', '2016-05-12', 20, 'Shooter en primera persona renovado de su versión lanzada el 10 de diciembre de 1993', 5500, 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/36116d43018691.57e09e24e07ca.jpg', 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/header.jpg?t=1692892793', 1, 'Intel Core i5-2400/AMD FX-8320 o superior', 'Intel Core i7-3770/AMD FX-8350 o superior', 1);
+CALL INSERTAR_JUEGO(@id_juego, 8, 'World Of Goo', '2008-10-13', 10, 'Juego de puzzles/construcción basados en la física creado íntegramente por sólo dos tipos', 100, 'https://assets1.ignimgs.com/2017/02/15/world-of-goo---button-1487120649951.jpg', 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/header.jpg?t=1587578439', 1, 'Windows XP or Vista', 'NVIDIA GeForce 6100', 0);
+
+
 CALL INSERTAR_LOGRO(@id_logro, "Pasar nivel 1", "Lograste pasar el nivel 1", 1, 1);
 CALL INSERTAR_LOGRO(@id_logro, "Pasar nivel 2", "Lograste pasar el nivel 2", 1, 1);
 CALL INSERTAR_LOGRO(@id_logro, "Pasar nivel 3", "Lograste pasar el nivel 3", 1, 1);
+CALL INSERTAR_LOGRO(@id_logro, "Nivel 50", "Llegaste al nivel 50", 1, 4);
+CALL INSERTAR_LOGRO(@id_logro, "Amigos", "Hiciste tu primer amigo", 1, 4);
+CALL INSERTAR_LOGRO(@id_logro, "Mist", "Conociste a Mist", 1, 4);
+CALL INSERTAR_LOGRO(@id_logro, "Nivel 50 Mago", "Llegaste a nivel 50 con la clase Mago", 1, 5);
+CALL INSERTAR_LOGRO(@id_logro, "Nivel 50 Guerrero", "Llegaste a nivel 50 con la clase Guerrero", 1, 5);
+CALL INSERTAR_LOGRO(@id_logro, "Superviviente Nato", "Llegaste al nivel 5", 1, 6);
+CALL INSERTAR_LOGRO(@id_logro, "Trotamundos imparable", "Llegaste al nivel 25", 1, 6);
+CALL INSERTAR_LOGRO(@id_logro, "Parca", "Lograste ser la parca por 5 minutos", 1, 10);
+CALL INSERTAR_LOGRO(@id_logro, "Double Kill", "Venciste a dos jugadores por tu cuenta", 1, 10);
 call INSERTAR_ETIQUETA(@id_etiqueta,'Terror');
 call INSERTAR_ETIQUETA(@id_etiqueta,'Puzzle');
 call INSERTAR_ETIQUETA(@id_etiqueta,'RPG');
 call INSERTAR_ETIQUETA(@id_etiqueta,'Casual');
 call INSERTAR_ETIQUETA(@id_etiqueta,'Accion');
+call INSERTAR_ETIQUETA(@id_etiqueta,'Utilidad');
 call INSERTAR_PRODUCTOETIQUETA(1, 2);
 call INSERTAR_PRODUCTOETIQUETA(1, 5);
 call INSERTAR_PRODUCTOETIQUETA(3, 2);
 call INSERTAR_PRODUCTOETIQUETA(3, 5);
 call INSERTAR_PRODUCTOETIQUETA(4, 3);
 call INSERTAR_PRODUCTOETIQUETA(4, 4);
-call INSERTAR_PRODUCTOETIQUETA(5, 3);
+call INSERTAR_PRODUCTOETIQUETA(5, 2);
 call INSERTAR_PRODUCTOETIQUETA(5, 5);
+call INSERTAR_PRODUCTOETIQUETA(6, 5);
+call INSERTAR_PRODUCTOETIQUETA(6, 2);
+call INSERTAR_PRODUCTOETIQUETA(7, 6);
+call INSERTAR_PRODUCTOETIQUETA(8, 6);
+call INSERTAR_PRODUCTOETIQUETA(10, 5);
+call INSERTAR_PRODUCTOETIQUETA(11, 2);
+call INSERTAR_PRODUCTOETIQUETA(11, 4);
 
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_sofia', 'Sofia', 'a20210750@pucp.edu.pe', '123456789', 'password_sofia', 19, '2004-07-01', 1, 4, 2, 5, 1);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
 call INSERTAR_CARTERA(@id_cartera, @id_usuario, 0, 0);
-call INSERTAR_PERFIL(@id_perfil, @id_usuario, "Images/foto_perfil.png");
 CALL INSERTAR_GESTOR(@id_gestor, @id_usuario, 0, 0, 0, 3, 3, 0, 0);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,1);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,2);
@@ -2315,10 +2321,12 @@ CALL CREAR_NOTIFICACION(@id_notificacion, "FOROS", "Hay un nuevo mensaje en el f
 CALL CREAR_NOTIFICACION(@id_notificacion, "JUEGOS", "Has conseguido un nuevo logro en Geometry Dash", @id_usuario);
 
 
+
+
+
 CALL CREAR_USUARIO(@id_usuario, 'cuenta_fabricio', 'Fabricio', 'a20214115@pucp.edu.pe', '987654321', 'password_fabricio', 20, '2003-12-06', 1, 1, 3, 4, 2);
 CALL INSERTAR_BIBLIOTECA(@id_biblioteca, @id_usuario);
 call INSERTAR_CARTERA(@id_cartera, @id_usuario, 0, 0);
-call INSERTAR_PERFIL(@id_perfil, @id_usuario, "Images/foto_perfil.png");
 CALL INSERTAR_GESTOR(@id_gestor, @id_usuario, 0, 0, 0, 3, 3, 0, 0);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,1);
 call INSERTAR_PRODUCTOADQUIRIDO(@id_producto_adquirido,@id_biblioteca,2);
