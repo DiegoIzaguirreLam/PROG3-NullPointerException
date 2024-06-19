@@ -23,15 +23,16 @@ CREATE PROCEDURE CREAR_USUARIO(
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
-    IN _FID_PAIS INT
+    IN _FID_PAIS INT,
+    IN _FOTO_URL VARCHAR(200)
 )
 BEGIN
     INSERT INTO Usuario(nombre_cuenta, nombre_perfil, correo, telefono,
                         contrasenia, edad, fecha_nacimiento, verificado,
-                        fid_pais, activo)
+                        fid_pais, activo, foto_url)
     VALUES (_NOMBRE_CUENTA, _NOMBRE_PERFIL, _CORREO, _TELEFONO,
             MD5(_CONTRASENIA), _EDAD, _FECHA_NACIMIENTO, _VERIFICADO,
-            _FID_PAIS, true);
+            _FID_PAIS, true, _FOTO_URL);
     SET _ID_USUARIO = LAST_INSERT_ID();
 END $
 
@@ -42,6 +43,7 @@ CREATE PROCEDURE ACTUALIZAR_USUARIO(
     IN _NOMBRE_PERFIL VARCHAR(100),
     IN _CORREO VARCHAR(100),
     IN _TELEFONO VARCHAR(100),
+    IN _CONTRASENIA VARCHAR(100),
     IN _EDAD INT,
     IN _FECHA_NACIMIENTO DATE,
     IN _VERIFICADO TINYINT,
@@ -54,6 +56,7 @@ BEGIN
         nombre_perfil = _NOMBRE_PERFIL,
         correo = _CORREO,
         telefono = _TELEFONO,
+        contrasenia = MD5(_CONTRASENIA),
         edad = _EDAD,
         fecha_nacimiento = _FECHA_NACIMIENTO,
         verificado = _VERIFICADO,
@@ -118,13 +121,14 @@ BEGIN
 END$
 
 
+
 CREATE PROCEDURE VERIFICAR_USUARIO (
 	IN _nombre_cuenta VARCHAR(100),
     IN _contrasenia VARCHAR(100)
 )
 BEGIN
     SELECT u.UID, u.nombre_cuenta, u.nombre_perfil, u.correo, u.telefono,
-    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo, u.foto_url,
+    u.contrasenia, u.edad, u.fecha_nacimiento, u.verificado, u.activo,
     u.fid_pais, p.nombre as 'nombre_pais', p.fid_moneda,
     m.nombre as 'nombre_moneda', m.cambio_de_dolares, m.codigo as 'codigo_moneda', m.simbolo as 'simbolo_moneda'
     FROM Usuario u
