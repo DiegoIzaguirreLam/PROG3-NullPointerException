@@ -141,13 +141,13 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.GridView gvLogros;
 
         /// <summary>
-        /// ViewInfoPersonal control.
+        /// ViewUsuariosBloqueados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewInfoPersonal;
+        protected global::System.Web.UI.WebControls.View ViewUsuariosBloqueados;
 
         /// <summary>
         /// inputIdBloquear control.

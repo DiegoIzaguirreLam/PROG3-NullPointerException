@@ -56,6 +56,12 @@
         function validateInput() {
             var input = document.getElementById('<%= inputIdBloquear.ClientID %>');
             var button = document.getElementById('<%= lbBloquearID.ClientID %>');
+
+            input.value = input.value.replace(/\D/g, '');
+            if (input.value.charAt(0) == "0") {
+                input.value = input.value.substring(1);
+            }
+
             if (input.value && input.value > 0) {
                 button.classList.remove('disabled');
                 button.classList.remove('aspNetDisabled');
@@ -152,8 +158,8 @@
 
                         </asp:View>
 
-                        <!-- Vista para Información Personal -->
-                        <asp:View ID="ViewInfoPersonal" runat="server">
+                        <!-- Vista para Usuarios Bloqueados -->
+                        <asp:View ID="ViewUsuariosBloqueados" runat="server">
                             <!-- GridView de usuarios bloqueados -->
                             <div style="margin-bottom: 12px;">
                                 <h4>Bloquear un usuario</h4>

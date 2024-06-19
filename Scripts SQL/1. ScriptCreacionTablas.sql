@@ -65,7 +65,7 @@ CREATE TABLE Usuario(
     verificado TINYINT NOT NULL,
     fid_pais INT NOT NULL,
     activo TINYINT NOT NULL,
-    foto_url VARCHAR(200) DEFAULT 'https://i.imgur.com/c7tUWcg.png',
+    foto_url VARCHAR(200) DEFAULT 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
     PRIMARY KEY(UID),
     FOREIGN KEY(fid_pais) REFERENCES Pais(id_pais)
 ) ENGINE=InnoDB;

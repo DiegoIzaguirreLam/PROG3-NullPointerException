@@ -57,7 +57,7 @@ namespace SteamWA
         {
             lbLogros.CssClass = "nav-link bg-navy text-light";
             lbUsuariosBloqueados.CssClass = "nav-link bg-navy text-light bg-gradient";
-            MultiView1.SetActiveView(ViewInfoPersonal);
+            MultiView1.SetActiveView(ViewUsuariosBloqueados);
         }
 
         protected void gvLogros_PageIndexChanging(object sender, GridViewPageEventArgs e)
