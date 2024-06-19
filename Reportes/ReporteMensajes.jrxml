@@ -46,7 +46,7 @@ WHERE m.fid_usuario = $P{uid_usuario}]]>
 			<staticText>
 				<reportElement x="71" y="0" width="410" height="30" uuid="58755560-9a38-4e2f-92b9-0206220edf2c"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="20" isBold="true" isUnderline="true"/>
+					<font fontName="SansSerif" size="20" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[REPORTE DE MENSAJES]]></text>
 			</staticText>
@@ -168,7 +168,7 @@ WHERE m.fid_usuario = $P{uid_usuario}]]>
 			<staticText>
 				<reportElement x="0" y="0" width="267" height="30" uuid="911757b6-b5dc-40a6-9383-5dab9a24206d"/>
 				<textElement verticalAlignment="Bottom">
-					<font fontName="timesNew" size="9"/>
+					<font size="9"/>
 				</textElement>
 				<text><![CDATA[© 2024 Volba Software Group, Inc. All rights reserved]]></text>
 			</staticText>
