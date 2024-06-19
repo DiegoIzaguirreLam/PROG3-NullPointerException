@@ -28,6 +28,7 @@ DROP TABLE IF EXISTS Notificacion;
 DROP TABLE IF EXISTS Usuario;
 DROP TABLE IF EXISTS Pais;
 DROP TABLE IF EXISTS TipoMoneda;
+DROP TABLE IF EXISTS PalabrasProhibidas;
 
 /* CREACION DE TABLAS */
 /* PAQUETE USUARIO */
@@ -54,7 +55,7 @@ CREATE TABLE Pais(
 
 CREATE TABLE Usuario(
     UID INT AUTO_INCREMENT NOT NULL,
-    nombre_cuenta VARCHAR(100) NOT NULL,
+    nombre_cuenta VARCHAR(100) UNIQUE NOT NULL,
     nombre_perfil VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
     telefono VARCHAR(15),
@@ -330,3 +331,8 @@ CREATE TABLE LogroDesbloqueado(
 	FOREIGN KEY(fid_producto_adquirido) REFERENCES ProductoAdquirido(id_producto_adquirido)
 )ENGINE=InnoDB;
 
+CREATE TABLE PalabrasProhibidas(
+	id_palabra INT AUTO_INCREMENT,
+	palabra VARCHAR(100) NOT NULL,
+	PRIMARY KEY(id_palabra)
+)ENGINE=InnoDB;
