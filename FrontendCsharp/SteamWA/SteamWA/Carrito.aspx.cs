@@ -118,9 +118,7 @@ namespace SteamWA
             producto prodEncontrado = listaCarrito.FirstOrDefault(p => p.idProducto == id);
             if (prodEncontrado != null)
             {
-
                 listaCarrito.Remove(prodEncontrado);
-                
             }
             double montoTotal = 0;
             foreach (producto p in listaCarrito)

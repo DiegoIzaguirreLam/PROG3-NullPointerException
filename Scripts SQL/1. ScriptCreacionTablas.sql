@@ -117,16 +117,6 @@ CREATE TABLE Movimiento(
     FOREIGN KEY(fid_cartera) REFERENCES Cartera(id_cartera)
 )ENGINE=InnoDB;
 
-/* PAQUETE PERFIL */
-CREATE TABLE Perfil(
-	id_perfil INT AUTO_INCREMENT,
-	fid_usuario INT UNIQUE,
-    foto_url VARCHAR(200),
-    oculto TINYINT NOT NULL,
-    PRIMARY KEY(id_perfil),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
-)ENGINE=InnoDB;
-
 /*PAQUETE COMUNIDAD*/
 CREATE TABLE Foro(
 	id_foro INT AUTO_INCREMENT,
