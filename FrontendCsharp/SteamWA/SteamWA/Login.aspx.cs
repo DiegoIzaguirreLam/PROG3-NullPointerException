@@ -34,6 +34,10 @@ namespace SteamWA
         protected void Page_Init(object sender, EventArgs e)
         {
             daoUsuario = new UsuarioWSClient();
+            Session["idBiblioteca"] = null;
+            Session["productosAdquiridos"] = null;
+            Session["moneda"] = null;
+            Session["ElementosCarrito"] = null;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

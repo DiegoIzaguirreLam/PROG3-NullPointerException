@@ -69,7 +69,7 @@ namespace SteamWA
         protected void btmComprar_Click(object sender, EventArgs e)
         {
             if (listaCarrito != null && listaCarrito.Count >0) {
-                if((cartera.fondos - double.Parse(valorTotal.Value.ToString())) >=0)
+                if((cartera.fondos - montoDolares) >=0)
                 {
 
               
