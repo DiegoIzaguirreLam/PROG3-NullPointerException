@@ -76,11 +76,11 @@ WHERE m.fid_usuario = $P{uid_usuario}]]>
 				<text><![CDATA[Fecha de Generación del Reporte: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="30" y="1" width="100" height="20" uuid="0b154f01-91fa-4d39-b6e3-2044557c6901"/>
+				<reportElement x="30" y="0" width="100" height="20" uuid="0b154f01-91fa-4d39-b6e3-2044557c6901"/>
 				<textFieldExpression><![CDATA[$P{uid_usuario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="120" y="22" width="100" height="20" uuid="5796fba7-4c79-4e09-84b5-edb2fb5685a1"/>
+				<reportElement x="120" y="20" width="100" height="20" uuid="5796fba7-4c79-4e09-84b5-edb2fb5685a1"/>
 				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
