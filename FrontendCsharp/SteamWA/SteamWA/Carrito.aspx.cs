@@ -100,6 +100,7 @@ namespace SteamWA
                 mov.producto = productosAdquiridos.ToArray();
                 daoMovimiento.insertarMovimiento(mov);
                 cartera.fondos = cartera.fondos - mov.monto;
+                cartera.cantMovimientos++;
                 daoCartera.actualizarCartera(cartera);
                 listaCarrito = null;
                 Session["ElementosCarrito"] = null;
