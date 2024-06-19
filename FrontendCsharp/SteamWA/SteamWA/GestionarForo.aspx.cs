@@ -66,6 +66,8 @@ namespace SteamWA
             {
                 foro.Text = nombre;
             }
+            Steam master = (Steam)this.Master;
+            master.ItemComunidad.Attributes["class"] = "active";
         }
 
         protected void btnVolverComunidad_Click(object sender, EventArgs e)

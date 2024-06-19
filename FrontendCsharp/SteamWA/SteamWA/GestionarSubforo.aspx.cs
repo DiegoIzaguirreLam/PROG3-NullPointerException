@@ -72,7 +72,7 @@ namespace SteamWA
             }
 
             Steam master = (Steam)this.Master;
-            master.ItemAmigos.Attributes["class"] = "active";
+            master.ItemComunidad.Attributes["class"] = "active";
         }
 
         protected void btnVolverComunidad_Click(object sender, EventArgs e)
