@@ -58,35 +58,17 @@ namespace SteamWA
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombreCuenta.Text.Trim()))
-            {
-                lblMensajeError.Visible = true;
-                lblMensajeError.Text = "Nombre de cuenta inválido. Por favor ingrese otro nombre de cuenta.";
-                txtNombreCuenta.Text = usuario.nombreCuenta;
+            // Validar otros campos
+            if (!validarCampo(txtNombreCuenta, "un nombre de cuenta válido", usuario.nombreCuenta) ||
+                !validarCampo(txtNombrePerfil, "un nombre de perfil válido", usuario.nombrePerfil) ||
+                !validarCampo(txtCorreo, "un correo electrónico válido", usuario.correo) ||
+                !validarCampo(txtTelefono, "un número de teléfono válido", usuario.telefono.ToString()) ||
+                !validarCampo(txtFechaNacimiento, "una fecha válida", usuario.fechaNacimiento.ToString("yyyy-MM-dd"))
+                )
                 return;
-            }
-            if (string.IsNullOrEmpty(txtNombrePerfil.Text.Trim()))
-            {
-                lblMensajeError.Visible = true;
-                lblMensajeError.Text = "Nombre de perfil inválido. Por favor ingrese otro nombre de perfil.";
-                txtNombrePerfil.Text = usuario.nombrePerfil;
-                return;
-            }
-            if (string.IsNullOrEmpty(txtCorreo.Text.Trim()))
-            {
-                lblMensajeError.Visible = true;
-                lblMensajeError.Text = "Correo electrónico inválido. Por favor ingrese otro correo.";
-                txtCorreo.Text = usuario.correo;
-                return;
-            }
-            if (string.IsNullOrEmpty(txtTelefono.Text.Trim()))
-            {
-                lblMensajeError.Visible = true;
-                lblMensajeError.Text = "Telefono inválido. Por favor ingrese otro número de teléfono.";
-                txtTelefono.Text = usuario.telefono.ToString();
-                return;
-            }
-            if (!urlValida(txtURL.Text))
+            
+            // Validar url
+            if (!string.IsNullOrEmpty(txtURL.Text) && !urlValida(txtURL.Text))
             {
                 lblMensajeError.Visible = true;
                 lblMensajeError.Text = "La dirección URL no apunta a una imagen válida.";
@@ -111,6 +93,20 @@ namespace SteamWA
             string script = "window.onload = function() { showModalForm('form-modal-GuardarCambios') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
+
+        public bool validarCampo(TextBox campo, string mensaje, string valorValido)
+        {
+            string valorCampo = campo.Text.Trim();
+            if (valorCampo == "")
+            {
+                lblMensajeError.Visible = true;
+                lblMensajeError.Text = "Valor inválido. Por favor, ingrese " + mensaje;
+                campo.Text = valorValido;
+                return false;
+            }
+            return true;
+        }
+
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
@@ -143,9 +139,10 @@ namespace SteamWA
             usuario.edad = DateTime.Today < usuario.fechaNacimiento ? (DateTime.Today.Year - usuario.fechaNacimiento.Year) : (DateTime.Today.Year - usuario.fechaNacimiento.Year - 1);
             usuario.pais = new pais();
             usuario.pais.idPais = Int32.Parse(ddlPaises.SelectedValue);
-            // Solo se cambia el valor si es que se escribió algo
+            // Se cambia el valor si es que se escribió algo, de lo contrario se asigna url por defecto
             if (!string.IsNullOrEmpty(txtURL.Text))
                 usuario.fotoURL = txtURL.Text;
+            else usuario.fotoURL = "https://i.imgur.com/c7tUWcg.png";
             int resultado = daoUsuario.actualizarUsuario(usuario);
             Response.Redirect("Configuracion.aspx");
         }
