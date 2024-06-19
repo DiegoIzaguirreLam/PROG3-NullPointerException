@@ -33,7 +33,7 @@
                 <asp:Button ID="btnSuscritos" runat="server" CssClass="btn btn-dark border-light" Text="Suscritos" OnClick="btnSuscritos_Click" />
             </div>
             <div class="col text-center">
-                <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary align-middle btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" />
+                <asp:LinkButton ID="lbReporte" runat="server" CssClass="btn btn-primary align-middle btn-info" Text="<i class='fa-solid fa-file'></i> Generar Reporte de Mensajes" OnClick="lbReporte_Click"/>
             </div>
             <div class="col text-end">
                 <asp:Button ID="btnCreados" runat="server" CssClass="btn btn-dark border-light" Text="Creados" OnClick="btnCreados_Click" />

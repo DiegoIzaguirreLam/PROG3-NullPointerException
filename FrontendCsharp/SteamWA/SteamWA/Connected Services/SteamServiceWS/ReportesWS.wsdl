@@ -11,15 +11,34 @@
   <message name="generarReporteProductosAdquiridosResponse">
     <part name="parameters" element="tns:generarReporteProductosAdquiridosResponse" />
   </message>
+  <message name="generarReporteMensajesEnviados">
+    <part name="parameters" element="tns:generarReporteMensajesEnviados" />
+  </message>
+  <message name="generarReporteMensajesEnviadosResponse">
+    <part name="parameters" element="tns:generarReporteMensajesEnviadosResponse" />
+  </message>
   <portType name="ReportesWS">
     <operation name="generarReporteProductosAdquiridos">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteProductosAdquiridosRequest" message="tns:generarReporteProductosAdquiridos" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteProductosAdquiridosResponse" message="tns:generarReporteProductosAdquiridosResponse" />
     </operation>
+    <operation name="generarReporteMensajesEnviados">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteMensajesEnviadosRequest" message="tns:generarReporteMensajesEnviados" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteMensajesEnviadosResponse" message="tns:generarReporteMensajesEnviadosResponse" />
+    </operation>
   </portType>
   <binding name="ReportesWSPortBinding" type="tns:ReportesWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <operation name="generarReporteProductosAdquiridos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="generarReporteMensajesEnviados">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

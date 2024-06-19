@@ -11636,6 +11636,17 @@ namespace SteamWA.SteamServiceWS {
             "Request", ReplyAction="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteProductosAdquiridos" +
             "Response")]
         System.Threading.Tasks.Task<SteamWA.SteamServiceWS.generarReporteProductosAdquiridosResponse> generarReporteProductosAdquiridosAsync(SteamWA.SteamServiceWS.generarReporteProductosAdquiridosRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento nombreCuenta del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteMensajesEnviadosReq" +
+            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteMensajesEnviadosRes" +
+            "ponse")]
+        SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponse generarReporteMensajesEnviados(SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteMensajesEnviadosReq" +
+            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/ReportesWS/generarReporteMensajesEnviadosRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponse> generarReporteMensajesEnviadosAsync(SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11718,6 +11729,78 @@ namespace SteamWA.SteamServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class generarReporteMensajesEnviadosRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="generarReporteMensajesEnviados", Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        public SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequestBody Body;
+        
+        public generarReporteMensajesEnviadosRequest() {
+        }
+        
+        public generarReporteMensajesEnviadosRequest(SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class generarReporteMensajesEnviadosRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int uid;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string nombreCuenta;
+        
+        public generarReporteMensajesEnviadosRequestBody() {
+        }
+        
+        public generarReporteMensajesEnviadosRequestBody(int uid, string nombreCuenta) {
+            this.uid = uid;
+            this.nombreCuenta = nombreCuenta;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class generarReporteMensajesEnviadosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="generarReporteMensajesEnviadosResponse", Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        public SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponseBody Body;
+        
+        public generarReporteMensajesEnviadosResponse() {
+        }
+        
+        public generarReporteMensajesEnviadosResponse(SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class generarReporteMensajesEnviadosResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public byte[] @return;
+        
+        public generarReporteMensajesEnviadosResponseBody() {
+        }
+        
+        public generarReporteMensajesEnviadosResponseBody(byte[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ReportesWSChannel : SteamWA.SteamServiceWS.ReportesWS, System.ServiceModel.IClientChannel {
     }
@@ -11774,6 +11857,33 @@ namespace SteamWA.SteamServiceWS {
             inValue.Body.monedaSimbolo = monedaSimbolo;
             inValue.Body.monedaCambioDolares = monedaCambioDolares;
             return ((SteamWA.SteamServiceWS.ReportesWS)(this)).generarReporteProductosAdquiridosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponse SteamWA.SteamServiceWS.ReportesWS.generarReporteMensajesEnviados(SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest request) {
+            return base.Channel.generarReporteMensajesEnviados(request);
+        }
+        
+        public byte[] generarReporteMensajesEnviados(int uid, string nombreCuenta) {
+            SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest inValue = new SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest();
+            inValue.Body = new SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequestBody();
+            inValue.Body.uid = uid;
+            inValue.Body.nombreCuenta = nombreCuenta;
+            SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponse retVal = ((SteamWA.SteamServiceWS.ReportesWS)(this)).generarReporteMensajesEnviados(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponse> SteamWA.SteamServiceWS.ReportesWS.generarReporteMensajesEnviadosAsync(SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest request) {
+            return base.Channel.generarReporteMensajesEnviadosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SteamWA.SteamServiceWS.generarReporteMensajesEnviadosResponse> generarReporteMensajesEnviadosAsync(int uid, string nombreCuenta) {
+            SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest inValue = new SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequest();
+            inValue.Body = new SteamWA.SteamServiceWS.generarReporteMensajesEnviadosRequestBody();
+            inValue.Body.uid = uid;
+            inValue.Body.nombreCuenta = nombreCuenta;
+            return ((SteamWA.SteamServiceWS.ReportesWS)(this)).generarReporteMensajesEnviadosAsync(inValue);
         }
     }
     

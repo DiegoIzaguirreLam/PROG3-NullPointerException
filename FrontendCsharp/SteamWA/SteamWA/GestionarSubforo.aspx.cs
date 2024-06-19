@@ -237,6 +237,8 @@ namespace SteamWA
 
         protected void btnEnviarMensaje_Click(object sender, EventArgs e)
         {
+            string mensajeAux = txtCrearMensaje.Text;
+            txtCrearMensaje.Text = "";
             usuario user = (usuario)Session["usuario"];
             gestorSanciones gestor = daoGestor.buscarGestor(user.UID);
             if (gestor.contadorBaneos == 1 && gestor.fechaFinBan > DateTime.Now)
@@ -251,8 +253,8 @@ namespace SteamWA
                 gestor.contadorBaneos = 0; //Se le desbanea
                 gestor.contadorFaltas = 0;
             }
-            if (txtCrearMensaje.Text.CompareTo("") == 0) return;
-            if (daoPalabras.buscarPalabraProhibida(txtCrearMensaje.Text))
+            if (mensajeAux.CompareTo("") == 0) return;
+            if (daoPalabras.buscarPalabraProhibida(mensajeAux))
             {
                 gestor.contadorFaltas++;
                 if (gestor.maxFaltas > gestor.contadorFaltas)
@@ -280,7 +282,7 @@ namespace SteamWA
             neomensaje.hilo = pert;
             neomensaje.fechaPublicacion = DateTime.Now;
             neomensaje.idAutor = user.UID;
-            neomensaje.contenido = txtCrearMensaje.Text;
+            neomensaje.contenido = mensajeAux;
             int id = daoMensaje.insertarMensaje(neomensaje);
             notificacion notificacionForo = new notificacion();
             notificacionForo.tipoSpecified = true;
@@ -288,7 +290,7 @@ namespace SteamWA
             notificacionForo.tipo = tipoNotificacion.FOROS;
             notificacionForo.mensaje = "Has comentado el hilo " + (string)Session["primerMensaje"] + " con el mensaje " + neomensaje.contenido;
             int resultado = daoNotificacion.insertarNotificacion(notificacionForo);
-            notificacionForo.mensaje = user.nombrePerfil + "ha comentado el hilo " + (string)Session["primerMensaje"] + " con el mensaje " + neomensaje.contenido + " en el subforo " + ((subforo)Session["subforoPadre"]).nombre + " del foro " + ((foro)Session["foroPadre"]).nombre;
+            notificacionForo.mensaje = user.nombrePerfil + " ha comentado el hilo " + (string)Session["primerMensaje"] + " con el mensaje " + neomensaje.contenido + " en el subforo " + ((subforo)Session["subforoPadre"]).nombre + " del foro " + ((foro)Session["foroPadre"]).nombre;
             auxSubs = daoForoUsuario.listarSuscriptores(pad.idForo);
             if (auxSubs != null) subs = new BindingList<int>(auxSubs);
             usuario auxUser = new usuario();
