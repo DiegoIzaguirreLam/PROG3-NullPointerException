@@ -63,6 +63,9 @@ namespace SteamWA
             // No mostrar mensajes de error
             lblMensajeNombre.Visible = false;
             lblMensajeID.Visible = false;
+
+            Steam master = (Steam)this.Master;
+            master.ItemAmigos.Attributes["class"] = "active";
         }
 
         protected void lbBuscarPorNombre_Click(object sender, EventArgs e)
