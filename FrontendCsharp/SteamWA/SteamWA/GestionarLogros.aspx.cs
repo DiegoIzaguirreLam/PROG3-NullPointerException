@@ -75,6 +75,8 @@ namespace SteamWA
                 gvLogrosPorDesbloquear.Visible = true;
                 h2LogrosPorDesbloquear.Visible = true;
             }
+            Steam master = (Steam)this.Master;
+            master.ItemBiblioteca.Attributes["class"] = "active";
         }
 
         protected BindingList<logro> obtenerLogrosDeJuego(producto juegoSeleccionado)

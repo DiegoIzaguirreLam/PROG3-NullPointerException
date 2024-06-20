@@ -44,6 +44,7 @@
       <xs:element name="activo" type="xs:boolean" />
       <xs:element name="actualizado" type="xs:boolean" />
       <xs:element minOccurs="0" name="biblioteca" type="tns:biblioteca" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="desbloqueados" nillable="true" type="tns:logroDesbloqueado" />
       <xs:element minOccurs="0" name="fechaAdquisicion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="fechaEjecutado" type="xs:dateTime" />
       <xs:element name="idProductoAdquirido" type="xs:int" />

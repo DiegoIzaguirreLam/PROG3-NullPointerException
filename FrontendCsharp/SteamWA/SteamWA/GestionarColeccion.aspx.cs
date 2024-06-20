@@ -68,6 +68,9 @@ namespace SteamWA
                 tablaProductos.Visible = true;
                 lblSinProductos.Visible = false;
             }
+
+            Steam master = (Steam)this.Master;
+            master.ItemBiblioteca.Attributes["class"] = "active";
         }
 
         protected void generarTablaProductosAdquiridos()

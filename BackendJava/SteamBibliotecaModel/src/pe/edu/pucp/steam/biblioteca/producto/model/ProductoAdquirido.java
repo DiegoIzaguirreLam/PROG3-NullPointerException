@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.steam.biblioteca.producto.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.steam.biblioteca.coleccion.model.Biblioteca;
 
@@ -18,6 +19,7 @@ public class ProductoAdquirido{
     private Date tiempoUso;
     private boolean actualizado;
     private Producto producto;
+    private ArrayList<LogroDesbloqueado> desbloqueados;
     private Biblioteca biblioteca;
     private boolean oculto; //Si es 0 se muestra al listo, sino se oculta
     private boolean activo;
@@ -90,6 +92,14 @@ public class ProductoAdquirido{
         this.producto = producto;
     }
 
+    public ArrayList<LogroDesbloqueado> getDesbloqueados() {
+        return desbloqueados;
+    }
+
+    public void setDesbloqueados(ArrayList<LogroDesbloqueado> desbloqueados) {
+        this.desbloqueados = desbloqueados;
+    }
+    
     public Biblioteca getBiblioteca() {
         return biblioteca;
     }

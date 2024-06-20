@@ -35,6 +35,8 @@ namespace SteamWA
                 gvLogros.DataSource = new BindingList<logroDesbloqueado>(logros);
             }
             gvLogros.DataBind();
+            Steam master = (Steam)this.Master;
+            master.ItemAmigos.Attributes["class"] = "active";
         }
 
         protected void cargarDatosUsuario()
