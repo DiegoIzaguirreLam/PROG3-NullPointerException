@@ -49,13 +49,14 @@ namespace SteamWA
             }
             if (!IsPostBack)
             {
-                if (daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca) == null)
+                productoAdquirido[] arrProdAdq = daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca);
+                if (arrProdAdq == null)
                 {
                     listaProductoAdq = null;
                 }
                 else
                 {
-                    listaProductoAdq = new BindingList<productoAdquirido>(daoProductoAdquirido.listarProductosAdquiridosPorIdBiblioteca(idBiblioteca));
+                    listaProductoAdq = new BindingList<productoAdquirido>(arrProdAdq);
 
                 }
                 Session["productosAdquiridos"] = listaProductoAdq;
@@ -93,14 +94,16 @@ namespace SteamWA
                 Session["ElementosCarrito"] = listaCarrito;
             }
 
-            
-            //Carousel Destacados:
-            int[] idDestacados = daoProducto.listarIdProductosDestacados();
-            listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
-            if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[0])!=null) imgDest1.ImageUrl = listaProductos[idDestacados[0] - 1].portadaUrl;
-            if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[1]) != null) imgDest2.ImageUrl = listaProductos[idDestacados[1] - 1].portadaUrl;
-            if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[2]) != null)  imgDest3.ImageUrl = listaProductos[idDestacados[2] - 1].portadaUrl;
 
+            //Carousel Destacados:
+            if (!IsPostBack)
+            {
+                int[] idDestacados = daoProducto.listarIdProductosDestacados();
+                listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
+                if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[0]) != null) imgDest1.ImageUrl = listaProductos[idDestacados[0] - 1].portadaUrl;
+                if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[1]) != null) imgDest2.ImageUrl = listaProductos[idDestacados[1] - 1].portadaUrl;
+                if (listaProductos.FirstOrDefault(x => x.idProducto == idDestacados[2]) != null) imgDest3.ImageUrl = listaProductos[idDestacados[2] - 1].portadaUrl;
+            }
             //Filtro de barrra de precios
             BindingList<producto> listaTemp =
             new BindingList<SteamWA.SteamServiceWS.producto>();
@@ -220,45 +223,33 @@ namespace SteamWA
             JuegoWSClient daoTempJuego = new JuegoWSClient();
             BandaSonoraWSClient daoTempBs = new BandaSonoraWSClient();
             SoftwareWSClient daoTempSoftware = new SoftwareWSClient();
-            foreach (producto pr in listaProductos)
+            producto[] arrProd = null;
+            if (id == 0)
             {
-                if (id == 0)
-                {
-                    listaProdsTipo = new BindingList<producto> ( daoProducto.listarProductos() );
-                }
-                else if (id == 1)
-                {
-                    software soft = daoTempSoftware.buscarSoftware(pr.idProducto);
-                    if (soft.titulo != null)
-                    {
-                        listaProdsTipo.Add(pr);
-                    }
-                }
-                else if (id == 2)
-                {
-                    bandaSonora banda = daoTempBs.buscarBandaSonora(pr.idProducto);
-                    if (banda.titulo != null)
-                    {
-
-                        listaProdsTipo.Add(pr);
-
-                    }
-                }
-                else if (id == 3)
-                {
-                    BindingList<juego> juegos = new BindingList<juego>(daoTempJuego.listarJuegos());
-                    foreach (juego jue in juegos)
-                    {
-                        if (jue.idProducto == pr.idProducto)
-                        {
-
-                            listaProdsTipo.Add(pr);
-                            break;
-                        }
-                    }
-
-                }
-
+                arrProd = daoProducto.listarProductos();
+            }
+            else if (id == 1)
+            {
+                arrProd =  daoTempSoftware.listarSoftwares();
+            }
+            else if (id == 2)
+            {
+                arrProd = daoTempBs.listarBandaSonoras();
+            }
+            else if (id == 3)
+            {
+                arrProd = daoTempJuego.listarJuegos();
+            }
+            
+            if (arrProd != null)
+            {
+                listaProdsTipo = new BindingList<producto>(arrProd);
+                if (id != 0) Session["listaProdsTipo"] = listaProdsTipo;
+                else Session["listaProdsTipo"] = null;
+            }
+            else
+            {
+                listaProdsTipo = null;
             }
             //Session["listaProdEt"] = listaProdsTipo;
             /*foreach(CheckBox ch in CheckBoxFiltroTipo)
@@ -285,8 +276,6 @@ namespace SteamWA
             Dictionary<int, int> DicProdEtG = (Dictionary<int, int>)Session["DicProdEtDic"];
             
             BindingList<CheckBox> CheckBoxFiltroEtiqueta = (BindingList<CheckBox>)Session["CheckBoxFiltroEtiqueta"];
-
-            
             
             try
             {
@@ -295,11 +284,8 @@ namespace SteamWA
 
                 if (checkBox.Checked)
                 {
-
-
                     if (listaProdEtG == null)
                     {
-
                         listaProdEtG = new BindingList<producto>();
                     }
                     if (DicProdEtG == null)
@@ -329,7 +315,6 @@ namespace SteamWA
                 }
                 else
                 {
-
                     if (listaProdEtG != null)
                     {
 
@@ -347,7 +332,6 @@ namespace SteamWA
                                 {
                                     DicProdEtG[prodEncontrado.idProducto] -= 1;
                                 }
-
                             }
                             else
                             {
@@ -362,7 +346,6 @@ namespace SteamWA
                         listaProdEtG = new BindingList<producto>();
                         DicProdEtG = new Dictionary<int, int>();
                     }
-
                     Session["listaProdEt"] = listaProdEtG;
                     Session["DicProdEtDic"] = DicProdEtG;
                     mostrarListaProductos(listaProdEtG);
@@ -376,9 +359,6 @@ namespace SteamWA
                 }
                 mostrarListaProductos(listaProdEtG);
             }
-
-
-
         }
 
         protected void btnCarrito1_Click(object sender, CommandEventArgs e)
@@ -402,11 +382,7 @@ namespace SteamWA
                     Session["ElementosCarrito"] = listaCarrito;
 
                 }
-                
             }
-
-
-
             limpiarCamposFiltros(0);
             string script = "window.onload = function() { showModalForm('form-modal-añadido-carrito') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
@@ -454,10 +430,12 @@ namespace SteamWA
             if (Session["ElementosCarrito"] != null)
             {
                 BindingList<producto> listaCarrito = (BindingList<producto>)Session["ElementosCarrito"];
-
             }
+            
             if (lProds != null)
             {
+                if(rdbPrecio.Checked) lProds = new BindingList<producto>(lProds.OrderBy(producto => producto.precio).ToList());
+                if(rdbNombre.Checked) lProds = new BindingList<producto>(lProds.OrderBy(producto => producto.titulo).ToList());
                 HtmlGenericControl divHtmlContainer = new HtmlGenericControl("div");
                 placeholderProductos.Controls.Clear();
                 divHtmlContainer.Attributes["class"] = "row mt-3 pb-4";
@@ -494,7 +472,7 @@ namespace SteamWA
 
                     HtmlGenericControl divHtmlCardPrice = new HtmlGenericControl("p");
                     divHtmlCardPrice.Attributes["class"] = "card-text";
-                    divHtmlCardPrice.InnerText = "Precio: "+moneda.simbolo +" "+ (prod.precio * moneda.cambioDeDolares).ToString();
+                    divHtmlCardPrice.InnerText = "Precio: "+moneda.simbolo +" "+ (prod.precio * moneda.cambioDeDolares).ToString("N2");
 
                     LinkButton buttonCarrito = new LinkButton();
                     buttonCarrito.CssClass = "btn btn-primary";
@@ -548,6 +526,8 @@ namespace SteamWA
         protected void btnLimpFiltro_Click(object sender, EventArgs e)
         {
             limpiarCamposFiltros(0);
+            rdbNombre.Checked = false;
+            rdbPrecio.Checked = false;
             mostrarListaProductos( new BindingList<producto>(daoProducto.listarProductos()));
         }
         protected void limpiarCamposFiltros(int opc)
@@ -566,10 +546,8 @@ namespace SteamWA
                     {
                         r.Checked = true;
                     }
-
-
-
                 }
+                Session["listaProdsTipo"] = null;
             }
             if (opc != 2)
             {
@@ -580,11 +558,6 @@ namespace SteamWA
                 Session["listaProdEt"] = null;
                 Session["DicProdEtDic"] = null;
             }
-            if (opc != 3)
-            {
-                rdbNombre.Checked = false;
-                rdbPrecio.Checked = false;
-            }
             if (opc != 4)
             {
                 barRangoPrecio.Value = "5";
@@ -594,16 +567,22 @@ namespace SteamWA
 
         protected void rdbPrecio_CheckedChanged(object sender, EventArgs e)
         {
-            limpiarCamposFiltros(3);
-            listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
-            mostrarListaProductos(new BindingList<producto>( listaProductos.OrderBy(producto => producto.precio).ToList()));
+            BindingList<producto> listaMostrar = listaProductos;
+            //limpiarCamposFiltros(3);
+            //listaProductos = new BindingList<producto>(listaProductos.OrderBy(producto => producto.precio).ToList());
+            //Session["ListaProductos"] = listaProductos;
+            if (Session["listaProdEt"] != null) listaMostrar = (BindingList<producto>)Session["listaProdEt"];
+            else if (Session["listaProdsTipo"] != null) listaMostrar = (BindingList<producto>)Session["listaProdsTipo"];
+            mostrarListaProductos(listaMostrar);
         }
 
         protected void rdbNombre_CheckedChanged(object sender, EventArgs e)
         {
-            limpiarCamposFiltros(3);
-            listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
-            mostrarListaProductos(new BindingList<producto>(listaProductos.OrderBy(producto => producto.titulo).ToList()));
+            BindingList<producto> listaMostrar = listaProductos;
+            if (Session["listaProdEt"] != null) listaMostrar = (BindingList<producto>)Session["listaProdEt"];
+            else if (Session["listaProdsTipo"] != null) listaMostrar = (BindingList<producto>)Session["listaProdsTipo"];
+            mostrarListaProductos(listaMostrar);
         }
+
     }
 }

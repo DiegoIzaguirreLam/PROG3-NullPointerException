@@ -10,7 +10,8 @@ BEGIN
     LEFT JOIN BandaSonora bs ON p.id_producto = bs.id_banda_sonora
     LEFT JOIN Software s ON p.id_producto = s.id_software
     INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
-    WHERE p.activo = 1;
+    WHERE p.activo = 1
+    LIMIT 15;
 END$
 DELIMITER ;
 
