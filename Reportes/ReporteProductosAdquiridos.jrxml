@@ -47,9 +47,9 @@ where u.UID = $P{uid_usuario} and tipo = 'RETIRO' and m.activo = 1]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="57" splitType="Stretch">
+		<band height="54" splitType="Stretch">
 			<staticText>
-				<reportElement x="71" y="0" width="410" height="30" uuid="ff604776-4ac2-48c2-a9c7-b5f38c5976df"/>
+				<reportElement positionType="FixRelativeToBottom" x="71" y="20" width="410" height="30" uuid="ff604776-4ac2-48c2-a9c7-b5f38c5976df"/>
 				<textElement textAlignment="Center">
 					<font fontName="Courier New" size="20" isBold="true" isUnderline="true"/>
 				</textElement>
@@ -67,6 +67,7 @@ where u.UID = $P{uid_usuario} and tipo = 'RETIRO' and m.activo = 1]]>
 	</title>
 	<pageHeader>
 		<band height="64" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.intValue() == 1? new Boolean(true) : new Boolean(false)]]></printWhenExpression>
 			<staticText>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="40" width="198" height="20" uuid="09ff216d-58b0-4da9-bfd7-d666376f7ccb"/>
 				<textElement>
@@ -75,7 +76,7 @@ where u.UID = $P{uid_usuario} and tipo = 'RETIRO' and m.activo = 1]]>
 				<text><![CDATA[Fecha de Generación del Reporte: ]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement positionType="FixRelativeToBottom" x="170" y="40" width="154" height="20" uuid="f3953f0d-22bd-4d50-8b32-a44557c834bf"/>
+				<reportElement positionType="FixRelativeToBottom" x="180" y="41" width="154" height="20" uuid="f3953f0d-22bd-4d50-8b32-a44557c834bf"/>
 				<textElement>
 					<font fontName="Courier New" size="12"/>
 				</textElement>
@@ -102,7 +103,7 @@ where u.UID = $P{uid_usuario} and tipo = 'RETIRO' and m.activo = 1]]>
 				</reportElement>
 			</line>
 			<subreport>
-				<reportElement x="280" y="20" width="260" height="40" uuid="5fb5b392-8988-4471-a17c-b74e932fbafa"/>
+				<reportElement x="278" y="20" width="260" height="40" uuid="5fb5b392-8988-4471-a17c-b74e932fbafa"/>
 				<subreportParameter name="uid_usuario">
 					<subreportParameterExpression><![CDATA[$P{uid_usuario}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -177,10 +178,17 @@ where u.UID = $P{uid_usuario} and tipo = 'RETIRO' and m.activo = 1]]>
 			</subreport>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="39" splitType="Stretch">
+	<lastPageFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="20" width="267" height="30" uuid="1540c045-9041-444d-be8e-19e1e111a204"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="timesNew" size="9"/>
+				</textElement>
+				<text><![CDATA[© 2024 Volba Software Group, Inc. All rights reserved]]></text>
+			</staticText>
 			<textField pattern="#,##0.00#;(#,##0.00#-)">
-				<reportElement x="412" y="4" width="100" height="30" uuid="abde63d2-3f85-4437-8167-f8b5b4a7da2d"/>
+				<reportElement x="410" y="8" width="100" height="30" uuid="abde63d2-3f85-4437-8167-f8b5b4a7da2d"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
@@ -192,24 +200,6 @@ where u.UID = $P{uid_usuario} and tipo = 'RETIRO' and m.activo = 1]]>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
-			<staticText>
-				<reportElement x="390" y="4" width="60" height="30" uuid="f0d8c677-143b-49ba-8bf4-a06910eb7b3f"/>
-				<textElement>
-					<font fontName="Times New Roman" size="13"/>
-				</textElement>
-				<text><![CDATA[Total:]]></text>
-			</staticText>
 		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="33" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="3" width="267" height="30" uuid="1540c045-9041-444d-be8e-19e1e111a204"/>
-				<textElement verticalAlignment="Bottom">
-					<font fontName="timesNew" size="9"/>
-				</textElement>
-				<text><![CDATA[© 2024 Volba Software Group, Inc. All rights reserved]]></text>
-			</staticText>
-		</band>
-	</pageFooter>
+	</lastPageFooter>
 </jasperReport>
