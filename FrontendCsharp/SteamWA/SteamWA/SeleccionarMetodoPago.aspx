@@ -54,10 +54,10 @@
             <hr />
             <p id="pNoSoportado" class="text-warning" runat="server">Este método de pago aún no se encuentra soportado por Stream</p>
             <!-- Botones de pago -->
-            <div id="divBotonesPago" class="mb-4 d-flex justify-content-end">
+            <div id="divBotonesPago" runat="server" class="mb-4 d-flex justify-content-start">
+                <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_OnClick"/>
                 <asp:LinkButton ID="btnPagar" CssClass="btn btn-primary btn-success" runat="server" Text="Pagar" Visible="false" OnClick="btnPagar_Click" />
             </div>
-
         </div>
     </div>
 </asp:Content>

@@ -74,7 +74,7 @@
                         <h5 class="modal-title" id="lblFondos">Agregar Fondos</h5>
                     </div>
                     <div class="modal-body">
-                        <p id="txtFondosModal" runat="server">Prueba aasdfasf </p>
+                        <p id="txtFondosModal" runat="server"> </p>
                     </div>
                     <div class="modal-footer">
                         <button id="btnAceptarModal" runat="server" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>

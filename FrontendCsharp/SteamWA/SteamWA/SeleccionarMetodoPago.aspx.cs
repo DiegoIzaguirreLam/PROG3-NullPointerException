@@ -87,12 +87,14 @@ namespace SteamWA
                 btnPagar.Visible = true;
                 btnPagar.Enabled = true;
                 pNoSoportado.Visible = false;
+                divBotonesPago.Attributes["class"] = "d-flex justify-content-between";
             }
             else
             {
                 double montoPermitido = (100-montoDolares)*moneda.cambioDeDolares;
                 pNoSoportado.InnerHtml = "<i class='fa-solid fa-circle-exclamation'></i>" + " No cuenta con suficientes fondos de regalo de STREAM (" + moneda.simbolo + montoPermitido.ToString("N2") + " restante). Escoja otra opción o espere a recibir más.";
                 pNoSoportado.Visible = true;
+                divBotonesPago.Attributes["class"] = "d-flex justify-content-start";
             }
             metodoPago = "giftCard";
             dropdownMetodo.InnerText = "GiftCard";
@@ -102,6 +104,11 @@ namespace SteamWA
         protected void btnPagar_Click(object sender, EventArgs e)
         {
             Response.Redirect("ConfirmarCompra.aspx");
+        }
+
+        protected void btnCancelar_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("GestionarCartera.aspx");
         }
 
     }

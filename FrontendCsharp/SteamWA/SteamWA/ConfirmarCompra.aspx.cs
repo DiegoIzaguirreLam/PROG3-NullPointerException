@@ -20,7 +20,6 @@ namespace SteamWA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string simbolo_moneda = (string)Session["simbolo"];
             usuario = (usuario)Session["usuario"];
             cartera = (cartera)Session["cartera"];
             moneda = (tipoMoneda)Session["moneda"];
@@ -39,8 +38,8 @@ namespace SteamWA
             }
             daoCartera = new CarteraWSClient();
             daoMovimiento = new MovimientoWSClient();
-            pMonto.InnerText = simbolo_moneda + monto.ToString("N2");
-            pTotal.InnerText = simbolo_moneda + monto.ToString("N2");
+            pMonto.InnerText = moneda.simbolo + monto.ToString("N2");
+            pTotal.InnerText = moneda.simbolo + monto.ToString("N2");
             pMetodoPago.InnerText = "Método de Pago: " + metodoPagoStr.ToUpper();
             pCuenta.InnerHtml = "Cuenta de STREAM: <strong>" + usuario.nombreCuenta + "</strong>";
             lnkTerminosCondiciones.ServerClick += terminosCondiciones_OnClick;
@@ -123,6 +122,5 @@ namespace SteamWA
             string script = "window.onload = function() { showModalForm('form-modal-terminos') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
-
     }
 }

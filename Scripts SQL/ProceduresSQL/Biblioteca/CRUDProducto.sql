@@ -11,7 +11,7 @@ BEGIN
     LEFT JOIN Software s ON p.id_producto = s.id_software
     INNER JOIN Proveedor pr ON pr.id_proveedor = p.fid_proveedor
     WHERE p.activo = 1
-    LIMIT 15;
+    LIMIT 30;
 END$
 DELIMITER ;
 
