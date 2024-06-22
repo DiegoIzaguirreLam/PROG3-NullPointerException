@@ -128,6 +128,14 @@ namespace SteamWA
                     labelito.InnerText = "Gratis";
                 }
                 listaProductos = listaTemp;
+                if((double.Parse(valor)) == 5){
+                    Session["listaProdRangoPrecio"] = null;
+                }
+                else
+                {
+                    Session["listaProdRangoPrecio"] = listaTemp;
+                }
+                
             }
             else
             {
@@ -136,6 +144,7 @@ namespace SteamWA
             }
             //Mostrar productos incial;
             mostrarListaProductos(listaProductos);
+
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "EnviarInformacion", "enviarInformacion('" + json + "');", true
         }
 
@@ -276,7 +285,27 @@ namespace SteamWA
             Dictionary<int, int> DicProdEtG = (Dictionary<int, int>)Session["DicProdEtDic"];
             
             BindingList<CheckBox> CheckBoxFiltroEtiqueta = (BindingList<CheckBox>)Session["CheckBoxFiltroEtiqueta"];
-            
+            //Para mostrar todos los productos en el caso de que no hayan ninguna etiqueta seleccionada
+            if (!(checkBox.Checked))
+            {
+                int val = 0;
+                foreach(CheckBox chx in CheckBoxFiltroEtiqueta)
+                {
+                    if(chx.Checked == true)
+                    {
+                        val = 1;
+                    }
+
+                }
+                if(val == 0)
+                {
+                    Session["listaProdEt"] = null;
+                    Session["DicProdEtDic"] = null;
+                    mostrarListaProductos((BindingList<producto>)Session["ListaProductos"]);
+                    return;
+                }
+                
+            }
             try
             {
                 listaProductos =
@@ -397,8 +426,9 @@ namespace SteamWA
 
         protected void search_Click(object sender, EventArgs e)
         {
-           
 
+            BindingList<SteamWA.SteamServiceWS.producto> lista =
+              new BindingList<SteamWA.SteamServiceWS.producto>();
             SteamWA.SteamServiceWS.etiqueta etiqueta = new SteamWA.SteamServiceWS.etiqueta();
             etiqueta.nombre = "accion";
             if (listaProductos == null)
@@ -408,19 +438,18 @@ namespace SteamWA
             }
             try
             {
-                BindingList<SteamWA.SteamServiceWS.producto> lista =
+                lista =
                new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductosPorTituloDesarrollador(search_autocomplete.Text));
-                listaProductos = lista;
+               
             }
             catch
             {
-                listaProductos = null;
+                lista = null;
             }
 
             limpiarCamposFiltros(0);
-
-            Session["ListaProductos"] = listaProductos;
-            mostrarListaProductos(listaProductos);
+            Session["listaProdBuscarTituloDesarrollador"] = lista;
+            mostrarListaProductos(lista);
 
            
         }
@@ -560,9 +589,13 @@ namespace SteamWA
             }
             if (opc != 4)
             {
+                Session["listaProdRangoPrecio"] = null;
                 barRangoPrecio.Value = "5";
                 labelito.InnerText = "Todos";
             }
+            Session["listaProdBuscarTituloDesarrollador"] = null;
+            search_autocomplete.Text= string.Empty;
+           
         }
 
         protected void rdbPrecio_CheckedChanged(object sender, EventArgs e)
@@ -571,17 +604,44 @@ namespace SteamWA
             //limpiarCamposFiltros(3);
             //listaProductos = new BindingList<producto>(listaProductos.OrderBy(producto => producto.precio).ToList());
             //Session["ListaProductos"] = listaProductos;
-            if (Session["listaProdEt"] != null) listaMostrar = (BindingList<producto>)Session["listaProdEt"];
-            else if (Session["listaProdsTipo"] != null) listaMostrar = (BindingList<producto>)Session["listaProdsTipo"];
+            if (Session["listaProdRangoPrecio"] != null)
+            {
+                listaMostrar = (BindingList<producto>)Session["listaProdRangoPrecio"];
+            }
+            else if (Session["listaProdBuscarTituloDesarrollador"] != null)
+            {
+                listaMostrar = (BindingList<producto>)Session["listaProdBuscarTituloDesarrollador"];
+            }
+            else
+            {
+                if (Session["listaProdEt"] != null) listaMostrar = (BindingList<producto>)Session["listaProdEt"];
+                else if (Session["listaProdsTipo"] != null) listaMostrar = (BindingList<producto>)Session["listaProdsTipo"];
+            }
             mostrarListaProductos(listaMostrar);
         }
 
         protected void rdbNombre_CheckedChanged(object sender, EventArgs e)
         {
             BindingList<producto> listaMostrar = listaProductos;
-            if (Session["listaProdEt"] != null) listaMostrar = (BindingList<producto>)Session["listaProdEt"];
-            else if (Session["listaProdsTipo"] != null) listaMostrar = (BindingList<producto>)Session["listaProdsTipo"];
+            
+            if (Session["listaProdRangoPrecio"] != null)
+            {
+                listaMostrar = (BindingList<producto>)Session["listaProdRangoPrecio"];
+            }
+            else if (Session["listaProdBuscarTituloDesarrollador"] != null)
+            {
+                listaMostrar = (BindingList<producto>)Session["listaProdBuscarTituloDesarrollador"];
+            }
+            else{
+                if (Session["listaProdEt"] != null) listaMostrar = (BindingList<producto>)Session["listaProdEt"];
+                else if (Session["listaProdsTipo"] != null) listaMostrar = (BindingList<producto>)Session["listaProdsTipo"];
+            }
             mostrarListaProductos(listaMostrar);
+        }
+
+        protected void rangeInput_ServerChange(object sender, EventArgs e)
+        {
+            limpiarCamposFiltros(4);
         }
 
     }

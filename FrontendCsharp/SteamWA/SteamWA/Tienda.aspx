@@ -115,7 +115,7 @@
                 <label for="barRangoPrecio" class="form-label">Filtrar por precio:</label>
                 
                 <label id="labelito"  style="color:lightgreen" runat="server"></label>
-                <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio" runat="server">
+                <input class="form-range" type="range" min="0" max="5" id="barRangoPrecio" runat="server"  onserverchange="rangeInput_ServerChange">
                 <asp:HiddenField ID="monedaSimboloTipoCambio" runat="server" />
             </div>
             <div class="col-md-3 ">
