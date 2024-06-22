@@ -13,7 +13,7 @@ namespace SteamWA
     public partial class GestionarCartera : System.Web.UI.Page
     {
         private cartera cartera;
-        private pais pais;
+        private tipoMoneda moneda;
         private CarteraWSClient daoCartera;
         private MovimientoWSClient daoMovimiento;
         protected void Page_Load(object sender, EventArgs e)
@@ -28,14 +28,19 @@ namespace SteamWA
             daoMovimiento = new MovimientoWSClient();
             
             cartera = daoCartera.buscarCartera(usuario.UID);
-            pais = usuario.pais;
+            if (Session["moneda"] != null) moneda = (tipoMoneda)Session["moneda"];
+            else
+            {
+                moneda = usuario.pais.moneda;
+                Session["moneda"] = moneda;
+            }
             if (cartera == null)
             {
                 Response.Redirect("Login.aspx");
             }
             else
             {
-                pBalanceCartera.InnerText = pais.moneda.simbolo + (cartera.fondos*pais.moneda.cambioDeDolares).ToString("N2");
+                pBalanceCartera.InnerText = moneda.simbolo + (cartera.fondos*moneda.cambioDeDolares).ToString("N2");
                 cartera.movimientos = daoMovimiento.listarMovimientos(cartera);
                 Session["cartera"] = cartera;
             }
@@ -48,17 +53,17 @@ namespace SteamWA
                         montoUsado += movimiento.monto;
                     }
                 }
-                montoUsado *= pais.moneda.cambioDeDolares;
+                montoUsado *= moneda.cambioDeDolares;
             }
 
-            hAgregar15.InnerText = "Agregar " + pais.moneda.simbolo + "15";
-            hAgregar30.InnerText = "Agregar " + pais.moneda.simbolo + "30";
-            hAgregar50.InnerText = "Agregar " + pais.moneda.simbolo + "50";
-            hAgregar100.InnerText = "Agregar " + pais.moneda.simbolo + "100";
+            hAgregar15.InnerText = "Agregar " + moneda.simbolo + "15";
+            hAgregar30.InnerText = "Agregar " + moneda.simbolo + "30";
+            hAgregar50.InnerText = "Agregar " + moneda.simbolo + "50";
+            hAgregar100.InnerText = "Agregar " + moneda.simbolo + "100";
             hCartera.InnerHtml = "Agregar fondos a la cartera de <strong>" + usuario.nombreCuenta + "</strong>";
-            txtMonedaPersonalizado.Text = pais.moneda.simbolo;
-            pCreditoUtilizado.InnerHtml = "Usted ha retirado <strong>" + pais.moneda.simbolo + montoUsado.ToString("N2") + "</strong> del crédito de "+ pais.moneda.simbolo + (100 * pais.moneda.cambioDeDolares).ToString("N2") + " que le ha otorgado STREAM.";
-            Session["moneda"] = pais.moneda;
+            txtMonedaPersonalizado.Text = moneda.simbolo;
+            pCreditoUtilizado.InnerHtml = "Usted ha retirado <strong>" + moneda.simbolo + montoUsado.ToString("N2") + "</strong> del crédito de "+ moneda.simbolo + (100 * moneda.cambioDeDolares).ToString("N2") + " que le ha otorgado STREAM.";
+            Session["moneda"] = moneda;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -90,7 +95,7 @@ namespace SteamWA
 
             if(montoPersonalizado < 15)
             {
-                lblMensajeError.Text = "El monto debe ser mayor o igual a " + pais.moneda.simbolo + "15.00";
+                lblMensajeError.Text = "El monto debe ser mayor o igual a " + moneda.simbolo + "15.00";
                 lblMensajeError.Visible = true;
                 return;
             }

@@ -46,7 +46,9 @@
         </div>
     </div>
     <hr />
-    <p id="pBibliotecaVacia" runat="server" visible="false">Usted no cuenta con productos en su biblioteca por el momento</p>
+    <div class="container">
+        <p id="pBibliotecaVacia" runat="server" visible="false">Aún no tiene productos adquiridos, compre sus productos de la tienda y regrese a visualizarlos!</p>
+    </div>
     <div id="contenedorProgramas" runat="server" class="container main-bg d-flex rounded-top rounded-bottom">
         <!-- parte izquierda: lista de programas -->
         <div class="col-md-4 me-4">

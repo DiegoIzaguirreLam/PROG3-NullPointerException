@@ -74,12 +74,14 @@ namespace SteamWA
                     generarListaProductosAdquiridos();
                     Session["productosAdquiridos"] = productosAdquiridos;
                     pBibliotecaVacia.Visible = false;
+                    lbReporte.Visible = true;
                     contenedorProgramas.Visible = true;
                 }
                 else
                 {
                     Session["productosAdquiridos"] = null;
                     pBibliotecaVacia.Visible = true;
+                    lbReporte.Visible = false;
                     contenedorProgramas.Visible = false;
                 }
                 coleccion[] coleccionesArr = daoColeccion.listarColeccionesPorBiblioteca(idBiblioteca);

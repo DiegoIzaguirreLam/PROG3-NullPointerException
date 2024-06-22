@@ -137,8 +137,12 @@ namespace SteamWA
             usuario.fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
             usuario.telefono = txtTelefono.Text;
             usuario.edad = DateTime.Today < usuario.fechaNacimiento ? (DateTime.Today.Year - usuario.fechaNacimiento.Year) : (DateTime.Today.Year - usuario.fechaNacimiento.Year - 1);
-            usuario.pais = new pais();
-            usuario.pais.idPais = Int32.Parse(ddlPaises.SelectedValue);
+            //usuario.pais = new pais();
+            //usuario.pais.idPais = Int32.Parse(ddlPaises.SelectedValue);
+            int idPais = Int32.Parse(ddlPaises.SelectedValue);
+            pais pais = paises.SingleOrDefault(x => x.idPais == idPais);
+            usuario.pais = pais;
+            Session["moneda"] = pais.moneda;
             // Se cambia el valor si es que se escribió algo, de lo contrario se asigna url por defecto
             if (!string.IsNullOrEmpty(txtURL.Text))
                 usuario.fotoURL = txtURL.Text;
