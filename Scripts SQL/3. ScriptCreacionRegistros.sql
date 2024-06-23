@@ -123,29 +123,29 @@ CALL CREAR_USUARIO(@id_usuario_jean, 'cuenta_jean', 'Jean',
 --											ASIGNACIÓN DE foto_url A USUARIOS
 -- -------------------------------------------------------------------------------------------
 -- Usuarios en Perú
-UPDATE Usuario SET foto_url = 'https://i.seadn.io/gcs/files/3085b3fc65f00b28699b43efb4434eec.png?auto=format&dpr=1&w=1000' WHERE UID = @id_usuario_fabricio;
-UPDATE Usuario SET foto_url = 'https://s3-alpha.figma.com/hub/file/2944732189/b47472b8-4e17-477e-a0a8-d5fcbed6a374-cover.png' WHERE UID = @id_usuario_ana;
-UPDATE Usuario SET foto_url = 'https://hypixel.net/attachments/1928357/' WHERE UID = @id_usuario_julio;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_fabricioFoto.png' WHERE UID = @id_usuario_fabricio;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_anaFoto.png' WHERE UID = @id_usuario_ana;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_julioFoto.jpeg' WHERE UID = @id_usuario_julio;
 
 -- Usuarios en Estados Unidos
-UPDATE Usuario SET foto_url = 'https://nftevening.com/wp-content/uploads/2022/04/BAYC-PFP-NFT.png' WHERE UID = @id_usuario_sofia;
-UPDATE Usuario SET foto_url = 'https://wallpapers-clan.com/wp-content/uploads/2024/03/mario-pfp-03.jpg' WHERE UID = @id_usuario_john;
-UPDATE Usuario SET foto_url = 'https://nftportal.se/wp-content/uploads/2023/03/CryptoPunks.png' WHERE UID = @id_usuario_emily;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_sofiaFoto.jpg' WHERE UID = @id_usuario_sofia;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_johnFoto.jpg' WHERE UID = @id_usuario_john;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_emilyFoto.png' WHERE UID = @id_usuario_emily;
 
 -- Usuarios en España
-UPDATE Usuario SET foto_url = 'https://avatarfiles.alphacoders.com/328/328938.jpg' WHERE UID = @id_usuario_pablo;
-UPDATE Usuario SET foto_url = 'https://tr.rbxcdn.com/78d4d5ddbefb7ada513c60129b88b970/420/420/Hat/Webp' WHERE UID = @id_usuario_maria;
-UPDATE Usuario SET foto_url = 'https://i.pinimg.com/originals/77/83/13/778313e18461f6bb55f4de2e84c3ebbd.jpg' WHERE UID = @id_usuario_luis;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_pabloFoto.jpg' WHERE UID = @id_usuario_pablo;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_mariaFoto.png' WHERE UID = @id_usuario_maria;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_luisFoto.jpg' WHERE UID = @id_usuario_luis;
 
 -- Usuarios en Alemania
-UPDATE Usuario SET foto_url = 'https://tr.rbxcdn.com/1d7733427c68579960ae202b4f406525/420/420/Hat/Webp' WHERE UID = @id_usuario_hans;
-UPDATE Usuario SET foto_url = 'https://i.pinimg.com/originals/e8/a6/29/e8a6295025285f37aeb1a9ecbd9c642f.jpg' WHERE UID = @id_usuario_anna;
-UPDATE Usuario SET foto_url = 'https://static.wikia.nocookie.net/9445ffc9-b2d3-4ef0-b8e9-de212e3fe4b9' WHERE UID = @id_usuario_fritz;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_hansFoto.png' WHERE UID = @id_usuario_hans;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_annaFoto.jpg' WHERE UID = @id_usuario_anna;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_fritzFoto.png' WHERE UID = @id_usuario_fritz;
 
 -- Usuarios en Francia
-UPDATE Usuario SET foto_url = 'https://content.solsea.io/files/preview/1638729827959-490285325.png' WHERE UID = @id_usuario_pierre;
-UPDATE Usuario SET foto_url = 'https://i.pinimg.com/736x/d2/a2/9b/d2a29b70843151ae0a85e10010967a63.jpg' WHERE UID = @id_usuario_claire;
-UPDATE Usuario SET foto_url = 'https://wallpapers.com/images/hd/vibrant-joker-pfp-uw4w4d44mrkgw5ao.jpg' WHERE UID = @id_usuario_jean;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_pierreFoto.png' WHERE UID = @id_usuario_pierre;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_claireFoto.jpg' WHERE UID = @id_usuario_claire;
+UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_jeanFoto.jpg' WHERE UID = @id_usuario_jean;
 ---------------------------------------------------------------------------------------------
 
 
