@@ -5,10 +5,10 @@
 CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda_pen, 'Nuevo Sol Peruano', 'PEN', 'S/', 3.73);
 
 -- Insertamos Dólar Estadounidense y almacenamos su ID
-CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda_usd, 'Dólar Estadounidense', 'USD', '$', 0.91);
+CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda_usd, 'Dólar Estadounidense', 'USD', '$', 1);
 
 -- Insertamos Euro y almacenamos su ID
-CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda_eur, 'Euro', 'EUR', '€', 1.20);
+CALL INSERTAR_TIPOMONEDA(@id_tipo_moneda_eur, 'Euro', 'EUR', '€', 0.93);
 
 
 
@@ -123,29 +123,29 @@ CALL CREAR_USUARIO(@id_usuario_jean, 'cuenta_jean', 'Jean',
 --											ASIGNACIÓN DE foto_url A USUARIOS
 -- -------------------------------------------------------------------------------------------
 -- Usuarios en Perú
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_fabricioFoto.png' WHERE UID = @id_usuario_fabricio;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_anaFoto.png' WHERE UID = @id_usuario_ana;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_julioFoto.jpeg' WHERE UID = @id_usuario_julio;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_fabricioFoto.png' WHERE UID = @id_usuario_fabricio;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_anaFoto.png' WHERE UID = @id_usuario_ana;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_julioFoto.jpeg' WHERE UID = @id_usuario_julio;
 
 -- Usuarios en Estados Unidos
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_sofiaFoto.jpg' WHERE UID = @id_usuario_sofia;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_johnFoto.jpg' WHERE UID = @id_usuario_john;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_emilyFoto.png' WHERE UID = @id_usuario_emily;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_sofiaFoto.jpg' WHERE UID = @id_usuario_sofia;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_johnFoto.jpg' WHERE UID = @id_usuario_john;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_emilyFoto.png' WHERE UID = @id_usuario_emily;
 
 -- Usuarios en España
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_pabloFoto.jpg' WHERE UID = @id_usuario_pablo;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_mariaFoto.png' WHERE UID = @id_usuario_maria;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_luisFoto.jpg' WHERE UID = @id_usuario_luis;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_pabloFoto.jpg' WHERE UID = @id_usuario_pablo;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_mariaFoto.png' WHERE UID = @id_usuario_maria;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_luisFoto.jpg' WHERE UID = @id_usuario_luis;
 
 -- Usuarios en Alemania
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_hansFoto.png' WHERE UID = @id_usuario_hans;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_annaFoto.jpg' WHERE UID = @id_usuario_anna;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_fritzFoto.png' WHERE UID = @id_usuario_fritz;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_hansFoto.png' WHERE UID = @id_usuario_hans;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_annaFoto.jpg' WHERE UID = @id_usuario_anna;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_fritzFoto.png' WHERE UID = @id_usuario_fritz;
 
 -- Usuarios en Francia
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_pierreFoto.png' WHERE UID = @id_usuario_pierre;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_claireFoto.jpg' WHERE UID = @id_usuario_claire;
-UPDATE Usuario SET foto_url = '~/Uploads/Perfiles/cuenta_jeanFoto.jpg' WHERE UID = @id_usuario_jean;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_pierreFoto.png' WHERE UID = @id_usuario_pierre;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_claireFoto.jpg' WHERE UID = @id_usuario_claire;
+UPDATE Usuario SET foto_url = 'Uploads/Perfiles/cuenta_jeanFoto.jpg' WHERE UID = @id_usuario_jean;
 ---------------------------------------------------------------------------------------------
 
 
@@ -578,41 +578,41 @@ CALL CREAR_SUBFORO(@id_subforo_geometry_dash_3,
 -- Hilos en los subforos de Assassin's Creed Odyssey
 CALL CREAR_HILO(@id_hilo_ac_odyssey_1, @id_subforo_ac_odyssey_1,
 				@id_usuario_fabricio, 0, CURDATE(), CURDATE(),
-				'https://assetsio.gnwcdn.com/assassins-creed-odyssey-legendary-armour-weapons-explained-5022-1539882968068.jpg?width=1200&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp');
+				'Uploads/AssassinsCreedHilo1.jpg');
 
 CALL CREAR_HILO(@id_hilo_ac_odyssey_2, @id_subforo_ac_odyssey_2,
 				@id_usuario_ana, 1, CURDATE(), CURDATE(),
-				'https://cdn.mapgenie.io/images/games/assassins-creed-odyssey/maps/atlantis.jpg');
+				'Uploads/AssassinsCreedHilo2.jpg');
 
 CALL CREAR_HILO(@id_hilo_ac_odyssey_3, @id_subforo_ac_odyssey_3,
 				@id_usuario_julio, 0, CURDATE(), CURDATE(),
-				'https://static.tweaktown.com/news/6/4/64182_12_project-stream-testers-free-copy-ac-odyssey.jpg');
+				'Uploads/AssassinsCreedHilo3.jpg');
 
 -- Hilos en los subforos de Resident Evil 5: Gold Edition
 CALL CREAR_HILO(@id_hilo_resident_evil_5_1, @id_subforo_resident_evil_5_1,
 				@id_usuario_sofia, 1, CURDATE(), CURDATE(),
-				'https://m.media-amazon.com/images/I/91TH8aA0iVL.jpg');
+				'Uploads/ResidentEvilHilo1.jpg');
 
 CALL CREAR_HILO(@id_hilo_resident_evil_5_2, @id_subforo_resident_evil_5_2,
 				@id_usuario_john, 0, CURDATE(), CURDATE(),
-				'https://preview.redd.it/everyone-talks-about-the-changes-they-want-in-the-re5-v0-4gxsh51c1jta1.png?auto=webp&s=1775529f8d95084f3fd30f36335c80346f0917e2');
+				'Uploads/ResidentEvilHilo2.jpg');
 
 CALL CREAR_HILO(@id_hilo_resident_evil_5_3, @id_subforo_resident_evil_5_3,
 				@id_usuario_emily, 0, CURDATE(), CURDATE(),
-				'https://cogconnected.com/wp-content/uploads/2016/07/Resident_Evil_5_Featured.jpg');
+				'Uploads/ResidentEvilHilo3.jpg');
 
 -- Hilos en los subforos de Geometry Dash
 CALL CREAR_HILO(@id_hilo_geometry_dash_1, @id_subforo_geometry_dash_1,
 				@id_usuario_pablo, 0, CURDATE(), CURDATE(),
-				'https://images4.alphacoders.com/120/1202619.jpg');
+				'Uploads/GeometryDashHilo1.jpg');
 
 CALL CREAR_HILO(@id_hilo_geometry_dash_2, @id_subforo_geometry_dash_2,
 				@id_usuario_maria, 1, CURDATE(), CURDATE(),
-				'https://images5.alphacoders.com/126/1262321.png');
+				'Uploads/GeometryDashHilo2.jpg');
 
 CALL CREAR_HILO(@id_hilo_geometry_dash_3, @id_subforo_geometry_dash_3,
 				@id_usuario_luis, 0, CURDATE(), CURDATE(),
-				'https://e1.pxfuel.com/desktop-wallpaper/63/682/desktop-wallpaper-geometry-dash-cool-geometry-dash-thumbnail.jpg');
+				'Uploads/GeometryDashHilo3.jpg');
 ---------------------------------------------------------------------------------------------
 
 

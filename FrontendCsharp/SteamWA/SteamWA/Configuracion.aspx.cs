@@ -169,7 +169,7 @@ namespace SteamWA
                     File.Move(tempFilePath, finalFilePath);
 
                     // Actualizar la URL de la foto en el objeto usuario y en la sesión
-                    usuario.fotoURL = "~/Uploads/Perfiles/" + filename;
+                    usuario.fotoURL = "Uploads/Perfiles/" + filename;
                 }
                 else usuario.fotoURL = "Uploads/Perfiles/FotoPorDefecto.jpg";
             }
