@@ -81,7 +81,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblTema" runat="server" Text="Tema:" CssClass="col-sm-3 col-form-label fontSetterExo2" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12 col-4">
-                                    <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" MaxLength="14"></asp:TextBox>
+                                    <asp:TextBox ID="txtTema" runat="server" CssClass="form-control" MaxLength="18"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblInicial" runat="server" Text="Subforo Inicial:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtInicial" runat="server" CssClass="form-control" MaxLength="14" />
+                                    <asp:TextBox ID="txtInicial" runat="server" CssClass="form-control" MaxLength="25" />
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@
     </div>
     <div class="container fontSetterExo2">
         <div class="row align-items-center">
-            <div class="col-md-7 row align-items-center">
+            <div class="col-md-9 row align-items-center">
                 <div class="col-md-auto align-items-lg-start">
                     <asp:Button ID="return" CssClass="h5 bg-transparent border-0" runat="server" Text="Comunidad" OnClick="btnVolverComunidad_Click" />
                     <i class="fa-solid fa-caret-right fa-1x" style="color: #ffffff;"></i>
