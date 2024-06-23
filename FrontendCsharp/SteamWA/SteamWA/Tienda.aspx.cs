@@ -113,7 +113,7 @@ namespace SteamWA
             //Filtro de barrra de precios
             BindingList<producto> listaTemp =
             new BindingList<SteamWA.SteamServiceWS.producto>();
-            if (Request.Form[barRangoPrecio.UniqueID] != null)
+            if (Request.Form[barRangoPrecio.UniqueID] != null && Request.Form[barRangoPrecio.UniqueID]!="5")
             {
                 //limpiarCamposFiltros(4);
                 string valor = Request.Form[barRangoPrecio.UniqueID];
