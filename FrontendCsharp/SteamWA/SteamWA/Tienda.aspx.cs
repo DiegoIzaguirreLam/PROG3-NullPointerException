@@ -64,6 +64,7 @@ namespace SteamWA
             else
             {
                 listaProductoAdq = (BindingList<productoAdquirido>)Session["productosAdquiridos"];
+                Session["busqueda"] = search_autocomplete.Text;
             }
 
             //Moneda y tipo de cambio
@@ -451,8 +452,8 @@ namespace SteamWA
             {
                 lista = null;
             }
-
             limpiarCamposFiltros(0);
+            search_autocomplete.Text = (String)Session["busqueda"];
             Session["listaProdBuscarTituloDesarrollador"] = lista;
             mostrarListaProductos(lista);
 
@@ -465,13 +466,13 @@ namespace SteamWA
             {
                 BindingList<producto> listaCarrito = (BindingList<producto>)Session["ElementosCarrito"];
             }
-            
+            placeholderProductos.Controls.Clear();
             if (lProds != null)
             {
                 if(rdbPrecio.Checked) lProds = new BindingList<producto>(lProds.OrderBy(producto => producto.precio).ToList());
                 if(rdbNombre.Checked) lProds = new BindingList<producto>(lProds.OrderBy(producto => producto.titulo).ToList());
                 HtmlGenericControl divHtmlContainer = new HtmlGenericControl("div");
-                placeholderProductos.Controls.Clear();
+                
                 divHtmlContainer.Attributes["class"] = "row mt-3 pb-4";
                 divHtmlContainer.Attributes["id"] = "contenedorProductos";
 
