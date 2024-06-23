@@ -385,9 +385,9 @@ namespace SteamWA
                         f.nombreCreador += "...";
 						
                     }
-					if (f.descripcion.Length > 22)
+					if (f.descripcion.Length > 20)
                     {
-                        f.descripcion = f.descripcion.Substring(0, 22);
+                        f.descripcion = f.descripcion.Substring(0, 20);
                         f.descripcion += "...";
 						
                     }
@@ -420,9 +420,9 @@ namespace SteamWA
                         f.nombreCreador += "...";
 						
                     }
-					if (f.descripcion.Length > 22)
+					if (f.descripcion.Length > 20)
                     {
-                        f.descripcion = f.descripcion.Substring(0, 22);
+                        f.descripcion = f.descripcion.Substring(0, 20);
                         f.descripcion += "...";
 						
                     }
