@@ -318,7 +318,7 @@ namespace SteamWA
             neohilo.fechaModificacion = DateTime.Parse(DateTime.Now.ToString());
             neohilo.fijado = true;
 
-            string filename = "";
+            string filename = "default.jpg";
             if (fileUpdloadFotoHilo.HasFile)
             {
                 // Obtener la extensión del archivo
@@ -378,6 +378,12 @@ namespace SteamWA
             if (aux != null)
             {
                 suscritos = new BindingList<foro>(aux);
+                foreach (foro f in suscritos)
+                    if (f.nombreCreador.Length > 10)
+                    {
+                        f.nombreCreador = f.nombreCreador.Substring(0, 10);
+                        f.nombreCreador += "...";
+                    }
                 gvSuscritos.DataSource = suscritos;
                 pageIndex = (int[])Session["IndexPages"];
                 pageIndex[2] = 0;
@@ -398,6 +404,12 @@ namespace SteamWA
             if (aux != null) 
             {
                 creados = new BindingList<foro>(aux);
+                foreach (foro f in creados)
+                    if (f.nombreCreador.Length > 10)
+                    {
+                        f.nombreCreador = f.nombreCreador.Substring(0, 10);
+                        f.nombreCreador += "...";
+                    }
                 gvCreados.DataSource = creados;
                 pageIndex = (int[])Session["IndexPages"];
                 pageIndex[1] = 0;

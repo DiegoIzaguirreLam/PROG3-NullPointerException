@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
-    <script src="Scripts/Steam/crearForo.js"></script>
-    <script src="Scripts/Steam/Comunidad.js?v4"></script>
+    <script src="Scripts/Steam/crearForo.js?v4"></script>
+    <script src="Scripts/Steam/Comunidad.js?v5"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <link href="Content/Steam/FontAdder.css" rel="stylesheet" />
@@ -89,7 +89,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" /><sup style="color:red">*</sup>
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" Height="50" />
+                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" Height="50" MaxLength="50" />
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                             <div class="mb-3">
                                 <asp:Label ID="lblNDescripcion" runat="server" Text="Descripción:" CssClass="col-sm-3 col-form-label" /><sup style="color: red">*</sup>
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50" />
+                                    <asp:TextBox ID="txtNDescripcion" runat="server" CssClass="form-control" Height="50" MaxLength="50"/>
                                 </div>
                             </div>
                         </div>
@@ -169,31 +169,24 @@
                 </div>
                 <div class="modal-content">
                     <div class="container bg-dark">
-                        <asp:UpdatePanel runat="server" UpdateMode="Always">
-                            <ContentTemplate>
-                                <asp:GridView ID="gvCreados" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark mt-2" PageSize="5" OnPageIndexChanging="gvCreados_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
-                                    <Columns>
-                                        <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoCreado" />
-                                        <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                                        <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
-                                        <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
-                                        <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
-                                            HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
-                                        <asp:TemplateField ItemStyle-CssClass="text-end">
-                                            <ItemTemplate>
-                                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
-                                                    CommandArgument='<%# Eval("idForo") %>' OnClick="lbActualizarInfoForo_Click" />
-                                                <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
-                                                    CommandArgument='<%# Eval("idForo") %>' OnClick="lbEliminarForo_Click" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="gvSuscritos" EventName="PageIndexChanging" />
-                            </Triggers>
-                        </asp:UpdatePanel>
+                        <asp:GridView ID="gvCreados" runat="server" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped table-dark mt-2" PageSize="5" OnPageIndexChanging="gvCreados_PageIndexChanging" OnRowCommand="gvForos_RowCommand" AllowPaging="true">
+                            <Columns>
+                                <asp:ButtonField HeaderText="Nombre" DataTextField="nombre" HeaderStyle-CssClass="fontSetterExo2" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false" ItemStyle-CssClass="fontSetterExo2" CommandName="AbrirForoCreado" />
+                                <asp:BoundField HeaderText="Descripción" DataField="descripcion" HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
+                                <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
+                                <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
+                                    HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                <asp:TemplateField ItemStyle-CssClass="text-end">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="updateForo" runat="server" Text="<i class='fa-solid fa-edit ps-2' style='color:#ffffff'></i>"
+                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbActualizarInfoForo_Click" />
+                                        <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"
+                                            CommandArgument='<%# Eval("idForo") %>' OnClick="lbEliminarForo_Click" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
             </div>
@@ -218,7 +211,7 @@
                                         <%--<asp:ButtonField HeaderText="Descripción" Text="Descripcion..." ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"/>--%>
                                         <%--<asp:ImageField DataImageUrlField="FotoPerfil" ControlStyle-Width="25px" ItemStyle-HorizontalAlign="Left"></asp:ImageField>--%>
                                         <asp:ButtonField HeaderText="Creador" DataTextField="nombreCreador" ControlStyle-CssClass="text-white" ControlStyle-Font-Underline="false"
-                                            HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2" />
+                                            HeaderStyle-CssClass="fontSetterExo2" ItemStyle-CssClass="fontSetterExo2"/>
                                         <asp:TemplateField ItemStyle-CssClass="text-end">
                                             <ItemTemplate>
                                                 <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2' style='color:#ffffff'></i>"

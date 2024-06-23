@@ -117,6 +117,11 @@ namespace SteamWA
             Session["primerMensaje"] = mensajesHilo[0].contenido;
             foreach (mensaje m in mensajesHilo)
             {
+                if(m.nombreUsuario.Length > 10)
+                {
+                    m.nombreUsuario = m.nombreUsuario.Substring(0, 10);
+                    m.nombreUsuario += "...";
+                }
                 if (flag) dtHilos.Rows.Add(m.contenido, m.nombreUsuario, m.fotoPerfil);
                 flag = true;
             }
@@ -179,7 +184,7 @@ namespace SteamWA
             neoHilo.fechaModificacion = DateTime.Parse(DateTime.Now.ToString());
             neoHilo.fijado = true;
 
-            string filename = "";
+            string filename = "default.jpg";
             if (fileUpdloadFotoHilo.HasFile)
             {
                 // Obtener la extensión del archivo
