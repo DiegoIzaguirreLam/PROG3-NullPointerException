@@ -172,14 +172,12 @@ CREATE TABLE Mensaje(
     fecha_publicacion DATE NOT NULL,
     oculto TINYINT NOT NULL,
     fecha_max_edicion DATE,
-    padre INT NULL,
     fid_hilo INT NOT NULL,
     fid_usuario INT NOT NULL,
 	activo INT NOT NULL,
     PRIMARY KEY(id_mensaje),
     FOREIGN KEY(fid_hilo) REFERENCES Hilo(id_hilo),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID),
-    FOREIGN KEY(padre) REFERENCES Mensaje(id_mensaje)
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE GestorSanciones(
