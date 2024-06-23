@@ -109,14 +109,14 @@ WHERE p.activo = 1 and pa.activo = 1 and m.id_movimiento = $P{idMovimiento}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{razon_social}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00#;(#,##0.00#-)">
+			<textField pattern="#,##0.00#;(#,##0.00#-)" isBlankWhenNull="false">
 				<reportElement x="410" y="0" width="100" height="30" uuid="01ea5bc7-316a-4167-bea6-a013b6e99954">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4364a3fe-ca89-473c-b0c0-f4a29986c7df"/>
 				</reportElement>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{precio}.doubleValue()*$P{moneda_cambio_dolares}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{precio}.doubleValue()*$P{moneda_cambio_dolares})]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="20" y="-1" width="100" height="30" uuid="da59b810-ffc8-49d5-b6e9-a884907d24e9">
