@@ -284,9 +284,9 @@ namespace SteamWA
             if (productoAdquirido.actualizado) txtEspacioPrograma.InnerHtml = "<strong>Espacio Ocupado</strong>: ";
             else txtEspacioPrograma.InnerHtml = "<strong>Espacio Requerido</strong>: ";
 
-            if (producto.espacioDisco >= 1024)
+            if (producto.espacioDisco >= 1000)
             {
-                double espacioGB = producto.espacioDisco / 1024;
+                double espacioGB = producto.espacioDisco / 1000;
                 txtEspacioPrograma.InnerHtml += espacioGB.ToString("N2") + " GB";
             }
             else

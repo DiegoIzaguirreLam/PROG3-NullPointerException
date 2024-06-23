@@ -240,7 +240,7 @@ public class ProductoMySQL implements ProductoDAO {
             cs = con.prepareCall("{call LISTAR_PRODUCTOS_DESTACADOS}");
             rs = cs.executeQuery();
             while(rs.next()){
-                Integer id = rs.getInt("fid_producto");
+                Integer id = rs.getInt("id_producto");
                 idDestacados.add(id);
             }
         } catch(Exception ex){

@@ -68,26 +68,12 @@ END$
 
 CREATE PROCEDURE LISTAR_PRODUCTOS_DESTACADOS()
 BEGIN
-    DECLARE num_rows INT;
-
-    -- Verificar cuántos registros hay en ProductoAdquirido
-    SELECT COUNT(*) INTO num_rows FROM ProductoAdquirido;
-
-    IF num_rows > 0 THEN
-        -- Si hay registros, seleccionar los productos destacados
-        SELECT pa.fid_producto, COUNT(*) as num_adquiridos
-        FROM ProductoAdquirido pa
-        GROUP BY pa.fid_producto
-        ORDER BY COUNT(*) DESC
-        LIMIT 3;
-    ELSE
-        -- Si no hay registros, devolver la tabla predeterminada
-        SELECT 1 AS fid_producto, 1 AS num_adquiridos
-        UNION ALL
-        SELECT 2, 1
-        UNION ALL
-        SELECT 3, 1;
-    END IF;
+    SELECT p.id_producto, COALESCE(COUNT(pa.fid_producto), 0) as num_adquiridos
+	FROM Producto p
+	LEFT JOIN ProductoAdquirido pa ON pa.fid_producto = p.id_producto
+	GROUP BY p.id_producto
+	ORDER BY num_adquiridos DESC
+	LIMIT 3;
 END$
 
 DELIMITER ;
