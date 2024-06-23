@@ -22,9 +22,6 @@
                 <asp:Button ID="btnCrearForo" CssClass="btn btn-dark col-sm-4 border-light" runat="server" Text="Crear Subforo" OnClick="btnCrearSubforo_Click" />
             </div>
         </div>
-        <div class="search-bar">
-            <asp:TextBox runat="server" ID="txtBusquedaSubforo" CssClass="form-control mt-3 fontSetterExo2" OnTextChanged="txtBusquedaSubforo_TextChanged" AutoPostBack="true" oninput="buscarSubforo_js()"></asp:TextBox>
-        </div>
     </div>
     <hr />
     <div class="container fontSetterExo2">
