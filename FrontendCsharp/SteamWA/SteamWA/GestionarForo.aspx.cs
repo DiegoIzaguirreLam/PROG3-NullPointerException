@@ -179,7 +179,7 @@ namespace SteamWA
             neohilo.fechaModificacion = DateTime.Parse(DateTime.Now.ToString());
             neohilo.fijado = true;
 
-            string filename = "";
+            string filename = "default.jpg";
             if (fileUpdloadFotoHilo.HasFile)
             {
                 // Obtener la extensión del archivo

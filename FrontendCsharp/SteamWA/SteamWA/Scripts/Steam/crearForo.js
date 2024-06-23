@@ -1,4 +1,4 @@
-﻿﻿function showModalForm(modal) {
-    var modalForm = new bootstrap.Modal(document.getElementById(modal));
-    modalForm.toggle();
+﻿function showModalForm(modal) {
+    var modalAux = new bootstrap.Modal(document.getElementById(modal));
+    modalAux.toggle();
 }
