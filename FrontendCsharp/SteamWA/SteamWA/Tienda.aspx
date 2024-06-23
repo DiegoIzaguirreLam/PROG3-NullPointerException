@@ -77,6 +77,8 @@
                 <i class="fas fa-search"></i>
             </asp:LinkButton>
 
+            <asp:HiddenField ID="listaNombresProductos" runat="server" />
+
 
 
             <ul class="dropdown-menu" aria-labelledby="search-autocomplete" id="suggestions">
