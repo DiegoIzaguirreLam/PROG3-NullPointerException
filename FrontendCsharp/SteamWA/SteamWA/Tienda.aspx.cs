@@ -81,6 +81,11 @@ namespace SteamWA
             if (!IsPostBack)
             {
                 listaProductos = new BindingList<SteamWA.SteamServiceWS.producto>(daoProducto.listarProductos());
+                List<string> nombresProductos = listaProductos.Select(p => p.titulo).ToList();
+
+                var listaNombresProductosJson = new JavaScriptSerializer().Serialize(nombresProductos.ToList());
+
+                listaNombresProductos.Value = listaNombresProductosJson;
                 Session["ListaProductos"] = listaProductos;
             }
             else

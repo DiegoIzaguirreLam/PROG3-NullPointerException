@@ -9,6 +9,7 @@
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
+    <NameOfLastUsedPublishProfile>C:\Users\Diego\Documents\Prog3 Proyectos\TA\PROG3-NullPointerException\FrontendCsharp\SteamWA\SteamWA\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

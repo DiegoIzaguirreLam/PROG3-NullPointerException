@@ -4,7 +4,7 @@ function showModalForm(modal) {
     modalForm.toggle();
 }
 function autoCompletarBarraBusqueda(item) {
-    const autocompleteInput = document.getElementById("search_autocomplete")
+    const autocompleteInput = document.getElementById("cphContenido_search_autocomplete")
     autocompleteInput.value = item
 
 }
@@ -37,13 +37,25 @@ $(document).ready(function () {
 
 //Se ejecuta cuando la pagin ya se ha cargado
 window.onload = function () {
-  
+    
 
     const suggestionsList = document.querySelector('#suggestions');
     suggestionsList.style.visibility = "hidden"
-    const autocompleteInput = document.getElementById("search_autocomplete")
-    const data = ['Dark souls 1', 'Elden Ring', 'Batman Arkham Origins', 'Hollow Knight', 'Phasmophobia'];
+    const autocompleteInput = document.getElementById("cphContenido_search_autocomplete");
+    const botonBuscar = document.getElementById("cphContenido_btnBuscar");
 
+    autocompleteInput.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            
+            event.preventDefault();
+            botonBuscar.click();
+        }
+    });
+
+    var jsonProductos = document.getElementById('cphContenido_listaNombresProductos').value;
+    var listaNombreProductos = JSON.parse(jsonProductos);
+    const data = listaNombreProductos;
+    console.log(data);
     // Función para filtrar los resultados
     const dataFilter = (value) => {
         return data.filter((item) => {
@@ -53,9 +65,10 @@ window.onload = function () {
 
     // Evento de entrada en el campo de búsqueda
     autocompleteInput.addEventListener('input', () => {
+        console.log("auto");
         const inputValue = autocompleteInput.value;
         const filteredData = dataFilter(inputValue);
-
+        
         suggestionsList.innerHTML = '';
         if (inputValue === "") {
             suggestionsList.style.visibility = "hidden"
@@ -90,9 +103,6 @@ window.onload = function () {
     });
 }
 
-window.onload = function () {
-    
-}
 
 
 
