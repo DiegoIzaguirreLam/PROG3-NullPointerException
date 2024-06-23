@@ -36,9 +36,9 @@ $(document).ready(function () {
 });
 
 //Se ejecuta cuando la pagin ya se ha cargado
-window.onload = function () {
+$(document).ready(function () {
     
-
+    console.log("ga");
     const suggestionsList = document.querySelector('#suggestions');
     suggestionsList.style.visibility = "hidden"
     const autocompleteInput = document.getElementById("cphContenido_search_autocomplete");
@@ -101,7 +101,7 @@ window.onload = function () {
             console.log(filteredData);
         }
     });
-}
+});
 
 
 
