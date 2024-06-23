@@ -345,7 +345,7 @@ CALL INSERTAR_BANDASONORA(@id_banda_sonora_hollow_knight,
 						  @id_proveedor_hollow_knight_soundtrack,
 						  'Hollow Knight - Official Soundtrack', '2017-02-10', 9.99,
 						  'Banda sonora oficial del aclamado juego de acción y aventura Hollow Knight.', 
-						  0.5, 'Uploads/Productos/Logo-HollowKnightSoundtrack.png',
+						  0.5, 'Uploads/Productos/Logo-HollowKnightSoundtrack.jpg',
 						  'Uploads/Productos/Header-HollowKnightSoundtrack.jpg', 
 						  1, 'Christopher Larkin', 'Christopher Larkin', '01:42:16');
 
