@@ -63,6 +63,78 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\PruebaServicio\BibliotecaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\CarteraWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\CarteraWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\ColeccionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\EtiquetaWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\EtiquetaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\ForoUsuarioWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ForoUsuarioWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\GestorSancionesWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\HiloWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\HiloWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\LogroDesbloqueadoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\LogroWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\LogroWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\MensajeWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\MensajeWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\MovimientoWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\MovimientoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\NotificacionWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\NotificacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\PaisWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\PalabrasProhibidasWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ProductoEtiquetaWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ProductoEtiquetaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\ProductoWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ProductoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\RelacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\ReportesWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ReportesWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\SoftwareWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\SoftwareWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\SteamServices.disco" />
+    <None Include="Connected Services\PruebaServicio\configuration91.svcinfo" />
+    <None Include="Connected Services\PruebaServicio\configuration.svcinfo" />
+    <None Include="Connected Services\PruebaServicio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\Steam\Comunidad.css" />
     <Content Include="Content\Steam\NotificacionesStyles.css" />
     <Content Include="PerfilAjeno.aspx" />
@@ -80,6 +152,485 @@
     <Content Include="Carrito.aspx" />
     <Content Include="Comunidad.aspx" />
     <Content Include="Configuracion.aspx" />
+    <None Include="Connected Services\PruebaServicio\BandaSonoraWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\BandaSonoraWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\BibliotecaWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ColeccionWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ForoWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ForoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\GestorSancionesWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\JuegoWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\JuegoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\LogroDesbloqueadoWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\PaisWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\PalabrasProhibidasWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\ProductoAdquiridoColeccionWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ProductoAdquiridoColeccionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\ProductoAdquiridoWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ProductoAdquiridoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\ProveedorWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\ProveedorWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\RelacionWS.wsdl" />
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarCarteraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarGestorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarLogroDesbloqueadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarTiposMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.actualizarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.agregarAmigoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.agregarProductoEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.asignarBibliotecaUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.asignarCarteraUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.asignarGestorUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.bandaSonora.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.biblioteca.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.bloquearUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarBibliotecaPorUIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarCarteraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarForosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarGestorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarMovimientoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarPalabraProhibidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarUsuarioPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.buscarUsuarioPorNombreCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.cartera.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.coleccion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.crearRelacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.desuscribirRelacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.editarForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.editarHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.editarMensajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.editarSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarAmigoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarLogroDesbloqueadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarMensajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarNotificacionesUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarProductoAdquiridoDeColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarProductoEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarRelacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarTipoMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.eliminarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.etiqueta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.foro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.generarReporteMensajesEnviadosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.generarReporteProductosAdquiridosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.gestorSanciones.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.hilo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarBandaSonoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarLogroDesbloqueadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarLogroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarMensajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarMovimientoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarProductoAdquiridoAColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarSoftwareResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarTipoMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.insertarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.juego.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarAmigosPorUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarBandaSonorasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarBloqueadosPorUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarColeccionesPorBibliotecaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarCreadosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarForosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarForosSuscritosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarIdProductoProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarIdProductosDestacadosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarJuegosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarLogrosDesbloqueadosProductoAdquiridoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarLogrosPorIdJuegoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarLogrosPorUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarLogrosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarMovimientosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarNotificacionesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarPaisesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarProductosAdquiridosPorIdBibliotecaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarProductosAdquiridosPorIdColeccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarProductosPorEtiquetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarProductosPorTituloDesarrolladorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarProductosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarProveedoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarSoftwaresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarSuscriptoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarSuscritosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarTiposMonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarUsuariosPorNombreCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarUsuariosQueBloquearonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.listarUsuariosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.logro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.logroDesbloqueado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.marcarNotificacionLeidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.mensaje.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.mostrarHilosSubforoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.mostrarMensajesHiloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.mostrarSubforosForoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.movimiento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.notificacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.pais.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.producto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.productoAdquirido.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.proveedor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.software.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.subforo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.suscribirRelacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.suspenderUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.tipoMoneda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PruebaServicio\SteamWA.PruebaServicio.verificarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\PruebaServicio\SubforoWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\SubforoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\TipoMonedaWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\TipoMonedaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PruebaServicio\UsuarioWS.wsdl" />
+    <None Include="Connected Services\PruebaServicio\UsuarioWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SteamServiceWS\BandaSonoraWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\BandaSonoraWS.xsd">
       <SubType>Designer</SubType>
@@ -722,6 +1273,11 @@
     <Content Include="Steam.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\PruebaServicio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Estado.cs" />
     <Compile Include="PerfilAjeno.aspx.cs">
       <DependentUpon>PerfilAjeno.aspx</DependentUpon>
@@ -914,10 +1470,14 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\PruebaServicio\" />
     <WCFMetadataStorage Include="Connected Services\SteamServiceWS\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\Productos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
