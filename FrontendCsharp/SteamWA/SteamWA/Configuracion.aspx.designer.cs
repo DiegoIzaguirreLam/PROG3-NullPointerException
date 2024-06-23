@@ -159,6 +159,15 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.DropDownList ddlPaises;
 
         /// <summary>
+        /// Control PanelImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelImagen;
+
+        /// <summary>
         /// Control lblURL.
         /// </summary>
         /// <remarks>
@@ -168,22 +177,13 @@ namespace SteamWA
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblURL;
 
         /// <summary>
-        /// Control txtURL.
+        /// Control fileUpdloadFotoPerfil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtURL;
-
-        /// <summary>
-        /// Control btnValidarImagen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnValidarImagen;
+        protected global::System.Web.UI.WebControls.FileUpload fileUpdloadFotoPerfil;
 
         /// <summary>
         /// Control divBotonesConfiguracion.
@@ -231,6 +231,24 @@ namespace SteamWA
         protected global::System.Web.UI.WebControls.Button btnGuardar;
 
         /// <summary>
+        /// Control btnNo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNo;
+
+        /// <summary>
+        /// Control btnSi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSi;
+
+        /// <summary>
         /// Control btnCancelarModal.
         /// </summary>
         /// <remarks>
@@ -247,14 +265,5 @@ namespace SteamWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardarModal;
-
-        /// <summary>
-        /// Control modalImagen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image modalImagen;
     }
 }
