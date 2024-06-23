@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
@@ -24,6 +25,7 @@ namespace SteamWA
             if (!IsPostBack)
             {
                 CargarDatosUsuario();
+                Session["fotoEditada"] = null;
                 Session["cuentaOriginal"] = usuario.nombreCuenta; // Registrar el nombre de cuenta original
             }
         }
@@ -48,7 +50,6 @@ namespace SteamWA
             txtCorreo.Text = usuario.correo;
             txtTelefono.Text = usuario.telefono;
             txtFechaNacimiento.Text = usuario.fechaNacimiento.ToString("yyyy-MM-dd");
-            txtURL.Text = usuario.fotoURL;
             ListItem item = ddlPaises.Items.FindByText(usuario.pais.nombre);
             if (item != null)
             {
@@ -66,16 +67,9 @@ namespace SteamWA
                 !validarCampo(txtFechaNacimiento, "una fecha válida", usuario.fechaNacimiento.ToString("yyyy-MM-dd"))
                 )
                 return;
-            
-            // Validar url
-            if (!string.IsNullOrEmpty(txtURL.Text) && !urlValida(txtURL.Text))
-            {
-                lblMensajeError.Visible = true;
-                lblMensajeError.Text = "La dirección URL no apunta a una imagen válida.";
-                txtURL.Text = usuario.fotoURL;
-                return;
-            }
-            // Verificar si el nombre de cuenta ha cambiado
+
+            if (fileUpdloadFotoPerfil.HasFile && !validarFoto(usuario.nombreCuenta)) return;
+
             if (txtNombreCuenta.Text != (string)Session["cuentaOriginal"])
             {
                 // Realizar la verificación en la base de datos solo si el nombre de cuenta ha cambiado
@@ -88,10 +82,30 @@ namespace SteamWA
                     return; // Salir del evento sin guardar si se encuentra un nombre de cuenta duplicado
                 }
             }
+
             // Continuar con el proceso de guardado si no se encontró ningún nombre de cuenta duplicado
             lblMensajeError.Visible = false;
             string script = "window.onload = function() { showModalForm('form-modal-GuardarCambios') };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        public bool validarFoto(string nombreCuenta)
+        {
+            string extension = System.IO.Path.GetExtension(fileUpdloadFotoPerfil.FileName);
+            if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif")
+            {
+                // Guardar el archivo temporalmente en el servidor
+                string filename = nombreCuenta + "Foto" + extension;
+                string tempFilePath = Server.MapPath("~/Uploads/Temp/") + filename;
+                fileUpdloadFotoPerfil.SaveAs(tempFilePath);
+
+                // Guardar la información del archivo en la sesión
+                Session["nombreArchivoTemp"] = filename;
+                return true;
+            }
+            lblMensajeError.Visible = true;
+            lblMensajeError.Text = "Valor inválido. Por favor, selecciona un archivo de imagen válido.";
+            return false;
         }
 
         public bool validarCampo(TextBox campo, string mensaje, string valorValido)
@@ -110,17 +124,8 @@ namespace SteamWA
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            txtNombreCuenta.Enabled = true;
-            txtNombrePerfil.Enabled = true;
-            txtCorreo.Enabled = true;
-            txtTelefono.Enabled = true;
-            txtTelefono.Enabled = true;
-            txtFechaNacimiento.Enabled = true;
-            ddlPaises.Enabled = true;
-            txtURL.Enabled = true;
-            btnValidarImagen.Enabled = true;
-            btnGuardar.Visible = true;
-            btnEditar.Visible = false;
+            string script = "window.onload = function() { showModalForm('form-modal-Editar') };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -143,43 +148,80 @@ namespace SteamWA
             pais pais = paises.SingleOrDefault(x => x.idPais == idPais);
             usuario.pais = pais;
             Session["moneda"] = pais.moneda;
-            // Se cambia el valor si es que se escribió algo, de lo contrario se asigna url por defecto
-            if (!string.IsNullOrEmpty(txtURL.Text))
-                usuario.fotoURL = txtURL.Text;
-            else usuario.fotoURL = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+            bool estado = (bool)Session["fotoEditada"];
+
+            if (estado)
+            {
+                // En caso no se haya subido nada se le asigna la foto por defecto
+                if (Session["nombreArchivoTemp"] != null)
+                {
+                    string filename = Session["nombreArchivoTemp"].ToString();
+
+                    // Mover el archivo desde la ubicación temporal a la final
+                    string finalFilePath = Server.MapPath("~/Uploads/Perfiles/") + filename;
+                    string tempFilePath = Server.MapPath("~/Uploads/Temp/") + filename;
+
+                    // Primero se verifica si ya existe el archivo y se elimina
+                    if (File.Exists(finalFilePath))
+                        File.Delete(finalFilePath);
+
+                    // Mover el archivo
+                    File.Move(tempFilePath, finalFilePath);
+
+                    // Actualizar la URL de la foto en el objeto usuario y en la sesión
+                    usuario.fotoURL = "Uploads/Perfiles/" + filename;
+                }
+                else usuario.fotoURL = "Uploads/Perfiles/FotoPorDefecto.jpg";
+            }
+            
             int resultado = daoUsuario.actualizarUsuario(usuario);
+            limpiarInformacionTemporal();
             Response.Redirect("Configuracion.aspx");
         }
 
-        protected void lbValidarImagen_Click(object sender, EventArgs e)
+        public void limpiarInformacionTemporal()
         {
-            // Sirve para previsualizar
-            modalImagen.ImageUrl = txtURL.Text;
-            string script = "window.onload = function() { showModalForm('form-modal-mostrarImagen') };";
-            ClientScript.RegisterStartupScript(GetType(), "", script, true);
-        }
-
-        private bool urlValida(string url)
-        {
-            try
+            // Eliminar la información temporal del archivo
+            if (Session["nombreArchivoTemp"] != null)
             {
-                var request = (HttpWebRequest)WebRequest.Create(url);
-                request.Method = "HEAD";
-                using (var response = (HttpWebResponse)request.GetResponse())
-                {
-                    return response.ContentType.ToLower().StartsWith("image/");
-                }
+                string tempFilePath = Server.MapPath("~/Uploads/Temp/") + Session["nombreArchivoTemp"].ToString();
+                if (File.Exists(tempFilePath)) 
+                    File.Delete(tempFilePath);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+            // Limpiar las variables de sesión
+            Session.Remove("nombreArchivoTemp");
         }
 
         protected void btnCancelarModal_Click(object sender, EventArgs e)
         {
+            limpiarInformacionTemporal();
             Response.Redirect("Configuracion.aspx");
+        }
+
+        protected void btnNo_Click(object sender, EventArgs e)
+        {
+            camposEditables();
+            Session["fotoEditada"] = false;
+        }
+
+        protected void btnSi_Click(object sender, EventArgs e)
+        {
+            camposEditables();
+            PanelImagen.Visible = true;
+            Session["fotoEditada"] = true;
+        }
+
+        public void camposEditables()
+        {
+            txtNombreCuenta.Enabled = true;
+            txtNombrePerfil.Enabled = true;
+            txtCorreo.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtFechaNacimiento.Enabled = true;
+            ddlPaises.Enabled = true;
+            btnGuardar.Visible = true;
+            btnEditar.Visible = false;
         }
     }
 }

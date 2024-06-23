@@ -1,5 +1,7 @@
 DROP PROCEDURE IF EXISTS BUSCAR_PALABRA;
+
 DELIMITER $
+
 CREATE PROCEDURE BUSCAR_PALABRA(
     IN _palabra VARCHAR(100)
 )
@@ -8,4 +10,5 @@ BEGIN
     FROM PalabrasProhibidas
     WHERE palabra = md5(_palabra);
 END $
+
 DELIMITER ;

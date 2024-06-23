@@ -3,7 +3,8 @@ DROP PROCEDURE IF EXISTS MOSTRAR_HILOS_POR_SUBFORO;
 DROP PROCEDURE IF EXISTS EDITAR_SUBFORO;
 DROP PROCEDURE IF EXISTS DESACTIVAR_SUBFORO;
 
-DELIMITER $ 
+DELIMITER $
+
 CREATE PROCEDURE CREAR_SUBFORO(
 	OUT _id_subforo INT ,
 	IN _id_foro INT,
@@ -16,18 +17,18 @@ BEGIN
 
 END $
 
-DELIMITER $ 
 CREATE PROCEDURE MOSTRAR_HILOS_POR_SUBFORO(
 	in _id_subforo INT 
 )
 BEGIN
-	SELECT id_hilo, nro_mensajes, imagen_url, fecha_creacion, fecha_modificacion, fid_creador, nombre_perfil, foto_url FROM Hilo, Usuario WHERE 
-    fid_subforo = _id_subforo AND UID = fid_creador
+	SELECT id_hilo, nro_mensajes, imagen_url, fecha_creacion, fecha_modificacion,
+		   fid_creador, nombre_perfil, foto_url
+	FROM Hilo, Usuario
+	WHERE fid_subforo = _id_subforo AND
+		  UID = fid_creador
     AND oculto = 0;
 END $
-
-
-DELIMITER $ 
+ 
 CREATE PROCEDURE EDITAR_SUBFORO(
 	IN _id_subforo INT,
 	IN _nombre VARCHAR(100)
@@ -38,7 +39,6 @@ BEGIN
 
 END $
 
-DELIMITER $ 
 CREATE PROCEDURE DESACTIVAR_SUBFORO(
 	IN _id_subforo INT
 )
@@ -47,3 +47,5 @@ BEGIN
     WHERE id_subforo = _id_subforo; 
 
 END $
+
+DELIMITER ;

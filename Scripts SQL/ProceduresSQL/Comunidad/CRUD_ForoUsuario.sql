@@ -6,6 +6,7 @@ DROP PROCEDURE IF EXISTS DESUSCRIBIR_RELACION_FORO;
 DROP PROCEDURE IF EXISTS LISTAR_SUSCRIPTORES;
 
 DELIMITER $
+
 CREATE PROCEDURE CREAR_RELACION_FORO(
 	IN _fid_foro INT,
 	IN _fid_usuario INT
@@ -14,6 +15,7 @@ BEGIN
 	INSERT INTO ForoUsuario (fid_foro, fid_usuario, es_creador, es_suscriptor, activo)
 	VALUES (_fid_foro, _fid_usuario, 1, 0, 1);
 END$
+
 CREATE PROCEDURE SUSCRIBIR_RELACION(
 	IN _fid_foro INT,
 	IN _fid_usuario INT
@@ -22,6 +24,7 @@ BEGIN
 	INSERT INTO ForoUsuario (fid_foro, fid_usuario, es_creador, es_suscriptor, activo)
 	VALUES (_fid_foro, _fid_usuario, 0, 1, 1);
 END$
+
 CREATE PROCEDURE ELIMINAR_RELACION_FORO(
 	IN _fid_foro INT,
 	IN _fid_usuario INT
@@ -30,6 +33,7 @@ BEGIN
 	UPDATE ForoUsuario SET activo=0 
 	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario AND es_creador = 1;
 END$
+
 CREATE PROCEDURE DESUSCRIBIR_RELACION_FORO(
 	IN _fid_foro INT,
 	IN _fid_usuario INT
@@ -38,6 +42,7 @@ BEGIN
 	UPDATE ForoUsuario SET activo=0 
 	WHERE fid_foro = _fid_foro AND fid_usuario = _fid_usuario AND es_suscriptor = 1;
 END$
+
 CREATE PROCEDURE LISTAR_SUSCRITOS_FOROUSER(
 	IN _fid_usuario INT
 )
@@ -51,3 +56,5 @@ CREATE PROCEDURE LISTAR_SUSCRIPTORES(
 BEGIN
 	SELECT fid_usuario FROM ForoUsuario WHERE fid_foro = _fid_foro AND es_suscriptor = 1 AND es_creador = 0 AND activo = 1;
 END$
+
+DELIMITER ;

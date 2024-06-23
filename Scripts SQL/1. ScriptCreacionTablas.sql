@@ -1,6 +1,5 @@
 /* DROPS  */
 DROP TABLE IF EXISTS Relacion;
-DROP TABLE IF EXISTS MedallaUsuario;
 DROP TABLE IF EXISTS ForoUsuario;
 DROP TABLE IF EXISTS ProductoEtiqueta;
 DROP TABLE IF EXISTS ProductoAdquirido_Coleccion;
@@ -20,8 +19,6 @@ DROP TABLE IF EXISTS Mensaje;
 DROP TABLE IF EXISTS Hilo;
 DROP TABLE IF EXISTS Subforo;
 DROP TABLE IF EXISTS Foro;
-DROP TABLE IF EXISTS Perfil;
-DROP TABLE IF EXISTS Medalla;
 DROP TABLE IF EXISTS Movimiento;
 DROP TABLE IF EXISTS Cartera;
 DROP TABLE IF EXISTS Notificacion;
@@ -175,14 +172,12 @@ CREATE TABLE Mensaje(
     fecha_publicacion DATE NOT NULL,
     oculto TINYINT NOT NULL,
     fecha_max_edicion DATE,
-    padre INT NULL,
     fid_hilo INT NOT NULL,
     fid_usuario INT NOT NULL,
 	activo INT NOT NULL,
     PRIMARY KEY(id_mensaje),
     FOREIGN KEY(fid_hilo) REFERENCES Hilo(id_hilo),
-    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID),
-    FOREIGN KEY(padre) REFERENCES Mensaje(id_mensaje)
+    FOREIGN KEY(fid_usuario) REFERENCES Usuario(UID)
 )ENGINE=InnoDB;
 
 CREATE TABLE GestorSanciones(

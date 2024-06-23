@@ -8,6 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <h1 class="mt-4 text-white">Configuración de Usuario</h1>
+        <hr />
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <asp:Label ID="lblMensajeError" runat="server" CssClass="alert alert-danger mt-4 mb-3" Visible="false" Width="100% "></asp:Label>
@@ -89,18 +90,19 @@
                         </div>
                     </div>
 
-                    <!-- url de imagen -->
-                    <div class="mb-4 row ">
-                        <div class="col-md-3">
-                            <label id="lblURL" class="form-label" runat="server">URL de foto:</label>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="input-group">
-                                <asp:TextBox runat="server" ID="txtURL" CssClass="form-control" Enabled="false" MaxLength="200"/>
-                                <asp:Button runat="server" ID="btnValidarImagen" CssClass="btn btn-outline-light" OnClick="lbValidarImagen_Click" Enabled="false" Text="Previsualizar"/>
+                    <!-- Imagen de perfil -->
+                    <asp:Panel ID="PanelImagen" runat="server" Visible="false">
+                        <div class="mb-4 row">
+                            <div class="col-md-3">
+                                <label id="lblURL" class="form-label" runat="server">Foto de perfil:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <asp:FileUpload ID="fileUpdloadFotoPerfil" runat="server"
+                                    CssClass="form-control mb-2" />
                             </div>
                         </div>
-                    </div>
+                    </asp:Panel>
+
                 </div>
                 <div id="divBotonesConfiguracion" runat="server" class="d-flex justify-content-between mb-4">
                     <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"  UseSubmitBehavior="false"/>
@@ -112,13 +114,34 @@
             </div>
         </div>
     </div>
+    <!-- modal para editar foto de perfil-->
+    <div class="modal fade" id="form-modal-Editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="container bg-dark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="lblEditarCampos">Editar datos de usuario</h5>
+                        <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Desea editar su imagen de perfil?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnNo" runat="server" CssClass="btn btn-danger" Text="No" OnClick="btnNo_Click" />
+                        <asp:Button ID="btnSi" runat="server" CssClass="btn btn-success" Text="Sí" OnClick="btnSi_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- modal para guardar cambios-->
     <div class="modal fade" id="form-modal-GuardarCambios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="container bg-dark">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="lblEliminarAmigo">Guardar cambios</h5>
+                        <h5 class="modal-title" id="lblGuardarCambios">Guardar cambios</h5>
                         <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -127,23 +150,6 @@
                     <div class="modal-footer">
                         <asp:Button ID="btnCancelarModal" runat="server" CssClass="btn btn-secondary" Text="Cancelar" OnClick="btnCancelarModal_Click"/>
                         <asp:Button ID="btnGuardarModal" runat="server" CssClass="btn btn-success" Text="Guardar" OnClick="btnGuardarModal_Click"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- modal para mostrar imagen -->
-    <div class="modal fade" id="form-modal-mostrarImagen" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="container bg-dark">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Imagen de perfil</h5>
-                        <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" style="text-align: center;">
-                        <asp:Image ID="modalImagen" AlternateText="No existe la imagen" CssClass="card-img-top" style="border-radius:0.4rem; max-width:250px; max-height:250px; display:block; margin:auto;" runat="server" />
                     </div>
                 </div>
             </div>
