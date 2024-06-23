@@ -378,11 +378,20 @@ namespace SteamWA
             {
                 suscritos = new BindingList<foro>(aux);
                 foreach (foro f in suscritos)
+				{
                     if (f.nombreCreador.Length > 10)
                     {
                         f.nombreCreador = f.nombreCreador.Substring(0, 10);
                         f.nombreCreador += "...";
+						
                     }
+					if (f.descripcion.Length > 22)
+                    {
+                        f.descripcion = f.descripcion.Substring(0, 22);
+                        f.descripcion += "...";
+						
+                    }
+				}
                 gvSuscritos.DataSource = suscritos;
                 pageIndex = (int[])Session["IndexPages"];
                 pageIndex[2] = 0;
@@ -404,11 +413,20 @@ namespace SteamWA
             {
                 creados = new BindingList<foro>(aux);
                 foreach (foro f in creados)
+				{
                     if (f.nombreCreador.Length > 10)
                     {
                         f.nombreCreador = f.nombreCreador.Substring(0, 10);
                         f.nombreCreador += "...";
+						
                     }
+					if (f.descripcion.Length > 22)
+                    {
+                        f.descripcion = f.descripcion.Substring(0, 22);
+                        f.descripcion += "...";
+						
+                    }
+				}
                 gvCreados.DataSource = creados;
                 pageIndex = (int[])Session["IndexPages"];
                 pageIndex[1] = 0;
