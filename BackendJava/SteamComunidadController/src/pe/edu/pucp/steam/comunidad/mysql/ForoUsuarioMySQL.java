@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.comunidad.dao.ForoUsuarioDAO;
 import pe.edu.pucp.steam.comunidad.model.Foro;
-import pe.edu.pucp.steam.comunidad.model.OrigenForo;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 /**
@@ -97,7 +96,7 @@ public class ForoUsuarioMySQL implements ForoUsuarioDAO{
                 foro.setIdForo(rs.getInt("id_foro"));
                 foro.setNombre(rs.getString("nombre"));
                 foro.setDescripcion(rs.getString("descripcion"));
-                foro.setOrigen(OrigenForo.valueOf(rs.getString("origen_foro")));
+                foro.setNombreCreador(rs.getString("origen_foro"));
                 foro.setIdCreador(rs.getInt("id_user"));
 		foros.add(foro);
             }

@@ -14,7 +14,6 @@ public class Foro {
     private int idForo;
     private String nombre;
     private String descripcion;
-    private OrigenForo origen;
     private int idCreador;
     private String nombreCreador;
     private ArrayList<Integer> suscritos;
@@ -26,10 +25,9 @@ public class Foro {
         
     }
     
-    public Foro(String nombre, String descripcion, OrigenForo origen, int idCreador, boolean oculto) {
+    public Foro(String nombre, String descripcion, int idCreador, boolean oculto) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.origen = origen;
         this.idCreador = idCreador;
         this.oculto = oculto;
     }
@@ -56,14 +54,6 @@ public class Foro {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public OrigenForo getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(OrigenForo origen) {
-        this.origen = origen;
     }
 
     public ArrayList<Subforo> getSubforos() {

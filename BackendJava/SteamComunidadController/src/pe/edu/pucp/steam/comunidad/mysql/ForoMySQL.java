@@ -7,14 +7,12 @@ package pe.edu.pucp.steam.comunidad.mysql;
 import java.util.ArrayList;
 import pe.edu.pucp.steam.comunidad.dao.ForoDAO;
 import pe.edu.pucp.steam.comunidad.model.Foro;
-import pe.edu.pucp.steam.comunidad.model.Subforo;
 import pe.edu.pucp.steam.dbmanager.config.DBManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
-import pe.edu.pucp.steam.comunidad.model.OrigenForo;
 /**
  *
  * @author piero
