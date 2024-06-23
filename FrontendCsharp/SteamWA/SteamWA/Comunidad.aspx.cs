@@ -302,7 +302,6 @@ namespace SteamWA
             }
             neoforo.nombre = txtTema.Text;
             neoforo.descripcion = txtDescripcion.Text;
-            neoforo.origen = origenForo.USUARIO;
             neoforo.nombreCreador = user.nombrePerfil.ToString();
             id = daoForo.insertarForo(neoforo);
             daoForoUsuario.crearRelacion(id, user.UID);
