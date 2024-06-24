@@ -336,13 +336,13 @@ CALL INSERTAR_JUEGO(@id_juego_world_of_goo, @id_proveedor_world_of_goo,
 					'Procesador de 1.5 GHz, 1 GB RAM, Gráficos dedicados', 0);
                     
 -- Juego: Sparking Zero
-CALL INSERTAR_JUEGO(@id_proveedor_sparking_zero, @id_proveedor_sparking_zero, 
+CALL INSERTAR_JUEGO(@id_juego_sparking_zero, @id_proveedor_sparking_zero, 
 					'Sparking! Zero', '2024-05-11', 69.99, 
 					'Recopilando lo mejor de todos los juegos de la franquicia Dragon Ball', 
 					7000, 'Uploads/Productos/Logo-SparkingZero.png',
 					'Uploads/Productos/Header-SparkingZero.jpg', 
 					1, 'Procesador i5 y un sistema operativo de 64 bits',
-					'Procesador i7 y un sistema operativo de 64 bits', 0);
+					'Procesador i7 y un sistema operativo de 64 bits', 1);
 ---------------------------------------------------------------------------------------------
 
 
@@ -439,6 +439,8 @@ CALL INSERTAR_PRODUCTOETIQUETA(@id_software_lossless_scaling, 6); -- Utilidad
 
 CALL INSERTAR_PRODUCTOETIQUETA(@id_software_aseprite, 6); -- Utilidad
 CALL INSERTAR_PRODUCTOETIQUETA(@id_software_aseprite, 2); -- Puzzle
+
+CALL INSERTAR_PRODUCTOETIQUETA(@id_juego_sparking_zero, 5);
 ---------------------------------------------------------------------------------------------
 
 
