@@ -63,23 +63,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Steam\Comunidad.css" />
-    <Content Include="Content\Steam\NotificacionesStyles.css" />
-    <Content Include="PerfilAjeno.aspx" />
-    <Content Include="Scripts\Steam\Amigos.js" />
-    <Content Include="Scripts\Steam\BuscarAmigos.js" />
-    <Content Include="Scripts\Steam\Comunidad.js" />
-    <Content Include="Scripts\Steam\Contrasenia.js" />
-    <Content Include="Scripts\Steam\GestionarCartera.js" />
-    <Content Include="Scripts\Steam\Notificaciones.js" />
-    <Content Include="Scripts\Steam\Registro.js" />
-    <Content Include="SeleccionarMetodoPago.aspx" />
-    <Content Include="Amigos.aspx" />
-    <Content Include="Biblioteca.aspx" />
-    <Content Include="BuscarAmigos.aspx" />
-    <Content Include="Carrito.aspx" />
-    <Content Include="Comunidad.aspx" />
-    <Content Include="Configuracion.aspx" />
     <None Include="Connected Services\SteamServiceWS\BandaSonoraWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\BandaSonoraWS.xsd">
       <SubType>Designer</SubType>
@@ -105,9 +88,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SteamServiceWS\ForoWS.wsdl" />
-    <None Include="Connected Services\SteamServiceWS\ForoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\SteamServiceWS\GestorSancionesWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\GestorSancionesWS.xsd">
       <SubType>Designer</SubType>
@@ -145,7 +125,6 @@
     <None Include="Connected Services\SteamServiceWS\PalabrasProhibidasWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SteamServiceWS\ProductoAdquiridoColeccionWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\ProductoAdquiridoColeccionWS.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -174,9 +153,36 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SteamServiceWS\SoftwareWS.wsdl" />
+    <None Include="Connected Services\SteamServiceWS\SoftwareWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SteamServiceWS\SteamServices.disco" />
+    <Content Include="Content\Steam\Comunidad.css" />
+    <Content Include="Content\Steam\NotificacionesStyles.css" />
+    <Content Include="PerfilAjeno.aspx" />
+    <Content Include="Scripts\Steam\Amigos.js" />
+    <Content Include="Scripts\Steam\BuscarAmigos.js" />
+    <Content Include="Scripts\Steam\Comunidad.js" />
+    <Content Include="Scripts\Steam\Contrasenia.js" />
+    <Content Include="Scripts\Steam\GestionarCartera.js" />
+    <Content Include="Scripts\Steam\Notificaciones.js" />
+    <Content Include="Scripts\Steam\Registro.js" />
+    <Content Include="SeleccionarMetodoPago.aspx" />
+    <Content Include="Amigos.aspx" />
+    <Content Include="Biblioteca.aspx" />
+    <Content Include="BuscarAmigos.aspx" />
+    <Content Include="Carrito.aspx" />
+    <Content Include="Comunidad.aspx" />
+    <Content Include="Configuracion.aspx" />
     <None Include="Connected Services\SteamServiceWS\configuration91.svcinfo" />
     <None Include="Connected Services\SteamServiceWS\configuration.svcinfo" />
+    <None Include="Connected Services\SteamServiceWS\ForoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServiceWS\JuegoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SteamServiceWS\ProductoAdquiridoColeccionWS.wsdl" />
     <None Include="Connected Services\SteamServiceWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -249,12 +255,6 @@
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\Fonts\webfonts\fa-v4compatibility.woff2" />
     <Content Include="Inicio.Master" />
-    <None Include="Connected Services\SteamServiceWS\JuegoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SteamServiceWS\SoftwareWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Connected Services\SteamServiceWS\SteamWA.SteamServiceWS.actualizarBandaSonoraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

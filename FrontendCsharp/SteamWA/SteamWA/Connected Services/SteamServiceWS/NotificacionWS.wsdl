@@ -11,6 +11,12 @@
   <message name="eliminarNotificacionesUsuarioResponse">
     <part name="parameters" element="tns:eliminarNotificacionesUsuarioResponse" />
   </message>
+  <message name="insertarNotificacion">
+    <part name="parameters" element="tns:insertarNotificacion" />
+  </message>
+  <message name="insertarNotificacionResponse">
+    <part name="parameters" element="tns:insertarNotificacionResponse" />
+  </message>
   <message name="actualizarNotificacion">
     <part name="parameters" element="tns:actualizarNotificacion" />
   </message>
@@ -35,16 +41,14 @@
   <message name="marcarNotificacionLeidaResponse">
     <part name="parameters" element="tns:marcarNotificacionLeidaResponse" />
   </message>
-  <message name="insertarNotificacion">
-    <part name="parameters" element="tns:insertarNotificacion" />
-  </message>
-  <message name="insertarNotificacionResponse">
-    <part name="parameters" element="tns:insertarNotificacionResponse" />
-  </message>
   <portType name="NotificacionWS">
     <operation name="eliminarNotificacionesUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuarioRequest" message="tns:eliminarNotificacionesUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/eliminarNotificacionesUsuarioResponse" message="tns:eliminarNotificacionesUsuarioResponse" />
+    </operation>
+    <operation name="insertarNotificacion">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/insertarNotificacionRequest" message="tns:insertarNotificacion" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/insertarNotificacionResponse" message="tns:insertarNotificacionResponse" />
     </operation>
     <operation name="actualizarNotificacion">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/actualizarNotificacionRequest" message="tns:actualizarNotificacion" />
@@ -62,14 +66,19 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/marcarNotificacionLeidaRequest" message="tns:marcarNotificacionLeida" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/marcarNotificacionLeidaResponse" message="tns:marcarNotificacionLeidaResponse" />
     </operation>
-    <operation name="insertarNotificacion">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/insertarNotificacionRequest" message="tns:insertarNotificacion" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/insertarNotificacionResponse" message="tns:insertarNotificacionResponse" />
-    </operation>
   </portType>
   <binding name="NotificacionWSPortBinding" type="tns:NotificacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <operation name="eliminarNotificacionesUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarNotificacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -106,15 +115,6 @@
       </output>
     </operation>
     <operation name="marcarNotificacionLeida">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarNotificacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
