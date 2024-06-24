@@ -17,17 +17,17 @@
   <message name="mostrarHilosSubforoResponse">
     <part name="parameters" element="tns:mostrarHilosSubforoResponse" />
   </message>
-  <message name="eliminarHilo">
-    <part name="parameters" element="tns:eliminarHilo" />
-  </message>
-  <message name="eliminarHiloResponse">
-    <part name="parameters" element="tns:eliminarHiloResponse" />
-  </message>
   <message name="insertarHilo">
     <part name="parameters" element="tns:insertarHilo" />
   </message>
   <message name="insertarHiloResponse">
     <part name="parameters" element="tns:insertarHiloResponse" />
+  </message>
+  <message name="eliminarHilo">
+    <part name="parameters" element="tns:eliminarHilo" />
+  </message>
+  <message name="eliminarHiloResponse">
+    <part name="parameters" element="tns:eliminarHiloResponse" />
   </message>
   <portType name="HiloWS">
     <operation name="editarHilo">
@@ -38,13 +38,13 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoRequest" message="tns:mostrarHilosSubforo" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/mostrarHilosSubforoResponse" message="tns:mostrarHilosSubforoResponse" />
     </operation>
-    <operation name="eliminarHilo">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/eliminarHiloRequest" message="tns:eliminarHilo" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/eliminarHiloResponse" message="tns:eliminarHiloResponse" />
-    </operation>
     <operation name="insertarHilo">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloRequest" message="tns:insertarHilo" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/insertarHiloResponse" message="tns:insertarHiloResponse" />
+    </operation>
+    <operation name="eliminarHilo">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/eliminarHiloRequest" message="tns:eliminarHilo" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/HiloWS/eliminarHiloResponse" message="tns:eliminarHiloResponse" />
     </operation>
   </portType>
   <binding name="HiloWSPortBinding" type="tns:HiloWS">
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarHilo">
+    <operation name="insertarHilo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarHilo">
+    <operation name="eliminarHilo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

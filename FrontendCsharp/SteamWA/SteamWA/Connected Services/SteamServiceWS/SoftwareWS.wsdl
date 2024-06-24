@@ -5,17 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SteamWS/SoftwareWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarSoftware">
-    <part name="parameters" element="tns:insertarSoftware" />
+  <message name="eliminarSoftware">
+    <part name="parameters" element="tns:eliminarSoftware" />
   </message>
-  <message name="insertarSoftwareResponse">
-    <part name="parameters" element="tns:insertarSoftwareResponse" />
-  </message>
-  <message name="buscarSoftware">
-    <part name="parameters" element="tns:buscarSoftware" />
-  </message>
-  <message name="buscarSoftwareResponse">
-    <part name="parameters" element="tns:buscarSoftwareResponse" />
+  <message name="eliminarSoftwareResponse">
+    <part name="parameters" element="tns:eliminarSoftwareResponse" />
   </message>
   <message name="listarSoftwares">
     <part name="parameters" element="tns:listarSoftwares" />
@@ -23,11 +17,11 @@
   <message name="listarSoftwaresResponse">
     <part name="parameters" element="tns:listarSoftwaresResponse" />
   </message>
-  <message name="eliminarSoftware">
-    <part name="parameters" element="tns:eliminarSoftware" />
+  <message name="insertarSoftware">
+    <part name="parameters" element="tns:insertarSoftware" />
   </message>
-  <message name="eliminarSoftwareResponse">
-    <part name="parameters" element="tns:eliminarSoftwareResponse" />
+  <message name="insertarSoftwareResponse">
+    <part name="parameters" element="tns:insertarSoftwareResponse" />
   </message>
   <message name="actualizarSoftware">
     <part name="parameters" element="tns:actualizarSoftware" />
@@ -35,40 +29,37 @@
   <message name="actualizarSoftwareResponse">
     <part name="parameters" element="tns:actualizarSoftwareResponse" />
   </message>
+  <message name="buscarSoftware">
+    <part name="parameters" element="tns:buscarSoftware" />
+  </message>
+  <message name="buscarSoftwareResponse">
+    <part name="parameters" element="tns:buscarSoftwareResponse" />
+  </message>
   <portType name="SoftwareWS">
-    <operation name="insertarSoftware">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest" message="tns:insertarSoftware" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse" message="tns:insertarSoftwareResponse" />
-    </operation>
-    <operation name="buscarSoftware">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest" message="tns:buscarSoftware" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse" message="tns:buscarSoftwareResponse" />
+    <operation name="eliminarSoftware">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
     </operation>
     <operation name="listarSoftwares">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresRequest" message="tns:listarSoftwares" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/listarSoftwaresResponse" message="tns:listarSoftwaresResponse" />
     </operation>
-    <operation name="eliminarSoftware">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareRequest" message="tns:eliminarSoftware" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/eliminarSoftwareResponse" message="tns:eliminarSoftwareResponse" />
+    <operation name="insertarSoftware">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareRequest" message="tns:insertarSoftware" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/insertarSoftwareResponse" message="tns:insertarSoftwareResponse" />
     </operation>
     <operation name="actualizarSoftware">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareRequest" message="tns:actualizarSoftware" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/actualizarSoftwareResponse" message="tns:actualizarSoftwareResponse" />
     </operation>
+    <operation name="buscarSoftware">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareRequest" message="tns:buscarSoftware" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/SoftwareWS/buscarSoftwareResponse" message="tns:buscarSoftwareResponse" />
+    </operation>
   </portType>
   <binding name="SoftwareWSPortBinding" type="tns:SoftwareWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarSoftware">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarSoftware">
+    <operation name="eliminarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarSoftware">
+    <operation name="insertarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,6 +87,15 @@
       </output>
     </operation>
     <operation name="actualizarSoftware">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarSoftware">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

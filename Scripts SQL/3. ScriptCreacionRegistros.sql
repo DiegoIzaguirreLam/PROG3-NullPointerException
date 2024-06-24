@@ -338,7 +338,7 @@ CALL INSERTAR_JUEGO(@id_juego_world_of_goo, @id_proveedor_world_of_goo,
 -- Juego: Sparking Zero
 CALL INSERTAR_JUEGO(@id_juego_sparking_zero, @id_proveedor_sparking_zero, 
 					'Sparking! Zero', '2024-05-11', 69.99, 
-					'Recopilando lo mejor de todos los juegos de la franquicia Dragon Ball', 
+					'Recopilando lo mejor de todos los juegos de la franquicia Dragon Ball.', 
 					7000, 'Uploads/Productos/Logo-SparkingZero.png',
 					'Uploads/Productos/Header-SparkingZero.jpg', 
 					1, 'Procesador i5 y un sistema operativo de 64 bits',

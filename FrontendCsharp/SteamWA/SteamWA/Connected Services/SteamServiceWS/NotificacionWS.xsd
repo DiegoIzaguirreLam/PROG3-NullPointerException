@@ -221,7 +221,6 @@
       <xs:element name="idUsuario" type="xs:int" />
       <xs:element name="maxBaneos" type="xs:int" />
       <xs:element name="maxFaltas" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="subforos" nillable="true" type="tns:subforo" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="pais">
