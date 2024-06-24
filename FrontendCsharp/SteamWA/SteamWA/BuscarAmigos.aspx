@@ -25,8 +25,29 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
-    <!-- Archivo Javascript para (des)habilitar el botón de búsqueda -->
+    <!-- Archivo Javascript para (des)habilitar el botón de búsqueda por nombre de cuenta -->
     <script src="Scripts/Steam/BuscarAmigos.js"></script>
+
+    <!-- Función Javascript para (des)habilitar el botón de búsqueda por ID -->
+    <script type="text/javascript">
+        function validateInput() {
+            var input = document.getElementById('<%= txtUID.ClientID %>');
+        var button = document.getElementById('<%= lbBuscarPorID.ClientID %>');
+
+            input.value = input.value.replace(/\D/g, '');
+            if (input.value.charAt(0) == "0") {
+                input.value = input.value.substring(1);
+            }
+
+            if (input.value && input.value > 0) {
+                button.classList.remove('disabled');
+                button.classList.remove('aspNetDisabled');
+            } else {
+                button.classList.add('disabled');
+                button.classList.add('aspNetDisabled');
+            }
+        }
+    </script>
 
     <!-- Se registran los ID de los elementos que se llevan a JavaScript -->
     <script>
@@ -67,7 +88,7 @@
                         <h5 class="card-title">Buscar por ID</h5>
                         <div class="form-group mb-4">
                             <span class="input-group">
-                                <input id="txtUID" runat="server" type="number" class="form-control" placeholder="ID del Usuario">
+                                <input id="txtUID" runat="server" type="number" class="form-control" placeholder="ID del Usuario" onkeyup="validateInput()">
                                 <asp:LinkButton ID="lbBuscarPorID" runat="server" CssClass="btn bg-navy btn-outline-light disabled" Text="<i class='fas fa-search'></i>" OnClick="lbBuscarPorID_Click" />
                             </span>
                         </div>
