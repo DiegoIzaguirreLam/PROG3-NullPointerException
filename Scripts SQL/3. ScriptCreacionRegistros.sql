@@ -232,6 +232,7 @@ CALL INSERTAR_PROVEEDOR(@id_proveedor_aseprite, 'Aseprite');
 -- Proveedor para Bandas Sonoras
 CALL INSERTAR_PROVEEDOR(@id_proveedor_hollow_knight_soundtrack, 'Team Cherry');
 CALL INSERTAR_PROVEEDOR(@id_proveedor_nine_sols_soundtrack, 'Nine Sols');
+CALL INSERTAR_PROVEEDOR(@id_proveedor_sparking_zero, 'Spike Chunsoft');
 
 
 
@@ -333,6 +334,15 @@ CALL INSERTAR_JUEGO(@id_juego_world_of_goo, @id_proveedor_world_of_goo,
 					'Uploads/Productos/Header-WorldOfGoo.jpg', 
 					1, 'Procesador de 1.0 GHz, 512 MB RAM, Gráficos integrados',
 					'Procesador de 1.5 GHz, 1 GB RAM, Gráficos dedicados', 0);
+                    
+-- Juego: Sparking Zero
+CALL INSERTAR_JUEGO(@id_proveedor_sparking_zero, @id_proveedor_sparking_zero, 
+					'Sparking! Zero', '2024-05-11', 69.99, 
+					'Recopilando lo mejor de todos los juegos de la franquicia Dragon Ball', 
+					7000, 'Uploads/Productos/Logo-SparkingZero.png',
+					'Uploads/Productos/Header-SparkingZero.jpg', 
+					1, 'Procesador i5 y un sistema operativo de 64 bits',
+					'Procesador i7 y un sistema operativo de 64 bits', 0);
 ---------------------------------------------------------------------------------------------
 
 
