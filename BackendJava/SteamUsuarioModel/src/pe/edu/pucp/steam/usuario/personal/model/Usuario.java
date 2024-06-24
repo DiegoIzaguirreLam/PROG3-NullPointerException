@@ -18,7 +18,6 @@ public class Usuario {
     private int edad;
     private Date fechaNacimiento;
     private boolean verificado;
-    private boolean activo;
     private String fotoURL;
     private Pais pais;
     private Biblioteca biblioteca;
@@ -27,7 +26,8 @@ public class Usuario {
     private ArrayList<Usuario> amigos;
     private ArrayList<Usuario> bloqueados;
     private Cartera cartera;
-
+    private boolean activo;
+    
     public Usuario(){};
 
     public Usuario(int UID, String nombreCuenta, String nombrePerfil, String correo, String telefono, String password, int edad, Date fechaNacimiento, boolean verificado, boolean activo, Pais pais, Biblioteca biblioteca, GestorSanciones gestorSanciones, Cartera cartera) {

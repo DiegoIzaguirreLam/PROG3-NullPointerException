@@ -12,12 +12,12 @@ import java.util.ArrayList;
  */
 public class Subforo {
     private int idSubforo;
-    private Foro foro;
     private String nombre;
-    private ArrayList<Hilo> hilos;
     private String mensaje;
     private boolean oculto;
     private boolean activo;
+    private Foro foro;
+    private ArrayList<Hilo> hilos;
     
     public Subforo(){
         

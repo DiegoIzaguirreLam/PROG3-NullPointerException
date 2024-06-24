@@ -19,8 +19,8 @@ public class Mensaje {
     private String fotoPerfil;
     private Date fechaPublicacion;
     private Hilo hilo;
-    private boolean oculto; //Si está en 1, es porque no se debe mostrar, si está en 0 si se debe listar
     private Date fechaMaxEdicion; //Al crearse un mensaje, puede editarse por un tiempo hasta que sea menor a fechaMaxEdicion
+    private boolean oculto; //Si está en 1, es porque no se debe mostrar, si está en 0 si se debe listar
     private boolean activo;
     
     public Mensaje(){}

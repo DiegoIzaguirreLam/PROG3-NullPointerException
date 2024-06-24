@@ -13,18 +13,18 @@ import java.util.Date;
  */
 public class Hilo {
     private int idHilo;
+    private String nombre;
     private boolean fijado;
     private int idCreador; //Id del usuario que creó el hilo
     private int nroMensajes;
     private Date fechaCreacion;
     private Date fechaModificacion;
-    private Subforo subforo;
-    private ArrayList<Mensaje> mensajes;
     private String imagenUrl;
-    private String nombre;
     private String fotoPerfil;
     private boolean oculto;
     private boolean activo;
+    private Subforo subforo;
+    private ArrayList<Mensaje> mensajes;
 
     
     public Hilo(){

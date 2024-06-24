@@ -13,9 +13,9 @@ public class Notificacion {
     private TipoNotificacion tipo;
     private String mensaje;
     private Usuario usuario;
+    private Date fecha;
     private boolean revisada;
     private boolean activo;
-    private Date fecha;
     
     public Notificacion(){};
 

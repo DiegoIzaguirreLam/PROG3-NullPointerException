@@ -24,14 +24,13 @@ public class GestorSanciones {
     private Date fechaFinBan;
     private int cantFaltas;
     private int cantBaneos;
-    private ArrayList<Subforo> subforos;
     private boolean activo;
 
     public GestorSanciones(){
         
     }
     
-    public GestorSanciones(int idGestor, int contadorPalabras, int contadorBaneos, int maxFaltas, int maxBaneos, Date finBan, int cantFaltas, int cantBaneos, ArrayList<Subforo> subforos) {
+    public GestorSanciones(int idGestor, int contadorPalabras, int contadorBaneos, int maxFaltas, int maxBaneos, Date finBan, int cantFaltas, int cantBaneos) {
         this.idGestor = idGestor;
         this.contadorPalabras = contadorPalabras;
         this.contadorBaneos = contadorBaneos;
@@ -40,7 +39,6 @@ public class GestorSanciones {
         this.fechaFinBan = finBan;
         this.cantFaltas = cantFaltas;
         this.cantBaneos = cantBaneos;
-        this.subforos = subforos;
     }
 
     public int getIdGestor() {
@@ -115,14 +113,6 @@ public class GestorSanciones {
         this.cantBaneos = cantBaneos;
     }
 
-    public ArrayList<Subforo> getSubforos() {
-        return subforos;
-    }
-
-    public void setSubforos(ArrayList<Subforo> subforos) {
-        this.subforos = subforos;
-    }
-  
     public int getContadorFaltas() {
         return contadorFaltas;
     }
