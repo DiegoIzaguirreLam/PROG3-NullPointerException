@@ -267,7 +267,7 @@ CALL INSERTAR_ETIQUETA(@id_etiqueta_utilidad, 'Utilidad');
 CALL INSERTAR_JUEGO(@id_juego_assassins_creed, @id_proveedor_assassins_creed, 
 					'Assassin''s Creed Odyssey', '2018-10-05', 59.99, 
 					'Viaja a la Antigua Grecia y vive épicas aventuras como un espartano.', 
-					50.0, 'Uploads/Productos/Logo-AssassinsCreedOdyssey.png',
+					5000.0, 'Uploads/Productos/Logo-AssassinsCreedOdyssey.png',
 					'Uploads/Productos/Header-AssassinsCreedOdyssey.jpg', 
 					1, 'Intel Core i5, 8 GB RAM, GTX 970',
 					'Intel Core i7, 16 GB RAM, GTX 1080 Ti', 1);
@@ -276,7 +276,7 @@ CALL INSERTAR_JUEGO(@id_juego_assassins_creed, @id_proveedor_assassins_creed,
 CALL INSERTAR_JUEGO(@id_juego_resident_evil, @id_proveedor_resident_evil, 
 					'Resident Evil 5: Gold Edition', '2015-03-27', 29.99, 
 					'Revive la acción y el terror con Chris Redfield y Sheva Alomar en África.', 
-					25.0, 'Uploads/Productos/Logo-ResidentEvil5.png',
+					2500.0, 'Uploads/Productos/Logo-ResidentEvil5.png',
 					'Uploads/Productos/Header-ResidentEvil5.jpg', 
 					1, 'Intel Core i3, 4 GB RAM, GTX 560',
 					'Intel Core i5, 8 GB RAM, GTX 760', 1);
@@ -285,7 +285,7 @@ CALL INSERTAR_JUEGO(@id_juego_resident_evil, @id_proveedor_resident_evil,
 CALL INSERTAR_JUEGO(@id_juego_geometry_dash, @id_proveedor_geometry_dash, 
 					'Geometry Dash', '2013-08-13', 3.99, 
 					'Supera obstáculos geométricos en este juego de plataformas rítmico.', 
-					1.0, 'Uploads/Productos/Logo-GeometryDash.png',
+					100.0, 'Uploads/Productos/Logo-GeometryDash.png',
 					'Uploads/Productos/Header-GeometryDash.jpg', 
 					1, 'Procesador de 2.0 GHz, 1 GB RAM, Gráficos integrados',
 					'Procesador de 2.4 GHz, 2 GB RAM, Gráficos dedicados', 0);
@@ -294,7 +294,7 @@ CALL INSERTAR_JUEGO(@id_juego_geometry_dash, @id_proveedor_geometry_dash,
 CALL INSERTAR_JUEGO(@id_juego_maplestory, @id_proveedor_maplestory, 
 					'Maplestory', '2003-04-29', 1.0, 
 					'Adéntrate en el mundo colorido y fantástico de Maplestory.', 
-					2.0, 'Uploads/Productos/Logo-Maplestory.png',
+					200.0, 'Uploads/Productos/Logo-Maplestory.png',
 					'Uploads/Productos/Header-Maplestory.jpg', 
 					1, 'Pentium 3 a 800 MHz, 256 MB RAM, Gráficos 3D',
 					'Pentium 4 a 1.5 GHz, 512 MB RAM, Gráficos acelerados', 1);
@@ -303,7 +303,7 @@ CALL INSERTAR_JUEGO(@id_juego_maplestory, @id_proveedor_maplestory,
 CALL INSERTAR_JUEGO(@id_juego_guild_wars_2, @id_proveedor_guild_wars_2, 
 					'Guild Wars 2', '2012-08-28', 29.99, 
 					'Explora Tyria y lucha en un mundo en constante cambio.', 
-					50.0, 'Uploads/Productos/Logo-GuildWars2.png',
+					5000.0, 'Uploads/Productos/Logo-GuildWars2.png',
 					'Uploads/Productos/Header-GuildWars2.jpeg', 
 					1, 'Intel Core 2 Duo, 2 GB RAM, GeForce 7800',
 					'Intel Core i5, 4 GB RAM, GeForce GTX 560', 1);
@@ -312,7 +312,7 @@ CALL INSERTAR_JUEGO(@id_juego_guild_wars_2, @id_proveedor_guild_wars_2,
 CALL INSERTAR_JUEGO(@id_juego_fallout_4, @id_proveedor_fallout_4, 
 					'Fallout 4', '2015-11-10', 39.99, 
 					'Explora un mundo post-apocalíptico lleno de peligros y posibilidades.', 
-					30.0, 'Uploads/Productos/Logo-Fallout4.png',
+					3000.0, 'Uploads/Productos/Logo-Fallout4.png',
 					'Uploads/Productos/Header-Fallout4.jpg', 
 					1, 'Intel Core i5, 8 GB RAM, GTX 780',
 					'Intel Core i7, 8 GB RAM, GTX 1080', 0);
@@ -321,7 +321,7 @@ CALL INSERTAR_JUEGO(@id_juego_fallout_4, @id_proveedor_fallout_4,
 CALL INSERTAR_JUEGO(@id_juego_doom, @id_proveedor_doom, 
 					'DOOM', '2016-05-13', 19.99, 
 					'Elimina demonios en Marte con un arsenal de armas increíbles.', 
-					25.0, 'Uploads/Productos/Logo-DOOM.png', 'Uploads/Productos/Header-DOOM.jpg', 
+					2500.0, 'Uploads/Productos/Logo-DOOM.png', 'Uploads/Productos/Header-DOOM.jpg', 
 					1, 'Intel Core i5, 8 GB RAM, GTX 670',
 					'Intel Core i7, 16 GB RAM, GTX 970', 1);
 				
@@ -329,7 +329,7 @@ CALL INSERTAR_JUEGO(@id_juego_doom, @id_proveedor_doom,
 CALL INSERTAR_JUEGO(@id_juego_world_of_goo, @id_proveedor_world_of_goo, 
 					'World Of Goo', '2008-10-13', 9.99, 
 					'Construye estructuras con criaturas adhesivas en este juego de puzzles.', 
-					0.5, 'Uploads/Productos/Logo-WorldOfGoo.jpg',
+					50, 'Uploads/Productos/Logo-WorldOfGoo.jpg',
 					'Uploads/Productos/Header-WorldOfGoo.jpg', 
 					1, 'Procesador de 1.0 GHz, 512 MB RAM, Gráficos integrados',
 					'Procesador de 1.5 GHz, 1 GB RAM, Gráficos dedicados', 0);
@@ -345,7 +345,7 @@ CALL INSERTAR_BANDASONORA(@id_banda_sonora_hollow_knight,
 						  @id_proveedor_hollow_knight_soundtrack,
 						  'Hollow Knight - Official Soundtrack', '2017-02-10', 9.99,
 						  'Banda sonora oficial del aclamado juego de acción y aventura Hollow Knight.', 
-						  0.5, 'Uploads/Productos/Logo-HollowKnightSoundtrack.jpg',
+						  50, 'Uploads/Productos/Logo-HollowKnightSoundtrack.jpg',
 						  'Uploads/Productos/Header-HollowKnightSoundtrack.jpg', 
 						  1, 'Christopher Larkin', 'Christopher Larkin', '01:42:16');
 
@@ -353,7 +353,7 @@ CALL INSERTAR_BANDASONORA(@id_banda_sonora_hollow_knight,
 CALL INSERTAR_BANDASONORA(@id_banda_sonora_nine_sols, @id_proveedor_nine_sols_soundtrack,
 						  'Nine Sols Soundtrack', '2022-04-15', 14.99,
 						  'Banda sonora del juego indie Nine Sols, mezclando elementos electrónicos y atmosféricos.', 
-						  0.8, 'Uploads/Productos/Logo-NineSolsSoundtrack.png',
+						  80, 'Uploads/Productos/Logo-NineSolsSoundtrack.png',
 						  'Uploads/Productos/Header-NineSolsSoundtrack.jpg', 
 						  1, 'Samuel Laflamme', 'Samuel Laflamme', '01:18:45');
 ---------------------------------------------------------------------------------------------
@@ -367,7 +367,7 @@ CALL INSERTAR_BANDASONORA(@id_banda_sonora_nine_sols, @id_proveedor_nine_sols_so
 CALL INSERTAR_SOFTWARE(@id_software_wallpaper_engine, @id_proveedor_wallpaper_engine,
 					   'Wallpaper Engine', '2016-10-16', 3.99,
 					   'Permite usar vídeos y aplicaciones interactivas como fondos de pantalla.', 
-					   0.1, 'Uploads/Productos/Logo-WallpaperEngine.png',
+					   10, 'Uploads/Productos/Logo-WallpaperEngine.png',
 					   'Uploads/Productos/Header-WallpaperEngine.jpg', 
 					   1, 'Windows 7 (64-bit), 1 GB RAM, DirectX 11', 'Freeware');
 
@@ -375,7 +375,7 @@ CALL INSERTAR_SOFTWARE(@id_software_wallpaper_engine, @id_proveedor_wallpaper_en
 CALL INSERTAR_SOFTWARE(@id_software_lossless_scaling, @id_proveedor_lossless_scaling,
 					   'Lossless Scaling', '2018-05-29', 9.99,
 					   'Herramienta para escalar imágenes y gráficos sin pérdida de calidad.', 
-					   0.2, 'Uploads/Productos/Logo-LosslessScaling.png',
+					   20, 'Uploads/Productos/Logo-LosslessScaling.png',
 					   'Uploads/Productos/Header-LosslessScaling.jpg', 
 					   1, 'Windows 10 (64-bit), 2 GB RAM, DirectX 12', 'Propietaria');
 
@@ -383,7 +383,7 @@ CALL INSERTAR_SOFTWARE(@id_software_lossless_scaling, @id_proveedor_lossless_sca
 CALL INSERTAR_SOFTWARE(@id_software_aseprite, @id_proveedor_aseprite,
 					   'Aseprite', '2016-02-22', 19.99,
 					   'Editor de gráficos y animaciones para crear sprites y pixel art.', 
-					   0.3, 'Uploads/Productos/Logo-Aseprite.png',
+					   30, 'Uploads/Productos/Logo-Aseprite.png',
 					   'Uploads/Productos/Header-Aseprite.jpg', 
 					   1, 'Windows 8 (64-bit), 4 GB RAM, OpenGL 3.3', 'Open Source');
 ---------------------------------------------------------------------------------------------
