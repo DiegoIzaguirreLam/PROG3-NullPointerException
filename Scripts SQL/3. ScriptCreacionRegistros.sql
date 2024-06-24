@@ -39,81 +39,81 @@ CALL CREAR_PAIS(@id_pais_fra, 'Francia', 'FRA', @id_tipo_moneda_eur);
 -- Usuarios en Perú
 CALL CREAR_USUARIO(@id_usuario_fabricio, 'cuenta_fabricio', 'Fabricio', 
 				   'fabricio@gmail.com', '937462819', 'fabricio', 
-				   TIMESTAMPDIFF(YEAR, '1995-12-09', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1995-12-09', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1995-12-09', 1, @id_pais_per);
 
 CALL CREAR_USUARIO(@id_usuario_ana, 'cuenta_ana', 'Ana', 
 				   'ana@gmail.com', '987654321', 'ana', 
-				   TIMESTAMPDIFF(YEAR, '1988-04-23', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1988-04-23', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1988-04-23', 1, @id_pais_per);
 
 CALL CREAR_USUARIO(@id_usuario_julio, 'cuenta_julio', 'Julio', 
 				   'julio@yahoo.com', '923456789', 'julio', 
-				   TIMESTAMPDIFF(YEAR, '1990-07-15', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1990-07-15', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1990-07-15', 0, @id_pais_per);
 
 -- Usuarios en Estados Unidos
 CALL CREAR_USUARIO(@id_usuario_sofia, 'cuenta_sofia', 'Sofia', 
 				   'sofia@hotmail.com', '982746573', 'sofia', 
-				   TIMESTAMPDIFF(YEAR, '2000-05-11', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '2000-05-11', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '2000-05-11', 0, @id_pais_usa);
 
 CALL CREAR_USUARIO(@id_usuario_john, 'cuenta_john', 'John', 
 				   'john@gmail.com', '932457689', 'john', 
-				   TIMESTAMPDIFF(YEAR, '1985-03-03', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1985-03-03', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1985-03-03', 1, @id_pais_usa);
 
 CALL CREAR_USUARIO(@id_usuario_emily, 'cuenta_emily', 'Emily', 
 				   'emily@yahoo.com', '945678234', 'emily', 
-				   TIMESTAMPDIFF(YEAR, '1992-11-25', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1992-11-25', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1992-11-25', 1, @id_pais_usa);
 
 -- Usuarios en España
 CALL CREAR_USUARIO(@id_usuario_pablo, 'cuenta_pablo', 'Pablo', 
 				   'pablo@gmail.com', '912345678', 'pablo', 
-				   TIMESTAMPDIFF(YEAR, '1993-06-14', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1993-06-14', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1993-06-14', 0, @id_pais_esp);
 
 CALL CREAR_USUARIO(@id_usuario_maria, 'cuenta_maria', 'Maria', 
 				   'maria@yahoo.com', '923456789', 'maria', 
-				   TIMESTAMPDIFF(YEAR, '1987-09-10', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1987-09-10', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1987-09-10', 1, @id_pais_esp);
 
 CALL CREAR_USUARIO(@id_usuario_luis, 'cuenta_luis', 'Luis', 
 				   'luis@hotmail.com', '932156789', 'luis', 
-				   TIMESTAMPDIFF(YEAR, '1999-01-20', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1999-01-20', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1999-01-20', 0, @id_pais_esp);
 
 -- Usuarios en Alemania
 CALL CREAR_USUARIO(@id_usuario_hans, 'cuenta_hans', 'Hans', 
 				   'hans@gmail.com', '914567890', 'hans', 
-				   TIMESTAMPDIFF(YEAR, '1984-12-30', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1984-12-30', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1984-12-30', 1, @id_pais_deu);
 
 CALL CREAR_USUARIO(@id_usuario_anna, 'cuenta_anna', 'Anna', 
 				   'anna@hotmail.com', '923456123', 'anna', 
-				   TIMESTAMPDIFF(YEAR, '1996-07-19', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1996-07-19', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1996-07-19', 0, @id_pais_deu);
 
 CALL CREAR_USUARIO(@id_usuario_fritz, 'cuenta_fritz', 'Fritz', 
 				   'fritz@yahoo.com', '937654321', 'fritz', 
-				   TIMESTAMPDIFF(YEAR, '1995-10-05', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1995-10-05', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1995-10-05', 1, @id_pais_deu);
 
 -- Usuarios en Francia
 CALL CREAR_USUARIO(@id_usuario_pierre, 'cuenta_pierre', 'Pierre', 
 				   'pierre@gmail.com', '915678234', 'pierre', 
-				   TIMESTAMPDIFF(YEAR, '1982-11-02', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1982-11-02', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1982-11-02', 1, @id_pais_fra);
 
 CALL CREAR_USUARIO(@id_usuario_claire, 'cuenta_claire', 'Claire', 
 				   'claire@yahoo.com', '923456789', 'claire', 
-				   TIMESTAMPDIFF(YEAR, '1997-04-12', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1997-04-12', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1997-04-12', 0, @id_pais_fra);
 
 CALL CREAR_USUARIO(@id_usuario_jean, 'cuenta_jean', 'Jean', 
 				   'jean@hotmail.com', '937654987', 'jean', 
-				   TIMESTAMPDIFF(YEAR, '1989-08-22', CURDATE()),
+				   TIMESTAMPDIFF(YEAR, '1989-08-22', DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))),
 				   '1989-08-22', 1, @id_pais_fra);
 ---------------------------------------------------------------------------------------------
 
@@ -577,41 +577,41 @@ CALL CREAR_SUBFORO(@id_subforo_geometry_dash_3,
 -- ---------------------------------------------------------------------------------------------
 -- Hilos en los subforos de Assassin's Creed Odyssey
 CALL CREAR_HILO(@id_hilo_ac_odyssey_1, @id_subforo_ac_odyssey_1,
-				@id_usuario_fabricio, 0, CURDATE(), CURDATE(),
+				@id_usuario_fabricio, 0, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/AssassinsCreedHilo1.jpg');
 
 CALL CREAR_HILO(@id_hilo_ac_odyssey_2, @id_subforo_ac_odyssey_2,
-				@id_usuario_ana, 1, CURDATE(), CURDATE(),
+				@id_usuario_ana, 1, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/AssassinsCreedHilo2.jpg');
 
 CALL CREAR_HILO(@id_hilo_ac_odyssey_3, @id_subforo_ac_odyssey_3,
-				@id_usuario_julio, 0, CURDATE(), CURDATE(),
+				@id_usuario_julio, 0, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/AssassinsCreedHilo3.jpg');
 
 -- Hilos en los subforos de Resident Evil 5: Gold Edition
 CALL CREAR_HILO(@id_hilo_resident_evil_5_1, @id_subforo_resident_evil_5_1,
-				@id_usuario_sofia, 1, CURDATE(), CURDATE(),
+				@id_usuario_sofia, 1, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/ResidentEvilHilo1.jpg');
 
 CALL CREAR_HILO(@id_hilo_resident_evil_5_2, @id_subforo_resident_evil_5_2,
-				@id_usuario_john, 0, CURDATE(), CURDATE(),
+				@id_usuario_john, 0, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/ResidentEvilHilo2.jpg');
 
 CALL CREAR_HILO(@id_hilo_resident_evil_5_3, @id_subforo_resident_evil_5_3,
-				@id_usuario_emily, 0, CURDATE(), CURDATE(),
+				@id_usuario_emily, 0, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/ResidentEvilHilo3.jpg');
 
 -- Hilos en los subforos de Geometry Dash
 CALL CREAR_HILO(@id_hilo_geometry_dash_1, @id_subforo_geometry_dash_1,
-				@id_usuario_pablo, 0, CURDATE(), CURDATE(),
+				@id_usuario_pablo, 0, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/GeometryDashHilo1.jpg');
 
 CALL CREAR_HILO(@id_hilo_geometry_dash_2, @id_subforo_geometry_dash_2,
-				@id_usuario_maria, 1, CURDATE(), CURDATE(),
+				@id_usuario_maria, 1, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/GeometryDashHilo2.jpg');
 
 CALL CREAR_HILO(@id_hilo_geometry_dash_3, @id_subforo_geometry_dash_3,
-				@id_usuario_luis, 0, CURDATE(), CURDATE(),
+				@id_usuario_luis, 0, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')),
 				'Uploads/GeometryDashHilo3.jpg');
 ---------------------------------------------------------------------------------------------
 
@@ -623,54 +623,54 @@ CALL CREAR_HILO(@id_hilo_geometry_dash_3, @id_subforo_geometry_dash_3,
 -- Mensajes en los hilos del subforo de Assassin's Creed Odyssey
 CALL CREAR_MENSAJE(@id_mensaje_ac_odyssey_1_1,
 				   'Aquí tienes una guía completa para completar las misiones principales.',
-				   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+				   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
 				   @id_hilo_ac_odyssey_1, @id_usuario_fabricio);
 
 CALL CREAR_MENSAJE(@id_mensaje_ac_odyssey_1_2,
     			   'Gracias por la guía, me ha sido muy útil.',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
 				   @id_hilo_ac_odyssey_1, @id_usuario_ana);
 
 CALL CREAR_MENSAJE(@id_mensaje_ac_odyssey_2_1,
     			   '¿Alguien más ha tenido problemas con el rendimiento del juego?',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_ac_odyssey_2, @id_usuario_julio);
 
 CALL CREAR_MENSAJE(@id_mensaje_ac_odyssey_3_1,
     			   'Estoy experimentando errores gráficos extraños. ¿Alguna solución?',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_ac_odyssey_3, @id_usuario_ana);
 
 -- Mensajes en los hilos del subforo de Resident Evil 5: Gold Edition
 CALL CREAR_MENSAJE(@id_mensaje_resident_evil_5_1_1,
     			   'Aquí está mi estrategia para vencer a Wesker en el modo mercenarios.',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_resident_evil_5_1, @id_usuario_sofia);
 
 CALL CREAR_MENSAJE(@id_mensaje_resident_evil_5_2_1,
     			   '¿Cuál es tu mejor tiempo en el modo mercenarios?',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_resident_evil_5_2, @id_usuario_john);
 
 CALL CREAR_MENSAJE(@id_mensaje_resident_evil_5_3_1,
     			   'Mi juego se congela después de la cinemática. ¿Alguna solución?',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_resident_evil_5_3, @id_usuario_emily);
 
 -- Mensajes en los hilos del subforo de Geometry Dash
 CALL CREAR_MENSAJE(@id_mensaje_geometry_dash_1_1,
     			   'Aquí comparto mi nuevo nivel creado. ¡Espero que les guste!',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_geometry_dash_1, @id_usuario_pablo);
 
 CALL CREAR_MENSAJE(@id_mensaje_geometry_dash_2_1,
     			   '¿Alguien quiere participar en un desafío de niveles difíciles?',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_geometry_dash_2, @id_usuario_maria);
 
 CALL CREAR_MENSAJE(@id_mensaje_geometry_dash_3_1,
     			   'Necesito ayuda para pasar el nivel "Deadlocked". ¿Algún consejo?',
-    			   CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY),
+    			   DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), DATE_ADD(DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), INTERVAL 7 DAY),
     			   @id_hilo_geometry_dash_3, @id_usuario_luis);
 ---------------------------------------------------------------------------------------------
 

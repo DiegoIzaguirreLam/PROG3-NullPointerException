@@ -449,7 +449,7 @@ CREATE PROCEDURE INSERTAR_LOGRODESBLOQUEADO(
 )
 BEGIN
     INSERT INTO LogroDesbloqueado (fecha_desbloqueo, fid_logro, fid_producto_adquirido, activo) 
-    VALUES (CURDATE(), _fid_logro, _fid_producto_adquirido, 1);
+    VALUES (DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), _fid_logro, _fid_producto_adquirido, 1);
     SET _id_logro_desbloqueado = @@last_insert_id;
 END$
 
@@ -608,7 +608,7 @@ CREATE PROCEDURE INSERTAR_PRODUCTOADQUIRIDO(
 )
 BEGIN
     INSERT INTO ProductoAdquirido (fecha_adquisicion, tiempo_uso, actualizado, oculto, fid_biblioteca, fid_producto, fid_movimiento, activo)
-    VALUES (CURDATE(), CAST('00:00:00' AS TIME), false, false, _fid_biblioteca, _fid_producto, _fid_movimiento, 1);
+    VALUES (DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), CAST('00:00:00' AS TIME), false, false, _fid_biblioteca, _fid_producto, _fid_movimiento, 1);
     SET _id_producto_adquirido = LAST_INSERT_ID();
 END$
 
@@ -1455,7 +1455,7 @@ CREATE PROCEDURE CREAR_NOTIFICACION(
 )
 BEGIN
     INSERT INTO Notificacion (TIPO, MENSAJE, FID_USUARIO, REVISADA, ACTIVO, FECHA)
-    VALUES (_TIPO, _MENSAJE, _FID_USUARIO, FALSE, TRUE, CURDATE());
+    VALUES (_TIPO, _MENSAJE, _FID_USUARIO, FALSE, TRUE, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')));
     SET _ID_NOTIFICACION = LAST_INSERT_ID();
 END$
 
@@ -1653,7 +1653,7 @@ CREATE PROCEDURE INSERTAR_TIPOMONEDA(
 )
 BEGIN
     INSERT INTO TipoMoneda(nombre, codigo, simbolo, cambio_de_dolares, fecha_cambio, activo)
-    VALUES (_nombre, _codigo, _simbolo, _cambio_de_dolares, CURDATE(), 1);
+    VALUES (_nombre, _codigo, _simbolo, _cambio_de_dolares, DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima')), 1);
     SET _id_tipo_moneda = @@last_insert_id;
 END$
 
@@ -1675,7 +1675,7 @@ BEGIN
         codigo = _codigo,
         simbolo = _simbolo,
         cambio_de_dolares = _cambio_de_dolares,
-        fecha_cambio = CURDATE()
+        fecha_cambio = DATE(CONVERT_TZ(NOW(), @@session.time_zone, 'America/Lima'))
     WHERE id_tipo_moneda = _id_tipo_moneda;
 END$
 
